@@ -799,8 +799,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 11470,
-      "sha256": "5e8809bddf713c5d85dddcefe71dff4b22a04a3bf12c1bb31605a6f71f498118",
+      "bytes": 11700,
+      "sha256": "1355c7351c2daaade38d2a98a6c7ea17062dc70bf331babcb9f3eae65ddedd79",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -818,7 +818,7 @@
     {
       "path": "requirements.txt",
       "bytes": 177,
-      "sha256": "321b9decc470599bf3053c4e20f2b2c8e8f9f04dc20ca274654e1cfcb10a8ad2",
+      "sha256": "bc6e7ff78d238f4c2b868296106724d752c56bd508a70e079927dc9c0883aa8e",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -895,8 +895,8 @@
     },
     {
       "path": "tools/check.py",
-      "bytes": 10302,
-      "sha256": "a61c5f9318554ef61b5bd6aa89236d4d14672096b7f1d5e15e84b683b1aef80c",
+      "bytes": 12186,
+      "sha256": "39f581e212fc7dac89d938ba7efb0a51072a93048eee05579b52a6081133f70d",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -936,6 +936,24 @@
       "purpose": "scoped production, review, or validation evidence"
     },
     {
+      "path": "validation/dependency-pin-checks.json",
+      "bytes": 2396,
+      "sha256": "efea001ac4d002933118e0577cd365d985596dedcc636df941e76f1c45cf22ec",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/dependency-remediation.json",
+      "bytes": 3219,
+      "sha256": "244f01d8a0c6bc6b3910f289d43c13cd53ec19bf927b67715b0437302727ab7d",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/dependency-repair.json",
+      "bytes": 3610,
+      "sha256": "d305ee6c2aa69ce2e70eea2047e1c255a7215cb6ad7ec7202386582a0e12482d",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
       "path": "validation/export-checks.json",
       "bytes": 1294,
       "sha256": "a081724e3c0acad3905ccca5e3885afc5a7822d6cd82d955edd149c0c712595a",
@@ -961,8 +979,8 @@
     },
     {
       "path": "validation/package-checks.json",
-      "bytes": 22797,
-      "sha256": "cf01becb3513f35520f6e00463cfe92af9e2b8cabba6f99df648408f3a523bbd",
+      "bytes": 24388,
+      "sha256": "a1c0f486ee2126111260a92f08dca7f4507510947f90c16a395d336f35dbef56",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -974,7 +992,7 @@
     {
       "path": "validation/public-tree-privacy.json",
       "bytes": 601,
-      "sha256": "7c3d87e1526b9d77e68843307433f49e1ff13c7f7c2c2c1cb17537dc0f14917b",
+      "sha256": "9c46bc71dd8f54f1f492226b20ad029299a2a538f17cf39daa16dee3050a3ea8",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -1729,8 +1747,8 @@
     },
     {
       "path": "validation/workflow-repair.json",
-      "bytes": 627,
-      "sha256": "f2c33b710f5caf4b169abff00b5ddd93d484a0594d86870287d83f2ad3e753a4",
+      "bytes": 740,
+      "sha256": "44f4dd42dc966cc4f125e98cffcfe0ae6bd458499450328e822f6509e168c2ae",
       "purpose": "scoped production, review, or validation evidence"
     },
     {

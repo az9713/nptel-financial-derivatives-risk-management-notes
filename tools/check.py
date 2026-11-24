@@ -26,8 +26,51 @@ def specification():
     return json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
 
 
+def installed_requirements(path=None):
+    """Verify every numeric exact pin, using actual installed distribution metadata."""
+    path = path or ROOT / 'requirements.txt'
+    rows, errors, seen = [], [], set()
+
+    def release(version):
+        # PEP440 numeric release segments pad with zero: 4.0 == 4.0.0.
+        if not re.fullmatch(r'\d+(?:\.\d+)*', version):
+            return None
+        parts = [int(part) for part in version.split('.')]
+        while len(parts) > 1 and parts[-1] == 0:
+            parts.pop()
+        return tuple(parts)
+
+    for number, line in enumerate(path.read_text(encoding='utf-8').splitlines(), 1):
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        match = re.fullmatch(r'([A-Za-z0-9_.-]+)==(\d+(?:\.\d+)*)', line)
+        if not match:
+            errors.append(f'requirements.txt:{number}: numeric exact pin required')
+            continue
+        name, expected = match.groups()
+        canonical = re.sub(r'[-_.]+', '-', name).lower()
+        if canonical in seen:
+            errors.append(f'requirements.txt:{number}: duplicate distribution {name}')
+        seen.add(canonical)
+        try:
+            actual = importlib.metadata.version(name)
+        except importlib.metadata.PackageNotFoundError:
+            actual = None
+        matches = actual is not None and release(actual) == release(expected)
+        rows.append(dict(distribution=name, pinned_version=expected,
+                         installed_version=actual, matches=matches))
+        if not matches:
+            errors.append(f'{name}: pinned {expected}, installed {actual or "missing"}')
+    if not rows:
+        errors.append('No exact runtime dependency pins found')
+    return rows, errors
+
+
 def check(allow_partial=False):
     errors, chapters, labs, timestamps = [], [], [], 0
+    dependencies, dependency_errors = installed_requirements()
+    errors.extend(dependency_errors)
     pending_links = []
     manifest = json.loads((ROOT / 'source-manifest.json').read_text(encoding='utf-8'))
     records = manifest['recordings']
@@ -164,8 +207,9 @@ def check(allow_partial=False):
                   chapters=chapters, labs=labs, timestamp_links_checked=timestamps,
                   local_links_checked=links, pending_planned_chapter_links=pending_links,
                   errors=errors,
-                  versions={x: importlib.metadata.version(x) for x in
-                            ['Markdown', 'beautifulsoup4', 'numpy', 'scipy']},
+                  versions={row['distribution']: row['installed_version']
+                            for row in dependencies},
+                  dependency_pins=dependencies,
                   scope='Mechanical structure, source/timestamp bounds, local links and fresh lab execution; not a new scientific review.')
     report_dir = Path(os.environ.get('LECTURE_VALIDATION_DIR', ROOT / 'validation'))
     report_dir.mkdir(parents=True, exist_ok=True)

@@ -412,7 +412,75 @@
     "Markdown": "3.8.2",
     "beautifulsoup4": "4.14.3",
     "numpy": "2.2.6",
-    "scipy": "1.16.0"
+    "scipy": "1.16.0",
+    "playwright": "1.57.0",
+    "pycodestyle": "2.14.0",
+    "pyee": "13.0.0",
+    "greenlet": "3.2.3",
+    "soupsieve": "4.0",
+    "typing_extensions": "4.15.0"
   },
+  "dependency_pins": [
+    {
+      "distribution": "Markdown",
+      "pinned_version": "3.8.2",
+      "installed_version": "3.8.2",
+      "matches": true
+    },
+    {
+      "distribution": "beautifulsoup4",
+      "pinned_version": "4.14.3",
+      "installed_version": "4.14.3",
+      "matches": true
+    },
+    {
+      "distribution": "numpy",
+      "pinned_version": "2.2.6",
+      "installed_version": "2.2.6",
+      "matches": true
+    },
+    {
+      "distribution": "scipy",
+      "pinned_version": "1.16.0",
+      "installed_version": "1.16.0",
+      "matches": true
+    },
+    {
+      "distribution": "playwright",
+      "pinned_version": "1.57.0",
+      "installed_version": "1.57.0",
+      "matches": true
+    },
+    {
+      "distribution": "pycodestyle",
+      "pinned_version": "2.14.0",
+      "installed_version": "2.14.0",
+      "matches": true
+    },
+    {
+      "distribution": "pyee",
+      "pinned_version": "13.0.0",
+      "installed_version": "13.0.0",
+      "matches": true
+    },
+    {
+      "distribution": "greenlet",
+      "pinned_version": "3.2.3",
+      "installed_version": "3.2.3",
+      "matches": true
+    },
+    {
+      "distribution": "soupsieve",
+      "pinned_version": "4.0.0",
+      "installed_version": "4.0",
+      "matches": true
+    },
+    {
+      "distribution": "typing_extensions",
+      "pinned_version": "4.15.0",
+      "installed_version": "4.15.0",
+      "matches": true
+    }
+  ],
   "scope": "Mechanical structure, source/timestamp bounds, local links and fresh lab execution; not a new scientific review."
 }

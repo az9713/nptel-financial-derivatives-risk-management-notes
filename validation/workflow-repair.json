@@ -4,5 +4,5 @@
   "finding": "GitHub rejected runner.temp in jobs.check.env before executing jobs.",
   "repair": "Move LECTURE_VALIDATION_DIR to the validation step env, where the runner context is available. Scientific inputs and generated reader bytes are unchanged.",
   "primary_documentation": "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#context-availability",
-  "status": "repair applied; hosted validation pending"
+  "status": "scope repair accepted by the hosted workflow parser; valid run45465102944 cancelled deliberately for targeted dependency upgrade; final hosted run pending"
 }

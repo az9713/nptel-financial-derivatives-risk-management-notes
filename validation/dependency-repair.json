@@ -1,0 +1,85 @@
+{
+  "observed_on": "2026-11-24",
+  "status": "patched and fully revalidated locally; hosted alert closure pending",
+  "scope": "Eight concrete GitHub Dependabot build-dependency advisories, all affecting the pinned Soup Sieve2.8.1; no exploitation or public-reader compromise is claimed.",
+  "affected_dependency": "soupsieve",
+  "old_pin": "2.8.1",
+  "target_patch": "4.0.0",
+  "alerts": [
+    {
+      "number": 8,
+      "ghsa": "GHSA-6655-6qjp-jx7x",
+      "severity": "high",
+      "summary": "Soup Sieve: Exponential ReDoS in selector compilation via \\9-run in CSS_ESCAPES/IDENTIFIER",
+      "affected_range": "<= 2.10",
+      "first_patch": "3.0.2",
+      "primary_advisory": "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-6655-6qjp-jx7x"
+    },
+    {
+      "number": 7,
+      "ghsa": "GHSA-7g44-g9rc-x53w",
+      "severity": "medium",
+      "summary": "Soup Sieve: Uncontrolled recursion in CSS parser lets nested pseudo-class selectors exhaust the Python call stack",
+      "affected_range": ">= 0.4, <= 2.10",
+      "first_patch": "3.0.2",
+      "primary_advisory": "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-7g44-g9rc-x53w"
+    },
+    {
+      "number": 6,
+      "ghsa": "GHSA-mmhr-3c5m-f64f",
+      "severity": "high",
+      "summary": "Soup Sieve: Polynomial-time denial of service in the descendant combinator",
+      "affected_range": "< 4.0.0",
+      "first_patch": "4.0.0",
+      "primary_advisory": "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-mmhr-3c5m-f64f"
+    },
+    {
+      "number": 5,
+      "ghsa": "GHSA-4j63-6c4x-wfg4",
+      "severity": "medium",
+      "summary": "Soup Sieve: General sibling combinator inside :has() matches untrusted HTML in quadratic time",
+      "affected_range": "<= 2.9.2",
+      "first_patch": "2.10.0",
+      "primary_advisory": "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-4j63-6c4x-wfg4"
+    },
+    {
+      "number": 4,
+      "ghsa": "GHSA-gjv8-xp57-g29c",
+      "severity": "medium",
+      "summary": "Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the `IDENTIFIER` / `VALUE` selector sub-patterns",
+      "affected_range": "< 2.9.0",
+      "first_patch": "2.9.0",
+      "primary_advisory": "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-gjv8-xp57-g29c"
+    },
+    {
+      "number": 3,
+      "ghsa": "GHSA-j934-xhv5-fg8f",
+      "severity": "medium",
+      "summary": "Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the whitespace/comment trimming regex `RE_WS_END` (triggers on VALID selectors)",
+      "affected_range": "< 2.9.0",
+      "first_patch": "2.9.0",
+      "primary_advisory": "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-j934-xhv5-fg8f"
+    },
+    {
+      "number": 2,
+      "ghsa": "GHSA-836r-79rf-4m37",
+      "severity": "high",
+      "summary": "Soup Sieve: Regular Expression Denial of Service (ReDoS) via Selector Parser",
+      "affected_range": "<= 2.8.3",
+      "first_patch": "2.8.4",
+      "primary_advisory": "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-836r-79rf-4m37"
+    },
+    {
+      "number": 1,
+      "ghsa": "GHSA-2wc2-fm75-p42x",
+      "severity": "high",
+      "summary": "Soup Sieve has Memory Exhaustion via Large Comma-Separated Selector Lists",
+      "affected_range": "<= 2.8.3",
+      "first_patch": "2.8.4",
+      "primary_advisory": "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-2wc2-fm75-p42x"
+    }
+  ],
+  "installed_version": "4.0",
+  "pin": "soupsieve==4.0.0",
+  "verification": "validation/dependency-remediation.json"
+}

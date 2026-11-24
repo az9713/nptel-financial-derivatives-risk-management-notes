@@ -1,0 +1,96 @@
+{
+  "status": "pass",
+  "scope": "Actual metadata for all10 dependency pins and bounded negative pin-verification fixtures",
+  "actual_dependency_pins": [
+    {
+      "distribution": "Markdown",
+      "pinned_version": "3.8.2",
+      "installed_version": "3.8.2",
+      "matches": true
+    },
+    {
+      "distribution": "beautifulsoup4",
+      "pinned_version": "4.14.3",
+      "installed_version": "4.14.3",
+      "matches": true
+    },
+    {
+      "distribution": "numpy",
+      "pinned_version": "2.2.6",
+      "installed_version": "2.2.6",
+      "matches": true
+    },
+    {
+      "distribution": "scipy",
+      "pinned_version": "1.16.0",
+      "installed_version": "1.16.0",
+      "matches": true
+    },
+    {
+      "distribution": "playwright",
+      "pinned_version": "1.57.0",
+      "installed_version": "1.57.0",
+      "matches": true
+    },
+    {
+      "distribution": "pycodestyle",
+      "pinned_version": "2.14.0",
+      "installed_version": "2.14.0",
+      "matches": true
+    },
+    {
+      "distribution": "pyee",
+      "pinned_version": "13.0.0",
+      "installed_version": "13.0.0",
+      "matches": true
+    },
+    {
+      "distribution": "greenlet",
+      "pinned_version": "3.2.3",
+      "installed_version": "3.2.3",
+      "matches": true
+    },
+    {
+      "distribution": "soupsieve",
+      "pinned_version": "4.0.0",
+      "installed_version": "4.0",
+      "matches": true
+    },
+    {
+      "distribution": "typing_extensions",
+      "pinned_version": "4.15.0",
+      "installed_version": "4.15.0",
+      "matches": true
+    }
+  ],
+  "fixtures": [
+    {
+      "case": "normalzero padding",
+      "expected_rejection": false,
+      "observed_rejection": false
+    },
+    {
+      "case": "mismatch",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "missing",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "unpinned",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "duplicatealias",
+      "expected_rejection": true,
+      "observed_rejection": true
+    }
+  ],
+  "environment": "Isolated project .venv, Python3.13.5; global environment unchanged",
+  "requirements_sha256": "bc6e7ff78d238f4c2b868296106724d752c56bd508a70e079927dc9c0883aa8e",
+  "checker_sha256": "39f581e212fc7dac89d938ba7efb0a51072a93048eee05579b52a6081133f70d"
+}

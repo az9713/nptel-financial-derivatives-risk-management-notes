@@ -1,0 +1,86 @@
+{
+  "status": "pass",
+  "dependency": "soupsieve",
+  "previous_pin": "2.8.1",
+  "new_pin": "4.0.0",
+  "installed_metadata_version": "4.0",
+  "release_equivalence": "PEP440 numeric release zero padding:4.0 equals4.0.0",
+  "python_version": "3.13.5",
+  "isolated_project_environment": true,
+  "global_environment_modified": false,
+  "requires_python": ">=3.11.5",
+  "beautifulsoup4_requirements": [
+    "soupsieve>=1.6.1",
+    "typing-extensions>=4.0.0",
+    "cchardet; extra == 'cchardet'",
+    "chardet; extra == 'chardet'",
+    "charset-normalizer; extra == 'charset-normalizer'",
+    "html5lib; extra == 'html5lib'",
+    "lxml; extra == 'lxml'"
+  ],
+  "primary_sources": [
+    "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-mmhr-3c5m-f64f",
+    "https://github.com/facelessuser/soupsieve/security/advisories/GHSA-7g44-g9rc-x53w",
+    "https://pypi.org/pypi/soupsieve/4.0.0/json",
+    "https://facelessuser.github.io/soupsieve/about/changelog/"
+  ],
+  "reviewed_hosted_alerts": [
+    {
+      "ghsa_id": "GHSA-6655-6qjp-jx7x",
+      "affected_range": "<= 2.10",
+      "first_patched_version": "3.0.2"
+    },
+    {
+      "ghsa_id": "GHSA-7g44-g9rc-x53w",
+      "affected_range": ">= 0.4, <= 2.10",
+      "first_patched_version": "3.0.2"
+    },
+    {
+      "ghsa_id": "GHSA-mmhr-3c5m-f64f",
+      "affected_range": "< 4.0.0",
+      "first_patched_version": "4.0.0"
+    },
+    {
+      "ghsa_id": "GHSA-4j63-6c4x-wfg4",
+      "affected_range": "<= 2.9.2",
+      "first_patched_version": "2.10.0"
+    },
+    {
+      "ghsa_id": "GHSA-gjv8-xp57-g29c",
+      "affected_range": "< 2.9.0",
+      "first_patched_version": "2.9.0"
+    },
+    {
+      "ghsa_id": "GHSA-j934-xhv5-fg8f",
+      "affected_range": "< 2.9.0",
+      "first_patched_version": "2.9.0"
+    },
+    {
+      "ghsa_id": "GHSA-836r-79rf-4m37",
+      "affected_range": "<= 2.8.3",
+      "first_patched_version": "2.8.4"
+    },
+    {
+      "ghsa_id": "GHSA-2wc2-fm75-p42x",
+      "affected_range": "<= 2.8.3",
+      "first_patched_version": "2.8.4"
+    }
+  ],
+  "bounded_patch_reproductions": {
+    "descendant_combinator_200_nested_divs": "Completed successfully in0.1774264seconds; result empty as expected",
+    "nested_pseudo_class330_levels": "Compiled without RecursionError"
+  },
+  "checks": {
+    "pip_check": "pass",
+    "all10_installed_pins_and_negative_fixtures": "validation/dependency-pin-checks.json",
+    "package24labs_154timestamps": "validation/package-checks.json",
+    "book24chapters61positions": "validation/book-audit.json",
+    "all48_independent_receipts_and_public_rebuild": "validation/release-checks.json",
+    "offline58_browser_cases": "validation/browser-checks.json"
+  },
+  "unchanged_scientific_and_reader_file_count": 102,
+  "changed_scientific_and_reader_files": [],
+  "requirements_sha256": "bc6e7ff78d238f4c2b868296106724d752c56bd508a70e079927dc9c0883aa8e",
+  "checker_sha256": "39f581e212fc7dac89d938ba7efb0a51072a93048eee05579b52a6081133f70d",
+  "scope": "Local dependency remediation and compatibility evidence for the eight hosted SoupSieve alerts reviewed. Hosted alert closure after pushing the updated pin is a separate observation; this report does not claim a comprehensive vulnerability audit."
+}

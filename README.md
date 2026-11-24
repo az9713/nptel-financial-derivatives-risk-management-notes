@@ -63,7 +63,7 @@ Editable manuscripts and metadata are in `chapters/`; runnable code is in `labs/
 
 ## Build and verify
 
-Use Python3.13 and the pinned dependency set:
+Use Python3.13 in an isolated virtual environment. Create it with `python -m venv .venv`, then activate it (`.\.venv\Scripts\Activate.ps1` in PowerShell, or `source .venv/bin/activate` on Unix). Install the pinned dependency set; the checker verifies every installed version:
 
 ```text
 python -m pip install -r requirements.txt
