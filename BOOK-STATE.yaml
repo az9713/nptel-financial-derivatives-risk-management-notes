@@ -29,7 +29,7 @@ current_independent_chapter_acceptances: 48
 source_textual_reading_audit: all61matched
 release_validation: passed-full-edition
 
-payload_release_commit: ae92ec6252818e75d9a70cb8042cfec68bf1e784
+payload_release_commit: e9c81e4692d2321fadc1645449acc4a3e4557a38
 hosted_check_and_deploy: passed
 live_verified_payload_files: 286
 live_browser_cases: 58
@@ -41,3 +41,6 @@ critical_revision_comparison: critical-comparison.md
 critical_revision_evidence: validation/critical-parity-checks.json
 critical_revision_local_validation: passed
 critical_revision_publication: verified-github-pages
+
+personal_information_audit: validation/personal-info-audit.json
+personal_information_policy: email-retained-neutral-display-names

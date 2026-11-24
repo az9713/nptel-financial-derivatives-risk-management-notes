@@ -151,8 +151,8 @@
     },
     {
       "path": "BOOK-STATE.yaml",
-      "bytes": 1882,
-      "sha256": "13da1d12bf83497ba3ef0ee8423c5d35dfe1ce17d5ca12f46b26b2c669609b22",
+      "bytes": 2013,
+      "sha256": "dd22ff36dd2ddbb784eedd23d502c8bf6610538ac638de526396d8e98c639bae",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -805,8 +805,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12743,
-      "sha256": "1c7fb8dd04423a6bced1b87bcc5ae3267910cc30e49678e828448958474ab47c",
+      "bytes": 13297,
+      "sha256": "f752afcd5c4874f7cffe09eb834b69c5af6795746d2fd72161e4a7b860d25ed9",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -1023,6 +1023,12 @@
       "path": "validation/parity-audit.md",
       "bytes": 4772,
       "sha256": "3d835ac047239bf1f4601135340b0a6edbb99ffdb4aa612dd1ca4e0be729525e",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/personal-info-audit.json",
+      "bytes": 2005,
+      "sha256": "829aac102d18155dbebaed8ba119deab81e56c7331f807aa02736aabd19f5f34",
       "purpose": "scoped production, review, or validation evidence"
     },
     {

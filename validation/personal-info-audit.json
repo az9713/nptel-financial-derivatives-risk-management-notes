@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-24",
+  "status": "pass",
+  "scope": "Current public tree, all six reachable historical commit snapshots, commit identity headers, and locally authored workflow/review records. Course/research attribution and dependency licenses are scholarly material, not the owner profile.",
+  "historical_unique_blobs_scanned": 479,
+  "published_owner_path_or_biography_findings": 0,
+  "numeric_scan_false_positives": "A year-shaped number occurred only in JSON byte-count fields; it was not a biographical datum.",
+  "private_authored_records_redacted": 5,
+  "archived_local_checkout_paths_redacted": true,
+  "archived_checkout_pushes_disabled": true,
+  "commit_display_name": "Study Edition",
+  "rewritten_commit_count": 6,
+  "email_addresses": "preserved byte for byte in commit headers; allowed in files",
+  "commit_dates_messages_and_file_trees": "preserved; only display names and consequent parent identifiers rewritten",
+  "pre_anonymization_to_anonymized_commits": {
+    "aa854811e0402550801f5a73a8cb2f64b52b6425": "d88625f9620f5610780448fd054ec94c7fad8204",
+    "24e867b7fa65fe915fa861eae76dba159cb723de": "2b0bdf284f6a87264482ea5b8e91a53e2fa4be80",
+    "7a02810efe47d9806b7616f37dec2fccd259c8a5": "fec155abca433a2845e82694c1fbf2f66f16014c",
+    "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc": "47cef5a545e907ef7614537963bad443bc8037e9",
+    "ae92ec6252818e75d9a70cb8042cfec68bf1e784": "e9c81e4692d2321fadc1645449acc4a3e4557a38",
+    "4c63e99c6f7c9f94f8e162d0c206a98593d164de": "b7d1a85bf1f5f3f0bf5b3ed3f0fd10ec73d060b8"
+  },
+  "functional_repository_urls": "retained; hosting under an account necessarily exposes its URL owner",
+  "boundary": "Reachable repository content and metadata were audited. This does not certify deletion from third-party clones, unreachable server objects, old workflow logs, or cached GitHub commit views.",
+  "github_removal_reference": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository"
+}

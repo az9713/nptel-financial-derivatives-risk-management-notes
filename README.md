@@ -100,3 +100,7 @@ GitHub Actions checked and deployed critical-revision payload commit `ae92ec6`. 
 Scientific review, runtime checks, browser checks, rebuild reproducibility, and live publication integrity are separate forms of evidence. They are not human expert certification or formal verification of every claim. Consult the actual scoped validation records rather than inferring completion from headings or chapter counts.
 
 The local working tree retains compact source archives outside Git. MathJax's [Apache 2.0 license](assets/mathjax-LICENSE) accompanies the bundled renderer. No downloaded course-video payload or dependency folder is part of the public reader.
+
+## Personal information
+
+Owner-specific local paths and biographical details are excluded from the public edition. Commit author and committer display names are anonymized; email addresses are retained. Functional repository URLs, scholarly attribution, and dependency licenses remain. The [privacy audit](validation/personal-info-audit.json) records the inspected scope and the content-preserving commit-identity map. Earlier publication receipts identify the original verification commits; the map relates those identifiers to the anonymized history.
