@@ -1,0 +1,33 @@
+{
+  "reviewer": "reader_builder",
+  "status": "pass",
+  "tool_sha256": "59058949fdfe1bb29fac723f206d7c2e5b470d061833132b9a84297013e4d158",
+  "inspection": "Full tool code read; named-commit archive guard and hidden-path scope inspected. Root four-case evidence matches current tool bytes. Additional synthetic HTTP/error cases below independently executed. No false-pass defect found; actual live delivery remains pending.",
+  "cases": [
+    {
+      "case": "missing public",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "unverified private network result",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "private soft404 status200",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "public500",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "matching public/private404",
+      "expected_rejection": false,
+      "observed_rejection": false
+    }
+  ]
+}

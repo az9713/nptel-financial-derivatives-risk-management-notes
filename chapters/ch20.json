@@ -1,0 +1,7 @@
+{
+  "title": "Solving the pricing PDE and measuring local exposure",
+  "lectures": [49, 50],
+  "objectives": ["Transform the Black–Scholes terminal PDE into an initial heat equation and evaluate its kernel integral", "Derive yield-adjusted Greeks with explicit time, decimal-parameter, and contract-multiplier units", "Verify parity sensitivities and limiting behavior", "Distinguish local neutrality and partial derivatives from finite market-scenario changes"],
+  "prerequisites": "Chapters17–19: Gaussian kernel, Black–Scholes PDE and formula, self-financing; multivariable differentiation and Taylor expansion.",
+  "source_scope": "Full official English captions at positions49–50 read sequentially. No comprehensive audiovisual audit. Kernel uniqueness, time conventions, maturity sensitivity, strategy-neutrality labels, and financed condor profit are qualified; analytic Greek derivations anticipate the next recordings."
+}

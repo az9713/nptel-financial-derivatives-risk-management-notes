@@ -1,0 +1,19 @@
+{
+  "reviewer": "source_research",
+  "disposition": "accepted",
+  "report": "validation/review-ch22-r2.md",
+  "scope": [
+    "Full manuscript, metadata, six solutions and complete lab source",
+    "Fresh execution and independent replication/units/numerical checks",
+    "Independent full caption55 read and selected primary Bianchetti/NYFed checks; no full repeated56\u201357 or audiovisual audit"
+  ],
+  "findings_fixed": [
+    "State t\u2264T0 domain before first reset for swap telescoping/par formulas"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch22.md": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+    "chapters/ch22.json": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
+    "labs/ch22.py": "39dd2a4827937bc2bd2a2d894abbce73fa99633061029af35bb7853c2fc7fc0a"
+  }
+}

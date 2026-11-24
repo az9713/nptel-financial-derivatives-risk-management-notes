@@ -1,0 +1,12 @@
+# Book-wide notation and contracts
+
+- Time t, maturity T, remaining time tau=T-t, year fractions explicitly stated.
+- S_t spot price, F_t(T) newly negotiated forward delivery quotation; G_t or G_t(T) may distinguish the same-maturity futures quotation locally. K fixed contracted delivery price or option strike (local context explicit). V_t existing contract value; never identify a delivery quotation with V.
+- Long position receives an asset or derivative payoff; positive cash flow means received by the named position. Quantity Q is physical/foreign units; n is signed number of contracts; m is contract multiplier.
+- P(t,T) discount factor, r continuously compounded rate unless a displayed simple/periodic convention is stated. q continuous proportional income/dividend yield; u storage cost rate; y convenience yield only in commodity contexts. Bond yield use z or explicit y_b to avoid symbol collision.
+- Currency convention domestic per one foreign unit. All FX conversion equations state numerator/denominator units. X_t can be used for FX to avoid collision with stock S in mixed examples.
+- h hedge ratio: in Delta S - h Delta G, positive h corresponds to a short hedge for a long spot exposure. Use n_s for a signed short-contract count when the combined exposure has an explicit minus sign; n in a settlement ledger remains a signed long-contract count. State exposure sign and units every time. Beta denotes regression beta/CAPM beta in its stated context.
+- Sigma covariance matrix; sigma annualized diffusion volatility; rho correlation. Returns simple or log must be stated. P physical probability, Q pricing probability; no assumption they are equal. W Brownian motion; B_t cash account (avoid reuse for Brownian).
+- c,p European call/put value; C_A,P_A American when both styles compared. Delta,Vega,Gamma,Rho,Theta name derivative variables and scaling. Vega/rho per unit decimal parameter unless per-percentage-point converted explicitly. Theta calendar-time derivative unless stated otherwise.
+- L loss, positive is adverse; VaR_alpha=inf{x:Pr(L<=x)>=alpha}; ES generalized quantile integral for atoms, continuous conditional-tail formula only when justified.
+- All numerical constructions are educational synthetic data unless explicitly attributed. No current prices, contract multipliers, regulatory requirements, or investment recommendations from memory. Historical Eurodollar/LIBOR teaching must be marked historical with authoritative SOFR transition note.

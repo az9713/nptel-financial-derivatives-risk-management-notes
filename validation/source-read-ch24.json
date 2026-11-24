@@ -1,0 +1,60 @@
+{
+  "chapter": "ch24",
+  "reader": "source_research (chapter author)",
+  "recordings": [
+    {
+      "position": 60,
+      "video_id": "xuUX0FVxwv0",
+      "normalized_text_sha256": "1c8b8b8fac057dc4a2bd3176e19c48dbd1cc16e55b7e238efe51d56ab2c0740e",
+      "reading": "full sequential text read",
+      "first_start": 4.45,
+      "last_end": 2217.019,
+      "landmarks": [
+        {
+          "seconds": 4,
+          "topic": "Portfolio covariance aggregation and factor shocks"
+        },
+        {
+          "seconds": 305,
+          "topic": "Duration portfolio and parallel-shift limitation"
+        },
+        {
+          "seconds": 670,
+          "topic": "Six-million bond portfolio20dayVaR"
+        },
+        {
+          "seconds": 1046,
+          "topic": "Cash-flow mapping between0.25/0.5year benchmarks"
+        },
+        {
+          "seconds": 1357,
+          "topic": "Variance matching and PCA explanation"
+        },
+        {
+          "seconds": 1545,
+          "topic": "PCA factor exposure example"
+        },
+        {
+          "seconds": 1704,
+          "topic": "Derivative delta-normal model"
+        },
+        {
+          "seconds": 1962,
+          "topic": "Gamma quadratic extension"
+        },
+        {
+          "seconds": 2078,
+          "topic": "Two currency zero-bond forward exposure"
+        }
+      ],
+      "scope": "Complete normalized English caption text sequentially read. Not a comprehensive audiovisual audit; exact missing FX discount inputs not inferred from rounded leg values."
+    }
+  ],
+  "source_corrections_and_extensions": [
+    "PCA uncorrelatedness does not imply Gaussianity/independence; factor variance retention need not retain portfolio risk.",
+    "Mapping matches chosen PV/variance inputs, not dated claim or all sensitivities.",
+    "Precise Gaussian quantile distinguished from rounded1.28; horizon scaling requires stated temporal assumptions.",
+    "Signed derivative/FX exposures and fixed old-forward domestic payment preserved.",
+    "Second-order approximation not universally more accurate; atom-aware ES, backtesting and stress are explicitly added developments."
+  ]
+}

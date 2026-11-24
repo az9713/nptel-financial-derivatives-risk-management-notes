@@ -1,0 +1,20 @@
+{
+  "reviewer": "source_research",
+  "disposition": "accepted",
+  "report": "validation/review-ch15-r2.md",
+  "scope": [
+    "Full manuscript, metadata, all six solutions and complete lab source",
+    "Fresh execution and independent algebra/number/units checks",
+    "Selected primary references and caption landmarks; no repeated full-caption or audiovisual audit"
+  ],
+  "findings_fixed": [
+    "Integrated inspected primary references and selected source landmarks",
+    "Malformed strip/strap funded-cost TeX repaired"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch15.md": "bdb2df2b6b59f83c6b8ba1bb9e38b3987a6bc6bb03c5d6c224f69e2178857582",
+    "chapters/ch15.json": "8aa3ab0413eaca6e6250e800b085ea66be19307d2d16f193152b1fdf1d0c750a",
+    "labs/ch15.py": "c763e07f0e57abe6e0bd97b08fd97c80582d741c231e3022b1e9ad95445e726a"
+  }
+}

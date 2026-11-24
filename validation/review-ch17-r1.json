@@ -1,0 +1,36 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch17-r1.md",
+  "scope": [
+    "Complete current manuscript, metadata, all six solutions and full lab",
+    "Independent stochastic-calculus, distribution and numerical checks",
+    "Selected actual captions and primary MIT/Lalley passages inspected",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch17.md": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
+    "chapters/ch17.json": "1451aa20fa75a62dbd09ecdd0b370f3140c9951b6f65b1123177eda824d12a56",
+    "labs/ch17.py": "54ad5f85ea9f77e3d3dab35e606f7c2f3d21b79db71b2e186692b2873f43f704"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      40,
+      41,
+      42,
+      43
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT Kogan stochastic-calculus slides10\u201313",
+      "MIT18.S096 lecture18 Theorem1.1 and Example1.3",
+      "Lalley BrownianMotion312 section2.3 Propositions3\u20134"
+    ]
+  },
+  "limitations": [
+    "No full independent caption reread",
+    "No comprehensive audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ]
+}

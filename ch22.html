@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>FRAs and interest-rate swaps as dated cash flows · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html" aria-current=page>22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>22. FRAs and interest-rate swaps as dated cash flows</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=YMt9e--2Xik">Recording 55</a>, <a href="https://www.youtube.com/watch?v=1H23SQ9d-lQ">Recording 56</a>, <a href="https://www.youtube.com/watch?v=uZF7j-Qs9ZA">Recording 57</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Replicate advance-settled and end-settled FRAs with correct signs and dates</li><li>Derive par swap rates, off-market values, and discount-factor bootstraps</li><li>Value a floating bond between resets and reconcile swap bond/coupon-strip methods</li><li>Identify projection, discounting, overnight observation, and comparative-funding limitations</li></ul>
+<p><strong>Prerequisites:</strong> Discount factors, zero/forward rates, dated cash flows and present value; Chapter21 swap definitions and historical benchmark boundary.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch22.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-define-the-direction-before-the-formula-0834">1. Define the direction before the formula 08:34</a></li><li><a href="#2-replicate-the-fra-with-zero-coupon-bonds-1638">2. Replicate the FRA with zero-coupon bonds 16:38</a></li><li><a href="#3-a-swap-is-a-coupon-strip-with-one-fixed-rate-2130">3. A swap is a coupon strip with one fixed rate 21:30</a></li><li><a href="#4-bootstrapping-from-a-par-swap-2151">4. Bootstrapping from a par swap 21:51</a></li><li><a href="#5-a-floating-bond-is-par-at-a-matching-reset-not-everywhere-2714-0255">5. A floating bond is par at a matching reset, not everywhere 27:14 ; 02:55</a></li><li><a href="#6-two-independent-valuations-of-the-source-swap-1654">6. Two independent valuations of the source swap 16:54</a></li><li><a href="#7-projection-discounting-and-overnight-observation">7. Projection, discounting, and overnight observation</a></li><li><a href="#8-comparative-advantage-has-contractual-costs-3210-0024">8. Comparative advantage has contractual costs 32:10 / 00:24</a></li><li><a href="#laboratory">Laboratory</a></li><li><a href="#exercises">Exercises</a></li></ul></div>
+<article>
+<p>An interest-rate swap is a schedule of contractual payments, not a bet on an undefined “interest rate.” Before assigning it a value, specify who pays which leg, how the rate is observed, the interval over which interest accrues, the date cash changes hands, and the discounting convention. A correct rate attached to the wrong date or day-count fraction produces the wrong instrument.</p>
+<p>We first use a frictionless single-curve model: the same default-free discount factors price deposits and project the term rate paid by the floating leg. This makes replication transparent. We then identify exactly which shortcuts fail when projection and discounting differ. The recordings' LIBOR examples are historical, with cessation documented in Chapter 21; none of their interest-rate levels are current market observations.</p>
+<h2 id="1-define-the-direction-before-the-formula-0834">1. Define the direction before the formula <a href="https://www.youtube.com/watch?v=YMt9e--2Xik&amp;t=514s">08:34</a></h2>
+<p>A forward-rate agreement, or FRA, fixes an interest-rate exchange for a future accrual interval \([T_1,T_2]\). Let \(N\) be currency notional, \(\delta\) its contractual year fraction, \(K\) the agreed simple annual rate, and \(L\) the matching term-rate fixing observed at \(T_1\). We call the position <em>pay fixed, receive floating</em>. This economic description is more reliable than an unqualified “buyer” or “long” label, because terminology depends on the quoted contract.</p>
+<p>If settled at the end \(T_2\), its net receipt is \(N\delta(L-K)\). Rates are decimals per year, so multiplication by \(\delta\) gives an interval return; multiplication by \(N\) gives currency. A standard advance-settled version instead exchanges at \(T_1\)</p>
+<p>\[
+C_{T_1}=\frac{N\delta(L-K)}{1+\delta L}.
+\]</p>
+<p>This amount, invested at the matching simple term rate \(L\), grows to the end-period difference. The denominator must be positive. Advance settlement is a contractual design; it is not an erroneous early payment of a coupon that “should” have waited. The source derives this discounting relationship. A reverse-direction agreement has the negative of each payment.</p>
+<p>Fixing date, accrual start, accrual end, and settlement date need not all coincide. If fixed and floating legs use different accrual conventions, calculate their amounts separately as \(N\delta_fK\) and \(N\delta_lL\). There is no universal rule that all bond coupons use Actual/365 or all swaps use the same conventions. For 90 actual days, a 5% Actual/360 payment is \(N(0.05)(90/360)\). A rate of \(0.05(365/360)\) on Actual/365 gives the same amount <em>for this identical actual-day interval</em>. A change involving 30/360 dates, business-day adjustments, or unequal accrual endpoints requires the actual schedule, rather than a blanket ratio conversion.</p>
+<h2 id="2-replicate-the-fra-with-zero-coupon-bonds-1638">2. Replicate the FRA with zero-coupon bonds <a href="https://www.youtube.com/watch?v=YMt9e--2Xik&amp;t=998s">16:38</a></h2>
+<p>Let \(P(t,T)\) be the current price of a default-free unit payment at \(T\). In the single-curve model,</p>
+<p>\[
+F(t;T_1,T_2)=\frac{P(t,T_1)/P(t,T_2)-1}{\delta}
+\]</p>
+<p>is the simple annual forward rate. At fixing, the matching deposit relation gives \((1+\delta L)^{-1}=P(T_1,T_2)\). Therefore the advance-settled receipt can be rewritten statewise:</p>
+<p>\[
+C_{T_1}=N[1-(1+\delta K)P(T_1,T_2)].
+\]</p>
+<p>Buy \(N\) zero-coupon units maturing at \(T_1\), and short \(N(1+\delta K)\) units maturing at \(T_2\). At \(T_1\), selling or covering the remaining bond position gives precisely the advance settlement. Thus its value before fixing is</p>
+<p>\[
+V_t=N[P(t,T_1)-(1+\delta K)P(t,T_2)]
+=N\delta P(t,T_2)[F(t;T_1,T_2)-K].
+\]</p>
+<p>No-arbitrage fixes this cost without predicting the eventual fixing. At inception a zero-price FRA has \(K=F\). After rates move, its original \(K\) stays fixed while current \(F\) changes. The value is positive to the fixed payer when the current matching forward exceeds its contract rate.</p>
+<p>The same single-curve formula prices the end-settled linear coupon. To see why this does not require deterministic future rates, take two bonds at \(T_1\) and use the term deposit to relate their future cash flows, or use the payment-date forward measure under which the matching forward rate is a martingale. The bond replication above already establishes the advance-settled value. It should not be extended unchanged when the settlement discount denominator uses a rate inconsistent with the tradable discount bond. Nonlinear settlement and different curves then require their own valuation treatment.</p>
+<p>The source's illustration receives fixed 6% and pays a one-year term fixing between years two and three, on 100 million. Given continuously compounded zero rates 3% at two years and 4% at three years, the forward growth factor is \(e^{0.04(3)-0.03(2)}=e^{0.06}\); the one-year simple rate is \(e^{0.06}-1=0.0618365465\). If that fixing were realized, the advance settlement at year two would be −0.17295944 million. Its value <em>today</em> in the single-curve model is instead \(100[0.06-(e^{0.06}-1)]e^{-0.12}=-0.16288707\) million. A future scenario settlement is not a cash flow known today, and is not today's present value.</p>
+<h2 id="3-a-swap-is-a-coupon-strip-with-one-fixed-rate-2130">3. A swap is a coupon strip with one fixed rate <a href="https://www.youtube.com/watch?v=YMt9e--2Xik&amp;t=1290s">21:30</a></h2>
+<p>Let dates \(T_0&lt;T_1&lt;\cdots&lt;T_n\) delimit the swap's accrual periods. For a pay-fixed position, payment \(i\) is \(N\delta_i(L_{i-1}-K)\) at \(T_i\), with the term rate fixed at \(T_{i-1}\). Principal is not exchanged in this plain single-currency structure. Adding identical principal exchanges to both legs is an algebraic device for bond replication; their net payment cancels.</p>
+<p>For valuation at \(t\le T_0\), before the first reset (including \(t=T_0\) with the contemporaneous matching fixing), the single-curve present value of the future floating coupons is</p>
+<p>\[
+N\sum_{i=1}^n\delta_iP(t,T_i)F_i
+=N\sum_{i=1}^n[P(t,T_{i-1})-P(t,T_i)]
+=N[P(t,T_0)-P(t,T_n)].
+\]</p>
+<p>This telescoping identity is stronger than a claim that future rates will equal today's forwards. Each forward enters because it prices the matching coupon, not because it is a physical forecast. If fixed and floating schedules differ, telescope the floating schedule and calculate the fixed annuity on its own dates.</p>
+<p>These formulas apply before the first reset; after a reset, retain the known first coupon as in section 5 rather than evaluating a discount factor to a past date. For a common schedule define the swap annuity \(A_t=\sum_i\delta_iP(t,T_i)\), which has units years. Then</p>
+<p>\[
+V_t^{\mathrm{pay}}=N[P(t,T_0)-P(t,T_n)-KA_t],
+\qquad
+K_*(t)=\frac{P(t,T_0)-P(t,T_n)}{A_t}.
+\]</p>
+<p>The par swap rate \(K_*\) is the fixed rate making initial value zero. With positive accruals and discount factors, it is also a weighted average of the period forwards, with weights \(\delta_iP(t,T_i)/A_t\). It is not generally the terminal zero rate or the arithmetic average of forwards. A dealer's midpoint quotation can estimate a market par rate, but the definition of par is equality of leg present values, not merely the midpoint of two numbers.</p>
+<p>Our persistent synthetic curve has semiannual dates 0.5, 1, 1.5, 2 years and discount factors 0.98, 0.955, 0.925, 0.89. For notional 10 million, \(A=1.875\) years and \(K_*=0.0586666667\). A pay-fixed 6% swap has value −25,000. A one-basis-point increase in its fixed contractual rate, keeping the curve fixed, reduces value by \(NA(0.0001)=1875\). This coupon sensitivity differs from a curve DV01, which moves discount factors and projected forwards together according to a specified market-curve shock.</p>
+<h2 id="4-bootstrapping-from-a-par-swap-2151">4. Bootstrapping from a par swap <a href="https://www.youtube.com/watch?v=1H23SQ9d-lQ&amp;t=1311s">21:51</a></h2>
+<p>Suppose the first three semiannual discount factors are known and a spot-starting two-year swap has par rate \(K\). The par identity gives</p>
+<p>\[
+P(0,T_n)=\frac{1-K\sum_{i&lt;n}\delta_iP(0,T_i)}{1+K\delta_n}.
+\]</p>
+<p>Thus a final discount factor is solved from a linear equation; its zero rate follows only after choosing a compounding convention. This is a bootstrap step, not a simultaneous assumption that all maturities have the swap's fixed rate.</p>
+<p>The recording uses continuous zero rates 4%, 4.5%, 4.8% at 0.5, 1, 1.5 years and a semiannual 5% par swap rate at two years. Substitution gives \(P(0,2)=0.9056895841\), hence continuous two-year zero rate \(-\log P(0,2)/2=0.0495293270\). The first coupon is discounted by \(e^{-0.04(0.5)}\); its half-year factor must not be omitted. The lab reprices the synthetic par bond to verify the solved curve point.</p>
+<p>Positive discount factors are necessary, but decreasing factors are not a universal no-arbitrage axiom when negative rates are allowed. Conversely, a positive bootstrap denominator alone does not validate arbitrary inconsistent input quotes. The schedule and the instruments from which the curve is built must be mutually compatible. Interpolation between pillars is an additional modeling choice whose risk affects off-pillar cash flows.</p>
+<h2 id="5-a-floating-bond-is-par-at-a-matching-reset-not-everywhere-2714-0255">5. A floating bond is par at a matching reset, not everywhere <a href="https://www.youtube.com/watch?v=1H23SQ9d-lQ&amp;t=1634s">27:14</a>; <a href="https://www.youtube.com/watch?v=uZF7j-Qs9ZA&amp;t=175s">02:55</a></h2>
+<p>At a reset immediately after the old coupon is paid, a zero-spread floating bond with principal \(N\) has value \(N\) in the matching single-curve model. Its remaining floating coupons telescope to \(N[1-P(t,T_n)]\); adding principal redemption \(NP(t,T_n)\) gives par. Future realized fixings may be random. Their actual equality with today's forwards is unnecessary for this replication identity.</p>
+<p>Between resets, the next coupon is already known. If its full-period accrual fraction is \(\delta_0\), fixing is \(L_{\mathrm{known}}\), and next payment date is \(T_1\), then</p>
+<p>\[
+B_{\mathrm{float}}(t)=N(1+\delta_0L_{\mathrm{known}})P(t,T_1).
+\]</p>
+<p>At \(T_1\), the investor receives the known coupon and is left with a freshly reset par bond. The discount interval is the <em>remaining</em> time to payment, whereas the coupon uses the <em>full</em> contractual accrual period. Dirty present value includes accrued interest; a clean quote requires its own accrued-interest subtraction. Credit deterioration, a contractual spread, caps or floors, and different discount/projection curves can all invalidate the unqualified par shortcut.</p>
+<p>The source's bond example has face value 1000, a six-month coupon fixed three months ago at 12% annual with semiannual compounding, and three months until payment. Its next coupon is 60; the current three-month continuous zero rate is 9%. Value is \(1060e^{-0.09(0.25)}=1036.41631142\), not par. The long remaining maturity need not be separately forecast in this special reset-replication argument.</p>
+<h2 id="6-two-independent-valuations-of-the-source-swap-1654">6. Two independent valuations of the source swap <a href="https://www.youtube.com/watch?v=uZF7j-Qs9ZA&amp;t=1014s">16:54</a></h2>
+<p>The recording's financial institution receives fixed 8% annual, semiannual payments, and pays floating on notional 100 million. Remaining payment dates are 0.25, 0.75, 1.25 years; continuous zero rates are 10%, 10.5%, 11%. The last six-month floating fixing is 10.2% annual with semiannual compounding, so the next coupon is 5.1 million. The source momentarily says 10.4% in narration, but its stated input and subsequent calculation consistently use 10.2%.</p>
+<p>Add equal principal redemptions to both legs. The fixed bond pays 4, 4, 104 million, giving value 98.23789590 million. The floating bond's value is \(105.1e^{-0.1(0.25)}=102.50507175\) million. Therefore the receive-fixed swap is worth −4.26717585 million to the institution; the reverse party has the opposite value in this default-free model.</p>
+<p>For an independent coupon-strip check, retain the already-fixed first coupon 5.1. Derive the later period forwards from discount-factor ratios, convert each to a simple six-month rate, and calculate its currency coupon. Discount the three signed differences, fixed minus floating. The sum agrees exactly with the bond difference. A common error would reset the first floating coupon using today's forward; its fixing occurred three months earlier and is a contractual known amount. Another would mistake an 8% annual nominal semiannual rate for an 8% payment every six months, doubling the fixed coupons.</p>
+<h2 id="7-projection-discounting-and-overnight-observation">7. Projection, discounting, and overnight observation</h2>
+<p>The telescoping formula relies on \(\delta_iF_i=P(t,T_{i-1})/P(t,T_i)-1\) for the <em>same</em> discount factors used in valuation. If projected coupon rates and discount factors differ, a general linear coupon valuation instead has the form</p>
+<p>\[
+V^{\mathrm{pay}}=N\sum_iD_i\delta_i(\widehat L_i-K),
+\qquad
+K_* = \frac{\sum_iD_i\delta_i\widehat L_i}{\sum_iD_i\delta_i}.
+\]</p>
+<p>Here \(\widehat L_i\) denotes the payment-date pricing expectation appropriate to the actual floating payoff, not a physical forecast. Different forwarding-measure conventions can require adjustments before a raw curve forward is that expectation. The resulting floating leg need not telescope using \(D_i\), nor must a hypothetical floating bond reset to par under a different discount curve. The distinction between separate projection and discount curves is developed in <a href="https://www.bianchetti.org/Finance/2009-11-QCE-DoubleCurvePricingSlides-v1.1.pdf">Bianchetti's primary presentation, slides 5 and 8</a>. Our lab includes a deterministic two-curve construction to isolate the algebra without claiming to calibrate a full stochastic basis model.</p>
+<p>An overnight-compounded floating coupon has another distinction: its amount accumulates observations across the accrual period, rather than being a term rate completely fixed at the start. For specified observation subintervals with rates \(r_j\) and day fractions \(\eta_j\), its compounded return is \(\prod_j(1+r_j\eta_j)-1\). A contract may specify observation shifts, lookbacks, payment lags, and spread treatment. The <a href="https://www.newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates">New York Fed's SOFR calculation methodology</a> specifies business-day compounding, preceding-business-day rates over nonbusiness days, and Actual/360 for its published averages and index. Those administrator calculations do not themselves specify every swap contract. Replacing “LIBOR” by “SOFR” in a fixed-in-advance coupon equation without changing observations would change neither the mathematics nor the actual benchmark risk correctly.</p>
+<h2 id="8-comparative-advantage-has-contractual-costs-3210-0024">8. Comparative advantage has contractual costs <a href="https://www.youtube.com/watch?v=YMt9e--2Xik&amp;t=1930s">32:10</a> / <a href="https://www.youtube.com/watch?v=1H23SQ9d-lQ&amp;t=24s">00:24</a></h2>
+<p>The source gives borrower AAA fixed funding at 6.5% or floating at prime, and borrower BBB fixed funding at 8% or floating at prime plus 0.75%. Borrowing in their comparative-advantage markets gives a combined apparent saving of \((8-6.5)-0.75=0.75\) percentage points per year. A consistent intermediary arrangement can leave BBB at fixed 7.75%, AAA at prime minus 0.25%, and the intermediary 0.25%. The lab checks all gross signed flows: the three gains sum to the original differential.</p>
+<p>This arithmetic is conditional on comparable notionals, maturities, contractual credit spreads, and enforceable swap payments. A floating benchmark reset does not automatically permit a lender to increase the borrower's credit spread or withdraw a committed loan. Such rights must be in the loan agreement; refinancing a sequence of short loans introduces separate rollover risk. Swapping fixed into floating changes rate exposure while leaving obligations to the original lender and adding counterparty, collateral, and termination exposures. Apparent funding savings do not establish a riskless arbitrage once these differences are recognized.</p>
+<h2 id="laboratory">Laboratory</h2>
+<p>Run <a href="labs/ch22.py">the FRA and swap laboratory</a>. It reproduces the source numbers, checks bond-versus-coupon equality, bootstrap repricing, known first fixings, direction symmetry, payment-date settlement equivalence, the synthetic par swap and coupon sensitivity, a deliberately distinct projection curve, and a complete comparative-advantage flow ledger.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>For notional 2 million, accrual fraction 0.25, fixed rate 4%, and fixing 5%, calculate the fixed payer's end settlement and advance settlement. Verify their equivalence at the fixing rate.</li>
+<li>In the persistent synthetic curve, compute the four simple semiannual forwards and show that the par swap rate is their discounted-accrual weighted mean.</li>
+<li>Value the fixed-payer 6% swap on notional 10 million and calculate the change if the contractual coupon becomes 6.01%, with the curve fixed.</li>
+<li>Explain why the source floating bond uses coupon 60 and discount horizon 0.25 years. Calculate the incorrect value obtained by using only a three-month coupon at the old fixing.</li>
+<li>In the source swap, switch from receive-fixed to pay-fixed. Derive both bond and coupon-strip expressions and their signs.</li>
+<li>A deterministic two-period example uses discount factors 0.98 and 0.95, half-year accruals, and projected simple rates 6% and 7%. Compute its par fixed rate and compare floating PV per unit notional with the single-curve shortcut \(1-0.95\).</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>End receipt is \(2{,}000{,}000(0.25)(0.05-0.04)=5000\). Advance receipt is \(5000/(1+0.25\cdot0.05)=4938.271605\). Investing that amount over the quarter at simple 5% grows it back to 5000. The receive-fixed party pays these amounts. A negative-rate case is still algebraically possible provided the funding factor remains positive.</p>
+</li>
+<li>
+<p>Using successive discount ratios gives approximately 4.08163265%, 5.23560209%, 6.48648649%, and 7.86516854%. Multiplying each rate by its \(0.5P_i\) weight before normalization makes the sum telescope to \(1-0.89=0.11\). Divide by \(A=0.5(0.98+0.955+0.925+0.89)=1.875\) to obtain 5.86666667%. The nonuniform forwards demonstrate why a single terminal zero rate is not the par coupon.</p>
+</li>
+<li>
+<p>Floating PV is \(10{,}000{,}000(0.11)=1{,}100{,}000\). Fixed PV is \(10{,}000{,}000(0.06)(1.875)=1{,}125{,}000\); difference is −25,000. Increasing fixed coupon by 0.0001 adds 1875 to fixed payments' PV, making payer value −26,875. This is coupon sensitivity at fixed curve, not a parallel-rate shock.</p>
+</li>
+<li>
+<p>The fixed coupon covers the entire six-month accrual, including three months already elapsed: \(1000(0.12)(0.5)=60\). Cash arrives in three future months, so discounting uses 0.25 years. Incorrectly setting coupon to \(1000(0.12)(0.25)=30\) gives \(1030e^{-0.09(0.25)}\), about 1007.08, understating dirty value by \(30e^{-0.0225}\). Subtracting accrued interest for a clean quote is a separate operation; shortening the contractual coupon is not an equivalent procedure.</p>
+</li>
+<li>
+<p>Pay-fixed is the exact negative position. Its bond value is \(B_{\mathrm{float}}-B_{\mathrm{fixed}}=102.50507175-98.23789590=4.26717585\) million. Its coupon-strip value sums \(P_i\) times floating coupon minus fixed coupon, including the known first 5.1 versus 4. The principal additions cancel. The positive sign reflects receiving the more valuable floating stream under the current curve, not a guarantee of all positive realized future coupons.</p>
+</li>
+<li>
+<p>Floating PV per unit notional is \(0.5(0.98)(0.06)+0.5(0.95)(0.07)=0.06265\). Fixed annuity is \(0.5(0.98+0.95)=0.965\), so par rate is \(0.06265/0.965=0.0649222798\), or about 6.49223%. The shortcut gives only 0.05 and is wrong for these stipulated projections. They were not generated by successive ratios of the discount factors. In a stochastic calibrated market, the projections must also correspond to the correct pricing expectations; the example is deterministic to isolate that requirement.</p>
+</li>
+</ol>
+</details><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch22.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;FRA and swap cash-flow checks; no filesystem or network effects.&quot;&quot;&quot;
+
+from math import exp, isclose, isfinite, log, prod
+
+
+def close(actual, expected):
+    assert isclose(actual, expected, rel_tol=1e-10, abs_tol=1e-8), (
+        actual, expected
+    )
+
+
+def forwards(discounts, accruals):
+    if len(discounts) != len(accruals) + 1 or not accruals:
+        raise ValueError(&quot;One accrual per discount-factor interval required&quot;)
+    if not all(isfinite(x) and x &gt; 0 for x in (*discounts, *accruals)):
+        raise ValueError(&quot;Discount factors and accruals must be positive&quot;)
+    return [(discounts[i] / discounts[i + 1] - 1) / delta
+            for i, delta in enumerate(accruals)]
+
+
+def swap_value(notional, fixed_rate, discounts, accruals, projections=None):
+    rates = forwards(
+        discounts, accruals) if projections is None else projections
+    if len(rates) != len(accruals) or not all(isfinite(x) for x in rates):
+        raise ValueError(&quot;One finite projected rate per payment required&quot;)
+    return notional * sum(p * delta * (rate - fixed_rate)
+                          for p, delta, rate in
+                          zip(discounts[1:], accruals, rates))
+
+
+def main():
+    end = 2e6 * .25 * (.05 - .04)
+    advance = end / (1 + .25 * .05)
+    close(end, 5000)
+    close(advance, 4938.271604938272)
+    close(advance * (1 + .25 * .05), end)
+
+    source_forward = exp(.04 * 3 - .03 * 2) - 1
+    source_scenario = 100 * (.06 - source_forward) / (1 + source_forward)
+    source_today = 100 * (.06 - source_forward) * exp(-.04 * 3)
+    close(source_today, 100 * ((1 + .06) * exp(-.12) - exp(-.06)))
+    print(f&quot;Source FRA implied simple forward {source_forward:.10f}&quot;)
+    print(f&quot;Fixed receiver scenario at2y {source_scenario:.8f} million; &quot;
+          f&quot;value today {source_today:.8f} million&quot;)
+
+    discounts = [1, .98, .955, .925, .89]
+    accruals = [.5] * 4
+    rates = forwards(discounts, accruals)
+    annuity = sum(p * delta for p, delta in zip(discounts[1:], accruals))
+    par_rate = (discounts[0] - discounts[-1]) / annuity
+    close(annuity, 1.875)
+    close(par_rate, .05866666666666666)
+    close(swap_value(1e7, par_rate, discounts, accruals), 0)
+    original = swap_value(1e7, .06, discounts, accruals)
+    close(original, -25000)
+    close(swap_value(1e7, .0601, discounts, accruals) - original, -1875)
+    weighted_forward = sum(p * delta * f for p, delta, f
+                           in zip(discounts[1:], accruals, rates)) / annuity
+    close(weighted_forward, par_rate)
+    print(&quot;Synthetic period forwards&quot;, [round(x, 10) for x in rates])
+    print(
+        f&quot;Synthetic par rate {par_rate:.10f}; &quot;
+        f&quot;fixed-payer value {original:.2f}&quot;)
+
+    known = [exp(-.04 * .5), exp(-.045), exp(-.048 * 1.5)]
+    final_discount = (1 - .05 * .5 * sum(known)) / (1 + .05 * .5)
+    zero_rate = -log(final_discount) / 2
+    close(sum(2.5 * p for p in known) + 102.5 * final_discount, 100)
+    print(
+        f&quot;Source bootstrapped P2 {final_discount:.10f}; zero {zero_rate:.10f}&quot;)
+    floating_bond = 1060 * exp(-.09 * .25)
+    wrong_bond = 1030 * exp(-.09 * .25)
+    close(floating_bond - wrong_bond, 30 * exp(-.09 * .25))
+    print(
+        f&quot;Source floating bond {floating_bond:.8f}; &quot;
+        f&quot;wrong stub {wrong_bond:.8f}&quot;)
+
+    times = [.25, .75, 1.25]
+    zero_rates = [.1, .105, .11]
+    factors = [exp(-r * t) for r, t in zip(zero_rates, times)]
+    fixed_bond = sum(c * p for c, p in zip((4, 4, 104), factors))
+    float_bond = 105.1 * factors[0]
+    future_rates = forwards(factors, [.5, .5])
+    floating_coupons = [5.1] + [100 * .5 * f for f in future_rates]
+    strip = sum((4 - c) * p for c, p in zip(floating_coupons, factors))
+    close(strip, fixed_bond - float_bond)
+    close(strip, -4.267175853140586)
+    close(sum(c * p for c, p in zip(floating_coupons, factors))
+          + 100 * factors[-1], float_bond)
+    print(f&quot;Source receive-fixed bond/strip {strip:.8f} million&quot;)
+    print(&quot;Source later six-month simple rates&quot;, future_rates)
+
+    # Deterministic split-curve example; no stochastic basis calibration.
+    d, delta, projected = [1, .98, .95], [.5, .5], [.06, .07]
+    float_pv = sum(p * a * f for p, a, f in zip(d[1:], delta, projected))
+    split_annuity = sum(p * a for p, a in zip(d[1:], delta))
+    split_par = float_pv / split_annuity
+    close(float_pv, .06265)
+    close(split_par, .06492227979274612)
+    close(swap_value(1, split_par, d, delta, projected), 0)
+    assert not isclose(float_pv, 1 - d[-1])
+
+    for prime in (.05, .12):
+        bbb_external, aaa_external = prime + .0075, .065
+        bbb_swap_pay, bbb_swap_receive = .0675, prime - .0025
+        aaa_swap_pay, aaa_swap_receive = prime - .0025, .065
+        bbb_cost = bbb_external + bbb_swap_pay - bbb_swap_receive
+        aaa_cost = aaa_external + aaa_swap_pay - aaa_swap_receive
+        dealer = (bbb_swap_pay + aaa_swap_pay
+                  - bbb_swap_receive - aaa_swap_receive)
+        close(bbb_cost, .0775)
+        close(aaa_cost, prime - .0025)
+        close(dealer, .0025)
+        close((.08 - bbb_cost) + (prime - aaa_cost) + dealer, .0075)
+    compounded = prod(1 + r * day / 360
+                      for r, day in zip((.04, .041, .042), (1, 1, 3))) - 1
+    assert compounded &gt; sum(r * day / 360
+                            for r, day in zip((.04, .041, .042), (1, 1, 3)))
+    close(.05 * 90 / 360, (.05 * 365 / 360) * 90 / 365)
+    # Negative forwards are permitted when positive discount factors increase.
+    assert forwards([1, 1.01], [.5])[0] &lt; 0
+    try:
+        forwards([1, 0], [.5])
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&quot;Zero discount factor accepted&quot;)
+    print(&quot;All FRA, swap, bootstrap, reset, and funding-ledger checks passed.&quot;)
+
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch21.html">Previous: Greek hedges, financing, and the cost of convexity</a><a rel="next" href="ch23.html">Next: Currency swaps, loss quantiles, and tail risk</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

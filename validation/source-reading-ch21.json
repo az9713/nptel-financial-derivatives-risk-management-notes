@@ -1,0 +1,138 @@
+{
+  "chapter": "ch21",
+  "reader": "scientific_review (chapter author)",
+  "recordings": [
+    {
+      "position": 51,
+      "video_id": "15s8WcE5VRU",
+      "normalized_text_sha256": "dd3ba52ac372507e8f3c7429567c9c1ac75407ce142b3a336f2b4e828ddf222c",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 501,
+          "topic": "Delta hedging and need for rebalancing"
+        },
+        {
+          "start_seconds": 794,
+          "topic": "Gamma and finite stock hedge error"
+        },
+        {
+          "start_seconds": 1172,
+          "topic": "Gamma formula and shape"
+        },
+        {
+          "start_seconds": 1301,
+          "topic": "Expiry concentration of gamma"
+        },
+        {
+          "start_seconds": 1795,
+          "topic": "Delta-gamma hedge transition"
+        }
+      ]
+    },
+    {
+      "position": 52,
+      "video_id": "0_NyYdmXBS0",
+      "normalized_text_sha256": "a36e180065dcbb5b5a2c40f02416e895fe906d358c148e9419dba58ae4929d28",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 25,
+          "topic": "Source delta-gamma system"
+        },
+        {
+          "start_seconds": 376,
+          "topic": "Rebalancing and stock round-trip interpretation"
+        },
+        {
+          "start_seconds": 744,
+          "topic": "Bank delta3000 gamma800 stock90 example"
+        },
+        {
+          "start_seconds": 1163,
+          "topic": "Theta and time decay"
+        },
+        {
+          "start_seconds": 1806,
+          "topic": "Gamma-theta tradeoff"
+        }
+      ]
+    },
+    {
+      "position": 53,
+      "video_id": "QsrKq3bRN5A",
+      "normalized_text_sha256": "dfb107771fa0478ce619273095d68e76f4b5de45a3cacd97c404065263975c8c",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 720,
+          "topic": "Vega and its parameter effects"
+        },
+        {
+          "start_seconds": 1310,
+          "topic": "Vega neutrality with stock delta adjustment"
+        },
+        {
+          "start_seconds": 1461,
+          "topic": "Two-option gamma-vega hedge example"
+        },
+        {
+          "start_seconds": 1773,
+          "topic": "Empirical joint stock/volatility scenarios"
+        }
+      ]
+    },
+    {
+      "position": 54,
+      "video_id": "EJbnlOu035A",
+      "normalized_text_sha256": "dc39f9ea3d61f7864ac8b6a32ae2bd650a2f5fa0fb9ec949373338bd9d94372b",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 24,
+          "topic": "Delta-vega joint scenario discussion"
+        },
+        {
+          "start_seconds": 268,
+          "topic": "Rho and trading heuristics"
+        },
+        {
+          "start_seconds": 656,
+          "topic": "Condor and theta-neutral combinations"
+        },
+        {
+          "start_seconds": 859,
+          "topic": "Short call/put delta example"
+        },
+        {
+          "start_seconds": 1013,
+          "topic": "Foreign-exchange forward/futures hedge example"
+        },
+        {
+          "start_seconds": 1264,
+          "topic": "At-the-money call delta"
+        },
+        {
+          "start_seconds": 1443,
+          "topic": "Swap contract and FRA bridge"
+        }
+      ]
+    }
+  ],
+  "scope": "Full official English caption text read sequentially; no comprehensive audiovisual audit. Source hedge arithmetic reproduced; original repricable hedge and complete quadratic-book ledger added.",
+  "source_corrections": [
+    "Portfolio Greeks are signed sums with explicit quantities/multipliers, not automatically normalized averages.",
+    "Same-stock same-expiry vanilla gamma and vega are proportional under common volatility; arbitrary simultaneous targeting may lack rank.",
+    "Gamma and vega maxima as stock varies need not occur exactly at strike; vega need not increase monotonically over arbitrary maturities.",
+    "Positive vega follows exact formula, not a generally monotonic d1 in volatility.",
+    "Long arbitrary derivatives need not have positive gamma/vega.",
+    "The source3200 is a partial stock-leg realized gain; full financed book P&L needs option revaluation/time/carry.",
+    "Empirical spot-volatility scenario is conditional and is not an investment recommendation.",
+    "Forward quote derivative is not existing fixed-strike forward value delta; corrected source foreign notional is6485372.73143405.",
+    "Historical LIBOR example distinguished from all-settings cessation on30September2024."
+  ],
+  "primary_checks": [
+    "Kogan MIT stochastic slides17-20: self-financing, replication and PDE.",
+    "FCA 1October2024 The end of LIBOR announcement: final remaining synthetic settings published30September2024."
+  ]
+}

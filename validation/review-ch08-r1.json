@@ -1,0 +1,54 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch08-r1.md",
+  "scope": [
+    "Full manuscript, metadata, all six solutions and complete lab",
+    "Independent derivations, numerical examples and model-boundary checks",
+    "Selected actual captions and primary MIT/TreasuryDirect sources inspected",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch08.md": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
+    "chapters/ch08.json": "8324abfdfdc65f4af995e0bf00f7d8096c7798b7e05b01c10d386a510d6d2f55",
+    "labs/ch08.py": "6b10386b3e0dc5ce51aab589e4fa2df2117c6b379985bf4574c22894ac0a82e8"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      20,
+      21
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT fixed-income slides19\u201334",
+      "TreasuryDirect understanding-pricing bill formula"
+    ]
+  },
+  "limitations": [
+    "No full independent caption reread",
+    "No comprehensive audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ],
+  "bounded_rechecks": [
+    {
+      "reason": "Canonical LF normalization only; no scientific content change",
+      "proof": "validation/line-ending-normalization.json",
+      "method": "Reconstructed original CRLF bytes from canonical LF and matched prior acceptance SHA-256 exactly; Python AST equivalence and fresh lab execution passed.",
+      "files": [
+        {
+          "file": "chapters/ch08.md",
+          "before_sha256": "34acca63392801951c099fe577790a637cea88d5680950b9b3d07e5eaa11962f",
+          "after_sha256": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
+          "reverse_crlf_reconstruction_matches_accepted_sha256": true
+        },
+        {
+          "file": "labs/ch08.py",
+          "before_sha256": "ac9fd0968cd13bf86fac6ae4e50e42dd265b0aa9d1941a7c79c112eeefebe0c5",
+          "after_sha256": "6b10386b3e0dc5ce51aab589e4fa2df2117c6b379985bf4574c22894ac0a82e8",
+          "reverse_crlf_reconstruction_matches_accepted_sha256": true
+        }
+      ]
+    }
+  ]
+}

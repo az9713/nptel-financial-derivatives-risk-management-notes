@@ -1,0 +1,7 @@
+{
+  "title": "What a derivative changes: cash flows, exposure, and risk",
+  "lectures": [2],
+  "objectives": ["Build a dated, signed cash-flow model for forwards, options, and swaps", "Distinguish a hedge identity from a forecast and a payoff from financed profit", "Explain why clearing and margin mitigate credit risk while creating liquidity demands", "State a precise finite-state no-arbitrage test"],
+  "prerequisites": "Algebra, elementary probability, and present value. Finance terminology is defined locally.",
+  "source_scope": "Full English NPTEL Official caption track read sequentially; no comprehensive slide or audio audit. Examples and formal finite-state constructions are original additions."
+}

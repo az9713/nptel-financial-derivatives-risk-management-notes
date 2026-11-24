@@ -1,0 +1,18 @@
+# Independent scientific review: chapter 02
+
+Accepted at the exact manuscript, metadata, and laboratory digests in the accompanying JSON. The reviewer did not author this chapter. The complete manuscript, all six exercise solutions, metadata, and full code were read. A fresh lab process completed successfully. No unresolved scientific, source, prose, or teaching defect was identified.
+
+The no-income carry equation follows from two feasible dated trading strategies, rather than a forecast of terminal spot. Both long/short ledgers cancel the random asset payment with the correct signs. Dated income reduces only the financing remaining to delivery; storage reserves increase it. The proportional-yield construction is qualified as a reinvestment model. Currency deposit quantities, domestic/foreign accumulation, and reciprocal quotation logic are dimensionally correct. Existing-contract value uses the same delivery date and discounts the difference from its fixed delivery price. Commodity borrowing restrictions correctly prevent inferring an unavailable reverse-carry equality. The equal-moment example proves the intended counterexample without confusing marginal distributions with statewise payoff identity.
+
+Every numerical example and solution was checked against its formula and timing. The fresh laboratory reproduces fair forward105.127110, dividend quotation48.989967, FX86.864314, existing value4.518389, wheat carry1485.941650, and convenience yield4.187687percent. Its finite state checks supplement the algebra rather than replace it. Input guards, iterable materialization, dividend and storage dates, and equivalent-compounding check were read. The stock-domain limitation and omitted execution risks are made explicit in the prose.
+
+Selected actual caption passages were inspected: position3 at0–420,1150–1520,1750–2215seconds; position4 at300–1050,1400–1660,1780–2105seconds; position5 at0–1440seconds. These cover the forward terminology, two carry directions, distribution/yield treatment, payoff-profile distinction, storage and wheat inputs, and existing-contract timing. The MIT Andrew Lo PDF was opened locally and the financed-purchase/storage/dividend slides inspected directly. The attribution and supporting financing claim are sound; formulas were independently reconstructed instead of inferred from extracted figure text.
+
+The sequence is pedagogically sound for a mathematically mature reader new to finance. Definitions and units precede substantive use, and the financing construction carries through to applications and boundary cases. All exercises have reconstructible worked solutions. The chapter's substantive treatment exceeds a transcript paraphrase without pretending that a live-market feasibility audit has occurred.
+
+This review covers the entire authored chapter and code, with selected source and primary-reference verification. It does not independently reread every caption cue, audit all audio/board frames, certify human expert approval, or replace the separate package/browser checks. The author's full source-reading ledger and the second independent scientific review are separate evidence.
+
+
+## Bounded LF normalization recheck
+
+Reconstructed the former CRLF bytes from each affected canonical LF file and matched its previously accepted SHA-256 exactly. All unaffected inputs retain their accepted digests. The Python AST is identical and the chapter lab passed a fresh execution. This rebind changes byte-level acceptance only; the full scientific review above remains applicable. Evidence: `validation/line-ending-normalization.json`.

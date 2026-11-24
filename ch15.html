@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Static option strategies as piecewise-linear cash flows · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html" aria-current=page>15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>15. Static option strategies as piecewise-linear cash flows</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=p1T4wFkaPS8">Recording 34</a>, <a href="https://www.youtube.com/watch?v=zkDVIsOARK0">Recording 35</a>, <a href="https://www.youtube.com/watch?v=WOeG8sV1xz8">Recording 36</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Construct funded profits from signed stock, call, put, and cash positions</li><li>Derive strategy limits and break-evens from strike partitions rather than memorized diagrams</li><li>Prove vertical-spread, butterfly, and box identities and their price restrictions</li><li>Separate a calendar position&#x27;s interim value from a common-expiry terminal payoff</li></ul>
+<p><strong>Prerequisites:</strong> Funded payoff conventions and European parity from chapter 13; bounds and exercise rights from chapter 14.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch15.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-dates-and-entitlements-come-first-0033">1. Dates and entitlements come first 00:33</a></li><li><a href="#2-a-general-payoff-ledger">2. A general payoff ledger</a></li><li><a href="#3-covered-call-and-protective-put-0729">3. Covered call and protective put 07:29</a></li><li><a href="#4-straddles-strangles-strips-and-straps-2130">4. Straddles, strangles, strips, and straps 21:30</a></li><li><a href="#5-vertical-spreads-direction-with-capped-payments-1616">5. Vertical spreads: direction with capped payments 16:16</a></li><li><a href="#6-butterflies-and-convexity-across-strikes-0322">6. Butterflies and convexity across strikes 03:22</a></li><li><a href="#7-boxes-a-constant-payment-has-a-financing-cost-1057">7. Boxes: a constant payment has a financing cost 10:57</a></li><li><a href="#8-calendar-spreads-require-an-interim-valuation-model-1938">8. Calendar spreads require an interim valuation model 19:38</a></li><li><a href="#9-a-reusable-analytical-and-computational-workflow">9. A reusable analytical and computational workflow</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>An option strategy is a signed sum of contracts. Its name may help communication, but its risk comes from the sum, its initial cost, and the dates of its obligations. A covered call has no naked call delivery shortage while retaining most of the share's downside. A protective put creates a floor while requiring an upfront premium. A box has a constant terminal payment while still costing the present value of that payment. These distinctions emerge from algebra before any market forecast enters.</p>
+<p>The lectures move from stock-plus-option portfolios to straddles, strangles, unequal option ratios, spreads, butterflies, boxes, and calendars. We will derive them with a single consistent method. Partition the terminal stock-price domain at every strike, add signed payments in each interval, then subtract the funded initial cost. The same method handles unfamiliar portfolios and exposes mistakes hidden by a plausible-looking sketch.</p>
+<h2 id="1-dates-and-entitlements-come-first-0033">1. Dates and entitlements come first <a href="https://www.youtube.com/watch?v=p1T4wFkaPS8&amp;t=33s">00:33</a></h2>
+<p>Except where stated otherwise, the underlying is a nondividend share with $S_T\ge0$, all options are European and expire at the same $T$, quantities are per share, and contracts have matching settlement terms. Write $P=P(0,T)&gt;0$ for the cash discount factor. Financing uses one frictionless borrowing/lending curve, with no taxes, default, fees, or collateral costs. Strategy profits refer to a financed initiation at time zero followed by expiry settlement, not mark-to-market gains during the holding period.</p>
+<p>The opening source recording completes an American dividend discussion. For known nonnegative dividends with present value $I_0$ and nonnegative funding accumulation, the appropriate broad inequality is</p>
+<p>$$S_0-I_0-K\le C_0-\Pi_0\le S_0-KP.$$</p>
+<p>Here $C_0,\Pi_0$ are the otherwise matching American premiums. For the lower bound, buy a European call, hold $K$ current cash, and buy cash claims matching each known dividend; this superhedges share plus American put even upon early put exercise. In the equivalent seller's hedge, the cash claims meet dividends owed on a short share; upon put assignment the $K$ cash buys a share to cover that short. The call and any remaining cash claims are nonnegative. Thus $c_0+K+I_0\ge S_0+\Pi_0$, and $C_0\ge c_0$ yields the stated bound.</p>
+<p>For the upper bound, share plus American put can cover an American call and a strike cash obligation at $T$. If the short call is exercised early, deliver the share, receive $K$, and reinvest it to cover that terminal obligation; retain the put and any previously collected dividends. If unassigned, the terminal identity supplies the strike payment. Therefore $S_0+\Pi_0\ge C_0+KP$. This argument handles early assignment directly; it does not substitute American premiums into European parity. With uncertain dividends or different funding assumptions, these hedges need reconsideration.</p>
+<p>For the strategy calculations below we return to <strong>European common-expiry</strong> contracts. In particular, the constant terminal payment of a European box must not be used to erase intermediate assignment cash flows from an American combination.</p>
+<h2 id="2-a-general-payoff-ledger">2. A general payoff ledger</h2>
+<p>Let $a$ be the number of shares, $b$ a cash amount payable at $T$, and $w_j,v_j$ signed call and put quantities at strikes $K_j$. Positive quantities are long; negative quantities are written. The terminal portfolio payment is</p>
+<p>$$H(s)=as+b+\sum_jw_j(s-K_j)^++\sum_jv_j(K_j-s)^+,$$</p>
+<p>where $s=S_T$. Its initial cost is</p>
+<p>$$D=aS_0+bP+\sum_jw_jc_j+\sum_jv_jp_j.$$</p>
+<p>The <strong>funded terminal profit</strong> is</p>
+<p>$$\boxed{G(s)=H(s)-D/P.}$$</p>
+<p>A negative $D$ is a net initial receipt; its funded value contributes positively because it is subtracted. Avoid adding a premium receipt once in $H$ and again in $D$: exercise payoffs contain no premiums. With dividends, add their dated financed payments separately or use a properly matched prepaid-share position.</p>
+<p>Between strikes, $G$ is affine. Its slope is</p>
+<p>$$G'(s)=a+\sum_{K_j&lt;s}w_j-\sum_{K_j&gt;s}v_j,$$</p>
+<p>away from kink points. Passing a strike adds $w_j$ from its call and $v_j$ from its put to the slope. Values at zero and all strikes, plus the final unbounded interval's slope, determine global extrema on $s\ge0$. Break-evens are roots within their relevant intervals; solving an affine extension outside its interval produces a false root. A zero lower-tail slope can yield a whole interval of break-evens, not just an isolated point.</p>
+<p>All following numerical prices are one synthetic <strong>zero-rate</strong> data set, so $P=1$, with spot 100. Call premiums at strikes 90, 100, 110, and 120 are respectively 14, eight, four, and two. European parity then gives put premiums four, eight, 14, and 22. These are teaching prices rather than current market quotations. Their call prices decrease with strike, their adjacent slopes increase, and all quoted vertical-spread bounds hold. We keep $P$ in the general formulas to expose financing, then use this data set for arithmetic.</p>
+<div aria-label="Horizontally scrollable computed option profit atlas" class="tablewrap" role="region" tabindex="0">
+<img alt="Six calculated expiry-profit panels for covered call, protective put, straddle, bull call spread, butterfly, and box, with stock-price and currency-profit axes." src="figures/ch15-payoff-atlas.svg" style="min-width:760px;width:100%;height:auto"/>
+</div>
+<p>On a narrow screen, pan the atlas horizontally; keyboard users can focus the figure region and use the arrow keys. Panel ranges differ to make each strategy's limits legible.</p>
+<p>The plotted window is finite. The accompanying formulas, rather than the edge of a plot, establish unbounded tail behavior. An expiry slope is also not automatically a before-expiry option delta: an unexpired option's market value is a different function.</p>
+<h2 id="3-covered-call-and-protective-put-0729">3. Covered call and protective put <a href="https://www.youtube.com/watch?v=p1T4wFkaPS8&amp;t=449s">07:29</a></h2>
+<p>A <strong>covered call</strong> owns one share and writes one call at $K$. Its payment and cost are</p>
+<p>$$H(s)=s-(s-K)^+=\min(s,K),\qquad D=S_0-c_K.$$</p>
+<p>Profit rises with slope one below $K$ and is constant above $K$. With strike 110 and premium four, net cost is 96, so $G(s)=\min(s,110)-96$. Break-even is 96, maximum profit 14, and loss at $s=0$ is 96. Covering the short call controls the delivery exposure from a rising share price. It does not establish a downside floor above zero or make the portfolio low risk.</p>
+<p>The identity</p>
+<p>$$s-(s-K)^+=K-(K-s)^+$$</p>
+<p>shows that a covered call equals a terminal strike cash claim minus a put. European parity gives the corresponding cost identity $S_0-c_K=KP-p_K$. In the example, $110-14=96$. The stock-plus-written-call view and cash-plus-written-put view describe the same terminal payment under these assumptions, even though their practical collateral and assignment arrangements can differ.</p>
+<p>A <strong>protective put</strong> buys the share and a put at $K$:</p>
+<p>$$H(s)=s+(K-s)^+=\max(s,K),\qquad D=S_0+p_K.$$</p>
+<p>With strike 90 and put premium four, cost is 104. The terminal floor is 90, maximum financed loss is 14, and upside profit is unbounded in this unbounded-stock model. Break-even is 104. The floor concerns the combined payment; a purchase cost above the floor still produces a loss in adverse outcomes.</p>
+<p>Parity also gives $S_0+p_K=c_K+KP$, and the payoff equals call plus strike cash. Here the lower profit plateau is $K-(S_0+p_K)/P=-c_K/P$, which is nonpositive. A guaranteed strictly positive funded plateau would contradict the matching-price identity. The premium paid for insurance must remain in the profit calculation. <a href="https://people.duke.edu/~charvey/classes/ba350/optval/optval.htm">Duke's option-valuation notes, sections 4.1 and 4.3</a>, describe these stock-plus-option constructions; our explicit financing keeps their payments distinct from net terminal profit.</p>
+<h2 id="4-straddles-strangles-strips-and-straps-2130">4. Straddles, strangles, strips, and straps <a href="https://www.youtube.com/watch?v=p1T4wFkaPS8&amp;t=1290s">21:30</a></h2>
+<p>A long <strong>straddle</strong> buys a call and a put with the same strike $K$ and expiry. Its payment is $|s-K|$, cost $D=c_K+p_K$, and profit $|s-K|-D/P$. When $D/P\le K$, the two nonnegative break-evens are $K-D/P$ and $K+D/P$. If the proposed lower root is negative, it lies outside the stock domain and is not attainable. Maximum loss is $D/P$ at $K$. Upside profit is unbounded; downside profit is bounded because $s$ cannot fall below zero.</p>
+<p>At strike 100, our straddle costs 16 and breaks even at 84 and 116. It loses money between those values, even if the share moved noticeably from its initial level. A large move alone does not ensure profit: its size must exceed the funded premium threshold. <a href="https://www.optionseducation.org/strategies/all-strategies/long-straddle">OIC's long-straddle explanation, Description, Max Loss, Max Gain, and Breakeven</a>, supports this construction and distinguishes the bounded stock downside from its unbounded upside. The price already reflects market demand for protection against moves. A prediction that an event will be dramatic does not establish that the option package is underpriced.</p>
+<p>A conventional long <strong>strangle</strong> buys a put at $K_p$ and a call at $K_c&gt;K_p$:</p>
+<p>$$H(s)=\begin{cases}K_p-s,&amp;s&lt;K_p,\\0,&amp;K_p\le s\le K_c,\\s-K_c,&amp;s&gt;K_c.\end{cases}$$</p>
+<p>With total cost $D$, break-evens are $K_p-D/P$ and $K_c+D/P$, subject to the same nonnegative-domain check. Buying put 90 and call 110 costs eight; break-evens are 82 and 118. Maximum loss is eight throughout $[90,110]$. Its smaller debit than the example straddle is accompanied by a wider region of expiry loss, not a free improvement.</p>
+<p>The source also considers reversed strikes, $K_c&lt;K_p$, often called a <strong>gut strangle</strong>. Both options pay in the interval between strikes, giving constant payment $K_p-K_c$ there. For long call 90 and put 110, cost is 28 and that middle payment is 20, so minimum profit is -8. Below 90 the put payment is $110-s$; above 110 the call payment is $s-90$. Break-evens are again 82 and 118. The same profit shape here follows from parity and zero-rate financing, although the debit and cash embedded in the payoff differ. This is a useful test of the distinction between gross payments and net profits.</p>
+<p>A <strong>strip</strong> buys one call and two puts at $K$; a <strong>strap</strong> buys two calls and one put. If their funded costs are $F_{\mathrm{strip}}=(c+2p)/P$ and $F_{\mathrm{strap}}=(2c+p)/P$, their profits are</p>
+<p>$$G_{\rm strip}(s)=\begin{cases}2(K-s)-F_{\mathrm{strip}},&amp;s&lt;K,\\s-K-F_{\mathrm{strip}},&amp;s\ge K,\end{cases}$$</p>
+<p>$$G_{\rm strap}(s)=\begin{cases}K-s-F_{\mathrm{strap}},&amp;s&lt;K,\\2(s-K)-F_{\mathrm{strap}},&amp;s\ge K.\end{cases}$$</p>
+<p>At strike 100, both costs are 24. The strip's roots are 88 and 124; the strap's are 76 and 112. Both lose 24 at the strike. The strip has a steeper payoff toward falling prices, and the strap toward rising prices. The slope ratios describe conditional payoff sensitivity, not the holder's numerical beliefs, the probabilities of the branches, or an automatically optimal portfolio weight. Buying additional contracts increases the premium at risk as well as the tail exposure.</p>
+<p>Short versions negate the corresponding long profit function if all legs and executable prices are exactly reversed. In practice long trades execute at asks and short trades at bids, so the two attainable costs need not be exact negatives of a midprice illustration. A short straddle has unbounded rising-price loss in this stock model and substantial bounded falling-price loss; a compact central-profit diagram should not obscure those tails.</p>
+<h2 id="5-vertical-spreads-direction-with-capped-payments-1616">5. Vertical spreads: direction with capped payments <a href="https://www.youtube.com/watch?v=zkDVIsOARK0&amp;t=976s">16:16</a></h2>
+<p>Let $K_1&lt;K_2$ and $W=K_2-K_1$. A <strong>bull call spread</strong> buys call $K_1$ and writes call $K_2$. Its terminal payment is</p>
+<p>$$B(s)=(s-K_1)^+-(s-K_2)^+=\begin{cases}0,&amp;s\le K_1,\\s-K_1,&amp;K_1&lt;s&lt;K_2,\\W,&amp;s\ge K_2.\end{cases}$$</p>
+<p>The debit $D_c=c_{K_1}-c_{K_2}$ obeys $0\le D_c\le WP$ by payoff dominance. Funded profit is bounded between $-D_c/P$ and $W-D_c/P$. Its break-even in the sloping region is $K_1+D_c/P$. For calls 100 and 110, debit four gives maximum loss four, maximum profit six, and break-even 104. The strike width ten is the maximum <strong>payment</strong>, not the maximum profit.</p>
+<p>Writing the upper call reduces cost from eight to four but removes payments above 110. Whether that tradeoff suits a belief or objective is a separate portfolio decision. No-arbitrage establishes a consistent price restriction, not which investor should choose the position.</p>
+<p>A <strong>bear put spread</strong> buys put $K_2$ and writes put $K_1$. Its payment is $W-B(s)$, cost $D_p=p_{K_2}-p_{K_1}$, and funded profit ranges from $-D_p/P$ to $W-D_p/P$. Buying put 100 and writing put 90 costs four: break-even 96, maximum loss four, maximum profit six. A <strong>bull put spread</strong> reverses that bear position, while a <strong>bear call spread</strong> reverses the bull call position. Credit receipts do not by themselves mean profit: future exercise obligations remain.</p>
+<p>For the same pair of strikes, parity gives</p>
+<p>$$D_c+D_p=WP.$$</p>
+<p>Consequently the bull call's funded profit $B-D_c/P$ equals the bull put's funded profit $(B-W)+D_p/P$. Their gross payments and initial cash flows differ by a strike cash claim; after consistent financing the terminal profit is identical. European matched contracts are essential to this statement. Early assignment, mismatched expiry, or unequal multipliers changes the actual dated ledger.</p>
+<h2 id="6-butterflies-and-convexity-across-strikes-0322">6. Butterflies and convexity across strikes <a href="https://www.youtube.com/watch?v=WOeG8sV1xz8&amp;t=202s">03:22</a></h2>
+<p>For equally spaced strikes $K_1&lt;K_2&lt;K_3$ with $K_2=(K_1+K_3)/2$ and spacing $h$, a long call <strong>butterfly</strong> buys calls at the wings and writes two at the middle. Its payment is</p>
+<p>$$L(s)=(s-K_1)^+-2(s-K_2)^++(s-K_3)^+$$</p>
+<p>$$=\begin{cases}0,&amp;s\le K_1,\\s-K_1,&amp;K_1&lt;s\le K_2,\\K_3-s,&amp;K_2&lt;s&lt;K_3,\\0,&amp;s\ge K_3.\end{cases}$$</p>
+<p>The nonnegative tent reaches height $h$. <a href="https://www.optionseducation.org/strategies/all-strategies/long-call-butterfly">OIC's long-call butterfly explanation, Description and Profit/Loss</a>, specifies the equal strike spacing and matching expiry that create this tent. Therefore its debit obeys</p>
+<p>$$0\le D_b=c_{K_1}-2c_{K_2}+c_{K_3}\le hP.$$</p>
+<p>The lower inequality is discrete convexity of the call price as a function of strike. For wings 90 and 110 with middle 100, debit is $14-16+4=2$. Funded profit is $L(s)-2$, with maximum loss two outside the wings, maximum profit eight at 100, and roots 92 and 108.</p>
+<p>For unequal strike spacing, quantities $1,-2,1$ no longer create a tent that returns to zero. The relative weights must change. A convexity test uses $K_2=\lambda K_1+(1-\lambda)K_3$, with $\lambda=(K_3-K_2)/(K_3-K_1)$, and the nonnegative payment $\lambda(s-K_1)^++(1-\lambda)(s-K_3)^+-(s-K_2)^+$. Its price must be nonnegative. Geometry is encoded in both strikes and quantities.</p>
+<p>A put butterfly at the equally spaced strikes has the same terminal tent and the same initial price under European parity: the linear strike and stock terms cancel in the second difference. Reversing all positions produces a short butterfly. The long tent favors a terminal price near its middle relative to the paid premium. That shape does not establish that its current price is maximized at the middle stock price, nor does it define an unexpired volatility sensitivity without a pricing model.</p>
+<h2 id="7-boxes-a-constant-payment-has-a-financing-cost-1057">7. Boxes: a constant payment has a financing cost <a href="https://www.youtube.com/watch?v=WOeG8sV1xz8&amp;t=657s">10:57</a></h2>
+<p>A long <strong>box</strong> combines bull call spread $K_1,K_2$ with bear put spread at the same strikes. Its payment is $B(s)+[W-B(s)]=W$ for every $s$. Hence</p>
+<p>$$D_{\rm box}=c_{K_1}-c_{K_2}+p_{K_2}-p_{K_1}=WP.$$</p>
+<p>For strikes 90 and 110, the call spread costs ten and the put spread costs ten. The box costs 20 and pays 20 under our zero-rate convention, so financed profit is zero. A positive terminal payment is not a positive return on a free position.</p>
+<p>For a separate synthetic funding example with $W=20$ and $P=0.95$, fair cost is 19. If the exact executable box costs 18.50 under the frictionless model, borrow 19 repaying 20, buy the box for 18.50, and retain 0.50 initially. Its 20 terminal payment repays the loan. If it costs 19.50, short the box and buy the terminal cash claim for 19, again retaining 0.50. Each construction requires actual simultaneous executable legs and the stated funding, default, and settlement conditions.</p>
+<p>Regrouping the box as $(\text{call}_{K_1}-\text{put}_{K_1})-(\text{call}_{K_2}-\text{put}_{K_2})$ gives terminal payments $(s-K_1)-(s-K_2)=W$. Each same-strike difference is a forward-style payoff from chapter 13. Its initial cost is generally not zero for an arbitrary strike, so calling it a synthetic forward does not erase that cost.</p>
+<p>The constant-payment proof removes terminal stock-price exposure in the model. It does not remove counterparty default, fees, funding spreads, delivery mistakes, or intermediate American assignment. Quoting a box-implied rate without matching these terms can conflate a model identity with an attainable borrowing opportunity.</p>
+<h2 id="8-calendar-spreads-require-an-interim-valuation-model-1938">8. Calendar spreads require an interim valuation model <a href="https://www.youtube.com/watch?v=WOeG8sV1xz8&amp;t=1178s">19:38</a></h2>
+<p>A <strong>calendar</strong> or horizontal spread uses equal strikes and different expiries; a diagonal spread changes both. Consider short call expiring at $T_1$ and long call expiring at $T_2&gt;T_1$. At $T_1$, the short pays $(S_{T_1}-K)^+$, but the long is still an asset whose market value is $c(T_1,S_{T_1};K,T_2)$ in a model where spot and time are sufficient state variables. If the long is sold then, the closing value is</p>
+<p>$$V_{T_1}=c(T_1,S_{T_1};K,T_2)-(S_{T_1}-K)^+.$$</p>
+<p>With initial debit $D=c(0;K,T_2)-c(0;K,T_1)$, the financed profit at this closing date is $V_{T_1}-D/P(0,T_1)$. If the model includes stochastic volatility or rates, the long-option value also depends on those state variables. It is not determined by $S_{T_1}$ alone. Holding the long until $T_2$ instead introduces a second stock observation and an intermediate payment date.</p>
+<p>For an explicit illustration, take zero rates, strike 100, and one remaining stock step after $T_1$ with factors $u=1.2,d=0.8$. Replication gives weight $1/2$. The long call's value at $T_1$ is</p>
+<p>$$c_{T_1}=\tfrac12(1.2s-100)^++\tfrac12(0.8s-100)^+.$$</p>
+<p>At $s=80,100,130$, it is respectively zero, ten, and 30. Subtracting the expiring short call's payments zero, zero, and 30 leaves closing values zero, ten, and zero. This particular model produces a tent-like calendar closing-value curve. The long call itself is <em>not</em> most expensive at the strike: its value 30 at spot 130 exceeds its value ten at spot 100. The hump concerns the difference after subtracting the short's intrinsic payment.</p>
+<p>In this zero-rate example the difference vanishes above 125 because both future call payoffs are linear and the stock is then certain to finish above the strike. With positive funding rates, a sufficiently deep-in-the-money long call instead approaches $s-KP(T_1,T_2)$; after subtracting $s-K$, the difference approaches $K[1-P(T_1,T_2)]$, not necessarily zero. Thus even a familiar calendar sketch needs its rate assumptions.</p>
+<p>Nor is “longer expiry means a higher European price” a universal rule. In the deterministic dividend example of chapter 14, spot is 100, strike 80, rate zero, and a cash dividend of ten falls between two expiries. The shorter European call before the ex-date pays 20; the longer after it pays ten. Longer American rights do contain shorter American rights when all other contractual entitlements match, but European exercise sets are different singleton dates. Use the relevant theorem's assumptions rather than a blanket uncertainty argument.</p>
+<h2 id="9-a-reusable-analytical-and-computational-workflow">9. A reusable analytical and computational workflow</h2>
+<p>Run <a href="labs/ch15.py">the laboratory</a>. It represents portfolios by signed legs, finds interval slopes and isolated break-evens, checks extrema using every strike and the final tail, and verifies parity-based identities across the complete piecewise structure. It also calculates the calendar continuation values from the explicit one-step model. Run <code>python labs/ch15.py --figure figures/ch15-payoff-atlas.svg</code> to reproduce the six-panel figure from the same functions and premiums.</p>
+<p>To analyze a new static strategy, first list quantities, strikes, exercise styles, expiry and settlement dates. Compute its signed initial cost using the correct bid or ask for each leg. Partition the terminal domain, derive each interval's payment, include all dated funding, and solve only roots that lie in their corresponding intervals. Finally inspect zero-price exposure and the unbounded rising-price tail analytically. A finite plot or simulation grid cannot certify the absence of an unbounded loss beyond its last sample.</p>
+<p>Expected profit and portfolio suitability require more than an expiry diagram: probabilities, the pricing of protection, capital and collateral constraints, liquidity, and the investor's objective. The strategy algebra is nevertheless foundational. It explains how nonlinear claims combine, where exact replications exist, and which apparent opportunities are merely financing or different accounting of the same payment.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive the general funded profit formula for a signed stock-and-option portfolio. Explain how to obtain all interval slopes and why checking a finite grid cannot establish an unbounded tail limit.</li>
+<li>Using the synthetic premiums, calculate the covered call at strike 110 and protective put at strike 90. Find their break-evens and maximal losses, then prove their cash-plus-option replications.</li>
+<li>Derive the straddle, conventional strangle, strip, and strap break-evens for this data set. Compare the conventional and reversed-strike strangle profits. Explain why large event risk alone does not imply that either long strategy will be profitable.</li>
+<li>Derive bull call and bear put spread payments at common strikes and prove their debits sum to the discounted width. Calculate the profit bounds of the call-100/call-110 bull spread and the put-100/put-90 bear spread.</li>
+<li>Derive the 90/100/110 call butterfly's full payment function, price, profit extrema, and roots. Prove its price equals the matching put butterfly, then calculate the fair price and an arbitrage ledger for the separate width-20 box with discount factor 0.95 and executable cost 18.50.</li>
+<li>At the short expiry of the calendar example, value the remaining long call for spots 80, 100, and 130. Distinguish its value from the calendar closing value. Explain the dividend counterexample to universal European maturity monotonicity.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>Signed quantities give $H(s)=as+b+\sum_jw_j(s-K_j)^++\sum_jv_j(K_j-s)^+$. The initial cost is $D=aS_0+bP+\sum_jw_jc_j+\sum_jv_jp_j$ and financing it requires $D/P$ at expiry, hence $G=H-D/P$. Between strikes the slope is $a+\sum_{K_j&lt;s}w_j-\sum_{K_j&gt;s}v_j$. Each strike adds its signed call and put quantities to the slope. Evaluate zero and every strike for finite extrema, then inspect the final affine segment: a positive final slope makes the supremum infinite, a negative one makes the infimum negative infinite, and a zero slope leaves a constant tail. No finite endpoint substitutes for this tail argument.</p>
+</li>
+<li>
+<p>Covered-call cost is $100-4=96$, and payment $\min(s,110)$ gives root 96, maximum profit 14, and loss 96 at zero. Its identity is $s-(s-110)^+=110-(110-s)^+$, with matching cost $110-p_{110}=110-14=96$. Protective-put cost is $100+4=104$, and payment $\max(s,90)$ gives root 104 and loss floor -14. Its identity is $s+(90-s)^+=90+(s-90)^+$, with matching cost $90+c_{90}=90+14=104$. The short-call delivery is covered while the stock downside remains; the put creates an actual payment floor at its strike.</p>
+</li>
+<li>
+<p>The straddle costs 16 and has roots $100\pm16$, hence 84 and 116. The conventional strangle costs eight and roots are $90-8=82$ and $110+8=118$. The strip costs 24 and has roots $100-24/2=88$ and $100+24=124$. The strap costs 24 and roots are $100-24=76$ and $100+24/2=112$. Reversed-strike call 90 plus put 110 costs 28, pays 20 more than conventional put 90 plus call 110 in every state, and therefore has the same financed zero-rate profit. Event-related movement must exceed the applicable premium threshold; both movement magnitude and price paid matter.</p>
+</li>
+<li>
+<p>The bull call payment is zero below $K_1$, $s-K_1$ between strikes, and $W$ above $K_2$. The bear put pays $W$ minus that amount. Their sum is constant $W$, so matched European costs sum to $WP$. Calls 100/110 cost $8-4=4$ and produce profit from -4 to six, with root 104. Puts 100/90 cost $8-4=4$ and produce profit from -4 to six, with root 96. The examples use different strike intervals, although both have width ten; the debit-sum identity is for spreads using the <em>same</em> two strikes.</p>
+</li>
+<li>
+<p>The butterfly pays zero below 90, $s-90$ between 90 and 100, $110-s$ between 100 and 110, and zero beyond 110. Cost is $14-2(8)+4=2$, maximum profit eight, maximum loss two, and roots 92 and 108. Parity says $p_K=c_K-S_0+KP$; taking the second difference cancels stock and strike terms, giving put-butterfly cost $4-2(8)+14=2$. For the separate box, fair cost is $20(0.95)=19$. Borrow 19 to repay 20 at expiry, buy the box for 18.50, and retain 0.50 initially. The constant terminal payment 20 repays the loan in every state, under the stipulated executable prices and financing assumptions.</p>
+</li>
+<li>
+<p>With remaining factors 1.2 and 0.8 and growth one, the pricing weight is one half. At spot 80 both future stock prices are below 100, giving long-call value zero. At spot 100 the payoffs are 20 and zero, giving ten. At spot 130 the payoffs are 56 and four, giving 30. Subtracting the short call's immediate payments zero, zero, and 30 yields calendar closing values zero, ten, and zero. The long call itself is increasing across these spots. A dividend between two European expiries can reduce the longer claim's stock entitlement: the deterministic spot-100, strike-80, zero-rate case gives a pre-dividend call 20 and a post-dividend call ten. The shorter European exercise date is not a right embedded inside the longer European contract.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Complete English captions for <a href="https://www.youtube.com/watch?v=p1T4wFkaPS8">position 34</a>, <a href="https://www.youtube.com/watch?v=zkDVIsOARK0">position 35</a>, and <a href="https://www.youtube.com/watch?v=WOeG8sV1xz8">position 36</a> were read sequentially. The American dividend inequality, covered and protective portfolios, long and short volatility-shaped packages, ratios, vertical spreads, butterflies, boxes, synthetic forwards, and calendars are reconstructed as explicit signed and dated cash flows.</p>
+<p>The notes distinguish payments from financed profits, use weak no-arbitrage restrictions, limit all roots to the stock domain, and derive tails analytically. The calendar's remaining option is valued rather than treated as already expired; its own price is not incorrectly described as peaking at the strike. The blanket European maturity claim is qualified with a dividend counterexample. All examples, figure data, code, and exercises are independent pedagogical constructions. Full caption reading does not claim a comprehensive audiovisual audit, current market prices, or investment recommendations.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch15.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Analyze synthetic European portfolios and optionally regenerate the atlas.
+
+python labs/ch15.py --figure figures/ch15-payoff-atlas.svg
+All monetary values are per share. The teaching data use zero interest.
+&quot;&quot;&quot;
+
+import argparse
+from dataclasses import dataclass
+from html import escape
+from math import inf, isclose
+from pathlib import Path
+
+
+CALL = {90: 14, 100: 8, 110: 4, 120: 2}
+PUT = {strike: premium - 100 + strike for strike, premium in CALL.items()}
+
+
+@dataclass(frozen=True)
+class Portfolio:
+    &quot;&quot;&quot;Signed quantities, with a terminal cash leg and its discount price.&quot;&quot;&quot;
+
+    stock: float = 0
+    cash: float = 0
+    calls: tuple = ()
+    puts: tuple = ()
+    discount: float = 1
+
+    def cost(self):
+        if self.discount &lt;= 0:
+            raise ValueError(&quot;Discount factor must be positive&quot;)
+        return (100 * self.stock + self.cash * self.discount
+                + sum(qty * CALL[strike] for strike, qty in self.calls)
+                + sum(qty * PUT[strike] for strike, qty in self.puts))
+
+    def payoff(self, stock):
+        if stock &lt; 0:
+            raise ValueError(&quot;This model requires nonnegative stock prices&quot;)
+        return (self.stock * stock + self.cash
+                + sum(qty * max(stock - strike, 0)
+                      for strike, qty in self.calls)
+                + sum(qty * max(strike - stock, 0)
+                      for strike, qty in self.puts))
+
+    def profit(self, stock):
+        return self.payoff(stock) - self.cost() / self.discount
+
+    def slope(self, stock):
+        &quot;&quot;&quot;Derivative inside a strike interval, excluding kink points.&quot;&quot;&quot;
+        return (self.stock
+                + sum(qty for strike, qty in self.calls if stock &gt; strike)
+                - sum(qty for strike, qty in self.puts if stock &lt; strike))
+
+    def analyze(self):
+        &quot;&quot;&quot;Exact affine-interval extrema and roots, including the tail.
+
+        A flat zero interval is returned separately from isolated roots.
+        No sampled upper endpoint is used to infer a finite tail bound.
+        &quot;&quot;&quot;
+        knots = sorted({0, *(k for k, _ in self.calls),
+                        *(k for k, _ in self.puts)})
+        values = [self.profit(stock) for stock in knots]
+        lower, upper = min(values), max(values)
+        final_slope = self.slope(knots[-1] + 1)
+        if final_slope &lt; 0:
+            lower = -inf
+        if final_slope &gt; 0:
+            upper = inf
+        roots, flat = set(), []
+        for left, right in zip(knots, knots[1:] + [inf]):
+            midpoint = left + 1 if right == inf else (left + right) / 2
+            slope, value = self.slope(midpoint), self.profit(left)
+            if isclose(slope, 0, abs_tol=1e-12):
+                if isclose(value, 0, abs_tol=1e-12):
+                    flat.append((left, right))
+            else:
+                root = left - value / slope
+                if left - 1e-10 &lt;= root &lt;= right + 1e-10:
+                    roots.add(round(max(root, 0), 10))
+        return lower, upper, sorted(roots), flat
+
+
+STRATEGIES = {
+    &quot;Covered call 110&quot;: Portfolio(stock=1, calls=((110, -1),)),
+    &quot;Protective put 90&quot;: Portfolio(stock=1, puts=((90, 1),)),
+    &quot;Straddle 100&quot;: Portfolio(calls=((100, 1),), puts=((100, 1),)),
+    &quot;Strangle 90 / 110&quot;: Portfolio(calls=((110, 1),), puts=((90, 1),)),
+    &quot;Gut strangle 90 / 110&quot;: Portfolio(calls=((90, 1),), puts=((110, 1),)),
+    &quot;Strip 100&quot;: Portfolio(calls=((100, 1),), puts=((100, 2),)),
+    &quot;Strap 100&quot;: Portfolio(calls=((100, 2),), puts=((100, 1),)),
+    &quot;Bull call 100 / 110&quot;: Portfolio(calls=((100, 1), (110, -1))),
+    &quot;Bear put 90 / 100&quot;: Portfolio(puts=((100, 1), (90, -1))),
+    &quot;Butterfly 90 / 100 / 110&quot;: Portfolio(
+        calls=((90, 1), (100, -2), (110, 1))),
+    &quot;Box 90 / 110&quot;: Portfolio(calls=((90, 1), (110, -1)),
+                              puts=((110, 1), (90, -1))),
+}
+
+
+def assert_close(actual, expected):
+    assert isclose(actual, expected, abs_tol=1e-9), (actual, expected)
+
+
+def verify():
+    expected = {
+        &quot;Covered call 110&quot;: (-96, 14, [96]),
+        &quot;Protective put 90&quot;: (-14, inf, [104]),
+        &quot;Straddle 100&quot;: (-16, inf, [84, 116]),
+        &quot;Strangle 90 / 110&quot;: (-8, inf, [82, 118]),
+        &quot;Gut strangle 90 / 110&quot;: (-8, inf, [82, 118]),
+        &quot;Strip 100&quot;: (-24, inf, [88, 124]),
+        &quot;Strap 100&quot;: (-24, inf, [76, 112]),
+        &quot;Bull call 100 / 110&quot;: (-4, 6, [104]),
+        &quot;Bear put 90 / 100&quot;: (-4, 6, [96]),
+        &quot;Butterfly 90 / 100 / 110&quot;: (-2, 8, [92, 108]),
+    }
+    for name, result in expected.items():
+        lower, upper, roots, flat = STRATEGIES[name].analyze()
+        assert_close(lower, result[0])
+        assert_close(upper, result[1])
+        assert roots == result[2], (name, roots)
+        assert not flat
+        for root in roots:
+            assert_close(STRATEGIES[name].profit(root), 0)
+        print(f&quot;{name}: min {lower:g}; max {upper:g}; roots {roots}&quot;)
+    assert STRATEGIES[&quot;Box 90 / 110&quot;].analyze() == (
+        0, 0, [], [(0, 90), (90, 110), (110, inf)])
+    assert_close(STRATEGIES[&quot;Box 90 / 110&quot;].cost(), 20)
+    naked_short = Portfolio(calls=((100, -1),))
+    assert naked_short.analyze()[0] == -inf
+    assert naked_short.analyze()[2] == [108]
+    assert Portfolio().analyze() == (0, 0, [], [(0, inf)])
+
+    # Check exact payoff identities in all regions and at every kink.
+    points = (0, 81, 90, 92, 99, 100, 108, 110, 130, 1e9)
+    covered_cash_put = Portfolio(cash=110, puts=((110, -1),))
+    protective_cash_call = Portfolio(cash=90, calls=((90, 1),))
+    put_butterfly = Portfolio(puts=((90, 1), (100, -2), (110, 1)))
+    bull_call = Portfolio(calls=((90, 1), (110, -1)))
+    bull_put = Portfolio(puts=((90, 1), (110, -1)))
+    bear_put = Portfolio(puts=((110, 1), (90, -1)))
+    assert_close(bull_call.cost() + bear_put.cost(), 20)
+    for stock in points:
+        assert_close(STRATEGIES[&quot;Covered call 110&quot;].profit(stock),
+                     covered_cash_put.profit(stock))
+        assert_close(STRATEGIES[&quot;Protective put 90&quot;].profit(stock),
+                     protective_cash_call.profit(stock))
+        assert_close(STRATEGIES[&quot;Butterfly 90 / 100 / 110&quot;].profit(stock),
+                     put_butterfly.profit(stock))
+        assert_close(STRATEGIES[&quot;Strangle 90 / 110&quot;].profit(stock),
+                     STRATEGIES[&quot;Gut strangle 90 / 110&quot;].profit(stock))
+        assert_close(bull_call.profit(stock), bull_put.profit(stock))
+        assert_close(STRATEGIES[&quot;Box 90 / 110&quot;].payoff(stock), 20)
+    fair_box = 20 * 0.95
+    assert_close(fair_box - 18.5, 0.5)
+    assert_close(20 - fair_box / 0.95, 0)
+
+    # Calendar: price an unexpired claim, then subtract the expiring leg.
+    calendar = []
+    for stock in (80, 100, 130):
+        remaining = (max(1.2 * stock - 100, 0)
+                     + max(0.8 * stock - 100, 0)) / 2
+        closing = remaining - max(stock - 100, 0)
+        calendar.append((remaining, closing))
+    assert calendar == [(0, 0), (10, 10), (30, 0)]
+    assert 100 - 80 &gt; 90 - 80  # Dividend European-expiry counterexample.
+    print(f&quot;Calendar (long-call value, closing value): {calendar}&quot;)
+    print(&quot;All analytical tail, root, replication, and calendar checks &quot;
+          &quot;passed.&quot;)
+
+
+def figure(path):
+    &quot;&quot;&quot;Pure SVG output, deterministically calculated from portfolio methods.&quot;&quot;&quot;
+    names = [&quot;Covered call 110&quot;, &quot;Protective put 90&quot;, &quot;Straddle 100&quot;,
+             &quot;Bull call 100 / 110&quot;, &quot;Butterfly 90 / 100 / 110&quot;, &quot;Box 90 / 110&quot;]
+    ranges = [(-105, 25), (-25, 70), (-25, 90), (-6, 8), (-4, 10), (-1, 1)]
+    parts = [&#x27;&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;760&quot; &#x27;
+             &#x27;height=&quot;840&quot; viewBox=&quot;0 0 760 840&quot; role=&quot;img&quot; &#x27;
+             &#x27;aria-labelledby=&quot;title desc&quot;&gt;&#x27;,
+             &#x27;&lt;title id=&quot;title&quot;&gt;Calculated European option expiry profits&#x27;
+             &#x27;&lt;/title&gt;&#x27;,
+             &#x27;&lt;desc id=&quot;desc&quot;&gt;Six panels, synthetic zero-rate prices. &#x27;
+             &#x27;Stock range zero to 160; panel profit ranges differ. &#x27;
+             &#x27;Covered call min -96 max 14; protective put min -14; &#x27;
+             &#x27;straddle min -16; bull call min -4 max 6; &#x27;
+             &#x27;butterfly min -2 max 8; box zero profit.&lt;/desc&gt;&#x27;,
+             &#x27;&lt;rect width=&quot;760&quot; height=&quot;840&quot; fill=&quot;#111923&quot;/&gt;&#x27;,
+             &#x27;&lt;g font-family=&quot;Arial,sans-serif&quot; font-size=&quot;14&quot; &#x27;
+             &#x27;fill=&quot;#e4eaf2&quot;&gt;&#x27;]
+    for index, (name, limits) in enumerate(zip(names, ranges)):
+        origin_x, origin_y = (index % 2) * 380, (index // 2) * 280
+        left, top, width, height = origin_x + 58, origin_y + 55, 298, 168
+        low, high = limits
+
+        def x(value):
+            return left + value * width / 160
+
+        def y(value):
+            return top + (high - value) * height / (high - low)
+
+        parts.append(f&#x27;&lt;text x=&quot;{origin_x + 18}&quot; y=&quot;{origin_y + 25}&quot; &#x27;
+                     f&#x27;font-size=&quot;17&quot;&gt;{escape(name)}&lt;/text&gt;&#x27;)
+        parts.append(f&#x27;&lt;text x=&quot;{left}&quot; y=&quot;{top - 10}&quot;&gt;Profit / share&lt;/text&gt;&#x27;)
+        for value in (low, 0, high):
+            parts.append(f&#x27;&lt;path d=&quot;M {left} {y(value):.3f} h {width}&quot; &#x27;
+                         &#x27;stroke=&quot;#394957&quot; fill=&quot;none&quot;/&gt;&#x27;)
+            parts.append(f&#x27;&lt;text x=&quot;{left - 6}&quot; y=&quot;{y(value) + 5:.3f}&quot; &#x27;
+                         f&#x27;text-anchor=&quot;end&quot;&gt;{value:g}&lt;/text&gt;&#x27;)
+        for value in (0, 40, 80, 120, 160):
+            parts.append(f&#x27;&lt;text x=&quot;{x(value):.3f}&quot; y=&quot;{top + height + 21}&quot; &#x27;
+                         f&#x27;text-anchor=&quot;middle&quot;&gt;{value}&lt;/text&gt;&#x27;)
+        portfolio = STRATEGIES[name]
+        knots = sorted({0, 160, *(k for k, _ in portfolio.calls),
+                        *(k for k, _ in portfolio.puts)})
+        for value in knots:
+            if 0 &lt; value &lt; 160:
+                parts.append(f&#x27;&lt;path d=&quot;M {x(value):.3f} {top} v {height}&quot; &#x27;
+                             &#x27;stroke=&quot;#627184&quot; stroke-dasharray=&quot;3 5&quot;/&gt;&#x27;)
+        coordinates = &quot; &quot;.join(f&#x27;{x(s):.3f},{y(portfolio.profit(s)):.3f}&#x27;
+                               for s in knots)
+        parts.append(f&#x27;&lt;polyline points=&quot;{coordinates}&quot; fill=&quot;none&quot; &#x27;
+                     &#x27;stroke=&quot;#6fddc2&quot; stroke-width=&quot;3&quot;/&gt;&#x27;)
+        parts.append(f&#x27;&lt;text x=&quot;{left + width / 2}&quot; y=&quot;{top + height + 45}&quot; &#x27;
+                     &#x27;text-anchor=&quot;middle&quot;&gt;Terminal stock price&lt;/text&gt;&#x27;)
+    parts.extend([&#x27;&lt;/g&gt;&#x27;, &#x27;&lt;/svg&gt;&#x27;])
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(&quot;\n&quot;.join(parts) + &quot;\n&quot;, encoding=&quot;utf-8&quot;, newline=&quot;\n&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(&quot;--figure&quot;, type=Path)
+    args = parser.parse_args()
+    verify()
+    if args.figure:
+        figure(args.figure)
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch14.html">Previous: Option bounds and the decision to exercise</a><a rel="next" href="ch16.html">Next: From random walks to Brownian risk factors</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

@@ -1,0 +1,79 @@
+{
+  "chapter": "ch07",
+  "reader": "source_research",
+  "recordings": [
+    {
+      "position": 17,
+      "video_id": "osqhEV8JzGE",
+      "normalized_text_sha256": "d2c1be609ef50737695fc2d470ec7ffdcae9b5b15fb0dc73b70d4de4688403f1",
+      "reading": "full sequential text read",
+      "first_start": 24.75,
+      "last_end": 1864.64,
+      "landmarks": [
+        {
+          "seconds": 300,
+          "topic": "Weighted beta and CML versus SML"
+        },
+        {
+          "seconds": 1470,
+          "topic": "Market-position hedge and residual risk"
+        },
+        {
+          "seconds": 1740,
+          "topic": "Index futures settlement discussion"
+        }
+      ],
+      "scope": "Complete normalized English captions; historical contract rules contextual only; no comprehensive audiovisual review. Stock realization versus expected CAPM return, futures notional versus contract value and spoken six/ten contract slip explicitly qualified."
+    },
+    {
+      "position": 18,
+      "video_id": "FNWj1kZmwq0",
+      "normalized_text_sha256": "879e431e8295309e8cb0074f8e083b3f7ae3c1759595b445b3e7300d380c0680",
+      "reading": "full sequential text read",
+      "first_start": 24.73,
+      "last_end": 1998.119,
+      "landmarks": [
+        {
+          "seconds": 435,
+          "topic": "Index contract multiplier, settlement and historical specifications"
+        },
+        {
+          "seconds": 1204,
+          "topic": "Share and index hedge scenario"
+        },
+        {
+          "seconds": 1665,
+          "topic": "Combined stock and futures exposure derivation"
+        }
+      ],
+      "scope": "Complete normalized English captions; historical contract rules contextual only; no comprehensive audiovisual review. Stock realization versus expected CAPM return, futures notional versus contract value and spoken six/ten contract slip explicitly qualified."
+    },
+    {
+      "position": 19,
+      "video_id": "3pvhRtLCpkY",
+      "normalized_text_sha256": "908a79238a78a04b4a1590810f1b5a130f935c60407e2b31903be4cb5ffeb08f",
+      "reading": "full sequential text read",
+      "first_start": 24.699,
+      "last_end": 1900.999,
+      "landmarks": [
+        {
+          "seconds": 25,
+          "topic": "Target beta contract count"
+        },
+        {
+          "seconds": 390,
+          "topic": "Index carry pricing and hedge example"
+        },
+        {
+          "seconds": 480,
+          "topic": "Remaining carry at early hedge closure"
+        },
+        {
+          "seconds": 1400,
+          "topic": "Cash and reverse carry with trading frictions"
+        }
+      ],
+      "scope": "Complete normalized English captions; historical contract rules contextual only; no comprehensive audiovisual review. Stock realization versus expected CAPM return, futures notional versus contract value and spoken six/ten contract slip explicitly qualified."
+    }
+  ]
+}

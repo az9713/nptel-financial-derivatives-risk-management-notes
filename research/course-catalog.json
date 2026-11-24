@@ -1,0 +1,497 @@
+{
+  "source": "https://nptel.ac.in/courses/110107128/__data.json",
+  "retrieved_on": "2026-11-24",
+  "course": "Financial Derivatives & Risk Management",
+  "instructor": "Prof. J. P. Singh",
+  "institution": "IIT Roorkee",
+  "lessons": [
+    {
+      "unit": "Unit-1",
+      "lecture_number": 1,
+      "title": "Overview of Derivatives",
+      "video_id": "pJDMgEpn-bM",
+      "playlist_position": 2,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-1",
+      "lecture_number": 2,
+      "title": "Forwards: Introduction & Pricing",
+      "video_id": "ZimJwj_Llrw",
+      "playlist_position": 3,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-1",
+      "lecture_number": 3,
+      "title": "Forwards: Pricing & Arbitrage",
+      "video_id": "QKHnXnYaUL8",
+      "playlist_position": 4,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-1",
+      "lecture_number": 4,
+      "title": "Forwards Pricing: Consumption Assets",
+      "video_id": "2C5iRNWGUJw",
+      "playlist_position": 5,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-1",
+      "lecture_number": 5,
+      "title": "Futures: Introduction & Salient Features",
+      "video_id": "aIIUoeuQjsI",
+      "playlist_position": 6,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-2",
+      "lecture_number": 6,
+      "title": "Futures: Margining & MTM",
+      "video_id": "FTQDee2_oOU",
+      "playlist_position": 7,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-2",
+      "lecture_number": 7,
+      "title": "Forwards & Futures Prices, Exposure",
+      "video_id": "FS670JTUYlY",
+      "playlist_position": 8,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-2",
+      "lecture_number": 8,
+      "title": "Exposure & Risk",
+      "video_id": "U2BzQcc46ck",
+      "playlist_position": 9,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-2",
+      "lecture_number": 9,
+      "title": "Basics of Futures Hedging",
+      "video_id": "RaBL0YcrFkQ",
+      "playlist_position": 10,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-2",
+      "lecture_number": 10,
+      "title": "Futures Hedging: Nuances",
+      "video_id": "pbr-X3rjuPw",
+      "playlist_position": 11,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-3",
+      "lecture_number": 11,
+      "title": "Futures Hedging: No of Contracts",
+      "video_id": "nDESESqRF-s",
+      "playlist_position": 12,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-3",
+      "lecture_number": 12,
+      "title": "Futures Hedging: Examples",
+      "video_id": "oFj5lW9QwHc",
+      "playlist_position": 13,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-3",
+      "lecture_number": 13,
+      "title": "Mean Variance Portfolio Theory",
+      "video_id": "g7j8sAIDN04",
+      "playlist_position": 14,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-3",
+      "lecture_number": 14,
+      "title": "Capital Asset Pricing Model",
+      "video_id": "o_dndjBh26U",
+      "playlist_position": 15,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-3",
+      "lecture_number": 15,
+      "title": "Systematic & Unsystematic Risk",
+      "video_id": "kyLk0hSwjX4",
+      "playlist_position": 16,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-4",
+      "lecture_number": 16,
+      "title": "Index Futures: Basic Theory",
+      "video_id": "osqhEV8JzGE",
+      "playlist_position": 17,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-4",
+      "lecture_number": 17,
+      "title": "Hedging with Index Futures",
+      "video_id": "FNWj1kZmwq0",
+      "playlist_position": 18,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-4",
+      "lecture_number": 18,
+      "title": "Index Futures: Arbitrage, Examples",
+      "video_id": "3pvhRtLCpkY",
+      "playlist_position": 19,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-4",
+      "lecture_number": 19,
+      "title": "Spot Interest Rates & YTM",
+      "video_id": "EEG2kXFqpKk",
+      "playlist_position": 20,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-4",
+      "lecture_number": 20,
+      "title": "YTM, Other Yield Measures",
+      "video_id": "_asG_7J7zs0",
+      "playlist_position": 21,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-5",
+      "lecture_number": 21,
+      "title": "Interest Rate Risk",
+      "video_id": "pu7ynYUrDDg",
+      "playlist_position": 22,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-5",
+      "lecture_number": 22,
+      "title": "Duration & Price Sensitivities, Immunization",
+      "video_id": "WGKvJQCY__0",
+      "playlist_position": 23,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-5",
+      "lecture_number": 23,
+      "title": "Interest Rate Futures: Salient Features",
+      "video_id": "sqc6C_hcXUM",
+      "playlist_position": 24,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-5",
+      "lecture_number": 24,
+      "title": "T-Bill Futures: Applications",
+      "video_id": "0QEvQLhjhQA",
+      "playlist_position": 25,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-5",
+      "lecture_number": 25,
+      "title": "T-Bill Futures: Hedging",
+      "video_id": "MqB_MP8d0J8",
+      "playlist_position": 26,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-6",
+      "lecture_number": 26,
+      "title": "T-Bill Futures: Arbitrage; Eurodollar Futures",
+      "video_id": "J4wFDp4K8c8",
+      "playlist_position": 27,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-6",
+      "lecture_number": 27,
+      "title": "Tailing the Hedge; Clean & Dirty Price",
+      "video_id": "sd5oA18GaVw",
+      "playlist_position": 28,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-6",
+      "lecture_number": 28,
+      "title": "US T-Bond Futures: Salient Features, Pricing",
+      "video_id": "E2jdQhB0DFg",
+      "playlist_position": 29,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-6",
+      "lecture_number": 29,
+      "title": "US T-Bond Futures: Conversion Factor; Options",
+      "video_id": "8_rsJ6PWCV0",
+      "playlist_position": 30,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-6",
+      "lecture_number": 30,
+      "title": "Options: Basic Theory",
+      "video_id": "ipX6F8mEal8",
+      "playlist_position": 31,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-7",
+      "lecture_number": 31,
+      "title": "Options: Put-Call Parity",
+      "video_id": "rGMc3_YrC_8",
+      "playlist_position": 61,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-7",
+      "lecture_number": 32,
+      "title": "Options: Price Bounds, American Options",
+      "video_id": "RDn9SoT2DX4",
+      "playlist_position": 32,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-7",
+      "lecture_number": 33,
+      "title": "American Options: Properties",
+      "video_id": "kndgzBL08CU",
+      "playlist_position": 33,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-7",
+      "lecture_number": 34,
+      "title": "Basic Option Trading Strategies",
+      "video_id": "p1T4wFkaPS8",
+      "playlist_position": 34,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-7",
+      "lecture_number": 35,
+      "title": "Option Strategies Contd",
+      "video_id": "zkDVIsOARK0",
+      "playlist_position": 35,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-8",
+      "lecture_number": 36,
+      "title": "Option Spread Strategies",
+      "video_id": "WOeG8sV1xz8",
+      "playlist_position": 36,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-8",
+      "lecture_number": 37,
+      "title": "Stochastic Processes: Random Walk",
+      "video_id": "eDOIYREAeRM",
+      "playlist_position": 37,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-8",
+      "lecture_number": 38,
+      "title": "Stochastic Processes: Brownian Motion",
+      "video_id": "GIrKSTpX5W8",
+      "playlist_position": 38,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-8",
+      "lecture_number": 39,
+      "title": "Stochastic Processes: Diffusion Equation",
+      "video_id": "AJRvEHZb4C8",
+      "playlist_position": 39,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-8",
+      "lecture_number": 40,
+      "title": "Stochastic Processes: Central Limit Theorem, Stochastic Calculus",
+      "video_id": "_k8ciiS7tFE",
+      "playlist_position": 40,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-9",
+      "lecture_number": 41,
+      "title": "Stochastic Calculus: Ito's Equation",
+      "video_id": "CA9KRamLFW4",
+      "playlist_position": 41,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-9",
+      "lecture_number": 42,
+      "title": "Stock Price Distributions; Fokker Planck Equation & Solution",
+      "video_id": "SilnIL0Q98o",
+      "playlist_position": 42,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-9",
+      "lecture_number": 43,
+      "title": "Lognormal Distribution",
+      "video_id": "zfYjF39ynV0",
+      "playlist_position": 43,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-9",
+      "lecture_number": 44,
+      "title": "Option Pricing: Binomial Model, Risk Neutral Valuation",
+      "video_id": "mbtFmErzmHg",
+      "playlist_position": 44,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-9",
+      "lecture_number": 45,
+      "title": "Option Pricing: Binomial Model Contd",
+      "video_id": "u5DlFctnY18",
+      "playlist_position": 45,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-10",
+      "lecture_number": 46,
+      "title": "Girsanov Theorem; Black Scholes Model",
+      "video_id": "bCQID6X85ys",
+      "playlist_position": 46,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-10",
+      "lecture_number": 47,
+      "title": "Black Scholes Model Contd.",
+      "video_id": "9QS2FduuvTk",
+      "playlist_position": 47,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-10",
+      "lecture_number": 48,
+      "title": "Features of BS Model",
+      "video_id": "P-tzhvI64as",
+      "playlist_position": 48,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-10",
+      "lecture_number": 49,
+      "title": "Solution of BS PDE; Option Greeks",
+      "video_id": "anNG26YHMPQ",
+      "playlist_position": 49,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-10",
+      "lecture_number": 50,
+      "title": "Option Greeks: Definition & Properties",
+      "video_id": "zPjULQcQ0UY",
+      "playlist_position": 50,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-11",
+      "lecture_number": 51,
+      "title": "Option Greeks: Further Properties",
+      "video_id": "15s8WcE5VRU",
+      "playlist_position": 51,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-11",
+      "lecture_number": 52,
+      "title": "Option Greeks: Further Properties, Role in Trading Strategies",
+      "video_id": "0_NyYdmXBS0",
+      "playlist_position": 52,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-11",
+      "lecture_number": 53,
+      "title": "Option Greeks: Further Properties, Role in Trading Strategies Contd.",
+      "video_id": "QsrKq3bRN5A",
+      "playlist_position": 53,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-11",
+      "lecture_number": 54,
+      "title": "Option Greeks: Role in Trading Strategies Contd.; Swaps",
+      "video_id": "EJbnlOu035A",
+      "playlist_position": 54,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-11",
+      "lecture_number": 55,
+      "title": "Forward Rate Agreements; Swaps",
+      "video_id": "YMt9e--2Xik",
+      "playlist_position": 55,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-12",
+      "lecture_number": 56,
+      "title": "Swaps: Theory of Swaps",
+      "video_id": "1H23SQ9d-lQ",
+      "playlist_position": 56,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-12",
+      "lecture_number": 57,
+      "title": "Swaps: Valuation of Interest Rate Swaps",
+      "video_id": "uZF7j-Qs9ZA",
+      "playlist_position": 57,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-12",
+      "lecture_number": 58,
+      "title": "Currency Swaps; Value at Risk",
+      "video_id": "t00O7h4AhG8",
+      "playlist_position": 58,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-12",
+      "lecture_number": 59,
+      "title": "Value at Risk: Definition & Computation",
+      "video_id": "AG4GLF9SBM0",
+      "playlist_position": 59,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Unit-12",
+      "lecture_number": 60,
+      "title": "Value at Risk: Computation for Bond & Derivative Portfolios",
+      "video_id": "xuUX0FVxwv0",
+      "playlist_position": 60,
+      "in_supplied_playlist": true
+    },
+    {
+      "unit": "Live Session",
+      "lecture_number": 1,
+      "title": "Live Session 17-09-2019",
+      "video_id": "xAqywcE_CUE",
+      "playlist_position": null,
+      "in_supplied_playlist": false
+    }
+  ]
+}

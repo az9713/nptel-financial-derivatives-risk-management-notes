@@ -1,0 +1,501 @@
+{
+  "status": "complete",
+  "boundary": "Matches actual author reading attestations to recording identities and retained normalized-text digests; does not prove audiovisual reading or verify caption accuracy.",
+  "expected_recordings": 61,
+  "expected_teaching_recordings": 60,
+  "chapter_ledgers": 24,
+  "attested_recordings": 61,
+  "attested_teaching_recordings": 60,
+  "missing_positions": [],
+  "errors": [],
+  "records": [
+    {
+      "position": 1,
+      "video_id": "5EYjZMYSzBc",
+      "ledger": "validation/source-read-ch01.json",
+      "reader": "lead",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 2,
+      "video_id": "pJDMgEpn-bM",
+      "ledger": "validation/source-read-ch01.json",
+      "reader": "lead",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 3,
+      "video_id": "ZimJwj_Llrw",
+      "ledger": "validation/source-read-ch02.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 4,
+      "video_id": "QKHnXnYaUL8",
+      "ledger": "validation/source-read-ch02.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 5,
+      "video_id": "2C5iRNWGUJw",
+      "ledger": "validation/source-read-ch02.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 6,
+      "video_id": "aIIUoeuQjsI",
+      "ledger": "validation/source-read-ch03.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 7,
+      "video_id": "FTQDee2_oOU",
+      "ledger": "validation/source-read-ch03.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 8,
+      "video_id": "FS670JTUYlY",
+      "ledger": "validation/source-read-ch03.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 9,
+      "video_id": "U2BzQcc46ck",
+      "ledger": "validation/source-read-ch04.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 10,
+      "video_id": "RaBL0YcrFkQ",
+      "ledger": "validation/source-read-ch04.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 11,
+      "video_id": "pbr-X3rjuPw",
+      "ledger": "validation/source-read-ch04.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 12,
+      "video_id": "nDESESqRF-s",
+      "ledger": "validation/source-read-ch05.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 13,
+      "video_id": "oFj5lW9QwHc",
+      "ledger": "validation/source-read-ch05.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 14,
+      "video_id": "g7j8sAIDN04",
+      "ledger": "validation/source-read-ch06.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 15,
+      "video_id": "o_dndjBh26U",
+      "ledger": "validation/source-read-ch06.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 16,
+      "video_id": "kyLk0hSwjX4",
+      "ledger": "validation/source-read-ch06.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 17,
+      "video_id": "osqhEV8JzGE",
+      "ledger": "validation/source-read-ch07.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 18,
+      "video_id": "FNWj1kZmwq0",
+      "ledger": "validation/source-read-ch07.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 19,
+      "video_id": "3pvhRtLCpkY",
+      "ledger": "validation/source-read-ch07.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 20,
+      "video_id": "EEG2kXFqpKk",
+      "ledger": "validation/source-read-ch08.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 21,
+      "video_id": "_asG_7J7zs0",
+      "ledger": "validation/source-read-ch08.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 22,
+      "video_id": "pu7ynYUrDDg",
+      "ledger": "validation/source-read-ch09.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 23,
+      "video_id": "WGKvJQCY__0",
+      "ledger": "validation/source-read-ch09.json",
+      "reader": "source_research",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 24,
+      "video_id": "sqc6C_hcXUM",
+      "ledger": "validation/source-read-ch10.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 25,
+      "video_id": "0QEvQLhjhQA",
+      "ledger": "validation/source-read-ch10.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 26,
+      "video_id": "MqB_MP8d0J8",
+      "ledger": "validation/source-read-ch11.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 27,
+      "video_id": "J4wFDp4K8c8",
+      "ledger": "validation/source-read-ch11.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 28,
+      "video_id": "sd5oA18GaVw",
+      "ledger": "validation/source-read-ch11.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 29,
+      "video_id": "E2jdQhB0DFg",
+      "ledger": "validation/source-read-ch12.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 30,
+      "video_id": "8_rsJ6PWCV0",
+      "ledger": "validation/source-read-ch12.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 31,
+      "video_id": "ipX6F8mEal8",
+      "ledger": "validation/source-read-ch13.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 32,
+      "video_id": "RDn9SoT2DX4",
+      "ledger": "validation/source-read-ch14.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 33,
+      "video_id": "kndgzBL08CU",
+      "ledger": "validation/source-read-ch14.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 34,
+      "video_id": "p1T4wFkaPS8",
+      "ledger": "validation/source-read-ch15.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 35,
+      "video_id": "zkDVIsOARK0",
+      "ledger": "validation/source-read-ch15.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 36,
+      "video_id": "WOeG8sV1xz8",
+      "ledger": "validation/source-read-ch15.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 37,
+      "video_id": "eDOIYREAeRM",
+      "ledger": "validation/source-reading-ch16.json",
+      "reader": "scientific_review (author role for this chapter)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 38,
+      "video_id": "GIrKSTpX5W8",
+      "ledger": "validation/source-reading-ch16.json",
+      "reader": "scientific_review (author role for this chapter)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 39,
+      "video_id": "AJRvEHZb4C8",
+      "ledger": "validation/source-reading-ch16.json",
+      "reader": "scientific_review (author role for this chapter)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 40,
+      "video_id": "_k8ciiS7tFE",
+      "ledger": "validation/source-reading-ch17.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 41,
+      "video_id": "CA9KRamLFW4",
+      "ledger": "validation/source-reading-ch17.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 42,
+      "video_id": "SilnIL0Q98o",
+      "ledger": "validation/source-reading-ch17.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 43,
+      "video_id": "zfYjF39ynV0",
+      "ledger": "validation/source-reading-ch17.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 44,
+      "video_id": "mbtFmErzmHg",
+      "ledger": "validation/source-reading-ch18.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 45,
+      "video_id": "u5DlFctnY18",
+      "ledger": "validation/source-reading-ch18.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 46,
+      "video_id": "bCQID6X85ys",
+      "ledger": "validation/source-reading-ch19.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 47,
+      "video_id": "9QS2FduuvTk",
+      "ledger": "validation/source-reading-ch19.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 48,
+      "video_id": "P-tzhvI64as",
+      "ledger": "validation/source-reading-ch19.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 49,
+      "video_id": "anNG26YHMPQ",
+      "ledger": "validation/source-reading-ch20.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 50,
+      "video_id": "zPjULQcQ0UY",
+      "ledger": "validation/source-reading-ch20.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 51,
+      "video_id": "15s8WcE5VRU",
+      "ledger": "validation/source-reading-ch21.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 52,
+      "video_id": "0_NyYdmXBS0",
+      "ledger": "validation/source-reading-ch21.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 53,
+      "video_id": "QsrKq3bRN5A",
+      "ledger": "validation/source-reading-ch21.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 54,
+      "video_id": "EJbnlOu035A",
+      "ledger": "validation/source-reading-ch21.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 55,
+      "video_id": "YMt9e--2Xik",
+      "ledger": "validation/source-reading-ch22.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 56,
+      "video_id": "1H23SQ9d-lQ",
+      "ledger": "validation/source-reading-ch22.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 57,
+      "video_id": "uZF7j-Qs9ZA",
+      "ledger": "validation/source-reading-ch22.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 58,
+      "video_id": "t00O7h4AhG8",
+      "ledger": "validation/source-reading-ch23.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 59,
+      "video_id": "AG4GLF9SBM0",
+      "ledger": "validation/source-reading-ch23.json",
+      "reader": "scientific_review (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 60,
+      "video_id": "xuUX0FVxwv0",
+      "ledger": "validation/source-read-ch24.json",
+      "reader": "source_research (chapter author)",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    },
+    {
+      "position": 61,
+      "video_id": "rGMc3_YrC_8",
+      "ledger": "validation/source-read-ch13.json",
+      "reader": "reader_builder_author",
+      "attestation_and_digest_match": true,
+      "retained_text_digest_match": true
+    }
+  ]
+}

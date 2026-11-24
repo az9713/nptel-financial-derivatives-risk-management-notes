@@ -1,0 +1,20 @@
+{
+  "reviewer": "lead_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch20-r2.md",
+  "findings_fixed": [
+    "Replace plain-text locators with actual timestamp links",
+    "Clarify gamma units for stock quoted in currency per share"
+  ],
+  "scope": [
+    "Full manuscript, metadata, six solutions, complete lab and fresh execution",
+    "Independent heat transformation, Greek derivatives, numeric solutions and model boundaries",
+    "Selected actual caption spans and primary PDE/formula reference inspected; no full audiovisual audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch20.md": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
+    "chapters/ch20.json": "3fd76945395662789c3afb34fc29da39419474a1debd8bc07e4eb9a788b130ff",
+    "labs/ch20.py": "8c1138ab746a627d8570b9766019b4a89505fdfa9a756a86aeda42e5b426c79a"
+  }
+}

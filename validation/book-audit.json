@@ -1,0 +1,593 @@
+{
+  "status": "pass",
+  "allow_partial": false,
+  "chapters": [
+    {
+      "chapter": "ch01",
+      "manuscript_sha256": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+      "exercises": 6,
+      "whitespace_words": 4520,
+      "section_words": [
+        451,
+        328,
+        469,
+        476,
+        559,
+        292,
+        464,
+        244,
+        196,
+        736,
+        152
+      ],
+      "source_reading_positions": [
+        1,
+        2
+      ]
+    },
+    {
+      "chapter": "ch02",
+      "manuscript_sha256": "940758adcbd48b7d60c55de0b432766b7529b7effc5d8bc6bc7f31758925336e",
+      "exercises": 6,
+      "whitespace_words": 3095,
+      "section_words": [
+        337,
+        474,
+        357,
+        238,
+        309,
+        316,
+        146,
+        650,
+        88
+      ],
+      "source_reading_positions": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "chapter": "ch03",
+      "manuscript_sha256": "006b2e6c9a96eb79e6de33b29334aade692dd6a0f2672aff9f511944395a8baa",
+      "exercises": 6,
+      "whitespace_words": 2695,
+      "section_words": [
+        327,
+        250,
+        394,
+        319,
+        462,
+        128,
+        597,
+        82
+      ],
+      "source_reading_positions": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "chapter": "ch04",
+      "manuscript_sha256": "de833ba1d32c638bb3b8ee0f10e174ec254295cb708aea9d70248704728f8cb6",
+      "exercises": 6,
+      "whitespace_words": 2568,
+      "section_words": [
+        301,
+        403,
+        281,
+        251,
+        401,
+        116,
+        572,
+        87
+      ],
+      "source_reading_positions": [
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "chapter": "ch05",
+      "manuscript_sha256": "7181b5066f9ae36bc49c64f1a9a6b97459efd054cc0ba509dce5fc96d573ecfe",
+      "exercises": 6,
+      "whitespace_words": 2249,
+      "section_words": [
+        239,
+        318,
+        237,
+        222,
+        377,
+        119,
+        510,
+        70
+      ],
+      "source_reading_positions": [
+        12,
+        13
+      ]
+    },
+    {
+      "chapter": "ch06",
+      "manuscript_sha256": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
+      "exercises": 6,
+      "whitespace_words": 2448,
+      "section_words": [
+        261,
+        338,
+        298,
+        265,
+        228,
+        254,
+        542,
+        91
+      ],
+      "source_reading_positions": [
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "chapter": "ch07",
+      "manuscript_sha256": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+      "exercises": 6,
+      "whitespace_words": 2437,
+      "section_words": [
+        307,
+        298,
+        281,
+        261,
+        248,
+        239,
+        558,
+        79
+      ],
+      "source_reading_positions": [
+        17,
+        18,
+        19
+      ]
+    },
+    {
+      "chapter": "ch08",
+      "manuscript_sha256": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
+      "exercises": 6,
+      "whitespace_words": 2537,
+      "section_words": [
+        317,
+        330,
+        369,
+        215,
+        363,
+        168,
+        536,
+        90
+      ],
+      "source_reading_positions": [
+        20,
+        21
+      ]
+    },
+    {
+      "chapter": "ch09",
+      "manuscript_sha256": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
+      "exercises": 6,
+      "whitespace_words": 2436,
+      "section_words": [
+        209,
+        313,
+        279,
+        342,
+        310,
+        193,
+        576,
+        75
+      ],
+      "source_reading_positions": [
+        22,
+        23
+      ]
+    },
+    {
+      "chapter": "ch10",
+      "manuscript_sha256": "5c422782ed73cd4d27ed021f9054381a37a7e0881b9f5b32abdb74d4c5fd8bf8",
+      "exercises": 6,
+      "whitespace_words": 3234,
+      "section_words": [
+        385,
+        392,
+        286,
+        319,
+        296,
+        280,
+        195,
+        183,
+        614,
+        145
+      ],
+      "source_reading_positions": [
+        24,
+        25
+      ]
+    },
+    {
+      "chapter": "ch11",
+      "manuscript_sha256": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+      "exercises": 6,
+      "whitespace_words": 3306,
+      "section_words": [
+        308,
+        415,
+        295,
+        285,
+        381,
+        255,
+        331,
+        165,
+        594,
+        123
+      ],
+      "source_reading_positions": [
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "chapter": "ch12",
+      "manuscript_sha256": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+      "exercises": 6,
+      "whitespace_words": 3243,
+      "section_words": [
+        293,
+        271,
+        317,
+        344,
+        352,
+        437,
+        251,
+        106,
+        632,
+        115
+      ],
+      "source_reading_positions": [
+        29,
+        30
+      ]
+    },
+    {
+      "chapter": "ch13",
+      "manuscript_sha256": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
+      "exercises": 6,
+      "whitespace_words": 2997,
+      "section_words": [
+        340,
+        373,
+        218,
+        303,
+        267,
+        242,
+        247,
+        160,
+        585,
+        115
+      ],
+      "source_reading_positions": [
+        31,
+        61
+      ]
+    },
+    {
+      "chapter": "ch14",
+      "manuscript_sha256": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+      "exercises": 6,
+      "whitespace_words": 3132,
+      "section_words": [
+        275,
+        341,
+        362,
+        413,
+        348,
+        297,
+        176,
+        622,
+        127
+      ],
+      "source_reading_positions": [
+        32,
+        33
+      ]
+    },
+    {
+      "chapter": "ch15",
+      "manuscript_sha256": "bdb2df2b6b59f83c6b8ba1bb9e38b3987a6bc6bb03c5d6c224f69e2178857582",
+      "exercises": 6,
+      "whitespace_words": 3876,
+      "section_words": [
+        317,
+        372,
+        273,
+        529,
+        262,
+        247,
+        243,
+        375,
+        203,
+        761,
+        132
+      ],
+      "source_reading_positions": [
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "chapter": "ch16",
+      "manuscript_sha256": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
+      "exercises": 6,
+      "whitespace_words": 3309,
+      "section_words": [
+        507,
+        295,
+        408,
+        289,
+        406,
+        341,
+        185,
+        601,
+        119
+      ],
+      "source_reading_positions": [
+        37,
+        38,
+        39
+      ]
+    },
+    {
+      "chapter": "ch17",
+      "manuscript_sha256": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
+      "exercises": 6,
+      "whitespace_words": 3572,
+      "section_words": [
+        233,
+        247,
+        315,
+        616,
+        331,
+        320,
+        194,
+        284,
+        179,
+        545,
+        144
+      ],
+      "source_reading_positions": [
+        40,
+        41,
+        42,
+        43
+      ]
+    },
+    {
+      "chapter": "ch18",
+      "manuscript_sha256": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
+      "exercises": 6,
+      "whitespace_words": 2896,
+      "section_words": [
+        368,
+        369,
+        195,
+        339,
+        345,
+        203,
+        257,
+        122,
+        538
+      ],
+      "source_reading_positions": [
+        44,
+        45
+      ]
+    },
+    {
+      "chapter": "ch19",
+      "manuscript_sha256": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
+      "exercises": 6,
+      "whitespace_words": 2319,
+      "section_words": [
+        392,
+        172,
+        324,
+        208,
+        270,
+        147,
+        197,
+        467
+      ],
+      "source_reading_positions": [
+        46,
+        47,
+        48
+      ]
+    },
+    {
+      "chapter": "ch20",
+      "manuscript_sha256": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
+      "exercises": 6,
+      "whitespace_words": 2419,
+      "section_words": [
+        161,
+        277,
+        132,
+        450,
+        287,
+        446,
+        82,
+        436
+      ],
+      "source_reading_positions": [
+        49,
+        50
+      ]
+    },
+    {
+      "chapter": "ch21",
+      "manuscript_sha256": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+      "exercises": 6,
+      "whitespace_words": 2708,
+      "section_words": [
+        214,
+        340,
+        449,
+        311,
+        260,
+        248,
+        194,
+        56,
+        495
+      ],
+      "source_reading_positions": [
+        51,
+        52,
+        53,
+        54
+      ]
+    },
+    {
+      "chapter": "ch22",
+      "manuscript_sha256": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+      "exercises": 6,
+      "whitespace_words": 2645,
+      "section_words": [
+        266,
+        320,
+        339,
+        192,
+        224,
+        215,
+        249,
+        174,
+        43,
+        481
+      ],
+      "source_reading_positions": [
+        55,
+        56,
+        57
+      ]
+    },
+    {
+      "chapter": "ch23",
+      "manuscript_sha256": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
+      "exercises": 6,
+      "whitespace_words": 2759,
+      "section_words": [
+        237,
+        214,
+        296,
+        246,
+        401,
+        306,
+        373,
+        70,
+        475
+      ],
+      "source_reading_positions": [
+        58,
+        59
+      ]
+    },
+    {
+      "chapter": "ch24",
+      "manuscript_sha256": "55c3429a9198f319e24af696057967743fef20e3c0d7af56dece6c2bf3a12d65",
+      "exercises": 6,
+      "whitespace_words": 3519,
+      "section_words": [
+        430,
+        257,
+        295,
+        271,
+        225,
+        459,
+        221,
+        297,
+        149,
+        663,
+        92
+      ],
+      "source_reading_positions": [
+        60
+      ]
+    }
+  ],
+  "covered_reading_positions": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "laboratory_style_errors": 0,
+  "errors": [],
+  "scope": "Reading-attestation identity/digest consistency and project structure. This script cannot prove that a person or model read a source or that the prose teaches it correctly; independent scientific review is separate."
+}

@@ -1,0 +1,96 @@
+{
+  "chapter": "ch02",
+  "author": "source_research",
+  "recordings": [
+    {
+      "position": 3,
+      "video_id": "ZimJwj_Llrw",
+      "normalized_text_sha256": "f1371c739101d06d01b46c5cd8746de28d410132cb6a9ce87b031f2df4c33cb5",
+      "reading": "full sequential text read",
+      "first_start": 4.46,
+      "last_end": 2211.17,
+      "landmarks": [
+        {
+          "seconds": 25,
+          "topic": "Forward terminology, long/short and fixed delivery terms"
+        },
+        {
+          "seconds": 312,
+          "topic": "Inception value versus a later same-delivery-date quotation"
+        },
+        {
+          "seconds": 1208,
+          "topic": "Financed purchase and no-income forward price"
+        },
+        {
+          "seconds": 1798,
+          "topic": "Dated distributions and proportional foreign yield"
+        }
+      ],
+      "scope": "All normalized English caption cues read in order. No comprehensive slide or audio review."
+    },
+    {
+      "position": 4,
+      "video_id": "QKHnXnYaUL8",
+      "normalized_text_sha256": "898139922db6e08d1540e8111e80067a6cf1f376dadf48ab61ff8bddf27c75d8",
+      "reading": "full sequential text read",
+      "first_start": 24.78,
+      "last_end": 2101.39,
+      "landmarks": [
+        {
+          "seconds": 350,
+          "topic": "Storage costs as financed cash outflows"
+        },
+        {
+          "seconds": 607,
+          "topic": "Payoff-vector comparisons and statewise dominance"
+        },
+        {
+          "seconds": 1460,
+          "topic": "Cash-and-carry and reverse-carry directions"
+        },
+        {
+          "seconds": 1812,
+          "topic": "Two-dividend example and consumption-asset distinction"
+        }
+      ],
+      "scope": "All normalized English caption cues read in order. No comprehensive slide or audio review."
+    },
+    {
+      "position": 5,
+      "video_id": "2C5iRNWGUJw",
+      "normalized_text_sha256": "0061ff523f01f6776725a6f29063c837dd0b72255baf7e28e06582e873e2205f",
+      "reading": "full sequential text read",
+      "first_start": 4.46,
+      "last_end": 2042.309,
+      "landmarks": [
+        {
+          "seconds": 4,
+          "topic": "Consumption assets, missing reverse carry, convenience yield"
+        },
+        {
+          "seconds": 350,
+          "topic": "Quarterly-in-advance wheat storage example"
+        },
+        {
+          "seconds": 550,
+          "topic": "Value of an existing forward by offsetting a new forward"
+        },
+        {
+          "seconds": 1320,
+          "topic": "Spot and forward interest rates; reinvestment consistency"
+        }
+      ],
+      "scope": "All normalized English caption cues read in order. No comprehensive slide or audio review."
+    }
+  ],
+  "teaching_additions": [
+    "Financing-date and currency-unit ledgers",
+    "Statewise payoff versus mean-variance counterexample",
+    "Executed synthetic no-arbitrage certificates"
+  ],
+  "limitations": [
+    "Official captions can misstate notation; mathematical formulas independently reconstructed.",
+    "No claim of full audiovisual fidelity."
+  ]
+}

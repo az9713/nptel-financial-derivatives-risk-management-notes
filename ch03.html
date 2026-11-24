@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Futures redistribute cash flows through time · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html" aria-current=page>03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>03. Futures redistribute cash flows through time</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=aIIUoeuQjsI">Recording 6</a>, <a href="https://www.youtube.com/watch?v=FTQDee2_oOU">Recording 7</a>, <a href="https://www.youtube.com/watch?v=FS670JTUYlY">Recording 8</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Build a daily variation-settlement and collateral ledger</li><li>Separate notional exposure, margin deposits and trading profit</li><li>Derive deterministic-rate forward/futures equivalence by a feasible strategy</li><li>Explain residual clearing and funding risks</li></ul>
+<p><strong>Prerequisites:</strong> Chapters 1–2 dated cash flows, compounding and statewise replication. Pricing-probability preview is clearly marked.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch03.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-standardization-specifies-the-object-being-traded-0500">1. Standardization specifies the object being traded 05:00</a></li><li><a href="#2-daily-settlement-creates-a-sequence-of-realized-transfers-1609">2. Daily settlement creates a sequence of realized transfers 16:09</a></li><li><a href="#3-a-margin-account-is-a-funding-ledger-not-a-profit-measure-0458">3. A margin account is a funding ledger, not a profit measure 04:58</a></li><li><a href="#4-clearing-mitigates-credit-exposure-it-does-not-abolish-it-1136">4. Clearing mitigates credit exposure; it does not abolish it 11:36</a></li><li><a href="#5-financing-explains-when-futures-and-forwards-have-the-same-quotation-0744">5. Financing explains when futures and forwards have the same quotation 07:44</a></li><li><a href="#6-executable-checks-and-boundaries">6. Executable checks and boundaries</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A purchasing manager can finish a hedge with the expected final offset and still fail before delivery. If futures prices fall first, a long hedge must fund losses through daily settlement. The eventual recovery does not pay yesterday's margin call. Understanding a futures hedge therefore requires both a terminal price calculation and a dated cash account.</p>
+<p>Our running construction uses two synthetic contracts, each representing 50 units of an underlying. The opening quotation is 100 per unit. Over four settlement dates, quotations become 98, 101, 97, and 102. We follow the long position's settlements and collateral deposits, then separate its trading profit from returned collateral. The same example clarifies how standardization, clearing, and financing change the relation between futures and forwards.</p>
+<h2 id="1-standardization-specifies-the-object-being-traded-0500">1. Standardization specifies the object being traded <a href="https://www.youtube.com/watch?v=aIIUoeuQjsI&amp;t=300s">05:00</a></h2>
+<p>A <strong>futures contract</strong> specifies a standardized quantity, reference asset or index, maturity, quotation convention, settlement mechanism, and the rules under which positions are cleared. A <strong>contract multiplier</strong> $m$ converts one quotation-point change into a monetary change per contract. If the quotation is currency per physical unit, $m$ can be the physical units per contract. For an index future, it can instead be currency per index point. These are different units even when the algebra looks identical.</p>
+<p>Let $n$ be the signed number of contracts: positive for long and negative for short. With quotation $G_t$ for a fixed maturity, the marked notional exposure is $|n|mG_t$ when this product is meaningful in the chosen quotation system. It is not a price paid to purchase the futures contract. A newly opened position generally has no premium corresponding to that notional amount, although fees and collateral requirements can require cash immediately.</p>
+<p>Standardization supports the matching of many buyers and sellers, but it also creates mismatch. A firm may need 2,340 units in seven weeks while the exchange contract represents 1,000 units and a monthly delivery cycle. Choosing two or three contracts is an economic decision, not an algebraic exact match. Standardization does not itself guarantee that a large order can be filled at the displayed quotation.</p>
+<p>Some contracts settle by delivery and others by a specified cash benchmark. A cash-settled derivative tied to a benchmark is not necessarily an exact substitute for a purchase of a particular grade of physical material. Delivery quality, location, timing, and benchmark basis matter. We treat the final settlement quotation as equal to the relevant terminal spot reference in the ideal model; an actual contract's specification determines what that reference is.</p>
+<p>Historical descriptions of lot sizes, margin percentages, settlement formulas, and listed delivery months in the recording are examples of exchange practice at that time. The synthetic examples here do not assert that those product rules remain current.</p>
+<h2 id="2-daily-settlement-creates-a-sequence-of-realized-transfers-1609">2. Daily settlement creates a sequence of realized transfers <a href="https://www.youtube.com/watch?v=aIIUoeuQjsI&amp;t=969s">16:09</a></h2>
+<p>Choose settlement dates $t_0&lt;t_1&lt;\cdots&lt;t_N=T$. For a fixed position held through the interval, the long's settlement at $t_i$ is</p>
+<p>$$\Delta M_i=nm(G_{t_i}-G_{t_{i-1}}).$$</p>
+<p>The previous quotation at the first settlement is the actual entry price, so a position opened during a trading day can generate a settlement on that same day. A long receives money when the quotation rises. Replacing $n$ by a negative number reverses that cash-flow sign.</p>
+<p>Adding the settlements gives a telescoping sum:</p>
+<p>$$\sum_{i=1}^N\Delta M_i=nm(G_T-G_{t_0}).$$</p>
+<p>Every intermediate quotation appears once positively and once negatively. This equality concerns the unweighted sum of cash paid on different dates. It is not yet an equality of terminal wealth, because an early receipt can earn interest and an early payment may require borrowing.</p>
+<p>If $G_T=S_T$ for the matching terminal reference, ignoring financing, buying $nm$ underlying units at spot and subtracting the long's cumulative settlements produces a net cost $nmG_{t_0}$. This is the terminal hedge arithmetic that makes a futures contract resemble a forward. It does not erase the path of transfers needed to reach maturity. The <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf#page=13">MIT forward/futures slides, slides 12–16</a> distinguish the contract's notional, daily gains and losses, and margin collateral; the ledger below makes those quantities separately observable.</p>
+<p>For the two contracts with $m=50$, the effective quantity is 100 units. The quotation path $100,98,101,97,102$ generates transfers $-200,+300,-400,+500$. Their sum is 200, agreeing with $100(102-100)$. A short position has the opposite settlement sequence, even if its own collateral thresholds and funding costs differ.</p>
+<h2 id="3-a-margin-account-is-a-funding-ledger-not-a-profit-measure-0458">3. A margin account is a funding ledger, not a profit measure <a href="https://www.youtube.com/watch?v=FTQDee2_oOU&amp;t=298s">04:58</a></h2>
+<p><strong>Initial margin</strong> is collateral required to support a position. <strong>Variation margin</strong> transfers current gains or losses. A <strong>maintenance threshold</strong>, in the simplified customer-account model used here, triggers a demand for additional collateral if the account balance falls below that threshold. Actual clearing and brokerage arrangements can separate collateral and variation settlement into different accounts; the economic distinction between the two remains essential.</p>
+<p>For our synthetic account, post 600 initially, retain all settlement gains in the account, and require replenishment to 600 whenever the balance falls strictly below 400. No interest is paid in this example. The strict inequality is part of the rule: touching 400 does not trigger a call.</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Settlement date</th>
+<th style="text-align: right;">Quotation</th>
+<th style="text-align: right;">Trading transfer</th>
+<th style="text-align: right;">Balance before call</th>
+<th style="text-align: right;">New external deposit</th>
+<th style="text-align: right;">Balance after call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opening</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">600</td>
+<td style="text-align: right;">600</td>
+</tr>
+<tr>
+<td>1</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">−200</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">400</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">+300</td>
+<td style="text-align: right;">700</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">700</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">−400</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">300</td>
+<td style="text-align: right;">600</td>
+</tr>
+<tr>
+<td>4 / close</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">+500</td>
+<td style="text-align: right;">1,100</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1,100</td>
+</tr>
+</tbody>
+</table></div>
+<p>The third-date call is 300, not 100. The account is restored to the initial level, not merely to the maintenance threshold. Total external collateral supplied is $600+300=900$. Closing returns 1,100, so trading profit is $1100-900=200$. Calling the closing account balance “profit” would count the trader's own deposits as earnings.</p>
+<p>More generally, let $A_i$ be the account balance after settlement and deposits, and $d_i$ external top-ups. Without interest, fees, or withdrawals,</p>
+<p>$$A_N=A_0+\sum_i\Delta M_i+\sum_i d_i.$$</p>
+<p>Rearranging separates trading profit from contributed cash. With withdrawals, subtract them on the right and add them back when measuring total resources returned to the customer. With interest and fees, record each on its actual date rather than attributing all changes in the account to price movements.</p>
+<p>The manager who cannot provide the third-date deposit may be forced to close near 97. The subsequent rise to 102 then provides no recovery on the closed position. A terminal-only analysis assumes the firm can maintain its strategy; the margin ledger tests that assumption. The maximum cash that must be available, the final profit, and the total notional are different risk quantities.</p>
+<h2 id="4-clearing-mitigates-credit-exposure-it-does-not-abolish-it-1136">4. Clearing mitigates credit exposure; it does not abolish it <a href="https://www.youtube.com/watch?v=aIIUoeuQjsI&amp;t=696s">11:36</a></h2>
+<p>In a centrally cleared transaction, a <strong>central counterparty</strong>, or CCP, interposes itself between clearing members under the clearing rules. A customer's contractual relationships also involve its broker or clearing member. Daily settlement reduces accumulated unpaid gains and losses, while initial margin and other resources help absorb a default during close-out. The mechanism changes who bears exposure and how it is managed.</p>
+<p>It would be too strong to conclude that a one-day settlement interval confines every possible loss to a small one-day movement. Prices can jump, a member can default before a payment completes, positions can take longer to liquidate, collateral can lose value, and stressed liquidity can impair close-out. Initial margin is a risk-based resource, not a mathematical upper bound on every possible loss.</p>
+<p>The <a href="https://www.bis.org/publications/principles-financial-market-infrastructures.pdf#page=57">CPMI–IOSCO Principles for Financial Market Infrastructures</a>, paragraphs 3.6.1–3.6.4, distinguish initial margin for potential close-out exposure from variation margin for current changes in value. Their discussion of stress tests in paragraphs 3.4.20–3.4.23 explicitly considers extreme conditions and multiple defaults. These requirements make sense because residual risk exists. They support an interpretation of clearing as risk mitigation rather than literal risk elimination.</p>
+<p>Likewise, an initial margin estimate based on a high percentile of modeled losses leaves a tail outside that percentile. It can also be wrong because the model or data are wrong. Chapter 23 defines loss quantiles carefully; for now the relevant distinction is between a confidence-based collateral calculation and a guarantee that no larger loss can occur.</p>
+<p>Leverage adds another dimension. Our opening notional is $2(50)(100)=10{,}000$, while posted initial collateral is 600. A one-point adverse quotation move produces a 100-unit loss, independently of the size of the initial deposit. Raising or lowering required collateral changes the funding commitment; it does not change the price sensitivity of an unchanged number of contracts. A small posted margin therefore does not imply a small economic exposure.</p>
+<h2 id="5-financing-explains-when-futures-and-forwards-have-the-same-quotation-0744">5. Financing explains when futures and forwards have the same quotation <a href="https://www.youtube.com/watch?v=FS670JTUYlY&amp;t=464s">07:44</a></h2>
+<p>Let $H_i$ be the deterministic accumulation factor from settlement date $t_i$ to $T$. One contract's settlement sequence, accumulated to maturity, becomes</p>
+<p>$$\sum_{i=1}^N (G_{t_i}-G_{t_{i-1}})H_i.$$</p>
+<p>This does not ordinarily telescope because the weights differ. For the synthetic quotation path $100,110,95,105$, suppose each remaining interval has a known accumulation factor 1.01. The changes are $10,-15,10$ and their maturity factors are $1.01^2,1.01,1$. The accumulated result is $10(1.01)^2-15(1.01)+10=5.051$, although the simple sum is 5.</p>
+<p>Deterministic financing nevertheless permits a replication of a one-unit forward payoff. Hold $1/H_i$ futures units during interval $i$, financing or investing each settlement through $T$. Because $H_i$ is known before taking that interval's position, this is an admissible predetermined exposure. Its maturity cash flow is</p>
+<p>$$\sum_i\frac{1}{H_i}(G_{t_i}-G_{t_{i-1}})H_i
+=G_T-G_{t_0}=S_T-G_{t_0}.$$</p>
+<p>That is the payoff of a long forward struck at the initial futures quotation. Since the ideal futures strategy starts with zero value, no-arbitrage implies that this must also be the zero-value forward delivery quotation. The argument permits a deterministic rate curve; constant rates are a convenient special case. It assumes scalable positions, frictionless rebalancing, symmetric financing, contract performance, and no material collateral or fee differences.</p>
+<p>The conclusion is exact within those assumptions. It is not that futures prices may wander arbitrarily around forward prices simply because exchange participants have different opinions. A feasible replication constrains prices regardless of those opinions. In practice, ask which model assumption fails before calling a discrepancy either an arbitrage or harmless market noise.</p>
+<h3 id="a-bounded-preview-of-random-rate-effects">A bounded preview of random-rate effects</h3>
+<p>With random rates, the future factor $H_i$ is generally unknown when a position must be chosen. The preceding deterministic scaling is no longer an available fixed recipe. A useful later pricing formulation uses a <strong>pricing probability</strong> $\mathbb Q$, meaning probabilities that price discounted traded cash flows in the specified model; these need not be investors' real-world probabilities. Let $D$ be the random discount factor from now to $T$.</p>
+<p>Under the ideal money-market pricing model and appropriate integrability, a zero-value forward has quotation $\mathbb E^{\mathbb Q}[DS_T]/\mathbb E^{\mathbb Q}[D]$. An ideal continuously settled futures quotation is $\mathbb E^{\mathbb Q}[S_T]$. Define covariance by $\operatorname{Cov}(A,B)=\mathbb E[AB]-\mathbb E[A]\mathbb E[B]$. Their difference is therefore</p>
+<p>$$F^{\mathrm{forward}}-F^{\mathrm{futures}}
+=\frac{\operatorname{Cov}^{\mathbb Q}(D,S_T)}{\mathbb E^{\mathbb Q}[D]}.$$</p>
+<p>This identity exposes the relevant dependence; a rigorous general pricing-measure construction belongs to Chapters 18–19. It is a marked extension, not a derivation of those continuous-time results from the elementary ledger.</p>
+<p>For a two-state arithmetic illustration with equal pricing probabilities, take terminal spots $(120,80)$ and discounts $(0.9,1.0)$. The means are 100 and 0.95, the mean product is 94, and covariance is −1. The forward benchmark is $94/0.95=98.947368$, below the futures benchmark 100. Higher terminal prices coincide with lower discount factors here. Changing that dependence changes the sign; there is no universal ordering without such information.</p>
+<h2 id="6-executable-checks-and-boundaries">6. Executable checks and boundaries</h2>
+<p>The <a href="labs/ch03.py">chapter lab</a> returns a row-by-row margin ledger for finite quotations, a signed contract position, positive multiplier, and valid initial/maintenance thresholds. It has no external effects. The code checks the complete table, the exact maintenance boundary, long/short sign reversal, and the accounting identity for contributed collateral. It also compares a fixed futures holding with the deterministic scaled replication and verifies the two-state covariance identity.</p>
+<p>The printed closing balance is 1,100 and trading profit is 200; accumulated one-contract receipts are 5.051000 while scaled replication yields 5.000000. These checks establish the synthetic accounting and finite arithmetic. They do not validate a broker's actual call timetable, a CCP default waterfall, or a particular continuous-time pricing measure. The operational and model boundaries remain part of the result.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive the cumulative settlement formula for a fixed futures position and explain why its unweighted sum is not generally terminal wealth.</li>
+<li>Reproduce the margin ledger for quotations $100,98,101,97,102$, two contracts, multiplier 50, initial margin 600, and maintenance 400. Compute closing balance, added collateral, and trading profit.</li>
+<li>Suppose the trader cannot provide the third-date top-up and closes at 97. Compute the cumulative trading result at closure. Explain why the later quotation 102 cannot repair that closed hedge.</li>
+<li>For changes $10,-15,10$ and per-interval growth 1.01, compute terminal accumulated cash. Construct the deterministic scaling that instead replicates a terminal payoff of 5.</li>
+<li>Verify the random-discount covariance calculation using equal pricing probabilities, $D=(0.9,1)$, and $S_T=(120,80)$. Identify the assumption needed to interpret the second expectation as a futures quotation.</li>
+<li>Explain why variation margin, initial margin, and a high-confidence modeled-loss percentile do not prove that a cleared futures position has no remaining credit or liquidity risk.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>Each settlement is $nm(G_i-G_{i-1})$. Summing cancels all intermediate quotations and leaves $nm(G_N-G_0)$. To compare resources at maturity, however, the receipt at date $i$ must be multiplied by its actual accumulation factor to $T$. Different factors prevent cancellation in the weighted sum. If all financing rates are zero, every factor is one and the two quantities coincide. Otherwise equality can occur for a particular path but is not established by the telescoping identity alone.</p>
+</li>
+<li>
+<p>The effective quantity is $2\times50=100$. Settlements are −200, +300, −400, +500. Starting at 600 gives successive pre-call balances 400, 700, 300, and, after topping the third balance up to 600, 1,100. Equality with the maintenance threshold at the first date causes no call under the stated strict rule. At the third date, the required deposit is $600-300=300$. Total deposits are 900, so return of 1,100 contains trading profit $1100-900=200$, agreeing with $100(102-100)$.</p>
+</li>
+<li>
+<p>Through quotation 97, cumulative settlement is $100(97-100)=-300$. The account holds 300 of the original 600 after those settlements. Closing releases that 300 but terminates the futures exposure; the remaining 300 loss is real in the stated accounting. A later rise benefits a trader who still holds a long position, not one who has already closed. Maintaining the planned terminal hedge therefore requires funding capacity in addition to eventual price cancellation.</p>
+</li>
+<li>
+<p>The first receipt grows over two intervals and the second over one: $10(1.01)^2-15(1.01)+10=5.051$. Hold $1/(1.01)^2$, $1/1.01$, and 1 futures units in the three intervals. Accumulating each settlement then cancels its position scale, leaving $10-15+10=5$. Because the interest factors are deterministic, each position can be set before its corresponding price change. Replacing them with future realized random factors would generally require information not available at the trading date.</p>
+</li>
+<li>
+<p>$\mathbb E[D]=0.95$, $\mathbb E[S_T]=100$, and $\mathbb E[DS_T]=0.5(0.9)(120)+0.5(1)(80)=94$. Covariance is $94-95=-1$, and $94/0.95-100=-1/0.95$. Thus the forward benchmark is 98.947368 and its difference from 100 is −1.052632. Interpreting 100 as a futures quotation requires the stated ideal money-market pricing/settlement model under $\mathbb Q$, with the relevant integrability and no additional funding distortions. An arbitrary pair of physical-probability scenarios alone would not establish a traded futures price.</p>
+</li>
+<li>
+<p>Variation margin settles current exposure but does not prevent an adverse move before the next successful payment or during default liquidation. Initial margin provides collateral against modeled close-out changes, but gaps, illiquidity, model errors, or correlated collateral deterioration can create a larger loss. A percentile is a distributional threshold, not a maximum. Even if final price losses are offset elsewhere in a firm's business, variation settlement can require cash before the offsetting business receipt arrives. Credit mitigation and liquidity planning are consequently separate requirements.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Full English captions for playlist positions <a href="https://www.youtube.com/watch?v=aIIUoeuQjsI">6</a>, <a href="https://www.youtube.com/watch?v=FTQDee2_oOU">7</a>, and <a href="https://www.youtube.com/watch?v=FS670JTUYlY">8</a> were read sequentially. The topic sequence follows contract standardization, marking to market, margin mechanics, leverage, and deterministic-rate forward/futures comparison. The final exposure discussion continues in Chapter 4. The numerical ledger and deterministic scaling example are original teaching constructions. Residual clearing risk and the distinction between terminal cash sums and financed wealth are explicit clarifications. No comprehensive audiovisual audit or verification of historical exchange rules as current rules is claimed.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch03.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Daily settlement and deterministic-rate replication certificates.&quot;&quot;&quot;
+
+from math import isclose, isfinite, prod
+
+
+def margin_ledger(quotes, contracts, multiplier, initial, maintenance):
+    if len(quotes) &lt; 2 or not all(
+        isfinite(x)
+        for x in [*quotes, contracts, multiplier, initial, maintenance]
+    ):
+        raise ValueError(&quot;Need finite inputs and two prices&quot;)
+    if multiplier &lt;= 0 or not 0 &lt;= maintenance &lt;= initial or initial &lt;= 0:
+        raise ValueError(&quot;Invalid contract scale or margin thresholds&quot;)
+    balance = initial
+    rows = []
+    for old, new in zip(quotes, quotes[1:]):
+        flow = contracts * multiplier * (new - old)
+        before_call = balance + flow
+        call = initial - before_call if before_call &lt; maintenance else 0
+        balance = before_call + call
+        rows.append((flow, before_call, call, balance))
+    return rows
+
+
+def main():
+    prices = [100, 98, 101, 97, 102]
+    rows = margin_ledger(prices, 2, 50, 600, 400)
+    assert rows == [
+        (-200, 400, 0, 400),
+        (300, 700, 0, 700),
+        (-400, 300, 300, 600),
+        (500, 1100, 0, 1100),
+    ]
+    flows = [r[0] for r in rows]
+    calls = sum(r[2] for r in rows)
+    profit = rows[-1][-1] - 600 - calls
+    assert profit == sum(flows) == 2 * 50 * (102 - 100) == 200
+    short_rows = margin_ledger(prices, -2, 50, 600, 400)
+    assert sum(r[0] for r in short_rows) == -200
+    # Interest-bearing cash flows differ despite the same unweighted sum.
+    growth = [1.01, 1.01, 1.01]
+    gains = [b - a for a, b in zip([100, 110, 95, 105], [110, 95, 105])]
+    factors = [prod(growth[i + 1:]) for i in range(3)]
+    held_one_terminal = sum(g * f for g, f in zip(gains, factors))
+    scaled_terminal = sum((g / f) * f for g, f in zip(gains, factors))
+    assert isclose(scaled_terminal, 5, abs_tol=1e-12)
+    assert not isclose(held_one_terminal, 5, abs_tol=1e-8)
+    # A two-state pricing model: rate/terminal-price dependence matters.
+    probabilities = [0.5, 0.5]
+    discounts, spots = [0.9, 1.0], [120, 80]
+    mean_d = sum(q * d for q, d in zip(probabilities, discounts))
+    mean_s = sum(q * s for q, s in zip(probabilities, spots))
+    mean_ds = sum(
+        q * d * s for q, d, s in zip(probabilities, discounts, spots)
+    )
+    forward = mean_ds / mean_d
+    covariance = mean_ds - mean_d * mean_s
+    assert isclose(forward - mean_s, covariance / mean_d)
+    print(
+        f&quot;flows={flows}; calls={calls}; final_balance={rows[-1][-1]}; &quot;
+        f&quot;trading_profit={profit}&quot;
+    )
+    print(
+        f&quot;one_contract_terminal={held_one_terminal:.6f}; &quot;
+        f&quot;scaled_replication_terminal={scaled_terminal:.6f}&quot;
+    )
+    print(
+        f&quot;two_state_forward={forward:.6f}; &quot;
+        f&quot;futures_benchmark={mean_s:.6f}; covariance={covariance:.6f}&quot;
+    )
+    print(
+        &quot;Ledger accounting, short signs, threshold boundary, &quot;
+        &quot;funded timing and covariance checks passed.&quot;
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch02.html">Previous: Forward prices come from financed replication</a><a rel="next" href="ch04.html">Next: Exposure, hedge direction, and the basis that remains</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

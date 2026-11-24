@@ -1,0 +1,32 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch20-r1.md",
+  "scope": [
+    "Complete current manuscript, metadata, all six solutions and full lab",
+    "Independent PDE transformations, Greeks, units and numerical checks",
+    "Selected actual captions and primary MIT PDE/formula passages",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch20.md": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
+    "chapters/ch20.json": "3fd76945395662789c3afb34fc29da39419474a1debd8bc07e4eb9a788b130ff",
+    "labs/ch20.py": "8c1138ab746a627d8570b9766019b4a89505fdfa9a756a86aeda42e5b426c79a"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      49,
+      50
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT Kogan stochastic-calculus slides19\u201320"
+    ]
+  },
+  "limitations": [
+    "No full independent caption reread",
+    "No comprehensive audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ]
+}

@@ -1,0 +1,332 @@
+{
+  "retrieved_on": "2026-11-24",
+  "boundary": "Primary references support precisely located claims. Download is distinct from reading. Raw reference documents stay local and are not redistributed.",
+  "sources": [
+    {
+      "id": "cme-sofr-transition",
+      "url": "https://www.cmegroup.com/media-room/press-releases/2023/4/24/cme_group_completeskeymilestonesinconversionofeurodollarfutureso.html",
+      "status": "web-full-text-inspected",
+      "error": "HTTPSConnectionPool(host='www.cmegroup.com', port=443): Read timed out. (read timeout=30)",
+      "local_download": "timeout",
+      "scope": "CME press release dated April24,2023; paragraph on April conversion and May/June2023 natural expiries inspected.",
+      "claims": [
+        "Eurodollar-to-SOFR transition is historical and must not be presented as an unchanged current product."
+      ]
+    },
+    {
+      "id": "cme-treasury-futures",
+      "url": "https://www.cmegroup.com/content/dam/cmegroup/education/files/understanding-treasury-futures.pdf",
+      "status": "web-selected-pages-inspected",
+      "error": "HTTPSConnectionPool(host='www.cmegroup.com', port=443): Read timed out. (read timeout=30)",
+      "local_download": "timeout",
+      "resolved_url": "https://www.cmegroup.com/content/dam/cmegroup/markets/interest-rates/files/understanding-treasury-futures.pdf",
+      "scope": "November2026 edition: PDFpages11\u201312 invoice/conversion factor/CTD,21\u201322 DV01 and CF-weighted hedging inspected. Not a full-document review."
+    },
+    {
+      "id": "bis-pfmi",
+      "url": "https://www.bis.org/publications/principles-financial-market-infrastructures",
+      "http_status": 200,
+      "bytes": 136451,
+      "sha256": "f3adc1c5ba030f9fcc1a87296a39f093fefe10ee8e8671b59d9059be9a0f41f7",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "black-scholes1973",
+      "url": "https://www.cs.princeton.edu/courses/archive/fall09/cos323/papers/black_scholes73.pdf",
+      "http_status": 200,
+      "bytes": 327231,
+      "sha256": "5d7fff3799e94a563edd232d4678f898703176d408d213ec4f2984b009c46157",
+      "retrieved_on": "2026-11-24",
+      "acquisition": "complete PDF acquired locally; not yet full text reviewed",
+      "scope": "Full scanned PDF acquired; local extraction is image-limited. Formula/theorem verification must use rendered pages or another verified primary text before a page-specific claim."
+    },
+    {
+      "id": "crr1979",
+      "url": "https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/7/36891/files/2017/07/CRR79-1yy8av8.pdf",
+      "http_status": 200,
+      "bytes": 2209781,
+      "sha256": "750757cc67e1c48b8d39c61416e16253f9bc2567e862bdfe758c9537b90b02f3",
+      "retrieved_on": "2026-11-24",
+      "acquisition": "Complete PDF acquired locally; selected reading scope recorded here.",
+      "status": "selected-text-passages-inspected",
+      "reader": "scientific_review",
+      "scope": "Local extracted manuscript pages1\u20136 read sequentially and selected pages20\u201321 limiting-distribution discussion inspected; original derivations in chapters. No full paper review."
+    },
+    {
+      "id": "rockafellar-uryasev-cvar",
+      "url": "https://sites.math.washington.edu/~rtr/papers/rtr179-CVaR1.pdf",
+      "http_status": 200,
+      "bytes": 200088,
+      "sha256": "34aff2161733085ca8e5a067053a8f144cba52f556e253d69c932f7d22d842f4",
+      "retrieved_on": "2026-11-24",
+      "acquisition": "Complete PDF acquired locally; selected pages4\u20135 inspected, not full-document review.",
+      "scope": "Local earlier continuous-distribution paper pages1\u20135 read by scientific_review; source_research inspected pages4\u20135 definitions/equations1\u20135 and Theorem1 with continuous-CDF assumption. General-atom claims use separate general-distribution paper.",
+      "locators": [
+        "PDFp4 assumptions and equations1\u20133",
+        "PDFp5 equation4/Theorem1"
+      ],
+      "status": "selected-text-passages-inspected",
+      "reader": "source_research"
+    },
+    {
+      "id": "mit-kogan-arbitrage",
+      "url": "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/219406be97b96bc540e0be6aa778c0b7_MIT15_450F10_lec01.pdf",
+      "status": "selected-text-passages-inspected",
+      "bytes": 1172844,
+      "sha256": "42ac23773a8d066985e45899f03b15186f23cd1a2edbc98286cc0093bf77b560",
+      "scope": "PDFpages3\u201313 inspected in retrieved web text: replication, nonredundancy, finite-state FTAP, self-financing, incomplete markets. No full-document read claimed."
+    },
+    {
+      "id": "mit-kogan-stochastic",
+      "url": "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf",
+      "status": "selected-text-passages-inspected",
+      "bytes": 717222,
+      "sha256": "c8bd572060b6b6ba94801de772d6b62f27b7ad8b0774826bafeefff962203d14",
+      "reader": "scientific_review",
+      "scope": "Local extracted PDFpages4\u20135 and7\u201320 inspected: Brownian properties, adapted square integrability, Ito processes/QV/formula, GBM, self-financing equation17, replication18, PDE19 and formula20. Not a full-document review."
+    },
+    {
+      "id": "bis-pfmi-pdf",
+      "url": "https://www.bis.org/publications/principles-financial-market-infrastructures.pdf",
+      "status": "selected-text-passages-inspected",
+      "bytes": 1117912,
+      "sha256": "48b97c7e065b5a3f152e6706e614a662fad4d9908b88c6ffe0f4a011e89478e2",
+      "scope": "PDFpages38,50,57 inspected: risk framework, CCP stress testing, initial versus variation margin. Full document downloaded; no full-document review claimed.",
+      "locators": [
+        "Principle3,printedp32/PDFp38",
+        "Paragraphs3.4.20\u201323,printedp44/PDFp50",
+        "Paragraphs3.6.1\u20134,printedp51/PDFp57"
+      ]
+    },
+    {
+      "id": "mit-lo-forward-and-futures-contracts",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf",
+      "resource_url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/resources/mit15_401f08_lec08/",
+      "status": "selected-text-passages-inspected",
+      "bytes": 183937,
+      "sha256": "af516e9151c77b9b6dbb1f437736d100591e58220b8847846436e66e3b821d0b",
+      "retrieved_on": "2026-11-24",
+      "scope": "Extracted PDFpages11\u201329 inspected, including financed spot/forward comparisons, dividend/currency carry and index-futures applications. Some graphical equations have limited extraction; chapter proofs independently derived. Not a full slide/graphic audit.",
+      "reader": "source_research"
+    },
+    {
+      "id": "mit-lo-portfolio-theory",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/dd628e151309a7f23962b1a31b9356e5_MIT15_401F08_lec13.pdf",
+      "resource_url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/resources/mit15_401f08_lec13/",
+      "status": "selected-text-passages-inspected",
+      "bytes": 339896,
+      "sha256": "a128f3e7c8b7304fe680859750f0d94c7a483111dd65b0105f514aa155337f34",
+      "retrieved_on": "2026-11-24",
+      "scope": "Selected text PDFpages16\u201346: covariance, diversification, frontier and tangency; graphics not comprehensively reviewed"
+    },
+    {
+      "id": "mit-lo-the-capm-and-apt",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/411d7d9df37d4d0440b18e17e8cea3a9_MIT15_401F08_lec15.pdf",
+      "resource_url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/resources/mit15_401f08_lec15/",
+      "status": "selected-text-passages-inspected",
+      "bytes": 339652,
+      "sha256": "4274a8362b0c904fd3885822e25604a7d9d83d7d22153d48f03c318e82c22fc0",
+      "retrieved_on": "2026-11-24",
+      "scope": "Selected text PDFpages1\u201322: CAPM interpretation, projection, estimation and empirical limitations"
+    },
+    {
+      "id": "mit-lo-fixed-income-securities",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/pages/video-lectures-and-slides/fixed-income-securities/",
+      "status": "resolved-by-direct-pdf",
+      "error": "list index out of range",
+      "resolution": "Direct official PDF acquired and selected text inspected under mit-lo-fixed-income row; initial link-selector failed."
+    },
+    {
+      "id": "nist-linear-least-squares",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd141.htm",
+      "status": "web-full-text-inspected",
+      "retrieved_on": "2026-11-24",
+      "scope": "Definition of least-squares fitting and limitations: extrapolation/outlier sensitivity. No current market claim."
+    },
+    {
+      "id": "treasurydirect-pricing",
+      "url": "https://www.treasurydirect.gov/marketable-securities/understanding-pricing/",
+      "status": "selected-passages-inspected-by-chapter-author",
+      "reader": "reader_builder",
+      "scope": "Bills formula and bonds discussion",
+      "retrieved_on": "2026-11-24",
+      "independent_reader": "source_research",
+      "independent_scope": "Official Bills price formula and selected bond-pricing text inspected."
+    },
+    {
+      "id": "cme-sofr-quotation",
+      "url": "https://www.cmegroup.com/education/articles-and-reports/understanding-sofr-futures",
+      "status": "selected-passages-inspected-by-chapter-author",
+      "reader": "reader_builder",
+      "scope": "Exhibit3 reference quarter, 100-R quotation and 25 dollars per basis point",
+      "retrieved_on": "2026-11-24",
+      "independent_reader": "source_research",
+      "independent_scope": "Exhibit3 and reference-quarter/settlement discussion inspected at review11."
+    },
+    {
+      "id": "cme-cf-calculation",
+      "url": "https://www.cmegroup.com/articles/2024/calculating-us-treasury-futures-conversion-factors.html",
+      "status": "selected-passages-inspected-by-chapter-author",
+      "reader": "reader_builder",
+      "scope": "Introduction and Exhibit1 product-specific rounding",
+      "retrieved_on": "2026-11-24",
+      "independent_reader": "source_research",
+      "independent_scope": "Introduction and Exhibit1 rounding conventions inspected at review12."
+    },
+    {
+      "id": "cme-cf-tables",
+      "url": "https://www.cmegroup.com/trading/interest-rates/us-treasury-futures-conversion-factor-lookup-tables.html",
+      "status": "selected-passages-inspected-by-chapter-author",
+      "reader": "reader_builder",
+      "scope": "Invoice conversion factor and accrued-interest paragraphs",
+      "retrieved_on": "2026-11-24",
+      "independent_reader": "source_research",
+      "independent_scope": "Invoice factor plus separate accrued-interest paragraph inspected at review12."
+    },
+    {
+      "id": "cme-treasury-delivery",
+      "url": "https://www.cmegroup.com/education/courses/introduction-to-treasuries/learn-about-the-treasuries-delivery-process",
+      "status": "selected-passages-inspected-by-chapter-author",
+      "reader": "reader_builder",
+      "scope": "Delivery Process and Notice Day",
+      "retrieved_on": "2026-11-24",
+      "independent_reader": "source_research",
+      "independent_scope": "Delivery Process and Notice Day sections inspected at review12."
+    },
+    {
+      "id": "duke-harvey-options",
+      "url": "https://people.duke.edu/~charvey/classes/ba350/optval/optval.htm",
+      "status": "selected-passages-inspected-by-chapter-author",
+      "reader": "reader_builder",
+      "scope": "Definitions, put\u2013call parity including dividend adjustment, and bounds passages inspected by chapter author.",
+      "retrieved_on": "2026-11-24",
+      "independent_reader": "source_research",
+      "independent_scope": "Definitions, sections4.1/4.3 stock-option strategies,7\u20138 parity including dividend-date borrowing,9\u201310 bounds inspected during reviews13\u201315. Unqualified maturity/probability heuristics not adopted."
+    },
+    {
+      "id": "oic-parity",
+      "url": "https://www.optionseducation.org/advancedconcepts/put-call-parity",
+      "status": "selected-passages-inspected-by-chapter-author",
+      "reader": "reader_builder",
+      "scope": "Introduction assumptions",
+      "retrieved_on": "2026-11-24",
+      "independent_reader": "source_research",
+      "independent_scope": "Arbitrage/borrowing and transaction restrictions inspected at review13."
+    },
+    {
+      "id": "mit-lo-fixed-income",
+      "url": "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf",
+      "status": "selected-text-passages-inspected",
+      "sha256": "2a6d65689c33c1d67dbea5fe3eaf8925eea97cd6ea9842092fe6aa1077a384ef",
+      "pages": 66,
+      "retrieved_on": "2026-11-24",
+      "scope": "PDFpages13\u201343 text inspected: forward rates, dated-claim replication, YTM, duration and convexity. Not a comprehensive graphic audit."
+    },
+    {
+      "id": "lalley-girsanov",
+      "url": "https://galton.uchicago.edu/~lalley/Courses/390/Lecture10.pdf",
+      "status": "web-full-text-inspected",
+      "scope": "Theorems1-2 pages1-3 inspected for Novikov and Girsanov, with theta=-lambda to match chapter signs; pages4-6 inspected for equivalence and quadratic-variation preservation. General theorem invoked, constant-coefficient case derived independently.",
+      "claims": [
+        "Exponential density under Novikov is a true martingale.",
+        "The Brownian drift shift changes sign relative to density exponent.",
+        "Equivalent drift change preserves quadratic variation."
+      ]
+    },
+    {
+      "id": "oic-option-basics",
+      "url": "https://www.optionseducation.org/optionsoverview/options-basics",
+      "status": "selected-web-passages-inspected",
+      "reader": "source_research",
+      "scope": "Describing Equity Options, Calls and Puts, and Options Premium definitions; no reliance on dated contract-listing details.",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "oic-long-straddle",
+      "url": "https://www.optionseducation.org/strategies/all-strategies/long-straddle",
+      "status": "selected-web-passages-inspected",
+      "reader": "reader_builder",
+      "independent_reader": "source_research",
+      "scope": "Description, MaxLoss, MaxGain and Breakeven: matched strike/expiry, premium loss and bounded downside versus unbounded upside",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "oic-long-call-butterfly",
+      "url": "https://www.optionseducation.org/strategies/all-strategies/long-call-butterfly",
+      "status": "selected-web-passages-inspected",
+      "reader": "reader_builder",
+      "independent_reader": "source_research",
+      "scope": "Description and Profit/Loss: equal spacing, shared expiry, signed1/-2/1 and bounded tent",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "fca-libor-end",
+      "url": "https://www.fca.org.uk/news/press-releases/end-libor",
+      "status": "selected-web-passages-inspected",
+      "reader": "scientific_review",
+      "independent_reader": "source_research",
+      "scope": "Joint release1October2024 introduction confirms final synthetic settings30September2024 and permanent cessation of35LIBOR settings. Historical benchmark boundary only.",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "mit-ito-lecture18",
+      "url": "https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/ef2c66c8079ba656210ad1fd4a5e2fa8_MIT18_S096F13_lecnote18.pdf",
+      "status": "selected-web-text-passages-inspected",
+      "reader": "scientific_review",
+      "scope": "Theorem1.1 and Example1.3 on PDFpages2\u20133 inspected in official web extraction for general Ito transformation and stochastic-square identity. No full-document proofread claimed.",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "lalley-brownian-reflection",
+      "url": "https://www.stat.uchicago.edu/~lalley/Courses/312/BrownianMotion312.pdf",
+      "status": "selected-primary-passages-inspected",
+      "reader": "lead_scientific",
+      "scope": "Section2.3 Propositions3\u20134 reflection principle/stopping-time support independently checked by lead reviewer for chapter17; no full-document review claimed.",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "bianchetti-double-curve",
+      "url": "https://www.bianchetti.org/Finance/2009-11-QCE-DoubleCurvePricingSlides-v1.1.pdf",
+      "status": "selected-web-text-passages-inspected",
+      "reader": "scientific_review",
+      "independent_reader": "source_research",
+      "scope": "Slides5 and8 inspected for separate forwarding/discount curves and payment-date forward-measure coupon expectations. Not full-deck review or current market calibration.",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "nyfed-sofr-methodology",
+      "url": "https://www.newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates",
+      "status": "selected-web-passages-inspected",
+      "reader": "scientific_review",
+      "independent_reader": "source_research",
+      "scope": "Calculation Methodology for SOFR Averages and Index: business-day compounding, simple accrual at preceding business-day rate over nonbusiness days, actual calendar-day numerator and360-day year. Administrator methodology distinguished from individual swap terms.",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "nist-pca",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc551.htm",
+      "status": "selected-web-passages-inspected",
+      "reader": "source_research",
+      "scope": "Orthogonalizing transformations and eigenstructure, especially V transpose R V diagonal; principal-component variance and exposure-coordinate interpretation. Not adoption of all suggested retention heuristics.",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "bcbs-backtesting-1996",
+      "url": "https://www.bis.org/publications/199601-standards-supervisory-framework-use-backtesting-conjunction-internal-models-approach-market-risk-capital.pdf",
+      "status": "selected-web-text-pages-inspected",
+      "reader": "source_research",
+      "scope": "PDFpages2\u20136: matching forecast risk and P&L, hypothetical versus actual outcomes, exception count/binomial independence and test-power limits. Historical superseded methodological document, not current capital rules.",
+      "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "rockafellar-uryasev-general-cvar",
+      "url": "https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf",
+      "status": "selected-web-text-passages-inspected",
+      "reader": "scientific_review",
+      "scope": "Definition1/3 PDFpages5\u20138, Proposition8 PDFpage13 and Theorem10 PDFpages14\u201316 inspected by chapter23 author. No full-document review.",
+      "independent_reader": "lead_scientific",
+      "independent_scope": "Lead inspected Definition3/tail atom and Theorem10 for chapter23; source_research personally inspected Definition3 PDFpages6\u20138 and Proposition8 PDFpage13 for chapter24 finite-atom application.",
+      "retrieved_on": "2026-11-24"
+    }
+  ]
+}

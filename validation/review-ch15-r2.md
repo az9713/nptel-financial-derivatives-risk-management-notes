@@ -1,0 +1,7 @@
+# Independent scientific and editorial review — Chapter 15
+
+Reviewer source_research, independent of author reader_builder. Accepted after the localized revision recheck.
+
+Full manuscript, metadata, all six solutions and complete 260-line laboratory read; fresh execution passed. Checked general signed payment/cost and funded-profit formula, interval slope jumps, zero/strike/tail extrema, covered/protective replications, straddle/strangle/gut/strip/strap roots, vertical-spread debit identity, discrete strike convexity, equally and unequally spaced butterfly quantities, constant-payment box financing, and calendar continuation rather than intrinsic valuation. The American dividend interval is justified with early-assignment ledgers and kept separate from European common-expiry strategies.
+
+Requested repairs completed: all six malformed carriage-return strip/strap TeX labels are valid mathrm labels; manuscript has no embedded CR bytes. Integrated Duke stock-plus-option and OIC straddle/butterfly primary links were independently inspected at their specified passages. Source34 1280–1360s and36 200–270s/1178–1250s confirm the new straddle/butterfly/calendar landmarks. No full repeat caption or audiovisual audit is claimed. The lab's analytical interval/tail routine, grid identity checks, flat-zero box intervals and calendar values are consistent with the algebra; source and SVG-generation code were read. Browser/visual acceptance belongs to the independent rendered-output gate. No remaining mathematical or editorial findings.

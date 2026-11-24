@@ -1,0 +1,34 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch22-r1.md",
+  "scope": [
+    "Complete current manuscript, metadata, all six solutions and full lab",
+    "Independent mathematical, numerical, sign, date and units audit",
+    "Selected actual official captions and stated primary-reference passages",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch22.md": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+    "chapters/ch22.json": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
+    "labs/ch22.py": "39dd2a4827937bc2bd2a2d894abbce73fa99633061029af35bb7853c2fc7fc0a"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      55,
+      56,
+      57
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "Bianchetti Two Curves One Price slides5/8",
+      "New York Fed SOFR Averages and Index methodology"
+    ]
+  },
+  "limitations": [
+    "No full independent caption reread",
+    "No comprehensive audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ]
+}

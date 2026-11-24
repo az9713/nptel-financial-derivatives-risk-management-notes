@@ -1,0 +1,125 @@
+{
+  "chapter": "ch17",
+  "reader": "scientific_review (chapter author)",
+  "recordings": [
+    {
+      "position": 40,
+      "video_id": "_k8ciiS7tFE",
+      "reading": "full sequential text read",
+      "normalized_text_sha256": "24229bcbe0bd3710768b10ca6d579fc926d2bc9e96534dde0be4511daefe5d5c",
+      "topics": [
+        {
+          "start_seconds": 39,
+          "topic": "Fourier transform solves constant diffusion equation"
+        },
+        {
+          "start_seconds": 345,
+          "topic": "Uniform-sum central limit example"
+        },
+        {
+          "start_seconds": 928,
+          "topic": "Generalized Wiener drift/volatility"
+        },
+        {
+          "start_seconds": 1193,
+          "topic": "Failure of ordinary left-point chain rule for W squared"
+        }
+      ]
+    },
+    {
+      "position": 41,
+      "video_id": "CA9KRamLFW4",
+      "reading": "full sequential text read",
+      "normalized_text_sha256": "cd6ffae7dccd7307c8311c24d87049a0d3768d481fef907cbb00b6e457ed047f",
+      "topics": [
+        {
+          "start_seconds": 64,
+          "topic": "Comparing expectations of square-function terms"
+        },
+        {
+          "start_seconds": 240,
+          "topic": "Taylor/quadratic-increment motivation"
+        },
+        {
+          "start_seconds": 828,
+          "topic": "Normal square moments and finite-increment variance"
+        },
+        {
+          "start_seconds": 1361,
+          "topic": "Ito formula and general diffusion"
+        },
+        {
+          "start_seconds": 1887,
+          "topic": "Integral WdW example and expectation distinction"
+        }
+      ]
+    },
+    {
+      "position": 42,
+      "video_id": "SilnIL0Q98o",
+      "reading": "full sequential text read",
+      "normalized_text_sha256": "544e356298aecae5940bc34e663bda2e80eb9a5f518a84b111e3fd13932697ed",
+      "topics": [
+        {
+          "start_seconds": 61,
+          "topic": "Proportional stock SDE"
+        },
+        {
+          "start_seconds": 395,
+          "topic": "Log transform with Ito drift correction"
+        },
+        {
+          "start_seconds": 694,
+          "topic": "Simple versus log/annualized returns"
+        },
+        {
+          "start_seconds": 1031,
+          "topic": "General diffusion and forward density equation"
+        },
+        {
+          "start_seconds": 1643,
+          "topic": "GBM forward equation and lognormal solution"
+        }
+      ]
+    },
+    {
+      "position": 43,
+      "video_id": "zfYjF39ynV0",
+      "reading": "full sequential text read",
+      "normalized_text_sha256": "38121a1e67733855e718d0383d460f3bbbabbe277363a1ec6410a4638f03188b",
+      "topics": [
+        {
+          "start_seconds": 285,
+          "topic": "GBM recap and finite versus Euler approximation"
+        },
+        {
+          "start_seconds": 669,
+          "topic": "Compounding and arithmetic versus logarithmic returns"
+        },
+        {
+          "start_seconds": 980,
+          "topic": "Lognormal change of variables and moments"
+        },
+        {
+          "start_seconds": 1483,
+          "topic": "Normal/lognormal probability examples"
+        },
+        {
+          "start_seconds": 1932,
+          "topic": "Cash-balance endpoint insolvency calculation"
+        }
+      ]
+    }
+  ],
+  "corrections_and_extensions": [
+    "A single finite squared Brownian increment is random: its coefficient of variation does not vanish with dt; the aggregate quadratic-variation sum converges in L2.",
+    "The Ito integral of WdW has expectation zero, not zero pathwise value.",
+    "The GBM SDE and its exact lognormal transition are the same model; a finite Euler Gaussian step is a numerical approximation, not a second exact model.",
+    "Lognormality is conditional on constant-coefficient GBM assumptions, not an empirical universal truth.",
+    "Markov modeling does not follow solely from a weak-form market-efficiency slogan.",
+    "Endpoint negative cash balance probability is distinct from first-passage insolvency during the year.",
+    "Forward-density derivation uses smooth compact-support tests and boundary/integrability assumptions."
+  ],
+  "modality_limits": "Full caption text, no comprehensive audiovisual audit. Reconstructed equations independently checked.",
+  "status": "full source read; drafted chapter and lab for independent review"
+}

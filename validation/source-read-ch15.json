@@ -1,0 +1,68 @@
+{
+  "chapter": "ch15",
+  "reader": "reader_builder_author",
+  "recordings": [
+    {
+      "position": 34,
+      "video_id": "p1T4wFkaPS8",
+      "normalized_text_sha256": "4ce77faa7286bf9eb92724ce68c8165f2c4290da07e46fc356dc25b12704ae9f",
+      "reading": "full sequential text read",
+      "first_start": 24.64,
+      "last_segment_start": 1991.09,
+      "landmarks": [
+        33,
+        304,
+        449,
+        953,
+        1257,
+        1848
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    },
+    {
+      "position": 35,
+      "video_id": "zkDVIsOARK0",
+      "normalized_text_sha256": "fead3f889626107f8d5da354e0358213fd4a3f4803e559455269afaa434ce5c6",
+      "reading": "full sequential text read",
+      "first_start": 24.83,
+      "last_segment_start": 1926.77,
+      "landmarks": [
+        106,
+        359,
+        518,
+        813,
+        976,
+        1470,
+        1773
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    },
+    {
+      "position": 36,
+      "video_id": "WOeG8sV1xz8",
+      "normalized_text_sha256": "8bc8619c34909e3a9e50e20acc499cb6bda870adc4697d28a744e9cd23e131f2",
+      "reading": "full sequential text read",
+      "first_start": 4.46,
+      "last_segment_start": 1911.73,
+      "landmarks": [
+        98,
+        202,
+        361,
+        657,
+        991,
+        1178,
+        1620,
+        1787
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    }
+  ],
+  "source_corrections_and_limits": [
+    "Exercise payoffs and funded terminal profits are kept separate.",
+    "All roots are restricted to the nonnegative stock domain and their relevant strike intervals.",
+    "Weak no-arbitrage inequalities allow degenerate boundary states.",
+    "Calendar long-option value is a continuation price, not a terminal intrinsic payment or a price maximized at the strike.",
+    "European maturity monotonicity needs assumptions; known-dividend counterexample given.",
+    "Static common-expiry identities are not claims that intermediate American assignment is irrelevant."
+  ]
+}

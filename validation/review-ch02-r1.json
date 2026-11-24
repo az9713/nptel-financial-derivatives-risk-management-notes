@@ -1,0 +1,46 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch02-r1.md",
+  "scope": [
+    "Complete manuscript, metadata, six exercise solutions and lab read",
+    "All central derivations and numerical examples independently checked",
+    "Selected actual source passages and MIT primary teaching slides inspected",
+    "Fresh-process laboratory execution observed"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch02.md": "940758adcbd48b7d60c55de0b432766b7529b7effc5d8bc6bc7f31758925336e",
+    "chapters/ch02.json": "5cf91e749f49dff9adb26f15e7b9fdb824f716dfa3d6c361b3dd8ecd840b7232",
+    "labs/ch02.py": "d2ae61be454f9c77424a49e5dba1c8598e7810b2317ed7da4bd8601c3f58df4c"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      3,
+      4,
+      5
+    ],
+    "scope": "Selected passages as enumerated in the report; not a full independent caption reread",
+    "primary_reference": "MIT Andrew Lo Finance Theory 15.401 forwards/futures PDF, financed-purchase slides"
+  },
+  "limitations": [
+    "No comprehensive audiovisual audit",
+    "Not human certification or formal proof verification",
+    "Separate package and browser checks required"
+  ],
+  "bounded_rechecks": [
+    {
+      "reason": "Canonical LF normalization only; no scientific content change",
+      "proof": "validation/line-ending-normalization.json",
+      "method": "Reconstructed original CRLF bytes from canonical LF and matched prior acceptance SHA-256 exactly; Python AST equivalence and fresh lab execution passed.",
+      "files": [
+        {
+          "file": "labs/ch02.py",
+          "before_sha256": "67bf2d2b898d07e203d61ee3b6f171236a2c8ae9781b2a07a56593ff0fbcc1bc",
+          "after_sha256": "d2ae61be454f9c77424a49e5dba1c8598e7810b2317ed7da4bd8601c3f58df4c",
+          "reverse_crlf_reconstruction_matches_accepted_sha256": true
+        }
+      ]
+    }
+  ]
+}

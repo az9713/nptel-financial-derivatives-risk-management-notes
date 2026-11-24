@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Exposure, hedge direction, and the basis that remains · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html" aria-current=page>04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>04. Exposure, hedge direction, and the basis that remains</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=U2BzQcc46ck">Recording 9</a>, <a href="https://www.youtube.com/watch?v=RaBL0YcrFkQ">Recording 10</a>, <a href="https://www.youtube.com/watch?v=pbr-X3rjuPw">Recording 11</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Define a statistical exposure with the correct units and horizon</li><li>Derive OLS orthogonality and identify residual nonlinear risk</li><li>Build long and short hedge cash flows using a fixed basis convention</li><li>Compare contract choices by their combined risk rather than hoped-for gains</li></ul>
+<p><strong>Prerequisites:</strong> Chapters 1–3 cash-flow accounting; elementary means, variances and differentiation, developed locally where used.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch04.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-exposure-is-a-relationship-between-an-account-and-a-risk-factor-0024">1. Exposure is a relationship between an account and a risk factor 00:24</a></li><li><a href="#2-least-squares-produces-orthogonality-not-independence-0617">2. Least squares produces orthogonality, not independence 06:17</a></li><li><a href="#3-choose-the-sign-from-the-combined-cash-flow-0745">3. Choose the sign from the combined cash flow 07:45</a></li><li><a href="#4-basis-risk-survives-early-closure-2005">4. Basis risk survives early closure 20:05</a></li><li><a href="#5-contract-selection-is-a-risk-comparison-not-a-bet-on-favorable-basis-movement-1520">5. Contract selection is a risk comparison, not a bet on favorable basis movement 15:20</a></li><li><a href="#6-implementation-and-the-scope-of-a-useful-diagnostic">6. Implementation and the scope of a useful diagnostic</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A producer expects to sell inventory in three months. An importer expects to buy foreign currency on the same date. Both are exposed to a future price, but the adverse direction is opposite: a fall hurts the producer and helps the importer. “Buy futures to reduce risk” is therefore not a complete instruction. We must identify the exposed cash flow, its sensitivity, the hedge instrument, and the date on which the two positions will be combined.</p>
+<p>The simplest futures hedge replaces uncertainty in a spot price with uncertainty in the difference between spot and futures prices. That difference is called the basis. Whether this is an improvement depends on how the basis behaves over the firm's actual horizon. A contract's eventual convergence to its settlement reference does not guarantee convergence on an earlier date when the firm must trade.</p>
+<h2 id="1-exposure-is-a-relationship-between-an-account-and-a-risk-factor-0024">1. Exposure is a relationship between an account and a risk factor <a href="https://www.youtube.com/watch?v=U2BzQcc46ck&amp;t=24s">00:24</a></h2>
+<p>Let $Y=\Delta V$ be the change in the domestic-currency value of an account over a specified horizon. The account might be inventory, a receivable, a payable, or operating cash flow. Let $X=\Delta S$ be the change in a chosen market factor. A linear exposure description writes</p>
+<p>$$Y=\alpha+\beta X+\varepsilon.$$</p>
+<p>The intercept $\alpha$ and sensitivity $\beta$ are constants in this particular fitted model. The residual $\varepsilon$ contains whatever variation the model does not explain. Its existence need not imply intrinsic randomness: omitted information, measurement error, changing relationships, or nonlinear effects can all contribute. A probabilistic model states the information available for a decision; it need not settle a philosophical question about determinism.</p>
+<p>Sensitivity has units. If $Y$ is rupees and $X$ is rupees per dollar, then $\beta$ has dollar units. If both are percentage returns, the slope is dimensionless. A coefficient estimated from price levels is not automatically interchangeable with one estimated from returns, nor does a daily relationship automatically apply to a quarterly exposure.</p>
+<p>Economic exposure also need not equal the foreign-currency amount currently written on a balance sheet. If an asset's foreign-currency value is $A(X)$ and the exchange rate is $X$ domestic units per foreign unit, its domestic value is $V(X)=XA(X)$. A differentiable local model gives $V'(X)=A(X)+XA'(X)$. The second term captures the operating or valuation response of the foreign asset itself. A fixed foreign-currency receivable has $A'=0$; a foreign business whose revenues respond to currency movements generally need not.</p>
+<p>The relevant question is what a change in the factor does to the chosen account under the stated horizon and information. A market factor can be volatile while a particular account is insensitive to it. Conversely, an account can have substantial risk from factors that the chosen regression omits.</p>
+<h2 id="2-least-squares-produces-orthogonality-not-independence-0617">2. Least squares produces orthogonality, not independence <a href="https://www.youtube.com/watch?v=U2BzQcc46ck&amp;t=377s">06:17</a></h2>
+<p>Suppose we observe $N$ pairs $(x_i,y_i)$ over comparable horizons. <strong>Ordinary least squares</strong>, OLS, chooses $\alpha$ and $\beta$ to minimize $\sum_i(y_i-\alpha-\beta x_i)^2$. Differentiating with respect to the two coefficients gives</p>
+<p>$$\sum_i e_i=0,\qquad\sum_i x_ie_i=0,$$</p>
+<p>where $e_i=y_i-\alpha-\beta x_i$ are fitted residuals. Writing the sample means as $\bar x$ and $\bar y$, the first equation yields $\alpha=\bar y-\beta\bar x$. Substituting this into the second gives</p>
+<p>$$\beta=\frac{\sum_i(x_i-\bar x)(y_i-\bar y)}{\sum_i(x_i-\bar x)^2},$$</p>
+<p>provided the denominator is positive. A constant regressor cannot identify a slope. The two normal equations make the fitted residual vector orthogonal to the intercept vector and to the regressor. These are properties of the fitted sample, not evidence that a future economic relationship cannot change.</p>
+<p>For a population model with finite second moments and $\operatorname{Var}(X)&gt;0$, the corresponding best linear projection has $\beta=\operatorname{Cov}(X,Y)/\operatorname{Var}(X)$ and residual covariance $\operatorname{Cov}(X,\varepsilon)=0$. Here covariance is the expected product of centered variables. Zero covariance does not mean statistical independence, and a best linear projection is not necessarily the full conditional expectation $\mathbb E[Y\mid X]$.</p>
+<p>For a concrete counterexample, let $X$ be equally likely to be −1, 0, or 1, and set $Y=X^2$. Then $\mathbb E[X]=0$, $\mathbb E[Y]=2/3$, and $\operatorname{Cov}(X,Y)=0$ by symmetry. The linear exposure coefficient is zero, but $Y$ is completely determined by $X$ and has variance $2/9$. Its residual is uncorrelated with $X$ while strongly dependent on it. A zero estimated linear exposure does not establish that the underlying account is riskless.</p>
+<p>The <a href="https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/219406be97b96bc540e0be6aa778c0b7_MIT15_450F10_lec01.pdf">MIT Kogan arbitrage-pricing notes</a> distinguish factor descriptions from statewise pricing constraints. Our projection is a model of comovement. Its statistical orthogonality is not a proof that the residual can be traded away.</p>
+<h3 id="the-variance-partition-identifies-the-risk-left-behind-2650">The variance partition identifies the risk left behind <a href="https://www.youtube.com/watch?v=U2BzQcc46ck&amp;t=1610s">26:50</a></h3>
+<p>If $\operatorname{Cov}(X,\varepsilon)=0$, expanding the variance of the projection gives</p>
+<p>$$\operatorname{Var}(Y)=\beta^2\operatorname{Var}(X)+\operatorname{Var}(\varepsilon).$$</p>
+<p>The constant intercept contributes no variance, and the cross term vanishes by orthogonality. A hedge that exactly removes $\beta X$ leaves $\alpha+\varepsilon$. The explained component is removed; the residual component remains. Calling the two components “systematic” and “residual” is relative to the chosen factor model. It does not establish that every residual is independent across firms or diversifiable in a particular portfolio.</p>
+<p>The lab's five synthetic observations are $x=(-2,-1,0,1,2)$ and $y=(5,5,10,11,19)$. OLS yields $\alpha=10$ and $\beta=3.4$. Using equal observation weights, total variance is 26.4, explained variance is $3.4^2(2)=23.12$, and residual variance is 3.28. The figures add exactly. The fact that 3.28 remains matters as much as the large explained component.</p>
+<h2 id="3-choose-the-sign-from-the-combined-cash-flow-0745">3. Choose the sign from the combined cash flow <a href="https://www.youtube.com/watch?v=pbr-X3rjuPw&amp;t=465s">07:45</a></h2>
+<p>Let $H$ be the date at which the firm buys or sells the exposed asset and closes its hedge. Let $T_F\ge H$ be the futures contract's maturity. Write $G_0$ and $G_H$ for quotations of that same futures contract at opening and hedge closure. They do not refer to a sequence of newly selected maturities.</p>
+<p>A producer who will sell $Q$ units at price $S_H$ has positive revenue $QS_H$. A fall in spot hurts. A matched short futures position receives $Q(G_0-G_H)$, ignoring financing and assuming the multiplier allows exactly $Q$ units. Combined revenue is</p>
+<p>$$R_H=Q\bigl[S_H+(G_0-G_H)\bigr].$$</p>
+<p>An importer who will buy the same underlying units has positive purchase cost $QS_H$. A long futures position receives $Q(G_H-G_0)$, which is subtracted from that positive cost:</p>
+<p>$$C_H=Q\bigl[S_H-(G_H-G_0)\bigr].$$</p>
+<p>Both expressions have the same effective price per unit, $S_H+G_0-G_H$, but the economic objective differs. A higher effective price benefits the seller and harms the buyer. Looking only at the derivative's profit discards the exposed transaction it was meant to protect.</p>
+<p>If the futures instrument is negatively related to the exposed asset, the usual long-asset/short-futures rule can reverse. The sign must follow a measured or modeled sensitivity and the cash-flow equation, not the word “hedge.” The next chapter derives that signed hedge coefficient rather than assuming positive correlation.</p>
+<p>A hedge also needs a specified objective. Reducing variance, stabilizing a budget, limiting losses over stress scenarios, and minimizing expected purchasing cost are different tasks. A futures hedge can reduce variability while giving an unfavorable realized comparison with remaining unhedged. That is the cost of exchanging a favorable surprise for a more predictable outcome, not evidence that its cash-flow identity failed.</p>
+<h2 id="4-basis-risk-survives-early-closure-2005">4. Basis risk survives early closure <a href="https://www.youtube.com/watch?v=RaBL0YcrFkQ&amp;t=1205s">20:05</a></h2>
+<p>Define the <strong>basis</strong> for the relevant asset and futures contract by $b_t=S_t-G_t$. With that convention, both effective-price equations simplify to</p>
+<p>$$\text{effective price at }H=G_0+b_H.$$</p>
+<p>The initial quotation is known when the hedge is opened. The remaining price uncertainty is $b_H$, the basis at closure. For a synthetic short hedge with $G_0=72$, closing spot 65 and closing futures 66, basis is −1 and combined revenue per unit is $65+(72-66)=71$. A long hedge producing the matching purchase cost also yields 71 under the same prices. The lab verifies both signs.</p>
+<p>If the hedge closes exactly at futures maturity and the asset, delivery terms, and reference match, the ideal convergence condition makes $b_{T_F}=0$. At an earlier closure date, there is no such identity. Even at maturity, a particular physical purchase price may differ from the settlement benchmark because of grade, location, transaction cost, or timing.</p>
+<p>Saying that spot and futures prices are individually random does not by itself prove that their difference is random. Two random variables can differ by a fixed constant. The source of basis risk is imperfect comovement under the actual contract and horizon, not the mere presence of randomness in each price separately.</p>
+<p>A <strong>strengthening basis</strong> means $b_H$ increases. Under our convention it increases effective sale revenue and increases effective purchase cost. A weakening basis does the reverse. The sign of the level, such as a negative basis, is different from the direction of its change. State both when making a hedging claim.</p>
+<h2 id="5-contract-selection-is-a-risk-comparison-not-a-bet-on-favorable-basis-movement-1520">5. Contract selection is a risk comparison, not a bet on favorable basis movement <a href="https://www.youtube.com/watch?v=pbr-X3rjuPw&amp;t=920s">15:20</a></h2>
+<p>Choosing the underlying and maturity changes the joint distribution of the exposed cash flow and hedge settlement. A <strong>cross-hedge</strong> uses a futures contract on an asset different from the exposed asset. A processor unable to trade futures on its exact input may use a related commodity. The residual then includes the relative-price relationship between the two assets as well as any maturity basis.</p>
+<p>Correlation is useful but incomplete. Compare changes over the firm's horizon, not merely long histories of jointly trending price levels. Account for multipliers, currency units, available maturities, trading costs, collateral funding, and the possibility that estimated relationships change. A high historical correlation does not guarantee a stable future hedge coefficient.</p>
+<p>For maturity selection, a contract expiring shortly after $H$ often avoids an additional roll while limiting remaining time to convergence. But a universal “nearest is always best” rule would ignore liquidity and the particular exposure. The opposite universal rule, “choose a distant contract when its initial basis is negative,” is also unsupported by the basis identity. It confuses a favorable hoped-for basis change with a small uncertainty in the combined outcome.</p>
+<p>Consider two equally weighted synthetic hedge-closure scenarios. A near contract opened at 101 closes at 99 when spot is 98, and at 106 when spot is 105. Its basis is −1 in both cases, so effective prices are 100 and 100. A distant contract opened at 104 closes at 100 and 110 in those same spot scenarios. Its effective prices are 102 and 99. The distant contract gives a higher mean effective sale price, 100.5, but positive variation; the near contract fixes 100 within these scenarios. A producer minimizing variance chooses differently from one maximizing this scenario mean without regard to risk.</p>
+<p>This is an accounting comparison of synthetic scenarios, not a complete arbitrage-free term-structure model or a forecast. Its purpose is narrower: neither initial basis sign nor one attractive realized derivative gain determines the variance of the hedged transaction.</p>
+<p>Changing the closing date after observing a favorable price changes the strategy. If the firm removes the hedge before its exposed payment, it again carries unhedged risk for the remaining interval. Compounding an early realized profit to the payment date values that cash flow; it does not remove the price exposure that remains after closure. Financing and risk cancellation solve different problems.</p>
+<h2 id="6-implementation-and-the-scope-of-a-useful-diagnostic">6. Implementation and the scope of a useful diagnostic</h2>
+<p>Run <a href="labs/ch04.py">the chapter lab</a>. Its exposure function takes equal-length finite data arrays with positive regressor variance and returns the OLS intercept, slope, and residuals. It checks both normal-equation orthogonalities and the sample variance partition. It then checks producer/buyer hedge signs, near-versus-distant effective prices, and the nonlinear zero-beta counterexample.</p>
+<p>The code prints <code>alpha=10.000000</code>, <code>beta=3.400000</code>, and <code>residual_variance=3.280000</code>. The outputs verify the finite examples. They do not establish causal exposure, parameter stability, a future conditional expectation, or a contract-selection policy for a real firm. Before implementation, a risk manager would need an exposure definition, data horizon, estimation policy, funding plan, and out-of-sample or stress evaluation appropriate to that firm's decision.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive the scalar OLS normal equations, intercept, and slope. State the condition under which the slope is identified.</li>
+<li>Let $X$ be equally likely to be −1, 0, or 1 and $Y=X^2$. Compute the linear exposure and residual variance. Explain why zero covariance is not independence.</li>
+<li>A producer sells at spot 65 and closes a short futures hedge opened at 72 at quotation 66. Compute effective revenue. Repeat the calculation for a purchaser using a long hedge, stating the cost convention.</li>
+<li>Under $b=S-G$, determine how a strengthening basis affects a short seller hedge and a long purchaser hedge. Explain why basis sign alone does not answer the question.</li>
+<li>Reproduce the two-maturity scenario comparison. Why does choosing the higher expected effective revenue not necessarily choose the lower-risk hedge?</li>
+<li>A firm closes a long currency hedge one month before its invoice becomes payable and invests the realized gain. Explain which risk remains and why investing the gain does not complete the hedge.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>Differentiate $\sum_i(y_i-\alpha-\beta x_i)^2$ with respect to $\alpha$ and $\beta$. The resulting equations are $\sum e_i=0$ and $\sum x_ie_i=0$. The first gives $\alpha=\bar y-\beta\bar x$. Substitution into the second yields the ratio of centered cross-products to centered squared regressor observations. A positive denominator, equivalently nonconstant $x_i$, is required. Orthogonality follows in the fitted sample because the objective's derivative vanishes; it does not guarantee independence or stable future coefficients.</p>
+</li>
+<li>
+<p>$\mathbb E[X]=0$ and $\mathbb E[Y]=2/3$. The mean product $\mathbb E[XY]=\mathbb E[X^3]=0$, so covariance and the linear slope are zero. The residuals are $(1/3,-2/3,1/3)$, with mean zero and variance $(1/9+4/9+1/9)/3=2/9$. Nevertheless, observing $X$ reveals $Y$ exactly. Independence would require the conditional distribution of $Y$ not to change with $X$, which fails. Zero linear exposure leaves nonlinear variation.</p>
+</li>
+<li>
+<p>The short receives futures gain $72-66=6$ and sale proceeds 65, totaling 71 per unit. The long receives settlement $66-72=-6$, meaning it pays 6 on the derivative. Its positive purchase cost is spot cost minus derivative receipts, $65-(-6)=71$. Both agree with $G_0+b_H=72+(65-66)=71$. Higher effective price is desirable for the seller but undesirable for the buyer, so identical arithmetic does not imply an identical economic preference.</p>
+</li>
+<li>
+<p>Effective sale revenue and effective purchase cost both equal $G_0+b_H$. Increasing $b_H$ by one therefore increases each effective price by one. This helps the seller and hurts the buyer. A negative basis can strengthen from −3 to −1 or weaken from −1 to −3; its initial negative sign does not specify the change. For risk assessment, uncertainty in the closing basis matters, not simply whether the opening futures quotation lies above spot.</p>
+</li>
+<li>
+<p>The near effective prices are $98+101-99=100$ and $105+101-106=100$. Their scenario variance is zero. The distant values are $98+104-100=102$ and $105+104-110=99$, with mean 100.5 and variance $[(1.5)^2+(-1.5)^2]/2=2.25$. A seller seeking the largest mean would prefer 100.5 under these weights; one seeking price certainty prefers the near hedge. A risk-adjusted decision needs an explicit objective, not a rule inferred from the initial negative basis.</p>
+</li>
+<li>
+<p>Once the futures position closes, subsequent exchange-rate changes no longer create offsetting derivative settlements. The firm still owes the invoice currency at the later date, so its domestic-currency purchasing cost can change. Investing a fixed realized gain produces a financing return on that known amount but does not reproduce the missing sensitivity to the exchange rate. Completing the hedge would require another matching currency position or equivalent arrangement, with the associated costs and assumptions stated.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Full English caption text for supplied positions <a href="https://www.youtube.com/watch?v=U2BzQcc46ck">9</a>, <a href="https://www.youtube.com/watch?v=RaBL0YcrFkQ">10</a>, and <a href="https://www.youtube.com/watch?v=pbr-X3rjuPw">11</a> was read sequentially. These sources develop regression exposure, variance, basis, hedge signs, early closure, cross-hedging, and maturity choice. Their philosophical digression about determinism motivates the use of probabilistic models; it supplies no additional assumption needed for the hedge identities. This chapter clarifies orthogonality versus independence, residual risk at zero linear beta, and risk minimization versus favorable basis speculation. The finite examples are original. No comprehensive audiovisual review or current-market correlation claim is made.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch04.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Exposure projections and hedge accounting on finite synthetic scenarios.&quot;&quot;&quot;
+
+from math import isclose, isfinite
+
+
+def mean(values):
+    return sum(values) / len(values)
+
+
+def covariance(x, y):
+    return mean([(a - mean(x)) * (b - mean(y)) for a, b in zip(x, y)])
+
+
+def exposure(x, y):
+    x, y = list(x), list(y)
+    if len(x) != len(y) or len(x) &lt; 2:
+        raise ValueError(&quot;Need equal arrays with at least two observations&quot;)
+    if not all(isfinite(v) for v in x + y):
+        raise ValueError(&quot;Observations must be finite&quot;)
+    var_x = covariance(x, x)
+    if var_x &lt;= 0:
+        raise ValueError(&quot;Regressor needs positive variance&quot;)
+    beta = covariance(x, y) / var_x
+    alpha = mean(y) - beta * mean(x)
+    residual = [b - alpha - beta * a for a, b in zip(x, y)]
+    return alpha, beta, residual
+
+
+def main():
+    x = [-2, -1, 0, 1, 2]
+    y = [5, 5, 10, 11, 19]
+    alpha, beta, residual = exposure(x, y)
+    var_y = covariance(y, y)
+    var_e = covariance(residual, residual)
+    assert isclose(mean(residual), 0, abs_tol=1e-12)
+    assert isclose(covariance(x, residual), 0, abs_tol=1e-12)
+    assert isclose(var_y, beta**2 * covariance(x, x) + var_e)
+    spot, future, opening = 65, 66, 72
+    short_revenue = spot + (opening - future)
+    long_cost = spot - (future - opening)
+    assert short_revenue == long_cost == opening + (spot - future) == 71
+    near = [98 + 101 - 99, 105 + 101 - 106]
+    distant = [98 + 104 - 100, 105 + 104 - 110]
+    assert near == [100, 100] and distant == [102, 99]
+    # Zero linear exposure leaves nonlinear variation.
+    nonlinear_x = [-1, 0, 1]
+    nonlinear_y = [v**2 for v in nonlinear_x]
+    _, zero_beta, nonlinear_e = exposure(nonlinear_x, nonlinear_y)
+    assert zero_beta == 0
+    assert isclose(covariance(nonlinear_e, nonlinear_e), 2 / 9)
+    print(
+        f&quot;alpha={alpha:.6f}; beta={beta:.6f}; &quot;
+        f&quot;total_variance={var_y:.6f}; residual_variance={var_e:.6f}&quot;
+    )
+    print(
+        f&quot;matched_short_revenue={short_revenue}; matched_long_cost={long_cost}&quot;
+    )
+    print(
+        f&quot;near_contract_effective_prices={near}; &quot;
+        f&quot;distant_contract_effective_prices={distant}&quot;
+    )
+    print(
+        &quot;Projection orthogonality, variance decomposition, basis signs &quot;
+        &quot;and zero-beta nonlinear-risk checks passed.&quot;
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch03.html">Previous: Futures redistribute cash flows through time</a><a rel="next" href="ch05.html">Next: Hedge size is a covariance projection with trading units</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

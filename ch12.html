@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Bond futures: conversion factors, delivery choice, and rate sensitivity · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html" aria-current=page>12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>12. Bond futures: conversion factors, delivery choice, and rate sensitivity</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=E2jdQhB0DFg">Recording 29</a>, <a href="https://www.youtube.com/watch?v=8_rsJ6PWCV0">Recording 30</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Build a delivery invoice with consistent face, quote, conversion-factor and accrued-interest units</li><li>Explain why conversion factors do not make all eligible bonds economically identical</li><li>Derive a bond-forward quotation from dirty cash prices and intervening coupons</li><li>Size a first-order Treasury futures hedge using the cheapest-to-deliver sensitivity and state its limits</li></ul>
+<p><strong>Prerequisites:</strong> Bond cash-flow valuation and duration from chapters 08–09; cash-and-carry from chapter 02; clean and dirty prices from chapter 11.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch12.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-delivery-is-a-choice-over-contractual-obligations-0148">1. Delivery is a choice over contractual obligations 01:48</a></li><li><a href="#2-an-invoice-needs-both-the-conversion-factor-and-accrued-interest-0446">2. An invoice needs both the conversion factor and accrued interest 04:46</a></li><li><a href="#3-the-six-percent-calculation-is-a-convention-not-a-market-forecast-0527">3. The six-percent calculation is a convention, not a market forecast 05:27</a></li><li><a href="#4-cash-and-carry-uses-dirty-prices-before-returning-to-a-quote-1744">4. Cash-and-carry uses dirty prices before returning to a quote 17:44</a></li><li><a href="#5-cheapest-to-deliver-compares-net-acquisition-and-invoice-cost-1514">5. Cheapest to deliver compares net acquisition and invoice cost 15:14</a></li><li><a href="#6-first-order-hedge-size-requires-the-futures-sensitivity-0608">6. First-order hedge size requires the futures sensitivity 06:08</a></li><li><a href="#7-a-zero-scalar-duration-is-a-limited-certificate">7. A zero scalar duration is a limited certificate</a></li><li><a href="#8-executable-checks">8. Executable checks</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A portfolio manager wants to reduce the interest-rate exposure of coupon bonds using a Treasury future. The future does not promise delivery of one uniquely specified bond. Its short side can choose from an eligible basket, and the cash invoice depends on the selected bond. A hedge based only on the futures quotation and the portfolio's face value can therefore be wrong in both scale and sensitivity.</p>
+<p>We follow one delivery invoice through normalization, cash-and-carry, cheapest-to-deliver selection, and a first-order rate hedge. The numerical basket is synthetic. The aim is to identify which economic quantities a conversion factor connects and which risks it leaves unresolved.</p>
+<h2 id="1-delivery-is-a-choice-over-contractual-obligations-0148">1. Delivery is a choice over contractual obligations <a href="https://www.youtube.com/watch?v=E2jdQhB0DFg&amp;t=108s">01:48</a></h2>
+<p>A <strong>deliverable basket</strong> is the set of securities satisfying a futures contract's delivery requirements. The short position must deliver an eligible security under the rules; the long must accept assigned delivery and pay its invoice. The <strong>quality option</strong> is the short's ability to choose which eligible security to tender. Additional choices about delivery timing can also have value.</p>
+<p><a href="https://www.cmegroup.com/education/courses/introduction-to-treasuries/learn-about-the-treasuries-delivery-process">CME's delivery-process description</a> identifies the short's security and timing choices and the role of eligibility rules. We do not generalize one maturity threshold from the historical lecture to every Treasury futures product. Different products define different baskets; the applicable contract and delivery month must be checked.</p>
+<p>Coupon rates and remaining maturities vary across the basket. Those differences produce different cash prices, carry, and interest-rate sensitivities. A rule making several bonds deliverable does not assert that one dollar face of each bond has the same market value. Some adjustment to the invoice is needed if a common futures quotation is to accommodate these heterogeneous securities.</p>
+<p>Let $F$ be the futures quotation in price points per 100 of a standardized face reference. Let $CF_i$ be the <strong>conversion factor</strong> assigned to eligible security $i$. Its purpose is to scale the common quotation into the invoice component for that security. It is dimensionless. <a href="https://www.cmegroup.com/articles/2024/calculating-us-treasury-futures-conversion-factors.html">CME's conversion-factor explanation</a> describes it as an approximate per-dollar price under a six-percent yield standard and specified maturity conventions.</p>
+<p>The standard is a normalization rule, not today's market yield. A factor above one does not prove the bond is overvalued, nor does a factor below one indicate credit impairment. It says how the contract converts the quotation into an invoice for that deliverable. The bond's actual price still depends on the market curve and its cash flows.</p>
+<h2 id="2-an-invoice-needs-both-the-conversion-factor-and-accrued-interest-0446">2. An invoice needs both the conversion factor and accrued interest <a href="https://www.youtube.com/watch?v=E2jdQhB0DFg&amp;t=286s">04:46</a></h2>
+<p>Let $M_f$ be the face amount delivered under one illustrative contract. Define $k_f=M_f/100$, the number of 100-face units. Let $AI_i$ be accrued interest per 100 face at the actual delivery date. The invoice paid by the long to the short is</p>
+<p>$$I_i=k_f(F CF_i+AI_i).$$</p>
+<p>The term $F CF_i$ is a clean-price component per 100 of the delivered bond's face. Accrued interest is then added in the same units. <a href="https://www.cmegroup.com/trading/interest-rates/us-treasury-futures-conversion-factor-lookup-tables.html">CME's conversion-factor lookup description</a> explicitly connects the factor, settlement price, and accrued-interest invoice adjustment.</p>
+<p>For a synthetic contract delivering 100,000 face, $k_f=1000$. At $F=110$, $CF_i=0.93$, and $AI_i=0.90$ per 100, the principal component is $110(0.93)(1000)=102{,}300$. Accrued interest is 900, so the total invoice is 103,200. Multiplying $AI_i$ by the conversion factor would incorrectly scale a separately specified cash amount. Omitting the face-unit factor would turn a six-figure invoice into a three-digit number.</p>
+<p>The invoice is also different from the derivative's profit since inception. A short position has received and paid variation margin before delivery. The final invoice exchanges the security for cash under the contract; it does not replace the preceding settlement ledger. A complete profit calculation includes the bond acquisition, any coupon income, financing, margin receipts/payments, and final delivery.</p>
+<p>The distinction between clean and dirty price remains essential. Buying a deliverable at the delivery instant costs its clean price plus its accrued interest. Receiving an invoice for that same security on that same date adds the same accrued-interest amount. It can cancel in a comparison of those two cash flows, but that cancellation cannot be assumed between different dates or different securities.</p>
+<h2 id="3-the-six-percent-calculation-is-a-convention-not-a-market-forecast-0527">3. The six-percent calculation is a convention, not a market forecast <a href="https://www.youtube.com/watch?v=8_rsJ6PWCV0&amp;t=327s">05:27</a></h2>
+<p>We can reconstruct the mechanism behind a conversion factor in a coupon-aligned teaching case. Suppose a bond has face 100, annual coupon fraction $c$, and $n$ remaining semiannual payments, with the next coupon exactly one half-year away. At an annual yield standard of six percent compounded semiannually, its normalized price is</p>
+<p>$$CF=\frac{1}{100}\left[\sum_{j=1}^{n}\frac{100c/2}{1.03^j}+\frac{100}{1.03^n}\right].$$</p>
+<p>Each coupon is $100c/2$, and 1.03 is the accumulation factor per half-year. The factor of 100 in the denominator converts a per-100 price into the decimal per-dollar factor. For $c=0.10$ and $n=40$, the computed price is 146.2295439 per 100 and $CF=1.462295439$. The high factor reflects coupons above the normalization yield, not a claim that the actual market discounts the bond at six percent.</p>
+<p>An off-cycle first coupon requires both fractional-period discounting and accrued-interest treatment. For the source's simplified rounded maturity of 18.25 years and an eight-percent annual coupon, the first four-unit coupon is a quarter-year away. At that quarter-year date, the value including the coupon received then is $4+B_{18}$, where $B_{18}$ is the coupon-aligned value of the remaining 18-year, eight-percent bond at the standard yield. Discounting back gives $(4+B_{18})/\sqrt{1.03}$.</p>
+<p>That is a full price under the teaching convention. The current half-year coupon has three months already elapsed, so subtract two units of accrued interest before dividing by 100. The result is approximately 1.219862025. The square root matters: the compound quarter-year factor implied by a three-percent half-year rate is $\sqrt{1.03}$, not exactly 1.015.</p>
+<p>These examples expose the normalization arithmetic. They do not implement every exchange rounding and calendar rule. The historical source uses quarter-year maturity rounding in its bond example; CME's current explanation distinguishes rounding conventions by product. In production, use the factor assigned to the specific security and delivery month or reproduce the exact published algorithm. A mathematically plausible present-value calculation is not sufficient evidence that an official four-decimal factor has been replicated.</p>
+<h2 id="4-cash-and-carry-uses-dirty-prices-before-returning-to-a-quote-1744">4. Cash-and-carry uses dirty prices before returning to a quote <a href="https://www.youtube.com/watch?v=E2jdQhB0DFg&amp;t=1064s">17:44</a></h2>
+<p>Fix a particular deliverable and a fixed future delivery date $T$. Assume known coupons before delivery, deterministic matched funding, no transaction or shorting costs, and no delivery-choice option. Let $B_0^{d}$ be today's dirty bond price per 100. Suppose coupons $C_j$ are paid at dates $t_j&lt;T$ and let $P(0,t)$ be the funding discount factor. The dirty forward delivery price is</p>
+<p>$$K^d=\frac{B_0^d-\sum_{t_j&lt;T}C_jP(0,t_j)}{P(0,T)}.$$</p>
+<p>To derive it, buy the bond today. Its intervening coupons finance part of the holding cost, so remove their present value from the amount ultimately carried to delivery. Financing the remainder to $T$ produces the required delivery payment. The equality is the income-adjusted cash-and-carry argument applied to actual cash flows; using a clean spot quote in place of $B_0^d$ would leave the purchase underfunded.</p>
+<p>To express this fixed-security forward in the invoice's normalized quotation units, subtract accrued interest at delivery and divide by its conversion factor:</p>
+<p>$$F_i^{\mathrm{fixed}}=\frac{K_i^d-AI_i(T)}{CF_i}.$$</p>
+<p>The superscript emphasizes that a particular deliverable and date have been fixed. A basket future with short-side choices can differ, and stochastic-rate daily-settlement effects can also require further treatment. The formula is an instructive component of the model, not a declaration that all Treasury futures equal one bond's forward price.</p>
+<p>For a fully specified synthetic example, take clean spot price 102 and current accrued interest one, giving $B_0^d=103$. A coupon of three is paid in one quarter-year; delivery is in one half-year. Use a continuously compounded funding rate of four percent and delivery accrued interest 1.5 under the declared coupon-period convention. Then</p>
+<p>$$K^d=(103-3e^{-0.04(0.25)})e^{0.04(0.5)}
+=102.050587522.$$</p>
+<p>With $CF=0.9$, the normalized fixed-deliverable quote is $(102.050587522-1.5)/0.9=111.722875024$. Multiplying that quote by 0.9 and adding 1.5 recovers the dirty delivery price. This reverse check catches both a missed accrued-interest adjustment and conversion in the wrong direction.</p>
+<p>The first coupon is subtracted because the carry investor receives it before delivery. A coupon after delivery belongs to the delivered bond's subsequent owner and is already embodied in the delivery-date value of that bond. Including it among pre-delivery income would remove the same benefit twice.</p>
+<h2 id="5-cheapest-to-deliver-compares-net-acquisition-and-invoice-cost-1514">5. Cheapest to deliver compares net acquisition and invoice cost <a href="https://www.youtube.com/watch?v=8_rsJ6PWCV0&amp;t=914s">15:14</a></h2>
+<p>At a common delivery instant, let $B_i^c$ be security $i$'s clean purchase price per 100. Its acquisition cost is $k_f(B_i^c+AI_i)$ and its invoice receipt is $k_f(F CF_i+AI_i)$. Subtraction gives</p>
+<p>$$\operatorname{cost}_i=k_f(B_i^c-F CF_i).$$</p>
+<p>The <strong>cheapest-to-deliver security</strong>, CTD, minimizes this net cost under the stated common-date comparison. It need not have the lowest cash price, the smallest coupon, or the smallest conversion factor. Both the acquisition price and the invoice credit matter. A tie is possible; the economic choices need not be unique.</p>
+<p>At $F=110$, consider this synthetic snapshot:</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Security</th>
+<th style="text-align: right;">Clean price per 100</th>
+<th style="text-align: right;">Conversion factor</th>
+<th style="text-align: right;">Accrued per 100</th>
+<th style="text-align: right;">Acquisition less invoice per 100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td style="text-align: right;">91.00</td>
+<td style="text-align: right;">0.82</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.80</td>
+</tr>
+<tr>
+<td>B</td>
+<td style="text-align: right;">102.50</td>
+<td style="text-align: right;">0.93</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.20</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">113.70</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">0.40</td>
+</tr>
+</tbody>
+</table></div>
+<p>Security B is cheapest to deliver even though A is cheapest to purchase. For 100,000 face, the net costs are 800, 200, and 400 dollars. Accrued interest cancels because acquisition and delivery refer to the same bond on the same date. The quotation in this snapshot is assumed for a ranking exercise; it has not been derived as an equilibrium quote or an executable arbitrage opportunity.</p>
+<p>Before delivery, the comparison becomes a <strong>net basis</strong> calculation after financing and coupons, not simply today's $B_i^c-F CF_i$. Different repo financing costs, securities becoming difficult to borrow, and different coupon dates can change the ranking. A projected CTD can change as yields or financing conditions move. Conversion factors normalize at one reference standard; they do not make all actual bonds perfectly interchangeable across all market states.</p>
+<p>The delivery choice benefits the short relative to an obligation to deliver one predetermined bond. In a fixed-date, deterministic-funding teaching model, each bond has an adjusted carry quotation $F_i^{\mathrm{fixed}}$ and the economically cheapest available delivery constrains the basket contract. Introducing timing options and stochastic basis changes adds further state dependence. This is why a single-security hedge can have a sudden sensitivity change when the favored delivery bond changes.</p>
+<h2 id="6-first-order-hedge-size-requires-the-futures-sensitivity-0608">6. First-order hedge size requires the futures sensitivity <a href="https://www.youtube.com/watch?v=E2jdQhB0DFg&amp;t=368s">06:08</a></h2>
+<p>Let $D_C&gt;0$ denote the cash portfolio's dollar loss for a one-basis-point parallel increase in a specified yield parameter. This is its dollar DV01 magnitude. Let $D_F&gt;0$ be the corresponding loss of one long futures contract. If $h$ is the number of short futures contracts, the combined first-order change for a shift $\Delta y_{bp}$ measured in basis points is</p>
+<p>$$\Delta V\approx-D_C\Delta y_{bp}+hD_F\Delta y_{bp}.$$</p>
+<p>Thus $h=D_C/D_F$ removes this scalar first-order exposure. The future's initial market value can be zero while its $D_F$ is nonzero. Dividing a future's value by its initial price to form an ordinary asset-return duration is therefore inappropriate. Work with monetary price sensitivity or a defined quotation sensitivity.</p>
+<p>The carry date matters even when the CTD and funding curve are held fixed. Write $A=1/P(t,T)$ and let $J$ be the present value of coupons paid before delivery. Section 4 gives</p>
+<p>$$F=\frac{A(B_{\mathrm{CTD}}^d-J)-AI(T)}{CF}.$$</p>
+<p>Hold $A$, $J$, accrued interest and $CF$ fixed while shocking the selected cash-bond yield parameter. Then $\partial_yF=(A/CF)\partial_yB_{\mathrm{CTD}}^d$. If $D_{\mathrm{CTD}}^{\mathrm{cash}}$ is today's cash-bond monetary DV01 for the same face amount as one contract, the corresponding futures quotation sensitivity is</p>
+<p>$$D_F\approx\frac{A D_{\mathrm{CTD}}^{\mathrm{cash}}}{CF},\qquad
+h\approx\frac{D_C CF}{A D_{\mathrm{CTD}}^{\mathrm{cash}}}.$$</p>
+<p>Fixed funding is a multiplicative carry factor, not an additive constant that disappears upon differentiation. Alternatively define a delivery-price DV01 $D_{\mathrm{CTD}}^{\mathrm{delivery}}=A D_{\mathrm{CTD}}^{\mathrm{cash}}$ under this frozen-carry shock. Then $D_F\approx D_{\mathrm{CTD}}^{\mathrm{delivery}}/CF$. The familiar cash-DV01 shortcut $D_F\approx D_{\mathrm{CTD}}^{\mathrm{cash}}/CF$ additionally approximates $A$ by one, for a short carry interval, or compares bond and invoice sensitivities at a common delivery date. If the modeled shock also moves repo funding, coupon discount factors or the CTD choice, their derivatives must be included. Daily-settlement and delivery-option effects remain separate limitations.</p>
+<p>For $D_C=3000$ dollars per basis point, $D_{\mathrm{CTD}}^{\mathrm{cash}}=75$, and $CF=0.9$, use the explicit $A=1$ common-date/short-carry approximation. One future then has approximate DV01 $83.333333$, and thirty-six short contracts offset the portfolio's first-order loss. A ten-basis-point increase produces approximately -30,000 on the cash portfolio and +30,000 on the hedge. Omitting the conversion factor would suggest 40 contracts and overstate the required hedge in this approximation. With instead a frozen carry factor $A=1.02$, one future's DV01 becomes $85$ and the unrounded count falls to $3000/85=35.29411765$. The lab differentiates a carried bond price numerically to verify that factor.</p>
+<p>If a bond's sensitivity is estimated from duration, the convention matters. For a semiannual yield $y_b$ quoted annually with periodic compounding, modified duration is Macaulay duration divided by $1+y_b/2$. The per-basis-point dollar sensitivity is $B^dD_{\mathrm{mod}}10^{-4}$ for a full-price sensitivity under its assumptions. The laboratory compares this analytic derivative with a central finite difference. Continuous-compounding duration formulas and annually compounded yield formulas cannot be interchanged without their conversion factors.</p>
+<h2 id="7-a-zero-scalar-duration-is-a-limited-certificate">7. A zero scalar duration is a limited certificate</h2>
+<p>The hedge above suppresses one local parallel-yield direction. Convexity remains because bond prices are nonlinear in yield. Different points on the curve can move differently, and a bond portfolio's key-rate sensitivities need not be proportional to those of the selected future. A scalar equation cannot generally eliminate a vector of independent curve exposures.</p>
+<p>Delivery options add another limitation. A switch in CTD can change the derivative's local response, so a count calibrated to yesterday's CTD may cease to be appropriate. Margin funding, liquidity, and transaction costs also remain. None is removed by calling the first-order duration zero. A risk report should name the modeled shock and list residual exposures rather than describing the whole portfolio as riskless.</p>
+<p>The source's closing discussion notes that quotation multipliers are conventions. That point should not be interpreted as permission to change a multiplier while leaving all cash-flow obligations and convergence relations unchanged. A rescaled index needs the reciprocal rescaling in its cash multiplier to represent the same economics. Setting sensitivity to zero while demanding the original delivery economics defines an inconsistent model, not an alternative margin schedule.</p>
+<p>The final part of the second recording introduces options. <a href="ch13.html">Chapter 13</a> develops that new payoff structure with the dedicated option and put–call parity recordings. The conceptual connection is already visible here: the short's delivery choice gives a linear-looking futures contract an embedded choice over underlying securities. Settlement terms can matter even before a separate call or put is purchased.</p>
+<h2 id="8-executable-checks">8. Executable checks</h2>
+<p>Run <a href="labs/ch12.py">the chapter laboratory</a>. It computes the two teaching conversion factors, reconstructs every invoice and acquisition cost in the basket, verifies the fixed-deliverable cash-and-carry quotation in both directions, and checks the first-order hedge count. A separate finite-difference calculation validates the modified-duration derivative for coupon-aligned bonds under periodic compounding.</p>
+<p>The printed factors are 1.462295439 and 1.219862025; the delivery costs are 800, 200, and 400; the synthetic forward dirty price is 102.050587522; and the approximate short hedge is 36 contracts. These are checked educational constructions. The code is not an official conversion-factor calculator, a live CTD selector, or a general stochastic Treasury futures pricing engine.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive the invoice for 100,000 face when the futures quote is 110, conversion factor 0.93, and accrued interest 0.90 per 100. Explain why accrued interest is not multiplied by the conversion factor.</li>
+<li>Derive the coupon-aligned conversion-factor formula for a ten-percent coupon bond with 20 years remaining at the six-percent semiannual standard. Explain what additional issues arise for an off-cycle first coupon.</li>
+<li>Starting with clean spot 102, accrued interest one, coupon three in a quarter-year, delivery in a half-year, four-percent continuous funding, delivery accrued interest 1.5, and conversion factor 0.9, calculate the normalized fixed-deliverable quotation. Reverse the conversion to check the result.</li>
+<li>Reproduce the CTD ranking in the displayed basket at quote 110. Why is the lowest-priced security not cheapest to deliver? When would accrued interest fail to cancel in the calculation?</li>
+<li>A cash portfolio has DV01 3000, while one contract-face CTD has current cash DV01 75 and conversion factor 0.9. Under the explicit frozen-carry approximation $A=1$, derive the short hedge count and check a ten-basis-point increase. Explain the sign, then recalculate for $A=1.02$.</li>
+<li>Name three risks that remain after the displayed DV01 match. Explain why changing the price quotation's units does not, by itself, change the economic size of the futures exposure.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>There are 1000 units of 100 face. The principal invoice is $110(0.93)(1000)=102300$ and accrued interest is $0.90(1000)=900$, giving 103,200. The factor maps the standardized futures quotation to the security's clean component. Accrued interest is already a contractual per-100 amount for that security; multiplying it by 0.93 would apply a normalization to a cash amount that does not require it.</p>
+</li>
+<li>
+<p>Forty half-year coupons of five and the terminal principal of 100 are discounted at three percent per period. Their present value divided by 100 is 1.462295439. With an off-cycle first coupon, fractional-period discounting changes the timing, while the full present value may include accrued interest relative to the normalization date. The exact exchange algorithm also determines maturity rounding and calendar details. The aligned formula alone is not a full official-factor implementation.</p>
+</li>
+<li>
+<p>Dirty spot is 103. Remove pre-delivery coupon present value $3e^{-0.01}$, then accumulate the remainder by $e^{0.02}$. This gives dirty delivery price 102.050587522. Subtracting delivery accrued interest gives 100.550587522; dividing by 0.9 yields quote 111.722875024. Reversing gives $0.9(111.722875024)+1.5=102.050587522$ within rounding. Starting from clean 102 would omit the current accrued-interest cash needed to buy the bond.</p>
+</li>
+<li>
+<p>For each security subtract $110CF_i$ from its clean cash price. The results are 0.80, 0.20, and 0.40 per 100, so B minimizes delivery cost. A has the lowest purchase price but also a lower conversion-factor invoice credit. For 100,000 face multiply the differences by 1000. Accrued interest need not cancel if the acquisition and delivery dates differ, if the compared securities differ, or if entitlement rules differ; carry and coupons then need explicit treatment.</p>
+</li>
+<li>
+<p>In the stated $A=1$ approximation, the future's local DV01 is $75/0.9=83.333333$. The positive cash loss magnitude 3000 therefore requires $3000/83.333333=36$ short futures. The cash loses approximately 30,000 for a ten-basis-point increase; the short futures gain the same amount. A long future would lose along with the long cash position and increase, rather than remove, the modeled exposure. For frozen $A=1.02$, the quote DV01 is $1.02(75)/0.9=85$ and the short count is $3000/85=35.29411765$; the matching calculation uses the same cash-yield shock and excludes changes in funding or CTD selection.</p>
+</li>
+<li>
+<p>Convexity, nonparallel curve shifts, CTD switching, repo basis, margin funding, and liquidity are examples of remaining risks. If an index is multiplied by a constant, its cash multiplier must be divided by that constant to preserve the same settlement payments. A raw quotation number can therefore change without changing the monetary exposure. Changing only one factor changes the contract economics and cannot be used as a harmless relabeling.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Complete English captions for <a href="https://www.youtube.com/watch?v=E2jdQhB0DFg">positions 29</a> and <a href="https://www.youtube.com/watch?v=8_rsJ6PWCV0">30</a> were read sequentially. They supply the progression from clean/dirty quotation to conversion factors, bond carry, duration hedging, CTD choice, and the bridge to options. CME's conversion and delivery pages were retrieved for the definitions and invoice mechanism. The historical maturity/rounding description is not generalized to all products, and the source's approximate conversion language is not treated as exact market-value equivalence.</p>
+<p>The basket, forward-price example, sensitivity values, proofs, and exercises are original teaching constructions. The code checks their arithmetic and the stated local derivatives. No current basket inventory, actual market CTD, complete official factor algorithm, empirical hedge calibration, or comprehensive audiovisual source audit is claimed.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch12.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Conversion-factor, delivery-invoice, carry and DV01 examples.&quot;&quot;&quot;
+from math import exp, isclose, isfinite, sqrt
+
+
+def aligned_price(coupon_rate, periods, yield_rate=0.06):
+    &quot;&quot;&quot;Per-100 coupon-aligned price; annual rate compounded semiannually.&quot;&quot;&quot;
+    if (isinstance(periods, bool) or not isinstance(periods, int)
+            or periods &lt; 1):
+        raise ValueError(&quot;Positive integer period count required&quot;)
+    if (not all(isfinite(x) for x in (coupon_rate, yield_rate))
+            or yield_rate &lt;= -2):
+        raise ValueError(
+            &quot;Positive period count and positive discount base required&quot;)
+    coupon = 100 * coupon_rate / 2
+    discount = 1 + yield_rate / 2
+    return (sum(coupon / discount ** j for j in range(1, periods + 1))
+            + 100 / discount ** periods)
+
+
+def main():
+    aligned = aligned_price(0.10, 40) / 100
+    quarter_dirty = (4 + aligned_price(0.08, 36)) / sqrt(1.03)
+    quarter_cf = (quarter_dirty - 2) / 100
+    assert isclose(aligned, 1.462295439, rel_tol=1e-8)
+    assert quarter_cf &gt; 1
+    futures, scale = 110.0, 1000
+    clean, factors, accrued = [91, 102.5, 113.7], [
+        0.82, 0.93, 1.03], [0.4, 0.9, 1.1]
+    invoices = [(futures * cf + ai) * scale for cf,
+                ai in zip(factors, accrued)]
+    purchase = [(p + ai) * scale for p, ai in zip(clean, accrued)]
+    costs = [p - invoice for p, invoice in zip(purchase, invoices)]
+    assert all(isclose(x, y, abs_tol=1e-8)
+               for x, y in zip(costs, [800, 200, 400]))
+    assert costs.index(min(costs)) == 1
+    dirty_forward = (103 - 3 * exp(-0.04 * 0.25)) * exp(0.04 * 0.5)
+    quote = (dirty_forward - 1.5) / 0.9
+    assert isclose(quote * 0.9 + 1.5, dirty_forward)
+    cash_dv01, ctd_dv01, conversion = 3000.0, 75.0, 0.9
+    future_dv01 = ctd_dv01 / conversion
+    contracts = cash_dv01 / future_dv01
+    assert isclose(contracts, 36)
+    assert isclose(-cash_dv01 * 10 + contracts * future_dv01 * 10, 0)
+    # Quote sensitivity carries today&#x27;s cash DV01 to delivery first.
+    carry_factor = 1.02
+    carried_dv01 = carry_factor * ctd_dv01 / conversion
+    assert isclose(carried_dv01, 85)
+    assert isclose(cash_dv01 / carried_dv01, 35.294117647058826)
+    step = 1e-6
+    cash_derivative = -ctd_dv01 / 1e-4
+    quotes = [(carry_factor * (103000 + cash_derivative * dy - 3000)
+               - 1500) / conversion for dy in (-step, step)]
+    numerical_dv01 = -(quotes[1] - quotes[0]) / (2 * step) * 1e-4
+    assert isclose(numerical_dv01, carried_dv01, rel_tol=1e-10)
+    for coupon, periods, rate in ((0.05, 2.5, 0.06), (0.05, True, 0.06),
+                                  (float(&quot;inf&quot;), 20, 0.06),
+                                  (0.05, 20, float(&quot;nan&quot;))):
+        try:
+            aligned_price(coupon, periods, rate)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(&quot;Invalid bond-price domain accepted&quot;)
+    for y in [0.02, 0.04, 0.06, 0.08]:
+        price = aligned_price(0.05, 20, y)
+        step = 1e-5
+        derivative = (aligned_price(0.05, 20, y + step) -
+                      aligned_price(0.05, 20, y - step)) / (2 * step)
+        weights = [j / 2 * 2.5 / (1 + y / 2) ** j for j in range(1, 21)]
+        weights[-1] += 10 * 100 / (1 + y / 2) ** 20
+        macaulay = sum(weights) / price
+        modified = macaulay / (1 + y / 2)
+        assert isclose(-derivative, modified * price, rel_tol=1e-7)
+    print(f&quot;aligned CF={aligned:.9f}; quarter clean CF={quarter_cf:.9f}&quot;)
+    print(&quot;delivery costs:&quot;, [round(x, 6) for x in costs], &quot;; CTD=2&quot;)
+    print(f&quot;forward dirty={dirty_forward:.9f}; normalized quote={quote:.9f}&quot;)
+    print(f&quot;future DV01={future_dv01:.9f}; short contracts={contracts:.6f}&quot;)
+    print(&quot;conversion, invoice, carry and sensitivity checks passed&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch11.html">Previous: Rate hedges: carry, basis, settlement timing, and accrued interest</a><a rel="next" href="ch13.html">Next: Option cash flows and put–call parity</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

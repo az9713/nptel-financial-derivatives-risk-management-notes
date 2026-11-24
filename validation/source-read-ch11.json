@@ -1,0 +1,59 @@
+{
+  "chapter": "ch11",
+  "reader": "reader_builder_author",
+  "recordings": [
+    {
+      "position": 26,
+      "video_id": "MqB_MP8d0J8",
+      "normalized_text_sha256": "5e97cb028154d10d9f6ffbaa0af240670fe61f187dfa2357a5f7738c9a677bc1",
+      "reading": "full sequential text read",
+      "first_start": 24.91,
+      "last_segment_start": 1797.73,
+      "landmarks": [
+        548,
+        589,
+        926,
+        1377,
+        1589
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    },
+    {
+      "position": 27,
+      "video_id": "J4wFDp4K8c8",
+      "normalized_text_sha256": "b145f6fe8e8f98d2da0f7f69537c24d407ecd32c2ff8c0994562ebdaee6c68e8",
+      "reading": "full sequential text read",
+      "first_start": 24.65,
+      "last_segment_start": 1911.8,
+      "landmarks": [
+        24,
+        521,
+        1086,
+        1337
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    },
+    {
+      "position": 28,
+      "video_id": "sd5oA18GaVw",
+      "normalized_text_sha256": "cfeccd852632554f358a9fe50ef872ea5c161dc1687290962668ca267dcbb6f3",
+      "reading": "full sequential text read",
+      "first_start": 24.81,
+      "last_segment_start": 1970.86,
+      "landmarks": [
+        116,
+        270,
+        546,
+        1152,
+        1830
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    }
+  ],
+  "source_corrections_and_limits": [
+    "Ex-ante covariance projection distinct from ex-post move ratio",
+    "Eurodollar deposit simple rate distinct from bill discount yield",
+    "Known deterministic funding required for exact tailing",
+    "Coupon-period day fraction distinct from annualactual365"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch18-r1.md",
+  "scope": [
+    "Full current manuscript, metadata, six full solutions and lab",
+    "Independent replication, state-price, stopping, limit and numerical checks",
+    "Selected actual captions and CRR primary manuscript passages",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch18.md": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
+    "chapters/ch18.json": "eca1bf17c9f721e98d29bba0495fc914ad7e44c04ba7050cf188a34b190800e1",
+    "labs/ch18.py": "828d686b31afe2fa300e520c5ca94ea6910992aee00ad5b8d33d30f970314fbc"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      44,
+      45
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "CRR1979 manuscriptpp3\u20136,20\u201321"
+    ]
+  },
+  "limitations": [
+    "No comprehensive audiovisual audit",
+    "No full independent caption reread or human certification",
+    "Separate release/browser checks required"
+  ]
+}

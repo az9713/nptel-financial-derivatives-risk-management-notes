@@ -1,0 +1,7 @@
+{
+  "title": "Short-rate futures: a quotation is not a cash price",
+  "lectures": [24, 25],
+  "objectives": ["Convert a discount yield into bill price and investment yield without mixing units", "Separate the futures delivery date from the underlying bill's maturity", "Derive quote sensitivity and the sign of a short-rate futures hedge", "Distinguish a forward-style terminal sketch from daily settled futures cash flows"],
+  "prerequisites": "Discount factors and forward replication from chapters 02 and 08; yield sensitivity from chapter 09; futures settlement from chapter 03.",
+  "source_scope": "Full English caption text for playlist positions 24 and 25 read sequentially. Historical product details are identified as source context; synthetic examples independently reconstruct the mechanics. No comprehensive audiovisual audit."
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Itô calculus, lognormal prices, and the meaning of a risk probability",
+  "lectures": [40, 41, 42, 43],
+  "objectives": ["Solve the Brownian density equation and state the conditions behind a central limit argument", "Derive quadratic variation and the correction to the ordinary chain rule", "Solve geometric Brownian motion and derive its density, moments, and return conventions", "Separate an endpoint loss probability from the probability of crossing a liquidity boundary"],
+  "prerequisites": "Chapter16's Brownian increments, covariance, and diffusion equation; Taylor expansion, integration by parts, and Gaussian probability.",
+  "source_scope": "All official English captions at playlist positions40–43 read sequentially. Equations reconstructed; no comprehensive audiovisual audit. Quadratic-variation and endpoint-versus-hitting corrections are explicit."
+}

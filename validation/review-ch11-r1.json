@@ -1,0 +1,19 @@
+{
+  "reviewer": "scientific_review",
+  "disposition": "accepted",
+  "report": "validation/review-ch11-r1.md",
+  "scope": [
+    "Full manuscript, metadata, all six solutions and full laboratory source",
+    "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
+    "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+  ],
+  "remaining_findings": [],
+  "resolved_findings": [
+    "Medium: NaN/inf factors and spot prices bypassed the original comparison guard. Author now requires finite positive inputs and has explicit regressions."
+  ],
+  "accepted_files": {
+    "chapters/ch11.md": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+    "chapters/ch11.json": "cbdcbb4bcfbce48361d39bd78509e8b25a9bb0aacf00683851ab6886846fbb9b",
+    "labs/ch11.py": "6c60fe947df2202d02e9efaf4223c0a2616e9c289eef096d73644dbb3254de93"
+  }
+}

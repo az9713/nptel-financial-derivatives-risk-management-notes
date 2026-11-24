@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>What a derivative changes: cash flows, exposure, and risk · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html" aria-current=page>01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>01. What a derivative changes: cash flows, exposure, and risk</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=pJDMgEpn-bM">Recording 2</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Build a dated, signed cash-flow model for forwards, options, and swaps</li><li>Distinguish a hedge identity from a forecast and a payoff from financed profit</li><li>Explain why clearing and margin mitigate credit risk while creating liquidity demands</li><li>State a precise finite-state no-arbitrage test</li></ul>
+<p><strong>Prerequisites:</strong> Algebra, elementary probability, and present value. Finance terminology is defined locally.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch01.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-a-contract-is-a-dated-rule-for-cash-flows-0822">1. A contract is a dated rule for cash flows 08:22</a></li><li><a href="#2-hedging-changes-an-existing-exposure-1306">2. Hedging changes an existing exposure 13:06</a></li><li><a href="#3-a-forward-replaces-the-terminal-purchase-price-1849">3. A forward replaces the terminal purchase price 18:49</a></li><li><a href="#4-futures-change-the-cash-flow-path-as-well-as-the-market-structure-2150">4. Futures change the cash-flow path as well as the market structure 21:50</a></li><li><a href="#5-an-option-buys-discretion-and-charges-for-it-2938">5. An option buys discretion and charges for it 29:38</a></li><li><a href="#6-a-swap-specifies-a-sequence-of-exchanges-3254">6. A swap specifies a sequence of exchanges 32:54</a></li><li><a href="#7-no-arbitrage-is-a-statewise-restriction-1520">7. No-arbitrage is a statewise restriction 15:20</a></li><li><a href="#8-executable-cash-flow-checks">8. Executable cash-flow checks</a></li><li><a href="#9-what-the-model-captures-and-what-it-leaves-open">9. What the model captures and what it leaves open</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>An importer must pay 100,000 US dollars in three months. The firm earns Indian rupees, so the invoice is fixed in dollars but uncertain in its operating currency. A rise in the rupee cost of a dollar increases the invoice's rupee cost even if the supplier delivers exactly the promised goods. A derivative can change this exposure. It cannot decide whether the imported goods will sell, guarantee that the bank performs, or supply unlimited cash for collateral calls.</p>
+<p>The question is therefore more precise than whether derivatives are risky: which cash flow is uncertain, which contract changes it, and which risks remain? A contract that removes the final exchange-rate exposure may introduce intermediate funding needs. An option may cap the exchange-rate cost while requiring a premium. Both statements can hold without contradiction.</p>
+<h2 id="1-a-contract-is-a-dated-rule-for-cash-flows-0822">1. A contract is a dated rule for cash flows <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM&amp;t=502s">08:22</a></h2>
+<p>Let time $0$ denote today and $T$ the payment date, measured in years from today. Write $Q=100{,}000$ for the invoice amount in dollars and $X_t$ for the exchange rate at time $t$, measured in rupees per dollar. The unhedged rupee payment at maturity is $QX_T$. The multiplication is dimensionally meaningful: dollars times rupees per dollar gives rupees.</p>
+<p>An <strong>underlying variable</strong> is the observable quantity specified in a derivative contract: a stock price, exchange rate, interest rate, commodity price, or index, for example. A <strong>derivative</strong> is a contract whose cash flows or value depend on such specified variables and contractual terms. Its value can depend on several variables, credit and funding conditions, and the history of the underlying. A price written as $V(t,X_t)$ is a simplified state description, not a universal definition that excludes path dependence.</p>
+<p>A <strong>state</strong> is a description of an eventual outcome sufficient to determine the cash flows under study. For a small educational model, consider three possible terminal exchange rates, $X_T=80,86,92$. These are synthetic scenarios, not forecasts or observed market quotes. The corresponding invoice payments are 8,000,000, 8,600,000, and 9,200,000 rupees. No probability assignment is needed to compute them. We first ask what happens in each state; probabilities enter only when evaluating expected outcomes or risk statistics.</p>
+<p>A cash-flow model must identify the receiving party. We take cash received by the importer as positive and cash paid as negative. The invoice is therefore the signed cash flow $-QX_T$. When reporting a positive <strong>cost</strong>, we reverse that sign. Keeping the sign convention visible prevents an apparently profitable hedge from being added in the wrong direction.</p>
+<p>The <strong>notional amount</strong> is the reference quantity used to calculate contractual cash flows. Here it is $Q$ dollars. Notional is neither the contract's current market value nor necessarily the money deposited to enter it. A zero-value contract can reference a large notional, and a small current value can coexist with large future gains or losses.</p>
+<p>Time also matters. One rupee paid today and one rupee paid at $T$ are different cash flows. If a constant continuously compounded rate $r$ applies without credit or funding spreads, one rupee invested now becomes $e^{rT}$ rupees at $T$. Thus a premium $A$ paid today has terminal financing cost $Ae^{rT}$. The exponent is dimensionless because $r$ is per year and $T$ is in years. Later chapters replace a constant rate with discount factors and curves.</p>
+<p>For the initial numerical comparisons, set $r=0$ and ignore taxes, transaction costs, and default. This isolates the contract's payoff structure. It is an explicit teaching assumption, not a statement that real funding is free. We restore financing in the formulas before interpreting profit.</p>
+<h2 id="2-hedging-changes-an-existing-exposure-1306">2. Hedging changes an existing exposure <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM&amp;t=786s">13:06</a></h2>
+<p>An <strong>exposure</strong> is a dependence of an economically relevant value or cash flow on an uncertain variable. <strong>Hedging</strong> means adding positions intended to reduce a specified exposure or risk. <strong>Speculation</strong> means taking or retaining an exposure in pursuit of a favorable uncertain outcome. The same derivative can serve either purpose because the classification depends on the surrounding business position.</p>
+<p>The importer is harmed by an increase in $X_T$. A contract that pays the importer when $X_T$ rises can offset that harm. An exporter expecting to receive dollars has the opposite initial exposure: a fall in $X_T$ reduces rupee proceeds. Giving both firms the same derivative position would hedge one and increase the other's exposure.</p>
+<p>This distinction can be expressed without a forecasting model. If an added derivative pays $D_T$, the importer's combined signed cash flow is</p>
+<p>$$W_T=-QX_T+D_T.$$</p>
+<p>Here $W_T$ is terminal operating cash flow from the invoice and hedge, excluding other business income. A hedge can make $W_T$ independent of $X_T$ in the simplified model. That is stronger than merely reducing its variance, but weaker than making the whole firm riskless. The amount owed, the payment date, or the counterparty's performance could still change.</p>
+<p>The relevant economic objective also needs stating. A firm might minimize variance of rupee cost, cap its worst-case cost over chosen scenarios, protect a covenant, or preserve enough liquidity to survive interim calls. These are distinct criteria. A strategy preferred under one need not dominate under another. Even a variance-minimizing hedge requires a chosen probability model and horizon, while a statewise cancellation identity may require neither.</p>
+<p>There is no contradiction between insurance and an unfavorable realized comparison. If the rupee strengthens after the importer fixes its exchange rate, remaining unhedged would have been cheaper. The hedge can still have performed exactly its intended function: replacing uncertainty with a known contractual rate. Judging a hedge solely by its standalone gain confuses the offsetting instrument with the combined exposure.</p>
+<h2 id="3-a-forward-replaces-the-terminal-purchase-price-1849">3. A forward replaces the terminal purchase price <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM&amp;t=1129s">18:49</a></h2>
+<p>A <strong>forward contract</strong> is an agreement made now for a specified future exchange on agreed terms. In a physically delivered currency forward, a <strong>long dollar</strong> position receives $Q$ dollars and pays $QK$ rupees at $T$, where $K$ is the fixed contractual delivery rate in rupees per dollar. The <strong>short dollar</strong> position has the opposite obligations. Both parties are bound; a favorable spot movement does not give either party a unilateral right to walk away.</p>
+<p>The economic terminal payoff of the long forward, relative to buying dollars at the prevailing spot rate, is</p>
+<p>$$D_T^{\mathrm{forward}}=Q(X_T-K).$$</p>
+<p>To derive the sign, compare two ways to obtain the same $Q$ dollars at $T$. The spot purchase costs $QX_T$ rupees; the forward purchase costs $QK$. Their difference, $QX_T-QK$, is the saving from holding the long forward. If $X_T&gt;K$, the saving is positive. A cash-settled contract can directly pay that difference, subject to its reference-rate and settlement terms.</p>
+<p>With a perfectly matched cash-settled forward, the importer buys dollars at spot and receives the derivative settlement. Its positive net cost is</p>
+<p>$$C_T^{\mathrm{forward}}=QX_T-Q(X_T-K)=QK.$$</p>
+<p>The unknown exchange rate cancels for every state. This is a derived hedge identity, not a claim about the probability of a currency movement. With $K=86$, the cost is 8,600,000 rupees in each of the three scenarios. At $X_T=80$, the derivative loses 600,000 while the invoice costs only 8,000,000; at $X_T=92$, it gains 600,000 against the 9,200,000 invoice. Adding the two legs produces the same total.</p>
+<p>Three qualifications carry economic content. First, quantity and date must match: hedging 100,000 dollars does not completely hedge an uncertain 120,000-dollar payment. Second, cash settlement must leave the importer able to obtain the required currency at the modeled rate. A reference-rate fixing and an executable purchase rate can differ. Third, counterparty nonperformance can break the offset just when the derivative has positive value to the importer.</p>
+<p>The delivery rate $K$ is not the forward contract's current market value. A newly negotiated forward is often structured to have zero initial value before collateral and fees. An existing contract with the same $K$ can acquire positive or negative value when markets change. The next chapter derives the delivery rate and the value separately. In this chapter, 86 is an assumed contractual rate chosen to expose the cash-flow arithmetic; it has not been presented as an independently justified no-arbitrage quotation.</p>
+<p>Forwards are commonly negotiated over the counter, meaning directly through a dealer or other counterparty rather than as a standardized exchange order. Customization can match the importer well, but it can make an early exit less straightforward. It is too strong to say that a forward can never be closed before maturity: termination, assignment with consent, or an offsetting contract may be possible, with costs and remaining credit exposures determined by the agreement.</p>
+<h2 id="4-futures-change-the-cash-flow-path-as-well-as-the-market-structure-2150">4. Futures change the cash-flow path as well as the market structure <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM&amp;t=1310s">21:50</a></h2>
+<p>A <strong>futures contract</strong> is a standardized contract traded under an exchange's rules, normally with central clearing and periodic settlement of gains and losses. In <strong>central clearing</strong>, a central counterparty interposes itself as buyer to each seller and seller to each buyer under the clearing rules. Standardization specifies features such as the reference asset, contract quantity, maturity, delivery or cash-settlement mechanism, and quotation units. Standardization can support liquidity, but it does not guarantee that every contract can be traded in any quantity at an unchanged price.</p>
+<p><strong>Marking to market</strong> means valuing the position at a current reference price. In the simplified futures model, <strong>variation margin</strong> transfers the corresponding gains and losses between settlement dates. <strong>Initial margin</strong> is collateral required to support the position against potential adverse moves. It is different from an option premium and from a purchase down payment. <a href="https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed">CME's margin explanation</a> makes this distinction and explains why additional funds can be required after losses.</p>
+<p>Let $F_i$ be a futures quotation at settlement date $t_i$, and let $Q$ be the quantity represented by the long position. Under the simple price convention used here, its settlement receipt over one interval is $Q(F_i-F_{i-1})$. A fall in the quotation produces a payment by the long holder. Across $n$ intervals, the undiscounted receipts telescope:</p>
+<p>$$\sum_{i=1}^{n}Q(F_i-F_{i-1})=Q(F_n-F_0).$$</p>
+<p>Each intermediate quotation appears once positively and once negatively. The identity explains why a final-price comparison can conceal substantial intermediate cash flows. With $Q=100{,}000$ and quotations $86,80,92,86$, the long position pays 600,000, receives 1,200,000, and pays 600,000 rupees. Its cumulative settlement is zero, but its first cash demand is 600,000 rupees, excluding initial margin.</p>
+<p>The importer's business gain from a stronger rupee may not be spendable before the invoice date. Consequently, an economically offsetting hedge can still require external funding. <strong>Liquidity risk</strong> is the risk of being unable to meet payments when due on acceptable terms. It is not measured by the final payoff alone. Identical terminal prices on two different paths can imply different funding requirements.</p>
+<p>If cash flows are reinvested or financed, the relevant terminal amount is instead $\sum_i Q(F_i-F_{i-1})e^{r(T-t_i)}$ under a common constant rate $r$. The terms have different accumulation periods, so they no longer cancel in the same way. With stochastic rates, the relationship between futures and forward quotations needs additional reasoning. We defer that pricing comparison rather than infer equality from a superficially similar terminal payoff.</p>
+<p>Central clearing changes who owes whom and manages defaults through collateral, settlement, and financial resources. It mitigates bilateral credit exposure; it does not make all credit, liquidity, operational, or systemic risk vanish. The <a href="https://www.bis.org/publications/principles-financial-market-infrastructures">CPMI–IOSCO Principles for Financial Market Infrastructures</a>, particularly Principles 4, 6, and 7 on credit risk, margin, and liquidity risk, treat these as risks that require management. A mathematical default-free pricing assumption must therefore remain labeled as an idealization.</p>
+<h2 id="5-an-option-buys-discretion-and-charges-for-it-2938">5. An option buys discretion and charges for it <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM&amp;t=1778s">29:38</a></h2>
+<p>A <strong>call option</strong> gives its holder the right to buy the specified underlying on contractual terms; a <strong>put option</strong> gives the right to sell it. The <strong>strike</strong> is the price specified for exercise. A <strong>European</strong> option can be exercised at its contractual expiry; an <strong>American</strong> option permits exercise during its specified exercise window. These names describe exercise conventions, not geographic trading locations.</p>
+<p>The <strong>writer</strong> is the counterparty that grants the right and must perform when validly exercised or assigned under the contract. The holder pays a <strong>premium</strong> for the option. Rights are asymmetric, but a whole transaction still has two sides. The <a href="https://www.optionseducation.org/optionsoverview/options-basics">Options Industry Council's basic description</a> distinguishes these holder rights and writer obligations. Product-specific exercise and settlement rules require separate checking.</p>
+<p>For a European dollar call with strike $K$ and dollar quantity $Q$, the terminal payoff in rupees is</p>
+<p>$$D_T^{\mathrm{call}}=Q\max(X_T-K,0).$$</p>
+<p>The symbol $\max(a,b)$ means the larger of its two arguments. If dollars cost more than $K$, exercising the right to buy them at $K$ saves the difference. If dollars cost less, the holder can buy at spot and leave the option unexercised. The nonnegative payoff does not mean that the transaction cannot lose money: the premium has already been paid.</p>
+<p>Let $a$ denote the premium per dollar paid at time zero, in rupees per dollar. Financed to $T$ at rate $r$, the standalone option profit is $Q\max(X_T-K,0)-Qae^{rT}$. The importer's total terminal-equivalent cost is</p>
+<p>$$C_T^{\mathrm{call}}=QX_T-Q\max(X_T-K,0)+Qae^{rT}
+=Q\min(X_T,K)+Qae^{rT}.$$</p>
+<p>The equality follows by considering $X_T\le K$ and $X_T&gt;K$ separately. This is a cap on the modeled dollar-purchase cost plus premium financing. Below the strike the firm retains the benefit of a cheaper dollar; above it the underlying cost is fixed at $QK$. The payment for this asymmetry is the premium.</p>
+<p>Set $K=86$, $a=2$, and $r=0$ for the three synthetic scenarios. The option costs 200,000 rupees initially. The terminal-equivalent net costs are then 8,200,000, 8,800,000, and 8,800,000 rupees. Compare all three strategies on the same date and quantity:</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Terminal rupees per dollar</th>
+<th style="text-align: right;">Unhedged invoice</th>
+<th style="text-align: right;">Forward-hedged cost</th>
+<th style="text-align: right;">Call-hedged cost including premium</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">8,000,000</td>
+<td style="text-align: right;">8,600,000</td>
+<td style="text-align: right;">8,200,000</td>
+</tr>
+<tr>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">8,600,000</td>
+<td style="text-align: right;">8,600,000</td>
+<td style="text-align: right;">8,800,000</td>
+</tr>
+<tr>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">9,200,000</td>
+<td style="text-align: right;">8,600,000</td>
+<td style="text-align: right;">8,800,000</td>
+</tr>
+</tbody>
+</table></div>
+<p>The forward has lower cost than the call in the higher-rate states here; the call has lower cost when the rupee strengthens sufficiently. Neither comparison licenses a statement about expected performance without probabilities. The unhedged strategy can be cheapest in a favorable state while offering no protection in an unfavorable one.</p>
+<p>A <strong>payoff</strong> is the contract's cash flow at the specified payoff date. <strong>Profit</strong> includes the cost of establishing and financing the position. <strong>Moneyness</strong> compares underlying price with strike; it does not include premium. At $X_T=87$, this call has positive payoff of one rupee per dollar but a standalone loss of one rupee per dollar under zero financing cost. Positive payoff and positive profit are different conditions.</p>
+<p>The long call's standalone loss is limited by its premium and financing under the stated model. The short call can have arbitrarily large loss if the modeled exchange rate has no upper bound. A short put on a nonnegative underlying has a different bound because the underlying cannot fall below zero. “Every option writer has unlimited loss” would therefore be an incorrect generalization.</p>
+<h2 id="6-a-swap-specifies-a-sequence-of-exchanges-3254">6. A swap specifies a sequence of exchanges <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM&amp;t=1974s">32:54</a></h2>
+<p>A <strong>swap</strong> specifies a sequence of cash-flow exchanges according to agreed rules. In a simple fixed-for-floating interest-rate swap, one party pays a fixed rate and receives a periodically reset reference rate on a notional amount. The notional determines the payment size; a plain same-currency interest-rate swap need not exchange that principal. Currency swaps can have principal exchanges and require explicit currency-conversion conventions.</p>
+<p>For one simplified payment period, let $N$ be notional in rupees, $\alpha$ its accrual fraction in years, $R$ the annual reference rate applying to that period, and $k$ the annual fixed rate. The receive-floating/pay-fixed net receipt at the payment date is</p>
+<p>$$D=N\alpha(R-k).$$</p>
+<p>Both rates use the same simple accrual convention. The variable $R$ must correspond to the correct reference period and fixing rule. With synthetic values $N=10{,}000{,}000$, $\alpha=0.25$, $k=0.06$, and $R=0.07$, the receipt is 25,000 rupees. It is not seven percent of the whole principal received immediately.</p>
+<p>Suppose a borrower owes floating loan interest $N\alpha R$ on precisely the same notional, period, date, currency, and reference rate. Adding the swap gives net interest cost $N\alpha R-N\alpha(R-k)=N\alpha k$. This is the same statewise cancellation mechanism used for the importer's forward. A spread charged on the loan, different reset dates, collateral costs, or a different reference index would remain outside the cancellation.</p>
+<p>The formula describes the payment rule, not today's swap value. Valuation must account for all future payment dates, discount factors, reference-rate expectations under a suitable pricing framework, and any required credit/funding treatment. A later chapter builds that model. Here the central point is structural: a forward changes one future exchange, an option gives a right, and a swap organizes a series of exchanges. Real product variants require their actual contract terms.</p>
+<h2 id="7-no-arbitrage-is-a-statewise-restriction-1520">7. No-arbitrage is a statewise restriction <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM&amp;t=920s">15:20</a></h2>
+<p>In a finite-state, one-period model, an <strong>arbitrage</strong> is a feasible trading strategy with nonpositive initial cost, nonnegative final cash flow in every possible state, and a strict benefit either initially or in at least one state assigned positive probability. <strong>Short selling</strong> a claim means selling it now, receiving its sale proceeds, and taking on the obligation to deliver the claim or its specified cash flows later under the trading arrangement. Borrowing, short selling, transaction costs, default, and trading restrictions determine which strategies are feasible. A price discrepancy is not an executable arbitrage until those legs can actually be formed.</p>
+<p>The simplest implication is the <strong>law of one price</strong> for identical statewise payoffs. Suppose portfolios $A$ and $B$ pay the same amount at $T$ in every state and are equally feasible to buy or sell short. Assume short-sale proceeds can be used, and borrowing fees and transaction costs are zero. Let their current prices be $p_A$ and $p_B$. If $p_A&gt;p_B$, buy $B$ and short $A$. The initial receipt is $p_A-p_B&gt;0$, while the combined terminal payoff is exactly zero in every state. Keeping the initial surplus, or investing it in a nonnegative cash account, creates an arbitrage. Therefore no-arbitrage requires $p_A=p_B$ under these assumptions.</p>
+<p>For example, suppose two default-free, same-currency claims both pay exactly 100 rupees at the same date, but their prices are 96 and 98. Buying the cheaper claim and shorting the expensive one releases two rupees initially. Their final cash flows cancel. The argument fails if the 98-rupee instrument cannot be shorted, one payoff can default, or the quoted prices cannot be executed together. Those are changes in the modeled opportunity set, not minor typographical details.</p>
+<p>Equal expected return or equal variance is not enough. Consider two equally likely states and payoff vectors $A=(80,120)$ and $B=(120,80)$. Both have expected payoff 100 and standard deviation 20. Their difference is $B-A=(40,-40)$, which can lose money. A long-short trade between them does not have the statewise guarantee used in the proof. Means and variances compress distributions and dependence; they do not establish replicating equality.</p>
+<p>This distinction matters throughout the course. Portfolio theory compares risky opportunities using distributional assumptions and investor preferences. Replication establishes equality of cash flows under trading assumptions. A risk-return diagram can motivate equilibrium reasoning, but it cannot replace the statewise no-arbitrage argument. Later chapters use both approaches while keeping their conclusions separate.</p>
+<p>The importer's forward identity is a hedge identity. To turn it into a forward-pricing formula, we also need a replicating strategy using assets available today and a funding convention. Until those ingredients are specified, the algebra does not tell us which $K$ should be quoted. Distinguishing a contract's payment rule from the theory determining its price is the first defense against circular pricing arguments.</p>
+<h2 id="8-executable-cash-flow-checks">8. Executable cash-flow checks</h2>
+<p>Run <a href="labs/ch01.py">the chapter laboratory</a> in a fresh Python interpreter. Its inputs are synthetic finite exchange-rate scenarios, a positive dollar quantity, a strike/delivery rate, a premium, and dated futures quotations. It constructs the three cost vectors, verifies exact cancellation of the matched forward, checks both branches of the option-cost identity, and compares equal-moment payoff vectors state by state.</p>
+<p>The program also computes the futures settlement ledger, the cumulative balances, and the maximum funding deficit along the path. It checks the swap's fixed-interest identity using the same accrual convention on both legs. These checks use the Python standard library and require no network, market-data feed, credentials, or trade execution. Numeric inputs are checked for finiteness and the relevant nonnegativity restrictions.</p>
+<p>The lab prints the forward-hedged cost 8,600,000 rupees in all three states and call-hedged costs 8,200,000, 8,800,000, and 8,800,000. For the futures path it prints cumulative settlements of -600,000, 600,000, and zero, with a maximum deficit of 600,000 before any initial margin. An assertion checks the full cash-flow identity, rather than only comparing a rounded printed value.</p>
+<p>The program verifies these finite constructions. It does not establish that the assumed forward rate or premium is an observed or arbitrage-free quote, that margin will be sufficient in a real default, or that the three scenarios exhaust currency risk. A larger scenario grid can check more examples but still cannot prove an identity for all real numbers; the two-branch algebra above supplies that proof.</p>
+<h2 id="9-what-the-model-captures-and-what-it-leaves-open">9. What the model captures and what it leaves open</h2>
+<p>The cash-flow model captures quantity, settlement date, direction, exercise discretion, and the difference between a terminal outcome and an intermediate funding path. It explains why a forward can fix a cost, why a call can cap it at a premium, and why a swap can transform a matched floating payment. All three mechanisms are forms of adding a deliberately chosen signed cash flow to an existing exposure.</p>
+<p>The model leaves pricing curves, bid-ask spreads, collateral interest, credit adjustments, early termination, basis mismatch, uncertain business volume, and nonlinear portfolio interactions unresolved. These omissions are not reasons to abandon mathematical modeling. They identify which additional state variables and contractual details a later decision requires. Subsequent chapters introduce those layers in the order needed to keep the argument auditable.</p>
+<p>The appropriate first question about a proposed hedge is therefore a cash-flow question: what is paid, by whom, when, in which currency, and under which state? Once that description is correct, replication can restrict prices, probability models can describe residual risk, and numerical methods can evaluate portfolios. Starting with an attractive expected return before specifying the obligations reverses that order.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>An importer owes $Q$ foreign units at $T$ and holds a cash-settled long forward for only $H$ units at delivery rate $K$. Derive the terminal cost. For $Q=100{,}000$, $H=80{,}000$, and $K=86$, compute costs when $X_T=80,86,92$. Identify the residual exposure.</li>
+<li>A dollar call has strike 86 and premium two rupees per dollar at time zero. Under a constant continuously compounded financing rate $r$, derive the standalone terminal-profit break-even. Explain why a positive payoff is insufficient for a positive profit.</li>
+<li>A long futures position represents 100,000 dollars and has settlement quotations $86,80,92,86$. Derive each variation-margin cash flow and the cumulative balance. Compare with the path $86,92,80,86$. Do equal terminal settlements imply equal interim funding deficits?</li>
+<li>In two equally likely states, $A=(80,120)$ and $B=(120,80)$. Compute both means, variances, and the statewise difference. Explain precisely which part of a no-arbitrage proof is missing from an argument based only on equal moments.</li>
+<li>A floating-rate borrower pays $N\alpha(R+s)$, where $s$ is a fixed annual lending spread. The borrower receives $N\alpha R$ and pays $N\alpha k$ under a matched swap. Derive the combined cost. What changes if the loan accrual fraction is $\alpha$ and the swap accrual fraction is $\beta$?</li>
+<li>Two claims pay exactly 100 rupees at the same date in every modeled state. Their executable prices are 96 and 98. Write an arbitrage cash-flow ledger when both can be shorted. Then give two contract or market changes that invalidate this ledger without contradicting the law of one price under its stated assumptions.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>Buying the invoice currency costs $QX_T$. The hedge receives $H(X_T-K)$. The net positive cost is therefore $(Q-H)X_T+HK$. With the stated numbers it is $20{,}000X_T+6{,}880{,}000$, producing 8,480,000, 8,600,000, and 8,720,000 rupees. The derivative reduces the slope of cost with respect to $X_T$ from 100,000 to 20,000 dollars; it does not eliminate the slope. Matching $H=Q$ cancels this particular price exposure. A different invoice quantity or settlement rate can restore residual exposure.</p>
+</li>
+<li>
+<p>Per dollar, profit is $\max(X_T-86,0)-2e^{rT}$. With a positive financed premium, break-even requires the exercised branch, so $X_T=86+2e^{rT}$. At zero financing rate it is 88. At a terminal rate of 87 the payoff is one but the cost is two, giving a one-rupee loss per dollar. Premium financing changes the profit threshold without changing the strike that determines whether exercise has nonnegative gross value.</p>
+</li>
+<li>
+<p>The first path changes by $-6,+12,-6$ rupees per dollar, giving -600,000, 1,200,000, and -600,000 rupees. Its cumulative balances are -600,000, 600,000, and zero; the maximum negative balance is 600,000. The second path changes by $+6,-12,+6$, giving 600,000, -1,200,000, and 600,000. Retaining gains produces cumulative balances 600,000, -600,000, and zero, with the same maximum deficit in this particular comparison. Equal terminal prices alone do not imply equal deficits: the path $86,70,86$ ends at the same quote but produces a maximum cumulative deficit of 1,600,000. Initial collateral and actual margin rules would add further funding demands. The path comparison assumes all gains remain available and a zero funding rate.</p>
+</li>
+<li>
+<p>Each mean is $(80+120)/2=100$. Deviations from the mean are $(-20,20)$ or $(20,-20)$, so each variance is $(400+400)/2=400$ and each standard deviation is 20. But $B-A=(40,-40)$ has a negative state. Equal moments do not imply identical payoffs in each state. The law-of-one-price strategy needs those terminal obligations to cancel state by state; their expected cancellation does not meet the no-loss condition.</p>
+</li>
+<li>
+<p>Add the loan cost to the negative of the swap receipt: $N\alpha(R+s)-N\alpha(R-k)=N\alpha(s+k)$. The reference-rate exposure cancels, but the spread remains. With swap accrual $\beta$, the cost becomes $N[\alpha(R+s)-\beta(R-k)]=N[(\alpha-\beta)R+\alpha s+\beta k]$. Unless $\alpha=\beta$, a reference-rate term remains even when notionals and the symbol $R$ match. Different fixing rules or payment dates require additional terms rather than pretending that the displayed cancellation still applies.</p>
+</li>
+<li>
+<p>At time zero, pay 96 to buy the cheaper claim and receive 98 from shorting the more expensive one, retaining two rupees. At $T$, receive 100 on the purchased claim and pay 100 on the short, for zero net obligation. This is a strict initial gain without terminal state risk under the assumptions. If shorting the expensive claim is forbidden, that strategy is infeasible. If its quoted 98 is an ask price but the executable bid is 95, the proposed short does not receive 98. Alternatively, if one issuer can default while the other cannot, the terminal payoffs are no longer identical. Each modification removes an assumption used by the proof.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>The <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM">overview recording</a> supplies the progression from derivative definitions and uses to forwards, futures, options, and swaps. The full English NPTEL Official caption track was read sequentially. The source's introductory risk-return discussion is developed here into a more precise finite-state no-arbitrage argument. Its descriptions of default-free futures and forwards held to maturity are qualified to distinguish pricing idealizations from credit management and contractual exit possibilities.</p>
+<p>The importer, payoff vectors, financing comparisons, margin paths, proofs, and exercises are original teaching constructions. The section on arbitrage deliberately expands a concept introduced earlier in the recording after the instruments have supplied concrete payoff examples. CME supports the margin distinction, OIC supports option rights and obligations, and the CPMI–IOSCO principles support the credit/liquidity boundary. Caption coverage is not a claim of a comprehensive board, slide, or audio audit. No live prices, trading recommendations, or current contract specifications are asserted by the synthetic examples.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch01.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Finite certificates; no filesystem, network, or trading effects.&quot;&quot;&quot;
+from math import exp, isclose, isfinite
+
+
+def costs(rates, quantity, delivery, premium, growth=1.0):
+    &quot;&quot;&quot;Return invoice, forward-hedged, and call-hedged positive costs.&quot;&quot;&quot;
+    rates = list(rates)
+    if not rates:
+        raise ValueError(&quot;Need at least one scenario&quot;)
+    values = [*rates, quantity, delivery, premium, growth]
+    if not all(isfinite(x) for x in values):
+        raise ValueError(&quot;Inputs must be finite&quot;)
+    if quantity &lt;= 0 or delivery &lt; 0 or premium &lt; 0 or growth &lt;= 0:
+        raise ValueError(&quot;Invalid quantity, delivery, premium, or growth&quot;)
+    if any(x &lt; 0 for x in rates):
+        raise ValueError(&quot;Exchange rates must be nonnegative&quot;)
+    invoice = [quantity * x for x in rates]
+    forward = [quantity * (x - (x - delivery)) for x in rates]
+    option = [quantity * (x - max(x - delivery, 0) + premium * growth)
+              for x in rates]
+    return invoice, forward, option
+
+
+def settlements(quotes, quantity):
+    &quot;&quot;&quot;Return simple MTM receipts, cumulative balances, and peak deficit.&quot;&quot;&quot;
+    if len(quotes) &lt; 2 or quantity &lt;= 0:
+        raise ValueError(&quot;Need at least two quotes and positive quantity&quot;)
+    if not all(isfinite(x) for x in [*quotes, quantity]):
+        raise ValueError(&quot;Inputs must be finite&quot;)
+    flows = [quantity * (b - a) for a, b in zip(quotes, quotes[1:])]
+    balances = []
+    running = 0.0
+    for flow in flows:
+        running += flow
+        balances.append(running)
+    return flows, balances, max(0, -min(balances))
+
+
+def main():
+    rates = [80.0, 86.0, 92.0]
+    invoice, forward, option = costs(rates, 100_000, 86, 2)
+    assert invoice == [8_000_000, 8_600_000, 9_200_000]
+    assert forward == [8_600_000] * 3
+    assert option == [8_200_000, 8_800_000, 8_800_000]
+    assert costs(iter(rates), 100_000, 86, 2) == (invoice, forward, option)
+    try:
+        costs([], 100_000, 86, 2)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&quot;Empty scenarios accepted&quot;)
+    # Check the derived identity on both branches and a denser finite grid.
+    for rate in [0, 79.5, 85.99, 86, 86.01, 103, 1000]:
+        actual = costs([rate], 100_000, 86, 2, exp(0.05 * 0.25))[2][0]
+        expected = 100_000 * (min(rate, 86) + 2 * exp(0.0125))
+        assert isclose(actual, expected, rel_tol=1e-12)
+    flows, balances, deficit = settlements([86, 80, 92, 86], 100_000)
+    assert flows == [-600_000, 1_200_000, -600_000]
+    assert balances == [-600_000, 600_000, 0]
+    assert deficit == 600_000
+    assert settlements([86, 70, 86], 100_000)[2] == 1_600_000
+    for path in [[86, 80, 92, 86], [86, 92, 80, 86], [86, 70, 86]]:
+        total = sum(settlements(path, 100_000)[0])
+        assert total == 100_000 * (path[-1] - path[0])
+    a, b = [80, 120], [120, 80]
+    for vector in [a, b]:
+        assert sum(vector) / 2 == 100
+        assert sum((x - 100) ** 2 for x in vector) / 2 == 400
+    assert [y - x for x, y in zip(a, b)] == [40, -40]
+    for reference in [0, 0.04, 0.07, 0.12]:
+        loan = 10_000_000 * 0.25 * reference
+        swap = 10_000_000 * 0.25 * (reference - 0.06)
+        assert isclose(loan - swap, 150_000, abs_tol=1e-8)
+    partial = [(100_000 - 80_000) * x + 80_000 * 86 for x in rates]
+    assert partial == [8_480_000, 8_600_000, 8_720_000]
+    for bad in [float(&quot;nan&quot;), float(&quot;inf&quot;), -1]:
+        try:
+            costs([bad], 1, 86, 2)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(&quot;Invalid rate accepted&quot;)
+    print(&quot;invoice:&quot;, [int(x) for x in invoice])
+    print(&quot;forward cost:&quot;, [int(x) for x in forward])
+    print(&quot;call cost:&quot;, [int(x) for x in option])
+    print(&quot;MTM balances:&quot;, [int(x) for x in balances])
+    print(&quot;peak deficit:&quot;, int(deficit))
+    print(&quot;cash-flow, financing, hedge, and moment certificates passed&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a href="index.html">Overview</a><a rel="next" href="ch02.html">Next: Forward prices come from financed replication</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

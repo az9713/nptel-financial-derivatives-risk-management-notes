@@ -1,0 +1,2280 @@
+{
+  "course": "Financial Derivatives and Risk Management",
+  "institution": "IIT Roorkee",
+  "instructor": "Prof. J. P. Singh",
+  "course_id": "110107128",
+  "official_course_url": "https://nptel.ac.in/courses/110107128",
+  "playlist_url": "https://www.youtube.com/playlist?list=PLLy_2iUCG87CTB2vv9njHaJbmQoa9S5gK",
+  "retrieved_at": "2026-11-24T16:55:36.077791+00:00",
+  "expected_entries": 61,
+  "expected_teaching_recordings": 60,
+  "sequence_note": "The short introduction is playlist position 1. Put-call parity at position 61 is official lecture 31. Positions 2–31 map to lectures 1–30; positions 32–60 retain lecture numbers 32–60.",
+  "coverage_note": "All61 supplied recordings (the introduction and60teaching recordings) were acquired and their complete normalized English caption text was read sequentially, with identity/digest-matched author ledgers. Playlist positions and official lecture numbers remain distinct. Caption reading does not establish complete board, slide, or audio fidelity; no comprehensive audiovisual audit is claimed.",
+  "recordings": [
+    {
+      "position": 1,
+      "playlist_position": 1,
+      "video_id": "5EYjZMYSzBc",
+      "title": "Financial Derivatives And Risk Management",
+      "teaching_title": "Financial Derivatives And Risk Management",
+      "duration": 248,
+      "duration_seconds": 248,
+      "url": "https://www.youtube.com/watch?v=5EYjZMYSzBc",
+      "lecture_number": null,
+      "role": "introduction",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": true,
+      "track_name": "",
+      "acquisition_method": "youtube_transcript_api",
+      "segment_count": 81,
+      "first_start": 10.64,
+      "last_end": 246.379,
+      "archive_sha256": "0e4f392b7f0e1364699c346181f42919df250c5339d7d9a3f9dfc3c2692fd222",
+      "normalized_text_sha256": "e3a827adf0b62afd2d9b4ed27f04973b7ffb5f015b6ddc0ba76f1ae38060ed94",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch01.json",
+          "reader": "lead",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "e3a827adf0b62afd2d9b4ed27f04973b7ffb5f015b6ddc0ba76f1ae38060ed94"
+        }
+      ]
+    },
+    {
+      "position": 2,
+      "playlist_position": 2,
+      "video_id": "pJDMgEpn-bM",
+      "title": "Overview of Derivatives",
+      "teaching_title": "Overview of Derivatives",
+      "duration": 2116,
+      "duration_seconds": 2116,
+      "url": "https://www.youtube.com/watch?v=pJDMgEpn-bM",
+      "lecture_number": 1,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1OwiiV4mUugDZ5FJ6cSf4lzapokaD7UUr",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "English - NPTEL Official",
+      "acquisition_method": "yt_dlp manual json3 track",
+      "segment_count": 412,
+      "first_start": 24.88,
+      "last_end": 2075.969,
+      "archive_sha256": "6ecd4610c44cc49162683ad08c003c725a157eb91a70f676b10cdb2f9ad54786",
+      "normalized_text_sha256": "a9ef17c1e1065bacc22c60d69eeec2235c3c0ef8c5de2bb2d461577ae12a7fcd",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch01.json",
+          "reader": "lead",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "a9ef17c1e1065bacc22c60d69eeec2235c3c0ef8c5de2bb2d461577ae12a7fcd"
+        }
+      ]
+    },
+    {
+      "position": 3,
+      "playlist_position": 3,
+      "video_id": "ZimJwj_Llrw",
+      "title": "Forwards: Introduction & Pricing",
+      "teaching_title": "Forwards: Introduction & Pricing",
+      "duration": 2251,
+      "duration_seconds": 2251,
+      "url": "https://www.youtube.com/watch?v=ZimJwj_Llrw",
+      "lecture_number": 2,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1nrwH7DkmymMAbPu35bANvihXa-ypO83C",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 334,
+      "first_start": 4.46,
+      "last_end": 2211.17,
+      "archive_sha256": "6d5dd424b810c750ff98a22b2a4570ab8bc9de4baa72088ce9924da3bbcaf32c",
+      "normalized_text_sha256": "f1371c739101d06d01b46c5cd8746de28d410132cb6a9ce87b031f2df4c33cb5",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch02.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "f1371c739101d06d01b46c5cd8746de28d410132cb6a9ce87b031f2df4c33cb5"
+        }
+      ]
+    },
+    {
+      "position": 4,
+      "playlist_position": 4,
+      "video_id": "QKHnXnYaUL8",
+      "title": "Forwards: Pricing & Arbitrage",
+      "teaching_title": "Forwards: Pricing & Arbitrage",
+      "duration": 2141,
+      "duration_seconds": 2141,
+      "url": "https://www.youtube.com/watch?v=QKHnXnYaUL8",
+      "lecture_number": 3,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1Qk9T57g-Xnl7kxMb_GuTJRqfW-iNfi0j",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 328,
+      "first_start": 24.78,
+      "last_end": 2101.39,
+      "archive_sha256": "c19c0d645b9beb64e970d748212bd856a4f467682367bbc7c23ae6d2d4daa0d9",
+      "normalized_text_sha256": "898139922db6e08d1540e8111e80067a6cf1f376dadf48ab61ff8bddf27c75d8",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch02.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "898139922db6e08d1540e8111e80067a6cf1f376dadf48ab61ff8bddf27c75d8"
+        }
+      ]
+    },
+    {
+      "position": 5,
+      "playlist_position": 5,
+      "video_id": "2C5iRNWGUJw",
+      "title": "Forwards Pricing: Consumption Assets",
+      "teaching_title": "Forwards Pricing: Consumption Assets",
+      "duration": 2082,
+      "duration_seconds": 2082,
+      "url": "https://www.youtube.com/watch?v=2C5iRNWGUJw",
+      "lecture_number": 4,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1BoLuwhRt27x5iz1qXRPI8_8K3uvfyb-c",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 290,
+      "first_start": 4.46,
+      "last_end": 2042.309,
+      "archive_sha256": "53e5e32500ac85ef315fa545c8bc36bee105c76c4df122e2440664290eb25693",
+      "normalized_text_sha256": "0061ff523f01f6776725a6f29063c837dd0b72255baf7e28e06582e873e2205f",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch02.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "0061ff523f01f6776725a6f29063c837dd0b72255baf7e28e06582e873e2205f"
+        }
+      ]
+    },
+    {
+      "position": 6,
+      "playlist_position": 6,
+      "video_id": "aIIUoeuQjsI",
+      "title": "Futures: Introduction & Salient Features",
+      "teaching_title": "Futures: Introduction & Salient Features",
+      "duration": 1794,
+      "duration_seconds": 1794,
+      "url": "https://www.youtube.com/watch?v=aIIUoeuQjsI",
+      "lecture_number": 5,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1Kh-wBndbIjxOMNfL4YXdLjpz2nOmQIC5",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 343,
+      "first_start": 24.8,
+      "last_end": 1753.89,
+      "archive_sha256": "fb2aedd8b8539658ecf05ad25119f56733b919fd68b3ac7d0b4e80ca27d28b83",
+      "normalized_text_sha256": "bf380763c7ee503db3fc1a703804680ae474bcb21c4a141688273351e245d395",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch03.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "bf380763c7ee503db3fc1a703804680ae474bcb21c4a141688273351e245d395"
+        }
+      ]
+    },
+    {
+      "position": 7,
+      "playlist_position": 7,
+      "video_id": "FTQDee2_oOU",
+      "title": "Futures: Margining & MTM",
+      "teaching_title": "Futures: Margining & MTM",
+      "duration": 2083,
+      "duration_seconds": 2083,
+      "url": "https://www.youtube.com/watch?v=FTQDee2_oOU",
+      "lecture_number": 6,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1a_bIaI8k6_9yYLFJV7_xomu9yZHz-af0",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 294,
+      "first_start": 4.46,
+      "last_end": 2042.659,
+      "archive_sha256": "750b999577c4bf67668b55415083d50e23245b9faadec95fb2e8877179408b76",
+      "normalized_text_sha256": "5b2d14acfdcb1e783dce80b3436bc7f38efd0a80e2583df64b4fa273b6579b69",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch03.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "5b2d14acfdcb1e783dce80b3436bc7f38efd0a80e2583df64b4fa273b6579b69"
+        }
+      ]
+    },
+    {
+      "position": 8,
+      "playlist_position": 8,
+      "video_id": "FS670JTUYlY",
+      "title": "Forwards & Futures Prices, Exposure",
+      "teaching_title": "Forwards & Futures Prices, Exposure",
+      "duration": 1815,
+      "duration_seconds": 1815,
+      "url": "https://www.youtube.com/watch?v=FS670JTUYlY",
+      "lecture_number": 7,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1rOs8tsv_A7WSRS21fdDoVe16u___sQ0A",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 244,
+      "first_start": 24.93,
+      "last_end": 1775.24,
+      "archive_sha256": "7482dd15e8be755ecc21db30afb8fef77d167cf308b9b108520f5de60a2ace81",
+      "normalized_text_sha256": "d2aec6955d6f8a22c1f597014b5bf6e8da27f6463acd7eafb400d0a517cfb813",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch03.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "d2aec6955d6f8a22c1f597014b5bf6e8da27f6463acd7eafb400d0a517cfb813"
+        }
+      ]
+    },
+    {
+      "position": 9,
+      "playlist_position": 9,
+      "video_id": "U2BzQcc46ck",
+      "title": "Exposure & Risk",
+      "teaching_title": "Exposure & Risk",
+      "duration": 1894,
+      "duration_seconds": 1894,
+      "url": "https://www.youtube.com/watch?v=U2BzQcc46ck",
+      "lecture_number": 8,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=12qpH165phcJdGMZtH-2oRYYarggl98gx",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 248,
+      "first_start": 24.88,
+      "last_end": 1854.57,
+      "archive_sha256": "ac2ea0156e0e0c6bea8b4ab283a49155154558e9956c2d0e29ba556a8762c2ca",
+      "normalized_text_sha256": "3a4bf63f685fdbe598a2c38e5fc7a632f1cb780f839d84d4fe8b3aec42458124",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch04.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "3a4bf63f685fdbe598a2c38e5fc7a632f1cb780f839d84d4fe8b3aec42458124"
+        }
+      ]
+    },
+    {
+      "position": 10,
+      "playlist_position": 10,
+      "video_id": "RaBL0YcrFkQ",
+      "title": "Basics of Futures Hedging",
+      "teaching_title": "Basics of Futures Hedging",
+      "duration": 1826,
+      "duration_seconds": 1826,
+      "url": "https://www.youtube.com/watch?v=RaBL0YcrFkQ",
+      "lecture_number": 9,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1QG1wRQhEKBB98a29UlbU9H3Nn_R8J60L",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 260,
+      "first_start": 24.82,
+      "last_end": 1786.619,
+      "archive_sha256": "7d305ab4842343b22c643b44028d27a9e6a036371dd65bc6618e05f30460943f",
+      "normalized_text_sha256": "429f56c095b41dfc51801c9e164e155518c320bf5ee8cc978ad7ce7c0be9c39d",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch04.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "429f56c095b41dfc51801c9e164e155518c320bf5ee8cc978ad7ce7c0be9c39d"
+        }
+      ]
+    },
+    {
+      "position": 11,
+      "playlist_position": 11,
+      "video_id": "pbr-X3rjuPw",
+      "title": "Futures Hedging: Nuances",
+      "teaching_title": "Futures Hedging: Nuances",
+      "duration": 1921,
+      "duration_seconds": 1921,
+      "url": "https://www.youtube.com/watch?v=pbr-X3rjuPw",
+      "lecture_number": 10,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1pl8cTSqL5HJJhqo05f-jfsR7HS9mcgbY",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 305,
+      "first_start": 24.75,
+      "last_end": 1881.32,
+      "archive_sha256": "03ca0f08bbe01ea78994066257b01a9b074aeab78801aeca949dea03d60a3d2c",
+      "normalized_text_sha256": "c8148547c2038a6de599cce8c24ec39fcc641bf9a4efd0b3896009500dbde4e4",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch04.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "c8148547c2038a6de599cce8c24ec39fcc641bf9a4efd0b3896009500dbde4e4"
+        }
+      ]
+    },
+    {
+      "position": 12,
+      "playlist_position": 12,
+      "video_id": "nDESESqRF-s",
+      "title": "Futures Hedging: No of Contracts",
+      "teaching_title": "Futures Hedging: No of Contracts",
+      "duration": 1982,
+      "duration_seconds": 1982,
+      "url": "https://www.youtube.com/watch?v=nDESESqRF-s",
+      "lecture_number": 11,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1yUNdlIXufL1MtBt2PKJqxxeNDPJCma9Z",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 306,
+      "first_start": 24.85,
+      "last_end": 1942.67,
+      "archive_sha256": "76f0ff8ea4c94e67d8a73b093c2a36ffe3e1e1b9d9034164b345e858817ed567",
+      "normalized_text_sha256": "db03bca6b95f5ae854937a2c330fc0a044683adfb45f9d4799ec54878c68404b",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch05.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "db03bca6b95f5ae854937a2c330fc0a044683adfb45f9d4799ec54878c68404b"
+        }
+      ]
+    },
+    {
+      "position": 13,
+      "playlist_position": 13,
+      "video_id": "oFj5lW9QwHc",
+      "title": "Futures Hedging: Examples",
+      "teaching_title": "Futures Hedging: Examples",
+      "duration": 1867,
+      "duration_seconds": 1867,
+      "url": "https://www.youtube.com/watch?v=oFj5lW9QwHc",
+      "lecture_number": 12,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1SC_OcsLNhmyYo-qf8m3LI_pTX607izMt",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 310,
+      "first_start": 24.83,
+      "last_end": 1847.73,
+      "archive_sha256": "d13fdd73f71c9204c8ccad58394c999f80b82c1863fbf1893649bab6e9884035",
+      "normalized_text_sha256": "66ee0b9dd4a31e24571500e80505b5a4b57d04b72f32c6e6e63ed3ec0627fc73",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch05.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "66ee0b9dd4a31e24571500e80505b5a4b57d04b72f32c6e6e63ed3ec0627fc73"
+        }
+      ]
+    },
+    {
+      "position": 14,
+      "playlist_position": 14,
+      "video_id": "g7j8sAIDN04",
+      "title": "Mean Variance Portfolio Theory",
+      "teaching_title": "Mean Variance Portfolio Theory",
+      "duration": 1884,
+      "duration_seconds": 1884,
+      "url": "https://www.youtube.com/watch?v=g7j8sAIDN04",
+      "lecture_number": 13,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1qFlqFLpN7VcLY3MbBFQSDCTaWwaZvqw0",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 260,
+      "first_start": 24.869,
+      "last_end": 1864.96,
+      "archive_sha256": "7ae01d54e3aa35c7f9a6ef393289b7b13f59ef2682a5a8884d8139fb91c17f56",
+      "normalized_text_sha256": "1650bee12723f7a00b6981124e3ff6b7acca45650265dccc7f0dab5fcfd7b8eb",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch06.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "1650bee12723f7a00b6981124e3ff6b7acca45650265dccc7f0dab5fcfd7b8eb"
+        }
+      ]
+    },
+    {
+      "position": 15,
+      "playlist_position": 15,
+      "video_id": "o_dndjBh26U",
+      "title": "Capital Asset Pricing Model",
+      "teaching_title": "Capital Asset Pricing Model",
+      "duration": 2060,
+      "duration_seconds": 2060,
+      "url": "https://www.youtube.com/watch?v=o_dndjBh26U",
+      "lecture_number": 14,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1gkOEP3vJz3iJndISGd4F8UyrI6SuSH-I",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 276,
+      "first_start": 24.83,
+      "last_end": 2040.369,
+      "archive_sha256": "5905ef8f1e45d2c92b0943721f4905443f7d831064f30ac0bad11283e0bcc4ca",
+      "normalized_text_sha256": "60836b90ebbea3bfa68d5abe06913b4ed91c678816aa847a56a12503cbc4c7a8",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch06.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "60836b90ebbea3bfa68d5abe06913b4ed91c678816aa847a56a12503cbc4c7a8"
+        }
+      ]
+    },
+    {
+      "position": 16,
+      "playlist_position": 16,
+      "video_id": "kyLk0hSwjX4",
+      "title": "Systematic & Unsystematic Risk",
+      "teaching_title": "Systematic & Unsystematic Risk",
+      "duration": 1917,
+      "duration_seconds": 1917,
+      "url": "https://www.youtube.com/watch?v=kyLk0hSwjX4",
+      "lecture_number": 15,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1DJfqIRcBURUBRE2j9Q8knJrFRkgQL21V",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 274,
+      "first_start": 24.83,
+      "last_end": 1877.809,
+      "archive_sha256": "a6cbfc0b9e84715b681e63d6bdb637fbe6fb80c3ac3403a67f5355b1d21d2eab",
+      "normalized_text_sha256": "caea4e6435f51d31721e62036658f75f78acad852523cfcfcaffc692123766d8",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch06.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "caea4e6435f51d31721e62036658f75f78acad852523cfcfcaffc692123766d8"
+        }
+      ]
+    },
+    {
+      "position": 17,
+      "playlist_position": 17,
+      "video_id": "osqhEV8JzGE",
+      "title": "Index Futures: Basic Theory",
+      "teaching_title": "Index Futures: Basic Theory",
+      "duration": 1904,
+      "duration_seconds": 1904,
+      "url": "https://www.youtube.com/watch?v=osqhEV8JzGE",
+      "lecture_number": 16,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=19qP3VTKmE88HQCtOD6nexrTKr6uwCn22",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 335,
+      "first_start": 24.75,
+      "last_end": 1864.64,
+      "archive_sha256": "b7800ba73d89df105dbd583db7e53d33bde9839adc62f6abb475826fd14ac006",
+      "normalized_text_sha256": "d2c1be609ef50737695fc2d470ec7ffdcae9b5b15fb0dc73b70d4de4688403f1",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch07.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "d2c1be609ef50737695fc2d470ec7ffdcae9b5b15fb0dc73b70d4de4688403f1"
+        }
+      ]
+    },
+    {
+      "position": 18,
+      "playlist_position": 18,
+      "video_id": "FNWj1kZmwq0",
+      "title": "Hedging with Index Futures",
+      "teaching_title": "Hedging with Index Futures",
+      "duration": 2038,
+      "duration_seconds": 2038,
+      "url": "https://www.youtube.com/watch?v=FNWj1kZmwq0",
+      "lecture_number": 17,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1juZ9L1AgtzDoZ4TeYtoQtX68HwmhPPnF",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 293,
+      "first_start": 24.73,
+      "last_end": 1998.119,
+      "archive_sha256": "116631dde83d53229c5716121be20fe7a2748211127ececcf60bce380de0b122",
+      "normalized_text_sha256": "879e431e8295309e8cb0074f8e083b3f7ae3c1759595b445b3e7300d380c0680",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch07.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "879e431e8295309e8cb0074f8e083b3f7ae3c1759595b445b3e7300d380c0680"
+        }
+      ]
+    },
+    {
+      "position": 19,
+      "playlist_position": 19,
+      "video_id": "3pvhRtLCpkY",
+      "title": "Index Futures: Arbitrage, Examples",
+      "teaching_title": "Index Futures: Arbitrage, Examples",
+      "duration": 1941,
+      "duration_seconds": 1941,
+      "url": "https://www.youtube.com/watch?v=3pvhRtLCpkY",
+      "lecture_number": 18,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1NBo8isZErkUpHnJFGJKk8WxN59e7KPXy",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 295,
+      "first_start": 24.699,
+      "last_end": 1900.999,
+      "archive_sha256": "28ac73160deebdb7d22906e9ece564822690259bf590c167ad33940d6f0c0b1e",
+      "normalized_text_sha256": "908a79238a78a04b4a1590810f1b5a130f935c60407e2b31903be4cb5ffeb08f",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch07.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "908a79238a78a04b4a1590810f1b5a130f935c60407e2b31903be4cb5ffeb08f"
+        }
+      ]
+    },
+    {
+      "position": 20,
+      "playlist_position": 20,
+      "video_id": "EEG2kXFqpKk",
+      "title": "Spot Interest Rates & YTM",
+      "teaching_title": "Spot Interest Rates & YTM",
+      "duration": 1732,
+      "duration_seconds": 1732,
+      "url": "https://www.youtube.com/watch?v=EEG2kXFqpKk",
+      "lecture_number": 19,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1zT9oiQOGiw00bWDgyXFAYAGQWyBZgnZq",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 332,
+      "first_start": 24.869,
+      "last_end": 1712.8,
+      "archive_sha256": "20dde4dc0b3c21b2a8085479d76a59e87e82e4fc92bfef9a3607e423a08edf95",
+      "normalized_text_sha256": "be8d5d0135a02887ea14438293ce3c29de1fdc7f85825bc84d76c1695c183b41",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch08.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "be8d5d0135a02887ea14438293ce3c29de1fdc7f85825bc84d76c1695c183b41"
+        }
+      ]
+    },
+    {
+      "position": 21,
+      "playlist_position": 21,
+      "video_id": "_asG_7J7zs0",
+      "title": "YTM, Other Yield Measures",
+      "teaching_title": "YTM, Other Yield Measures",
+      "duration": 2038,
+      "duration_seconds": 2038,
+      "url": "https://www.youtube.com/watch?v=_asG_7J7zs0",
+      "lecture_number": 20,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1CCF3BgEsmoAYFwv1MHRJj5bspWgQKlI5",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 284,
+      "first_start": 24.85,
+      "last_end": 2018.749,
+      "archive_sha256": "0164a8ab9f619ff026b4c84ac0974ea38f58c9ab5be80c5939311ba8e05277d2",
+      "normalized_text_sha256": "b446b27b37d821efcc3b0cc580624073abff2cd750096175f928b1ecef6173ca",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch08.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "b446b27b37d821efcc3b0cc580624073abff2cd750096175f928b1ecef6173ca"
+        }
+      ]
+    },
+    {
+      "position": 22,
+      "playlist_position": 22,
+      "video_id": "pu7ynYUrDDg",
+      "title": "Interest Rate Risk",
+      "teaching_title": "Interest Rate Risk",
+      "duration": 1934,
+      "duration_seconds": 1934,
+      "url": "https://www.youtube.com/watch?v=pu7ynYUrDDg",
+      "lecture_number": 21,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1rW-dCgxQvVw9ZcAuduz919Ylz6XjB1nf",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 360,
+      "first_start": 24.82,
+      "last_end": 1894.079,
+      "archive_sha256": "d7c979c7608cb4d331d1f4051af00e2d8cf404de43beb1ee7ea4735b93fe60ce",
+      "normalized_text_sha256": "d071e7c992cc45c420ac4c8a6c56a945f8233774b0b321b8059bb7868ed80ee7",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch09.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "d071e7c992cc45c420ac4c8a6c56a945f8233774b0b321b8059bb7868ed80ee7"
+        }
+      ]
+    },
+    {
+      "position": 23,
+      "playlist_position": 23,
+      "video_id": "WGKvJQCY__0",
+      "title": "Duration & Price Sensitivities, Immunization",
+      "teaching_title": "Duration & Price Sensitivities, Immunization",
+      "duration": 1877,
+      "duration_seconds": 1877,
+      "url": "https://www.youtube.com/watch?v=WGKvJQCY__0",
+      "lecture_number": 22,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1klEFZ1xuZvs4cEP5bPM7g-UxvXBJAa9U",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 352,
+      "first_start": 24.83,
+      "last_end": 1836.85,
+      "archive_sha256": "ddb60f4ab3dc1ddb0707b466a777146961cbc3d32d6ef7d596ca2a05213e1e32",
+      "normalized_text_sha256": "8568c3a566cd9d7a16ad8bca13fdb8b2b046e05a3eb5956ac2a0bffd3fb4fa56",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch09.json",
+          "reader": "source_research",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "8568c3a566cd9d7a16ad8bca13fdb8b2b046e05a3eb5956ac2a0bffd3fb4fa56"
+        }
+      ]
+    },
+    {
+      "position": 24,
+      "playlist_position": 24,
+      "video_id": "sqc6C_hcXUM",
+      "title": "Interest Rate Futures: Salient Features",
+      "teaching_title": "Interest Rate Futures: Salient Features",
+      "duration": 1742,
+      "duration_seconds": 1742,
+      "url": "https://www.youtube.com/watch?v=sqc6C_hcXUM",
+      "lecture_number": 23,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1qltqX4Z9V6PlOFgCq0EcQXcf-NCLyTrx",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 320,
+      "first_start": 24.65,
+      "last_end": 1702.21,
+      "archive_sha256": "6dcc198de21459a64ebec1acee518c0129847c0aa6f77fa372b86a03c069566c",
+      "normalized_text_sha256": "116e84e4f0b43f3f64a2c7360b2de45a39509c0fcf0ee1ee8af5a52cdbebcc7d",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch10.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "116e84e4f0b43f3f64a2c7360b2de45a39509c0fcf0ee1ee8af5a52cdbebcc7d"
+        }
+      ]
+    },
+    {
+      "position": 25,
+      "playlist_position": 25,
+      "video_id": "0QEvQLhjhQA",
+      "title": "T-Bill Futures: Applications",
+      "teaching_title": "T-Bill Futures: Applications",
+      "duration": 2268,
+      "duration_seconds": 2268,
+      "url": "https://www.youtube.com/watch?v=0QEvQLhjhQA",
+      "lecture_number": 24,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1gFtZugbHmhQ7RJCHMKuvfH5kJuJML9Pm",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 324,
+      "first_start": 41.01,
+      "last_end": 2227.92,
+      "archive_sha256": "350182aa84705ddb1280b88ab55d2d7633685b082c57a25a70058a3f317437b7",
+      "normalized_text_sha256": "a425eb46819fc20a8d3e5b96d651a7436f29bf95efb2614b20782a75861c9cac",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch10.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "a425eb46819fc20a8d3e5b96d651a7436f29bf95efb2614b20782a75861c9cac"
+        }
+      ]
+    },
+    {
+      "position": 26,
+      "playlist_position": 26,
+      "video_id": "MqB_MP8d0J8",
+      "title": "T-Bill Futures: Hedging",
+      "teaching_title": "T-Bill Futures: Hedging",
+      "duration": 1840,
+      "duration_seconds": 1840,
+      "url": "https://www.youtube.com/watch?v=MqB_MP8d0J8",
+      "lecture_number": 25,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1dT5icRg2lUaTCgeL4edRsrYn1K6GPN7j",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 284,
+      "first_start": 24.91,
+      "last_end": 1800.54,
+      "archive_sha256": "fe1573b8c692650998b2041255fb65af57e4800f79cadceae927ce351b62c791",
+      "normalized_text_sha256": "5e97cb028154d10d9f6ffbaa0af240670fe61f187dfa2357a5f7738c9a677bc1",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch11.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "5e97cb028154d10d9f6ffbaa0af240670fe61f187dfa2357a5f7738c9a677bc1"
+        }
+      ]
+    },
+    {
+      "position": 27,
+      "playlist_position": 27,
+      "video_id": "J4wFDp4K8c8",
+      "title": "T-Bill Futures: Arbitrage; Eurodollar Futures",
+      "teaching_title": "T-Bill Futures: Arbitrage; Eurodollar Futures",
+      "duration": 1957,
+      "duration_seconds": 1957,
+      "url": "https://www.youtube.com/watch?v=J4wFDp4K8c8",
+      "lecture_number": 26,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1693w8FNCrsE2kUcdpWboO2qtCX32C3NP",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 278,
+      "first_start": 24.65,
+      "last_end": 1917.33,
+      "archive_sha256": "6d436824af6c6c8e73083b52f57749770419fd383a5bf0ba4c73c25a48506aad",
+      "normalized_text_sha256": "b145f6fe8e8f98d2da0f7f69537c24d407ecd32c2ff8c0994562ebdaee6c68e8",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch11.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "b145f6fe8e8f98d2da0f7f69537c24d407ecd32c2ff8c0994562ebdaee6c68e8"
+        }
+      ]
+    },
+    {
+      "position": 28,
+      "playlist_position": 28,
+      "video_id": "sd5oA18GaVw",
+      "title": "Tailing the Hedge; Clean & Dirty Price",
+      "teaching_title": "Tailing the Hedge; Clean & Dirty Price",
+      "duration": 2013,
+      "duration_seconds": 2013,
+      "url": "https://www.youtube.com/watch?v=sd5oA18GaVw",
+      "lecture_number": 27,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1wsjjOdmX6XBxzToRMdSvtKe9jT4i9zj4",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 297,
+      "first_start": 24.81,
+      "last_end": 1972.49,
+      "archive_sha256": "5fc6525b2bad492d60202bd9aecd98491bfe172d180852b00a32381adefc7896",
+      "normalized_text_sha256": "cfeccd852632554f358a9fe50ef872ea5c161dc1687290962668ca267dcbb6f3",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch11.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "cfeccd852632554f358a9fe50ef872ea5c161dc1687290962668ca267dcbb6f3"
+        }
+      ]
+    },
+    {
+      "position": 29,
+      "playlist_position": 29,
+      "video_id": "E2jdQhB0DFg",
+      "title": "US T-Bond Futures: Salient Features, Pricing",
+      "teaching_title": "US T-Bond Futures: Salient Features, Pricing",
+      "duration": 2074,
+      "duration_seconds": 2074,
+      "url": "https://www.youtube.com/watch?v=E2jdQhB0DFg",
+      "lecture_number": 28,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1TbhvNvOMP6aBf5CbMBDRdGC-9I0cpqCn",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 411,
+      "first_start": 24.74,
+      "last_end": 2034.059,
+      "archive_sha256": "f41cdbf2e745bf584a3ff08bed668581580da92460ceab77ed8ed305c4f508de",
+      "normalized_text_sha256": "1760124d68aaa88fb464eafd3ad5bd3c237331f72b737019d8296ed8e8a4204e",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch12.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "1760124d68aaa88fb464eafd3ad5bd3c237331f72b737019d8296ed8e8a4204e"
+        }
+      ]
+    },
+    {
+      "position": 30,
+      "playlist_position": 30,
+      "video_id": "8_rsJ6PWCV0",
+      "title": "US T-Bond Futures: Conversion Factor; Options",
+      "teaching_title": "US T-Bond Futures: Conversion Factor; Options",
+      "duration": 2010,
+      "duration_seconds": 2010,
+      "url": "https://www.youtube.com/watch?v=8_rsJ6PWCV0",
+      "lecture_number": 29,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1biOKep-DJThx-VK7tXJC2JxrEJxtz6Rm",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 291,
+      "first_start": 24.75,
+      "last_end": 1969.9,
+      "archive_sha256": "381760de2ffc74e239059d54a30270f6cff31347fd95ffdd5d49c07b1e073e90",
+      "normalized_text_sha256": "2a407a70151a1919f450fb14fea0e98e22954c6b3733d4169032adbe83382720",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch12.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "2a407a70151a1919f450fb14fea0e98e22954c6b3733d4169032adbe83382720"
+        }
+      ]
+    },
+    {
+      "position": 31,
+      "playlist_position": 31,
+      "video_id": "ipX6F8mEal8",
+      "title": "Options: Basic Theory",
+      "teaching_title": "Options: Basic Theory",
+      "duration": 1913,
+      "duration_seconds": 1913,
+      "url": "https://www.youtube.com/watch?v=ipX6F8mEal8",
+      "lecture_number": 30,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1YoM8Bfl5ZkR94dwAmC5TaqnVNawFwQRj",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 318,
+      "first_start": 24.66,
+      "last_end": 1873.32,
+      "archive_sha256": "03ad4ef6bb93bacffb07fc33fc2d5083a8cd22fcec07106b69528ebdd6ef4a46",
+      "normalized_text_sha256": "30277e1fc595a9ec710e4f8972146870dc427ba524fa0157e8eae7068d815384",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch13.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "30277e1fc595a9ec710e4f8972146870dc427ba524fa0157e8eae7068d815384"
+        }
+      ]
+    },
+    {
+      "position": 32,
+      "playlist_position": 32,
+      "video_id": "RDn9SoT2DX4",
+      "title": "Options: Price Bounds, American Options",
+      "teaching_title": "Options: Price Bounds, American Options",
+      "duration": 2012,
+      "duration_seconds": 2012,
+      "url": "https://www.youtube.com/watch?v=RDn9SoT2DX4",
+      "lecture_number": 32,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1tbBGEdg-okD87UzXl7nw5C2bQ5OQ7-na",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 297,
+      "first_start": 25.109,
+      "last_end": 1972.61,
+      "archive_sha256": "029f6bce1299891bde341671ab958608349a7a47c95e2ec8c43c8ba80dccbfa8",
+      "normalized_text_sha256": "99169ab1c7091f288b2cf062bbd85cb4a5bfce253b872600b0d2dfa460f8668a",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch14.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "99169ab1c7091f288b2cf062bbd85cb4a5bfce253b872600b0d2dfa460f8668a"
+        }
+      ]
+    },
+    {
+      "position": 33,
+      "playlist_position": 33,
+      "video_id": "kndgzBL08CU",
+      "title": "American Options: Properties",
+      "teaching_title": "American Options: Properties",
+      "duration": 2047,
+      "duration_seconds": 2047,
+      "url": "https://www.youtube.com/watch?v=kndgzBL08CU",
+      "lecture_number": 33,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1wPD7exYEIeUUNmp0-qKzdBKWJlxuGXi0",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 381,
+      "first_start": 24.699,
+      "last_end": 2007.849,
+      "archive_sha256": "e9c2611c59782573d03d3c4680ff3366c9c2fc87df47c4334ac57d0184519164",
+      "normalized_text_sha256": "96ed0d8a51b6aa359108cc443104580814096502d697acbc0efbd9a0f9ae13a4",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch14.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "96ed0d8a51b6aa359108cc443104580814096502d697acbc0efbd9a0f9ae13a4"
+        }
+      ]
+    },
+    {
+      "position": 34,
+      "playlist_position": 34,
+      "video_id": "p1T4wFkaPS8",
+      "title": "Basic Option Trading Strategies",
+      "teaching_title": "Basic Option Trading Strategies",
+      "duration": 2031,
+      "duration_seconds": 2031,
+      "url": "https://www.youtube.com/watch?v=p1T4wFkaPS8",
+      "lecture_number": 34,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=12MOH9XsRJL4NkD0IzCm_d9VHPDrZOYqW",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 418,
+      "first_start": 24.64,
+      "last_end": 1991.59,
+      "archive_sha256": "8e92542452bc5b8246a94b9b132dec649f97b4d50dbee15a2000e3eda3a64616",
+      "normalized_text_sha256": "4ce77faa7286bf9eb92724ce68c8165f2c4290da07e46fc356dc25b12704ae9f",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch15.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "4ce77faa7286bf9eb92724ce68c8165f2c4290da07e46fc356dc25b12704ae9f"
+        }
+      ]
+    },
+    {
+      "position": 35,
+      "playlist_position": 35,
+      "video_id": "zkDVIsOARK0",
+      "title": "Option Strategies Contd",
+      "teaching_title": "Option Strategies Contd",
+      "duration": 1970,
+      "duration_seconds": 1970,
+      "url": "https://www.youtube.com/watch?v=zkDVIsOARK0",
+      "lecture_number": 35,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1eShKfAeJJkFVt80xsrb-GmFczX6GdCIS",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 290,
+      "first_start": 24.83,
+      "last_end": 1930.64,
+      "archive_sha256": "0882b1f76a36abd5cae74bd833d47e7611a7e087910724b606ae462404064558",
+      "normalized_text_sha256": "fead3f889626107f8d5da354e0358213fd4a3f4803e559455269afaa434ce5c6",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch15.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "fead3f889626107f8d5da354e0358213fd4a3f4803e559455269afaa434ce5c6"
+        }
+      ]
+    },
+    {
+      "position": 36,
+      "playlist_position": 36,
+      "video_id": "WOeG8sV1xz8",
+      "title": "Option Spread Strategies",
+      "teaching_title": "Option Spread Strategies",
+      "duration": 1953,
+      "duration_seconds": 1953,
+      "url": "https://www.youtube.com/watch?v=WOeG8sV1xz8",
+      "lecture_number": 36,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1qm-iUwvSIM5YiQpRSxqnqQReMU73oM4O",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 332,
+      "first_start": 4.46,
+      "last_end": 1913.36,
+      "archive_sha256": "ef9c2478b91adc8efe7552a2ca4724d23c0d2f81cab83557508ecff93fe37b2c",
+      "normalized_text_sha256": "8bc8619c34909e3a9e50e20acc499cb6bda870adc4697d28a744e9cd23e131f2",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch15.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "8bc8619c34909e3a9e50e20acc499cb6bda870adc4697d28a744e9cd23e131f2"
+        }
+      ]
+    },
+    {
+      "position": 37,
+      "playlist_position": 37,
+      "video_id": "eDOIYREAeRM",
+      "title": "Stochastic Processes: Random Walk",
+      "teaching_title": "Stochastic Processes: Random Walk",
+      "duration": 2100,
+      "duration_seconds": 2100,
+      "url": "https://www.youtube.com/watch?v=eDOIYREAeRM",
+      "lecture_number": 37,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1dg4UD0pU-GF0YbG44f4yoxPlCz0IBGUh",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 312,
+      "first_start": 24.82,
+      "last_end": 2060.05,
+      "archive_sha256": "15cfcf15271981564710ba94b3667444a2e755a2e241f6d72575b60b665cbe32",
+      "normalized_text_sha256": "1e7f169d083333b04285a29b40d564fbe8639475b7bf81096f92af0f2796bc8f",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch16.json",
+          "reader": "scientific_review (author role for this chapter)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "1e7f169d083333b04285a29b40d564fbe8639475b7bf81096f92af0f2796bc8f"
+        }
+      ]
+    },
+    {
+      "position": 38,
+      "playlist_position": 38,
+      "video_id": "GIrKSTpX5W8",
+      "title": "Stochastic Processes: Brownian Motion",
+      "teaching_title": "Stochastic Processes: Brownian Motion",
+      "duration": 2007,
+      "duration_seconds": 2007,
+      "url": "https://www.youtube.com/watch?v=GIrKSTpX5W8",
+      "lecture_number": 38,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1Oorp1HgpRTqdsi2c1zAobQDWHKTSRVWT",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 275,
+      "first_start": 24.71,
+      "last_end": 1967.58,
+      "archive_sha256": "815de099a5d4b6e215156575bf054b99cb1406d191bc8ca41dc1ddc20352c417",
+      "normalized_text_sha256": "459b30e34bd538f466b81951c8637ed00dd34ebea17ee237e03c4d94ed3ef6c9",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch16.json",
+          "reader": "scientific_review (author role for this chapter)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "459b30e34bd538f466b81951c8637ed00dd34ebea17ee237e03c4d94ed3ef6c9"
+        }
+      ]
+    },
+    {
+      "position": 39,
+      "playlist_position": 39,
+      "video_id": "AJRvEHZb4C8",
+      "title": "Stochastic Processes: Diffusion Equation",
+      "teaching_title": "Stochastic Processes: Diffusion Equation",
+      "duration": 1866,
+      "duration_seconds": 1866,
+      "url": "https://www.youtube.com/watch?v=AJRvEHZb4C8",
+      "lecture_number": 39,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1YWJx26acjk1qk2oZAJd5vsq6LwriQC8K",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 276,
+      "first_start": 24.82,
+      "last_end": 1825.889,
+      "archive_sha256": "292054bad18b3e96c6d5f5e8037bb446d4664d4461671c9117b50c17bf0e018f",
+      "normalized_text_sha256": "358cc624347e490248cb91f12e47e3dd3843b7467ec2bb922ac92fe831b54fc5",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch16.json",
+          "reader": "scientific_review (author role for this chapter)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "358cc624347e490248cb91f12e47e3dd3843b7467ec2bb922ac92fe831b54fc5"
+        }
+      ]
+    },
+    {
+      "position": 40,
+      "playlist_position": 40,
+      "video_id": "_k8ciiS7tFE",
+      "title": "Stochastic Processes: Central Limit Theorem, Stochastic Calculus",
+      "teaching_title": "Stochastic Processes: Central Limit Theorem, Stochastic Calculus",
+      "duration": 1861,
+      "duration_seconds": 1861,
+      "url": "https://www.youtube.com/watch?v=_k8ciiS7tFE",
+      "lecture_number": 40,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=16_mahLkbuFgSjxu5nqvb2D8q4ir1LHt4",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 267,
+      "first_start": 24.71,
+      "last_end": 1821.489,
+      "archive_sha256": "3322ccaa3952b498c6468cf246a61ba47eca9643938946330ea95eb39f92b3e0",
+      "normalized_text_sha256": "24229bcbe0bd3710768b10ca6d579fc926d2bc9e96534dde0be4511daefe5d5c",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch17.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "24229bcbe0bd3710768b10ca6d579fc926d2bc9e96534dde0be4511daefe5d5c"
+        }
+      ]
+    },
+    {
+      "position": 41,
+      "playlist_position": 41,
+      "video_id": "CA9KRamLFW4",
+      "title": "Stochastic Calculus: Itoâ€™s Equation",
+      "teaching_title": "Stochastic Calculus: Ito's Equation",
+      "duration": 2042,
+      "duration_seconds": 2042,
+      "url": "https://www.youtube.com/watch?v=CA9KRamLFW4",
+      "lecture_number": 41,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1EVNEIwmjV_9DdIz8Wk1h_hwG1Vv3Wb10",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 289,
+      "first_start": 4.46,
+      "last_end": 2002.679,
+      "archive_sha256": "d7ef9e8cda9ce6da2c006f818b45fece3c4cc26a27844ec92281d31e7d9b87e8",
+      "normalized_text_sha256": "cd6ffae7dccd7307c8311c24d87049a0d3768d481fef907cbb00b6e457ed047f",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch17.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "cd6ffae7dccd7307c8311c24d87049a0d3768d481fef907cbb00b6e457ed047f"
+        }
+      ]
+    },
+    {
+      "position": 42,
+      "playlist_position": 42,
+      "video_id": "SilnIL0Q98o",
+      "title": "Stock Price Distributions; Fokker Planck Equation & Solution",
+      "teaching_title": "Stock Price Distributions; Fokker Planck Equation & Solution",
+      "duration": 1946,
+      "duration_seconds": 1946,
+      "url": "https://www.youtube.com/watch?v=SilnIL0Q98o",
+      "lecture_number": 42,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1Kc0bXYchoGvDfnjQR0NUWuRWk9VYkbhB",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 346,
+      "first_start": 4.46,
+      "last_end": 1905.869,
+      "archive_sha256": "b87aea0f0899ebfd33557ff29727010b5cdc93bfd24e9f430df74e5ef9888001",
+      "normalized_text_sha256": "544e356298aecae5940bc34e663bda2e80eb9a5f518a84b111e3fd13932697ed",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch17.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "544e356298aecae5940bc34e663bda2e80eb9a5f518a84b111e3fd13932697ed"
+        }
+      ]
+    },
+    {
+      "position": 43,
+      "playlist_position": 43,
+      "video_id": "zfYjF39ynV0",
+      "title": "Lognormal Distribution",
+      "teaching_title": "Lognormal Distribution",
+      "duration": 2250,
+      "duration_seconds": 2250,
+      "url": "https://www.youtube.com/watch?v=zfYjF39ynV0",
+      "lecture_number": 43,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1Iy4cQd3SyYcFEh0Zz3CM8n3XpVCc5xVU",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 310,
+      "first_start": 24.72,
+      "last_end": 2209.68,
+      "archive_sha256": "b406fde424abe45303730664b53280b4a1e9266486d13701db8e7856107ebb27",
+      "normalized_text_sha256": "38121a1e67733855e718d0383d460f3bbbabbe277363a1ec6410a4638f03188b",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch17.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "38121a1e67733855e718d0383d460f3bbbabbe277363a1ec6410a4638f03188b"
+        }
+      ]
+    },
+    {
+      "position": 44,
+      "playlist_position": 44,
+      "video_id": "mbtFmErzmHg",
+      "title": "Option Pricing: Binomial Model, Risk Neutral Valuation",
+      "teaching_title": "Option Pricing: Binomial Model, Risk Neutral Valuation",
+      "duration": 1980,
+      "duration_seconds": 1980,
+      "url": "https://www.youtube.com/watch?v=mbtFmErzmHg",
+      "lecture_number": 44,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1E4tn4TreDSN65f75LY6pCPGxrilq0AIi",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 280,
+      "first_start": 24.93,
+      "last_end": 1939.69,
+      "archive_sha256": "4392a73ad177a24eb9ec09dff4197c42d5fcc5c4af237d9e43981ac41a80cd52",
+      "normalized_text_sha256": "b7dae6b16a9b9837a65331ed844e7c75e470df73d92f9227dddeded6a521dbd5",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch18.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "b7dae6b16a9b9837a65331ed844e7c75e470df73d92f9227dddeded6a521dbd5"
+        }
+      ]
+    },
+    {
+      "position": 45,
+      "playlist_position": 45,
+      "video_id": "u5DlFctnY18",
+      "title": "Option Pricing: Binomial Model Contd",
+      "teaching_title": "Option Pricing: Binomial Model Contd",
+      "duration": 2258,
+      "duration_seconds": 2258,
+      "url": "https://www.youtube.com/watch?v=u5DlFctnY18",
+      "lecture_number": 45,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1g6DzMwrhbNCs_TMFQ5pR95UtPlRc_u7U",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 349,
+      "first_start": 24.789,
+      "last_end": 2216.47,
+      "archive_sha256": "e1862ac7018a4728a8af3c350e8ca5db85e7bf2802ce6ec842e30fe457e09100",
+      "normalized_text_sha256": "a4e7a4e6c3c5f600a42d598cac0a544731eef3ee1e68561c3d9d07e493d567a2",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch18.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "a4e7a4e6c3c5f600a42d598cac0a544731eef3ee1e68561c3d9d07e493d567a2"
+        }
+      ]
+    },
+    {
+      "position": 46,
+      "playlist_position": 46,
+      "video_id": "bCQID6X85ys",
+      "title": "mod10lec46",
+      "teaching_title": "Girsanov Theorem; Black Scholes Model",
+      "duration": 1939,
+      "duration_seconds": 1939,
+      "url": "https://www.youtube.com/watch?v=bCQID6X85ys",
+      "lecture_number": 46,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1P3hlaHTDVKk3S2rM9yG-fP4nPwK5rhDW",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 293,
+      "first_start": 24.89,
+      "last_end": 1899.49,
+      "archive_sha256": "b02fd8863920c23aca14f8e880282b06a830f8f3e0bdef77029c9846c7581f36",
+      "normalized_text_sha256": "ad2a2316fb9c758b5a9f65a3f72075bf369f58814b1d44f2039729d5509c42e8",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch19.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "ad2a2316fb9c758b5a9f65a3f72075bf369f58814b1d44f2039729d5509c42e8"
+        }
+      ]
+    },
+    {
+      "position": 47,
+      "playlist_position": 47,
+      "video_id": "9QS2FduuvTk",
+      "title": "mod10lec47",
+      "teaching_title": "Black Scholes Model Contd.",
+      "duration": 1837,
+      "duration_seconds": 1837,
+      "url": "https://www.youtube.com/watch?v=9QS2FduuvTk",
+      "lecture_number": 47,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=14sDcSef3Tg1Ny-E2WP9K3i1u2NCR16-d",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 273,
+      "first_start": 24.81,
+      "last_end": 1796.41,
+      "archive_sha256": "40571e65781977c1e86db5788e3836a021a3e123f20b34c0b9b8fa9242aac36e",
+      "normalized_text_sha256": "bf16309b1de308b043b2dcf3a9a562854eab0ffd630e855283500f0ed32c6684",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch19.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "bf16309b1de308b043b2dcf3a9a562854eab0ffd630e855283500f0ed32c6684"
+        }
+      ]
+    },
+    {
+      "position": 48,
+      "playlist_position": 48,
+      "video_id": "P-tzhvI64as",
+      "title": "mod10lec48",
+      "teaching_title": "Features of BS Model",
+      "duration": 1798,
+      "duration_seconds": 1798,
+      "url": "https://www.youtube.com/watch?v=P-tzhvI64as",
+      "lecture_number": 48,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1bYPbzBmOLFcffDYdJjXJxIDr_l7K638F",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 265,
+      "first_start": 4.46,
+      "last_end": 1757.159,
+      "archive_sha256": "42752beedf911ae287237b563a786b82200456183a6a73ecfaebde848e60402e",
+      "normalized_text_sha256": "29330fe367c0294ada6ee65c8d0c1cd59abbd5e29f698277f104ae6f7985b630",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch19.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "29330fe367c0294ada6ee65c8d0c1cd59abbd5e29f698277f104ae6f7985b630"
+        }
+      ]
+    },
+    {
+      "position": 49,
+      "playlist_position": 49,
+      "video_id": "anNG26YHMPQ",
+      "title": "mod10lec49",
+      "teaching_title": "Solution of BS PDE; Option Greeks",
+      "duration": 1985,
+      "duration_seconds": 1985,
+      "url": "https://www.youtube.com/watch?v=anNG26YHMPQ",
+      "lecture_number": 49,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1xjxT9RGfGcsexG2dBORdAD8a24v2MoyH",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 283,
+      "first_start": 37.789,
+      "last_end": 1945.09,
+      "archive_sha256": "afcd0de693f1ca021271f5210e7e2d55df9e46f81b02e1435dfb6e9c52c8ee2b",
+      "normalized_text_sha256": "7b5144c13d914f2587e302e9dfe6595c329d3988638fb75c3b955b55970f2868",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch20.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "7b5144c13d914f2587e302e9dfe6595c329d3988638fb75c3b955b55970f2868"
+        }
+      ]
+    },
+    {
+      "position": 50,
+      "playlist_position": 50,
+      "video_id": "zPjULQcQ0UY",
+      "title": "mod10lec50",
+      "teaching_title": "Option Greeks: Definition & Properties",
+      "duration": 2007,
+      "duration_seconds": 2007,
+      "url": "https://www.youtube.com/watch?v=zPjULQcQ0UY",
+      "lecture_number": 50,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1bQ_34BT2DjqP3pbQrPPLB1NvqBWwP91e",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 289,
+      "first_start": 25.2,
+      "last_end": 1966.779,
+      "archive_sha256": "d76fb8d992f57e0318717175f0a89afbe5af2b260e5136687075a53c3cf4ff9c",
+      "normalized_text_sha256": "90313189f7a6633b1d73e016e91434a0e561b055305e294d71e0ba743b1f329d",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch20.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "90313189f7a6633b1d73e016e91434a0e561b055305e294d71e0ba743b1f329d"
+        }
+      ]
+    },
+    {
+      "position": 51,
+      "playlist_position": 51,
+      "video_id": "15s8WcE5VRU",
+      "title": "mod11lec51",
+      "teaching_title": "Option Greeks: Further Properties",
+      "duration": 1845,
+      "duration_seconds": 1845,
+      "url": "https://www.youtube.com/watch?v=15s8WcE5VRU",
+      "lecture_number": 51,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1mQMH4GbgV7H-TnRwhuViJ34Vqd5EzawR",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 311,
+      "first_start": 24.89,
+      "last_end": 1803.13,
+      "archive_sha256": "0818727b1b620dc3c8e0c0ff2bce142ac2f877a1f08b65678433788e698bed3a",
+      "normalized_text_sha256": "dd3ba52ac372507e8f3c7429567c9c1ac75407ce142b3a336f2b4e828ddf222c",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch21.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "dd3ba52ac372507e8f3c7429567c9c1ac75407ce142b3a336f2b4e828ddf222c"
+        }
+      ]
+    },
+    {
+      "position": 52,
+      "playlist_position": 52,
+      "video_id": "0_NyYdmXBS0",
+      "title": "mod11lec52",
+      "teaching_title": "Option Greeks: Further Properties, Role in Trading Strategies",
+      "duration": 2064,
+      "duration_seconds": 2064,
+      "url": "https://www.youtube.com/watch?v=0_NyYdmXBS0",
+      "lecture_number": 52,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1mziL78CqHfNcflbldQtkLpP9LVBAMPMc",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 345,
+      "first_start": 4.45,
+      "last_end": 2022.349,
+      "archive_sha256": "2d2323aa78d1987832399c9860e24982ed0a68ba691a2ffce8939904e8a1c10e",
+      "normalized_text_sha256": "a36e180065dcbb5b5a2c40f02416e895fe906d358c148e9419dba58ae4929d28",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch21.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "a36e180065dcbb5b5a2c40f02416e895fe906d358c148e9419dba58ae4929d28"
+        }
+      ]
+    },
+    {
+      "position": 53,
+      "playlist_position": 53,
+      "video_id": "QsrKq3bRN5A",
+      "title": "mod11lec53",
+      "teaching_title": "Option Greeks: Further Properties, Role in Trading Strategies Contd.",
+      "duration": 2088,
+      "duration_seconds": 2088,
+      "url": "https://www.youtube.com/watch?v=QsrKq3bRN5A",
+      "lecture_number": 53,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1XULEXbkzgvuISIRkAwB_Mlry0HlGzgg2",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 343,
+      "first_start": 24.869,
+      "last_end": 2048.48,
+      "archive_sha256": "0a054237530ca2aec473f995d5ffaeb0286e727ff695a460d2f5f8b37784ff25",
+      "normalized_text_sha256": "dfb107771fa0478ce619273095d68e76f4b5de45a3cacd97c404065263975c8c",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch21.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "dfb107771fa0478ce619273095d68e76f4b5de45a3cacd97c404065263975c8c"
+        }
+      ]
+    },
+    {
+      "position": 54,
+      "playlist_position": 54,
+      "video_id": "EJbnlOu035A",
+      "title": "mod11lec54",
+      "teaching_title": "Option Greeks: Role in Trading Strategies Contd.; Swaps",
+      "duration": 1892,
+      "duration_seconds": 1892,
+      "url": "https://www.youtube.com/watch?v=EJbnlOu035A",
+      "lecture_number": 54,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=196ylaiXAPSBD7vzPx_L5PmBUFdmIg2xp",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 271,
+      "first_start": 24.68,
+      "last_end": 1851.279,
+      "archive_sha256": "e70d9f874f8af6ff0b2e73591a57440d4a9f1c44d43619bd28fed30788ea1a01",
+      "normalized_text_sha256": "dc39f9ea3d61f7864ac8b6a32ae2bd650a2f5fa0fb9ec949373338bd9d94372b",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch21.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "dc39f9ea3d61f7864ac8b6a32ae2bd650a2f5fa0fb9ec949373338bd9d94372b"
+        }
+      ]
+    },
+    {
+      "position": 55,
+      "playlist_position": 55,
+      "video_id": "YMt9e--2Xik",
+      "title": "mod11lec55",
+      "teaching_title": "Forward Rate Agreements; Swaps",
+      "duration": 2438,
+      "duration_seconds": 2438,
+      "url": "https://www.youtube.com/watch?v=YMt9e--2Xik",
+      "lecture_number": 55,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1GotkbgC506OUY6qErdN31VhqQPHWgmou",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 352,
+      "first_start": 24.789,
+      "last_end": 2398.16,
+      "archive_sha256": "53da5d5882d7a94f87e9fd25312febd30df35d09ed1b5ac66a562a4b8298b7c3",
+      "normalized_text_sha256": "d385728d6fba182c34283e84c581843ec049167584a53285812634fef1b60e11",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch22.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "d385728d6fba182c34283e84c581843ec049167584a53285812634fef1b60e11"
+        }
+      ]
+    },
+    {
+      "position": 56,
+      "playlist_position": 56,
+      "video_id": "1H23SQ9d-lQ",
+      "title": "mod12lec56",
+      "teaching_title": "Swaps: Theory of Swaps",
+      "duration": 1994,
+      "duration_seconds": 1994,
+      "url": "https://www.youtube.com/watch?v=1H23SQ9d-lQ",
+      "lecture_number": 56,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=17BrXTiT-6uVN_ZyrUukGBSfQuzYxdsdh",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 352,
+      "first_start": 24.71,
+      "last_end": 1954.919,
+      "archive_sha256": "41fe36fd583975ddf7918964e001d1050459a1e1c965ec22fcd7aab3240e2470",
+      "normalized_text_sha256": "9cb9fcce7e492c434a56868e7abfe62da35b3b2115d5f1ca63e0d3d1866d8b47",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch22.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "9cb9fcce7e492c434a56868e7abfe62da35b3b2115d5f1ca63e0d3d1866d8b47"
+        }
+      ]
+    },
+    {
+      "position": 57,
+      "playlist_position": 57,
+      "video_id": "uZF7j-Qs9ZA",
+      "title": "mod12lec57",
+      "teaching_title": "Swaps: Valuation of Interest Rate Swaps",
+      "duration": 2051,
+      "duration_seconds": 2051,
+      "url": "https://www.youtube.com/watch?v=uZF7j-Qs9ZA",
+      "lecture_number": 57,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=11dPfsZBiwZEXEp9cMpJIgUOdhQ1Vl18E",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 356,
+      "first_start": 24.699,
+      "last_end": 2010.049,
+      "archive_sha256": "d01441c3fad0b4cb2b3eb73728f6c6bce4c1273ff8765b8794e36a5c97b7fdf7",
+      "normalized_text_sha256": "f4e3f2406043490195609935b212465df6c39c19fc6253d3dc29f7a6fec5cdbf",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch22.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "f4e3f2406043490195609935b212465df6c39c19fc6253d3dc29f7a6fec5cdbf"
+        }
+      ]
+    },
+    {
+      "position": 58,
+      "playlist_position": 58,
+      "video_id": "t00O7h4AhG8",
+      "title": "mod12lec58",
+      "teaching_title": "Currency Swaps; Value at Risk",
+      "duration": 1894,
+      "duration_seconds": 1894,
+      "url": "https://www.youtube.com/watch?v=t00O7h4AhG8",
+      "lecture_number": 58,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1qOyldoJb6RVLVAuGmJir7kDKX24akt4d",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 338,
+      "first_start": 24.72,
+      "last_end": 1854.36,
+      "archive_sha256": "2afa55a324c0ac291cc33c3e8b49f0180b8d59451bad6dd5a21fd4a93e684359",
+      "normalized_text_sha256": "db40524bec2696b6a0d89590895841e4880dc132709c93b5d3b600d978d8e888",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch23.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "db40524bec2696b6a0d89590895841e4880dc132709c93b5d3b600d978d8e888"
+        }
+      ]
+    },
+    {
+      "position": 59,
+      "playlist_position": 59,
+      "video_id": "AG4GLF9SBM0",
+      "title": "mod12lec59",
+      "teaching_title": "Value at Risk: Definition & Computation",
+      "duration": 2228,
+      "duration_seconds": 2228,
+      "url": "https://www.youtube.com/watch?v=AG4GLF9SBM0",
+      "lecture_number": 59,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=14FXv757xTlywEH18v10eLBPEAIE0Od9J",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 323,
+      "first_start": 24.949,
+      "last_end": 2187.2,
+      "archive_sha256": "db2854376b72574626f1f57adf6f14641a40c9573f83d4173161e2d830055612",
+      "normalized_text_sha256": "36a26597ae46490011202de94f060d8cb7fd2790bd78ba64cd8f8e034fbc19b3",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-reading-ch23.json",
+          "reader": "scientific_review (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "36a26597ae46490011202de94f060d8cb7fd2790bd78ba64cd8f8e034fbc19b3"
+        }
+      ]
+    },
+    {
+      "position": 60,
+      "playlist_position": 60,
+      "video_id": "xuUX0FVxwv0",
+      "title": "mod12lec60",
+      "teaching_title": "Value at Risk: Computation for Bond & Derivative Portfolios",
+      "duration": 2258,
+      "duration_seconds": 2258,
+      "url": "https://www.youtube.com/watch?v=xuUX0FVxwv0",
+      "lecture_number": 60,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1Cx_uyfJN-87kp9ooEBPuHUul_-ehBEMV",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 344,
+      "first_start": 4.45,
+      "last_end": 2217.019,
+      "archive_sha256": "5197874a5850358ca124c47f1cb7c653ac1ddcf8f29988d6d42d193987369c43",
+      "normalized_text_sha256": "1c8b8b8fac057dc4a2bd3176e19c48dbd1cc16e55b7e238efe51d56ab2c0740e",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch24.json",
+          "reader": "source_research (chapter author)",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "1c8b8b8fac057dc4a2bd3176e19c48dbd1cc16e55b7e238efe51d56ab2c0740e"
+        }
+      ]
+    },
+    {
+      "position": 61,
+      "playlist_position": 61,
+      "video_id": "rGMc3_YrC_8",
+      "title": "Options: Put-Call Parity",
+      "teaching_title": "Options: Put-Call Parity",
+      "duration": 2095,
+      "duration_seconds": 2095,
+      "url": "https://www.youtube.com/watch?v=rGMc3_YrC_8",
+      "lecture_number": 31,
+      "role": "lecture",
+      "title_provenance": "Official NPTEL course outline, exact video-ID match",
+      "official_caption_url": "https://drive.google.com/uc?export=download&id=1HiJHkW4Dp1dGQa_tzRBLZ21Tem-tHTdS",
+      "status": "acquired",
+      "language": "en",
+      "is_generated": false,
+      "track_name": "NPTEL official English VTT",
+      "acquisition_method": "Public official NPTEL course-outline caption link",
+      "segment_count": 318,
+      "first_start": 24.73,
+      "last_end": 2055.039,
+      "archive_sha256": "4c98eae8d0acee234e33a065f8d5fcfbcd2e71dee09c8cfcf45e812082e123b3",
+      "normalized_text_sha256": "294040dba3ad63f730009b7066a7254a68f907e8ef8778969bcba627f7bf285b",
+      "coverage": {
+        "textual": "full-sequential-caption-text-read",
+        "visual": "not-reviewed",
+        "audio": "not-reviewed"
+      },
+      "read_evidence": [
+        {
+          "ledger": "validation/source-read-ch13.json",
+          "reader": "reader_builder_author",
+          "reading": "full sequential text read",
+          "normalized_text_sha256": "294040dba3ad63f730009b7066a7254a68f907e8ef8778969bcba627f7bf285b"
+        }
+      ]
+    }
+  ],
+  "reading_summary": {
+    "status": "complete-caption-text-attestations-reconciled",
+    "recordings": 61,
+    "teaching_recordings": 60,
+    "introduction_recordings": 1,
+    "chapter_ledgers": 24,
+    "identity_or_digest_errors": 0,
+    "audit": "validation/source-reading-audit.json",
+    "boundary": "Full sequential textual reading attested; comprehensive visual/audio review not performed."
+  }
+}

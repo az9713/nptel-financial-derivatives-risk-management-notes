@@ -1,0 +1,56 @@
+{
+  "chapter": "ch08",
+  "reader": "source_research",
+  "recordings": [
+    {
+      "position": 20,
+      "video_id": "EEG2kXFqpKk",
+      "normalized_text_sha256": "be8d5d0135a02887ea14438293ce3c29de1fdc7f85825bc84d76c1695c183b41",
+      "reading": "full sequential text read",
+      "first_start": 24.869,
+      "last_end": 1712.8,
+      "landmarks": [
+        {
+          "seconds": 140,
+          "topic": "Spot rates and YTM definitions"
+        },
+        {
+          "seconds": 700,
+          "topic": "Different bond cash-flow patterns and yield comparison"
+        },
+        {
+          "seconds": 1280,
+          "topic": "Nonunique spot curves for one bond price"
+        }
+      ],
+      "scope": "Complete normalized English captions. YTM computation versus terminal reinvestment interpretation distinguished; maturity-only realized-yield interval qualified; rounded source examples recomputed. No complete audiovisual review."
+    },
+    {
+      "position": 21,
+      "video_id": "_asG_7J7zs0",
+      "normalized_text_sha256": "b446b27b37d821efcc3b0cc580624073abff2cd750096175f928b1ecef6173ca",
+      "reading": "full sequential text read",
+      "first_start": 24.85,
+      "last_end": 2018.749,
+      "landmarks": [
+        {
+          "seconds": 70,
+          "topic": "Reinvestment interpretation of YTM"
+        },
+        {
+          "seconds": 840,
+          "topic": "Portfolio YTM nonlinearity"
+        },
+        {
+          "seconds": 1210,
+          "topic": "Early-sale holding period and sale-price risk"
+        },
+        {
+          "seconds": 1510,
+          "topic": "Bank discount and effective annual quotations"
+        }
+      ],
+      "scope": "Complete normalized English captions. YTM computation versus terminal reinvestment interpretation distinguished; maturity-only realized-yield interval qualified; rounded source examples recomputed. No complete audiovisual review."
+    }
+  ]
+}

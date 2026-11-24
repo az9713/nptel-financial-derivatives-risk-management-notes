@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "scope": "Synthetic fixture tests of canonical independent-review release gates; not scientific content review.",
+  "checks": [
+    {
+      "case": "two independent reviewers",
+      "expected_acceptance": true,
+      "observed_acceptance": true,
+      "gate_errors": [],
+      "byte_rebuild_all_equal": true
+    },
+    {
+      "case": "alias double counting rejected",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "gate_errors": [
+        "chapters/ch01.md: fewer than 2 current independent acceptances",
+        "chapters/ch01.json: fewer than 2 current independent acceptances",
+        "labs/ch01.py: fewer than 2 current independent acceptances"
+      ],
+      "byte_rebuild_all_equal": true
+    },
+    {
+      "case": "canonical author self-review rejected",
+      "expected_acceptance": false,
+      "observed_acceptance": false,
+      "gate_errors": [
+        "review-fixture-1.json: author self-review for chapters/ch01.md",
+        "review-fixture-1.json: author self-review for chapters/ch01.json",
+        "review-fixture-1.json: author self-review for labs/ch01.py",
+        "chapters/ch01.md: fewer than 2 current independent acceptances",
+        "chapters/ch01.json: fewer than 2 current independent acceptances",
+        "labs/ch01.py: fewer than 2 current independent acceptances"
+      ],
+      "byte_rebuild_all_equal": true
+    }
+  ]
+}

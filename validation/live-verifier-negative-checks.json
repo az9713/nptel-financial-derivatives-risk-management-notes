@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "scope": "Synthetic negative checks of live-byte comparison, private-path leakage rejection, and complete-commit archive guard; actual live delivery remains a later separate check",
+  "tool_sha256": "59058949fdfe1bb29fac723f206d7c2e5b470d061833132b9a84297013e4d158",
+  "cases": [
+    {
+      "case": "matching bytes",
+      "expected_rejection": false,
+      "observed_rejection": false
+    },
+    {
+      "case": "changed served bytes",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "private file served",
+      "expected_rejection": true,
+      "observed_rejection": true
+    },
+    {
+      "case": "incomplete committed edition",
+      "expected_rejection": true,
+      "observed_rejection": true
+    }
+  ]
+}

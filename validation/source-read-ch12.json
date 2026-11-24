@@ -1,0 +1,50 @@
+{
+  "chapter": "ch12",
+  "reader": "reader_builder_author",
+  "recordings": [
+    {
+      "position": 29,
+      "video_id": "E2jdQhB0DFg",
+      "normalized_text_sha256": "1760124d68aaa88fb464eafd3ad5bd3c237331f72b737019d8296ed8e8a4204e",
+      "reading": "full sequential text read",
+      "first_start": 24.74,
+      "last_segment_start": 2033.05,
+      "landmarks": [
+        108,
+        173,
+        286,
+        368,
+        834,
+        1064,
+        1224,
+        1781
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    },
+    {
+      "position": 30,
+      "video_id": "8_rsJ6PWCV0",
+      "normalized_text_sha256": "2a407a70151a1919f450fb14fea0e98e22954c6b3733d4169032adbe83382720",
+      "reading": "full sequential text read",
+      "first_start": 24.75,
+      "last_segment_start": 1968.66,
+      "landmarks": [
+        156,
+        327,
+        510,
+        914,
+        1157,
+        1333,
+        1595
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    }
+  ],
+  "source_corrections_and_limits": [
+    "Conversion factor standard not exact actual bond-value equivalence",
+    "CF scales clean quote, accrued interest added separately",
+    "CTD and delivery options can change hedge sensitivity",
+    "Modified duration conversion and DV01 include rate units",
+    "No adoption of all historical eligibility/rounding rules as current"
+  ]
+}

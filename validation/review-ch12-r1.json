@@ -1,0 +1,20 @@
+{
+  "reviewer": "scientific_review",
+  "disposition": "accepted",
+  "report": "validation/review-ch12-r1.md",
+  "scope": [
+    "Full manuscript, metadata, all six solutions and full laboratory source",
+    "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
+    "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+  ],
+  "remaining_findings": [],
+  "resolved_findings": [
+    "Medium scientific precision: local DV01 normalization omitted multiplicative carry when using current cash-bond DV01. Author now derives A/CF, distinguishes delivery-price DV01, labels36contracts as A=1 approximation, and tests A1.02.",
+    "Medium lab domain: aligned_price now rejects noninteger/Boolean period counts and nonfinite rate/coupon inputs."
+  ],
+  "accepted_files": {
+    "chapters/ch12.md": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+    "chapters/ch12.json": "f1a90f2ef7202f65e47733c504ef97cb0099105c07b9586c7636fd994b9cccce",
+    "labs/ch12.py": "984a183c1acbfaeafe50648edc7a5b2b535da2934fc7b66769821fc612e7d082"
+  }
+}

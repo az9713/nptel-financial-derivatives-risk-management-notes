@@ -1,0 +1,7 @@
+{
+  "title": "FRAs and interest-rate swaps as dated cash flows",
+  "lectures": [55, 56, 57],
+  "objectives": ["Replicate advance-settled and end-settled FRAs with correct signs and dates", "Derive par swap rates, off-market values, and discount-factor bootstraps", "Value a floating bond between resets and reconcile swap bond/coupon-strip methods", "Identify projection, discounting, overnight observation, and comparative-funding limitations"],
+  "prerequisites": "Discount factors, zero/forward rates, dated cash flows and present value; Chapter21 swap definitions and historical benchmark boundary.",
+  "source_scope": "Full official English captions at positions55–57 read sequentially, all source examples independently recomputed. No comprehensive audiovisual audit. Forward-realization assumptions, FRA settlement timing, contractual reset rights, day counts, and single-curve shortcuts are explicitly qualified."
+}

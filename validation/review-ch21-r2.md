@@ -1,0 +1,9 @@
+# Independent scientific and editorial review — Chapter21
+
+Reviewer source_research; independent of scientific_review author. Full manuscript, metadata, all six worked solutions and complete lab source read, with independent algebra and numerical checks. Fresh laboratory execution passed before and after a requested validation repair.
+
+Verified signed share/option multipliers; both source hedge systems; same-maturity gamma–vega rank dependence and target consistency; conditioning qualification; gamma and vega peak locations as stock varies; nonmonotone long-horizon vega example; PDE Greek identity and the fully financed local gamma–theta P&L. The quadratic book satisfies its stated arithmetic-diffusion PDE and its complete cash ledger distinguishes partial stock3200 from full4171.42857143. Quiet-path loss is−1028.571429. Scenario delta−2 and alternative joint shock−20 are correct. Fixed-strike currency forward value has delta Qexp(−rf tau), distinct from a new quote derivative; the foreign notional6485372.73143405 is correct.
+
+The original validation prose claimed direct differentiation of the fixed-strike value, whereas the first lab only checked the analytic identity. Author added a fixed-K value function and central finite difference; I read the exact patch and reran the lab successfully. All equations and all six solutions remain correct. No remaining findings.
+
+Selected actual caption checks: position53 1460–1590s supports the supplied gamma–vega system; position54 1000–1230s confirms the original6.2million/66%/6% quote-versus-value confusion; position52 740–840s confirms the stock-tranche example. Independently read Kogan extractedPDF17–20 for self-financing replication/PDE, and official FCA1October2024 opening/cessation passage. These support the scoped citations. No repeated full caption, audiovisual, live-market or empirical-model validation is claimed. Exact current files accepted.

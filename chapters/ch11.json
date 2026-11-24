@@ -1,0 +1,7 @@
+{
+  "title": "Rate hedges: carry, basis, settlement timing, and accrued interest",
+  "lectures": [26, 27, 28],
+  "objectives": ["Separate predictable bill carry from an unanticipated yield shock", "Derive a rate hedge count with consistent price sensitivities and an ex ante projection coefficient", "Explain deterministic-rate tailing through a complete dated settlement argument", "Distinguish historical Eurodollar teaching from SOFR and clean quotation from dirty cash price"],
+  "prerequisites": "Bill quote and yield conventions from chapter 10; covariance projection from chapter 05; discount factors and futures marking to market.",
+  "source_scope": "Full English captions for positions 26–28 read sequentially. Historical quotation language, discount-versus-simple-rate differences, and accrued-interest conventions are qualified. Synthetic arithmetic and proofs are independently constructed; no comprehensive audiovisual audit."
+}

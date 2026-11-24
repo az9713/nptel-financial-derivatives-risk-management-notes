@@ -1,0 +1,49 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch03-r1.md",
+  "scope": [
+    "Full authored manuscript, six solutions, metadata and code",
+    "All derivations and numerical examples independently checked",
+    "Selected actual captions and primary MIT/PFMI sources inspected",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch03.md": "006b2e6c9a96eb79e6de33b29334aade692dd6a0f2672aff9f511944395a8baa",
+    "chapters/ch03.json": "0f9222bbac1b00c7253777c43540e3c9e1e134f714069590126224ce799ee93a",
+    "labs/ch03.py": "43dbe8ffc951a039c5c961c3ac3422bc22ffea72dfb52b3ba6459a9a04f85357"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      6,
+      7,
+      8
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT Andrew Lo slides12\u201316",
+      "PFMI PDFpp50,56\u201357"
+    ]
+  },
+  "limitations": [
+    "No comprehensive audiovisual audit",
+    "No human certification or formal proof verification",
+    "Separate release/browser checks required"
+  ],
+  "bounded_rechecks": [
+    {
+      "reason": "Canonical LF normalization only; no scientific content change",
+      "proof": "validation/line-ending-normalization.json",
+      "method": "Reconstructed original CRLF bytes from canonical LF and matched prior acceptance SHA-256 exactly; Python AST equivalence and fresh lab execution passed.",
+      "files": [
+        {
+          "file": "labs/ch03.py",
+          "before_sha256": "ba7cfddd18dfece044ae0a2ca6215e00d511f44f2725be9d5f8e6e0dbac26c26",
+          "after_sha256": "43dbe8ffc951a039c5c961c3ac3422bc22ffea72dfb52b3ba6459a9a04f85357",
+          "reverse_crlf_reconstruction_matches_accepted_sha256": true
+        }
+      ]
+    }
+  ]
+}

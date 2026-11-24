@@ -1,0 +1,7 @@
+{
+  "title": "Forward prices come from financed replication",
+  "lectures": [3, 4, 5],
+  "objectives": ["Construct both cash-and-carry arbitrage directions with dated financing", "Separate an existing forward's value from its delivery quotation", "Derive income, storage and currency adjustments with explicit units", "Explain why consumption assets can defeat reverse carry"],
+  "prerequisites": "Chapter 1 cash-flow signs, elementary exponentials and present value. All financing conventions are stated locally.",
+  "source_scope": "Full official English captions read sequentially for positions 3–5; no comprehensive audiovisual audit. MIT forward-pricing slides 17–22 inspected."
+}

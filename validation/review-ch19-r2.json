@@ -1,0 +1,20 @@
+{
+  "reviewer": "lead_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch19-r2.md",
+  "findings_fixed": [
+    "Require predictable locally square-integrable general Girsanov integrand",
+    "Replace plain-text locators with actual YouTube timestamp links"
+  ],
+  "scope": [
+    "Full manuscript, metadata, complete laboratory and six worked solutions",
+    "Fresh lab execution and independent mathematical checks",
+    "Selected actual caption spans and primary references inspected; no comprehensive audiovisual audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch19.md": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
+    "chapters/ch19.json": "bf401b66c51212239745e677e698cc8cd249c014f0c4fc075a0469214e236c35",
+    "labs/ch19.py": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af"
+  }
+}

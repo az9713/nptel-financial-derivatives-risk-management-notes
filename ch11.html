@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Rate hedges: carry, basis, settlement timing, and accrued interest · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html" aria-current=page>11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>11. Rate hedges: carry, basis, settlement timing, and accrued interest</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=MqB_MP8d0J8">Recording 26</a>, <a href="https://www.youtube.com/watch?v=J4wFDp4K8c8">Recording 27</a>, <a href="https://www.youtube.com/watch?v=sd5oA18GaVw">Recording 28</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Separate predictable bill carry from an unanticipated yield shock</li><li>Derive a rate hedge count with consistent price sensitivities and an ex ante projection coefficient</li><li>Explain deterministic-rate tailing through a complete dated settlement argument</li><li>Distinguish historical Eurodollar teaching from SOFR and clean quotation from dirty cash price</li></ul>
+<p><strong>Prerequisites:</strong> Bill quote and yield conventions from chapter 10; covariance projection from chapter 05; discount factors and futures marking to market.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch11.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-separate-carry-from-the-yield-surprise-0908">1. Separate carry from the yield surprise 09:08</a></li><li><a href="#2-hedge-size-combines-sensitivities-with-a-rate-relation-2257">2. Hedge size combines sensitivities with a rate relation 22:57</a></li><li><a href="#3-the-forward-rate-arbitrage-argument-needs-matched-dated-cash-flows-0024">3. The forward-rate arbitrage argument needs matched dated cash flows 00:24</a></li><li><a href="#4-a-future-investment-needs-a-common-date-hedge-comparison-0949">4. A future investment needs a common-date hedge comparison 09:49</a></li><li><a href="#5-deterministic-rate-dynamic-tailing-can-be-proved-path-by-path-0906">5. Deterministic-rate dynamic tailing can be proved path by path 09:06</a></li><li><a href="#6-historical-eurodollar-teaching-is-not-a-current-sofr-specification-1806">6. Historical Eurodollar teaching is not a current SOFR specification 18:06</a></li><li><a href="#7-clean-quotation-and-dirty-cash-price-1912">7. Clean quotation and dirty cash price 19:12</a></li><li><a href="#8-executable-certificates-and-model-limits">8. Executable certificates and model limits</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A treasury desk owns bills with a face value of ten million dollars and plans to sell them in two months. Yields rise before the sale. The bills are worth less than they would have been at unchanged yields, yet the fall from their purchase price is smaller than that yield-shock loss. The difference is the return earned as the payment date approaches. Hedging the entire observed price change would confuse an anticipated passage-of-time effect with the exposure the desk intended to remove.</p>
+<p>We retain the bill-price convention from Chapter 10 and follow the same position through valuation, contract sizing, settlement, and funding. The central question is what a reported hedge residual means. It can arise from an incorrect rate relation, contract rounding, payment timing, or a quoted-price convention. These mechanisms require different repairs.</p>
+<h2 id="1-separate-carry-from-the-yield-surprise-0908">1. Separate carry from the yield surprise <a href="https://www.youtube.com/watch?v=MqB_MP8d0J8&amp;t=548s">09:08</a></h2>
+<p>Let $M$ be a bill portfolio's face payment, $U$ its original maturity in years from today, and $H&lt;U$ the planned sale date. Let $d_0$ and $d_H$ be its annual discount yields today and at sale on the same day-count basis. Use the deliberately simple price rule $B_t=M[1-d_t(U-t)]$. In particular,</p>
+<p>$$B_0=M(1-d_0U),\qquad B_H=M[1-d_H(U-H)].$$</p>
+<p>Add and subtract $M[1-d_0(U-H)]$ in the difference. This gives the exact decomposition</p>
+<p>$$B_H-B_0=Md_0H-M(U-H)(d_H-d_0).$$</p>
+<p>The first term is the change that would occur if the quoted discount yield stayed at $d_0$. We call it <strong>carry under the unchanged-yield baseline</strong>. The second is the change due to the yield deviation at the sale date. Neither term is a statistical expectation unless a probability model makes it one. The baseline is an accounting comparison, not a claim that today's yield predicts the future.</p>
+<p>For $M=10{,}000{,}000$, $U=1$, $H=1/6$, $d_0=0.04$, and $d_H=0.055$, the purchase price is 9,600,000. At the sale date, the unchanged-yield value would be 9,666,666.666667; the actual value is 9,541,666.666667. Carry is 66,666.666667, while the adverse yield effect is -125,000. The total observed price change is therefore -58,333.333333.</p>
+<p>If a derivative adds 125,000 at the sale date, it cancels the defined yield shock while leaving the 66,666.666667 baseline carry. Describing that remaining positive change as an imperfect hedge would misidentify the objective. Conversely, using the total purchase-to-sale loss of 58,333.333333 to estimate the required yield hedge would leave part of the rate exposure unprotected.</p>
+<p>The decomposition depends on the price convention. Under a simple investment-yield convention, $B_t=M/[1+r_s(t)(U-t)]$, the yield derivative is different and the passage-of-time term is nonlinear. A formula derived from discount yield cannot be transferred merely by replacing its symbol with a deposit rate. The source's repeated emphasis on face value is correct for its displayed discount-price model, not a universal instruction to ignore present value in all rate hedges.</p>
+<h2 id="2-hedge-size-combines-sensitivities-with-a-rate-relation-2257">2. Hedge size combines sensitivities with a rate relation <a href="https://www.youtube.com/watch?v=MqB_MP8d0J8&amp;t=1377s">22:57</a></h2>
+<p>Let $m$ be the face amount represented by one illustrative bill future and $\alpha_f$ its reference bill year fraction. At a common comparison date, the discount-price model gives the change of one long contract as $-m\alpha_f\Delta d_f$, where $\Delta d_f$ is the change in its quoted discount yield. Let $a=U-H$ be the cash bill's remaining term at sale and $\Delta d_s=d_H-d_0$ its yield change.</p>
+<p>Write $h$ for a positive number of short contracts. The combined yield-shock change, excluding carry and funding, is</p>
+<p>$$Z=-Ma\Delta d_s+h\,m\alpha_f\Delta d_f.$$</p>
+<p>The signs follow from the cash flows: a yield rise reduces the owned bill's value and benefits a short price-quoted future. If the cash and futures yields move identically, setting $h=Ma/(m\alpha_f)$ makes $Z=0$ for that common scalar shift. The denominator uses the contract's reference term; the numerator uses the cash instrument's remaining term at the hedge horizon.</p>
+<p>Equal changes are an assumption to test. Suppose the two yield changes have finite second moments and $\operatorname{Var}(\Delta d_f)&gt;0$. Define</p>
+<p>$$\beta=\frac{\operatorname{Cov}(\Delta d_s,\Delta d_f)}{\operatorname{Var}(\Delta d_f)}.$$</p>
+<p>Minimizing the variance of $Z$ over real $h$ gives</p>
+<p>$$h^*=\frac{Ma}{m\alpha_f}\beta.$$</p>
+<p>To verify the minimization, expand $\operatorname{Var}(Z)=(Ma)^2\operatorname{Var}(\Delta d_s)+h^2(m\alpha_f)^2\operatorname{Var}(\Delta d_f)-2hMa\,m\alpha_f\operatorname{Cov}(\Delta d_s,\Delta d_f)$. The derivative vanishes at the displayed $h^*$, and the second derivative is positive. If futures-rate variance is zero, the division is invalid and that contract cannot hedge a random rate change through this projection.</p>
+<p>The coefficient is an ex ante covariance projection, not the ratio of two rate moves observed after the hedge ends. A realized ratio can explain the hedge that would have fit one observation; it cannot retrospectively become information available at inception. A variance criterion also differs from an objective that explicitly trades expected cost against risk. The number $h^*$ minimizes the stated variance, not every possible corporate objective.</p>
+<p>For the running case, take $m=1{,}000{,}000$, $\alpha_f=0.25$, and $\beta=1$. Then $h^*=33.333333333$. If both rates rise by 0.015, the futures gain is 125,000 and cancels the yield-shock term exactly in the fractional-contract model. Rounding to 33 contracts produces gain 123,750 and residual -1,250. The residual has a known source: the missing one-third of a contract.</p>
+<p>Now retain the unrounded count but let the futures yield rise by only 0.01 while the cash yield rises by 0.015. The futures gain is 83,333.333333, leaving -41,666.666667. More precise contract rounding cannot remove this mismatch. The assumed relationship between the rates is wrong for this outcome. A model for their joint movements, additional hedge instruments, or an accepted residual-risk budget is needed.</p>
+<h2 id="3-the-forward-rate-arbitrage-argument-needs-matched-dated-cash-flows-0024">3. The forward-rate arbitrage argument needs matched dated cash flows <a href="https://www.youtube.com/watch?v=J4wFDp4K8c8&amp;t=24s">00:24</a></h2>
+<p>The source next derives a relation between bills at two maturities and a future delivery of a shorter bill. The clean form is the forward replication from Chapter 10. If a unit face payment at $U$ has price $P(0,U)$ and a unit payment at $T&lt;U$ has price $P(0,T)$, the zero-value forward delivery price for that unit claim is $K=P(0,U)/P(0,T)$, assuming shorting, funding, and usable proceeds under matched frictionless default-free conditions.</p>
+<p>For a synthetic ledger, take a claim paying 100 at $U$, priced today at 97.50. Let the price today of one dollar paid at $T$ be 0.99. The no-arbitrage delivery payment for that claim is $97.50/0.99=98.484848\ldots$. Suppose a forward counterparty instead agrees to pay 99 at $T$ for the same claim, with zero initial forward value. Buy the claim for 97.50 today and finance the purchase by an obligation to pay 98.484848 at $T$. Deliver the claim into the short forward at $T$, receive 99, and repay the funding obligation. The remaining 0.515152 is a deterministic $T$-dated surplus.</p>
+<p>The claim itself has been delivered away, so its payment at $U$ belongs to the recipient. There is no uncovered repayment waiting at $U$ in the arbitrageur's ledger. Writing all dates prevents the common error of collecting the bill's face value while also assuming the same bill was already returned or delivered to someone else.</p>
+<p>For actual futures, daily settlement and funding have to be modeled as well. A forward-style delivery ledger cannot erase those intermediate cash flows. Deterministic-rate replication can justify specific adjustments; stochastic rates need the fuller pricing comparison from Chapter 03. The existence of a no-arbitrage relationship does not license identifying every future quote with a forward payment before checking its settlement rules.</p>
+<h2 id="4-a-future-investment-needs-a-common-date-hedge-comparison-0949">4. A future investment needs a common-date hedge comparison <a href="https://www.youtube.com/watch?v=MqB_MP8d0J8&amp;t=589s">09:49</a></h2>
+<p>Suppose a firm will invest principal $L=2{,}000{,}000$ at $H$ for a simple interest period of length $a_L=0.5$. Its benchmark investment rate falls from four to three percent. Relative to the original-rate comparison, its interest income at $U$ is lower by $L a_L(0.04-0.03)=10{,}000$. The adverse change is dated at the end of the investment, not at the time the investment begins.</p>
+<p>Assume a matched price-quoted rate future moves by one percentage point in the offsetting direction. In the illustrative million-face, quarter-year mapping, one long contract gains 2,500 when closed at $H$. Four contracts therefore gain 10,000 at $H$. Simply subtracting this gain from the 10,000 loss at $U$ compares different dates.</p>
+<p>To isolate timing, assume a separate contractually fixed factor $G=1.02$ converts money at $H$ into money at $U$. It can represent a prearranged financing or reinvestment agreement; it is not silently identified with the uncertain deposit benchmark. Four contracts then produce 10,200 at $U$, slightly more than the 10,000 target. The count matching terminal dollars is instead</p>
+<p>$$h_{\mathrm{tail}}=\frac{L a_L}{m\alpha_fG}=3.921568627\ldots.$$</p>
+<p>Its gain at close is 9,803.921569, which becomes 10,000 after multiplication by $G$. This simple calculation illustrates <strong>tailing</strong>, adjusting the derivative quantity for the timing and financing of its settlements. It is valid for the assumed one-close payment and known factor. If the actual hedge has daily settlements, the calculation must account for their individual dates.</p>
+<p>It is also not generally possible to know a random future funding factor at inception. Substituting its realized value later would create a hindsight-perfect hedge, not an implementable strategy. Distinguishing known funding agreements from estimated future conditions is as important as distinguishing a forecast $\beta$ from a realized yield ratio.</p>
+<h2 id="5-deterministic-rate-dynamic-tailing-can-be-proved-path-by-path-0906">5. Deterministic-rate dynamic tailing can be proved path by path <a href="https://www.youtube.com/watch?v=sd5oA18GaVw&amp;t=546s">09:06</a></h2>
+<p>Consider one unit of a non-income-producing investment asset and a futures contract on the identical unit. Trading, borrowing, and lending are frictionless; settlement proceeds can be reused; all accumulation factors are deterministic and positive; and fractional contract positions can be reset without cost. Let $A(s,t)$ be the known accumulation factor from settlement date $s$ to $t$, satisfying $A(s,u)A(u,t)=A(s,t)$. Let the futures mature at $T$, while the asset hedge will be closed at an earlier settlement date $H\le T$.</p>
+<p>Under the matched deterministic-rate cash-and-carry model, $F_i=S_iA(t_i,T)$, where $S_i$ is the spot asset price and $F_i$ its futures quotation at date $t_i$. For the interval ending at $t_i\le H$, hold the signed number of long contracts</p>
+<p>$$n_{i-1}=-\frac{1}{A(t_i,T)}.$$</p>
+<p>This is a short position when accumulation factors are positive. It is chosen at the preceding date, using known future factors, so the strategy does not look ahead at a random future rate. The interval's settlement is $n_{i-1}(F_i-F_{i-1})$. Accumulating that receipt to $H$ gives</p>
+<p>$$-\frac{F_i-F_{i-1}}{A(t_i,T)}A(t_i,H)
+=-\frac{F_i-F_{i-1}}{A(H,T)}.$$</p>
+<p>The last equality uses the accumulation-factor identity. Every settlement now has the same denominator, so summing telescopes. Including the asset sold at $H$, terminal wealth is</p>
+<p>$$S_H-\frac{F_H-F_0}{A(H,T)}
+=\frac{F_0}{A(H,T)}=S_0A(0,H).$$</p>
+<p>The uncertain $S_H$ cancels because $F_H=S_HA(H,T)$. The final wealth equals the known risk-free accumulation of the initial asset cost. This is an exact pathwise statement for this idealized discrete-settlement model; the proof includes the reinvestment of every margin receipt, rather than appending a discount factor after the fact.</p>
+<p>The negative sign and next settlement date matter. Using a constant untailed position need not yield the same sum. Using $A(t_{i-1},T)$ instead of $A(t_i,T)$ changes the reinvestment weight. With positive rates, a position magnitude below one can result; with negative rates, an accumulation factor below one can make the required magnitude greater than one. Tailing does not mean “reduce every hedge” irrespective of rates and conventions.</p>
+<p>The laboratory checks the formula on several rising and falling price paths and also on a negative-rate interval. Real cash assets may have income, futures may reference a different deliverable, funding may be stochastic, and margin terms may differ from the common account assumed here. Each change breaks a specific equality in the proof. A correlation coefficient close to one alone does not restore those missing identities.</p>
+<h2 id="6-historical-eurodollar-teaching-is-not-a-current-sofr-specification-1806">6. Historical Eurodollar teaching is not a current SOFR specification <a href="https://www.youtube.com/watch?v=J4wFDp4K8c8&amp;t=1086s">18:06</a></h2>
+<p>The historical recording uses Eurodollar futures to illustrate an offshore U.S.-dollar deposit exposure associated with LIBOR. In that setting, “Eurodollar” names dollar deposits outside the United States, not deposits denominated in euros. The important modeling distinction is between a deposit's simple interest rate and a Treasury bill's face-value discount yield. Similar index quotations do not make their underlying interest conventions identical.</p>
+<p><a href="https://www.cmegroup.com/media-room/press-releases/2023/4/24/cme_group_completeskeymilestonesinconversionofeurodollarfutureso.html">CME's April 24, 2023 conversion announcement</a> reports conversion of Eurodollar futures and options open interest to SOFR products, with the May and June 2023 exceptions left to expire before the stated LIBOR cessation date. Accordingly, the recording's Eurodollar example is historical material here. It is not an instruction to locate a currently active LIBOR contract.</p>
+<p><a href="https://www.cmegroup.com/education/articles-and-reports/understanding-sofr-futures">CME's SOFR futures explanation</a>, Exhibit 3 as retrieved November 24, 2026, describes three-month SOFR futures using compounded daily SOFR over a reference quarter, a $100-R$ index with $R$ in percent, and 25 dollars per annualized basis point per contract. The familiar monetary scale does not imply that compounded secured overnight financing and a forward-looking unsecured term deposit are the same exposure. Reference-period realization and benchmark basis must be modeled explicitly.</p>
+<p>We do not import the recording's discount-price formula as a valuation formula for a LIBOR deposit or a SOFR claim. Nor do we assume that a loan's credit spread remains constant merely because a reference-rate future has been hedged. A benchmark hedge can remove a chosen reference exposure while leaving credit spread, reset timing, funding, and term-basis risks.</p>
+<h2 id="7-clean-quotation-and-dirty-cash-price-1912">7. Clean quotation and dirty cash price <a href="https://www.youtube.com/watch?v=sd5oA18GaVw&amp;t=1152s">19:12</a></h2>
+<p>Moving from bills to coupon bonds introduces a further quotation distinction. The <strong>dirty price</strong> is the settlement cash price including accrued interest. The <strong>clean price</strong> is the quoted price after subtracting the accrued-interest amount specified by the market convention:</p>
+<p>$$B_{\mathrm{dirty}}=B_{\mathrm{clean}}+AI.$$</p>
+<p>Here $AI$ is <strong>accrued interest</strong>, the conventional allocation of the current coupon period's interest to elapsed time. For a regular coupon payment $C_{\mathrm{period}}$ and a convention using actual days within that coupon period, the amount is $AI=C_{\mathrm{period}}D_{\mathrm{elapsed}}/D_{\mathrm{period}}$. Other contractual day counts require their own fraction; ex-coupon and entitlement rules can also change settlement details.</p>
+<p>Suppose a bond pays a coupon of three dollars per 100 face each half-year. Settlement occurs 60 days into a coupon period containing 180 days. The accrued amount is $3(60/180)=1$ per 100. A clean quote of 99.25 therefore means a cash settlement price of 100.25 per 100. Quoting the clean amount has not removed a dollar from the asset's economic value; it has separated the invoice into two components.</p>
+<p>Discounting all future cash flows to the settlement date produces the full economic price under the stated valuation model. It does not need an extra accrued-interest payment on top of that already full price. One subtracts $AI$ to obtain the clean quote. Adding $AI$ to the present value of all future cash flows would double count the adjustment. Conversely, comparing that full price with a clean market quote without adding the market quote's accrued interest would compare different quantities.</p>
+<p>The ratio of elapsed days to days in a coupon period is not automatically an actual/365 annual year fraction. For example, the source's 54/181 fraction allocates a semiannual coupon by the elapsed portion of that coupon period. The denominator 181 is the period length. Keeping this separate from an annual day-count denominator avoids introducing an additional factor of roughly two. <a href="https://www.treasurydirect.gov/marketable-securities/understanding-pricing/">TreasuryDirect</a> distinguishes face, coupon, and yield in its bond discussion; Chapter 12 adds the delivery invoice used in Treasury bond futures.</p>
+<h2 id="8-executable-certificates-and-model-limits">8. Executable certificates and model limits</h2>
+<p>Run <a href="labs/ch11.py">the chapter laboratory</a>. It verifies the exact discount-bill carry/shock decomposition, the unrounded and rounded hedge counts, a mismatched-rate residual, and the common-date future-investment comparison. It then constructs futures quotations from several synthetic spot paths and known accumulation factors, applies the date-specific dynamic hedge, accumulates every settlement, and checks the proved terminal wealth.</p>
+<p>The program prints carry 66666.666667, yield shock -125000.000000, fractional contracts 33.333333333, rounded residual -1250.000000, and a tailed future-investment count of 3.921568627. It also checks accrued interest one and dirty price 100.25 in the specified per-100 example. These values are consequences of the declared inputs, not estimates from historical market data.</p>
+<p>The checks do not establish a stable hedge coefficient, a deterministic real funding curve, or a universally applicable clean-price convention. They expose where a residual enters the model. Before using a contract count, identify the baseline, common comparison date, rate relation, feasible position units, and settlement convention. A single unexplained “hedge effectiveness” percentage conceals those distinctions.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive the bill carry/shock decomposition. Calculate all three terms for face ten million, original maturity one year, sale after two months, and discount yields changing from four to 5.5 percent.</li>
+<li>Derive the variance-minimizing short-contract count for the displayed cash and futures yield changes. Explain why a realized yield-change ratio is not the same as an ex ante regression coefficient.</li>
+<li>For the running bill example, compare the unrounded and 33-contract hedge when both yields rise by 1.5 percentage points. Then let the futures yield rise by only one percentage point while keeping the unrounded count. Identify each residual's cause.</li>
+<li>A future investment loses 10,000 at its payment date relative to a baseline. One long future gains 2,500 when closed earlier. A fixed factor of 1.02 accumulates close-date money to the payment date. Calculate the untailed and correctly tailed contract counts and their terminal gains.</li>
+<li>Prove the dynamic-tail terminal wealth formula when $A(s,u)A(u,t)=A(s,t)$ and $F_i=S_iA(t_i,T)$. Identify the factor that would become unavailable in advance if interest rates were stochastic.</li>
+<li>A bond has a regular semiannual coupon of three per 100, a 180-day coupon period, and settlement after 60 elapsed days. Its clean quote is 99.25. Find accrued interest and dirty price. Explain whether accrued interest should be added again to a valuation already obtained from every future cash flow.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>Insert and subtract the unchanged-yield sale value $M[1-d_0(U-H)]$. The difference from the purchase price is $Md_0H$; the difference between the actual and baseline sale prices is $-M(U-H)(d_H-d_0)$. Numerically these are 66,666.666667 and -125,000. Their sum is -58,333.333333, agreeing with the actual sale price 9,541,666.666667 minus the purchase price 9,600,000. The hedge target must state whether it removes the shock or something else.</p>
+</li>
+<li>
+<p>Expand the variance of $-Ma\Delta d_s+h m\alpha_f\Delta d_f$ and differentiate with respect to $h$. Setting the derivative to zero gives $h^*=Ma\operatorname{Cov}(\Delta d_s,\Delta d_f)/[m\alpha_f\operatorname{Var}(\Delta d_f)]$. The second derivative is positive if the futures-rate variance is positive. This coefficient describes a distribution or estimated relation available at planning time. A realized ratio chooses the hedge that fits one observed move, which can use information unavailable when the original decision was made.</p>
+</li>
+<li>
+<p>The fractional count is $10{,}000{,}000(5/6)/(1{,}000{,}000/4)=33.333333333$. A common 0.015 change gives gain 125,000 and zero yield-shock residual. Thirty-three contracts give 123,750, so the residual is -1,250 from rounding. With a futures change of only 0.01, the unrounded hedge gains 83,333.333333 and leaves -41,666.666667. That residual comes from a rate-basis mismatch, even though fractional contracts were allowed.</p>
+</li>
+<li>
+<p>Ignoring dates gives four contracts. Their close-date gain 10,000 becomes 10,200 at the later payment date. The matching count solves $h(2500)(1.02)=10000$, so $h=3.921568627$. Its close-date gain is 9,803.921569 and its terminal gain is 10,000. If the accumulation factor were unknown at inception, this exact count would require an additional model or subsequent adjustment rather than advance knowledge of the realized factor.</p>
+</li>
+<li>
+<p>Set $n_{i-1}=-1/A(t_i,T)$. The terminal equivalent of its settlement is $-(F_i-F_{i-1})A(t_i,H)/A(t_i,T)=-(F_i-F_{i-1})/A(H,T)$. Summing gives $-(F_H-F_0)/A(H,T)$. Adding $S_H$ and substituting $F_H=S_HA(H,T)$ cancels the random asset value. Substituting $F_0=S_0A(0,T)$ leaves $S_0A(0,H)$. If rates are stochastic, the future factor $A(t_i,T)$ generally is not known at $t_{i-1}$, so the proposed predictable position cannot simply be specified by the same formula.</p>
+</li>
+<li>
+<p>Accrued interest is $3(60/180)=1$ per 100 and dirty price is $99.25+1=100.25$. A present-value calculation using all future contractual payments already gives the full price under its assumptions. Subtracting the convention's accrued interest yields a clean quotation; adding it again to the full present value would double count it. A different entitlement or day-count convention needs its own invoice calculation.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Complete English captions for <a href="https://www.youtube.com/watch?v=MqB_MP8d0J8">positions 26</a>, <a href="https://www.youtube.com/watch?v=J4wFDp4K8c8">27</a>, and <a href="https://www.youtube.com/watch?v=sd5oA18GaVw">28</a> were read sequentially. They motivate rate-hedge counts, realized basis mismatch, bill no-arbitrage, historical Eurodollar examples, deterministic tailing, and clean/dirty prices. The equations, numerical cases, dynamic path checks, and exercises here are independently constructed. Source language identifying Eurodollar deposit rates with bill discount yields is not adopted; a deposit benchmark and a bill discount convention remain separate.</p>
+<p>CME's dated conversion announcement supplies the historical transition boundary, and its retrieved SOFR article supplies the reference-quarter/multiplier distinction. These source checks do not certify every current product rule. Inconsistent spoken numbers and visually omitted formulas are not reconstructed by guesswork. No complete audiovisual audit, empirical estimation of hedge coefficients, or actual trading test is claimed.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch11.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Rate-hedge decomposition, funding tailing and accrued-interest checks.&quot;&quot;&quot;
+from math import isclose, isfinite, prod
+
+
+def bill(face, discount, remaining):
+    return face * (1 - discount * remaining)
+
+
+def tailed_stock_hedge(spots, growth):
+    &quot;&quot;&quot;Return terminal wealth under matched deterministic no-income carry.&quot;&quot;&quot;
+    if len(spots) != len(growth) + 1:
+        raise ValueError(&quot;One growth factor per interval required&quot;)
+    if any(not isfinite(g) or g &lt;= 0 for g in growth):
+        raise ValueError(&quot;Finite positive growth factors required&quot;)
+    if any(not isfinite(s) or s &lt;= 0 for s in spots):
+        raise ValueError(&quot;Finite positive stock prices required&quot;)
+    futures = [s * prod(growth[i:]) for i, s in enumerate(spots)]
+    cash = 0.0
+    for i, g in enumerate(growth):
+        cash *= g
+        position = -1 / prod(growth[i + 1:])
+        cash += position * (futures[i + 1] - futures[i])
+    return spots[-1] + cash
+
+
+def main():
+    face, initial, horizon = 10_000_000, 1.0, 1 / 6
+    remaining, d0, dh = initial - horizon, 0.04, 0.055
+    start = bill(face, d0, initial)
+    base = bill(face, d0, remaining)
+    end = bill(face, dh, remaining)
+    carry, shock = base - start, end - base
+    assert isclose(carry, face * d0 * horizon)
+    assert isclose(shock, -125_000)
+    assert isclose(end - start, carry + shock)
+    contract, accrual = 1_000_000, 0.25
+    count = face * remaining / (contract * accrual)
+    gain = count * contract * accrual * (dh - d0)
+    rounded = 33 * contract * accrual * (dh - d0)
+    assert isclose(gain + shock, 0, abs_tol=1e-8)
+    assert isclose(rounded + shock, -1250)
+    basis_residual = count * contract * accrual * 0.01 + shock
+    assert isclose(basis_residual, -41666.66666666667)
+    principal, investment_accrual, growth = 2_000_000, 0.5, 1.02
+    deposit_loss = principal * investment_accrual * 0.01
+    tailed = principal * investment_accrual / (contract * accrual * growth)
+    gain_at_close = tailed * contract * accrual * 0.01
+    assert isclose(gain_at_close * growth, deposit_loss)
+    for path in [[100, 80, 120, 95], [100, 110, 90, 130],
+                 [100, 100, 100, 100]]:
+        factors = [1.01, 1.02, 1.005]
+        wealth = tailed_stock_hedge(path, factors)
+        assert isclose(wealth, path[0] * prod(factors), abs_tol=1e-10)
+    for path in [[100, 70, 140], [100, 110, 85]]:
+        assert isclose(tailed_stock_hedge(path, [0.99, 1.01]), 99.99)
+    for invalid in (float(&quot;nan&quot;), float(&quot;inf&quot;), 0, -1):
+        for path, factors in (([100, 101], [invalid]),
+                              ([100, invalid], [1.01])):
+            try:
+                tailed_stock_hedge(path, factors)
+            except ValueError:
+                pass
+            else:
+                raise AssertionError(&quot;Invalid tailing domain accepted&quot;)
+    coupon, elapsed, period, clean = 3.0, 60, 180, 99.25
+    accrued = coupon * elapsed / period
+    assert accrued == 1 and clean + accrued == 100.25
+    fair = 97.5 / 0.99
+    assert isclose(fair, 98.48484848484848)
+    assert isclose(99 - fair, 0.5151515151515151)
+    print(f&quot;bill carry={carry:.6f}; yield shock={shock:.6f}&quot;)
+    print(f&quot;contracts={count:.9f}; rounded residual={rounded + shock:.6f}&quot;)
+    print(f&quot;basis residual={basis_residual:.6f}; tailed count={tailed:.9f}&quot;)
+    print(f&quot;close gain={gain_at_close:.6f}; terminal gain={deposit_loss:.6f}&quot;)
+    print(f&quot;accrued={accrued:.6f}; dirty={clean + accrued:.6f}&quot;)
+    print(&quot;carry, basis, tailed path and invoice checks passed&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch10.html">Previous: Short-rate futures: a quotation is not a cash price</a><a rel="next" href="ch12.html">Next: Bond futures: conversion factors, delivery choice, and rate sensitivity</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

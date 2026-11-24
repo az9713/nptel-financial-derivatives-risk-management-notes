@@ -1,0 +1,29 @@
+{
+  "reviewer": "lead_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch03-r2.md",
+  "scope": [
+    "Full manuscript, metadata, code, and six worked solutions",
+    "Fresh lab execution and independent accounting/replication arithmetic",
+    "Selected p7/p8 caption checks and primary BIS/MIT checks; no full audiovisual audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch03.md": "006b2e6c9a96eb79e6de33b29334aade692dd6a0f2672aff9f511944395a8baa",
+    "chapters/ch03.json": "0f9222bbac1b00c7253777c43540e3c9e1e134f714069590126224ce799ee93a",
+    "labs/ch03.py": "43dbe8ffc951a039c5c961c3ac3422bc22ffea72dfb52b3ba6459a9a04f85357"
+  },
+  "listing_format_recheck": {
+    "prior_accepted_lab_sha256": "a1385fa1522d6acc081d36df48b5082acdb7b5268ace514df79e08fe955c1054",
+    "current_lab_sha256": "ba7cfddd18dfece044ae0a2ca6215e00d511f44f2725be9d5f8e6e0dbac26c26",
+    "scope": "Final formatted laboratory fully reread by this reviewer; fresh execution and PEP8/max79 check passed. Mathematical expressions and certificate outputs checked against the previously reviewed implementation. This is a bounded code-format recheck, not a repeated source audit."
+  },
+  "line_ending_recheck": {
+    "operation": "CRLF-to-LF only",
+    "evidence": "validation/line-ending-normalization.json",
+    "independent_check": "New bytes reconstructed with CRLF exactly match prior accepted SHA-256; laboratory ASTs also identical",
+    "files": [
+      "labs/ch03.py"
+    ]
+  }
+}

@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Hedge size is a covariance projection with trading units · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html" aria-current=page>05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>05. Hedge size is a covariance projection with trading units</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=nDESESqRF-s">Recording 12</a>, <a href="https://www.youtube.com/watch?v=oFj5lW9QwHc">Recording 13</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Derive minimum-variance sizing with explicit exposure and contract units</li><li>Prove the squared-correlation residual-risk formula</li><li>Compute the exact variance cost of integer rounding</li><li>Diagnose cross-hedge and estimation-regime failures</li></ul>
+<p><strong>Prerequisites:</strong> Chapter 4 covariance, OLS projection and hedge directions; scalar differentiation and finite second moments.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch05.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-specify-the-random-cash-flow-before-minimizing-it-1858">1. Specify the random cash flow before minimizing it 18:58</a></li><li><a href="#2-derive-the-optimum-and-prove-it-is-global-2500">2. Derive the optimum and prove it is global 25:00</a></li><li><a href="#3-the-residual-is-controlled-by-squared-correlation-1115">3. The residual is controlled by squared correlation 11:15</a></li><li><a href="#4-integer-contracts-create-a-quantifiable-approximation-0102">4. Integer contracts create a quantifiable approximation 01:02</a></li><li><a href="#5-cross-hedging-leaves-two-kinds-of-relative-price-uncertainty-2005">5. Cross-hedging leaves two kinds of relative-price uncertainty 20:05</a></li><li><a href="#6-executable-sizing-and-its-limitations">6. Executable sizing and its limitations</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A processor has a known purchase or inventory quantity but cannot trade a futures contract on the exact material. A related futures price moves with its cash price, yet not one for one. Matching the physical quantity alone can therefore overhedge or underhedge. The right coefficient depends on how their changes covary over the processor's decision horizon, and the final number of exchange contracts must also respect the contract multiplier.</p>
+<p>We use a synthetic long inventory exposure of 230,000 units and a related futures contract representing 25,000 futures-underlying units. The horizon standard deviations of price changes are 2 and 2.5 in their respective per-unit quotation systems, with correlation 0.8. We derive the continuous optimum, convert it to contracts, and quantify the additional risk caused by integer rounding. The last step asks what remains valid if the estimated relationship changes.</p>
+<h2 id="1-specify-the-random-cash-flow-before-minimizing-it-1858">1. Specify the random cash flow before minimizing it <a href="https://www.youtube.com/watch?v=nDESESqRF-s&amp;t=1138s">18:58</a></h2>
+<p>Let $Q&gt;0$ be the fixed exposed quantity of asset A. Let $\Delta S$ be its price change over the hedge horizon, in currency per A unit. Let $\Delta G$ be the quotation change of a futures contract on asset B, in currency per B unit. Its multiplier $m&gt;0$ is B units per contract. For a long A exposure hedged with $n_s$ short B contracts, the combined value change is</p>
+<p>$$Z(n_s)=Q\Delta S-n_s m\Delta G.$$</p>
+<p>We define $n_s$ as a signed <strong>number of short contracts</strong> for this equation. Thus $n_s&gt;0$ means a short hedge and $n_s&lt;0$ means a long hedge. The subscript distinguishes this short count from the signed-long position $n$ used in the futures settlement ledger; the explicit minus sign records the economic direction. The economic position must not be inferred from a coefficient without its sign convention.</p>
+<p>Assume finite second moments, a fixed horizon, fixed quantity, and a futures-change variance $\sigma_G^2&gt;0$. Write $\sigma_S^2=\operatorname{Var}(\Delta S)$ and $c=\operatorname{Cov}(\Delta S,\Delta G)$. The <strong>correlation coefficient</strong> is $\rho=c/(\sigma_S\sigma_G)$ when both standard deviations are positive. The Cauchy–Schwarz inequality ensures $|\rho|\le1$.</p>
+<p>Our objective is minimum variance of $Z$, not maximum expected profit, minimum margin, or minimum worst-case loss. Fees and financing are omitted from the first sizing calculation. An uncertain quantity $Q$ would make $Q\Delta S$ a product of random variables and require a different exposure model; simply inserting expected quantity would generally omit volume–price dependence.</p>
+<h2 id="2-derive-the-optimum-and-prove-it-is-global-2500">2. Derive the optimum and prove it is global <a href="https://www.youtube.com/watch?v=nDESESqRF-s&amp;t=1500s">25:00</a></h2>
+<p>For random variables $A$ and $B$ with finite second moments, expanding their centered square gives $\operatorname{Var}(aA+bB)=a^2\operatorname{Var}(A)+b^2\operatorname{Var}(B)+2ab\operatorname{Cov}(A,B)$ for constant real $a,b$. Applying this identity to the hedged exposure yields</p>
+<p>$$v(n_s)=Q^2\sigma_S^2+n_s^2m^2\sigma_G^2-2Qn_s m c.$$</p>
+<p>Differentiate with respect to the controllable position:</p>
+<p>$$v'(n_s)=2n_s m^2\sigma_G^2-2Qmc.$$</p>
+<p>The stationary position and associated unit hedge ratio are</p>
+<p>$$n_{s,*} =\frac{Qc}{m\sigma_G^2},\qquad
+h_* =\frac{n_{s,*}m}{Q}=\frac{c}{\sigma_G^2}
+=\rho\frac{\sigma_S}{\sigma_G}.$$</p>
+<p>The second derivative is $2m^2\sigma_G^2&gt;0$, so the quadratic is strictly convex and $n_{s,*}$ is its unique unconstrained global minimizer. An even more informative proof completes the square:</p>
+<p>$$v(n_s)=Q^2\sigma_S^2(1-\rho^2)
++m^2\sigma_G^2(n_s-n_{s,*})^2.$$</p>
+<p>The first term is irreducible variance under this single-instrument linear hedge. The second is the exact penalty for sizing away from the continuous optimum. This decomposition proves globality, quantifies rounding costs, and identifies which market relationship a perfect hedge would require.</p>
+<p>If the futures change has zero variance, the division formula does not apply. The hedge instrument then supplies no random offset over the modeled horizon. If the exposed change is itself nonrandom, minimizing its variance alone does not justify introducing a risky futures position. Degenerate cases should be handled as such, not hidden by adding a tiny denominator to the formula.</p>
+<h3 id="units-distinguish-a-hedge-ratio-from-a-contract-count">Units distinguish a hedge ratio from a contract count</h3>
+<p>The covariance has units currency squared per A-unit per B-unit. Dividing by futures variance, in currency squared per B-unit squared, leaves B units per A unit. Thus $h_*$ is not generally dimensionless in a cross-hedge. Multiplying by $Q$ gives B units; dividing by $m$ gives contracts. A shortcut using the values of the two positions requires a return-based regression and the corresponding price factors. It is not the same formula with names relabeled.</p>
+<p>If covariance is negative, $h_*$ and $n_{s,*}$ are negative. Under our definition of $n_s$, the inventory is then hedged by a long futures position. Positive covariance is common in related-commodity illustrations, but it is not part of the minimization theorem.</p>
+<h2 id="3-the-residual-is-controlled-by-squared-correlation-1115">3. The residual is controlled by squared correlation <a href="https://www.youtube.com/watch?v=oFj5lW9QwHc&amp;t=675s">11:15</a></h2>
+<p>At the optimum,</p>
+<p>$$\operatorname{Var}(Z(n_{s,*}))=Q^2\sigma_S^2(1-\rho^2).$$</p>
+<p>The unhedged variance is $Q^2\sigma_S^2$, so the fraction removed is $\rho^2$ and the fraction remaining is $1-\rho^2$. The standard-deviation ratio is $\sqrt{1-\rho^2}$. For $\rho=0.8$, 64% of the modeled variance is removed, 36% remains, and standard deviation is 60% of the unhedged level. Saying that “0.8 correlation hedges 80% and leaves 20% of the fluctuations” conflates these different quantities.</p>
+<p>For the running processor, $c=0.8(2)(2.5)=4$ and $h_*=4/6.25=0.64$ B units per A unit. The desired B quantity is 147,200 and $n_{s,*}=147200/25000=5.888$ contracts. Unhedged variance is $230000^2(2^2)=211{,}600{,}000{,}000$ currency units squared. The continuous minimum is 76,176,000,000, with standard deviation 276,000 currency units. These outputs are computed by the chapter lab.</p>
+<p>Perfect correlation, including correlation −1, permits zero residual variance in this fixed-horizon model if continuous sizing is feasible. The resulting centered changes are exactly linearly related almost surely. That does not mean zero credit risk, zero margin liquidity need, or zero quantity uncertainty. It also does not imply that a historical sample correlation of one will persist outside the observed sample.</p>
+<p>The projection interpretation makes the boundary precise. Regress $\Delta S$ on an intercept and $\Delta G$, obtaining $\Delta S=\alpha+h_*\Delta G+\varepsilon$, with zero covariance between $\Delta G$ and $\varepsilon$. Then $Z(n_{s,*})=Q\alpha+Q\varepsilon$. A fixed intercept can change the expected result while contributing no variance. Zero residual variance makes the result constant; it does not require that constant to be zero.</p>
+<h2 id="4-integer-contracts-create-a-quantifiable-approximation-0102">4. Integer contracts create a quantifiable approximation <a href="https://www.youtube.com/watch?v=oFj5lW9QwHc&amp;t=62s">01:02</a></h2>
+<p>Exchange trades commonly require integral numbers of contracts. Because the completed-square penalty is proportional to $(n_s-n_{s,*})^2$, the integer variance minimum is attained at an integer nearest to $n_{s,*}$, provided no other constraints or position-dependent costs apply. Evaluate both neighboring integers, $\lfloor n_{s,*}\rfloor$ and $\lfloor n_{s,*}\rfloor+1$. At a half-integer they tie in variance; financing, cost, or exposure preferences can then break the tie under an expanded objective.</p>
+<p>For $n_{s,*}=5.888$, six contracts are closer than five. The six-contract position represents 150,000 B units, a little above the continuous target 147,200. Its variance is 76,225,000,000, only 49,000,000 above the continuous minimum. That difference is exactly</p>
+<p>$$25000^2(2.5^2)(6-5.888)^2.$$</p>
+<p>The small penalty here follows from this exposure scale and curvature, not from a general claim that rounding is harmless. For a small position whose continuous optimum lies between zero and one, one extra contract can materially overhedge it. Contract size is part of risk design, even when the futures price is highly correlated with the exposed price.</p>
+<p>Position limits or a prohibition on short positions change the feasible set. For a scalar convex quadratic, project the continuous optimum onto the allowed real interval, then inspect feasible neighboring integers. If costs or funding penalties depend on $n_s$, optimize the expanded objective; nearest-integer variance rounding no longer solves that different problem automatically.</p>
+<h2 id="5-cross-hedging-leaves-two-kinds-of-relative-price-uncertainty-2005">5. Cross-hedging leaves two kinds of relative-price uncertainty <a href="https://www.youtube.com/watch?v=oFj5lW9QwHc&amp;t=1205s">20:05</a></h2>
+<p>Let $S_H^A$ be the exposed asset's price and $S_H^B$ the spot price of the futures underlying at hedge closure. For a one-for-one unit comparison with aligned quotation units, the combined short-hedge sale price can be written</p>
+<p>$$S_H^A+G_0^B-G_H^B
+=G_0^B+(S_H^B-G_H^B)+(S_H^A-S_H^B).$$</p>
+<p>The first random difference is B's own spot–futures basis. The second is the relative spot-price difference between A and B. Even if B's futures contract reaches convergence, the A-versus-B spread need not vanish. With a general hedge ratio, the corresponding terms are rescaled; the decomposition should not be applied across incompatible physical or currency units.</p>
+<p>For currency cross-hedges, first determine which currency the contract pays and how the quotation is expressed. A payable in dollars viewed by a euro-based firm can be hedged with a short position in euro futures quoted in dollars per euro. But its dollar futures gain must be converted to euros consistently with the invoice's valuation date. Dividing the invoice by one exchange rate while leaving the derivative settlement in another currency creates an accounting error masquerading as a hedge result.</p>
+<p>The population formula depends on unknown future covariance and variance. A sample estimator substitutes observations over a chosen horizon. The <a href="https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd141.htm">NIST least-squares reference</a> defines fitting through squared deviations and emphasizes extrapolation and outlier sensitivity. In hedging, these limitations become uncertainty about the future exposure coefficient. Using more observations does not repair a sample that measures the wrong maturity, currency, or economic regime.</p>
+<h3 id="a-fitted-optimum-can-become-harmful-after-a-relationship-changes">A fitted optimum can become harmful after a relationship changes</h3>
+<p>Take four equally weighted futures changes $x=(-2,-1,1,2)$ and residuals $e=(1,-1,-1,1)$. The residual mean and its covariance with $x$ are zero. A training relationship $\Delta S=0.8x+e$ therefore has minimum-variance coefficient 0.8 and residual variance 1. Suppose the future relationship becomes $\Delta S=-0.2x+e$ while the hedge remains at 0.8. The resulting residual is $-x+e$, with variance 3.5, whereas the new unhedged variance is only 1.1.</p>
+<p>This is a constructed counterexample to a universal guarantee, not a statistical estimate of the likelihood of regime change. It proves why an in-sample hedge optimum is conditional on the relationship being modeled. Stressing the coefficient, examining different horizons, and evaluating genuinely separate data address different aspects of that uncertainty. None converts a covariance estimate into a statewise guarantee.</p>
+<h2 id="6-executable-sizing-and-its-limitations">6. Executable sizing and its limitations</h2>
+<p>Run <a href="labs/ch05.py">the chapter laboratory</a>. The sizing routine accepts finite exposure quantity, multiplier, standard deviations, and a correlation in $[-1,1]$. It requires positive futures variance, computes the continuous optimum and neighboring integer solution, and returns the completed-square variance function. This representation also avoids subtracting nearly equal large numbers when correlation is close to one.</p>
+<p>The code checks integer optimality against both neighboring positions, the exact rounding penalty, negative-correlation hedge direction, and the 36% residual-variance fraction. It independently evaluates the changed-relationship counterexample. The printed contract count is 5.888 before rounding and 6 after rounding. Its success verifies this arithmetic and its stated domain, not live hedge performance or a firm's ability to fund six contracts.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive the minimum-variance contract count for $Z=Q\Delta S-n_s m\Delta G$ and prove global optimality by completing the square.</li>
+<li>For $\rho=0.8$, state the variance reduction, residual-variance fraction, and residual-standard-deviation ratio. Explain why none is “20% of the fluctuations.”</li>
+<li>Reproduce the running processor's hedge ratio, continuous contract count, integer choice, and exact rounding penalty.</li>
+<li>Explain the hedge direction when correlation is negative. What happens to the derivation when futures-change variance is zero?</li>
+<li>Derive the cross-hedge price decomposition and identify which random term can remain even at the futures contract's maturity.</li>
+<li>Verify the changed-relationship example. Explain why its worse hedged variance does not contradict the original minimum-variance theorem.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>Expand variance to $Q^2\sigma_S^2+n_s^2m^2\sigma_G^2-2Qn_s mc$. Setting the derivative to zero yields $n_{s,*}=Qc/(m\sigma_G^2)$. Subtracting its value from the original quadratic leaves exactly $m^2\sigma_G^2(n_s-n_{s,*})^2$, which is nonnegative and vanishes only at $n_{s,*}$. Substitution of $c=\rho\sigma_S\sigma_G$ gives the residual term $Q^2\sigma_S^2(1-\rho^2)$. Positive futures variance makes the minimizer unique on the real line.</p>
+</li>
+<li>
+<p>Squaring 0.8 gives 0.64, so modeled variance is reduced by 64% and 36% remains. Taking the square root of 0.36 gives 0.6, so the remaining standard deviation is 60% of its original value, a 40% reduction. Correlation, variance ratio, and standard-deviation ratio are different objects. Their numerical distinction follows from the variance minimization formula rather than a verbal interpretation of correlation as a percentage of price moves.</p>
+</li>
+<li>
+<p>Covariance is $0.8(2)(2.5)=4$. Divide by futures variance 6.25 to obtain $h_*=0.64$. The desired B quantity is $230000(0.64)=147200$, giving $n_{s,*}=147200/25000=5.888$. The closest integer is 6. Its penalty is $25000^2(2.5)^2(0.112)^2=49{,}000{,}000$ currency units squared. Adding that to the continuous minimum 76,176,000,000 gives 76,225,000,000. Five contracts are further from 5.888 and therefore have higher variance under this objective.</p>
+</li>
+<li>
+<p>Negative covariance gives negative $n_{s,*}$. Since $n_s$ was defined as the number of short contracts in $Q\Delta S-n_s m\Delta G$, negative $n_s$ means a long futures position. Its gains offset losses in a negatively related long A exposure. If $\sigma_G^2=0$, futures changes supply no random component in the modeled horizon; the division is undefined and the positive-curvature proof fails. One must analyze the degenerate cash flow directly rather than apply the formula mechanically.</p>
+</li>
+<li>
+<p>Add and subtract $S_H^B$ in $S_H^A+G_0^B-G_H^B$. This yields opening futures quotation plus B's basis plus the A-minus-B spot spread. Under matching delivery/reference assumptions, B's basis can vanish at maturity, but the relative spot spread need not. The two different physical assets remain different even when B's futures converges perfectly to B's spot. Rescale quantities and quotation units before applying the identity to a genuine cross-hedge.</p>
+</li>
+<li>
+<p>The four $x$ values have mean zero and variance 2.5; the residuals have mean zero, variance 1, and covariance zero with $x$. Training spot variance is $0.8^2(2.5)+1=2.6$, and the 0.8 hedge removes the factor component, leaving variance 1. After the slope becomes −0.2, unhedged variance is $0.2^2(2.5)+1=1.1$. Retaining the old hedge leaves slope $-0.2-0.8=-1$, so variance is $2.5+1=3.5$. The theorem optimized for the original covariance structure. Changing that structure changes the optimization problem, so the deterioration violates no mathematical claim.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Full English captions for supplied playlist positions <a href="https://www.youtube.com/watch?v=nDESESqRF-s">12</a> and <a href="https://www.youtube.com/watch?v=oFj5lW9QwHc">13</a> were read sequentially. They motivate variance expansion, minimum-variance sizing, contract integrality, cross-hedging, and currency-unit care. This chapter supplies an explicit completed-square global certificate, an exact rounding penalty, and a corrected distinction between correlation and residual-risk percentages. The processor and changed-relationship data are original synthetic constructions. Caption reading does not establish comprehensive audiovisual fidelity or future hedge effectiveness.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch05.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Minimum-variance sizing, integer rounding, and regime-change checks.&quot;&quot;&quot;
+
+from math import floor, isclose, isfinite, sqrt
+
+
+def sizing(quantity, multiplier, sigma_s, sigma_f, rho):
+    &quot;&quot;&quot;Return h, signed short count n_s, integer short count, and variance.&quot;&quot;&quot;
+    values = [quantity, multiplier, sigma_s, sigma_f, rho]
+    if not all(isfinite(x) for x in values):
+        raise ValueError(&quot;Parameters must be finite&quot;)
+    if quantity &lt;= 0 or multiplier &lt;= 0 or sigma_s &lt; 0 or sigma_f &lt;= 0:
+        raise ValueError(
+            &quot;Need positive exposure/multiplier/futures volatility&quot;
+        )
+    if not -1 &lt;= rho &lt;= 1:
+        raise ValueError(&quot;Correlation outside [-1,1]&quot;)
+    covariance = rho * sigma_s * sigma_f
+    h = covariance / sigma_f**2
+    optimum = quantity * h / multiplier
+
+    def variance(n_s):
+        # Completed-square form avoids catastrophic cancellation near |rho|=1.
+        return (
+            quantity**2 * sigma_s**2 * (1 - rho**2) +
+            multiplier**2 * sigma_f**2 * (n_s - optimum) ** 2
+        )
+
+    candidates = [floor(optimum), floor(optimum) + 1]
+    integer = min(candidates, key=variance)
+    return h, optimum, integer, variance
+
+
+def variance(values):
+    mu = sum(values) / len(values)
+    return sum((x - mu) ** 2 for x in values) / len(values)
+
+
+def main():
+    h, n_s, rounded, risk = sizing(230_000, 25_000, 2, 2.5, 0.8)
+    assert isclose(h, 0.64) and isclose(n_s, 5.888) and rounded == 6
+    assert risk(6) &lt; risk(5) and risk(6) &lt; risk(7)
+    residual_variance = 230_000**2 * 2**2 * (1 - 0.8**2)
+    assert isclose(risk(n_s), residual_variance)
+    assert isclose(risk(6) - risk(n_s), (25_000 * 2.5) ** 2 * (6 - n_s) ** 2)
+    assert sizing(230_000, 25_000, 2, 2.5, -0.8)[1] &lt; 0
+    # The source example&#x27;s 0.8 correlation leaves 36% of variance, not 20%.
+    assert isclose(1 - 0.8**2, 0.36)
+    x, error = [-2, -1, 1, 2], [1, -1, -1, 1]
+    train = [0.8 * a + e for a, e in zip(x, error)]
+    changed = [-0.2 * a + e for a, e in zip(x, error)]
+    train_hedged = [y - 0.8 * a for y, a in zip(train, x)]
+    changed_hedged = [y - 0.8 * a for y, a in zip(changed, x)]
+    assert isclose(variance(train_hedged), 1)
+    assert isclose(variance(changed), 1.1)
+    assert isclose(variance(changed_hedged), 3.5)
+    assert isclose(sqrt(residual_variance), 276_000)
+    print(
+        f&quot;hedge_ratio={h:.6f}; real_contracts={n_s:.6f}; &quot;
+        f&quot;integer_contracts={rounded}&quot;
+    )
+    print(
+        f&quot;unhedged_variance={risk(0):.0f}; &quot;
+        f&quot;real_min_variance={risk(n_s):.0f}; &quot;
+        f&quot;rounded_variance={risk(rounded):.0f}&quot;
+    )
+    print(
+        f&quot;train_hedged_variance={variance(train_hedged):.6f}; &quot;
+        f&quot;changed_unhedged={variance(changed):.6f}; &quot;
+        f&quot;changed_hedged={variance(changed_hedged):.6f}&quot;
+    )
+    print(
+        &quot;Projection, integer optimality, correlation signs, &quot;
+        &quot;residual-risk fraction and regime-change checks passed.&quot;
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch04.html">Previous: Exposure, hedge direction, and the basis that remains</a><a rel="next" href="ch06.html">Next: Portfolio risk depends on covariance; priced risk requires a model</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

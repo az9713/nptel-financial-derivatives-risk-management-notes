@@ -1,0 +1,104 @@
+{
+  "chapter": "ch16",
+  "reader": "scientific_review (author role for this chapter)",
+  "recordings": [
+    {
+      "position": 37,
+      "video_id": "eDOIYREAeRM",
+      "reading": "full sequential text read",
+      "normalized_text_sha256": "1e7f169d083333b04285a29b40d564fbe8639475b7bf81096f92af0f2796bc8f",
+      "topic_map": [
+        {
+          "start_seconds": 166,
+          "topic": "Deterministic and stochastic evolution; chaotic sensitivity is a distinct issue"
+        },
+        {
+          "start_seconds": 494,
+          "topic": "Stochastic processes as time-indexed random variables"
+        },
+        {
+          "start_seconds": 553,
+          "topic": "Markov conditional law and chain-rule factorization"
+        },
+        {
+          "start_seconds": 1209,
+          "topic": "Discrete/continuous time and state"
+        },
+        {
+          "start_seconds": 1413,
+          "topic": "Unscaled one/two-step independent symmetric random walk; variance growth"
+        }
+      ]
+    },
+    {
+      "position": 38,
+      "video_id": "GIrKSTpX5W8",
+      "reading": "full sequential text read",
+      "normalized_text_sha256": "459b30e34bd538f466b81951c8637ed00dd34ebea17ee237e03c4d94ed3ef6c9",
+      "topic_map": [
+        {
+          "start_seconds": 109,
+          "topic": "n-step random-walk sum, independence and variance n"
+        },
+        {
+          "start_seconds": 426,
+          "topic": "Refinement and square-root scaling"
+        },
+        {
+          "start_seconds": 824,
+          "topic": "Intermediate-time variance and step counting"
+        },
+        {
+          "start_seconds": 1087,
+          "topic": "Central limit theorem and fixed-time normal limit"
+        },
+        {
+          "start_seconds": 1479,
+          "topic": "Brownian motion increments, continuity, nondifferentiability"
+        },
+        {
+          "start_seconds": 1697,
+          "topic": "Diffusion lattice introduction with right/left/stay probabilities"
+        }
+      ]
+    },
+    {
+      "position": 39,
+      "video_id": "AJRvEHZb4C8",
+      "reading": "full sequential text read",
+      "normalized_text_sha256": "358cc624347e490248cb91f12e47e3dd3843b7467ec2bb922ac92fe831b54fc5",
+      "topic_map": [
+        {
+          "start_seconds": 24,
+          "topic": "Recap of process law, Markov factorization and observation grid"
+        },
+        {
+          "start_seconds": 481,
+          "topic": "Scaling and normal endpoint distribution"
+        },
+        {
+          "start_seconds": 923,
+          "topic": "Drift and volatility scaling"
+        },
+        {
+          "start_seconds": 1114,
+          "topic": "Diffusion/master equation from transition probabilities"
+        },
+        {
+          "start_seconds": 1457,
+          "topic": "Taylor expansion and limiting PDE with squared-space over time scaling"
+        }
+      ]
+    }
+  ],
+  "corrections_and_extensions": [
+    "Variance is E[X^2]-(E[X])^2; missing square in a spoken zero-mean formula does not change the numerical example.",
+    "Discrete-time indexing is not a claim that physical time cannot be subdivided.",
+    "A fixed-time central limit theorem alone does not prove path-space convergence or the full Brownian process law.",
+    "A finite piecewise-linear random walk is differentiable between mesh points; nowhere-differentiability is an almost-sure Brownian limit property.",
+    "At non-grid times the step-process variance uses floor(t/dt)*dt; variance t is exact at mesh times and in the limit.",
+    "The diffusion PDE is for a density under regularity, with a delta initial measure interpreted weakly; finite lattice masses are not continuous density values."
+  ],
+  "modality_limits": "Captions read completely; no comprehensive audio/slide audit. Board equations reconstructed and independently verified rather than visually transcribed.",
+  "status": "source reading complete; manuscript and lab drafted for independent review"
+}

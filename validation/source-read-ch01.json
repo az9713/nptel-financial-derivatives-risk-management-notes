@@ -1,0 +1,46 @@
+{
+  "author": "lead",
+  "recordings": [
+    {
+      "position": 1,
+      "video_id": "5EYjZMYSzBc",
+      "normalized_text_sha256": "e3a827adf0b62afd2d9b4ed27f04973b7ffb5f015b6ddc0ba76f1ae38060ed94",
+      "reading": "full sequential text read",
+      "visual": "not comprehensively reviewed",
+      "audio": "not comprehensively reviewed",
+      "topics": [
+        "course purpose and prerequisites"
+      ],
+      "clarifications": [],
+      "original_constructions": []
+    },
+    {
+      "position": 2,
+      "video_id": "pJDMgEpn-bM",
+      "normalized_text_sha256": "a9ef17c1e1065bacc22c60d69eeec2235c3c0ef8c5de2bb2d461577ae12a7fcd",
+      "reading": "full sequential text read",
+      "visual": "not comprehensively reviewed",
+      "audio": "not comprehensively reviewed",
+      "topics": [
+        "definition and explicit time dependence",
+        "hedging, speculation and arbitrage",
+        "forward cash flows and customization",
+        "futures standardization, margin and clearing",
+        "option discretion, holder and writer",
+        "swap payment streams"
+      ],
+      "clarifications": [
+        "Equal mean/variance does not imply a statewise arbitrage",
+        "Clearing mitigates rather than eliminates all credit/liquidity risk",
+        "Forwards may be terminated or offset subject to agreement"
+      ],
+      "original_constructions": [
+        "importer scenario and hedge identities",
+        "finite-state law-of-one-price proof",
+        "margin path and funded premium comparison",
+        "six worked exercises and executable certificates"
+      ]
+    }
+  ],
+  "scope": "Textual coverage only; no comprehensive audiovisual review."
+}

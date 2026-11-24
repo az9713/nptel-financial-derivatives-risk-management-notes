@@ -1,0 +1,85 @@
+{
+  "chapter": "ch20",
+  "reader": "scientific_review (chapter author)",
+  "recordings": [
+    {
+      "position": 49,
+      "video_id": "anNG26YHMPQ",
+      "normalized_text_sha256": "7b5144c13d914f2587e302e9dfe6595c329d3988638fb75c3b955b55970f2868",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 104,
+          "topic": "Black-Scholes transformation to logarithmic coordinates"
+        },
+        {
+          "start_seconds": 352,
+          "topic": "Exponential removal of drift and discount terms"
+        },
+        {
+          "start_seconds": 495,
+          "topic": "Green-function sketch"
+        },
+        {
+          "start_seconds": 870,
+          "topic": "Heat kernel and initial payoff"
+        },
+        {
+          "start_seconds": 1403,
+          "topic": "Dividend threshold worked example"
+        },
+        {
+          "start_seconds": 1624,
+          "topic": "Taylor expansion and introduction to Greeks"
+        }
+      ]
+    },
+    {
+      "position": 50,
+      "video_id": "zPjULQcQ0UY",
+      "normalized_text_sha256": "90313189f7a6633b1d73e016e91434a0e561b055305e294d71e0ba743b1f329d",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 25,
+          "topic": "Continuous yield in option inputs"
+        },
+        {
+          "start_seconds": 149,
+          "topic": "Taylor terms and sensitivity definitions"
+        },
+        {
+          "start_seconds": 349,
+          "topic": "Delta, gamma and moneyness"
+        },
+        {
+          "start_seconds": 1039,
+          "topic": "Maturity effects and parity derivatives"
+        },
+        {
+          "start_seconds": 1351,
+          "topic": "Delta hedging and rebalancing"
+        },
+        {
+          "start_seconds": 1633,
+          "topic": "Strategy labels and iron-condor payoffs"
+        }
+      ]
+    }
+  ],
+  "scope": "Full official English caption text read sequentially; no comprehensive audiovisual audit. Greek formulas are derived enrichment, including material developed further in the subsequent recordings.",
+  "source_corrections": [
+    "Remaining years tau kept distinct from dimensionless diffusion time theta.",
+    "Green-function inversion needs initial/boundary data and a uniqueness class; homogeneous solutions cannot be ignored.",
+    "Kernel is a density with coordinate measure, not a single-state probability.",
+    "Shorter expiry does not universally increase delta magnitude.",
+    "Named straddles, butterflies, calendars and condors are not automatically delta neutral.",
+    "Initial condor premium credit is not riskless trading profit.",
+    "Fixed contractual strike still admits comparative differentiation across contracts.",
+    "Delta absolute-value sum equals exp(-q tau) with continuous yield.",
+    "Dividend threshold recomputed as 2.30011249."
+  ],
+  "primary_checks": [
+    "Kogan MIT stochastic slides19-20: Black-Scholes PDE and call formula. Heat transformation and all Greek formulas derived independently and verified by quadrature/finite differences."
+  ]
+}

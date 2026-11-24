@@ -1,0 +1,7 @@
+{
+  "title": "Option cash flows and put–call parity",
+  "lectures": [31, 61],
+  "objectives": ["Derive all four elementary option payoffs and funded profit thresholds", "Distinguish moneyness, immediate-exercise amount and a European option's price", "Prove European put–call parity through statewise and dated cash-flow identities", "Construct parity arbitrage ledgers and incorporate known dividends and execution frictions"],
+  "prerequisites": "Dated cash-flow conventions, short selling and no-arbitrage from chapters 01–02; discount factors from chapter 08.",
+  "source_scope": "Full English captions for positions 31 and 61 read sequentially. Position61 is the official put–call-parity lecture placed after basic options in the course catalog. Original finite constructions supplement the source; exercise, funding, and stock-domain assumptions are explicit."
+}

@@ -1,0 +1,114 @@
+{
+  "chapter": "ch22",
+  "reader": "scientific_review (chapter author)",
+  "recordings": [
+    {
+      "position": 55,
+      "video_id": "YMt9e--2Xik",
+      "normalized_text_sha256": "d385728d6fba182c34283e84c581843ec049167584a53285812634fef1b60e11",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 309,
+          "topic": "FRA contract and fixing/accrual dates"
+        },
+        {
+          "start_seconds": 620,
+          "topic": "Net payment and advance-settlement discount"
+        },
+        {
+          "start_seconds": 844,
+          "topic": "Source two-to-three-year FRA example"
+        },
+        {
+          "start_seconds": 998,
+          "topic": "FRA after-inception valuation"
+        },
+        {
+          "start_seconds": 1290,
+          "topic": "Swap payment schedule"
+        },
+        {
+          "start_seconds": 1930,
+          "topic": "Comparative borrowing example"
+        }
+      ]
+    },
+    {
+      "position": 56,
+      "video_id": "1H23SQ9d-lQ",
+      "normalized_text_sha256": "9cb9fcce7e492c434a56868e7abfe62da35b3b2115d5f1ca63e0d3d1866d8b47",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 33,
+          "topic": "Creditworthiness and comparative advantage"
+        },
+        {
+          "start_seconds": 251,
+          "topic": "Rollover and contractual spread discussion"
+        },
+        {
+          "start_seconds": 951,
+          "topic": "Swap quote interpretation"
+        },
+        {
+          "start_seconds": 1311,
+          "topic": "Par swap bootstrap"
+        },
+        {
+          "start_seconds": 1516,
+          "topic": "Day-count issues"
+        },
+        {
+          "start_seconds": 1634,
+          "topic": "Floating-bond par-reset valuation"
+        }
+      ]
+    },
+    {
+      "position": 57,
+      "video_id": "uZF7j-Qs9ZA",
+      "normalized_text_sha256": "f4e3f2406043490195609935b212465df6c39c19fc6253d3dc29f7a6fec5cdbf",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 175,
+          "topic": "One/two-year floating bond examples"
+        },
+        {
+          "start_seconds": 673,
+          "topic": "Known coupon between resets"
+        },
+        {
+          "start_seconds": 1014,
+          "topic": "Receive-fixed source swap example"
+        },
+        {
+          "start_seconds": 1376,
+          "topic": "Floating-leg value"
+        },
+        {
+          "start_seconds": 1527,
+          "topic": "Coupon-strip valuation using forwards"
+        }
+      ]
+    }
+  ],
+  "scope": "Full official English caption text read sequentially, including repeated bounded reads where a combined output was truncated. No comprehensive audiovisual audit. All worked source numbers independently recomputed.",
+  "source_corrections": [
+    "Forward substitution prices matching coupons without asserting actual future fixing equality.",
+    "Hypothetical source year2 FRA settlement differs from present value today.",
+    "Advance FRA denominator and end-period swaplet are distinguished; exact onecurve bond replication and multicurve limitation given.",
+    "Floating-rate bond par-reset claim requires matching projection/discounting and suitable credit/spread assumptions.",
+    "Known first coupon uses full accrual period while discount horizon is remaining time.",
+    "Source oral10.4percent slip corrected to stated and calculated10.2percent.",
+    "Daycounts require actual contracts rather than universal bond/money-market rules.",
+    "Floating benchmark reset does not imply a lender right to reprice contractual credit spreads or withdraw committed credit.",
+    "Coupon sensitivity distinguished from a curve shock."
+  ],
+  "primary_checks": [
+    "Bianchetti Two Curves One Price presentation slides5,8 selected text inspected: forwarding vs discounting curves and payment-date expectations.",
+    "New York Fed reference-rate methodology SOFR averages/index section: daily compounding, nonbusiness-day treatment, Actual/360."
+  ]
+}

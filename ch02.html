@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Forward prices come from financed replication · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html" aria-current=page>02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>02. Forward prices come from financed replication</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=ZimJwj_Llrw">Recording 3</a>, <a href="https://www.youtube.com/watch?v=QKHnXnYaUL8">Recording 4</a>, <a href="https://www.youtube.com/watch?v=2C5iRNWGUJw">Recording 5</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Construct both cash-and-carry arbitrage directions with dated financing</li><li>Separate an existing forward&#x27;s value from its delivery quotation</li><li>Derive income, storage and currency adjustments with explicit units</li><li>Explain why consumption assets can defeat reverse carry</li></ul>
+<p><strong>Prerequisites:</strong> Chapter 1 cash-flow signs, elementary exponentials and present value. All financing conventions are stated locally.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch02.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-fix-the-date-before-comparing-the-prices-0025">1. Fix the date before comparing the prices 00:25</a></li><li><a href="#2-cash-and-carry-establishes-an-equality-only-when-both-directions-are-feasible-2008">2. Cash-and-carry establishes an equality only when both directions are feasible 20:08</a></li><li><a href="#3-dated-income-and-costs-change-the-financing-requirement-2958">3. Dated income and costs change the financing requirement 29:58</a></li><li><a href="#4-currency-forward-pricing-is-a-two-currency-replication-3457">4. Currency forward pricing is a two-currency replication 34:57</a></li><li><a href="#5-consumption-assets-expose-the-missing-reverse-trade-0004">5. Consumption assets expose the missing reverse trade 00:04</a></li><li><a href="#6-an-existing-forward-is-valued-by-an-offsetting-contract-0910">6. An existing forward is valued by an offsetting contract 09:10</a></li><li><a href="#7-executable-certificates-and-what-they-do-not-certify">7. Executable certificates and what they do not certify</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>The importer in the opening chapter can fix a future exchange rate, but a bank's quotation is not arbitrary merely because the future spot rate is uncertain. There are two ways to secure a dollar for a specified future date: contract for that dollar now, or buy enough dollars now and invest them until the payment date. When the two arrangements produce the same dated cash flows under the same financing and credit assumptions, their costs must agree. The future dollar spot rate cancels from the comparison.</p>
+<p>This reasoning is the basis of forward pricing. It also explains why a delivery quotation, the market value of an existing contract, and a prediction of the future spot price are three different objects. We develop the argument first for an asset without income, then for cash distributions, foreign currencies, and stored commodities. The commodity case exposes a boundary: a physical service that cannot be bought or sold separately can prevent one direction of the replication trade.</p>
+<h2 id="1-fix-the-date-before-comparing-the-prices-0025">1. Fix the date before comparing the prices <a href="https://www.youtube.com/watch?v=ZimJwj_Llrw&amp;t=25s">00:25</a></h2>
+<p>Let $t$ denote the valuation date and $T&gt;t$ the delivery date, with $\tau=T-t$ measured in years. Write $S_t$ for the current cash, or <strong>spot</strong>, price of one unit of the underlying asset. Let $F_t(T)$ be the delivery price negotiated at date $t$ for a new forward settling at $T$. A <strong>long forward</strong> receives the underlying and pays the contracted delivery price; a short forward does the reverse. We use $K$ for the fixed delivery price in an existing contract.</p>
+<p>The distinction between $K$ and $F_t(T)$ is temporal. At the original agreement date, a zero-value contract normally sets $K$ equal to the then-current forward quotation. Later market quotations can change while $K$ stays fixed. Comparing a three-month quotation today with a three-month quotation one month later compares different delivery dates. To value an existing contract, compare quotations for the same remaining delivery date.</p>
+<p>Let $P(t,T)$ be the price at $t$ of a default-free payment of one currency unit at $T$. This <strong>discount factor</strong> is positive; its reciprocal is the corresponding accumulation factor. With a constant continuously compounded annual rate $r$, $P(t,T)=e^{-r\tau}$. Continuous compounding is a convention for expressing the accumulation factor, not an assertion that an interest payment occurs continuously in a bank account. An annual effective rate $i$ represents the same one-year factor when $1+i=e^r$.</p>
+<p>Our first model permits borrowing and lending at that same rate, short selling with usable proceeds, arbitrary divisible quantities, and frictionless delivery. The underlying has no interim distributions or carrying costs. Counterparties perform their obligations, and the asset and cash used in the comparison have matching settlement dates. These assumptions concern feasible trading strategies. Merely inserting a government yield into a formula does not make a borrowing strategy executable at that yield.</p>
+<p>For the worked construction, take $S_0=100$, $r=0.05$, and $T=1$. Prices are synthetic currency units per underlying unit. We will compute the fair delivery quotation, identify the consequences of quotations above or below it, and then value a previously agreed delivery price.</p>
+<h2 id="2-cash-and-carry-establishes-an-equality-only-when-both-directions-are-feasible-2008">2. Cash-and-carry establishes an equality only when both directions are feasible <a href="https://www.youtube.com/watch?v=ZimJwj_Llrw&amp;t=1208s">20:08</a></h2>
+<p>To secure one unit at $T$, buy it now for $S_t$ and hold it. Financing that purchase leaves a debt of $S_t/P(t,T)$ at maturity. A forward achieves the same delivery with no initial contract payment and a payment $F_t(T)$ at maturity. The resulting no-arbitrage quotation is</p>
+<p>$$F_t(T)=\frac{S_t}{P(t,T)}=S_te^{r\tau}.$$</p>
+<p>The equality requires two arguments. If the quoted forward delivery price exceeds the financed purchase cost, borrow $S_t$, buy one underlying unit, and sell one forward. At maturity, deliver the unit into the forward, receive its quoted delivery price, and repay the loan. The initial net cash flow is zero, and the terminal receipt is $F_t(T)-S_t/P(t,T)&gt;0$. This <strong>cash-and-carry</strong> trade does not require a forecast of $S_T$.</p>
+<p>If the forward quotation is below the financed purchase cost, borrow the asset, sell it for $S_t$, invest those proceeds, and enter a long forward. At maturity, pay the low forward price, receive the underlying, and return it to its lender. The remaining cash is $S_t/P(t,T)-F_t(T)&gt;0$. This <strong>reverse cash-and-carry</strong> trade requires an actual securities-lending arrangement and the ability to invest or use the sale proceeds as assumed. Without that second feasible strategy, the two-sided equality does not follow from the first trade alone.</p>
+<p>For our synthetic inputs, the financed cost is $100e^{0.05}=105.127110$. A forward quotation of 107 supports a cash-and-carry terminal receipt of 1.872890; a quotation of 103 supports a reverse-carry receipt of 2.127110. In the first case, a cash-settled representation gives</p>
+<p>$$S_T+(107-S_T)-105.127110=1.872890.$$</p>
+<p>The random spot terms cancel. The lab checks the identity for terminal spots 0, 75, 100, and 180; these checks illustrate the algebra rather than prove a statement about all possible markets. The algebra proves statewise cancellation within the stated model.</p>
+<p>The <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf#page=18">MIT Finance Theory forward-pricing slides, slides 17–22</a> organize the same financed-purchase comparison. Here the two trade directions make explicit which execution assumptions turn that comparison into an equality. Borrowing fees, different lending and borrowing rates, bid–ask spreads, or balance-sheet constraints generally produce an interval of executable prices rather than this frictionless equality.</p>
+<h3 id="identical-risk-statistics-are-not-identical-payoffs-1007">Identical risk statistics are not identical payoffs <a href="https://www.youtube.com/watch?v=QKHnXnYaUL8&amp;t=607s">10:07</a></h3>
+<p>The law of one price compares cash flows state by state. Equal expected returns, equal variances, or a favorable location in a mean–variance diagram are insufficient by themselves. Consider equally likely states and asset payoffs $(0,2)$ and $(2,0)$. Both have mean 1 and variance 1, but their difference is $(-2,2)$, which can lose money. Equal risk statistics therefore do not establish a riskless long–short trade.</p>
+<p>If two attainable portfolios have the same entire payoff vector and different initial costs, buy the cheaper and sell the dearer. Their future obligations cancel, leaving the initial price difference. This is the precise implication used in replication. A perceived superior expected return can motivate a risky trade, but it is not a substitute for that cancellation proof.</p>
+<h2 id="3-dated-income-and-costs-change-the-financing-requirement-2958">3. Dated income and costs change the financing requirement <a href="https://www.youtube.com/watch?v=ZimJwj_Llrw&amp;t=1798s">29:58</a></h2>
+<p>Suppose the underlying pays known cash amounts $D_j$ at dates $t_j$ between $t$ and $T$. Define their present value</p>
+<p>$$I_t=\sum_j D_jP(t,t_j).$$</p>
+<p>These are contractual or assumed certain amounts in this model, not an uncertain dividend forecast silently treated as riskless. Buying the underlying gives its holder those distributions as well as the final unit. To isolate delivery of the final unit, finance part of the purchase with loans repaid by the distributions. At $t_j$, the matching dividend pays its matching debt. Only $S_t-I_t$ remains financed through $T$, giving</p>
+<p>$$F_t(T)=\frac{S_t-I_t}{P(t,T)}.$$</p>
+<p>For a stock at 50 with one certain dividend of 2 after one quarter, delivery after half a year, and $r=0.04$, the present value of the dividend is $2e^{-0.01}$. The delivery quotation becomes $(50-2e^{-0.01})e^{0.02}=48.989967$. Subtracting 2 without discounting would confuse two cash-flow dates. Subtracting a distribution that has already been paid would incorrectly give its benefit to a new purchaser.</p>
+<p>Known carrying costs work in the opposite direction. Let $U_k$ be a storage or insurance payment at date $u_k$, and let $J_t=\sum_k U_kP(t,u_k)$ be their present value. Reserve the funds needed for those costs at the outset, or use equivalent dated financing. If all holding services and constraints can be replicated as specified, the delivery quotation is</p>
+<p>$$F_t(T)=\frac{S_t+J_t-I_t}{P(t,T)}.$$</p>
+<p>The signs come from the cash flows: holding the asset gives income but consumes storage services. An expenditure paid in advance is discounted from the beginning of its covered interval, not its end. A cost proportional to a changing asset price is a different model from a predetermined currency payment. Do not add a fixed present-value storage charge and a proportional storage-rate term for the same expense.</p>
+<p>For a deterministic proportional income yield $q$, holding a suitably reinvested fraction $e^{-q\tau}$ of an asset at $t$ produces one unit at $T$ in the idealized yield model. Its cost is $S_te^{-q\tau}$, so</p>
+<p>$$F_t(T)=S_te^{(r-q)\tau}.$$</p>
+<p>The formula assumes the modeled yield/reinvestment mechanism actually supplies the final unit. For an equity index, a deterministic continuous dividend yield is an approximation to a collection of cash dividends. Its usefulness does not make future dividend amounts certain.</p>
+<h2 id="4-currency-forward-pricing-is-a-two-currency-replication-3457">4. Currency forward pricing is a two-currency replication <a href="https://www.youtube.com/watch?v=ZimJwj_Llrw&amp;t=2097s">34:57</a></h2>
+<p>Return to the importer, with $X_t$ measured in rupees per US dollar. Let $r_d$ and $r_f$ be continuously compounded domestic and foreign rates for the remaining horizon. To produce one dollar at $T$, invest $e^{-r_f\tau}$ dollars now. Buying that investment requires $X_te^{-r_f\tau}$ rupees, which can be financed domestically. The rupee debt at delivery is</p>
+<p>$$F_t^{\mathrm{FX}}(T)=X_te^{(r_d-r_f)\tau}.$$</p>
+<p>Every unit has a role. The initial foreign quantity is in dollars, multiplication by $X_t$ converts it to rupees, and domestic accumulation leaves rupees payable at $T$. With $X_0=86$, $r_d=0.06$, $r_f=0.02$, and $T=0.25$, the synthetic quotation is 86.864314 rupees per dollar. For a 100,000-dollar invoice, multiply that per-dollar quotation by the dollar quantity; neither interest rate is a currency conversion factor.</p>
+<p>If the exchange rate were instead quoted in dollars per rupee, the rate differential would reverse along with the quotation. A useful independent check multiplies the two correctly constructed reciprocal quotations and obtains one. A formula copied without its numerator and denominator can give a plausible but reversed hedge price.</p>
+<p>The equality is the ideal covered-interest comparison, with default-free deposits, matching dates, frictionless foreign-exchange execution, and the assumed access to both financing markets. Collateral conventions and different actual funding opportunities can matter in practice. The model establishes a benchmark under a specified financing system; it does not state that every observed bank quote must equal a formula using two unrelated public interest-rate series.</p>
+<h2 id="5-consumption-assets-expose-the-missing-reverse-trade-0004">5. Consumption assets expose the missing reverse trade <a href="https://www.youtube.com/watch?v=2C5iRNWGUJw&amp;t=4s">00:04</a></h2>
+<p>A manufacturer holding wheat may need physical stock throughout the next year. Selling that stock now and recovering it through a year-end forward is not operationally equivalent to retaining it. Production could stop in the intervening period. That intermediate service is absent from a model whose only payoff is the final unit.</p>
+<p>If buying, storing, and delivering the commodity is feasible at present-value cost $S_t+J_t$, an excessively high forward quotation still invites cash-and-carry. That establishes an upper bound, $F_t(T)\le(S_t+J_t)/P(t,T)$, within the cost and execution assumptions. A lower quotation does not automatically support reverse carry if physical borrowing or temporary separation from inventory is infeasible. Calling the low quotation an arbitrage without constructing that missing trade is the error.</p>
+<p>A <strong>convenience yield</strong> summarizes the modeled benefit of holding physical inventory rather than a claim to later delivery. One commonly used parameterization is</p>
+<p>$$F_t(T)=\frac{S_t+J_t}{P(t,T)}e^{-y\tau},$$</p>
+<p>where $y$ is an annualized continuously compounded convenience-yield parameter for that horizon. Given positive spot/carry cost and a positive observed forward quotation, the equation can define an implied $y$. It does not create a separately tradable cash distribution, and the fitted value need not remain constant across maturities or inventory conditions. In the proportional-storage model, the analogous expression is $S_te^{(r+u-y)\tau}$, where $u$ is the proportional storage-cost rate. These two storage specifications must not be mixed without an additional model.</p>
+<p>The recording supplies a wheat example: spot 1,200 per quintal, annual storage 150 per quintal paid in four equal quarterly installments in advance, one-year delivery, $r=0.10$, and a quoted forward of 1,425. Retaining its data but recomputing the cash flows, the storage present value is $37.5\sum_{k=0}^3e^{-0.1k/4}$. The financed carry cost is 1,485.941650 and the implied convenience yield is $\log(1485.941650/1425)=4.187687\%$ per year. The lab reproduces that result. This is an attributed classroom calculation, not current wheat-market data or a forecast.</p>
+<h2 id="6-an-existing-forward-is-valued-by-an-offsetting-contract-0910">6. An existing forward is valued by an offsetting contract <a href="https://www.youtube.com/watch?v=2C5iRNWGUJw&amp;t=550s">09:10</a></h2>
+<p>Consider an existing long forward with fixed delivery price $K$. At date $t$, enter a new short forward for the same unit and delivery date at the current quotation $F_t(T)$. The underlying receipts and deliveries cancel at $T$. Cash receipts then equal $F_t(T)-K$, which are certain within the contract-performance assumptions. The new short has zero initial contract value by construction, so the existing long must have value</p>
+<p>$$V_t^{\mathrm{long}}=P(t,T)\bigl(F_t(T)-K\bigr).$$</p>
+<p>The short's value is the negative of this amount under the symmetric frictionless model. For a no-income asset with constant rate, substitution gives $V_t^{\mathrm{long}}=S_t-Ke^{-r\tau}$. Known remaining distributions instead give $S_t-I_t-KP(t,T)$, with $I_t$ computed at the valuation date from distributions still to come. Distributions already received by a former holder are not part of the new offsetting trade.</p>
+<p>With spot 104, half a year remaining, $r=0.05$, and old delivery price 102, the value is $104-102e^{-0.025}=4.518389$. The current new-forward quotation is different again: $104e^{0.025}$. Discounting its difference from 102 yields the same 4.518389. That agreement independently checks the distinction between delivery quotation and current contract value.</p>
+<p>A zero initial value is a contractual design choice for the at-market forward, not an intrinsic property of every agreement with future delivery. An off-market $K$ generally has a nonzero initial value and may require an upfront transfer. Nor is an offsetting trade automatically a legal termination of the original contract. Two counterparties, collateral agreements, or fixing procedures can leave distinct credit and funding exposures even if the ideal terminal price exposure cancels.</p>
+<p>The final part of the recording introduces spot and forward interest rates. Their common principle is the same comparison of dated financing strategies. Chapter 8 develops that term-structure construction explicitly. A forward interest rate derived from today's discount curve is a price-consistency relation; treating it as an unconditional prediction of a future short rate would require an additional probabilistic argument.</p>
+<h2 id="7-executable-certificates-and-what-they-do-not-certify">7. Executable certificates and what they do not certify</h2>
+<p>Run <a href="labs/ch02.py">the chapter laboratory</a>. Its functions accept finite prices, rates, and year fractions, and a list of nonnegative dated income/cost amounts inside the stated horizon. They return quotations or values without changing inputs, accessing a network, or placing trades. The model permits negative rates but restricts spot inputs to nonnegative values; that is a chosen teaching domain, not a universal claim about every commodity price.</p>
+<p>The lab verifies both statewise arbitrage ledgers at four terminal prices, matches the offset-contract value to its direct spot-minus-bond expression, verifies dividend financing and foreign-currency units, and checks equivalent compounding representations. Its printed results include <code>fair=105.127110</code>, <code>existing_value=4.518389</code>, and <code>FX_forward=86.864314</code>. These are completed numerical checks on stated examples. They do not verify live financing availability, collateral treatment, storage capacity, securities borrowing, or the validity of an estimated convenience yield outside its fitted horizon.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive the no-income forward quotation and construct both arbitrage directions when a quoted price differs from it. Identify the extra trading assumption needed for the reverse direction.</li>
+<li>A stock costs 50 and pays a certain dividend of 2 in three months. Find the six-month forward quotation at continuous rate 4%. Explain why subtracting 2 directly from the spot is not the same calculation.</li>
+<li>Derive the currency-forward quotation in domestic currency per foreign unit. For $X_0=86$, $r_d=6\%$, $r_f=2\%$, and three months, compute the quotation and the foreign deposit needed to deliver one dollar.</li>
+<li>An old long no-income forward has $K=102$, current spot 104, half a year remaining, and continuous rate 5%. Value it by two methods and explain why its value is not the current forward delivery quotation.</li>
+<li>Show that two assets with equally likely payoff vectors $(0,2)$ and $(2,0)$ have identical mean and variance but do not establish a riskless spread. What stronger condition would establish the law-of-one-price comparison?</li>
+<li>Recompute the attributed wheat example with quarterly-in-advance storage. Explain exactly which conclusion survives if commodity borrowing is unavailable, and why an implied convenience yield is not itself a cash dividend.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>A financed purchase costs $S_t/P(t,T)$ at delivery. If the quotation $F$ exceeds it, borrow $S_t$, buy the underlying, and sell the forward. Delivery of the owned unit and loan repayment leave $F-S_t/P(t,T)&gt;0$ with zero initial cash. If $F$ is below it, borrow and sell the underlying, invest $S_t$, and buy the forward. At maturity use the acquired unit to repay the asset loan and retain $S_t/P(t,T)-F&gt;0$. The second construction requires borrowable underlying, usable short-sale proceeds, and the assumed financing conditions; it does not follow merely from the ability to buy and store the asset.</p>
+</li>
+<li>
+<p>The dividend present value is $I_0=2e^{-0.04(0.25)}$. A loan of that present value is repaid from the dividend at three months; the remaining initial financing is $50-I_0$. Accumulating it for half a year gives $F=(50-2e^{-0.01})e^{0.02}=48.989967$. The alternative $(50-2)e^{0.02}$ places the dividend's purchasing-power benefit at today rather than at the actual three-month receipt. The difference comes from financing dates, not rounding.</p>
+</li>
+<li>
+<p>To deliver one foreign unit, buy $e^{-r_fT}$ units now and invest them abroad. Domestic cost is $X_0e^{-r_fT}$, growing to $X_0e^{(r_d-r_f)T}$. Thus $F=86e^{0.01}=86.864314$ rupees per dollar. The foreign deposit is $e^{-0.005}$ dollars. Its foreign accumulation is exactly one dollar, while its domestic financing grows to the displayed rupee amount. Reversing the FX quotation reverses the rate difference; using the same difference with the reciprocal spot would fail the reciprocal-price check.</p>
+</li>
+<li>
+<p>Direct replication gives $V=104-102e^{-0.025}=4.518389$. Alternatively negotiate a new short at $F_t(T)=104e^{0.025}$. Combined with the old long, it pays the certain difference $104e^{0.025}-102$ at maturity; discounting produces the same value. The old contract requires payment of 102, whereas a new zero-value forward sets its own delivery price at today's quotation. A current contract value is a price payable now; a delivery quotation is a price payable at the future exchange date.</p>
+</li>
+<li>
+<p>Each mean is $(0+2)/2=1$ and each variance is $[(0-1)^2+(2-1)^2]/2=1$. Long the first and short the second gives $(-2,2)$, not an everywhere nonnegative cash flow. Reversing the position merely reverses the losing state. Exact statewise payoff equality, together with feasibility of the required positions and financing, would allow future obligations to cancel and force equal initial costs. A mean–variance summary omits the statewise relationship needed for that argument.</p>
+</li>
+<li>
+<p>The storage cash amounts are 37.5 at dates $0,0.25,0.5,0.75$. Discounting each gives $J_0=37.5\sum_{k=0}^3e^{-0.1k/4}$. Financing $1200+J_0$ to the one-year delivery date costs 1,485.941650. The observed quotation 1,425 implies $y=\log(1485.941650/1425)=0.04187687$ in the stated one-year parameterization. If the commodity cannot be borrowed or surrendered without losing operational services, reverse carry is unavailable. Feasible cash-and-carry still places the financed purchase-and-storage upper bound on the quotation. The implied yield summarizes an inventory benefit or model discrepancy; it is not a separately received cash payment that can automatically repay a loan.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>The full official English captions for supplied playlist positions <a href="https://www.youtube.com/watch?v=ZimJwj_Llrw">3</a>, <a href="https://www.youtube.com/watch?v=QKHnXnYaUL8">4</a>, and <a href="https://www.youtube.com/watch?v=2C5iRNWGUJw">5</a> were read sequentially. They supply the sequence from forward terminology and carry pricing through commodity convenience and existing-contract valuation. Their final interest-rate discussion is developed further in Chapter 8. The synthetic no-income, dividend, FX, and existing-value constructions are original; the wheat inputs are explicitly attributed to the recording. The precise distinction between statewise no-arbitrage and mean–variance comparison is an editorial clarification. Caption reading does not constitute a comprehensive board-equation or audio review.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch02.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Forward replication with synthetic prices; no market access.&quot;&quot;&quot;
+
+from math import exp, isclose, isfinite, log
+
+
+def discount(rate, years):
+    if not all(isfinite(x) for x in [rate, years]) or years &lt; 0:
+        raise ValueError(&quot;Need finite rate and nonnegative year fraction&quot;)
+    return exp(-rate * years)
+
+
+def forward(spot, rate, years, income=(), costs=()):
+    &quot;&quot;&quot;Return delivery quotation for deterministic dated distributions.&quot;&quot;&quot;
+    if not isfinite(spot) or spot &lt; 0:
+        raise ValueError(&quot;Spot must be finite and nonnegative in this model&quot;)
+    income, costs = list(income), list(costs)
+    for amount, date in income + costs:
+        if not all(isfinite(x) for x in [amount, date]):
+            raise ValueError(&quot;Dated amounts must be finite&quot;)
+        if amount &lt; 0 or not 0 &lt;= date &lt;= years:
+            raise ValueError(&quot;Amounts must be nonnegative and inside horizon&quot;)
+    carry = sum(a * discount(rate, t) for a, t in costs)
+    receipts = sum(a * discount(rate, t) for a, t in income)
+    return (spot + carry - receipts) / discount(rate, years)
+
+
+def existing_value(current_forward, delivery, rate, years):
+    if not all(isfinite(x) for x in [current_forward, delivery]):
+        raise ValueError(&quot;Quotations must be finite&quot;)
+    return (current_forward - delivery) * discount(rate, years)
+
+
+def main():
+    fair = forward(100, 0.05, 1)
+    rich_profit = 107 - fair
+    cheap_profit = fair - 103
+    assert rich_profit &gt; 0 and cheap_profit &gt; 0
+    # Every terminal spot cancels in each fully funded arbitrage ledger.
+    for terminal in [0, 75, 100, 180]:
+        cash_carry = terminal + (107 - terminal) - fair
+        reverse = fair - terminal + (terminal - 103)
+        assert isclose(cash_carry, rich_profit, abs_tol=1e-12)
+        assert isclose(reverse, cheap_profit, abs_tol=1e-12)
+    value = existing_value(forward(104, 0.05, 0.5), 102, 0.05, 0.5)
+    assert isclose(value, 104 - 102 * exp(-0.025), abs_tol=1e-12)
+    dividend_f = forward(50, 0.04, 0.5, income=[(2, 0.25)])
+    assert isclose(dividend_f, 50 * exp(0.02) - 2 * exp(0.01))
+    fx = 86 * exp((0.06 - 0.02) * 0.25)
+    foreign_now = exp(-0.02 * 0.25)
+    assert isclose(foreign_now * exp(0.02 * 0.25), 1)
+    assert isclose(86 * foreign_now * exp(0.06 * 0.25), fx)
+    storage = [(37.5, t) for t in [0, 0.25, 0.5, 0.75]]
+    wheat_carry = forward(1200, 0.10, 1, costs=storage)
+    convenience = log(wheat_carry / 1425)
+    assert convenience &gt; 0
+    # Different compounding labels can represent the same discount factor.
+    annual_effective = exp(0.05) - 1
+    assert isclose(100 * (1 + annual_effective), fair)
+    try:
+        forward(100, 0.05, 1, costs=[(1, 2)])
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&quot;Out-of-horizon cost was not rejected&quot;)
+    print(
+        f&quot;fair={fair:.6f}; rich_profit={rich_profit:.6f}; &quot;
+        f&quot;reverse_profit={cheap_profit:.6f}&quot;
+    )
+    print(
+        f&quot;existing_value={value:.6f}; dividend_forward={dividend_f:.6f}; &quot;
+        f&quot;FX_forward={fx:.6f}&quot;
+    )
+    print(
+        f&quot;lecture_wheat_carry={wheat_carry:.6f}; &quot;
+        f&quot;implied_convenience_yield={convenience:.6%}&quot;
+    )
+    print(
+        &quot;Statewise arbitrage, dividend financing, currency units, &quot;
+        &quot;compounding and input-boundary checks passed.&quot;
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch01.html">Previous: What a derivative changes: cash flows, exposure, and risk</a><a rel="next" href="ch03.html">Next: Futures redistribute cash flows through time</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

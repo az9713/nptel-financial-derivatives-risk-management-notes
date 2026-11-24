@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Option bounds and the decision to exercise · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html" aria-current=page>14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>14. Option bounds and the decision to exercise</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=RDn9SoT2DX4">Recording 32</a>, <a href="https://www.youtube.com/watch?v=kndgzBL08CU">Recording 33</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Derive European option bounds by dated portfolio dominance</li><li>Build the prepaid-share replication for a deterministic proportional dividend yield</li><li>Prove the nondividend American-call result with its rate condition</li><li>Calculate early-exercise decisions from continuation values and derive American parity inequalities</li></ul>
+<p><strong>Prerequisites:</strong> European put–call parity and funded option payoffs from chapter 13; discount factors and replication from chapters 02 and 08.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch14.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-conventions-and-the-logic-of-dominance">1. Conventions and the logic of dominance</a></li><li><a href="#2-european-bounds-with-no-dividends-0603">2. European bounds with no dividends 06:03</a></li><li><a href="#3-dividends-and-the-prepaid-terminal-share-0326">3. Dividends and the prepaid terminal share 03:26</a></li><li><a href="#4-exercise-rights-and-the-american-call-theorem-0433">4. Exercise rights and the American call theorem 04:33</a></li><li><a href="#5-american-puts-compare-exercise-with-continuation-1047">5. American puts: compare exercise with continuation 10:47</a></li><li><a href="#6-american-parity-becomes-an-interval-1627">6. American parity becomes an interval 16:27</a></li><li><a href="#7-calculation-interpretation-and-scope">7. Calculation, interpretation, and scope</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A European option grants a right at a specified future date. An American option grants a choice of exercise dates. That change replaces a single terminal payoff by a decision problem: at each permitted date, should the holder exchange the option for its exercise proceeds, or retain the remaining opportunities? More possible decisions cannot reduce the value of a correctly specified claim, but they need not add value. Some rights optimally remain unused.</p>
+<p>The lectures derive bounds before introducing a full pricing model. This order is useful. A bound follows from portfolios that dominate one another in every admissible state; a price generally requires more information about those states and their prices. Early exercise then adds a second comparison: the immediate exercise amount against the value of continuing. The distinction prevents several common mistakes, including treating all in-the-money American options as exercise candidates and treating all European premiums as larger than current intrinsic amount.</p>
+<h2 id="1-conventions-and-the-logic-of-dominance">1. Conventions and the logic of dominance</h2>
+<p>Let $S_t\ge0$ denote the ex-dividend price of one share, $K\ge0$ the strike, and $T$ expiry. Let $P(t,T)&gt;0$ be the price at $t$ of a default-free cash claim paying one unit at $T$. Lowercase $c_t,p_t$ refer to European call and put prices; uppercase $C_t,\Pi_t$ refer to the otherwise matching American prices. Using $\Pi$ for the American put avoids confusing it with the discount factor. Prices and strike are in currency per share. Contract multipliers must be applied consistently to every leg.</p>
+<p>Assume frictionless trading, usable short-sale proceeds, no default, and borrowing and lending at the specified funding curve. Exercise and settlement are idealized as simultaneous; there are no exercise fees, taxes, or stock-borrow constraints. A dividend entitlement is specified separately. These are assumptions for the proofs, not assertions about executable market trades.</p>
+<p><strong>Payoff dominance</strong> means that one portfolio pays at least as much at every relevant date and in every admissible state as another. With identical trading access, a dominating portfolio cannot cost less than the dominated portfolio: otherwise buy the former and short the latter. The resulting initial receipt and nonnegative subsequent cash flows would violate no-arbitrage. Equality in some or all states is allowed. Strict inequalities require additional assumptions about attainable states and their positive prices; weak bounds are the general statements needed here.</p>
+<p>Keep cost and signed cash flow distinct. Buying a call and strike cash claim, and shorting a share, has initial cost $c_t+KP(t,T)-S_t$ and initial cash flow equal to its negative. Mixing the sign convention midway reverses a bound. We use initial costs for portfolio comparisons and signed receipts when explicitly displaying an arbitrage.</p>
+<h2 id="2-european-bounds-with-no-dividends-0603">2. European bounds with no dividends <a href="https://www.youtube.com/watch?v=RDn9SoT2DX4&amp;t=363s">06:03</a></h2>
+<p>A call pays $(S_T-K)^+$, which lies between zero and $S_T$. The share pays $S_T$ and pays nothing beforehand in this section. Therefore</p>
+<p>$$0\le c_t\le S_t.$$</p>
+<p>Call plus a strike cash claim pays</p>
+<p>$$ (S_T-K)^++K=\max(S_T,K)\ge S_T.$$</p>
+<p>Its cost must be at least the share price: $c_t+KP(t,T)\ge S_t$. Combining the two lower bounds gives</p>
+<p>$$\boxed{\max(S_t-KP(t,T),0)\le c_t\le S_t.}$$</p>
+<p>The put pays between zero and $K$, so $0\le p_t\le KP(t,T)$. Put plus share also pays $\max(S_T,K)$ and hence dominates a strike cash claim. Thus</p>
+<p>$$\boxed{\max(KP(t,T)-S_t,0)\le p_t\le KP(t,T).}$$</p>
+<p>These inequalities do not assume positive interest rates. A discount factor above one is permitted. They do assume a nonnegative stock price, so the put's payoff cannot exceed its strike. Some commodity contracts have different price domains; importing this upper bound into such a model without checking the domain is invalid. <a href="https://people.duke.edu/~charvey/classes/ba350/optval/optval.htm">Duke's option-valuation notes, sections 6 and 9–10</a>, provide the supporting portfolio-dominance and call-bound constructions. Here the explicit terminal inequalities give weak bounds and retain their rate and stock-domain conditions.</p>
+<p>For spot 100, strike 100, and $P(t,T)=0.95$, the call lies in $[5,100]$ and the put in $[0,95]$. At strike 120, the corresponding intervals are $[0,100]$ and $[14,114]$. These wide intervals are consistency tests, not pricing predictions. A positive premium inside its interval can still violate parity or cross-strike convexity when considered together with other traded claims.</p>
+<p>Suppose the first call is offered at four, below its lower bound of five. Buy the call and the cash claim costing 95, and short the share for 100. The initial receipt is one. At expiry the combined payment is $\max(S_T,100)-S_T=(100-S_T)^+\ge0$. The surplus is present even if the final payment happens to be zero. This direct ledger supplies the lower-bound arbitrage without a forecast of the stock price.</p>
+<p>The European put upper bound is the <em>discounted</em> strike, not always the strike. Conversely, comparing a European put premium with immediate intrinsic amount $(K-S_t)^+$ is not a valid universal lower-bound test. <a href="ch13.html">Chapter 13</a> constructed a put worth less than that amount because its strike arrives only later.</p>
+<h2 id="3-dividends-and-the-prepaid-terminal-share-0326">3. Dividends and the prepaid terminal share <a href="https://www.youtube.com/watch?v=RDn9SoT2DX4&amp;t=206s">03:26</a></h2>
+<p>The preceding stock leg must deliver exactly one terminal share without unmatched intermediate cash flows. Its cost is the <strong>prepaid forward price</strong>, denoted $A_t(T)$: payment today for delivery of one share at $T$, with no later delivery payment. For known cash dividends before expiry with present value $I_t$, the chapter 13 construction gives $A_t(T)=S_t-I_t$. This formula presumes that the specified dividend cash flows and a nonnegative ex-dividend stock model are mutually consistent.</p>
+<p>A different useful model specifies a known proportional dividend yield $q(u)$. Over an infinitesimal interval the dividend from $n_u$ shares is $q(u)n_uS_u\,du$. Reinvesting it in shares buys $q(u)n_u\,du$ additional units, so</p>
+<p>$$dn_u=q(u)n_u\,du,\qquad n_T=n_t\exp\!\left(\int_t^Tq(u)\,du\right).$$</p>
+<p>Start with $n_t=\exp(-\int_t^Tq(u)\,du)$ shares and reinvest every dividend. The strategy ends with exactly one share; its initial cost is</p>
+<p>$$A_t(T)=S_t\exp\!\left(-\int_t^Tq(u)\,du\right).$$</p>
+<p>The deterministic object is the reinvested <strong>share count</strong>, not the future share price. A dividend yield of three percent does not promise three-percent stock-price growth. The construction assumes divisible shares, reinvestment at the ex-dividend price, and the specified yield rule. An uncertain future cash dividend is not equivalent to a known continuous yield.</p>
+<p>Replacing the share by this prepaid terminal-share strategy matches the option's terminal date without leaving intermediate dividends. Therefore</p>
+<p>$$\boxed{\max(A_t(T)-KP(t,T),0)\le c_t\le A_t(T),}$$</p>
+<p>$$\boxed{\max(KP(t,T)-A_t(T),0)\le p_t\le KP(t,T),}$$</p>
+<p>and European parity becomes $c_t-p_t=A_t(T)-KP(t,T)$. For a one-year illustration with $S_t=100$, constant $q=0.03$, constant funding rate $r=0.05$, and $K=100$, the prepaid share costs 97.044553355 and the strike cash claim costs 95.122942450. The call lower bound is 1.921610905. The difference of premiums must equal this number, but the individual premiums need not equal their respective lower bounds.</p>
+<p>In an otherwise comparable model, increasing a known dividend stream reduces the terminal-share entitlement purchased by a fixed current stock price. It tends to lower a European call and raise a European put. This is a comparison under specified market inputs, not a claim that a call necessarily experiences a predictable downward jump of a fixed size on an announced ex-date. Before that date its price already incorporates the anticipated dividend; other state variables and exercise opportunities matter. The idealized stock price loses its dividend entitlement at the ex-date; actual observed movements also contain other news.</p>
+<h2 id="4-exercise-rights-and-the-american-call-theorem-0433">4. Exercise rights and the American call theorem <a href="https://www.youtube.com/watch?v=kndgzBL08CU&amp;t=273s">04:33</a></h2>
+<p>An American holder can choose to behave like a European holder by waiting until $T$. The permitted strategies include that European policy. Hence</p>
+<p>$$C_t\ge c_t,\qquad \Pi_t\ge p_t.$$</p>
+<p>Immediate exercise is also available, giving $C_t\ge(S_t-K)^+$ and $\Pi_t\ge(K-S_t)^+$. These comparisons require otherwise identical contracts, including dividends and settlement. They do not compare options with different strikes, underlyings, or delivery quantities.</p>
+<p>Now impose <strong>no dividends</strong> and a funding curve for which $P(u,T)\le1$ at every possible exercise time $u&lt;T$. A sufficient simple case is a deterministic nonnegative short rate. At such a time the European continuation claim obeys</p>
+<p>$$c_u\ge S_u-KP(u,T)\ge S_u-K,$$</p>
+<p>as well as $c_u\ge0$. Thus retaining at least the European continuation right is worth at least immediate exercise. Applying this comparison at each exercise opportunity gives</p>
+<p>$$\boxed{C_t=c_t\quad\text{for a nondividend share under these rate assumptions}.}$$</p>
+<p>There are two economic benefits of waiting: the holder keeps the possibility of declining to buy after a price collapse and postpones paying the strike. With $K&gt;0$ and strictly positive interest over the remaining interval, the latter creates a strictly positive advantage over an in-the-money immediate exercise amount. With zero rates or degenerate situations there can be ties. The precise theorem is that early exercise cannot add value; it does not assert that waiting is the unique optimal policy in every boundary case.</p>
+<p>The rate condition is essential. Consider a deterministic nondividend share with $S_0=150$, $K=100$, $r=-0.10$, and $T=1$. No-arbitrage deterministic evolution is $S_T=150e^{-0.1}&gt;100$. A European call is worth $150-100e^{0.1}=39.482908192$, below immediate intrinsic amount 50. Exercising an American call now obtains value 50; delaying payment of the strike is costly at a negative funding rate. In this deterministic example immediate exercise is optimal, because $150-100e^{0.1u}$ decreases with exercise time $u$. The example refutes a rate-free universal claim; it does not say all calls should be exercised whenever a rate is negative.</p>
+<p>Dividends also change the decision. Take a deterministic share priced at 100, a known cash dividend of ten immediately before expiry, zero interest, and strike 80. Its ex-dividend terminal stock price is 90. A European call pays ten. Exercising the American call before the ex-date buys the share for 80 and captures total value $90+10=100$, yielding 20. The unexercised call does not receive the dividend. This example establishes that exercise can help. In a nondegenerate market the actual comparison also includes the option's remaining downside protection and the financing of the strike; a dividend announcement alone is not a complete exercise rule.</p>
+<h2 id="5-american-puts-compare-exercise-with-continuation-1047">5. American puts: compare exercise with continuation <a href="https://www.youtube.com/watch?v=kndgzBL08CU&amp;t=647s">10:47</a></h2>
+<p>For a put, early exercise receives the strike earlier and gives up the protection against further declines. Those effects compete. The decision is not settled merely by being in the money, nor by an investor's subjective belief that the stock is unlikely to fall. A no-arbitrage valuation compares exercise proceeds with the price of the continuation claim under a specified market model.</p>
+<p>A one-period stock model makes that comparison exact. Let spot be 80, strike 100, next-period factors $u=1.25$ and $d=0.80$, and the cash growth factor $R=1.05$. Since $d&lt;R&lt;u$, both state prices are positive. Replication gives the pricing weight</p>
+<p>$$\pi=\frac{R-d}{u-d}=\frac59.$$</p>
+<p>This is a pricing weight implied by traded stock and cash, not a forecast probability. Stock ends at 100 or 64. The put pays zero or 36, so its continuation value is</p>
+<p>$$V_{\rm cont}=\frac{\pi\cdot0+(1-\pi)36}{R}
+=15.238095238.$$</p>
+<p>Immediate exercise yields $100-80=20$. The American put is therefore worth 20 at this node, while the European put is worth 15.238095238. The early-exercise premium is 4.761904762. Receiving the strike early is sufficiently valuable in this model to exceed the retained downside protection.</p>
+<p>At multiple exercise dates, work backwards. If $V_{i+1}^{u},V_{i+1}^{d}$ are the already-optimized next-date values, then</p>
+<p>$$V_i^{\rm cont}=\frac{\pi_iV_{i+1}^{u}+(1-\pi_i)V_{i+1}^{d}}{R_i},$$</p>
+<p>$$V_i^{\rm Am}=\max\{\text{exercise amount at node }i,\ V_i^{\rm cont}\}.$$</p>
+<p>At expiry initialize with the exercise payoff. For a European claim use continuation only at earlier dates. This is <strong>backward induction</strong>: each comparison uses future values that already include their future decisions. Replacing them by unoptimized European payoffs can miss the value of waiting for another exercise opportunity. A finite tree grants exercise only on its grid; it approximates a continuously exercisable American contract as that modeling and numerical approximation are refined. Chapter 18 develops the underlying replication and convergence issues.</p>
+<p>For a nonnegative stock and nonnegative funding rates, the American put also satisfies $\Pi_t\le K$. Cash $K$ held and reinvested can meet a put exercise obligation of at most $K$ at any date. Together with the immediate exercise right, this gives $\max(K-S_t,0)\le\Pi_t\le K$. Notice the difference from the European upper bound $KP(t,T)$: the American obligation can arrive earlier.</p>
+<h2 id="6-american-parity-becomes-an-interval-1627">6. American parity becomes an interval <a href="https://www.youtube.com/watch?v=kndgzBL08CU&amp;t=987s">16:27</a></h2>
+<p>For a nondividend share under the same nonnegative-rate conditions,</p>
+<p>$$\boxed{S_t-K\le C_t-\Pi_t\le S_t-KP(t,T).}$$</p>
+<p>For the upper bound, use $C_t=c_t$, $\Pi_t\ge p_t$, and European parity:</p>
+<p>$$C_t-\Pi_t\le c_t-p_t=S_t-KP(t,T).$$</p>
+<p>For the lower bound, a European call plus $K$ units of current cash can cover a share plus an American put. At any early put exercise time $u$, deliver the owned share into the put for $K$. The comparison portfolio has cash at least $K$ and a nonnegative call value; it can meet that amount. If the put remains alive until expiry, share plus put pays $\max(S_T,K)$, whereas call plus the accumulated cash pays $(S_T-K)^++K/P(t,T)\ge\max(S_T,K)$. Thus $S_t+\Pi_t\le c_t+K=C_t+K$.</p>
+<p>This comparison can equivalently be viewed as a seller's superhedge: buy the European call, keep $K$ in cash, short the share, and write the American put. If assigned early, use the cash to buy the share at strike, return it to cover the stock short, and retain nonnegative assets. If unassigned, the terminal call-and-cash portfolio meets the stock and put obligations. Nonnegative accumulation, no interim stock dividends, and accessible shorting are exactly the ingredients used.</p>
+<p>In the one-period put example, the matching call pays zero in both states and has value zero. The American difference is $0-20=-20$, equal to the lower bound $80-100$. The upper bound is $80-100/1.05=-15.238095238$. European parity gives that upper value; substituting the American put would incorrectly demand equality.</p>
+<p>The interval's width $K[1-P(t,T)]$ bounds the early-exercise premium of this American put: rearranging with $C_t=c_t$ gives $0\le\Pi_t-p_t\le K[1-P(t,T)]$. It is an upper bound, not a universal formula for the premium. At zero rates the interval collapses in this nondividend setting. With dividends or negative rates, revisit the hedge and rights assumptions; do not preserve the interval merely by changing a symbol in the European equality.</p>
+<h2 id="7-calculation-interpretation-and-scope">7. Calculation, interpretation, and scope</h2>
+<p>Run <a href="labs/ch14.py">the chapter laboratory</a>. It verifies prepaid-share bounds and their dividend-yield limit, computes the below-bound call arbitrage in multiple states, and performs backward induction for European and grid-exercisable claims. It checks the strict American-put example, equality of nondividend American and European calls in a positive-rate tree, and both American parity inequalities. It separately verifies the deterministic negative-rate call and dividend-call counterexamples.</p>
+<p>The printed quantities include prepaid share 97.044553355, call lower bound 1.921610905, one-step European put 15.238095238, American put 20, and the negative-rate European call 39.482908192. The program rejects a tree whose growth factor lies outside the strictly positive state-price interval. This guard is a model consistency check, not a numerical fix for invalid assumptions.</p>
+<p>Bounds remain useful even when a complete model is unavailable, but they are not sufficient for strategy selection or a fair-price estimate. Exercise also has practical consequences: delivery, assignment, funding, taxes, fees, and lost optionality. The formulas here deliberately isolate the mathematical exercise right. Applying them to a current contract requires its actual specifications and executable prices.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive both European no-dividend bounds by statewise payoff comparisons. With spot 100, strike 120, and discount factor 0.95, compute the intervals and explain why the put's upper bound is not 120.</li>
+<li>A call with spot and strike 100 and discount factor 0.95 is offered at four. Give the initial and terminal arbitrage cash flows. Explain why strict positivity of the terminal payoff is unnecessary.</li>
+<li>Under constant proportional dividend yield three percent and funding rate five percent over one year, compute the prepaid cost of a terminal share for spot 100, and the lower bound of a strike-100 call. Explain which quantity grows deterministically in the dividend-reinvestment construction.</li>
+<li>Prove that a nondividend American call equals its European counterpart when discount factors to expiry are at most one. Identify a boundary case with a possible tie, then explain the deterministic negative-rate counterexample.</li>
+<li>For the one-period stock model $S_0=80$, $u=1.25$, $d=0.80$, $R=1.05$, $K=100$, compute the European and American put prices and the early-exercise premium. Why is the relevant probability weight not an investor's forecast?</li>
+<li>Derive the American parity interval for a nondividend share with nonnegative rates. Check it in exercise 5, then explain why the dividend-call example prevents applying the no-dividend call theorem unchanged.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>The call is nonnegative and no larger than the terminal share. Call plus a strike cash claim pays $\max(S_T,K)$, dominating the share, hence $c\ge S-KP$. The put is nonnegative and pays at most $K$ at expiry; put plus share dominates the strike cash claim, hence $p\ge KP-S$. Combining yields the bounds in section 2. With $KP=114$, call lies in $[0,100]$ and put in $[14,114]$. The European put cannot pay earlier, so the default-free cash claim costing 114 already covers its maximum payment of 120 at expiry.</p>
+</li>
+<li>
+<p>Buy the call for four, invest 95 to receive 100 at expiry, and short the share for 100. Initial receipt is $100-4-95=1$. At expiry the payment is $(S_T-100)^++100-S_T=(100-S_T)^+\ge0$. The strict initial surplus can be retained or invested, so a zero final payoff in some states does not remove the arbitrage. The assumed shorting and funding access matter.</p>
+</li>
+<li>
+<p>Buy $e^{-0.03}=0.970445334$ shares and reinvest their modeled dividends. Their quantity becomes exactly one at expiry, so the initial cost is $100e^{-0.03}=97.044553355$. The strike cash claim costs $100e^{-0.05}=95.122942450$. Their difference, 1.921610905, is the call lower bound. Reinvestment fixes the share-count growth, not the random ex-dividend share price or its realized return.</p>
+</li>
+<li>
+<p>At any potential early exercise time, $c_u\ge\max(S_u-KP(u,T),0)\ge(S_u-K)^+$ if $P(u,T)\le1$. Continuing therefore weakly dominates exercise at every node, and the American right adds no price. Zero rates can produce equality of continuation and exercise in degenerate in-the-money cases. At negative rate -0.10, the deterministic stock from 150 falls to $150e^{-0.1}$ and the European strike-100 call costs $150-100e^{0.1}=39.482908192&lt;50$. Immediate American exercise gives 50. The omitted rate condition changes the ordering.</p>
+</li>
+<li>
+<p>Replication gives $\pi=(1.05-0.80)/(1.25-0.80)=5/9$. Terminal stock values are 100 and 64, and put payoffs are zero and 36. Thus $p_0=[(5/9)0+(4/9)36]/1.05=15.238095238$. Immediate exercise yields 20, so $\Pi_0=20$ and its extra value is 4.761904762. The weight is determined by traded stock and cash prices; a different subjective forecast does not change that replicating cost within this complete one-period model.</p>
+</li>
+<li>
+<p>Because $C=c$ and $\Pi\ge p$, European parity gives $C-\Pi\le S-KP$. A call plus $K$ current cash superhedges a share plus an American put, even if the put is exercised early, yielding $C-\Pi\ge S-K$. In exercise 5, $C=0$ and the difference is -20, lying between -20 and -15.238095238. With spot 100, dividend ten, strike 80, and zero rates, waiting to expiry gives the European call ten whereas exercise before the ex-date captures value 20. The unexercised option receives no dividend, invalidating the no-dividend comparison that made waiting dominate.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Complete English captions for <a href="https://www.youtube.com/watch?v=RDn9SoT2DX4">position 32</a> and <a href="https://www.youtube.com/watch?v=kndgzBL08CU">position 33</a> were read sequentially. They cover dividend-adjusted parity, European bounds, the American exercise right, the nondividend call argument, possible early exercise of puts, American parity inequalities, and dividend effects. The notes supply explicit funding conditions, weak boundary cases, state-price continuation comparisons, and independently constructed numerical examples.</p>
+<p>The source's intuition about a put holder expecting further declines is replaced by a continuation-value calculation for valuation purposes. Caption signs and strict inequalities are reconstructed from complete dated portfolios. Dividend price comparisons are not presented as guaranteed observed ex-date option-price jumps. The finite-tree algorithm is introduced only to make the exercise decision executable; later chapters develop its pricing foundation. Full caption reading does not constitute a comprehensive audiovisual audit.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch14.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Bounds and grid exercise decisions; synthetic data, currency per share.&quot;&quot;&quot;
+
+from math import exp, isclose, isfinite
+
+
+def tree_price(spot, strike, up, down, growth, steps, kind, american=False):
+    &quot;&quot;&quot;Replicate backwards; American exercise is restricted to this grid.&quot;&quot;&quot;
+    if (isinstance(steps, bool) or not isinstance(steps, int) or steps &lt; 1):
+        raise ValueError(&quot;Positive integer step count required&quot;)
+    if not all(isfinite(x) for x in (spot, strike, up, down, growth)):
+        raise ValueError(&quot;Finite market parameters required&quot;)
+    if not (spot &gt;= 0 and strike &gt;= 0):
+        raise ValueError(&quot;Invalid stock, strike, or number of steps&quot;)
+    if not (0 &lt; down &lt; growth &lt; up):
+        raise ValueError(&quot;Require positive state prices: 0 &lt; d &lt; R &lt; u&quot;)
+    if kind not in (&quot;call&quot;, &quot;put&quot;):
+        raise ValueError(&quot;Unknown option kind&quot;)
+    weight = (growth - down) / (up - down)
+
+    def exercise(stock):
+        return max(stock - strike if kind == &quot;call&quot; else strike - stock, 0)
+
+    values = [exercise(spot * up**j * down**(steps - j))
+              for j in range(steps + 1)]
+    for level in range(steps - 1, -1, -1):
+        previous = []
+        for j in range(level + 1):
+            continuation = (weight * values[j + 1]
+                            + (1 - weight) * values[j]) / growth
+            stock = spot * up**j * down**(level - j)
+            previous.append(max(exercise(stock), continuation)
+                            if american else continuation)
+        values = previous
+    return values[0]
+
+
+def main():
+    prepaid, strike_cash = 100 * exp(-0.03), 100 * exp(-0.05)
+    lower_call = max(prepaid - strike_cash, 0)
+    assert isclose(prepaid, 97.04455335485082)
+    assert isclose(lower_call, 1.921610904779417, abs_tol=1e-10)
+    assert isclose(100 * exp(0), 100)
+    for terminal in (0, 50, 99, 100, 101, 1000):
+        call, put = max(terminal - 100, 0), max(100 - terminal, 0)
+        assert 0 &lt;= call &lt;= terminal
+        assert 0 &lt;= put &lt;= 100
+        assert call + 100 &gt;= terminal
+        assert put + terminal &gt;= 100
+        assert isclose(call + 100 - terminal, put)
+    assert 100 - 4 - 95 == 1  # Initial receipt below the call bound.
+
+    european_put = tree_price(80, 100, 1.25, 0.8, 1.05, 1, &quot;put&quot;)
+    american_put = tree_price(80, 100, 1.25, 0.8, 1.05, 1, &quot;put&quot;, True)
+    assert isclose(european_put, 15.23809523809524)
+    assert isclose(american_put, 20)
+    assert american_put &gt; european_put
+    for spot in (20, 80, 100, 160):
+        for steps in (1, 3, 8):
+            call = tree_price(spot, 100, 1.2, 0.8, 1.02, steps, &quot;call&quot;)
+            am_call = tree_price(spot, 100, 1.2, 0.8, 1.02, steps,
+                                 &quot;call&quot;, True)
+            put = tree_price(spot, 100, 1.2, 0.8, 1.02, steps, &quot;put&quot;)
+            am_put = tree_price(spot, 100, 1.2, 0.8, 1.02, steps,
+                                &quot;put&quot;, True)
+            discount = 1.02**(-steps)
+            assert isclose(call, am_call, abs_tol=1e-10)
+            assert am_put &gt;= put - 1e-10
+            assert spot - 100 - 1e-10 &lt;= am_call - am_put
+            assert am_call - am_put &lt;= spot - 100 * discount + 1e-10
+            assert am_put &lt;= 100 + 1e-10
+
+    negative_rate_call = 150 - 100 * exp(0.1)
+    assert isclose(negative_rate_call, 39.48290819243523)
+    assert 150 * exp(-0.1) &gt; 100
+    assert negative_rate_call &lt; 150 - 100
+    for date in (0, 0.25, 0.5, 1):
+        assert 150 - 100 * exp(0.1 * date) &lt;= 50 + 1e-10
+    ex_dividend_stock, dividend, strike = 90, 10, 80
+    assert max(ex_dividend_stock - strike, 0) == 10
+    assert ex_dividend_stock + dividend - strike == 20
+    try:
+        tree_price(100, 100, 1.1, 0.9, 1.2, 2, &quot;call&quot;)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&quot;Invalid state-price model was accepted&quot;)
+    for up, steps in ((1.2, 2.5), (1.2, True), (float(&quot;inf&quot;), 2)):
+        try:
+            tree_price(100, 100, up, 0.8, 1.02, steps, &quot;call&quot;)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(&quot;Invalid tree input domain accepted&quot;)
+    print(f&quot;Prepaid share {prepaid:.9f}; call lower bound {lower_call:.9f}&quot;)
+    print(f&quot;European put {european_put:.9f}; American put {american_put:.9f}&quot;)
+    print(f&quot;Negative-rate European call {negative_rate_call:.9f}&quot;)
+    print(&quot;All bounds, parity intervals, and exercise assertions passed.&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch13.html">Previous: Option cash flows and put–call parity</a><a rel="next" href="ch15.html">Next: Static option strategies as piecewise-linear cash flows</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>
