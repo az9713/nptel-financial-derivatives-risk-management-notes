@@ -14,7 +14,8 @@ def run(browser_path=None, base_url=None, screenshots=False):
     results, errors = [], []
     files = sorted(ROOT.glob('ch[0-9][0-9].html'))
     support = [ROOT / name for name in ['index.html', 'source-map.html',
-               'study-guide.html', 'numerical-lab.html', 'references.html']
+               'study-guide.html', 'numerical-lab.html', 'references.html',
+               'mathematical-repairs.html']
                if (ROOT / name).exists()]
     with sync_playwright() as pw:
         browser = pw.chromium.launch(executable_path=browser_path,
@@ -47,7 +48,7 @@ def run(browser_path=None, base_url=None, screenshots=False):
                         if page.locator('#menu').get_attribute('aria-expanded') != 'true':
                             errors.append(f'{file.name}/{width}: mobile contents failed')
                         page.locator('#menu').click()
-                    if file in files:
+                    if file in files or file.name == 'mathematical-repairs.html':
                         page.locator('#solutions').click()
                         if not page.locator('article details').evaluate_all('(nodes) => nodes.every(n => n.open)'):
                             errors.append(f'{file.name}/{width}: solution disclosure failed')

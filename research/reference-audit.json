@@ -326,7 +326,11 @@
       "scope": "Definition1/3 PDFpages5–8, Proposition8 PDFpage13 and Theorem10 PDFpages14–16 inspected by chapter23 author. No full-document review.",
       "independent_reader": "lead_scientific",
       "independent_scope": "Lead inspected Definition3/tail atom and Theorem10 for chapter23; source_research personally inspected Definition3 PDFpages6–8 and Proposition8 PDFpage13 for chapter24 finite-atom application.",
-      "retrieved_on": "2026-11-24"
+      "retrieved_on": "2026-11-24",
+      "companion_support": {
+        "reader": "lead",
+        "scope": "Theorem 10 and its one-sided derivative/minimizer argument directly inspected in the primary PDF for the new companion. Finite-law slope, tail allocation and capped-weight proof developed independently in the companion."
+      }
     },
     {
       "id": "cmu-iyer-martingale-representation",
@@ -358,7 +362,11 @@
           "reader": "lead_scientific",
           "scope": "Directly inspected Definition 1.3, Theorem 1.3, Theorem 1.6/Remark 1.2, Corollary 3.3, and section 3.5 item 3 in primary PDF for chapters 16 and 19; no full-document review."
         }
-      ]
+      ],
+      "companion_support": {
+        "reader": "lead",
+        "scope": "Selected primary text directly inspected for the new mathematical companion: UI definition/convergence, Doob continuous-time bound, section 5.2 opening isometry/Hilbert-space setup and Theorem 5.3. The finite adapted-step construction is independently derived in the companion; no full-document or general-theorem proof claim."
+      }
     }
   ]
 }

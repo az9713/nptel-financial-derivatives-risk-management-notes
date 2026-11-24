@@ -127,8 +127,8 @@
     },
     {
       "path": "assets/reader.css",
-      "bytes": 7409,
-      "sha256": "d0109f4642eb7523ae383982e67fc8c9aaf6a2bbd21d09505f70ef071ae08e8e",
+      "bytes": 7800,
+      "sha256": "46d3a4255e908abd96275c9a8c15964df9181e6509c30ef4fb512abdad1e6ae3",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -151,8 +151,8 @@
     },
     {
       "path": "BOOK-STATE.yaml",
-      "bytes": 2013,
-      "sha256": "dd22ff36dd2ddbb784eedd23d502c8bf6610538ac638de526396d8e98c639bae",
+      "bytes": 2253,
+      "sha256": "dfd0d3c23d5eb24eed31ffb5f244f62d37c0381abc8dbc12bc3012167844bd3f",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -163,146 +163,146 @@
     },
     {
       "path": "ch01.html",
-      "bytes": 50509,
-      "sha256": "afc4728025b2eacee4706a1dab236cb3f169ab00211877e11387dfe9a250dfbb",
+      "bytes": 50576,
+      "sha256": "70d4437a2774189f14be41bd6a764bc7262f3627627fd66e8aaa48c58cab7ca6",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch02.html",
-      "bytes": 33888,
-      "sha256": "e191b8423701b776612ef429f89ceb01e809739e9dbcfb21e6a03c991fa28fd7",
+      "bytes": 33955,
+      "sha256": "17681cf736ada09f34a4086e5e5a6817efc66f19c9091b004060c8c627f42575",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch03.html",
-      "bytes": 31542,
-      "sha256": "723148dd2a0ac00effd66dd069f1bbeb69b7b7b5bad6dd5010ddefe65396dd19",
+      "bytes": 31609,
+      "sha256": "d4e0e11b44004f82a7806dda021fdba8a48c81b8880aa2e1451a7ed5d7f28d9f",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch04.html",
-      "bytes": 28673,
-      "sha256": "d1062a9a475c964864666d598c9d74c61a428435eb3255a7056b1b7df7e0db52",
+      "bytes": 28740,
+      "sha256": "201056b2d42c6cc4b7f9ae61e548bcb682f92ff7bf53f95478f267a9d4d271dc",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch05.html",
-      "bytes": 27605,
-      "sha256": "0002769df0fa5d8d5ae40d908721e92941ae39a2dd62c46ec2e642c9aec87bba",
+      "bytes": 27672,
+      "sha256": "fcc40cc73b59996fec7f4c7213166e76150fb4d4f20c74fa18a15991766be618",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch06.html",
-      "bytes": 33647,
-      "sha256": "b661b42b4796b50faef0dc2646b731a961547da2f4eec2639d1de78f90c46134",
+      "bytes": 33714,
+      "sha256": "7181a7076b6b5067f4a8de54a7ae1b4432d7aa8bcae7dd4bebf02871fb0f6ccf",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch07.html",
-      "bytes": 31511,
-      "sha256": "224524586dbb8e8fec627711e304c171542963adc58f55db043b8f11fdb72c43",
+      "bytes": 31578,
+      "sha256": "0803acf9d6ed993be35e085f8705174e5e0254d3b2730cc30ea54d82ab077e1e",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch08.html",
-      "bytes": 29505,
-      "sha256": "3058dc6c064c41f37b405520968dbf865e8daf8eca80be35048ccd8785ca324f",
+      "bytes": 29572,
+      "sha256": "5e6d865d83bffc2abf6772bcb8ed65bc1e22b83fb80be5e74a69dad65979fa48",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch09.html",
-      "bytes": 30710,
-      "sha256": "f44cacc1f7626f75ff95f5ce75a319e09ac87be2d8006f92a4ee622871b60b26",
+      "bytes": 30777,
+      "sha256": "bda835603e7b2acb6df2532760d4e1a942cdc3a88017bc80907f5b140c648d97",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch10.html",
-      "bytes": 37104,
-      "sha256": "7da665056300532ff0c369d760637ecdc37bee976f1db3f5168198c4096b3386",
+      "bytes": 37171,
+      "sha256": "a650e3857c8724e96d89149e5edde8496b8965227567631c13beae9846fa26cd",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch11.html",
-      "bytes": 39494,
-      "sha256": "ca842b2e3689a273c72b75e070c980856c14df55be3cbef31db0d18ec8522ce6",
+      "bytes": 39561,
+      "sha256": "966d4f1acc4e7a4ef46b8cd024c939a20c749005b778d7a8d7e07c31e1df79b1",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch12.html",
-      "bytes": 39719,
-      "sha256": "c4f7480d59c46040ce681318853aadb2b4123be9f268d0a4337392534f18ad96",
+      "bytes": 39786,
+      "sha256": "c7c9573f3ff16233a6e4f860d7029391edd91170a309eca8ed72fe449b5ff047",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch13.html",
-      "bytes": 34652,
-      "sha256": "f989511a06e5f0bde5dae4fce5f1c0c3b21968b11635520b38b2602ab2270724",
+      "bytes": 34719,
+      "sha256": "9d29879304d53186854eb95c4d37c73377ba7777808de722ccfa380d9a9b0895",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch14.html",
-      "bytes": 36309,
-      "sha256": "3d91e06fbc71baea10def75bd554972002b8733dd3777cf079a5fd765eb1111b",
+      "bytes": 36376,
+      "sha256": "8506e123e0f2b5260db2fa44188388a367bd6949b3be9d3efb6b12dd371aebfc",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch15.html",
-      "bytes": 51403,
-      "sha256": "3b78e52f7ee742356235531044bf1bd2589e9dfe59542d35e0cdbeea18e55800",
+      "bytes": 51470,
+      "sha256": "b1082f356f7659dec3c1ced28dd91ace351ca2c17c1f671769d4adc67cc252d1",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch16.html",
-      "bytes": 40266,
-      "sha256": "a9bf421cc50ed1694443fc1e66bffff75ebf9bcfcce87f9a155a64be0fbcf68f",
+      "bytes": 40333,
+      "sha256": "62672bba5ab179eedbcb6e8983a99c95c00ed092aa260d8a2881db682712e8d8",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch17.html",
-      "bytes": 43763,
-      "sha256": "330480c6f455413e15d7f065c123fe0fc427f3f573ef76472557894d2af49578",
+      "bytes": 43830,
+      "sha256": "9dd13a8aabd8f1ae5401b06001d8ffe8f004fd865dfac9a98e77d18b1da65f3d",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch18.html",
-      "bytes": 37843,
-      "sha256": "109dcc89a0a1672394f093083b8d7d4fa564c1d825e936341513a833219fdd15",
+      "bytes": 37910,
+      "sha256": "06a82437a67913cbaf9c9b6d49cca325c49c7488be1d050690765b57ae79ec1f",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch19.html",
-      "bytes": 37250,
-      "sha256": "59741bc51a586f2796c795a84e96feb5a359d1e4f543bf1bcb0813ba398c64b9",
+      "bytes": 37317,
+      "sha256": "ba59bb4d472c5f0b8d1f3654b956a52446b80240c567a3eddf221f0cc6fd510a",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch20.html",
-      "bytes": 37413,
-      "sha256": "1a9a285a1f2e551e17585afb401c0a5ea15d99e9f46b0a18aae6eaf109a240ce",
+      "bytes": 37480,
+      "sha256": "a957190f51e5091a5da577ee6fb53e9242699d1175ed1d4fd2c72e743c6df6c1",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch21.html",
-      "bytes": 40631,
-      "sha256": "d4fa049a1ba406582bf4b5c9191b204e64d9c196daec2fae771c626b99d98f5b",
+      "bytes": 40698,
+      "sha256": "4cc4761da37b575b87913d31f7c329a693f6b7e8be4a778ee5d86e8514a06df3",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch22.html",
-      "bytes": 35885,
-      "sha256": "a6b24a1ea17cb20d1b85c63a61fc6d5a43df8850b85663455fcdbf9a7f3937a4",
+      "bytes": 35952,
+      "sha256": "ba6463873d143eaf6df5e5e8e1939035e06d54bc819e8b133e21cd032267156e",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch23.html",
-      "bytes": 38360,
-      "sha256": "f33f50791ea2f9a20ea19d7215dd635a23afacd16c1cc09d8b1ddc7ecf810953",
+      "bytes": 38427,
+      "sha256": "badd9b635ad953752ca1bed3a5f05171768a16bb07e75dc2afa94df1415328b0",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "ch24.html",
-      "bytes": 47506,
-      "sha256": "f58e2c1d15c5c6fa11ed0e21d244e26117b5b9ccece521f87fae13a71658816d",
+      "bytes": 47573,
+      "sha256": "6ecf1a216cf12769076d5fd49575a9f6476b29e77b79cb8b08539b6531a69bea",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -619,8 +619,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 19570,
-      "sha256": "cf7774369047a63c034de03e564cf2eeea2be71ea4e852909c0b02f0e91930c9",
+      "bytes": 20253,
+      "sha256": "88a66f2719f098df8b22df6a7beaa32b18ff9d9524a3643c6fa16ee9d92b71cf",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -768,9 +768,27 @@
       "purpose": "executable educational computation"
     },
     {
+      "path": "labs/mathematical-repairs.py",
+      "bytes": 9533,
+      "sha256": "bd83c70386b29374723d3a5e9b45c8d758ff6b8ec2b141b72c35eb19a46dea50",
+      "purpose": "executable educational computation"
+    },
+    {
+      "path": "mathematical-repairs.html",
+      "bytes": 55717,
+      "sha256": "81d9e47dbd31501cd659b7c2aa3729bfa7b9c95d7f5de81e6856717316f8c278",
+      "purpose": "public reader, supporting content, asset, or rebuild input"
+    },
+    {
+      "path": "mathematical-repairs.md",
+      "bytes": 43709,
+      "sha256": "c16a4b2b466c9f339ccaa7bda9c7b05c994b29b131a17d52de3979d0d1030d72",
+      "purpose": "public reader, supporting content, asset, or rebuild input"
+    },
+    {
       "path": "numerical-lab.html",
-      "bytes": 10058,
-      "sha256": "3357c266b96077b649987eeb9a5171bf26cba727cbc3fdd3f64ea17996996f40",
+      "bytes": 10125,
+      "sha256": "8cfc2a151a421abe93f7be5c44b9c5e956350fa54b3d860b2818470b7ca93871",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -781,14 +799,14 @@
     },
     {
       "path": "overview.md",
-      "bytes": 3758,
-      "sha256": "f7fc4aab03f73cd291647643b7e89b85cd79c2a0a7668b45f6f3335a81f97ca0",
+      "bytes": 4302,
+      "sha256": "71b8df025035891d2983c766643e3214da0bfb44f2af62e100153e8d386a30f9",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "plan/book-spec.json",
-      "bytes": 3186,
-      "sha256": "f24da980727ef50038cce97adeb78765be2c948df78d106088e2438e70518756",
+      "bytes": 3464,
+      "sha256": "7c6fdc841a209b9508731532488a06d689827978508201282131d99c85a32525",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -805,14 +823,14 @@
     },
     {
       "path": "README.md",
-      "bytes": 13297,
-      "sha256": "f752afcd5c4874f7cffe09eb834b69c5af6795746d2fd72161e4a7b860d25ed9",
+      "bytes": 13990,
+      "sha256": "c50f8ec30d3da3ee00bbc74b255e84c7babf39d0965add35147e7734670e74a4",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "references.html",
-      "bytes": 16087,
-      "sha256": "27e117d89e4259a13e2888dcd471f7d8e5a5c2cfda03cf1f7b79738fc92da0be",
+      "bytes": 16154,
+      "sha256": "e598dfdade33fabd269e9060566881842b1cd8837d1abbc12a8d208103dcfd5d",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -835,8 +853,8 @@
     },
     {
       "path": "research/reference-audit.json",
-      "bytes": 21763,
-      "sha256": "6f7d92de860538a71e1c9a4ab20c592cc0d05193256c2786844a31540c74de7b",
+      "bytes": 22476,
+      "sha256": "10dedd8bf877ca0f036bceb34ec7967a32039e8aa8f2d1f4c624e66c72de70ab",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -853,8 +871,8 @@
     },
     {
       "path": "source-map.html",
-      "bytes": 15381,
-      "sha256": "9faf7c8567f4d6a48c3eafba03e7690f17b740351db236f764f3583ab1415292",
+      "bytes": 15448,
+      "sha256": "28dc5bcea87beeeccaf1c507cc05b101aff8383036c177d4cecc3303da663bb2",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -865,14 +883,14 @@
     },
     {
       "path": "study-guide.html",
-      "bytes": 10876,
-      "sha256": "f1120cdeacfad23140fd261497b522cef0870f3584e334db4bc54039a56c9ed8",
+      "bytes": 11431,
+      "sha256": "408e306d364d944e14f6851cb15cb81febec553df794a32340d697b4d4181583",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "study-guide.md",
-      "bytes": 6209,
-      "sha256": "286134e62b5a911e519341bdc47a34141aca012622a0ea66b9bb0ede2333fcb6",
+      "bytes": 6669,
+      "sha256": "b18d35f437e0f8fb6957b59222745a7ffba9208cc9b483ce2a3788d227c35056",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -883,26 +901,26 @@
     },
     {
       "path": "tools/audit_book.py",
-      "bytes": 5304,
-      "sha256": "4adae296d1fa56d935c25d8fe9f0a139fb950629d3b12299291d4f841882c707",
+      "bytes": 5293,
+      "sha256": "144c310d11d80a82ebdf5f7de4b2f3eb02449113e440f19602935054fdc30281",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "tools/browser_check.py",
-      "bytes": 10809,
-      "sha256": "16b785cfb98282bb713149896b07e7a99a39d583155f3b65fc4a93b93149635e",
+      "bytes": 10897,
+      "sha256": "301c980165460b77fc76220741a4493c06583fe538550260bd765b4713025b51",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "tools/build.py",
-      "bytes": 11870,
-      "sha256": "249ad0891365e41ef20343d89ce5fbb33b93436763c86a7d8ab5267cd708c568",
+      "bytes": 13190,
+      "sha256": "6303d50c20fa3b02b275f79a8ff1162f3749aca13ae11a22da9f00e219b9b991",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
       "path": "tools/check.py",
-      "bytes": 12186,
-      "sha256": "39f581e212fc7dac89d938ba7efb0a51072a93048eee05579b52a6081133f70d",
+      "bytes": 13528,
+      "sha256": "47455219d147fecb95a269ca1a4de13e435824d4071fd50c4646d65c13d6c288",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -919,8 +937,8 @@
     },
     {
       "path": "tools/release_check.py",
-      "bytes": 5688,
-      "sha256": "62b9ad9de4b8f261eb274c36dc6db7674065b0aabd16db53013c0e1361503a72",
+      "bytes": 6248,
+      "sha256": "ad98757c98dfb28a07fb465353ec22b04993806d3b2b141780eb5c7fc02c9075",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -937,8 +955,8 @@
     },
     {
       "path": "validation/browser-checks.json",
-      "bytes": 16382,
-      "sha256": "e264181a9b71594bcd66eaa95f09f76fba75b63a85a69737dced567d4c513b96",
+      "bytes": 16960,
+      "sha256": "6af1a0a4316961c5a4d77a4cc81fb2467054b7490aa6e461419e15b109d76457",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -1014,9 +1032,15 @@
       "purpose": "scoped production, review, or validation evidence"
     },
     {
+      "path": "validation/mathematical-repairs-checks.json",
+      "bytes": 3088,
+      "sha256": "e90864e2706d085193dcf11685420f9bbc15ec0f17be315fec88d2b66282fee7",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
       "path": "validation/package-checks.json",
-      "bytes": 24723,
-      "sha256": "76084c6d4638790c5cac2276c9ad96f2b6a254c2eea20b4fba90841f67fddff7",
+      "bytes": 25457,
+      "sha256": "6e5f5acdebec56f3b8f3f65bc178d321b991dad27b00c423343a267ebbc45925",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -1039,8 +1063,8 @@
     },
     {
       "path": "validation/release-checks.json",
-      "bytes": 2323,
-      "sha256": "dd8aa820a242e35edd388009c6babe6467596ac014ee08c640e06e017f16958a",
+      "bytes": 2448,
+      "sha256": "320274f0bee231d985317e4d8b884c10a30ed512dba2ab85c7ef2758f4449751",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -1602,6 +1626,30 @@
       "purpose": "scoped production, review, or validation evidence"
     },
     {
+      "path": "validation/review-mathematical-repairs-r1.json",
+      "bytes": 1502,
+      "sha256": "1457f44606d84784bde7bf7ca310f8d4ad49c6dfca97b411550dcf621a4a994d",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/review-mathematical-repairs-r1.md",
+      "bytes": 10466,
+      "sha256": "0742761e1083afa53fc37c8610a31bb03fae87ca39a6a400263fe17de2f9ae1f",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/review-mathematical-repairs-r2.json",
+      "bytes": 1475,
+      "sha256": "edd187827bf888388e13a385a9e5ce3af80788040d1177fb41a6ead0b1b803e7",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/review-mathematical-repairs-r2.md",
+      "bytes": 6657,
+      "sha256": "f910fdfe8546e049268b0b645a048b734156e0a5eec1f2fca649f0367fb2ceeb",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
       "path": "validation/review-pilot-r1.json",
       "bytes": 3939,
       "sha256": "a444fa86fb224561d7c63f94aceaeef2a15cb2aca0b9dc19e78ba000e52bcb92",
@@ -1795,8 +1843,8 @@
     },
     {
       "path": "WORKFLOW.md",
-      "bytes": 4738,
-      "sha256": "c064143c7f4f36dde37ed33889cc57d2bf3ab2f2056c2e149f833b918544054b",
+      "bytes": 5236,
+      "sha256": "3a2bab8a0c54a6f39750a65e5f06d2bce4ba991a42263bfb7c3523550fdf2af5",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     }
   ]

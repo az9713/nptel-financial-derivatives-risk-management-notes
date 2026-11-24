@@ -22,3 +22,8 @@ mjx-container::-webkit-scrollbar,mjx-container[display=true]::-webkit-scrollbar{
 .lab-output output{font-variant-numeric:tabular-nums;color:var(--accent)}
 @media(max-width:720px){.lab-grid{grid-template-columns:1fr}}
 @media print{.publication-note{color:#333}.light strong{color:black}.light pre{background:white}.lab-grid input{color:black;background:white}}
+/* Keep the companion overview comparison readable instead of crushing columns. */
+.mathematical-repairs>.tablewrap:first-of-type table{min-width:700px}
+.mathematical-repairs>.tablewrap:first-of-type th:first-child{min-width:140px}
+.mathematical-repairs mjx-container:not([display=true]){vertical-align:middle}
+@media print{.mathematical-repairs>.tablewrap:first-of-type table{min-width:0}}

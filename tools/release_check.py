@@ -26,6 +26,11 @@ def main(allow_partial=False):
     minimum = int(spec.get('minimum_reviewers', 1))
     authors = spec.get('chapter_authors', {})
     canonical_ids = spec.get('reviewer_canonical_id', {})
+    supplemental_authors = {
+        name: row['author']
+        for row in spec.get('supplements', {}).values()
+        for name in row['files']
+    }
     for receipt in sorted((ROOT / 'validation').glob('review-*.json')):
         row = json.loads(receipt.read_text(encoding='utf-8-sig'))
         if row.get('superseded', False):
@@ -52,6 +57,9 @@ def main(allow_partial=False):
                 if chapter and authors.get(chapter[1]) == canonical:
                     errors.append(f'{receipt.name}: author self-review for {relative}')
                     continue
+                if supplemental_authors.get(relative) == canonical:
+                    errors.append(f'{receipt.name}: supplement author self-review for {relative}')
+                    continue
                 accepted.setdefault(relative, set()).add(canonical)
         receipts.append(receipt.name)
     metadata = sorted((ROOT / 'chapters').glob('ch[0-9][0-9].json'))
@@ -68,6 +76,9 @@ def main(allow_partial=False):
         for relative in [f'chapters/{meta.stem}.md', f'chapters/{meta.stem}.json', f'labs/{meta.stem}.py']:
             if len(accepted.get(relative, set())) < minimum:
                 errors.append(f'{relative}: fewer than {minimum} current independent acceptances')
+    for relative in supplemental_authors:
+        if len(accepted.get(relative, set())) < minimum:
+            errors.append(f'{relative}: fewer than {minimum} supplement acceptances')
     baseline = {p.name: digest(p) for p in ROOT.glob('*.html')}
     if (ROOT / 'book.json').exists():
         baseline['book.json'] = digest(ROOT / 'book.json')
@@ -79,7 +90,7 @@ def main(allow_partial=False):
             shutil.copytree(ROOT / name, target / name,
                             ignore=shutil.ignore_patterns('__pycache__'))
         for name in ['source-manifest.json', 'overview.md', 'study-guide.md',
-                     'references.md', 'numerical-lab.md']:
+                     'references.md', 'numerical-lab.md', 'mathematical-repairs.md']:
             path = ROOT / name
             if path.exists():
                 shutil.copyfile(path, target / name)

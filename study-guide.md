@@ -31,6 +31,8 @@ Specify the sign of loss before calculating a quantile. Specify the holding peri
 
 ## Reading mathematical results correctly
 
+For seven complete examples of this discipline, read [Seven mathematical repairs](mathematical-repairs.html). Each begins with the earlier gap and completes the missing argument. Its [laboratory](labs/mathematical-repairs.py) checks the constructions independently of the prose. The first and sixth issues share the stochastic-integral foundation from Chapter 17; the remaining issues can be read independently with elementary probability and linear algebra.
+
 A **definition** fixes a convention. A **derived identity** follows algebraically under its stated model. A **theorem** has hypotheses and a proof or an explicitly cited supporting result. A **numerical check** examines particular finite calculations. An **empirical finding** needs data and a measurement procedure. Their roles are complementary, but success in one category does not promote a claim to another.
 
 The chapter solutions expose intermediate steps rather than functioning as an answer key. The labs use assertions and independent checks when practical. Use the references beside the relevant claim to inspect an external result; a long bibliography is not a substitute for understanding the argument.

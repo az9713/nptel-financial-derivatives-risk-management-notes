@@ -154,6 +154,27 @@ def check(allow_partial=False):
         chapters.append(dict(id=path.stem, source_sha256=digest(source),
                              metadata_sha256=digest(path), html_sha256=digest(page),
                              source_words=len(re.findall(r'\b[\w-]+\b', text))))
+    for name, supplement in spec.get('supplements', {}).items():
+        required = supplement['files'] + [supplement['page']]
+        if not all((ROOT / path).is_file() for path in required):
+            errors.append(f'{name}: missing supplemental input or reader page')
+            continue
+        lab = ROOT / supplement['laboratory']
+        print(f'Running {lab.name}', flush=True)
+        environment = dict(os.environ, OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1',
+                           MKL_NUM_THREADS='1', NUMEXPR_NUM_THREADS='1')
+        try:
+            result = subprocess.run([sys.executable, str(lab)], cwd=ROOT,
+                                    capture_output=True, text=True, encoding='utf-8',
+                                    timeout=180, env=environment)
+        except subprocess.TimeoutExpired:
+            result = subprocess.CompletedProcess([str(lab)], 124, '',
+                                                'Supplement laboratory exceeded 180 seconds')
+        labs.append(dict(file=lab.relative_to(ROOT).as_posix(), sha256=digest(lab),
+                         supplemental=True, exit_code=result.returncode,
+                         stdout=result.stdout.strip(), stderr=result.stderr.strip()))
+        if result.returncode:
+            errors.append(f'{lab.name}: supplemental runtime check failed')
     if not allow_partial and set(covered) != set(expected_positions):
         errors.append(f'Teaching recording coverage mismatch: missing={sorted(set(expected_positions)-set(covered))}; extra={sorted(set(covered)-set(expected_positions))}')
     if not spec.get('allow_shared_recordings', False) and any(count > 1 for count in Counter(covered).values()):

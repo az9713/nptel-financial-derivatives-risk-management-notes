@@ -77,7 +77,7 @@ def main(allow_partial=False):
     style = pycodestyle.StyleGuide(
         quiet=True, max_line_length=79, ignore=["E226", "W503", "W504"])
     style_result = style.check_files(
-        [str(p) for p in sorted((ROOT / "labs").glob("ch[0-9][0-9].py"))])
+        [str(p) for p in sorted((ROOT / "labs").glob("*.py"))])
     if style_result.total_errors:
         errors.append(f"Laboratory code style: {style_result.total_errors} "
                       "PEP8/79-column violations")

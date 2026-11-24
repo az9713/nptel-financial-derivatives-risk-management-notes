@@ -1,0 +1,22 @@
+{
+  "reviewer": "scientific_review",
+  "date": "2026-11-24",
+  "disposition": "accepted",
+  "remaining_findings": [],
+  "accepted_files": {
+    "mathematical-repairs.md": "c16a4b2b466c9f339ccaa7bda9c7b05c994b29b131a17d52de3979d0d1030d72",
+    "labs/mathematical-repairs.py": "bd83c70386b29374723d3a5e9b45c8d758ff6b8ec2b141b72c35eb19a46dea50"
+  },
+  "report": "validation/review-mathematical-repairs-r1.md",
+  "scope": [
+    "Entire new companion manuscript, every proof/example/boundary and expandable worked check, embedded code, and complete laboratory source read",
+    "Relevant current chapter passages and selected pre-repair passages checked; no repeated complete course-caption audit",
+    "Final author repairs and other-reviewer clarifications inspected; fresh final laboratory execution and exact project pycodestyle passed",
+    "Independent rational/moment calculations and selected Geng/Rockafellar-Uryasev primary passages checked; static internal HTML targets checked"
+  ],
+  "resolved_findings": [
+    "Low: predictable integrands needed a local first-use definition; repaired and rechecked",
+    "Low: tiny-call tests did not initially support the two-sided sign-check wording; exact checks added and final lab passed"
+  ],
+  "limits": "Independent AI scientific/editorial/code review, not human expert or formal certification. Selected primary reading, no new audiovisual audit. Static links checked; rendered browser, accessibility, package and deployment gates remain separate."
+}

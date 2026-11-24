@@ -48,11 +48,13 @@
     "review-ch23-r2.json",
     "review-ch24-r1.json",
     "review-ch24-r2.json",
+    "review-mathematical-repairs-r1.json",
+    "review-mathematical-repairs-r2.json",
     "review-pilot-r1.json",
     "review-pilot-r2.json"
   ],
   "minimum_reviewers": 2,
-  "accepted_file_count": 72,
+  "accepted_file_count": 74,
   "source_free_byte_identical": {
     "ch01.html": true,
     "ch02.html": true,
@@ -79,6 +81,7 @@
     "ch23.html": true,
     "ch24.html": true,
     "index.html": true,
+    "mathematical-repairs.html": true,
     "numerical-lab.html": true,
     "references.html": true,
     "source-map.html": true,

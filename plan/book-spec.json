@@ -109,5 +109,16 @@
     "reader_builder_scientific": "reader_builder",
     "scientific_review": "scientific_review",
     "source_research": "source_research"
+  },
+  "supplements": {
+    "mathematical-repairs": {
+      "author": "lead",
+      "files": [
+        "mathematical-repairs.md",
+        "labs/mathematical-repairs.py"
+      ],
+      "page": "mathematical-repairs.html",
+      "laboratory": "labs/mathematical-repairs.py"
+    }
   }
 }

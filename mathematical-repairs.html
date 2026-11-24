@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Seven mathematical repairs · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="mathematical-repairs.html">Seven mathematical repairs</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>Seven mathematical repairs</h1><p class="subtitle">Before and after, with complete arguments</p><div class="toolbar"><button id="solutions" type="button">Open worked checks</button><button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button><a href="mathematical-repairs.md">Editable source</a></div><p class="meta">On narrow screens, pan wide tables and equations sideways.</p><div class="toc"><strong>On this page</strong><ul><li><a href="#1-a-driftless-pricing-differential-needs-a-true-martingale-argument">1. A driftless pricing differential needs a true-martingale argument</a></li><li><a href="#2-a-portfolio-optimizer-needs-a-certificate-against-every-feasible-competitor">2. A portfolio optimizer needs a certificate against every feasible competitor</a></li><li><a href="#3-zero-beta-and-minimum-variance-solve-different-problems">3. Zero beta and minimum variance solve different problems</a></li><li><a href="#4-preserving-a-marginal-variance-can-destroy-a-portfolio-hedge">4. Preserving a marginal variance can destroy a portfolio hedge</a></li><li><a href="#5-expected-shortfall-needs-a-proof-that-respects-probability-atoms">5. Expected shortfall needs a proof that respects probability atoms</a></li><li><a href="#6-ito-isometry-supplies-the-missing-construction-of-the-integral">6. Itô isometry supplies the missing construction of the integral</a></li><li><a href="#7-a-tiny-nonzero-payoff-slope-is-not-a-flat-zero-interval">7. A tiny nonzero payoff slope is not a flat zero interval</a></li><li><a href="#reproduce-the-checks-and-inspect-the-limits">Reproduce the checks and inspect the limits</a></li></ul></div><article class="mathematical-repairs">
+<p>A risk calculation can return the expected number while leaving its most important inference unjustified. A portfolio optimizer may solve its equations without certifying a global minimum. A pricing differential may have zero drift without permitting an expectation to pass through a limiting operation. A payoff analyzer may confuse a very small exposure with no exposure at all.</p>
+<p>These seven before-and-after studies reconstruct the missing arguments. Each identifies the original gap, states the model, proves the consequential step, works a concrete example, and locates the boundary. They are an expanded mathematical companion to the <a href="critical-comparison.md">critical comparison</a>, with links back to the relevant textbook chapters. Most repairs strengthened the justification of correct results. Issue 7 also corrected an actual numerical classification error.</p>
+<p>The common question is: <strong>what does the calculation certify, under exactly which assumptions?</strong> The answer differs for replication, variance minimization, tail risk, stochastic integration, and finite arithmetic.</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Earlier gap</th>
+<th>What the completed argument establishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Pricing</td>
+<td>Growth and integrability were invoked without the full verification argument.</td>
+<td>A true pricing martingale and uniqueness within an explicit growth class.</td>
+</tr>
+<tr>
+<td>2. Optimization</td>
+<td>The many-asset frontier lacked the two-asset case's explicit certificate.</td>
+<td>A feasible solution and a nonnegative variance gap against every competitor.</td>
+</tr>
+<tr>
+<td>3. Hedge objectives</td>
+<td>Beta neutrality was distinguished from minimum variance without a worked separation.</td>
+<td>Their exact agreement condition and a compatible counterexample.</td>
+</tr>
+<tr>
+<td>4. Risk mapping</td>
+<td>Matching one claim's variance left portfolio covariance implicit.</td>
+<td>The missing covariance term and a four-state failure of the mapping.</td>
+</tr>
+<tr>
+<td>5. Tail risk</td>
+<td>Atomic examples were developed further than the optimization and aggregation proofs.</td>
+<td>Correct threshold-mass allocation, a risk envelope, and finite-law subadditivity.</td>
+</tr>
+<tr>
+<td>6. Integration</td>
+<td>Mean-square approximation lacked the isometry supporting its construction.</td>
+<td>A well-defined stochastic integral independent of the chosen valid approximation.</td>
+</tr>
+<tr>
+<td>7. Arithmetic</td>
+<td>A tolerance treated tiny nonzero coefficients as exact zero.</td>
+<td>Correct distinction between isolated break-even points and entire zero intervals.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The probability arguments use expectation, conditional expectation, independent Gaussian increments, and the Itô formula developed in <a href="ch17.html">Chapter 17</a>. The linear-algebra arguments define their financial objects locally. Every numerical example below is synthetic. The <a href="labs/mathematical-repairs.py">companion laboratory</a> checks all seven constructions with the book's pinned Python dependencies.</p>
+<h2 id="1-a-driftless-pricing-differential-needs-a-true-martingale-argument">1. A driftless pricing differential needs a true-martingale argument</h2>
+<p><strong>Before.</strong> The derivation reached the Black–Scholes differential equation and appealed to growth and integrability to obtain a discounted expectation. The conclusion was correct for the stated call and put, but the argument did not expose how localization, terminal convergence, and integrability fit together.</p>
+<p><strong>After.</strong> The completed argument bounds all stopped values uniformly, justifies the conditional-expectation limit, and proves uniqueness in a stated class. A zero drift term is the beginning of this verification, not its conclusion. <a href="ch19.html#4-from-the-pde-to-a-discounted-expectation-1333">Return to Chapter 19</a>.</p>
+<h3 id="model-information-and-the-candidate-solution">Model, information, and the candidate solution</h3>
+<p>Fix a finite horizon $T&gt;0$. Under a pricing probability measure $\mathbb Q$, suppose one non-dividend-paying stock follows</p>
+<p>$$dS_t=rS_t\,dt+\sigma S_t\,dW_t,\qquad
+S_0&gt;0,\quad \sigma&gt;0.$$</p>
+<p>The constants $r$ and $\sigma$ are the continuously compounded annual rate and diffusion volatility. Time is measured in years. The process $W$ is standard Brownian motion: a future increment over length $h$ is centered normal with variance $h$, independently of the past. Let $\mathcal F_t$ be the completed information generated by its history through $t$. The bank account is $B_t=e^{rt}$, normalized to one at inception. This section works under $\mathbb Q$; it makes no claim that the physical expected stock return equals $r$.</p>
+<p>A <strong>martingale</strong> $M_t$ has integrable values and satisfies $\mathbb E[M_t\mid\mathcal F_s]=M_s$ for $s\le t$. A <strong>local martingale</strong> has this property after suitable stopping times that approach the full horizon. A stopping time is a random date whose occurrence by time $t$ is determined by $\mathcal F_t$. Localization prevents the stopped process from encountering uncontrolled integrability before that date.</p>
+<p>Let $g(s)$ be a continuous terminal payoff. Suppose a candidate value $V(s,t)$ is once continuously differentiable in time and twice in stock price for $s&gt;0,t&lt;T$, continuous up to the terminal payoff, and solves</p>
+<p>$$V_t+\frac12\sigma^2s^2V_{ss}+rsV_s-rV=0,
+\qquad V(s,T)=g(s).$$</p>
+<p>Assume the <strong>uniform linear-growth condition</strong></p>
+<p>$$|V(s,t)|\le C(1+s)\quad(s&gt;0,\ 0\le t\le T)$$</p>
+<p>for a fixed finite constant $C$. This is a restriction on the entire candidate solution, not merely its terminal payoff. The units of the constant absorb the chosen currency and stock-price units.</p>
+<h3 id="stop-the-stochastic-integral-before-removing-the-stop">Stop the stochastic integral before removing the stop</h3>
+<p>Define discounted value $U_t=e^{-rt}V(S_t,t)$. Itô's formula and the PDE cancel its drift:</p>
+<p>$$dU_t=k_t\,dW_t,\qquad
+k_t=e^{-rt}\sigma S_tV_s(S_t,t).$$</p>
+<p>For each integer $n\ge2$, set $t_n=T(1-1/n)$ and</p>
+<p>$$\tau_n=t_n\wedge\inf\left\{t\ge0:
+\int_0^t k_s^2ds\ge n\right\},$$</p>
+<p>where an empty hitting set has infimum $+\infty$. The symbol $\wedge$ means minimum. The squared-integrand integral, which is the quadratic variation of the stochastic gain, is at most $n$ before this stop. The stopped gain is therefore square-integrable, by Itô isometry, and $U_{t\wedge\tau_n}$ is a true martingale.</p>
+<p>Interior smoothness makes $k$ locally bounded along each positive continuous stock path on any compact time interval ending before $T$. Consequently $\tau_n\uparrow T$ almost surely. This does not yet justify taking expectations through the terminal limit. An integrability bound is still needed.</p>
+<h3 id="the-growth-condition-controls-the-whole-stopped-family">The growth condition controls the whole stopped family</h3>
+<p>The explicit stock solution gives</p>
+<p>$$\widetilde S_t=e^{-rt}S_t
+=S_0\exp(\sigma W_t-\tfrac12\sigma^2t),
+\qquad
+\mathbb E^{\mathbb Q}[\widetilde S_T^2]
+=S_0^2e^{\sigma^2T}.$$</p>
+<p>Independence of Gaussian increments shows directly that $\widetilde S$ is a true martingale. Its finite second moment permits the standard Doob bound</p>
+<p>$$\mathbb E^{\mathbb Q}\sup_{0\le t\le T}
+\widetilde S_t^2\le4S_0^2e^{\sigma^2T}.$$</p>
+<p>The maximal inequality is an invoked theorem; <a href="https://www.math.cmu.edu/~xig/Files/Teaching/Stochastic%20Calculus%20%28Fall%202016%29/Stochastic%20Calculus.pdf#page=38">Xi Geng, Corollary 3.3 and §3.5, item 3</a>, gives its continuous-time form. Its role is to control the largest value encountered along a path, not only the stock's terminal distribution.</p>
+<p>For any stopping time $\rho\le T$, the growth condition now yields</p>
+<p>$$|U_\rho|^2
+\le2C^2\left(e^{2|r|T}+
+\sup_{0\le t\le T}\widetilde S_t^2\right).$$</p>
+<p>Thus there is a finite constant $C_2$ bounding $\mathbb E|U_\rho|^2$ uniformly over these stopped values. For any threshold $R&gt;0$,</p>
+<p>$$\sup_\rho\mathbb E\left[
+|U_\rho|\mathbf1_{\{|U_\rho|&gt;R\}}\right]
+\le\frac{C_2}{R}\longrightarrow0.$$</p>
+<p>Here $\mathbf1_A$ is one on event $A$ and zero elsewhere. The inequality uses $|u|\mathbf1_{\{|u|&gt;R\}}\le u^2/R$. This is <strong>uniform integrability</strong>: expected value cannot remain concentrated in increasingly rare, increasingly large stopped outcomes.</p>
+<p>For fixed $s\le t\le T$, the stopped martingale identity is</p>
+<p>$$\mathbb E[U_{t\wedge\tau_n}\mid\mathcal F_s]
+=U_{s\wedge\tau_n}.$$</p>
+<p>Continuity gives almost-sure convergence of both stopped values. Uniform integrability upgrades it to convergence in mean absolute value; this is the convergence criterion in <a href="https://www.math.cmu.edu/~xig/Files/Teaching/Stochastic%20Calculus%20%28Fall%202016%29/Stochastic%20Calculus.pdf#page=5">Geng, Definition 1.3 and Theorem 1.3, printed pages 5–6</a>. Conditional expectation is a contraction in that norm, so the limit passes through it. The result is $\mathbb E[U_t\mid\mathcal F_s]=U_s$, including $t=T$. Therefore</p>
+<p>$$\boxed{V(S_t,t)=e^{-r(T-t)}
+\mathbb E^{\mathbb Q}[g(S_T)\mid\mathcal F_t].}$$</p>
+<p>Applying the same argument to the difference of two candidate solutions with the same terminal payoff proves uniqueness within this growth class. The Markov stock model allows the conditional expectation to be expressed as a function of current stock and time.</p>
+<h3 id="the-number-stays-the-same-its-justification-becomes-complete">The number stays the same; its justification becomes complete</h3>
+<p>For the European call $g(s)=(s-K)^+$, the notation $x^+=\max(x,0)$. Set $S_0=K=100$, $T=1$, $r=0.05$, and $\sigma=0.2$. Its pricing inputs are</p>
+<p>$$d_1=\frac{\log(S_0/K)+(r+\sigma^2/2)T}
+{\sigma\sqrt T}=0.35,\qquad d_2=0.15.$$</p>
+<p>If $\Phi$ denotes the standard normal cumulative distribution function, the value is</p>
+<p>$$c_0=S_0\Phi(d_1)-Ke^{-rT}\Phi(d_2)
+=10.45058357.$$</p>
+<p>The laboratory independently integrates the positive terminal payoff under its Gaussian log-price law and recovers the same number. The expectation construction gives $0\le c(s,t)\le s$; a put has $0\le p(s,t)\le Ke^{|r|T}$. These bounds place both prices inside the required growth class. Their terminal kinks coexist with interior smoothness for positive remaining time.</p>
+<p><strong>Boundary.</strong> This is a verification argument for the specified diffusion and growth class. It does not make every driftless stochastic differential a true martingale, prove uniqueness among arbitrarily growing PDE solutions, or remove trading costs and borrowing constraints. The self-financing replication and its admissibility are developed separately in <a href="ch19.html#3-replication-must-include-its-cash-account-2301-0238">Chapter 19</a>.</p>
+<details>
+<summary>Worked check: why convergence alone cannot justify the expectation limit</summary>
+<p>Let $A$ be uniform on $(0,1)$ and define $X_n=n\mathbf1_{\{A\le1/n\}}$. For almost every outcome $A&gt;0$, eventually $1/n&lt;A$, so $X_n\to0$. Nevertheless $\mathbb E X_n=n(1/n)=1$ for every $n$. The expectation of the limit is zero. For any threshold $R$, choosing an integer $n&gt;R$ gives $\mathbb E[X_n\mathbf1_{\{X_n&gt;R\}}]=1$, so the family is not uniformly integrable. This sequence is not asserted to be a pricing martingale; it isolates the invalid limit operation that the growth bound prevents.</p>
+</details>
+<h2 id="2-a-portfolio-optimizer-needs-a-certificate-against-every-feasible-competitor">2. A portfolio optimizer needs a certificate against every feasible competitor</h2>
+<p><strong>Before.</strong> The many-asset frontier was introduced as a constrained minimization problem with convexity commentary. The two-asset minimum had a more explicit completed-square proof.</p>
+<p><strong>After.</strong> The unrestricted-weight solution is constructed, feasibility is checked, and the variance difference against every feasible competitor is exactly identified. This separates existence, uniqueness, and global minimality. <a href="ch06.html#the-many-asset-frontier-has-an-explicit-global-certificate">Return to Chapter 6</a>.</p>
+<h3 id="the-target-return-is-a-constraint-not-an-estimated-certainty">The target return is a constraint, not an estimated certainty</h3>
+<p>Let $R\in\mathbb R^d$ be the vector of simple returns over one common holding period. Assume finite second moments. Define $\mu=\mathbb E R$ and covariance $\Sigma=\mathbb E[(R-\mu)(R-\mu)^\top]$. A weight vector $w\in\mathbb R^d$ allocates fractions of initial wealth; negative weights permit short positions. Its expected return is $\mu^\top w$ and variance is $w^\top\Sigma w$.</p>
+<p>Write $\mathbf1$ for the vector of ones and fix target mean $m_0$. The problem is</p>
+<p>$$\min_w\frac12w^\top\Sigma w
+\quad\text{subject to}\quad
+\mathbf1^\top w=1,\qquad\mu^\top w=m_0.$$</p>
+<p>Assume $\Sigma$ is positive definite and $\mu$ is not proportional to $\mathbf1$. Positive definiteness means $h^\top\Sigma h&gt;0$ for every nonzero $h$. These hypotheses ensure two genuinely distinct equality constraints and a strictly convex objective. The target is a model expectation; it is not a promised realized return.</p>
+<h3 id="construct-the-candidate-and-verify-both-constraints">Construct the candidate and verify both constraints</h3>
+<p>Stationarity of the Lagrangian gives $\Sigma w=a\mathbf1+b\mu$ for scalar multipliers $a,b$, using a minus sign for each equality term. Define</p>
+<p>$$g=\Sigma^{-1}\mathbf1,\quad j=\Sigma^{-1}\mu,
+\quad A=\mathbf1^\top g,\quad B=\mathbf1^\top j,
+\quad C=\mu^\top j,\quad D=AC-B^2.$$</p>
+<p>The inverse covariance defines an inner product $\langle u,v\rangle=u^\top\Sigma^{-1}v$. Strict Cauchy–Schwarz gives $D&gt;0$, since equality would require $\mu$ proportional to $\mathbf1$. Substituting $w=ag+bj$ into the constraints produces</p>
+<p>$$\begin{pmatrix}A&amp;B\\B&amp;C\end{pmatrix}
+\begin{pmatrix}a\\b\end{pmatrix}
+=\begin{pmatrix}1\\m_0\end{pmatrix}.$$</p>
+<p>Solving yields</p>
+<p>$$a=\frac{C-Bm_0}{D},\qquad
+b=\frac{Am_0-B}{D},\qquad
+w_*=ag+bj.$$</p>
+<p>Multiplying by $\mathbf1^\top$ and $\mu^\top$ verifies the two equalities directly. This constructs a feasible point for every real target in the unrestricted-weight model; it does not merely assert that a stationary point exists.</p>
+<h3 id="the-cross-term-vanishes-for-every-feasible-change">The cross term vanishes for every feasible change</h3>
+<p>Every competitor with the same budget and target has the form $w_*+h$, where $\mathbf1^\top h=\mu^\top h=0$. Expand its variance:</p>
+<p>$$\begin{aligned}
+(w_*+h)^\top\Sigma(w_*+h)
+&amp;=w_*^\top\Sigma w_*+2h^\top\Sigma w_*+h^\top\Sigma h,\\
+h^\top\Sigma w_*&amp;=a\,h^\top\mathbf1+b\,h^\top\mu=0.
+\end{aligned}$$</p>
+<p>Consequently</p>
+<p>$$\boxed{v(w_*+h)-v(w_*)=h^\top\Sigma h\ge0,}$$</p>
+<p>with equality only when $h=0$. This proves the candidate's unique global optimality. If $\lambda_{\min}&gt;0$ is the smallest covariance eigenvalue, the penalty is at least $\lambda_{\min}\|h\|_2^2$, where $\|h\|_2$ is Euclidean length. The certificate quantifies how far a feasible perturbation moves the objective.</p>
+<p>The minimum variance itself is</p>
+<p>$$v(w_*)=a+b m_0
+=\frac{Am_0^2-2Bm_0+C}{D}
+=\frac1A+\frac A D\left(m_0-\frac B A\right)^2.$$</p>
+<p>The unconstrained minimum over target means therefore has mean $B/A$ and variance $1/A$. Expected-return targets below $B/A$ lie on the inefficient branch: reflection across $B/A$ gives a higher mean with the same frontier variance.</p>
+<h3 id="a-complete-three-asset-check">A complete three-asset check</h3>
+<p>Take $\Sigma=\operatorname{diag}(0.01,0.04,0.09)$, $\mu=(0.04,0.08,0.12)^\top$, and $m_0=0.09$. The constructed weights are</p>
+<p>$$w_*=\left(\frac{15}{104},\frac6{13},\frac{41}{104}\right)^\top
+\approx(0.144231,0.461538,0.394231)^\top,$$</p>
+<p>with variance $0.02271634615$. The change $h=(0.1,-0.2,0.1)^\top$ preserves both constraints. Its variance penalty is</p>
+<p>$$h^\top\Sigma h
+=0.01(0.1)^2+0.04(-0.2)^2+0.09(0.1)^2
+=0.0026.$$</p>
+<p>The perturbed variance is therefore $0.02531634615$. The laboratory checks this against an independent full Lagrange-multiplier linear-system solve.</p>
+<p><strong>Boundary.</strong> Equal expected returns make $D=0$ and allow only that common target. A singular covariance can destroy uniqueness. Long-only constraints restrict feasible targets and can bind at the optimum. The unrestricted formula must not be rescued by replacing a zero determinant with an arbitrary small number. Near singularity, sensitivity and numerical conditioning require separate analysis.</p>
+<details>
+<summary>Worked check: what fails when all expected returns are equal?</summary>
+<p>If $\mu=m\mathbf1$, every fully invested portfolio has $\mu^\top w=m$. A target $m_0\ne m$ is infeasible. At $m_0=m$, the return constraint duplicates the budget constraint, so the two-by-two multiplier matrix is singular. With positive-definite covariance, the remaining budget-only problem still has the unique solution $w=g/A$: expansion around it gives the same positive variance-gap argument for changes with $\mathbf1^\top h=0$. A singular multiplier system need not imply that the reduced economic problem lacks a unique optimum.</p>
+</details>
+<h2 id="3-zero-beta-and-minimum-variance-solve-different-problems">3. Zero beta and minimum variance solve different problems</h2>
+<p><strong>Before.</strong> The notes warned that a beta-neutral overlay could differ from a minimum-variance hedge, without deriving their agreement condition or displaying compatible moments where they separate.</p>
+<p><strong>After.</strong> The exact condition is derived, and one covariance model exhibits both optima and their risk difference. The distinction concerns the manager's objective, not a forecasting disagreement. <a href="ch07.html#a-beta-target-need-not-be-the-variance-minimum">Return to Chapter 7</a>.</p>
+<h3 id="define-the-exposure-that-the-futures-position-changes">Define the exposure that the futures position changes</h3>
+<p>Let $R_P$ be the stock portfolio's return over hedge horizon $H$. Write $G_0&gt;0$ and $G_H$ for its futures contract's opening and closing quotations, in index points, and let multiplier $m&gt;0$ convert one point into monetary gain per contract. Define</p>
+<p>$$X_G=\frac{G_H-G_0}{G_0}
+=\frac{m(G_H-G_0)}{mG_0}.$$</p>
+<p>The numerator in the second expression is one long contract's monetary gain and the denominator its opening notional. Both ratios are dimensionless. A newly entered futures contract need not have a positive purchase price, so $X_G$ is an exposure normalization, not a return on its initial contract value. If $n$ is the signed number of long contracts and $V_0&gt;0$ the stock portfolio's initial value, define $k=nmG_0/V_0$. Combined normalized gain is then $R_P+kX_G$; negative $k$ represents a short overlay. This first calculation omits financing of intermediate settlement cash flows, as in the chapter's covariance model.</p>
+<p>For variance calculations, center all random quantities by subtracting their means. Let the centered market return be $M$, with variance $s_M^2&gt;0$. Its projection decompositions are</p>
+<p>$$R_P-\mathbb E R_P=\beta_PM+e_P,
+\qquad X_G-\mathbb E X_G=\beta_GM+e_G,$$</p>
+<p>where $\operatorname{Cov}(e_P,M)=\operatorname{Cov}(e_G,M)=0$. The coefficients $\beta_P$ and $\beta_G$ are covariances with $M$ divided by $s_M^2$. Orthogonality to the market does not require $e_P$ and $e_G$ to be uncorrelated with each other.</p>
+<p>The combined beta is $\beta_P+k\beta_G$. If $\beta_G\ne0$, zero beta therefore requires $k_0=-\beta_P/\beta_G$.</p>
+<h3 id="minimize-the-entire-quadratic-including-residual-covariance">Minimize the entire quadratic, including residual covariance</h3>
+<p>Assume $v_G=\operatorname{Var}(X_G)&gt;0$ and write $c_{PG}=\operatorname{Cov}(R_P,X_G)$. Direct expansion and completion of the square give</p>
+<p>$$v(k)=\operatorname{Var}(R_P)+2kc_{PG}+k^2v_G,
+\qquad k_{\mathrm{MV}}=-\frac{c_{PG}}{v_G},$$</p>
+<p>$$\boxed{v(k)=v(k_{\mathrm{MV}})
++v_G(k-k_{\mathrm{MV}})^2.}$$</p>
+<p>Set $c_e=\operatorname{Cov}(e_P,e_G)$ and $v_e=\operatorname{Var}(e_G)$. The factor decompositions give</p>
+<p>$$k_{\mathrm{MV}}=-\frac{\beta_P\beta_Gs_M^2+c_e}
+{\beta_G^2s_M^2+v_e}.$$</p>
+<p>Equating this to $k_0$ and multiplying by the nonzero denominators cancels the common market term. The exact agreement condition is</p>
+<p>$$\boxed{\beta_Gc_e=\beta_Pv_e.}$$</p>
+<p>A residual-free futures regressor satisfies it. Merely requiring each residual to be orthogonal to the market does not.</p>
+<h3 id="a-compatible-covariance-law-gives-different-answers">A compatible covariance law gives different answers</h3>
+<p>Choose $\beta_P=1.2$, $\beta_G=1$, $s_M^2=0.04$, and residual covariance</p>
+<p>$$\operatorname{Cov}\begin{pmatrix}e_P\\e_G\end{pmatrix}
+=\begin{pmatrix}0.01&amp;0.006\\0.006&amp;0.01\end{pmatrix}.$$</p>
+<p>Its eigenvalues are $0.016$ and $0.004$, both positive. Taking the residual pair independent of $M$ gives an explicit valid joint moment model. The resulting portfolio variance is $0.0676$, futures variance $0.05$, and cross-covariance $0.054$.</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Objective</th>
+<th style="text-align: right;">Signed overlay $k$</th>
+<th style="text-align: right;">Remaining beta</th>
+<th style="text-align: right;">Combined variance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero market beta</td>
+<td style="text-align: right;">−1.20</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.010000</td>
+</tr>
+<tr>
+<td>Minimum total variance</td>
+<td style="text-align: right;">−1.08</td>
+<td style="text-align: right;">0.12</td>
+<td style="text-align: right;">0.009280</td>
+</tr>
+</tbody>
+</table></div>
+<p>The variance difference is $0.000720=0.05(0.12)^2$, exactly the completed-square penalty. Keeping a small market exposure reduces total variance in this model because the futures overlay also changes residual exposure.</p>
+<p><strong>Boundary.</strong> The result assumes finite second moments and a fixed linear overlay. It does not minimize margin requirements, worst-case losses, transaction costs, or expected shortfall. A beta mandate and a variance mandate can legitimately choose different positions. Sampling error, settlement financing, and integer contract counts require additional treatment in <a href="ch05.html">Chapters 5</a> and <a href="ch11.html">11</a>.</p>
+<details>
+<summary>Worked check: can an instrument with zero market beta still hedge risk?</summary>
+<p>Yes. If $\beta_G=0$, the overlay cannot change $\beta_P$, so the zero-beta targeting formula is unavailable. But $k_{\mathrm{MV}}=-\operatorname{Cov}(R_P,X_G)/\operatorname{Var}(X_G)$ remains valid when its denominator is positive. A futures exposure correlated with the portfolio's residual can reduce total variance without affecting market beta. A restriction on one factor coefficient is different from a restriction on all covariance.</p>
+</details>
+<h2 id="4-preserving-a-marginal-variance-can-destroy-a-portfolio-hedge">4. Preserving a marginal variance can destroy a portfolio hedge</h2>
+<p><strong>Before.</strong> Cash-flow mapping distinguished present-value and standalone-variance matching from exact replication, but left covariance with the rest of the portfolio implicit.</p>
+<p><strong>After.</strong> The missing term is explicit, and a four-state example changes a perfectly offset portfolio into a risky one despite preserving the mapped claim's entire marginal distribution. <a href="ch24.html#matching-one-claims-variance-need-not-preserve-portfolio-variance">Return to Chapter 24</a>.</p>
+<h3 id="expand-the-quantity-the-risk-report-actually-needs">Expand the quantity the risk report actually needs</h3>
+<p>Let $X$ be an original claim's monetary value change, $M$ its mapped approximation, and $Y$ the monetary change of all other positions. Assume all three have finite second moments. The original and mapped portfolio changes are $Y+X$ and $Y+M$. Expanding both variances yields</p>
+<p>$$\operatorname{Var}(Y+M)-\operatorname{Var}(Y+X)
+=\operatorname{Var}(M)-\operatorname{Var}(X)
++2\operatorname{Cov}(Y,M-X).$$</p>
+<p>If the standalone variances match, only the first difference disappears. Covariance with the surrounding position can still change. Matching expected values or deterministic present values does not eliminate this term either.</p>
+<h3 id="four-equally-likely-scenarios-make-the-failure-visible">Four equally likely scenarios make the failure visible</h3>
+<p>Let $Z,W$ be independent signs, each equally likely to be $-1$ or $+1$. For a monetary scale $s&gt;0$, take $X=sZ$, $M=sW$, and $Y=-sZ$.</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">$Z$</th>
+<th style="text-align: right;">$W$</th>
+<th style="text-align: right;">Original total $Y+X$</th>
+<th style="text-align: right;">Mapped total $Y+M$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">−1</td>
+<td style="text-align: right;">−1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">−1</td>
+<td style="text-align: right;">+1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$2s$</td>
+</tr>
+<tr>
+<td style="text-align: right;">+1</td>
+<td style="text-align: right;">−1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">$-2s$</td>
+</tr>
+<tr>
+<td style="text-align: right;">+1</td>
+<td style="text-align: right;">+1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table></div>
+<p>Both $X$ and $M$ have mean zero, variance $s^2$, and the same two-point marginal law. Nevertheless</p>
+<p>$$\operatorname{Var}(Y+X)=0,\qquad
+\operatorname{Var}(Y+M)=\frac{0+4s^2+4s^2+0}{4}=2s^2.$$</p>
+<p>For $s=1$ currency unit, reported variance changes from zero to two currency units squared. The original claim exactly offsets $Y$; the approximation loses that dependence. This is an abstract risk-mapping example, not an allegation that the recording's interpolation inputs have these particular joint outcomes.</p>
+<h3 id="a-useful-error-measure-includes-the-approximation-residual">A useful error measure includes the approximation residual</h3>
+<p>Write $E=M-X$ for mapping error and $P=Y+X$ for original portfolio change. Then</p>
+<p>$$\operatorname{Var}(P+E)-\operatorname{Var}(P)
+=\operatorname{Var}(E)+2\operatorname{Cov}(P,E).$$</p>
+<p>If $\sigma_P$ and $\sigma_E$ denote their standard deviations, Cauchy–Schwarz bounds the magnitude of this variance difference by $\sigma_E^2+2\sigma_P\sigma_E$. Thus a small mean-square mapping residual supplies information that matching two separate variances does not. In the perfectly offset example, $\sigma_P=0$ and the new variance is exactly the error variance.</p>
+<p>For several surrounding positions, a covariance-based engine must represent cross-covariances with their span. Even matching a complete covariance matrix establishes only second-moment equivalence. Quantile and tail-risk equivalence additionally needs distributional information; arbitrary non-Gaussian laws can share those moments.</p>
+<p><strong>Boundary.</strong> Present-value matching is a valuation constraint; variance matching is a selected risk statistic; statewise replication is an equality of cash flows. Each supports a different conclusion. The construction explains why using a mapped exposure inside a larger portfolio requires more than validating the mapped claim alone.</p>
+<details>
+<summary>Worked check: when would standalone variance matching be sufficient?</summary>
+<p>For this particular surrounding position $Y$, it is sufficient to match the standalone variances and also have $\operatorname{Cov}(Y,M-X)=0$. If the portfolio contains no surrounding position, take $Y=0$ and the variances agree automatically. Requiring the equality for every possible surrounding position is much stronger. For example, choosing $Y=M-X$ forces the error variance to vanish when the standalone variances already agree. A guarantee for one portfolio is not a guarantee for every portfolio into which the claim might later be inserted.</p>
+</details>
+<h2 id="5-expected-shortfall-needs-a-proof-that-respects-probability-atoms">5. Expected shortfall needs a proof that respects probability atoms</h2>
+<p><strong>Before.</strong> The atomic examples were correct, but the convex objective and aggregation property were developed less fully than the calculations.</p>
+<p><strong>After.</strong> The threshold condition is derived from one-sided slopes, the probability mass at the threshold is allocated explicitly, and a bounded-probability optimization proves finite-law subadditivity without independence. <a href="ch23.html#7-tail-severity-and-probability-atoms">Return to Chapter 23</a>.</p>
+<h3 id="define-the-tail-before-averaging-it">Define the tail before averaging it</h3>
+<p>Consider finitely many joint scenarios $i=1,\ldots,N$, with probabilities $p_i&gt;0$, $\sum_i p_i=1$, and monetary losses $\ell_i$. A positive loss is adverse; negative losses are gains. Let $L$ be this random loss and $F_L(x)=\Pr(L\le x)$ its cumulative distribution function. For confidence $0&lt;\alpha&lt;1$, use the lower-quantile convention</p>
+<p>$$\operatorname{VaR}_\alpha(L)
+=\inf\{x:F_L(x)\ge\alpha\},\qquad
+\operatorname{ES}_\alpha(L)
+=\frac1{1-\alpha}\int_\alpha^1
+\operatorname{VaR}_u(L)\,du.$$</p>
+<p>Expected shortfall averages exactly the worst probability mass $\beta=1-\alpha$. A <strong>probability atom</strong> at $a$ means $\Pr(L=a)&gt;0$. Including all outcomes at the threshold can overfill that mass; excluding all of them can underfill it.</p>
+<h3 id="one-sided-slopes-identify-the-optimizing-thresholds">One-sided slopes identify the optimizing thresholds</h3>
+<p>Define $J(a)=a+\mathbb E[(L-a)^+]/\beta$. Every summand is a convex hinge, so $J$ is convex and piecewise linear. Its left and right slopes are</p>
+<p>$$J'_-(a)=1-\frac{\Pr(L\ge a)}\beta,
+\qquad J'_+(a)=1-\frac{\Pr(L&gt;a)}\beta.$$</p>
+<p>The left slope counts mass at $a$; the right slope does not. A minimum occurs exactly when the left slope is nonpositive and the right slope nonnegative:</p>
+<p>$$F_L(a-)\le\alpha\le F_L(a).$$</p>
+<p>The notation $F_L(a-)$ denotes the probability of a strictly smaller loss. The objective tends to $+\infty$ as $a\to+\infty$ and as $a\to-\infty$, so a minimum exists for this finite law. The lower VaR is a minimizer, but a flat segment can provide additional minimizing thresholds.</p>
+<p>For any minimizing $a$, expansion of the hinge gives</p>
+<p>$$\beta J(a)=\mathbb E[L\mathbf1_{\{L&gt;a\}}]
++a\,[\beta-\Pr(L&gt;a)].$$</p>
+<p>The bracket lies between zero and $\Pr(L=a)$. The formula includes all mass strictly above $a$ and only the fraction at $a$ needed to complete the tail. It is exactly the finite quantile-integral construction. Hence</p>
+<p>$$\boxed{\operatorname{ES}_\alpha(L)=\min_aJ(a).}$$</p>
+<p>The general-distribution theorem is <a href="https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf#page=14">Rockafellar and Uryasev, Theorem 10</a>. The finite proof here makes the atom and the optimizer's role explicit rather than applying a continuous conditional-tail formula to discrete data.</p>
+<h3 id="the-same-law-has-three-different-tail-averages">The same law has three different tail averages</h3>
+<p>Take losses $(0,10,100)$ with probabilities $(0.96,0.03,0.01)$. At 95% confidence, VaR is zero and</p>
+<p>$$\operatorname{ES}_{0.95}
+=\frac{0.01(100)+0.03(10)+0.01(0)}{0.05}=26.$$</p>
+<p>By contrast, $\mathbb E[L\mid L&gt;0]=32.5$ averages only four percent of the mass. The conditional mean $\mathbb E[L\mid L\ge0]=1.3$ averages all the mass. Neither equals the required worst-five-percent average. At confidence 97.5%, the tail needs only 1.5% of the mass at 10, giving ES 46.</p>
+<p>At confidence 96%, every $a\in[0,10]$ minimizes $J$, with common value 32.5. The chosen lower VaR is still zero. Nonunique optimization thresholds do not make the minimized risk value ambiguous.</p>
+<h3 id="a-probability-envelope-proves-aggregation">A probability envelope proves aggregation</h3>
+<p>Consider alternative scenario weights $q_i$ satisfying</p>
+<p>$$0\le q_i\le\frac{p_i}\beta,\qquad\sum_iq_i=1.$$</p>
+<p>For every threshold $a$ and every feasible $q$,</p>
+<p>$$\sum_iq_i\ell_i
+=a+\sum_iq_i(\ell_i-a)
+\le a+\frac1\beta\sum_i p_i(\ell_i-a)^+=J(a).$$</p>
+<p>To attain equality, allocate probability $\beta q_i$ to the largest losses first, using no more than each scenario's available mass $p_i$. Fill the remaining amount at the threshold. This constructs feasible maximizing weights and proves</p>
+<p>$$\boxed{\operatorname{ES}_\alpha(L)
+=\max_{q}\sum_iq_i\ell_i.}$$</p>
+<p>This <strong>risk envelope</strong> allows bounded reweighting of scenarios; it does not identify a true forecasting law. The original probabilities remain assumptions of the risk model.</p>
+<p>For two losses $L^{(1)},L^{(2)}$ on the same joint scenarios, the feasible weight set is identical. Therefore</p>
+<p>$$\begin{aligned}
+\operatorname{ES}_\alpha(L^{(1)}+L^{(2)})
+&amp;=\max_q\sum_iq_i(\ell_i^{(1)}+\ell_i^{(2)})\\
+&amp;\le\max_q\sum_iq_i\ell_i^{(1)}
++\max_q\sum_iq_i\ell_i^{(2)}.
+\end{aligned}$$</p>
+<p>This is finite-law <strong>subadditivity</strong>. It requires a common joint scenario model, not independence. Dependence affects those scenarios and the numerical ES; the proof does not make it disappear.</p>
+<p>For contrast, let two independent positions each lose 100 with probability 0.04 and zero otherwise. Each 95% VaR is zero, but their sum has zero-loss probability $0.96^2=0.9216$, so its 95% VaR is 100. Each ES is 80. Combined ES is</p>
+<p>$$\frac{0.0016(200)+0.0484(100)}{0.05}=103.2\le160.$$</p>
+<p>The general inequality follows from the envelope proof; this example independently checks it and exhibits the corresponding VaR failure.</p>
+<p><strong>Boundary.</strong> The proof is for finite joint losses at a fixed confidence level. General integrable distributions need the corresponding measure-theoretic formulation. Empirical probabilities, omitted scenarios, and changing portfolio exposures remain modeling questions. A coherent tail functional cannot repair missing risk data.</p>
+<details>
+<summary>Worked check: why does a whole interval minimize the 96% objective?</summary>
+<p>For $0&lt;a&lt;10$, the probability of a larger loss is $0.04$, equal to $\beta$. Thus both slopes are $1-0.04/0.04=0$. Direct substitution gives $J(a)=a+[0.03(10-a)+0.01(100-a)]/0.04=32.5$. At 0 and 10 the one-sided slope conditions still hold. The objective's minimizing interval and the conventionally selected lower quantile answer different questions.</p>
+</details>
+<h2 id="6-ito-isometry-supplies-the-missing-construction-of-the-integral">6. Itô isometry supplies the missing construction of the integral</h2>
+<p><strong>Before.</strong> The notes specified a mean-square approximation condition, but did not develop the identity that makes the limit exist and makes it independent of the approximation.</p>
+<p><strong>After.</strong> Adapted-step orthogonality gives an exact norm identity. Completeness then constructs the integral and explains why arbitrary point sampling can fail. This is the square-integrable foundation used by the localization argument in Issue 1. <a href="ch17.html#4-the-ito-integral-explains-the-missing-term-2241">Return to Chapter 17</a>.</p>
+<h3 id="a-holding-must-be-chosen-before-its-next-gain">A holding must be chosen before its next gain</h3>
+<p>Let $0=t_0&lt;t_1&lt;\cdots&lt;t_m=T$ be a deterministic partition. On $[t_j,t_{j+1})$, let $H_t=H_j$, where $H_j$ is known from Brownian history $\mathcal F_{t_j}$ and has finite second moment. Such a step process is <strong>adapted</strong>: it does not depend on an unobserved future increment. Define its stochastic integral by the finite trading-gain sum</p>
+<p>$$I(H)=\sum_{j=0}^{m-1}H_j\Delta W_j,
+\qquad\Delta W_j=W_{t_{j+1}}-W_{t_j}.$$</p>
+<p>The next increment has conditional mean zero and conditional second moment $t_{j+1}-t_j$. Thus $\mathbb E I(H)=0$. For $i&lt;j$, the earlier gain $H_i\Delta W_i$ and current coefficient $H_j$ are already known at $t_j$. Conditioning on $\mathcal F_{t_j}$ kills the expected cross term containing the centered future increment $\Delta W_j$.</p>
+<p>On the diagonal, independence of that increment from current information gives $\mathbb E[H_j^2(\Delta W_j)^2]=\mathbb E[H_j^2](t_{j+1}-t_j)$. Expanding the square therefore proves</p>
+<p>$$\boxed{\mathbb E[I(H)^2]
+=\sum_j\mathbb E[H_j^2](t_{j+1}-t_j)
+=\mathbb E\int_0^TH_t^2dt.}$$</p>
+<p>This is <strong>Itô isometry</strong>. It is an equality of squared norms, not a claim that an integral with a random integrand is normally distributed.</p>
+<h3 id="extend-by-continuity-in-the-correct-norm">Extend by continuity in the correct norm</h3>
+<p>Define the product-space norm $\|H\|^2=\mathbb E\int_0^T H_t^2dt$. Integrands that differ only on a set of zero time-probability measure represent the same element. Start with the closure of the adapted step processes in this norm. For any $H$ in that closure, choose step approximations $H^{(n)}$ converging to it.</p>
+<p>Apply isometry to the difference of two approximations, using a common refinement of their partitions:</p>
+<p>$$\mathbb E|I(H^{(n)})-I(H^{(m)})|^2
+=\|H^{(n)}-H^{(m)}\|^2\longrightarrow0.$$</p>
+<p>The square-integrable random variables form a complete space: every mean-square Cauchy sequence has a mean-square limit. Define that limit to be $\int_0^T H_t\,dW_t$. If another valid approximation approaches the same $H$, isometry applied to the difference proves that it gives the same limit. The norm identity and zero expectation pass to the limit. Applying the construction over every time interval also gives a square-integrable martingale.</p>
+<p>A process is <strong>predictable</strong> if it is measurable with respect to the sigma-algebra on time and outcomes generated by adapted left-continuous processes. This specifies a nonanticipating measurability class rather than requiring every predictable process itself to have left-continuous paths. The predictable square-integrable integrands are represented by the closure above; that identification is the standard density result in stochastic integration. The construction itself requires only closure, completeness, and the proved isometry. <a href="https://www.math.cmu.edu/~xig/Files/Teaching/Stochastic%20Calculus%20%28Fall%202016%29/Stochastic%20Calculus.pdf#page=79">Geng, §5.2</a>, develops the general stochastic-integral setting.</p>
+<h3 id="a-random-adapted-example-has-second-moment-125">A random adapted example has second moment 1.25</h3>
+<p>Take two intervals of length $h=1/2$. Set the first holding to one and the second to $1+W_h$, which is available when the second interval begins. Let $A=W_h$ and $B=W_1-W_h$; they are independent centered normals of variance $h$. Then</p>
+<p>$$I=A+(1+A)B=A+B+AB.$$</p>
+<p>Every cross term in its second moment has zero expectation. Hence</p>
+<p>$$\mathbb EI=0,\qquad
+\mathbb E I^2=h+h+h^2=1.25.$$</p>
+<p>Isometry gives the same answer from $h\mathbb E[1^2]+h\mathbb E[(1+A)^2]=h+h(1+h)$. Two-dimensional Gaussian quadrature checks the direct expression independently in the laboratory. The second holding is random, but it is chosen before the second price increment.</p>
+<h3 id="why-ordinary-sampled-values-can-select-the-wrong-object">Why ordinary sampled values can select the wrong object</h3>
+<p>Take the deterministic function $H_t=\mathbf1_{\mathbb Q}(t)$ on $[0,1]$, where $\mathbb Q$ in this expression means the rational numbers. It is zero almost everywhere in time, so its product-space norm and stochastic integral are zero. But sampling only rational partition points makes every sampled coefficient one and gives sum $W_1$. Those sampled step functions do not converge to $H$ in the required norm.</p>
+<p>Continuous adapted sample paths with $\mathbb E\sup_{t\le T}|H_t|^2&lt;\infty$ provide a useful sufficient setting: path continuity gives pointwise step approximation, and the square-integrable supremum permits dominated convergence in the product-space norm. Mere adaptedness does not license every sampling scheme.</p>
+<p>For $H_t=W_t$, the exact finite identity</p>
+<p>$$W_T^2=2\sum_jW_{t_j}\Delta W_j+\sum_j(\Delta W_j)^2$$</p>
+<p>explains the correction to ordinary calculus. The final sum has expectation $T$ and variance $2\sum_j(t_{j+1}-t_j)^2$, at most $2T$ times the largest interval length. It therefore converges in mean square to $T$. Also</p>
+<p>$$\mathbb E\int_0^T|W_t-W_{t_j(t)}|^2dt
+\le T\max_j(t_{j+1}-t_j)\longrightarrow0,$$</p>
+<p>where $t_j(t)$ is the left endpoint of the interval containing $t$. Thus the left-point sum converges to the integral already constructed, and</p>
+<p>$$\int_0^T W_t\,dW_t=\frac{W_T^2-T}{2}.$$</p>
+<p><strong>Boundary.</strong> The zero-mean and mean-square claims here use square-integrability. Local stochastic integrals allow broader classes after localization. Anticipating integrands require a different theory and cannot be silently inserted into this adapted construction.</p>
+<details>
+<summary>Worked check: what goes wrong if the holding knows the future?</summary>
+<p>If every coefficient is chosen as $W_T$, the sampled sum is $W_T\sum_j\Delta W_j=W_T^2$, with expectation $T$. This is not an Itô integral under the stated adapted rules: $W_T$ is unavailable before the intervening increments. By contrast, the legitimate adapted integrand $W_t$ gives $(W_T^2-T)/2$, with expectation zero. The failure is an information constraint, not a missing algebraic factor.</p>
+</details>
+<h2 id="7-a-tiny-nonzero-payoff-slope-is-not-a-flat-zero-interval">7. A tiny nonzero payoff slope is not a flat zero interval</h2>
+<p><strong>Before.</strong> The payoff analyzer used an absolute tolerance to classify interval slopes and values as zero. That could turn a tiny genuine position into an entire break-even region.</p>
+<p><strong>After.</strong> Exact-zero classification distinguishes constant zero, constant nonzero, and affine nonconstant pieces. Regression tests exercise tiny stock and call positions, while rational weights preserve intended exact cancellations. This was an actual program correction as well as a mathematical clarification. <a href="ch15.html">Chapter 15</a> and its <a href="labs/ch15.py">payoff analyzer</a> give the complete strategy implementation.</p>
+<h3 id="a-piecewise-linear-payoff-has-a-finite-exact-decision-procedure">A piecewise-linear payoff has a finite exact decision procedure</h3>
+<p>For terminal stock $S\ge0$, consider signed stock quantity $a$, terminal cash $b$, calls with quantities $q_j$ and strikes $K_j$, and puts with quantities $u_j$ and strikes $J_j$. Its terminal payoff is</p>
+<p>$$P(S)=aS+b+\sum_jq_j(S-K_j)^+
++\sum_ju_j(J_j-S)^+.$$</p>
+<p>If initial cost is $C_0$ and the date-zero price of one unit of terminal cash is discount factor $D&gt;0$, financed profit is $\Pi(S)=P(S)-C_0/D$. Strike values partition the nonnegative price axis into finitely many intervals. Inside each, every option selects one fixed payoff branch, so</p>
+<p>$$\Pi(S)=AS+B$$</p>
+<p>for constants $A,B$ determined by that interval. The classification is exact:</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Coefficients</th>
+<th>Break-even set within the interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$A\ne0$</td>
+<td>The single candidate $S_*=-B/A$, retained only if it lies in the interval.</td>
+</tr>
+<tr>
+<td>$A=0$, $B=0$</td>
+<td>Every point in the interval.</td>
+</tr>
+<tr>
+<td>$A=0$, $B\ne0$</td>
+<td>No point in the interval.</td>
+</tr>
+</tbody>
+</table></div>
+<p>For extrema, finite affine pieces attain their extrema at endpoints. On the final unbounded interval, a positive slope gives unbounded profit above and a negative slope unbounded loss below. A zero final slope gives a constant tail. No arbitrary maximum sampled stock price can replace this sign analysis. Shared strike roots must be deduplicated across neighboring intervals.</p>
+<h3 id="the-tolerance-changed-the-mathematical-question">The tolerance changed the mathematical question</h3>
+<p>Buy $q=10^{-14}$ shares at 100 with zero interest. Profit is</p>
+<p>$$\Pi(S)=10^{-14}(S-100).$$</p>
+<p>Its slope is small but nonzero, and it has exactly one break-even point, $S=100$. The old test could regard both $A=10^{-14}$ and $B=-10^{-12}$ as zero under absolute tolerance $10^{-12}$. The represented linear function was then classified as a zero interval.</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th style="text-align: right;">Terminal stock $S$</th>
+<th style="text-align: right;">True profit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">$-10^{-14}$</td>
+</tr>
+<tr>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">$10^{-14}$</td>
+</tr>
+</tbody>
+</table></div>
+<p>Now buy the same tiny quantity of a strike-100 call with premium 8. Its financed profit is $q[(S-100)^+-8]$. Below the strike it is the nonzero constant $-8q$; above it the sole root is $S=108$. There is no flat zero interval on either branch. The repaired tests check both roots, the signs on their two sides, and the continued correct classification of a genuinely zero portfolio.</p>
+<p>An absolute tolerance implicitly changes a function when it is used as an equality rule. For a different task, such as accepting monetary error within one cent on a bounded stock-price region, an approximation criterion can be useful. On $[L,U]$, replacing $AS+B$ by zero has worst absolute error $\max(|AL+B|,|AU+B|)$. On an unbounded interval, every nonzero slope eventually violates every finite absolute error threshold. The domain and error norm must be part of the approximation contract.</p>
+<h3 id="exact-zero-tests-still-depend-on-the-arithmetic-representation">Exact zero tests still depend on the arithmetic representation</h3>
+<p>Removing the tolerance fixes the reported tiny-position failure. It does not make arbitrary floating-point cancellation symbolically exact. Mathematically $2/3-1+1/3=0$; binary floating arithmetic can leave a small residual under a chosen evaluation order. Mistaking that residual for a genuine final slope can falsely report an unbounded tail.</p>
+<p>For contractual quantities intended as rational numbers, retain rational arithmetic when deriving the coefficients. For example, a 90/100/120 call butterfly uses quantities $(2/3,-1,1/3)$. Its final slope is exactly zero. With premiums $(14,8,2)$, its initial cost is 2; peak payoff is $20/3$; peak profit is $14/3$; and its isolated profit roots are 93 and 114. The equal-spacing quantities $(1,-2,1)$ would instead leave a terminal payoff of $-10$ above 120. The strike spacing determines the weights.</p>
+<div class="codewrap"><button aria-label="Copy code" class="copybtn" type="button">Copy</button><pre><code class="language-python">from fractions import Fraction
+
+quantity = Fraction(1, 10**14)
+stock_root = -(-100 * quantity) / quantity
+call_root = -(-108 * quantity) / quantity
+tail_slope = Fraction(2, 3) - 1 + Fraction(1, 3)
+assert stock_root == 100 and call_root == 108
+assert tail_slope == 0
+</code></pre></div>
+<p><strong>Boundary.</strong> Exact arithmetic proves the classification for the stated rational model. Floating inputs, estimated Greeks, execution fees, or uncertain contract quantities need their own numerical and economic error treatment. A model may deliberately discard an immaterial exposure, but it should label that decision as approximation rather than report an exact zero-payoff region.</p>
+<details>
+<summary>Worked check: can a small slope be ignored on an unbounded price axis?</summary>
+<p>No, if the desired statement is an exact tail bound or a uniform finite absolute-error guarantee. For $A\ne0$, $|AS+B|\to\infty$ as $S\to\infty$. On a bounded range it can be approximated by zero to a specified error, checked at the two endpoints. A bounded-domain approximation and an exact break-even classification have different contracts.</p>
+</details>
+<h2 id="reproduce-the-checks-and-inspect-the-limits">Reproduce the checks and inspect the limits</h2>
+<p>Run <a href="labs/mathematical-repairs.py">the companion laboratory</a> with the book's pinned environment. It reads no market data, changes no files, and executes no trades. The program checks Gaussian call integration and moments, an independent portfolio KKT solve, the beta/variance counterexample, every state of the mapping example, atomic ES by tail filling and a distinct linear program, adapted-integrand Gaussian quadrature, and exact rational payoff classifications.</p>
+<p>The laboratory prints one successful certificate for each issue and rejects invalid finite-scenario and affine-classifier inputs. The proofs establish their quantified results under stated hypotheses; the computations check particular constructions and their implementation. Neither is an empirical calibration of actual returns or trading conditions.</p>
+<p>The seven repairs share a useful discipline. State the object being controlled, preserve the hypotheses that make the inference valid, and make the failure case calculable. A correct numerical output is most useful when the reader can explain both why it is correct and what it leaves unresolved.</p></article>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

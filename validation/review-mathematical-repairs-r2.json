@@ -1,0 +1,30 @@
+{
+  "reviewer": "source_research",
+  "author": "lead",
+  "disposition": "accepted",
+  "report": "validation/review-mathematical-repairs-r2.md",
+  "scope": [
+    "Full new manuscript and full laboratory source, including all seven proofs/examples/limits and final localized repairs",
+    "Fresh complete lab executions and independent rational, primal-LP, Gaussian-moment and affine-classification checks",
+    "Selected primary PDF passages and exact page locators; no repeated full-caption, audiovisual, full-primary-document or browser visual audit"
+  ],
+  "findings_fixed": [
+    "Dimensionally explicit futures quotation/gain/notional normalization and settlement-financing boundary",
+    "Uniform-integrability convergence citation placed beside the limiting step"
+  ],
+  "other_reviewer_repairs_rechecked": [
+    "Local predictable-process definition",
+    "Explicit tiny-call profit-sign and root regressions"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "mathematical-repairs.md": "c16a4b2b466c9f339ccaa7bda9c7b05c994b29b131a17d52de3979d0d1030d72",
+    "labs/mathematical-repairs.py": "bd83c70386b29374723d3a5e9b45c8d758ff6b8ec2b141b72c35eb19a46dea50"
+  },
+  "runtime": {
+    "full_lab": "passed after final changes",
+    "style": "passed, 79 columns, E226/W503/W504 exceptions",
+    "independent_checks": "passed",
+    "general_theorem_boundary": "Numerical checks verify examples; general probability results explicitly invoked remain invoked."
+  }
+}

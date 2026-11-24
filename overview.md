@@ -6,6 +6,10 @@ The source course is **NPTEL Financial Derivatives & Risk Management, IIT Roorke
 
 [Original playlist](https://www.youtube.com/playlist?list=PLLy_2iUCG87CTB2vv9njHaJbmQoa9S5gK) · [Official course](https://nptel.ac.in/courses/110107128) · [Recording map](source-map.html) · [Study routes](study-guide.html) · [Interactive laboratory](numerical-lab.html)
 
+## Seven mathematical repairs, developed in full
+
+The [before-and-after mathematical companion](mathematical-repairs.html) develops seven important repairs through explicit assumptions, proofs, numerical examples, counterexamples, and worked checks. It covers true-martingale pricing, global portfolio optimality, hedge objectives, covariance-preserving risk mapping, expected shortfall with probability atoms, Itô isometry, and exact payoff classification. Read it as an advanced review of what a financial calculation actually establishes.
+
 ## How to read this edition
 
 The intended reader is mathematically mature and new to derivatives. Algebra, linear algebra, elementary calculus, and probability are useful prerequisites. Finance-specific terms are introduced before use. Brownian motion, Itô calculus, pricing probabilities, and risk measures are built when the argument needs them, rather than invoked as unexplained vocabulary.

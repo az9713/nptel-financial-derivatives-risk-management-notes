@@ -44,3 +44,9 @@ critical_revision_publication: verified-github-pages
 
 personal_information_audit: validation/personal-info-audit.json
 personal_information_policy: email-retained-neutral-display-names
+
+mathematical_companion: mathematical-repairs.html
+companion_independent_acceptances: 2
+companion_release_validation: passed
+companion_publication: pending-hosted-verification
+companion_evidence: validation/mathematical-repairs-checks.json

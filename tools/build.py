@@ -105,6 +105,7 @@ def shell(title, content, chapters, current='', script=''):
 <a href="source-map.html">Recordings and source map</a>
 <a href="study-guide.html">Study guide and dependency map</a>
 <a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="mathematical-repairs.html">Seven mathematical repairs</a>
 <a href="references.html">References and evidence limits</a>{nav}</nav></aside>
 <main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
 {content}
@@ -191,12 +192,29 @@ def build():
                '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>', chapters)
     for stem, title in [('study-guide', 'Study guide and dependency map'),
                         ('references', 'References and evidence limits'),
-                        ('numerical-lab', 'Interactive numerical laboratory')]:
+                        ('numerical-lab', 'Interactive numerical laboratory'),
+                        ('mathematical-repairs', 'Seven mathematical repairs')]:
         path = ROOT / f'{stem}.md'
         if path.exists():
             script = '<script src="assets/lab.js" defer></script>' if stem == 'numerical-lab' and (ROOT / 'assets/lab.js').exists() else ''
-            write_page(f'{stem}.html', title, '<h1>' + title + '</h1>' +
-                       render_markdown(path.read_text(encoding='utf-8')), chapters, script=script)
+            body = render_markdown(path.read_text(encoding='utf-8'))
+            if stem == 'mathematical-repairs':
+                soup = BeautifulSoup(body, 'html.parser')
+                toc = '<div class="toc"><strong>On this page</strong><ul>' + ''.join(
+                    f'<li><a href="#{h["id"]}">{html.escape(h.get_text(" ", strip=True))}</a></li>'
+                    for h in soup.select('h2[id]')) + '</ul></div>'
+                controls = ('<div class="toolbar">'
+                            '<button id="solutions" type="button">Open worked checks</button>'
+                            '<button id="print" type="button">Print / save PDF</button>'
+                            '<button id="theme" type="button" aria-pressed="false">Use light theme</button>'
+                            '<a href="mathematical-repairs.md">Editable source</a></div>')
+                body = ('<p class="subtitle">Before and after, with complete arguments</p>'
+                        + controls
+                        + '<p class="meta">On narrow screens, pan wide tables and equations sideways.</p>'
+                        + toc + '<article class="mathematical-repairs">'
+                        + body + '</article>')
+            write_page(f'{stem}.html', title, '<h1>' + title + '</h1>' + body,
+                       chapters, script=script)
     (ROOT / 'book.json').write_text(json.dumps(
         dict(title=TITLE, subtitle=SUBTITLE, chapters=chapters),
         indent=2, ensure_ascii=False) + '\n', encoding='utf-8', newline='\n')
