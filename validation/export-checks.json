@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "payload_commit": "aa854811e0402550801f5a73a8cb2f64b52b6425",
+  "method": "Clean --no-local clone of the committed public repository; no private acquisition directory or local input/handoff copied",
+  "steps": [
+    {
+      "command": "python figures/make_figures.py",
+      "exit_code": 0,
+      "elapsed_seconds": 14.49
+    },
+    {
+      "command": "python labs/ch15.py --figure figures/ch15-payoff-atlas.svg",
+      "exit_code": 0,
+      "elapsed_seconds": 6.69
+    },
+    {
+      "command": "python tools/build.py",
+      "exit_code": 0,
+      "elapsed_seconds": 9.05
+    },
+    {
+      "command": "python tools/check.py",
+      "exit_code": 0,
+      "elapsed_seconds": 31.61
+    },
+    {
+      "command": "python tools/audit_book.py",
+      "exit_code": 0,
+      "elapsed_seconds": 1.26
+    },
+    {
+      "command": "python tools/release_check.py",
+      "exit_code": 0,
+      "elapsed_seconds": 7.64
+    }
+  ],
+  "tracked_tree_unchanged_after_regeneration_and_checks": true,
+  "python": "3.13.5",
+  "platform": "Windows",
+  "evidence_boundary": "This is an independently created public checkout on the local host. GitHub Actions separately verifies the archive on Linux with the pinned runtime. No claim of scientific truth follows from byte reproducibility."
+}

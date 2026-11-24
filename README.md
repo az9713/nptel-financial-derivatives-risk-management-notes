@@ -85,13 +85,13 @@ python tools/browser_check.py
 
 Use the browser check's `--browser` option to select an existing Chromium-compatible executable. The development-only `--allow-partial` flag on package/release tools permits a pilot; it does not certify the full edition. GitHub Actions checks the complete staged public site and deploys only after its required checks pass.
 
-The public-input rebuild uses checked-in manuscripts, metadata, assets, and tools. It does not require private transcripts, downloaded PDFs, acquisition caches, or machine-specific paths. [Production workflow](WORKFLOW.md) · [Book specification](plan/book-spec.json).
+The public-input rebuild uses checked-in manuscripts, metadata, assets, and tools. The optional network collector in tools/acquire_sources.py separately requires requests; it is not invoked by the offline build or release checks. It does not require private transcripts, downloaded PDFs, acquisition caches, or machine-specific paths. [Production workflow](WORKFLOW.md) · [Book specification](plan/book-spec.json).
 
 ## Review and evidence
 
 Release requires two independent current scientific/editorial acceptances for each chapter's actual Markdown, metadata, and laboratory digests. Reviewers do not accept their own authored chapters. Findings and repairs remain inspectable in `validation/review-*.md` and the corresponding JSON receipts. The validators also record fresh lab execution, source coverage, timestamp bounds, links, typesetting, reader controls, and desktop/mobile layout.
 
-The complete prepublication check passed all24fresh laboratory executions,144exercise structures,61source-reading identity/digest matches,154timestamp bounds, and58offline desktop/phone page checks. All48chapter acceptances are current and independent of the mapped chapter author. The public-input rebuild reproduced29HTML pages andbook.json byte for byte. [Package](validation/package-checks.json) · [Book audit](validation/book-audit.json) · [Review and rebuild gate](validation/release-checks.json) · [Offline browser](validation/browser-checks.json) · [Source reading](validation/source-reading-audit.json).
+The complete prepublication check passed all 24 fresh laboratory executions, 144 exercise structures, 61 source-reading identity/digest matches, 154 timestamp bounds, and 58 offline desktop/phone page checks. All 48 chapter acceptances are current and independent of the mapped chapter author. The public-input rebuild reproduced 29 HTML pages and book.json byte for byte. [Package](validation/package-checks.json) · [Book audit](validation/book-audit.json) · [Review and rebuild gate](validation/release-checks.json) · [Offline browser](validation/browser-checks.json) · [Source reading](validation/source-reading-audit.json).
 
 Scientific review, runtime checks, browser checks, rebuild reproducibility, and live publication integrity are separate forms of evidence. They are not human expert certification or formal verification of every claim. Consult the actual scoped validation records rather than inferring completion from headings or chapter counts.
 

@@ -73,8 +73,8 @@
     },
     {
       "path": ".github/workflows/publish.yml",
-      "bytes": 2128,
-      "sha256": "c32f515ebeffee48034928a48d24a566340f603ac69553cf285ebdb038f8d4a1",
+      "bytes": 2136,
+      "sha256": "04e06340965a57a6daaf2bedc12c94632100dc2fc7e02c29437ea01003434d7b",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -799,8 +799,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 11308,
-      "sha256": "676bcdc45abee00bd0b08ff8af5cb385aea5297a85020ff945bbefd5f6c891bd",
+      "bytes": 11470,
+      "sha256": "5e8809bddf713c5d85dddcefe71dff4b22a04a3bf12c1bb31605a6f71f498118",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -936,6 +936,12 @@
       "purpose": "scoped production, review, or validation evidence"
     },
     {
+      "path": "validation/export-checks.json",
+      "bytes": 1294,
+      "sha256": "a081724e3c0acad3905ccca5e3885afc5a7822d6cd82d955edd149c0c712595a",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
       "path": "validation/line-ending-normalization.json",
       "bytes": 4764,
       "sha256": "5f9d3088762cd7e7b5fc8d184622cde55d3e2b14f2f4e48dc1ff12deb4161e51",
@@ -961,8 +967,8 @@
     },
     {
       "path": "validation/parity-audit.md",
-      "bytes": 4751,
-      "sha256": "4676bfd6f48b2b73aaf02627a8bcc0df96fffc25483ec84d09b64a34180c97af",
+      "bytes": 4772,
+      "sha256": "3d835ac047239bf1f4601135340b0a6edbb99ffdb4aa612dd1ca4e0be729525e",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -1719,6 +1725,12 @@
       "path": "validation/support-review.md",
       "bytes": 1766,
       "sha256": "f38b05f97958918731add61c23280ffbfe6f669f667ae1e431d6be9514db988d",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/workflow-repair.json",
+      "bytes": 627,
+      "sha256": "f2c33b710f5caf4b169abff00b5ddd93d484a0594d86870287d83f2ad3e753a4",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
