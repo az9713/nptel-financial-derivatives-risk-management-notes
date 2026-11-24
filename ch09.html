@@ -22,7 +22,7 @@
 <h1>09. Duration cancels a first derivative, not every interest-rate risk</h1>
 <p class="meta"><a href="https://www.youtube.com/watch?v=pu7ynYUrDDg">Recording 22</a>, <a href="https://www.youtube.com/watch?v=WGKvJQCY__0">Recording 23</a> · Expanded, independently developed exposition</p>
 <div class="objectives"><strong>What you will learn</strong><ul><li>Derive duration, convexity and correctly scaled DV01</li><li>Quantify Taylor approximation errors</li><li>Derive the duration-horizon immunization condition</li><li>Diagnose nonparallel curve risk after duration matching</li></ul>
-<p><strong>Prerequisites:</strong> Chapter8 cash-flow valuation and yield conventions; two derivatives and Taylor expansion.</p></div>
+<p><strong>Prerequisites:</strong> Chapter 8 cash-flow valuation and yield conventions; two derivatives and Taylor expansion.</p></div>
 <div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
 <button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
 <a href="chapters/ch09.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-state-which-rate-moves-and-which-cash-flows-remain-fixed-0510">1. State which rate moves and which cash flows remain fixed 05:10</a></li><li><a href="#2-duration-is-a-present-value-time-average-and-a-sensitivity-1120">2. Duration is a present-value time average and a sensitivity 11:20</a></li><li><a href="#3-convexity-quantifies-the-leading-departure-from-the-tangent-2545">3. Convexity quantifies the leading departure from the tangent 25:45</a></li><li><a href="#4-a-duration-horizon-balances-reinvestment-and-sale-price-effects-0600">4. A duration horizon balances reinvestment and sale-price effects 06:00</a></li><li><a href="#5-assetliability-matching-controls-surplus-derivatives">5. Asset–liability matching controls surplus derivatives</a></li><li><a href="#6-a-curve-is-a-vector-of-risk-coordinates">6. A curve is a vector of risk coordinates</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
@@ -64,6 +64,12 @@ D_{\rm mod}=\frac{D_{\rm Mac}}{1+y_b/a}.$$</p>
 +\frac12\mathcal C(\Delta y_b)^2+O((\Delta y_b)^3).$$</p>
 <p>For a finite fixed payment schedule the function is smooth on $y_b&gt;-1$. Taylor's theorem gives an exact remainder $B'''(\xi)(\Delta y_b)^3/(6B(y_b))$ for some intermediate $\xi$, as long as the whole interval stays in that domain. Here $B'''&lt;0$. For a positive yield shock the quadratic approximation overstates the true price and the tangent understates it. The second-order term often improves accuracy, but a general claim that each additional Taylor term always improves every large-shock estimate would require more control.</p>
 <p>For the opening face-100 bond, payments are $(12,12,12,12,112)$. The lab computes price, duration, convexity, and both approximations at 18%, then reprices at 25%. Price starts near 81.237 and falls near 65.04; the precise numbers are printed by the lab. The duration-only estimated decline is larger than the actual decline, and the positive convexity correction moves the estimate toward the true price. This independently recomputes the lecture's illustrative large-shock case rather than treating its rounded 81.224 and 65 figures as exact inputs.</p>
+<p>We can bound the remaining error rather than merely observe that it is smaller. For this fixed positive payment stream,</p>
+<p>$$B'''(y)=-\sum_k k(k+1)(k+2)C_k(1+y)^{-k-3}.$$</p>
+<p>For a positive shock $h$, the magnitude $-B'''(y)$ decreases with $y$. If $Q_2$ denotes the second-order price estimate, Taylor's intermediate-point remainder therefore gives</p>
+<p>$$\frac{-B'''(y_b+h)}{6}h^3
+\le Q_2-B(y_b+h)\le\frac{-B'''(y_b)}{6}h^3.$$</p>
+<p>At $y_b=0.18$ and $h=0.07$, these bounds are $0.260714$ and $0.408113$ per face-100 bond. The actual quadratic overstatement, approximately $0.365477$, falls between them. This is a uniform finite-interval certificate under the fixed-payment model, stronger than checking a few nearby prices. It also makes the limitation concrete: even the upper bound grows cubically in the shock and depends on derivatives across an admissible rate interval.</p>
 <p>Convexity is a normalized second derivative in a financial rate coordinate. The Euclidean curvature of the plotted curve is $|B''|/[1+(B')^2]^{3/2}$ after choosing compatible coordinate scales. These are not the same quantity: rescaling the axes changes the visual geometry. The lecture's geometric discussion motivates the second derivative, but practical price approximation uses the explicitly defined derivatives above.</p>
 <h2 id="4-a-duration-horizon-balances-reinvestment-and-sale-price-effects-0600">4. A duration horizon balances reinvestment and sale-price effects <a href="https://www.youtube.com/watch?v=WGKvJQCY__0&amp;t=360s">06:00</a></h2>
 <p>Suppose the curve is flat at annual effective rate $y_b$, then undergoes an immediate small parallel change and stays at the new common rate. Assume the same rate applies both to coupon reinvestment and the discounting of the remaining bond at sale, payments remain fixed, and trading is frictionless. At a holding horizon $H$ years, accumulated received coupons plus the value of remaining payments combine into</p>
@@ -91,13 +97,13 @@ D_{\rm mod}=\frac{D_{\rm Mac}}{1+y_b/a}.$$</p>
 <p>$$50e^{-\delta}+50e^{-3\delta}-100e^{-2\delta}
 =100e^{-2\delta}(\cosh\delta-1)\ge0.$$</p>
 <p>This particular payment arrangement has an exact nonnegative surplus for common shifts, stronger than its local first-order statement. It follows from the specified two-zero construction and common shift, not from duration matching alone.</p>
-<p>Now increase the one-year zero rate by 1%, decrease the three-year rate by 1%, and leave the two-year rate unchanged. Asset value becomes $50e^{-0.01}+50e^{0.03}$, while liability stays 100. Reversing the twist gives $50e^{0.01}+50e^{-0.03}&lt;100$. The same duration-matched portfolio can then have a negative surplus. A scalar parallel sensitivity cannot cancel two independent maturity-specific directions.</p>
+<p>Now increase the one-year zero rate by 1%, decrease the three-year rate by 1%, and leave the two-year rate unchanged. Asset value becomes $50e^{-0.01}+50e^{0.03}$, while liability stays 100. Reversing the twist gives $50e^{0.01}+50e^{-0.03}&lt;100$. The same duration-matched portfolio can then have a negative surplus. A scalar parallel sensitivity cannot cancel both distinct maturity-specific directions. Their statistical correlation does not alter this algebraic mismatch.</p>
 <h2 id="6-a-curve-is-a-vector-of-risk-coordinates">6. A curve is a vector of risk coordinates</h2>
-<p>For independent continuous zero-rate shocks $\Delta z_k$ at the payment dates, first-order price change is</p>
+<p>For maturity-specific continuous zero-rate shocks $\Delta z_k$ at the payment dates, first-order price change is</p>
 <p>$$\Delta B\approx-\sum_k t_kC_ke^{-z_kt_k}\Delta z_k.$$</p>
 <p>The gradient contains a separate dollar sensitivity for each date. Parallel duration sums these components; that sum loses the information about which maturities carry the risk. Key-rate methods choose a finite set of curve coordinates and a specified interpolation rule, then measure sensitivity to each coordinate. Their values depend on that choice and must be used consistently between assets, liabilities, and hedge instruments.</p>
 <p>Even a perfect first-order match for chosen curve coordinates leaves second-order exposure, interpolation/model error, changing cash flows, and any spread or credit risks outside those coordinates. Duration also changes as time passes and coupons are paid, so a portfolio initially matched to a liability generally needs reassessment. A statement about a reference-date derivative is not a permanent property of a trading strategy.</p>
-<p>Run <a href="labs/ch09.py">the laboratory</a> to verify analytical derivatives against finite differences, the basis-point scale, the large-shock approximations, the duration-horizon stationary point, and the parallel-versus-twist counterexample. The code separates exact repricing from approximations and asserts the assumptions each numerical certificate actually tests.</p>
+<p>Run <a href="labs/ch09.py">the laboratory</a> to verify analytical derivatives against finite differences, the basis-point scale, the large-shock approximations and their finite-interval cubic-error bounds, the duration-horizon stationary point, and the parallel-versus-twist counterexample. The code separates exact repricing from approximations and asserts the assumptions each numerical certificate actually tests.</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Derive Macaulay and modified duration from the annual price function. Explain the $10^{-4}$ in DV01 and how the nominal semiannual convention changes the modified-duration denominator.</li>
@@ -172,6 +178,18 @@ def main():
     quadratic = value * (1 - dmod * shock + convex * shock**2 / 2)
     assert linear &lt; exact &lt; quadratic
     assert abs(quadratic - exact) &lt; abs(linear - exact)
+
+    def third_derivative(rate):
+        return -sum(
+            k * (k + 1) * (k + 2) * c / (1 + rate)**(k + 3)
+            for k, c in enumerate(cash, 1)
+        )
+
+    remainder_lower = -third_derivative(y + shock) * shock**3 / 6
+    remainder_upper = -third_derivative(y) * shock**3 / 6
+    assert remainder_lower &lt;= quadratic - exact &lt;= remainder_upper
+    assert isclose(remainder_lower, 0.2607141748736001)
+    assert isclose(remainder_upper, 0.4081130974574006)
     w = wealth(cash, y, dmac)
     wup, wdown = wealth(cash, y + eps, dmac), wealth(cash, y - eps, dmac)
     assert abs((wup - wdown) / (2 * eps)) &lt; 1e-4

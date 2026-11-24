@@ -1,3 +1,5 @@
+> Historical edition review retained below. Its full-reading claims apply to the prior edition; the current incremental review is separately recorded at the end.
+
 # Independent scientific and editorial review — Chapter22
 
 Reviewer source_research, independent of scientific_review author. Full chapter, metadata, all six worked solutions and complete laboratory source read; fresh execution passed. Full normalized caption55 was independently read sequentially during this review cycle; other assigned sources56–57 are covered by the author ledger and selected mathematical cross-checks, not a claimed full repeat audiovisual audit.
@@ -7,3 +9,9 @@ Checked the advance FRA settlement, exact single-curve dated-bond replication an
 One domain clarification was requested and rechecked: section3 now explicitly restricts telescoping/par formulas to t≤T0 before the first reset and directs post-reset valuation to the known-first-coupon treatment. No algorithm changes were needed.
 
 Independently inspected Bianchetti PDFslides5/8: forwarding/discount separation and payment-date pricing expectations are supported. Independently inspected NYFed SOFR Averages/Index methodology: business-day compounding, preceding-business-day simple accrual for nonbusiness days and actual/360 convention are supported. The manuscript correctly distinguishes administrator averages from contract-specific swap terms. Caption55 confirms the source settlement and fixed-versus-floating direction; subsequent added qualifications are attributed to the edition. No remaining findings; exact current files accepted.
+
+## Current critical-comparison edition: independent incremental review
+
+Read the complete new reset-date bond-purchase construction and advance-reinvestment equivalence with the original signed FRA definition, single-curve deposit identity, pre-first-reset valuation domain and subsequent swap context; read current metadata and complete current lab. Exact rational arithmetic independently verified purchase budget N/P times P=N, retained fixed short bond, terminal Ndelta(L-K) and signed advance divided by P equivalence at reset prices 0.9, 40/41, 1.01, including negative fixing. The random purchase quantity is chosen using information at the reset, so no future fixing forecast enters the self-financing construction. The repaired Chapter 1/8/11/21 prerequisites and source-narration move are appropriate. Fresh full lab and default 79-column pycodestyle completed successfully. No new full-caption or external-reference reading claimed for this incremental acceptance.
+
+This acceptance binds only the current exact manuscript, metadata and laboratory hashes in the JSON receipt. Prior full-review/repair evidence and hashes are preserved; no repeated full-source or audiovisual audit is claimed.

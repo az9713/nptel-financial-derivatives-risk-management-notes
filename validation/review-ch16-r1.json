@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch16.md": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
-    "chapters/ch16.json": "36a7876cc52c3f43bc11070e429daaf2a8bce738aaf223a38bdea38a265155c0",
-    "labs/ch16.py": "f7b2616f10907e77d11fe0730d3a7bde307e6c2256509ae1e547eca6ede39f29"
+    "chapters/ch16.md": "95259d59a15b331c00de5796ef591e3c7e777e30e5474cfa909ad5266d2a1231",
+    "chapters/ch16.json": "db7cdc87613eb5e7aa8aeb3d04451a61c76e883711344bb9e98e86bf8c1939b4",
+    "labs/ch16.py": "9437b1b61329e3d7a6040e1c0ae153aac3b11d21c12e406e539db3e94278ee18"
   },
   "source_evidence": {
     "caption_positions": [
@@ -29,5 +29,28 @@
     "No full independent caption reread",
     "No comprehensive audiovisual audit or human certification",
     "Separate release/browser checks required"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific/editorial review: complete diff, affected full sections and solutions/context, metadata and code; unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch16.md": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
+        "chapters/ch16.json": "36a7876cc52c3f43bc11070e429daaf2a8bce738aaf223a38bdea38a265155c0",
+        "labs/ch16.py": "f7b2616f10907e77d11fe0730d3a7bde307e6c2256509ae1e547eca6ede39f29"
+      },
+      "accepted_files": {
+        "chapters/ch16.md": "95259d59a15b331c00de5796ef591e3c7e777e30e5474cfa909ad5266d2a1231",
+        "chapters/ch16.json": "db7cdc87613eb5e7aa8aeb3d04451a61c76e883711344bb9e98e86bf8c1939b4",
+        "labs/ch16.py": "9437b1b61329e3d7a6040e1c0ae153aac3b11d21c12e406e539db3e94278ee18"
+      },
+      "checks": "Read the complete added finite-dimensional characteristic-function argument, its scaled-walk definitions and surrounding path-limit boundary, all changed metadata and source/scope text, affected lab code and existing solution context. Verified the cumulative coefficients, independent block factorization, minimum-time covariance and floor-grid limit; the contrast at half-year/one-year has variance sigma squared over two rather than three sigma squared over two. Independently inspected Xi Geng Theorem 1.6 and multidimensional Remark 1.2 on printed page 8. The finite enumeration and normal-limit lab passed. Reinspected the final extracted-arguments formatting repair and reran the final lab. Functional tightness remains explicitly outside the proof.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "new_primary_passages_inspected": [
+        "Xi Geng Stochastic Calculus, printed page8, Theorem1.6/Remark1.2"
+      ],
+      "source_reading": "No repeated caption reading or audiovisual audit; only the explicitly named new primary passages were inspected in this incremental pass."
+    }
   ]
 }

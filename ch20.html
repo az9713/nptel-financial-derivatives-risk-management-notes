@@ -22,10 +22,10 @@
 <h1>20. Solving the pricing PDE and measuring local exposure</h1>
 <p class="meta"><a href="https://www.youtube.com/watch?v=anNG26YHMPQ">Recording 49</a>, <a href="https://www.youtube.com/watch?v=zPjULQcQ0UY">Recording 50</a> · Expanded, independently developed exposition</p>
 <div class="objectives"><strong>What you will learn</strong><ul><li>Transform the Black–Scholes terminal PDE into an initial heat equation and evaluate its kernel integral</li><li>Derive yield-adjusted Greeks with explicit time, decimal-parameter, and contract-multiplier units</li><li>Verify parity sensitivities and limiting behavior</li><li>Distinguish local neutrality and partial derivatives from finite market-scenario changes</li></ul>
-<p><strong>Prerequisites:</strong> Chapters17–19: Gaussian kernel, Black–Scholes PDE and formula, self-financing; multivariable differentiation and Taylor expansion.</p></div>
+<p><strong>Prerequisites:</strong> Chapters 17–19: Gaussian kernel, Black–Scholes PDE and formula, self-financing; multivariable differentiation and Taylor expansion.</p></div>
 <div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
 <button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
-<a href="chapters/ch20.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-logarithmic-coordinates-turn-the-terminal-problem-forward-0144">1. Logarithmic coordinates turn the terminal problem forward 01:44</a></li><li><a href="#2-the-kernel-must-carry-its-initial-and-boundary-conditions-0815">2. The kernel must carry its initial and boundary conditions 08:15</a></li><li><a href="#3-complete-the-integral-rather-than-guessing-the-answer-2018">3. Complete the integral rather than guessing the answer 20:18</a></li><li><a href="#4-a-sensitivity-is-a-partial-derivative-with-units-2700-0147">4. A sensitivity is a partial derivative with units 27:00 / 01:47</a></li><li><a href="#5-delta-maturity-and-the-state-of-the-option-0549">5. Delta, maturity, and the state of the option 05:49</a></li><li><a href="#6-taylor-approximation-and-the-neutrality-of-a-strategy-2129">6. Taylor approximation and the neutrality of a strategy 21:29</a></li><li><a href="#7-laboratory-and-source-check">7. Laboratory and source check</a></li><li><a href="#exercises">Exercises</a></li></ul></div>
+<a href="chapters/ch20.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-logarithmic-coordinates-turn-the-terminal-problem-forward-0144">1. Logarithmic coordinates turn the terminal problem forward 01:44</a></li><li><a href="#2-the-kernel-must-carry-its-initial-and-boundary-conditions-0815">2. The kernel must carry its initial and boundary conditions 08:15</a></li><li><a href="#3-complete-the-integral-rather-than-guessing-the-answer-2018">3. Complete the integral rather than guessing the answer 20:18</a></li><li><a href="#4-a-sensitivity-is-a-partial-derivative-with-units-2700-0147">4. A sensitivity is a partial derivative with units 27:00 / 01:47</a></li><li><a href="#5-delta-maturity-and-the-state-of-the-option-0549">5. Delta, maturity, and the state of the option 05:49</a></li><li><a href="#6-taylor-approximation-and-the-neutrality-of-a-strategy-2129">6. Taylor approximation and the neutrality of a strategy 21:29</a></li><li><a href="#7-laboratory-and-source-check">7. Laboratory and source check</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
 <article>
 <p>A formula becomes more useful when its construction and its sensitivities are understood together. The Gaussian kernel solves the Black–Scholes equation because logarithmic stock prices remove its variable diffusion coefficient. Differentiating the resulting solution then measures how value changes when one input moves while others are held fixed. Neither step makes a finite portfolio change linear or a practical hedge permanently riskless.</p>
 <p>We retain the one-year, non-dividend synthetic market \(S=K=100,r=0.05,\sigma=0.2\), with continuous rates and time in years. The chapter first solves its PDE independently of the expectation derivation in Chapter 19. It then extends the formula to a constant continuous yield \(q\), explicitly identifying where that extension changes delta and parity. Here \(q\) is a yield per year; it is unrelated to the binomial pricing weight denoted \(q\) in Chapter 18.</p>
@@ -162,7 +162,17 @@ d_1=\frac{\log(S/K)+(r-q+\sigma^2/2)\tau}{\sigma\sqrt\tau},
 <p>In the benchmark, a stock increase of 5 with all else fixed has delta approximation \(5\Delta\), or about 3.18415. Adding gamma contributes about 0.23453. The lab compares both approximations with full repricing and shows the reduction in error for this case. The calculation is a mark-to-market value change at the same date, not a financed trading profit over a year.</p>
 <p>Strategy delta is the signed sum of component deltas, plus shares actually held. A long call plus a long put with the same strike has delta \(2\Phi(d_1)-1\) when \(q=0\). At \(S=K\) in our benchmark this is 0.27366130, so an at-the-money straddle is not exactly delta neutral. A stock hedge of −0.27366130 shares per straddle makes it locally neutral. Without a stock hedge its zero-delta stock level is \(K\exp[-(r+\sigma^2/2)\tau]\), which is below strike for these parameters.</p>
 <p>Similarly, a butterfly, calendar spread, or iron condor can be arranged near zero delta at a chosen state; its name does not enforce zero delta at every state. The source's iron condor holds a lower-strike put, shorts a higher-strike put, shorts a lower-strike call, and holds a higher-strike call, with ordered strikes \(K_1&lt;K_2&lt;K_3&lt;K_4\). Its terminal payoff is nonpositive, with zero in the middle region and bounded wing losses. The initial premium credit compensates for that liability. Financed profit combines the future value of that credit with the terminal payoff; receipt of cash at inception is not an immediate riskless profit. Chapter 21 uses the actual component Greeks to solve hedge systems rather than assigning neutrality by strategy label.</p>
-<p>Strike is fixed within an existing contract, so a pathwise hedge normally holds it fixed. Nevertheless the pricing function can be differentiated with respect to strike across a family of contracts. Indeed \(c_K=-D\Phi(d_2)\), and a second strike derivative recovers discounted risk-neutral density when it exists. Fixing a contractual parameter does not make its comparative sensitivity meaningless. Likewise, a model vega holds all other inputs fixed; if market implied volatility moves with stock, the observed total stock sensitivity includes that volatility response. The distinction between a partial derivative and a market scenario is central to using Greeks honestly.</p>
+<p>Strike is fixed within an existing contract, so a pathwise hedge normally holds it fixed. Nevertheless the pricing function can be differentiated with respect to strike across a family of contracts. The mechanism is clearest before substituting a model formula. With remaining time fixed, a finite pricing first moment, and a continuous pricing density $p_T(s)$ for terminal stock,</p>
+<p>$$c(K)=D\int_K^\infty(s-K)p_T(s)\,ds,
+\qquad c_K=-D\int_K^\infty p_T(s)\,ds,
+\qquad c_{KK}=Dp_T(K).$$</p>
+<p>The first derivative's lower-limit term vanishes because $s-K=0$ at $s=K$. Differentiating the remaining tail integral gives the second strike derivative. The tail probability is continuous here; at an atom the corresponding one-sided strike derivatives differ, so a classical density derivative is not available there. For Black–Scholes, this gives</p>
+<p>$$c_K=-D\Phi(d_2),\qquad
+c_{KK}=\frac{D\phi(d_2)}{K\sigma\sqrt\tau}&gt;0.$$</p>
+<p>A narrow call spread makes this observable as a payoff construction. Buying a call at $K-\varepsilon$ and selling one at $K+\varepsilon$, then dividing quantities by $2\varepsilon$, gives a terminal ramp between zero and one. As $\varepsilon$ shrinks, the ramp approaches the indicator of stock exceeding $K$, except at the boundary. Its price tends to $-c_K=D\Pr^{\mathbb Q}(S_T&gt;K)$. Likewise a central strike butterfly divided by $\varepsilon^2$ approximates $c_{KK}$, the price density. This is why strike convexity is an arbitrage restriction rather than a decorative curve shape: each finite butterfly has a nonnegative payoff.</p>
+<p>At the benchmark, the digital limit is 0.53232482 currency units for one currency unit paid on exercise, and the strike price density is 0.01876202 per stock-price unit. The lab checks both with shrinking finite call spreads and butterflies. This compares different contracts at the same date; it is distinct from gamma, which changes the stock input while holding strike fixed.</p>
+<p>Recovering probabilities from observed option quotes also needs coherent interpolation, a continuum or sufficiently rich set of strikes, and treatment of bid–ask errors. The identities do not make a sparse noisy market smile an exact density. Fixing a contractual parameter does not make its comparative sensitivity meaningless.</p>
+<p>Likewise, a model vega holds all other inputs fixed; if market implied volatility moves with stock, the observed total stock sensitivity includes that volatility response. The distinction between a partial derivative and a market scenario is central to using Greeks honestly.</p>
 <h2 id="7-laboratory-and-source-check">7. Laboratory and source check</h2>
 <p>Run <a href="labs/ch20.py">the PDE and Greeks laboratory</a>. It integrates the transformed heat-kernel solution directly, compares it with the closed form, checks all displayed Greeks by finite differences at positive yield, tests parity derivatives and the PDE, and examines local approximation errors and maturity limits. The source dividend-threshold example gives \(139.16[1-e^{-0.1(2/12)}]=2.30011249\) approximately, with the exact lab value printed. Its current stock 120 is unnecessary for this sufficient bound; a dividend above the threshold still requires a stock-dependent exercise decision.</p>
 <h2 id="exercises">Exercises</h2>
@@ -196,7 +206,9 @@ d_1=\frac{\log(S/K)+(r-q+\sigma^2/2)\tau}{\sigma\sqrt\tau},
 <p>One straddle has delta \(2(0.6368306512)-1=0.2736613024\). Ten have delta 2.736613024 shares, so short that many shares. Gamma of the option position is \(20\Gamma_c&gt;0\), because put and call gammas agree; stock gamma is zero. After a stock change, option delta changes approximately by that total gamma times the change, while the fixed stock hedge does not. Neutrality is local and requires rebalancing to maintain.</p>
 </li>
 </ol>
-</details><details class="lab"><summary>Executable chapter laboratory</summary>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>The complete English captions for recordings 49–50 were read sequentially. The heat transformation, square-completion steps, yield-adjusted Greek derivations, strike-spread constructions and synthetic examples are independently developed. The linear-operator sketch needs initial conditions and a growth class for uniqueness. Strategy labels do not establish delta neutrality, and an initial condor credit must be combined with its contractual liability and financing before it is a profit. These distinctions are incorporated in the mathematics rather than treating the recording as a complete proof. No comprehensive audiovisual audit is claimed.</p><details class="lab"><summary>Executable chapter laboratory</summary>
 <p><a href="labs/ch20.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
 <div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Heat-kernel and Greek checks; no files, network, or trading effects.&quot;&quot;&quot;
 
@@ -317,6 +329,26 @@ def main():
                         * exposure[&#x27;delta&#x27;] - rate * value(*parameters,
                                                            put=is_put))
             close(residual, 0)
+    # Strike spreads isolate digital state prices and the price density.
+    width = .2
+    d2 = (.05 - .2**2 / 2) / width
+    digital = exp(-.05) * ndtr(d2)
+    strike_density = exp(-.05 - d2**2 / 2) / (100 * width * sqrt(2 * pi))
+    spread_errors, butterfly_errors = [], []
+    for epsilon in (1, .1, .01):
+        left = value(100, 100 - epsilon, .05, .2, 1)
+        center = value(*benchmark)
+        right = value(100, 100 + epsilon, .05, .2, 1)
+        spread_errors.append(abs((left - right) / (2 * epsilon) - digital))
+        butterfly = (left - 2 * center + right) / epsilon**2
+        assert butterfly &gt; 0
+        butterfly_errors.append(abs(butterfly - strike_density))
+    assert spread_errors[-1] &lt; spread_errors[0] / 1000
+    assert butterfly_errors[-1] &lt; butterfly_errors[0] / 100
+    close(digital, .5323248154537634)
+    close(strike_density, .018762017345846895)
+    print(f&quot;Digital state price {digital:.8f}; &quot;
+          f&quot;strike price density {strike_density:.8f}&quot;)
     exposure = greeks(*benchmark)
     print(&quot;Benchmark Greeks&quot;, {k: round(v, 8) for k, v in exposure.items()})
     initial = value(*benchmark)

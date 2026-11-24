@@ -1,5 +1,5 @@
 edition: Financial Derivatives and Risk Management
-phase: published-and-live-verified
+phase: critical-revision-validated-awaiting-hosted-verification
 expected_chapters: 24
 expected_teaching_recordings: 60
 acquired_recordings_including_introduction: 61
@@ -35,3 +35,9 @@ live_verified_payload_files: 280
 live_browser_cases: 58
 published_url: https://az9713.github.io/nptel-financial-derivatives-risk-management-notes/
 publication_evidence: validation/live-publication-checks.json
+
+critical_revision_parent: 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc
+critical_revision_comparison: critical-comparison.md
+critical_revision_evidence: validation/critical-parity-checks.json
+critical_revision_local_validation: passed
+critical_revision_publication: pending-hosted-verification

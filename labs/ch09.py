@@ -37,6 +37,18 @@ def main():
     quadratic = value * (1 - dmod * shock + convex * shock**2 / 2)
     assert linear < exact < quadratic
     assert abs(quadratic - exact) < abs(linear - exact)
+
+    def third_derivative(rate):
+        return -sum(
+            k * (k + 1) * (k + 2) * c / (1 + rate)**(k + 3)
+            for k, c in enumerate(cash, 1)
+        )
+
+    remainder_lower = -third_derivative(y + shock) * shock**3 / 6
+    remainder_upper = -third_derivative(y) * shock**3 / 6
+    assert remainder_lower <= quadratic - exact <= remainder_upper
+    assert isclose(remainder_lower, 0.2607141748736001)
+    assert isclose(remainder_upper, 0.4081130974574006)
     w = wealth(cash, y, dmac)
     wup, wdown = wealth(cash, y + eps, dmac), wealth(cash, y - eps, dmac)
     assert abs((wup - wdown) / (2 * eps)) < 1e-4

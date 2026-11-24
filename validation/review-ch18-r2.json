@@ -4,7 +4,7 @@
   "report": "validation/review-ch18-r2.md",
   "findings_fixed": [
     "Replace plain-text locators with actual YouTube timestamp links",
-    "Narrow author primary-citation scope from manuscript3\u20137 to actual3\u20136; reviewer separately read3\u20137"
+    "Narrow author primary-citation scope from manuscript3–7 to actual3–6; reviewer separately read3–7"
   ],
   "scope": [
     "Full manuscript, metadata, complete laboratory and six worked solutions",
@@ -13,8 +13,26 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch18.md": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
-    "chapters/ch18.json": "eca1bf17c9f721e98d29bba0495fc914ad7e44c04ba7050cf188a34b190800e1",
-    "labs/ch18.py": "828d686b31afe2fa300e520c5ca94ea6910992aee00ad5b8d33d30f970314fbc"
+    "chapters/ch18.md": "f1ee15816346b5144e168506f76a34c9dbc9920ff5b2a106c2c449f270289124",
+    "chapters/ch18.json": "5ae5df584cbed404aa7c755bed68e1359fd71c7d6e5ac998973717be945ab202",
+    "labs/ch18.py": "aafab8c83def738fb96676c9c9a8ae7a642d7f7a7e805e5fce18481935fe9619"
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the complete three-state spanning/interval section, both new endpoint ledgers, all narrative relocation diffs and adjacent exercise/source context, new lab checks, and metadata. Exact rational arithmetic independently gives lower price 100/21 and upper 250/21; both initial costs vanish and all ordered state payoffs are (20,0,0) and (0,10,0). States beyond the interval add an initial receipt consistently. Fresh current lab passed.",
+    "prior_accepted_files": {
+      "chapters/ch18.md": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
+      "chapters/ch18.json": "eca1bf17c9f721e98d29bba0495fc914ad7e44c04ba7050cf188a34b190800e1",
+      "labs/ch18.py": "828d686b31afe2fa300e520c5ca94ea6910992aee00ad5b8d33d30f970314fbc"
+    },
+    "current_accepted_files": {
+      "chapters/ch18.md": "f1ee15816346b5144e168506f76a34c9dbc9920ff5b2a106c2c449f270289124",
+      "chapters/ch18.json": "5ae5df584cbed404aa7c755bed68e1359fd71c7d6e5ac998973717be945ab202",
+      "labs/ch18.py": "aafab8c83def738fb96676c9c9a8ae7a642d7f7a7e805e5fce18481935fe9619"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

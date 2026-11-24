@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch24.md": "55c3429a9198f319e24af696057967743fef20e3c0d7af56dece6c2bf3a12d65",
-    "chapters/ch24.json": "6e043657c359d4cbe68536a9110fa5e4517a73250357e71ce855b47d9e669d80",
-    "labs/ch24.py": "6a756732e572d8583b0688694f329a72cd47c377a94bd0ae3a7f7491879fdc00"
+    "chapters/ch24.md": "94fcfc666aec17c9ed12d9d01fd3df50af97496bd4e8894f6679469c89eed412",
+    "chapters/ch24.json": "b2e82747d573fddb53e6066f1e3a0560f3cf76b286213a68945e532b87ff495d",
+    "labs/ch24.py": "60408c3ddc27d2cf6989ba3f2c6dd145447cb40468dc490c5208196d38a43951"
   },
   "source_evidence": {
     "caption_positions": [
@@ -35,6 +35,26 @@
       "reason": "Root applied two agreed minor editorial repairs",
       "method": "Reread changed complete paragraphs; reversing exactly the26s first-topic timestamp and maturity-specific curve-shock wording reconstructs previously accepted manuscript SHA-256. Metadata/lab unchanged.",
       "result": "accepted; full earlier review remains applicable"
+    }
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific review: complete git diff, affected full sections/solutions/context, changed metadata/code, and specifically reported numerical checks. Unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch24.md": "55c3429a9198f319e24af696057967743fef20e3c0d7af56dece6c2bf3a12d65",
+        "chapters/ch24.json": "6e043657c359d4cbe68536a9110fa5e4517a73250357e71ce855b47d9e669d80",
+        "labs/ch24.py": "6a756732e572d8583b0688694f329a72cd47c377a94bd0ae3a7f7491879fdc00"
+      },
+      "accepted_files": {
+        "chapters/ch24.md": "94fcfc666aec17c9ed12d9d01fd3df50af97496bd4e8894f6679469c89eed412",
+        "chapters/ch24.json": "b2e82747d573fddb53e6066f1e3a0560f3cf76b286213a68945e532b87ff495d",
+        "labs/ch24.py": "60408c3ddc27d2cf6989ba3f2c6dd145447cb40468dc490c5208196d38a43951"
+      },
+      "checks": "Read the complete revised mapping subsection and its PV/variance/duration context, unchanged solution 2 and all formatting changes in solutions 3\u20136, changed metadata, and full lab delta. Expanded the difference of portfolio variances directly and verified the external covariance term. Independent symmetric signs with an explicit monetary scale s > 0 preserve both standalone variances at s squared while changing the combined variance from zero to twice s squared. The fresh full lab passed, including the four-state counterexample. Formatting changes preserve the earlier numbers, attribution and risk-model boundaries.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "source_reading": "No repeated caption/primary-source reading claimed; original full-review source scope remains separately recorded."
     }
   ]
 }

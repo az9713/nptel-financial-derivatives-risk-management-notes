@@ -116,8 +116,14 @@ h\approx\frac{D_C CF}{A D_{\mathrm{CTD}}^{\mathrm{cash}}}.$$</p>
 <p>For $D_C=3000$ dollars per basis point, $D_{\mathrm{CTD}}^{\mathrm{cash}}=75$, and $CF=0.9$, use the explicit $A=1$ common-date/short-carry approximation. One future then has approximate DV01 $83.333333$, and thirty-six short contracts offset the portfolio's first-order loss. A ten-basis-point increase produces approximately -30,000 on the cash portfolio and +30,000 on the hedge. Omitting the conversion factor would suggest 40 contracts and overstate the required hedge in this approximation. With instead a frozen carry factor $A=1.02$, one future's DV01 becomes $85$ and the unrounded count falls to $3000/85=35.29411765$. The lab differentiates a carried bond price numerically to verify that factor.</p>
 <p>If a bond's sensitivity is estimated from duration, the convention matters. For a semiannual yield $y_b$ quoted annually with periodic compounding, modified duration is Macaulay duration divided by $1+y_b/2$. The per-basis-point dollar sensitivity is $B^dD_{\mathrm{mod}}10^{-4}$ for a full-price sensitivity under its assumptions. The laboratory compares this analytic derivative with a central finite difference. Continuous-compounding duration formulas and annually compounded yield formulas cannot be interchanged without their conversion factors.</p>
 <h2 id="7-a-zero-scalar-duration-is-a-limited-certificate">7. A zero scalar duration is a limited certificate</h2>
-<p>The hedge above suppresses one local parallel-yield direction. Convexity remains because bond prices are nonlinear in yield. Different points on the curve can move differently, and a bond portfolio's key-rate sensitivities need not be proportional to those of the selected future. A scalar equation cannot generally eliminate a vector of independent curve exposures.</p>
+<p>The hedge above suppresses one local parallel-yield direction. Convexity remains because bond prices are nonlinear in yield. Different points on the curve can move differently, and a bond portfolio's key-rate sensitivities need not be proportional to those of the selected future. A scalar equation cannot generally eliminate a vector of distinct maturity-specific curve exposures.</p>
 <p>Delivery options add another limitation. A switch in CTD can change the derivative's local response, so a count calibrated to yesterday's CTD may cease to be appropriate. Margin funding, liquidity, and transaction costs also remain. None is removed by calling the first-order duration zero. A risk report should name the modeled shock and list residual exposures rather than describing the whole portfolio as riskless.</p>
+<p>An instantaneous-delivery model isolates the CTD switch without assuming a formula for an unexpired basket future. Suppose delivery, purchase and resale occur on the same date with no costs, and write $f_i=B_i^c/CF_i$. Then the arbitrage-free delivery quotation is $\min_i f_i$. If the quotation exceeded that minimum, buying the minimizing bond and delivering into a short contract would give a surplus. If it lay below every $f_i$, a long contract could receive any eligible bond and immediately resell it for more than its invoice. Accrued interest cancels separately for whichever bond is delivered. This argument concerns the delivery instant; before it, carry and the option to change delivery matter.</p>
+<p>For a synthetic local example, let $x$ denote a common yield shock in basis points and use clean-price approximations per 100 face</p>
+<p>$$B_A^c(x)=90-0.072x,\quad CF_A=0.9,
+\qquad B_B^c(x)=100.1-0.12x,\quad CF_B=1.$$</p>
+<p>Their normalized quotations are $f_A(x)=100-0.08x$ and $f_B(x)=100.1-0.12x$. At $x=0$, A is CTD. They cross at $x=2.5$, where both quotations equal 99.8. The delivery quotation follows A below that crossing and B above it, so its one-sided sensitivities differ. At the crossing there is no single ordinary derivative to insert into a fixed-CTD DV01 formula.</p>
+<p>With a 100,000-face contract, the cash multiplier is 1000 dollars per quotation point. The local long-contract losses are therefore 80 dollars per basis point on branch A and 120 on branch B. A cash portfolio with fixed local DV01 3000 would choose 37.5 short contracts on branch A. For a ten-basis-point shock the basket quotation instead falls from 100 to 98.9, making that hedge gain 41,250 against a modeled cash loss of 30,000: residual 11,250. The nonzero result comes from a branch switch even though the candidate bond prices were affine and fractional contracts were allowed. It quantifies a risk that a smaller rounding error cannot cure.</p>
 <p>The source's closing discussion notes that quotation multipliers are conventions. That point should not be interpreted as permission to change a multiplier while leaving all cash-flow obligations and convergence relations unchanged. A rescaled index needs the reciprocal rescaling in its cash multiplier to represent the same economics. Setting sensitivity to zero while demanding the original delivery economics defines an inconsistent model, not an alternative margin schedule.</p>
 <p>The final part of the second recording introduces options. <a href="ch13.html">Chapter 13</a> develops that new payoff structure with the dedicated option and put–call parity recordings. The conceptual connection is already visible here: the short's delivery choice gives a linear-looking futures contract an embedded choice over underlying securities. Settlement terms can matter even before a separate call or put is purchased.</p>
 <h2 id="8-executable-checks">8. Executable checks</h2>
@@ -130,7 +136,7 @@ h\approx\frac{D_C CF}{A D_{\mathrm{CTD}}^{\mathrm{cash}}}.$$</p>
 <li>Starting with clean spot 102, accrued interest one, coupon three in a quarter-year, delivery in a half-year, four-percent continuous funding, delivery accrued interest 1.5, and conversion factor 0.9, calculate the normalized fixed-deliverable quotation. Reverse the conversion to check the result.</li>
 <li>Reproduce the CTD ranking in the displayed basket at quote 110. Why is the lowest-priced security not cheapest to deliver? When would accrued interest fail to cancel in the calculation?</li>
 <li>A cash portfolio has DV01 3000, while one contract-face CTD has current cash DV01 75 and conversion factor 0.9. Under the explicit frozen-carry approximation $A=1$, derive the short hedge count and check a ten-basis-point increase. Explain the sign, then recalculate for $A=1.02$.</li>
-<li>Name three risks that remain after the displayed DV01 match. Explain why changing the price quotation's units does not, by itself, change the economic size of the futures exposure.</li>
+<li>Name three risks that remain after the displayed DV01 match. In the two-candidate instantaneous-delivery example, find the CTD crossing and the residual from 37.5 short contracts after a ten-basis-point rise against cash DV01 3000. Explain why changing quotation units does not, by itself, change economic exposure.</li>
 </ol>
 <details>
 <summary>Fully worked solutions</summary>
@@ -151,7 +157,7 @@ h\approx\frac{D_C CF}{A D_{\mathrm{CTD}}^{\mathrm{cash}}}.$$</p>
 <p>In the stated $A=1$ approximation, the future's local DV01 is $75/0.9=83.333333$. The positive cash loss magnitude 3000 therefore requires $3000/83.333333=36$ short futures. The cash loses approximately 30,000 for a ten-basis-point increase; the short futures gain the same amount. A long future would lose along with the long cash position and increase, rather than remove, the modeled exposure. For frozen $A=1.02$, the quote DV01 is $1.02(75)/0.9=85$ and the short count is $3000/85=35.29411765$; the matching calculation uses the same cash-yield shock and excludes changes in funding or CTD selection.</p>
 </li>
 <li>
-<p>Convexity, nonparallel curve shifts, CTD switching, repo basis, margin funding, and liquidity are examples of remaining risks. If an index is multiplied by a constant, its cash multiplier must be divided by that constant to preserve the same settlement payments. A raw quotation number can therefore change without changing the monetary exposure. Changing only one factor changes the contract economics and cannot be used as a harmless relabeling.</p>
+<p>Convexity, nonparallel curve shifts, CTD switching, repo basis, margin funding, and liquidity are examples of remaining risks. The two normalized branches cross when $100-0.08x=100.1-0.12x$, giving $x=2.5$ basis points. At ten basis points the minimum quotation is 98.9, so the short hedge gains $37.5(1000)(100-98.9)=41250$. Subtracting the cash loss $3000(10)$ leaves 11250. The branch change, not bond curvature or integer rounding, creates this residual in the stipulated local model. If an index is multiplied by a constant, its cash multiplier must be divided by that constant to preserve the same settlement payments. Changing only one factor changes the contract economics and cannot be used as a harmless relabeling.</p>
 </li>
 </ol>
 </details>
@@ -213,6 +219,22 @@ def main():
                - 1500) / conversion for dy in (-step, step)]
     numerical_dv01 = -(quotes[1] - quotes[0]) / (2 * step) * 1e-4
     assert isclose(numerical_dv01, carried_dv01, rel_tol=1e-10)
+
+    # Instantaneous delivery: the lower normalized-price branch can switch.
+    def delivery_quote(shock_bp):
+        return min((90 - .072 * shock_bp) / .9,
+                   100.1 - .12 * shock_bp)
+
+    assert isclose(delivery_quote(0), 100)
+    assert isclose(delivery_quote(2.5), 99.8)
+    for x, dv01 in ((0, 80), (5, 120)):
+        step_bp = 1e-4
+        numerical = -(delivery_quote(x + step_bp)
+                      - delivery_quote(x - step_bp)) / (2 * step_bp) * 1000
+        assert isclose(numerical, dv01, rel_tol=1e-8)
+    switch_gain = 37.5 * 1000 * (delivery_quote(0) - delivery_quote(10))
+    assert isclose(switch_gain, 41250)
+    assert isclose(switch_gain - 3000 * 10, 11250)
     for coupon, periods, rate in ((0.05, 2.5, 0.06), (0.05, True, 0.06),
                                   (float(&quot;inf&quot;), 20, 0.06),
                                   (0.05, 20, float(&quot;nan&quot;))):

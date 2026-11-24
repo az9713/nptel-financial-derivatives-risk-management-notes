@@ -21,3 +21,10 @@ Opened Bianchetti's primary Two Curves, One Price presentation and inspected sli
 ## Executable evidence and boundary
 
 Ran labs/ch22.py in a fresh process; all assertions passed, including bond-versus-strip equality, bootstrap repricing, known first coupon, settlement equivalence, coupon sensitivity, separate-curve failure of telescoping, funding-flow conservation, negative forwards and invalid discount-factor rejection. Checked the displayed numbers independently using the dated formulas above. No unresolved findings remain. Exact manuscript/metadata/lab hashes are in the receipt. No comprehensive audiovisual audit, human certification or completion of separate browser/release gates is implied.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the complete revised FRA replication section with direction, settlement date, positive funding denominator and single-curve assumptions, changed source note/metadata and existing six-solution context, plus new lab budgets. At reset, N released by the first bond purchases N/P second-bond units; retaining the fixed short bond leaves exactly N delta (L-K) at end settlement. The alternative signed reinvestment of advance proceeds is the same self-financing transformation. Random future holdings are set only after observing the reset price. Three tested reset bond prices include a negative-rate case and preserve budget/payment identities. The fresh full lab passed. No deterministic-fixing assumption or automatic two-curve extension is introduced.
+
+Disposition: accepted; no remaining findings. The receipt retains the prior accepted SHA bindings and records current exact bindings. Unchanged original bytes rely on the original full review. Source scope is bounded as stated above; this pass does not certify comprehensive audiovisual review, empirical calibration, or the separate final rendering/release gates.

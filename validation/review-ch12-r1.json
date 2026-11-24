@@ -3,9 +3,10 @@
   "disposition": "accepted",
   "report": "validation/review-ch12-r1.md",
   "scope": [
-    "Full manuscript, metadata, all six solutions and full laboratory source",
-    "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
-    "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+    "Incremental critical-parity review of all changed manuscript/lab sections, relevant surrounding context and changed worked solutions; metadata checked for change or unchanged identity",
+    "Read the complete instantaneous-delivery CTD construction with invoice and sensitivity context, expanded exercise 6 and solution, and all new branch tests. Checked both directions of the min-normalized-price argument, including cancellation of each delivered bond accrued interest. Exact arithmetic gives the crossing 2.5 basis points, quote 99.8 there, and ten-basis-point residual 11250 with 37.5 short contracts. The formula is explicitly restricted to delivery instant rather than an unexpired basket-futures valuation.",
+    "Fresh current laboratory execution, independent algebra/numerical checks and style validation; original full-review and source-reading history retained in review_history",
+    "No repeated full-caption, full-manuscript, primary-source, audiovisual or rendered-browser audit is implied by this incremental pass"
   ],
   "remaining_findings": [],
   "resolved_findings": [
@@ -13,8 +14,31 @@
     "Medium lab domain: aligned_price now rejects noninteger/Boolean period counts and nonfinite rate/coupon inputs."
   ],
   "accepted_files": {
-    "chapters/ch12.md": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+    "chapters/ch12.md": "b332db0cbfcdf0ca8052fbfbe0d5ee7d2d000292ad46638c45d8cfeeac4861c2",
     "chapters/ch12.json": "f1a90f2ef7202f65e47733c504ef97cb0099105c07b9586c7636fd994b9cccce",
-    "labs/ch12.py": "984a183c1acbfaeafe50648edc7a5b2b535da2934fc7b66769821fc612e7d082"
+    "labs/ch12.py": "843b0e8e5b75d98008098038de02cf60ceae6712a4db8fde6e14a7a95fba598f"
+  },
+  "review_history": [
+    {
+      "edition": "before critical-parity revisions",
+      "scope": [
+        "Full manuscript, metadata, all six solutions and full laboratory source",
+        "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
+        "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+      ],
+      "accepted_files": {
+        "chapters/ch12.md": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+        "chapters/ch12.json": "f1a90f2ef7202f65e47733c504ef97cb0099105c07b9586c7636fd994b9cccce",
+        "labs/ch12.py": "984a183c1acbfaeafe50648edc7a5b2b535da2934fc7b66769821fc612e7d082"
+      },
+      "disposition": "accepted"
+    }
+  ],
+  "incremental_review": {
+    "reviewer": "scientific_review",
+    "date": "2026-11-24",
+    "author_distinct": true,
+    "detail": "Read the complete instantaneous-delivery CTD construction with invoice and sensitivity context, expanded exercise 6 and solution, and all new branch tests. Checked both directions of the min-normalized-price argument, including cancellation of each delivered bond accrued interest. Exact arithmetic gives the crossing 2.5 basis points, quote 99.8 there, and ten-basis-point residual 11250 with 37.5 short contracts. The formula is explicitly restricted to delivery instant rather than an unexpired basket-futures valuation.",
+    "checks": "Fresh lab passed; pycodestyle passed; independent rational/algebraic checks passed."
   }
 }

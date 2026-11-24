@@ -9,3 +9,10 @@ All continuous-yield call and put Greeks were independently differentiated, incl
 The local expansion explicitly omits other multivariate quadratic terms. Stock+5 produces exact change3.40732269, delta estimate3.18415326, and delta-gamma3.41867847. This improvement is a checked case, not a global error guarantee. All six solutions were checked, including4000-share multiplier exposure2547.3226 and one-volatility-point change1500.9614. Condor premium receipts are correctly combined with financed terminal liabilities instead of called immediate profit.
 
 Fresh code execution independently integrated the transformed kernel, finite-differenced every listed Greek for calls and puts at zero and positive yields, checked the PDE and parity derivatives, and reproduced the dividend bound2.30011249. Actual captions checked: p49 at100–210,495–650,1210–1320,1400–1560seconds; p50 at345–450,1035–1140,1630–1790seconds. Kogan's primary slides19–20 were inspected for the PDE and formula; the intermediate transformation and sensitivities were independently derived rather than attributed to those slides. Full author reading evidence is separate. No unresolved finding remains; no comprehensive audiovisual, human-expert, or formal-verification claim is made.
+
+
+## Critical parity revision, 24 November 2026
+
+Read the full new strike-integral/spread/butterfly development and adjacent strategy/Greek interpretation, lab additions, source notes, and metadata. Checked finite-first-moment and continuity hypotheses, vanishing lower-limit contribution, both strike derivatives, atom boundary, payoff limits and stock-gamma distinction. Independent normal-CDF pricing finite differences reproduce digital 0.53232482 and density 0.01876202. Requested and verified integrability, derivative wording and paragraph-boundary repairs. Fresh lab passed.
+
+Accepted after the described incremental review. The earlier full-review scope remains historical; no repeated source or audiovisual audit is claimed. Current exact file bindings and prior bindings appear in the JSON receipt. Reviewer remains independent of the chapter author.

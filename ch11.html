@@ -40,7 +40,7 @@
 <p>The decomposition depends on the price convention. Under a simple investment-yield convention, $B_t=M/[1+r_s(t)(U-t)]$, the yield derivative is different and the passage-of-time term is nonlinear. A formula derived from discount yield cannot be transferred merely by replacing its symbol with a deposit rate. The source's repeated emphasis on face value is correct for its displayed discount-price model, not a universal instruction to ignore present value in all rate hedges.</p>
 <h2 id="2-hedge-size-combines-sensitivities-with-a-rate-relation-2257">2. Hedge size combines sensitivities with a rate relation <a href="https://www.youtube.com/watch?v=MqB_MP8d0J8&amp;t=1377s">22:57</a></h2>
 <p>Let $m$ be the face amount represented by one illustrative bill future and $\alpha_f$ its reference bill year fraction. At a common comparison date, the discount-price model gives the change of one long contract as $-m\alpha_f\Delta d_f$, where $\Delta d_f$ is the change in its quoted discount yield. Let $a=U-H$ be the cash bill's remaining term at sale and $\Delta d_s=d_H-d_0$ its yield change.</p>
-<p>Write $h$ for a positive number of short contracts. The combined yield-shock change, excluding carry and funding, is</p>
+<p>Write $h$ for the signed number of short contracts: positive $h$ means short and negative $h$ means long. The combined yield-shock change, excluding carry and funding, is</p>
 <p>$$Z=-Ma\Delta d_s+h\,m\alpha_f\Delta d_f.$$</p>
 <p>The signs follow from the cash flows: a yield rise reduces the owned bill's value and benefits a short price-quoted future. If the cash and futures yields move identically, setting $h=Ma/(m\alpha_f)$ makes $Z=0$ for that common scalar shift. The denominator uses the contract's reference term; the numerator uses the cash instrument's remaining term at the hedge horizon.</p>
 <p>Equal changes are an assumption to test. Suppose the two yield changes have finite second moments and $\operatorname{Var}(\Delta d_f)&gt;0$. Define</p>
@@ -49,6 +49,15 @@
 <p>$$h^*=\frac{Ma}{m\alpha_f}\beta.$$</p>
 <p>To verify the minimization, expand $\operatorname{Var}(Z)=(Ma)^2\operatorname{Var}(\Delta d_s)+h^2(m\alpha_f)^2\operatorname{Var}(\Delta d_f)-2hMa\,m\alpha_f\operatorname{Cov}(\Delta d_s,\Delta d_f)$. The derivative vanishes at the displayed $h^*$, and the second derivative is positive. If futures-rate variance is zero, the division is invalid and that contract cannot hedge a random rate change through this projection.</p>
 <p>The coefficient is an ex ante covariance projection, not the ratio of two rate moves observed after the hedge ends. A realized ratio can explain the hedge that would have fit one observation; it cannot retrospectively become information available at inception. A variance criterion also differs from an objective that explicitly trades expected cost against risk. The number $h^*$ minimizes the stated variance, not every possible corporate objective.</p>
+<p>The optimum does not generally remove all risk. Let $E$ denote expectation under the planning distribution. Define centered yield changes $X=\Delta d_s-E[\Delta d_s]$ and $Y=\Delta d_f-E[\Delta d_f]$, and the projection residual $\varepsilon=X-\beta Y$. By the definition of $\beta$,</p>
+<p>$$\operatorname{Cov}(\varepsilon,Y)
+=\operatorname{Cov}(X,Y)-\beta\operatorname{Var}(Y)=0.$$</p>
+<p>Consequently the centered hedged change is $-Ma\varepsilon+m\alpha_f(h-h^*)Y$, and its variance separates exactly:</p>
+<p>$$\operatorname{Var}(Z)
+=(Ma)^2\operatorname{Var}(\varepsilon)
++(m\alpha_f)^2\operatorname{Var}(Y)(h-h^*)^2.$$</p>
+<p>If both yield standard deviations $\sigma_s,\sigma_f$ are positive and their correlation is $\rho$, then $\beta=\rho\sigma_s/\sigma_f$ and $\operatorname{Var}(\varepsilon)=\sigma_s^2(1-\rho^2)$. The first term is the residual variance this single contract cannot remove; the second is the penalty for a different count. A nonzero expected hedged change can remain because centering removes means only for this variance calculation. Neither the residual mean nor funding costs were optimized.</p>
+<p>For an original distributional example, use the running cash sensitivity $Ma=10{,}000{,}000(5/6)$, contract sensitivity $m\alpha_f=250{,}000$, yield standard deviations 0.01 and 0.008 over the hedge horizon, and $\rho=0.75$. Then $\beta=0.9375$ and $h^*=31.25$ short contracts. Even that fractional optimum leaves standard deviation approximately 55,119.82 dollars. Among unrestricted integer counts, 31 minimizes the displayed quadratic because it is nearest to 31.25; 32 incurs a larger rounding penalty. If only short positions are allowed and the covariance gives $h^*&lt;0$, the constrained minimum is instead at zero. A correctly solved scalar hedge problem therefore gives both a count and a precise statement of what remains.</p>
 <p>For the running case, take $m=1{,}000{,}000$, $\alpha_f=0.25$, and $\beta=1$. Then $h^*=33.333333333$. If both rates rise by 0.015, the futures gain is 125,000 and cancels the yield-shock term exactly in the fractional-contract model. Rounding to 33 contracts produces gain 123,750 and residual -1,250. The residual has a known source: the missing one-third of a contract.</p>
 <p>Now retain the unrounded count but let the futures yield rise by only 0.01 while the cash yield rises by 0.015. The futures gain is 83,333.333333, leaving -41,666.666667. More precise contract rounding cannot remove this mismatch. The assumed relationship between the rates is wrong for this outcome. A model for their joint movements, additional hedge instruments, or an accepted residual-risk budget is needed.</p>
 <h2 id="3-the-forward-rate-arbitrage-argument-needs-matched-dated-cash-flows-0024">3. The forward-rate arbitrage argument needs matched dated cash flows <a href="https://www.youtube.com/watch?v=J4wFDp4K8c8&amp;t=24s">00:24</a></h2>
@@ -95,7 +104,7 @@
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Derive the bill carry/shock decomposition. Calculate all three terms for face ten million, original maturity one year, sale after two months, and discount yields changing from four to 5.5 percent.</li>
-<li>Derive the variance-minimizing short-contract count for the displayed cash and futures yield changes. Explain why a realized yield-change ratio is not the same as an ex ante regression coefficient.</li>
+<li>Derive the variance-minimizing short-contract count for the displayed cash and futures yield changes. Derive its residual variance and the penalty for a different count. Explain why a realized yield-change ratio is not the same as an ex ante regression coefficient, and why nearest-integer rounding solves only the stated variance objective.</li>
 <li>For the running bill example, compare the unrounded and 33-contract hedge when both yields rise by 1.5 percentage points. Then let the futures yield rise by only one percentage point while keeping the unrounded count. Identify each residual's cause.</li>
 <li>A future investment loses 10,000 at its payment date relative to a baseline. One long future gains 2,500 when closed earlier. A fixed factor of 1.02 accumulates close-date money to the payment date. Calculate the untailed and correctly tailed contract counts and their terminal gains.</li>
 <li>Prove the dynamic-tail terminal wealth formula when $A(s,u)A(u,t)=A(s,t)$ and $F_i=S_iA(t_i,T)$. Identify the factor that would become unavailable in advance if interest rates were stochastic.</li>
@@ -108,7 +117,7 @@
 <p>Insert and subtract the unchanged-yield sale value $M[1-d_0(U-H)]$. The difference from the purchase price is $Md_0H$; the difference between the actual and baseline sale prices is $-M(U-H)(d_H-d_0)$. Numerically these are 66,666.666667 and -125,000. Their sum is -58,333.333333, agreeing with the actual sale price 9,541,666.666667 minus the purchase price 9,600,000. The hedge target must state whether it removes the shock or something else.</p>
 </li>
 <li>
-<p>Expand the variance of $-Ma\Delta d_s+h m\alpha_f\Delta d_f$ and differentiate with respect to $h$. Setting the derivative to zero gives $h^*=Ma\operatorname{Cov}(\Delta d_s,\Delta d_f)/[m\alpha_f\operatorname{Var}(\Delta d_f)]$. The second derivative is positive if the futures-rate variance is positive. This coefficient describes a distribution or estimated relation available at planning time. A realized ratio chooses the hedge that fits one observed move, which can use information unavailable when the original decision was made.</p>
+<p>Expand the variance of $-Ma\Delta d_s+h m\alpha_f\Delta d_f$ and differentiate with respect to $h$. Setting the derivative to zero gives $h^*=Ma\operatorname{Cov}(\Delta d_s,\Delta d_f)/[m\alpha_f\operatorname{Var}(\Delta d_f)]$. The second derivative is positive if the futures-rate variance is positive. With centered changes $X,Y$, write $\varepsilon=X-\beta Y$. Its covariance with $Y$ is zero, so the residual variance is $(Ma)^2\sigma_s^2(1-\rho^2)$ and the excess variance is $(m\alpha_f)^2\sigma_f^2(h-h^*)^2$. The nearest allowed integer minimizes that squared distance when costs and other constraints are absent. This coefficient describes a distribution or estimated relation available at planning time. A realized ratio chooses the hedge that fits one observed move, which can use information unavailable when the original decision was made.</p>
 </li>
 <li>
 <p>The fractional count is $10{,}000{,}000(5/6)/(1{,}000{,}000/4)=33.333333333$. A common 0.015 change gives gain 125,000 and zero yield-shock residual. Thirty-three contracts give 123,750, so the residual is -1,250 from rounding. With a futures change of only 0.01, the unrounded hedge gains 83,333.333333 and leaves -41,666.666667. That residual comes from a rate-basis mismatch, even though fractional contracts were allowed.</p>
@@ -129,7 +138,8 @@
 <p>CME's dated conversion announcement supplies the historical transition boundary, and its retrieved SOFR article supplies the reference-quarter/multiplier distinction. These source checks do not certify every current product rule. Inconsistent spoken numbers and visually omitted formulas are not reconstructed by guesswork. No complete audiovisual audit, empirical estimation of hedge coefficients, or actual trading test is claimed.</p><details class="lab"><summary>Executable chapter laboratory</summary>
 <p><a href="labs/ch11.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
 <div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Rate-hedge decomposition, funding tailing and accrued-interest checks.&quot;&quot;&quot;
-from math import isclose, isfinite, prod
+from math import isclose, isfinite, prod, sqrt
+from statistics import pvariance
 
 
 def bill(face, discount, remaining):
@@ -171,6 +181,26 @@ def main():
     assert isclose(rounded + shock, -1250)
     basis_residual = count * contract * accrual * 0.01 + shock
     assert isclose(basis_residual, -41666.66666666667)
+    # Four equally probable states realize the stated projection exactly.
+    sigma_s, sigma_f, rho = .01, .008, .75
+    beta = rho * sigma_s / sigma_f
+    optimum = face * remaining / (contract * accrual) * beta
+    noise = sigma_s * sqrt(1 - rho**2)
+    states = [(beta * y + e, y) for y in (-sigma_f, sigma_f)
+              for e in (-noise, noise)]
+
+    def hedged_variance(contracts):
+        return pvariance(-face * remaining * x + contracts * contract
+                         * accrual * y for x, y in states)
+
+    floor = (face * remaining * sigma_s)**2 * (1 - rho**2)
+    assert isclose(optimum, 31.25)
+    assert isclose(hedged_variance(optimum), floor)
+    for contracts in (0, 31, 32, 40):
+        penalty = (contract * accrual * sigma_f * (contracts - optimum))**2
+        assert isclose(hedged_variance(contracts), floor + penalty)
+    assert min(range(-5, 61), key=hedged_variance) == 31
+    print(f&quot;Optimal projection residual SD={sqrt(floor):.6f}&quot;)
     principal, investment_accrual, growth = 2_000_000, 0.5, 1.02
     deposit_loss = principal * investment_accrual * 0.01
     tailed = principal * investment_accrual / (contract * accrual * growth)

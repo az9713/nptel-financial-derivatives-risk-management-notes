@@ -14,9 +14,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch06.md": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
-    "chapters/ch06.json": "531b7dc203e05b90f09516e0f8e28912c38c410c6530c282f091d380234a2985",
-    "labs/ch06.py": "8544531b1c599e262eeea8c5650b58542eb1ef9de23ef6569874b41940fbb1d3"
+    "chapters/ch06.md": "e58eb4326a40db15a7d1e28a4c901d657cc1eba7de0303e429495a85e219ac56",
+    "chapters/ch06.json": "4626795a284ed2a876dc68d31856941900e99e017fb2395d86b92dc41043d777",
+    "labs/ch06.py": "9b2cf3ceb14da6497be66cd939ebbbdbd6a447762338ff44e59c8bacec6c5b5d"
   },
   "line_ending_recheck": {
     "operation": "CRLF-to-LF only",
@@ -26,5 +26,23 @@
       "chapters/ch06.md",
       "labs/ch06.py"
     ]
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the complete new many-asset frontier subsection and adjacent two-asset/frontier material, the added lab certificate, and objective metadata. Verified the Gram determinant condition, both equality constraints, vanishing cross term, strict global variance gap, GMV completion, and singular/equal-mean/long-only boundaries. An independent full KKT solve matched the claimed constrained solution in 25 seeded positive-definite four-asset cases; random feasible perturbations matched the exact variance gaps. Fresh chapter lab passed. Requested and verified the clarification unrestricted-weight model.",
+    "prior_accepted_files": {
+      "chapters/ch06.md": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
+      "chapters/ch06.json": "531b7dc203e05b90f09516e0f8e28912c38c410c6530c282f091d380234a2985",
+      "labs/ch06.py": "8544531b1c599e262eeea8c5650b58542eb1ef9de23ef6569874b41940fbb1d3"
+    },
+    "current_accepted_files": {
+      "chapters/ch06.md": "e58eb4326a40db15a7d1e28a4c901d657cc1eba7de0303e429495a85e219ac56",
+      "chapters/ch06.json": "4626795a284ed2a876dc68d31856941900e99e017fb2395d86b92dc41043d777",
+      "labs/ch06.py": "9b2cf3ceb14da6497be66cd939ebbbdbd6a447762338ff44e59c8bacec6c5b5d"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

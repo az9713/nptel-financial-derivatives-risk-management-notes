@@ -14,8 +14,26 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch17.md": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
-    "chapters/ch17.json": "1451aa20fa75a62dbd09ecdd0b370f3140c9951b6f65b1123177eda824d12a56",
-    "labs/ch17.py": "54ad5f85ea9f77e3d3dab35e606f7c2f3d21b79db71b2e186692b2873f43f704"
+    "chapters/ch17.md": "5130c008e9a1b7cead6bd24e8f1e3077bcf120c6dc3044b40eaf7d0084ee6c79",
+    "chapters/ch17.json": "a80cd58af13a39f7bd69b1bbd6da906c6ff660bd966eecc3473674346a87462c",
+    "labs/ch17.py": "ac253160a38abdc1508528afd1d078ab6e04e42775da4a35bcc34adfbd4f21af"
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the full new adapted-step/isometry argument and surrounding integral definitions, laboratory changes, source/solution typography, and metadata. Checked cross-term conditioning, square-integrability, Cauchy extension and uniqueness, zero means, and martingale passage through the mean-square limit. Verified the subsequently added local definition of Brownian-history information. An independent two-dimensional Gaussian quadrature gives mean zero and second moment 1.25. Fresh current lab passed.",
+    "prior_accepted_files": {
+      "chapters/ch17.md": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
+      "chapters/ch17.json": "1451aa20fa75a62dbd09ecdd0b370f3140c9951b6f65b1123177eda824d12a56",
+      "labs/ch17.py": "54ad5f85ea9f77e3d3dab35e606f7c2f3d21b79db71b2e186692b2873f43f704"
+    },
+    "current_accepted_files": {
+      "chapters/ch17.md": "5130c008e9a1b7cead6bd24e8f1e3077bcf120c6dc3044b40eaf7d0084ee6c79",
+      "chapters/ch17.json": "a80cd58af13a39f7bd69b1bbd6da906c6ff660bd966eecc3473674346a87462c",
+      "labs/ch17.py": "ac253160a38abdc1508528afd1d078ab6e04e42775da4a35bcc34adfbd4f21af"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

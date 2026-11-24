@@ -21,7 +21,7 @@
 <main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
 <h1>06. Portfolio risk depends on covariance; priced risk requires a model</h1>
 <p class="meta"><a href="https://www.youtube.com/watch?v=g7j8sAIDN04">Recording 14</a>, <a href="https://www.youtube.com/watch?v=o_dndjBh26U">Recording 15</a>, <a href="https://www.youtube.com/watch?v=kyLk0hSwjX4">Recording 16</a> · Expanded, independently developed exposition</p>
-<div class="objectives"><strong>What you will learn</strong><ul><li>Derive portfolio moments and the two-asset variance minimum</li><li>Separate efficient-frontier optimization from equilibrium pricing</li><li>Derive CAPM from an interior Sharpe-ratio condition</li><li>State the assumptions behind residual diversification</li></ul>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Derive portfolio moments and globally certified two-asset and many-asset variance minima</li><li>Separate efficient-frontier optimization from equilibrium pricing</li><li>Derive CAPM from an interior Sharpe-ratio condition</li><li>State the assumptions behind residual diversification</li></ul>
 <p><strong>Prerequisites:</strong> Chapter 5 covariance projection; finite second moments, differentiation and elementary matrix notation.</p></div>
 <div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
 <button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
@@ -52,6 +52,19 @@ v(x)=v(x_{\rm GMV})+d(x-x_{\rm GMV})^2.$$</p>
 <p>$$\min_w w^\mathsf{T}\Sigma w\quad\text{subject to}\quad
 \mathbf1^\mathsf{T}w=1,\quad \mu^\mathsf{T}w=m_0.$$</p>
 <p>Here $m_0$ is a prescribed expected return. Positive definite covariance makes variance strictly convex, and linear constraints define a convex feasible set. The frontier traces these minima as the target changes. Actual preference chooses a point on the efficient set; the covariance matrix alone does not determine a person's tolerance for risk. Mean–variance preferences are themselves a modeling choice, not a consequence of finite second moments. <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/dd628e151309a7f23962b1a31b9356e5_MIT15_401F08_lec13.pdf#page=16">MIT's portfolio notes, slides 16–43</a>, develop the covariance, frontier, and tangency interpretation.</p>
+<h3 id="the-many-asset-frontier-has-an-explicit-global-certificate">The many-asset frontier has an explicit global certificate</h3>
+<p>The same completed-square idea extends to any number of assets. Suppose $\Sigma$ is positive definite and the mean vector $\mu$ is not a constant multiple of $\mathbf1$. Define</p>
+<p>$$g=\Sigma^{-1}\mathbf1,\quad j=\Sigma^{-1}\mu,\quad
+A=\mathbf1^\mathsf{T}g,\quad B=\mathbf1^\mathsf{T}j,\quad
+C=\mu^\mathsf{T}j,\quad D=AC-B^2.$$</p>
+<p>Cauchy–Schwarz for the positive-definite inner product $u^\mathsf{T}\Sigma^{-1}v$ gives $D&gt;0$: equality would require $\mu$ proportional to $\mathbf1$. The two equality constraints can therefore be met by</p>
+<p>$$w_*(m_0)=\frac{C-Bm_0}{D}g+
+\frac{Am_0-B}{D}j.$$</p>
+<p>Indeed, multiplying by $\mathbf1^\mathsf{T}$ gives one and multiplying by $\mu^\mathsf{T}$ gives $m_0$. Every other feasible portfolio is $w_*+h$, with $\mathbf1^\mathsf{T}h=\mu^\mathsf{T}h=0$. Since $\Sigma w_*$ is a linear combination of $\mathbf1$ and $\mu$, the cross term vanishes, leaving the exact identity</p>
+<p>$$ (w_*+h)^\mathsf{T}\Sigma(w_*+h)
+=\frac{Am_0^2-2Bm_0+C}{D}+h^\mathsf{T}\Sigma h.$$</p>
+<p>The final term is strictly positive for nonzero $h$. This proves existence, uniqueness, and global minimality for every target mean in the unrestricted-weight model, rather than relying only on stationarity. Completing the numerator gives $1/A+(A/D)(m_0-B/A)^2$; thus GMV mean is $B/A$ and GMV variance is $1/A$. Targets below that mean belong to the inefficient lower branch.</p>
+<p>For a numerical certificate, take three mutually uncorrelated assets with variances $(0.01,0.04,0.09)$ and means $(0.04,0.08,0.12)$. At target mean 9%, the weights are approximately $(0.144231,0.461538,0.394231)$ and variance is $0.022716346$. Adding $h=(0.1,-0.2,0.1)$ preserves both constraints but adds variance exactly $0.0026$. The lab checks feasibility and this gap independently. With equal expected returns, only that common target is feasible and $D=0$; with a singular covariance, uniqueness can fail. A long-only problem can also have infeasible targets or binding boundaries. Those are different problems, not licenses to divide by a small surrogate for $D$.</p>
 <h2 id="3-a-risk-free-asset-turns-the-efficient-boundary-into-a-line-2503">3. A risk-free asset turns the efficient boundary into a line <a href="https://www.youtube.com/watch?v=g7j8sAIDN04&amp;t=1503s">25:03</a></h2>
 <p>Let $r_f$ denote a known simple return over the same horizon. This is a horizon return, not the continuously compounded annual rate $r$ used in carry formulas. Investing fraction $a$ in a risky portfolio $P$ and $1-a$ in the risk-free asset gives</p>
 <p>$$E[R_C]=r_f+a(\mu_P-r_f),\qquad
@@ -90,7 +103,7 @@ v(x)=v(x_{\rm GMV})+d(x-x_{\rm GMV})^2.$$</p>
 +\frac{N-1}{N}\bar c_N.$$</p>
 <p>If average variances remain bounded and average covariance converges to $c_\infty$, the limit is $c_\infty$. A nonzero floor therefore needs nonvanishing average covariance; it is not a universal theorem that portfolio risk can never tend to zero. Independent returns with bounded variances have $\bar c_N=0$ and equally weighted variance tending to zero. Conversely, adding more highly correlated names need not substantially reduce risk. Even monotone reduction as each new security is added is not guaranteed for arbitrary changing sets of assets.</p>
 <p>In a one-factor model with equal beta and mutually uncorrelated residuals of common variance $s_e^2$, the equal-weight variance becomes $\beta^2\sigma_M^2+s_e^2/N$. This is the familiar factor floor, now with its assumptions visible. Residuals being individually uncorrelated with the market is insufficient: correlated residuals can retain their own portfolio floor. Such a component may represent another common factor rather than diversifiable idiosyncratic risk.</p>
-<p>Run <a href="labs/ch06.py">the laboratory</a> to reproduce the two-asset minimum, tangency weights, covariance expansion, CAPM risk decomposition, and independent-versus-common residual limits. The code checks the minimum against a dense feasible grid and verifies the tangency first-order condition. These checks establish properties of supplied moments. They neither estimate live expected returns nor validate CAPM for a chosen stock index. The next chapter uses beta as a measurable hedge sensitivity while retaining that distinction.</p>
+<p>Run <a href="labs/ch06.py">the laboratory</a> to reproduce the two-asset minimum, tangency weights, covariance expansion, CAPM risk decomposition, and independent-versus-common residual limits. The code checks the two-asset minimum against a dense feasible grid, verifies the three-asset target constraints and exact variance-gap certificate, and verifies the tangency first-order condition. These checks establish properties of supplied moments. They neither estimate live expected returns nor validate CAPM for a chosen stock index. The next chapter uses beta as a measurable hedge sensitivity while retaining that distinction.</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Derive the portfolio variance for two securities with equal weights, each with standard deviation 6% and correlation 0.5. Does the resulting 5.20% prove either security is mispriced?</li>
@@ -169,6 +182,32 @@ def main():
         pass
     else:
         raise AssertionError(&quot;Negative definite matrix accepted&quot;)
+    # Three assets: verify both constraints and the exact variance gap.
+    mu, diagonal, target = (0.04, 0.08, 0.12), (0.01, 0.04, 0.09), 0.09
+    g = [1 / v for v in diagonal]
+    j = [m / v for m, v in zip(mu, diagonal)]
+    aa, bb = sum(g), sum(j)
+    cc = sum(m * z for m, z in zip(mu, j))
+    determinant = aa * cc - bb * bb
+    frontier = [
+        ((cc - bb * target) * u + (aa * target - bb) * v) / determinant
+        for u, v in zip(g, j)
+    ]
+    assert isclose(sum(frontier), 1)
+    assert isclose(sum(w * m for w, m in zip(frontier, mu)), target)
+    minimum = sum(v * w**2 for v, w in zip(diagonal, frontier))
+    formula = (aa * target**2 - 2 * bb * target + cc) / determinant
+    assert isclose(minimum, formula)
+    direction = (0.1, -0.2, 0.1)
+    assert isclose(sum(direction), 0, abs_tol=1e-15)
+    assert isclose(sum(h * m for h, m in zip(direction, mu)), 0)
+    perturbed = sum(
+        v * (w + h)**2 for v, w, h in zip(diagonal, frontier, direction)
+    )
+    gap = sum(v * h**2 for v, h in zip(diagonal, direction))
+    assert isclose(gap, 0.0026)
+    assert isclose(perturbed - minimum, gap)
+    print(f&quot;Three-asset frontier weights={frontier}; variance={minimum:.9f}&quot;)
     q = solve2(0.01, 0.005, 0.04, (0.06, 0.12))
     weights = [v / sum(q) for v in q]
     assert isclose(weights[0], 2 / 3) and isclose(weights[1], 1 / 3)

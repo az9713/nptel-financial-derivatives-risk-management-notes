@@ -3,15 +3,41 @@
   "disposition": "accepted",
   "report": "validation/review-ch12-r2.md",
   "scope": [
-    "Full manuscript, metadata, six solutions and lab source",
-    "Fresh execution and independent equation/unit/number checks",
-    "Selected official CME references and author reading-ledger inspection; no full repeated source or AV audit"
+    "Original full manuscript/solutions/lab review preserved as historical evidence, with prior hashes in review_history",
+    "Current critical-comparison revision: complete changed passages and solutions with surrounding definitions, metadata and laboratory changes inspected",
+    "Fresh full lab execution plus independent calculations; no new full-caption, audiovisual or complete external-source audit"
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch12.md": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+    "chapters/ch12.md": "b332db0cbfcdf0ca8052fbfbe0d5ee7d2d000292ad46638c45d8cfeeac4861c2",
     "chapters/ch12.json": "f1a90f2ef7202f65e47733c504ef97cb0099105c07b9586c7636fd994b9cccce",
-    "labs/ch12.py": "984a183c1acbfaeafe50648edc7a5b2b535da2934fc7b66769821fc612e7d082"
+    "labs/ch12.py": "843b0e8e5b75d98008098038de02cf60ceae6712a4db8fde6e14a7a95fba598f"
   },
-  "repair_recheck": "Subsequent independent r1 review identified a genuine omitted multiplicative carry factor in the original cash-DV01 shortcut. I initially missed that issue. Re-read revised section6, exercise5/solution5 and the complete changed lab. Differentiating F=[A(Bcash-J)-AI]/CF with frozen A,J,AI,CF gives DF=A Dcash/CF. The36-contract case now explicitly assumes A=1; A=1.02 gives85 dollarDV01 and35.29411765contracts. Central finite difference independently checks that formula. Integer/nonbool period and finite rate/coupon guards/regressions are correct; fresh full lab passed."
+  "repair_recheck": "Subsequent independent r1 review identified a genuine omitted multiplicative carry factor in the original cash-DV01 shortcut. I initially missed that issue. Re-read revised section6, exercise5/solution5 and the complete changed lab. Differentiating F=[A(Bcash-J)-AI]/CF with frozen A,J,AI,CF gives DF=A Dcash/CF. The36-contract case now explicitly assumes A=1; A=1.02 gives85 dollarDV01 and35.29411765contracts. Central finite difference independently checks that formula. Integer/nonbool period and finite rate/coupon guards/regressions are correct; fresh full lab passed.",
+  "review_history": [
+    {
+      "phase": "Original edition full review and subsequent repair checks",
+      "accepted_files": {
+        "chapters/ch12.md": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+        "chapters/ch12.json": "f1a90f2ef7202f65e47733c504ef97cb0099105c07b9586c7636fd994b9cccce",
+        "labs/ch12.py": "984a183c1acbfaeafe50648edc7a5b2b535da2934fc7b66769821fc612e7d082"
+      },
+      "scope": [
+        "Full manuscript, metadata, six solutions and lab source",
+        "Fresh execution and independent equation/unit/number checks",
+        "Selected official CME references and author reading-ledger inspection; no full repeated source or AV audit"
+      ],
+      "repair_recheck": "Subsequent independent r1 review identified a genuine omitted multiplicative carry factor in the original cash-DV01 shortcut. I initially missed that issue. Re-read revised section6, exercise5/solution5 and the complete changed lab. Differentiating F=[A(Bcash-J)-AI]/CF with frozen A,J,AI,CF gives DF=A Dcash/CF. The36-contract case now explicitly assumes A=1; A=1.02 gives85 dollarDV01 and35.29411765contracts. Central finite difference independently checks that formula. Integer/nonbool period and finite rate/coupon guards/regressions are correct; fresh full lab passed."
+    }
+  ],
+  "critical_comparison_recheck": {
+    "status": "accepted",
+    "checks": "Read full instantaneous-delivery addition and exercise 6/solution 6 with carried-DV 01 context, unchanged metadata and complete lab diff. Independently checked both arbitrage directions for the delivery-instant minimum normalized clean-price rule, positive conversion-factor cash units, crossing 2.5 bp at 99.8, branch DV 01 s 80/120 and ten-bp residual 11250. The text explicitly excludes a general unexpired-futures formula. Requested 'distinct maturity-specific curve exposures' to avoid statistical independence ambiguity; actual repair re-read. Fresh full lab and 79-column pycodestyle passed.",
+    "prior_accepted_files": {
+      "chapters/ch12.md": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+      "chapters/ch12.json": "f1a90f2ef7202f65e47733c504ef97cb0099105c07b9586c7636fd994b9cccce",
+      "labs/ch12.py": "984a183c1acbfaeafe50648edc7a5b2b535da2934fc7b66769821fc612e7d082"
+    },
+    "boundary": "Incremental comparison-edition review; original full-review scope is historical, not falsely repeated for this edition."
+  }
 }

@@ -9,3 +9,10 @@ The source put was independently recomputed: continuous5% gives pricing weight0.
 The three-state call is not spanned by stock and bank. The positive state-weight family and open price interval are correct; endpoint exclusion matters once the new call completes the payoff span. The shrinking-step expansion has the correct log-drift correction. The bounded-increment Lindeberg argument and bounded second moment supply the distributional and uniform-integrability steps; the text does not claim that moment matching alone proves option-price convergence or American stopping convergence.
 
 Primary CRR1979 manuscript pages3–7 and20–21 were read locally for replication, trading assumptions, pricing weights, and the limiting construction. Actual caption passages checked: p44 at390–550 and895–1040seconds; p45 at510–650,1090–1260, and1660–1800seconds. These support the source topic locations and the interior-strike qualification. The author ledger separately records full sequential reading. Fresh code checks verified state matching, all four rebalancing paths, independent terminal summation, the put exercise calculation, strike boundaries, and tree convergence values10.40075148,10.43809516,10.44745962. No unresolved scientific or pedagogical finding remains. No comprehensive audiovisual or formal verification claim is made.
+
+
+## Critical parity revision, 24 November 2026
+
+Read the complete three-state spanning/interval section, both new endpoint ledgers, all narrative relocation diffs and adjacent exercise/source context, new lab checks, and metadata. Exact rational arithmetic independently gives lower price 100/21 and upper 250/21; both initial costs vanish and all ordered state payoffs are (20,0,0) and (0,10,0). States beyond the interval add an initial receipt consistently. Fresh current lab passed.
+
+Accepted after the described incremental review. The earlier full-review scope remains historical; no repeated source or audiovisual audit is claimed. Current exact file bindings and prior bindings appear in the JSON receipt. Reviewer remains independent of the chapter author.

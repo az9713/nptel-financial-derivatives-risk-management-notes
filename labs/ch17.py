@@ -34,6 +34,16 @@ def main():
     assert isclose(float(weights @ normalized_exponential), 1,
                    abs_tol=1e-13)
     assert isclose(1.1 * (10 / 11), 1, abs_tol=1e-15)
+    # A genuinely random adapted step integrand: two independent increments.
+    dw1, dw2 = np.meshgrid(z * sqrt(.5), z * sqrt(.5), indexing='ij')
+    joint_weights = weights[:, None] * weights[None, :]
+    integral = dw1 + (1 + dw1) * dw2
+    variance_by_isometry = .5 + .5 * float(weights @ (1 + z * sqrt(.5))**2)
+    assert isclose(float(np.sum(joint_weights * integral)), 0,
+                   abs_tol=1e-13)
+    assert isclose(float(np.sum(joint_weights * integral**2)), 1.25,
+                   abs_tol=1e-12)
+    assert isclose(variance_by_isometry, 1.25, abs_tol=1e-13)
     rng = np.random.default_rng(1701)
     steps, horizon = 4096, 1.0
     increments = rng.normal(0, sqrt(horizon / steps), size=steps)

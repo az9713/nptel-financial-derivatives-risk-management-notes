@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch21.md": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
-    "chapters/ch21.json": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
-    "labs/ch21.py": "63b0cb899f09b65f7a078f36b6c5b18e107ab9b6c9475e8893862946cba0c4b1"
+    "chapters/ch21.md": "4fe71f7808b940d1739ba984172ed705288bfb8ac5cb1f8d8140d6c8a6a93046",
+    "chapters/ch21.json": "d872037f3d61adfc514c3667e9f587acfc39c509ae36b7b3306f85e573933eb8",
+    "labs/ch21.py": "a1647dc09ef0f37a0167b00b266cf0ad0048a740936d99a0cf51575a8d65eb29"
   },
   "source_evidence": {
     "caption_positions": [
@@ -31,5 +31,26 @@
     "No full independent caption reread",
     "No comprehensive audiovisual audit or human certification",
     "Separate release/browser checks required"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific/editorial review: complete diff, affected full sections and solutions/context, metadata and code; unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch21.md": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+        "chapters/ch21.json": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
+        "labs/ch21.py": "63b0cb899f09b65f7a078f36b6c5b18e107ab9b6c9475e8893862946cba0c4b1"
+      },
+      "accepted_files": {
+        "chapters/ch21.md": "4fe71f7808b940d1739ba984172ed705288bfb8ac5cb1f8d8140d6c8a6a93046",
+        "chapters/ch21.json": "d872037f3d61adfc514c3667e9f587acfc39c509ae36b7b3306f85e573933eb8",
+        "labs/ch21.py": "a1647dc09ef0f37a0167b00b266cf0ad0048a740936d99a0cf51575a8d65eb29"
+      },
+      "checks": "Read the entire revised multi-maturity hedge section with the rank/proportionality context, table, same-date repricing results, revised source wording, metadata and solution context, plus the added lab checks. Recomputed vega/gamma ratios 1000,2000,3000; the two hedge gamma contributions each equal fifty base-option gammas. This yields 54.41970290 and 57.64410566 long options, minus 11.73504893 shares and cash 973.51368371. Signs and zero initial budget agree, and same-date residuals are distinguished from later financed P&L. Requested explicit base/hedge subscript definitions; inspected the final definitions of indices 0,1,2 and c/delta/gamma before equations. The fresh full lab passed.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "new_primary_passages_inspected": [],
+      "source_reading": "No repeated caption reading or audiovisual audit; only the explicitly named new primary passages were inspected in this incremental pass."
+    }
   ]
 }

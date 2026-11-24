@@ -11,3 +11,10 @@ Fresh lab output reproduced the imperfect-beta overlay, historical attribution, 
 Actual caption passages inspected: p17 at1450–1610seconds; p18 at430–720 and1660–1800seconds; p19 at390–530 and1350–1510seconds. MIT Lo's forward/futures slides25–29 were read locally for historical dividend/index applications and the250-dollar multiplier example; graphical tables were not comprehensively audited. Full sequential source reading belongs to the author ledger. This review is separate from browser, package, and live publication checks and makes no comprehensive audiovisual or human-expert certification claim.
 
 Final canonical-line-ending recheck: the lead reviewer independently reconstructed the prior CRLF bytes from the LF version and matched the previous accepted SHA-256 for every changed bound file. Laboratory ASTs also match. This newline-only operation changes no scientific text or code behavior; the receipt now binds the canonical LF bytes. Evidence: `validation/line-ending-normalization.json`.
+
+
+## Critical parity revision, 24 November 2026
+
+Read the complete beta-versus-minimum-variance addition and adjacent factor decomposition, lab changes, and objective metadata. Independently derived beta_G Cov(e_P,e_G)=beta_P Var(e_G) as the equality condition. Constructed the three-factor covariance and checked positive definiteness, both combined variances, residual beta, and the 0.000720 gap. Fresh chapter lab passed.
+
+Accepted after the described incremental review. The earlier full-review scope remains historical; no repeated source or audiovisual audit is claimed. Current exact file bindings and prior bindings appear in the JSON receipt. Reviewer remains independent of the chapter author.

@@ -1,4 +1,5 @@
 """Check scaled-walk laws and a hidden-memory example; no network or files."""
+from cmath import exp as complex_exp
 from math import comb, cos, erf, exp, isclose, isfinite, sqrt
 
 
@@ -73,6 +74,25 @@ def main():
         assert isclose(enumerated, product, abs_tol=1e-13)
         print(f"n={steps}: characteristic={product:.8f}, "
               f"normal={exp(-0.5 * (frequency * 0.2) ** 2):.8f}")
+    # A joint characteristic function factors over independent time blocks.
+    first, second = 1.3, -.7
+    mean = .04 * (.5 * first + second)
+    variance = .2**2 * (.5 * (first + second)**2 + .5 * second**2)
+    limit = complex_exp(1j * mean - variance / 2)
+    errors_joint = []
+    for count in (4, 64, 256):
+        jump = .2 / sqrt(count)
+        product = (complex_exp(1j * mean)
+                   * cos(jump * (first + second))**(count // 2)
+                   * cos(jump * second)**(count // 2))
+        errors_joint.append(abs(product - limit))
+        if count == 4:
+            arguments = [mean + jump * ((first + second) * (a + b)
+                                        + second * (c + d))
+                         for a, b, c, d in paths]
+            direct = sum(complex_exp(1j * x) for x in arguments) / len(paths)
+            assert abs(direct - product) < 1e-13
+    assert errors_joint[-1] < errors_joint[0]
     errors = [corrected_error(walk_law(n), 0.04, 0.2) for n in [4, 64]]
     assert errors[1] < errors[0]
     print("continuity-corrected CDF errors:",

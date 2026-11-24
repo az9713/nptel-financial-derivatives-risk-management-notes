@@ -36,6 +36,29 @@ def settlements(quotes, quantity):
     return flows, balances, max(0, -min(balances))
 
 
+def funding_reserve(flows, account_values):
+    """Return minimum initial reserve and funded post-settlement balances."""
+    flows, account_values = list(flows), list(account_values)
+    if not flows or len(flows) != len(account_values):
+        raise ValueError("Need one account value per settlement")
+    if not all(isfinite(x) for x in [*flows, *account_values]):
+        raise ValueError("Inputs must be finite")
+    if any(x <= 0 for x in account_values):
+        raise ValueError("Account values must be positive")
+    cumulative, discounted = 0.0, []
+    for flow, account in zip(flows, account_values):
+        cumulative += flow / account
+        if not isfinite(cumulative):
+            raise ValueError("Discounted settlement overflow")
+        discounted.append(cumulative)
+    reserve = max(0.0, -min(discounted))
+    balances = [account * (reserve + subtotal)
+                for account, subtotal in zip(account_values, discounted)]
+    if not all(isfinite(x) for x in balances):
+        raise ValueError("Account balance overflow")
+    return reserve, balances
+
+
 def main():
     rates = [80.0, 86.0, 92.0]
     invoice, forward, option = costs(rates, 100_000, 86, 2)
@@ -58,6 +81,36 @@ def main():
     assert flows == [-600_000, 1_200_000, -600_000]
     assert balances == [-600_000, 600_000, 0]
     assert deficit == 600_000
+    zero_rate_result = (600_000, [0, 1_200_000, 600_000])
+    assert funding_reserve(flows, [1, 1, 1]) == zero_rate_result
+    account_values = [1.01**i for i in (1, 2, 3)]
+    reserve, funded = funding_reserve(flows, account_values)
+    assert isclose(reserve, 600_000 / 1.01, rel_tol=1e-12)
+    assert min(funded) >= -1e-8
+    for initial, expected in [(reserve, funded), (reserve - 1, None)]:
+        balance, previous, actual = initial, 1.0, []
+        for flow, account in zip(flows, account_values):
+            balance = balance * account / previous + flow
+            actual.append(balance)
+            previous = account
+        if expected is None:
+            assert min(actual) < 0
+        else:
+            assert all(isclose(a, b, abs_tol=1e-8)
+                       for a, b in zip(actual, expected))
+    terminal_terms = [flow * account_values[-1] / account
+                      for flow, account in zip(flows, account_values)]
+    zero_reserve_terminal = sum(terminal_terms)
+    assert isclose(zero_reserve_terminal, -60, abs_tol=1e-8)
+    assert funding_reserve([3, -1], [1, 1])[0] == 0
+    for invalid in [([], []), ([1], [0]), ([1], [float('nan')]),
+                    ([1, 2], [1]), ([float('inf')], [1])]:
+        try:
+            funding_reserve(*invalid)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Invalid funding path accepted")
     assert settlements([86, 70, 86], 100_000)[2] == 1_600_000
     for path in [[86, 80, 92, 86], [86, 92, 80, 86], [86, 70, 86]]:
         total = sum(settlements(path, 100_000)[0])
@@ -85,6 +138,8 @@ def main():
     print("call cost:", [int(x) for x in option])
     print("MTM balances:", [int(x) for x in balances])
     print("peak deficit:", int(deficit))
+    print(f"initial reserve with interest: {reserve:.2f}")
+    print(f"zero-reserve terminal balance: {zero_reserve_terminal:.2f}")
     print("cash-flow, financing, hedge, and moment certificates passed")
 
 

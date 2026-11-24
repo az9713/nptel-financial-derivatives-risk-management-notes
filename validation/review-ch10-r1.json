@@ -3,9 +3,10 @@
   "disposition": "accepted",
   "report": "validation/review-ch10-r1.md",
   "scope": [
-    "Full manuscript, metadata, all six solutions and full laboratory source",
-    "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
-    "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+    "Incremental critical-parity review of all changed manuscript/lab sections, relevant surrounding context and changed worked solutions; metadata checked for change or unchanged identity",
+    "Read the added investment-yield-coordinate derivation, surrounding quotation/sensitivity context, expanded exercise 2 and solution, and every changed lab statement. Independently differentiated r_s = d/(1-d alpha), recovered the discount-price derivative by the chain rule, and checked 24.37890625 per investment-yield basis point and 25 per discount-yield basis point. Finite translated shocks represent the same price change rather than equal numerical yield shocks.",
+    "Fresh current laboratory execution, independent algebra/numerical checks and style validation; original full-review and source-reading history retained in review_history",
+    "No repeated full-caption, full-manuscript, primary-source, audiovisual or rendered-browser audit is implied by this incremental pass"
   ],
   "remaining_findings": [],
   "resolved_findings": [
@@ -13,8 +14,31 @@
     "Medium: annualized investment_rate accepted zero accrual. Author now rejects it, while preserving legitimate zero-day bill redemption."
   ],
   "accepted_files": {
-    "chapters/ch10.md": "5c422782ed73cd4d27ed021f9054381a37a7e0881b9f5b32abdb74d4c5fd8bf8",
+    "chapters/ch10.md": "b0d505c63b3939b6b0b832fe869acd17b930f4042e2d32d6f114e3052c88a520",
     "chapters/ch10.json": "16d9fba6a1365a8bbd0c4939e2eb179f8a2e094caa051c6e86be1034902e5394",
-    "labs/ch10.py": "07e40361487745bf5b85e2ec4735e4655e88aa95aaf5435f35107f6914663079"
+    "labs/ch10.py": "1d4b0fa6d4edd795aa74a70fe4c1b7cd16c9a4f359bce3fa81f919ac28756544"
+  },
+  "review_history": [
+    {
+      "edition": "before critical-parity revisions",
+      "scope": [
+        "Full manuscript, metadata, all six solutions and full laboratory source",
+        "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
+        "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+      ],
+      "accepted_files": {
+        "chapters/ch10.md": "5c422782ed73cd4d27ed021f9054381a37a7e0881b9f5b32abdb74d4c5fd8bf8",
+        "chapters/ch10.json": "16d9fba6a1365a8bbd0c4939e2eb179f8a2e094caa051c6e86be1034902e5394",
+        "labs/ch10.py": "07e40361487745bf5b85e2ec4735e4655e88aa95aaf5435f35107f6914663079"
+      },
+      "disposition": "accepted"
+    }
+  ],
+  "incremental_review": {
+    "reviewer": "scientific_review",
+    "date": "2026-11-24",
+    "author_distinct": true,
+    "detail": "Read the added investment-yield-coordinate derivation, surrounding quotation/sensitivity context, expanded exercise 2 and solution, and every changed lab statement. Independently differentiated r_s = d/(1-d alpha), recovered the discount-price derivative by the chain rule, and checked 24.37890625 per investment-yield basis point and 25 per discount-yield basis point. Finite translated shocks represent the same price change rather than equal numerical yield shocks.",
+    "checks": "Fresh lab passed; pycodestyle passed; independent rational/algebraic checks passed."
   }
 }

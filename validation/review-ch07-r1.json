@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch07.md": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
-    "chapters/ch07.json": "eeb208682d36714cf79a0806a7edced4f86a5921c28ed6e6fe42b623777618fe",
-    "labs/ch07.py": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91"
+    "chapters/ch07.md": "2bf817b8831b4a69c98c77e2d9f97c16e1b9a3661459fa4a5da93f3a17e4d476",
+    "chapters/ch07.json": "2378ae0ce20fd5bed468b108aafb5d683beacad7ff7eaa02d5a9ba301e41d95c",
+    "labs/ch07.py": "517d502b8d6b22ebd2c7e28f786d8d766acc393c1f9624f02250d23fb90bb5bf"
   },
   "source_evidence": {
     "caption_positions": [
@@ -53,6 +53,26 @@
           "reverse_crlf_reconstruction_matches_accepted_sha256": true
         }
       ]
+    }
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific review: complete git diff, affected full sections/solutions/context, changed metadata/code, and specifically reported numerical checks. Unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch07.md": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+        "chapters/ch07.json": "eeb208682d36714cf79a0806a7edced4f86a5921c28ed6e6fe42b623777618fe",
+        "labs/ch07.py": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91"
+      },
+      "accepted_files": {
+        "chapters/ch07.md": "2bf817b8831b4a69c98c77e2d9f97c16e1b9a3661459fa4a5da93f3a17e4d476",
+        "chapters/ch07.json": "2378ae0ce20fd5bed468b108aafb5d683beacad7ff7eaa02d5a9ba301e41d95c",
+        "labs/ch07.py": "517d502b8d6b22ebd2c7e28f786d8d766acc393c1f9624f02250d23fb90bb5bf"
+      },
+      "checks": "Read the complete revised beta/residual section, surrounding target-beta and execution models, changed metadata, existing six solutions and full lab delta. Independently derived the variance square and the exact equality condition between beta neutrality and minimum variance. Constructed the joint covariance from independent market and compatible residual coordinates: stock variance 0.0676, covariance 0.054, and futures variance 0.05. Minimum variance uses k = -1.08 and variance 0.00928; beta neutrality uses k = -1.2 and variance 0.01. Their 0.00072 difference and the remaining beta 0.12 agree with the proof. The fresh lab passed. No CAPM pricing or investment-mandate conclusion is inferred from the projection.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "source_reading": "No repeated caption/primary-source reading claimed; original full-review source scope remains separately recorded."
     }
   ]
 }

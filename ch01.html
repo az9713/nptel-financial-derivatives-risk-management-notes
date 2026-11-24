@@ -63,7 +63,18 @@
 <p>$$\sum_{i=1}^{n}Q(F_i-F_{i-1})=Q(F_n-F_0).$$</p>
 <p>Each intermediate quotation appears once positively and once negatively. The identity explains why a final-price comparison can conceal substantial intermediate cash flows. With $Q=100{,}000$ and quotations $86,80,92,86$, the long position pays 600,000, receives 1,200,000, and pays 600,000 rupees. Its cumulative settlement is zero, but its first cash demand is 600,000 rupees, excluding initial margin.</p>
 <p>The importer's business gain from a stronger rupee may not be spendable before the invoice date. Consequently, an economically offsetting hedge can still require external funding. <strong>Liquidity risk</strong> is the risk of being unable to meet payments when due on acceptable terms. It is not measured by the final payoff alone. Identical terminal prices on two different paths can imply different funding requirements.</p>
-<p>If cash flows are reinvested or financed, the relevant terminal amount is instead $\sum_i Q(F_i-F_{i-1})e^{r(T-t_i)}$ under a common constant rate $r$. The terms have different accumulation periods, so they no longer cancel in the same way. With stochastic rates, the relationship between futures and forward quotations needs additional reasoning. We defer that pricing comparison rather than infer equality from a superficially similar terminal payoff.</p>
+<p>If cash flows are reinvested or financed, the relevant terminal amount is instead $\sum_i Q(F_i-F_{i-1})e^{r(T-t_i)}$ under a common constant rate $r$. The terms have different accumulation periods, so they no longer cancel in the same way. With stochastic rates, the relationship between futures and forward quotations needs additional reasoning. Chapter 3 derives the pricing comparison from dated cash flows.</p>
+<h3 id="a-terminal-hedge-still-needs-a-feasible-funding-plan">A terminal hedge still needs a feasible funding plan</h3>
+<p>The settlement ledger also determines how much cash must be available before the invoice arrives. Let $g_i=Q(F_i-F_{i-1})$ be the signed settlement at $t_i$. Let $B_i&gt;0$ be the value at $t_i$ of one rupee invested at time zero, with $B_0=1$. Assume the firm can retain receipts in this account, pays all settlements from it, and has no other interim cash flows. A reserve $L\ge0$ is deposited initially. Write $A_i$ for the account balance immediately after settlement $i$.</p>
+<p>Between settlements the account grows by $B_i/B_{i-1}$. Its balance therefore satisfies</p>
+<p>$$A_0=L,\qquad A_i=A_{i-1}\frac{B_i}{B_{i-1}}+g_i,
+\qquad \frac{A_i}{B_i}=L+\sum_{j=1}^i\frac{g_j}{B_j}.$$</p>
+<p>The last equality follows by dividing the recurrence by $B_i$ and summing. It converts payments made on different dates into time-zero rupees. Since every $B_i$ is positive, all post-settlement balances are nonnegative exactly when $L$ offsets every negative cumulative discounted settlement. Thus the minimum initial reserve for this specified path is</p>
+<p>$$L_* = \max\left(0,\max_{1\le i\le n}
+\left[-\sum_{j=1}^i\frac{g_j}{B_j}\right]\right).$$</p>
+<p>This is both necessary and sufficient in the stated account model. If $L_*&gt;0$, any smaller nonnegative reserve leaves a negative balance at a date attaining the maximum. If $L_*=0$, the initial constraint $L\ge0$ already establishes minimality. A reserve of $L_*$ makes every balance nonnegative. At zero interest, $B_i=1$, and the formula reduces to the maximum cumulative deficit of 600,000 rupees already computed. It does not add together every negative payment: receipts retained between calls can finance later payments.</p>
+<p>For an arithmetic check, suppose the account grows by one percent between successive settlements, so $B_i=1.01^i$. For the same payments $(-600{,}000,1{,}200{,}000,-600{,}000)$, the cumulative discounted settlements are approximately $-594{,}059.41$, $582{,}295.85$, and $-58.24$ rupees. The required initial reserve is therefore 594,059.41 rupees. Without an initial reserve, the terminal account would equal $B_3\sum_i g_i/B_i=-60$ rupees, despite zero undiscounted net settlement. The difference comes entirely from payment timing.</p>
+<p>The path-specific number $L_*$ is known only after specifying the settlement path. To guarantee funding over a chosen finite set of scenarios, take the largest $L_*$ across those paths. Unbounded adverse paths can require an unbounded reserve. Initial margin, restricted collateral, separate borrowing and lending rates, and changing haircuts require a richer account model. The invoice's eventual exchange-rate saving supplies no cash before the invoice date under the assumptions here.</p>
 <p>Central clearing changes who owes whom and manages defaults through collateral, settlement, and financial resources. It mitigates bilateral credit exposure; it does not make all credit, liquidity, operational, or systemic risk vanish. The <a href="https://www.bis.org/publications/principles-financial-market-infrastructures">CPMI–IOSCO Principles for Financial Market Infrastructures</a>, particularly Principles 4, 6, and 7 on credit risk, margin, and liquidity risk, treat these as risks that require management. A mathematical default-free pricing assumption must therefore remain labeled as an idealization.</p>
 <h2 id="5-an-option-buys-discretion-and-charges-for-it-2938">5. An option buys discretion and charges for it <a href="https://www.youtube.com/watch?v=pJDMgEpn-bM&amp;t=1778s">29:38</a></h2>
 <p>A <strong>call option</strong> gives its holder the right to buy the specified underlying on contractual terms; a <strong>put option</strong> gives the right to sell it. The <strong>strike</strong> is the price specified for exercise. A <strong>European</strong> option can be exercised at its contractual expiry; an <strong>American</strong> option permits exercise during its specified exercise window. These names describe exercise conventions, not geographic trading locations.</p>
@@ -125,9 +136,9 @@
 <p>The importer's forward identity is a hedge identity. To turn it into a forward-pricing formula, we also need a replicating strategy using assets available today and a funding convention. Until those ingredients are specified, the algebra does not tell us which $K$ should be quoted. Distinguishing a contract's payment rule from the theory determining its price is the first defense against circular pricing arguments.</p>
 <h2 id="8-executable-cash-flow-checks">8. Executable cash-flow checks</h2>
 <p>Run <a href="labs/ch01.py">the chapter laboratory</a> in a fresh Python interpreter. Its inputs are synthetic finite exchange-rate scenarios, a positive dollar quantity, a strike/delivery rate, a premium, and dated futures quotations. It constructs the three cost vectors, verifies exact cancellation of the matched forward, checks both branches of the option-cost identity, and compares equal-moment payoff vectors state by state.</p>
-<p>The program also computes the futures settlement ledger, the cumulative balances, and the maximum funding deficit along the path. It checks the swap's fixed-interest identity using the same accrual convention on both legs. These checks use the Python standard library and require no network, market-data feed, credentials, or trade execution. Numeric inputs are checked for finiteness and the relevant nonnegativity restrictions.</p>
+<p>The program also computes the futures settlement ledger, the cumulative balances, and the maximum funding deficit along the path. Its reserve calculation takes one finite signed settlement and one positive account value per date. It returns the minimum initial reserve and the resulting balances without changing either input. The lab checks necessity by reducing the reserve by one rupee and observing a negative balance at the binding date. It also checks the swap's fixed-interest identity using the same accrual convention on both legs. These checks use the Python standard library and require no network, market-data feed, credentials, or trade execution. Numeric inputs are checked for finiteness and the relevant nonnegativity restrictions.</p>
 <p>The lab prints the forward-hedged cost 8,600,000 rupees in all three states and call-hedged costs 8,200,000, 8,800,000, and 8,800,000. For the futures path it prints cumulative settlements of -600,000, 600,000, and zero, with a maximum deficit of 600,000 before any initial margin. An assertion checks the full cash-flow identity, rather than only comparing a rounded printed value.</p>
-<p>The program verifies these finite constructions. It does not establish that the assumed forward rate or premium is an observed or arbitrage-free quote, that margin will be sufficient in a real default, or that the three scenarios exhaust currency risk. A larger scenario grid can check more examples but still cannot prove an identity for all real numbers; the two-branch algebra above supplies that proof.</p>
+<p>For the account growing by one percent per settlement interval, the lab prints the minimum initial reserve of 594,059.41 rupees and the zero-reserve terminal balance of -60 rupees. It independently checks the reserve formula against the dated balance recurrence. The program verifies these finite constructions. It does not establish that the assumed forward rate or premium is an observed or arbitrage-free quote, that margin will be sufficient in a real default, or that the three scenarios exhaust currency risk. A larger scenario grid can check more examples but still cannot prove an identity for all real numbers; the two-branch algebra above supplies that proof.</p>
 <h2 id="9-what-the-model-captures-and-what-it-leaves-open">9. What the model captures and what it leaves open</h2>
 <p>The cash-flow model captures quantity, settlement date, direction, exercise discretion, and the difference between a terminal outcome and an intermediate funding path. It explains why a forward can fix a cost, why a call can cap it at a premium, and why a swap can transform a matched floating payment. All three mechanisms are forms of adding a deliberately chosen signed cash flow to an existing exposure.</p>
 <p>The model leaves pricing curves, bid-ask spreads, collateral interest, credit adjustments, early termination, basis mismatch, uncertain business volume, and nonlinear portfolio interactions unresolved. These omissions are not reasons to abandon mathematical modeling. They identify which additional state variables and contractual details a later decision requires. Subsequent chapters introduce those layers in the order needed to keep the argument auditable.</p>
@@ -206,6 +217,29 @@ def settlements(quotes, quantity):
     return flows, balances, max(0, -min(balances))
 
 
+def funding_reserve(flows, account_values):
+    &quot;&quot;&quot;Return minimum initial reserve and funded post-settlement balances.&quot;&quot;&quot;
+    flows, account_values = list(flows), list(account_values)
+    if not flows or len(flows) != len(account_values):
+        raise ValueError(&quot;Need one account value per settlement&quot;)
+    if not all(isfinite(x) for x in [*flows, *account_values]):
+        raise ValueError(&quot;Inputs must be finite&quot;)
+    if any(x &lt;= 0 for x in account_values):
+        raise ValueError(&quot;Account values must be positive&quot;)
+    cumulative, discounted = 0.0, []
+    for flow, account in zip(flows, account_values):
+        cumulative += flow / account
+        if not isfinite(cumulative):
+            raise ValueError(&quot;Discounted settlement overflow&quot;)
+        discounted.append(cumulative)
+    reserve = max(0.0, -min(discounted))
+    balances = [account * (reserve + subtotal)
+                for account, subtotal in zip(account_values, discounted)]
+    if not all(isfinite(x) for x in balances):
+        raise ValueError(&quot;Account balance overflow&quot;)
+    return reserve, balances
+
+
 def main():
     rates = [80.0, 86.0, 92.0]
     invoice, forward, option = costs(rates, 100_000, 86, 2)
@@ -228,6 +262,36 @@ def main():
     assert flows == [-600_000, 1_200_000, -600_000]
     assert balances == [-600_000, 600_000, 0]
     assert deficit == 600_000
+    zero_rate_result = (600_000, [0, 1_200_000, 600_000])
+    assert funding_reserve(flows, [1, 1, 1]) == zero_rate_result
+    account_values = [1.01**i for i in (1, 2, 3)]
+    reserve, funded = funding_reserve(flows, account_values)
+    assert isclose(reserve, 600_000 / 1.01, rel_tol=1e-12)
+    assert min(funded) &gt;= -1e-8
+    for initial, expected in [(reserve, funded), (reserve - 1, None)]:
+        balance, previous, actual = initial, 1.0, []
+        for flow, account in zip(flows, account_values):
+            balance = balance * account / previous + flow
+            actual.append(balance)
+            previous = account
+        if expected is None:
+            assert min(actual) &lt; 0
+        else:
+            assert all(isclose(a, b, abs_tol=1e-8)
+                       for a, b in zip(actual, expected))
+    terminal_terms = [flow * account_values[-1] / account
+                      for flow, account in zip(flows, account_values)]
+    zero_reserve_terminal = sum(terminal_terms)
+    assert isclose(zero_reserve_terminal, -60, abs_tol=1e-8)
+    assert funding_reserve([3, -1], [1, 1])[0] == 0
+    for invalid in [([], []), ([1], [0]), ([1], [float(&#x27;nan&#x27;)]),
+                    ([1, 2], [1]), ([float(&#x27;inf&#x27;)], [1])]:
+        try:
+            funding_reserve(*invalid)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(&quot;Invalid funding path accepted&quot;)
     assert settlements([86, 70, 86], 100_000)[2] == 1_600_000
     for path in [[86, 80, 92, 86], [86, 92, 80, 86], [86, 70, 86]]:
         total = sum(settlements(path, 100_000)[0])
@@ -255,6 +319,8 @@ def main():
     print(&quot;call cost:&quot;, [int(x) for x in option])
     print(&quot;MTM balances:&quot;, [int(x) for x in balances])
     print(&quot;peak deficit:&quot;, int(deficit))
+    print(f&quot;initial reserve with interest: {reserve:.2f}&quot;)
+    print(f&quot;zero-reserve terminal balance: {zero_reserve_terminal:.2f}&quot;)
     print(&quot;cash-flow, financing, hedge, and moment certificates passed&quot;)
 
 

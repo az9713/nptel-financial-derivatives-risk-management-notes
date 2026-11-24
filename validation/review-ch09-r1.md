@@ -18,3 +18,10 @@ The persistent bond example, explicit rate coordinates, and exact counterexample
 ## Bounded LF normalization recheck
 
 Reconstructed the former CRLF bytes from each affected canonical LF file and matched its previously accepted SHA-256 exactly. All unaffected inputs retain their accepted digests. The Python AST is identical and the chapter lab passed a fresh execution. This rebind changes byte-level acceptance only; the full scientific review above remains applicable. Evidence: `validation/line-ending-normalization.json`.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the complete revised convexity/Taylor section, including the rate domain and derivative coordinates, relevant solution 2/3 context and all remaining solution context, metadata spacing, curve-coordinate wording, and full lab delta. Independently differentiated the third derivative and verified that its positive magnitude decreases with yield. Endpoint magnitudes therefore bracket the positive-shock quadratic overstatement on the admissible interval. Verified bounds 0.2607141749 and 0.4081130975 around the approximately 0.365477 overstatement. The fresh lab passed. Distinct maturity-specific coordinates require no statistical-independence assumption.
+
+Disposition: accepted; no remaining findings. The accompanying receipt preserves the prior accepted SHA bindings and records new exact bindings. Unchanged original bytes rely on the earlier full review. This incremental pass does not claim repeated full caption reading, additional audiovisual inspection, or completed rendering/release checks.

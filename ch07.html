@@ -21,7 +21,7 @@
 <main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
 <h1>07. Index futures change beta without selling the stock portfolio</h1>
 <p class="meta"><a href="https://www.youtube.com/watch?v=osqhEV8JzGE">Recording 17</a>, <a href="https://www.youtube.com/watch?v=FNWj1kZmwq0">Recording 18</a>, <a href="https://www.youtube.com/watch?v=3pvhRtLCpkY">Recording 19</a> · Expanded, independently developed exposition</p>
-<div class="objectives"><strong>What you will learn</strong><ul><li>Derive signed target-beta overlays from covariance</li><li>Distinguish futures notional from economic value and margin</li><li>Price index carry with stated dividend assumptions</li><li>Assess residual, rounding, maturity and execution risks</li></ul>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Derive signed target-beta overlays and distinguish them from minimum-variance positions</li><li>Distinguish futures notional from economic value and margin</li><li>Price index carry with stated dividend assumptions</li><li>Assess residual, rounding, maturity and execution risks</li></ul>
 <p><strong>Prerequisites:</strong> Chapters 2–6 carry, settlement timing, hedge variance and beta projection.</p></div>
 <div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
 <button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
@@ -60,6 +60,17 @@
 <p>$$\operatorname{Var}(e_P)+k^2\operatorname{Var}(e_G)
 +2k\operatorname{Cov}(e_P,e_G).$$</p>
 <p>Only if the futures exposure has no residual relative to the modeled market does the overlay leave precisely the original residual $e_P$. An industry index, a mismatched settlement reference, or changing carry can add tracking components. Calling these zero because the instrument is called an index future is not a proof.</p>
+<h3 id="a-beta-target-need-not-be-the-variance-minimum">A beta target need not be the variance minimum</h3>
+<p>The distinction can be derived rather than left as a warning. For $R_P+kX_G$ with $\operatorname{Var}(X_G)&gt;0$, completing the variance square gives</p>
+<p>$$k_{\rm MV}=-\frac{\operatorname{Cov}(R_P,X_G)}
+{\operatorname{Var}(X_G)},\qquad
+v(k)=v(k_{\rm MV})+\operatorname{Var}(X_G)(k-k_{\rm MV})^2.$$</p>
+<p>Using the factor–residual decompositions above,</p>
+<p>$$k_{\rm MV}=-\frac{\beta_P\beta_G\sigma_M^2+
+\operatorname{Cov}(e_P,e_G)}
+{\beta_G^2\sigma_M^2+\operatorname{Var}(e_G)}.$$</p>
+<p>This equals the beta-neutral choice $k_0=-\beta_P/\beta_G$ precisely when $\beta_G\operatorname{Cov}(e_P,e_G)=\beta_P\operatorname{Var}(e_G)$, provided $\beta_G\ne0$. A residual-free futures regressor satisfies that condition, but zero covariance of each residual with the market alone does not.</p>
+<p>For an original covariance example, let $\beta_P=1.2$, $\beta_G=1$, $\sigma_M^2=0.04$, $\operatorname{Var}(e_P)=\operatorname{Var}(e_G)=0.01$, and $\operatorname{Cov}(e_P,e_G)=0.006$, with both residuals orthogonal to the market. The residual covariance matrix is positive definite, so these are compatible moments. Then $\operatorname{Var}(X_G)=0.05$ and $\operatorname{Cov}(R_P,X_G)=0.054$. Beta neutrality uses $k_0=-1.2$ and leaves variance $0.010000$. Minimum variance instead uses $k_{\rm MV}=-1.08$, leaves beta $0.12$, and has variance $0.009280$. The difference $0.000720$ is exactly $0.05(0.12)^2$. Accepting some market sensitivity reduces the total residual-and-factor variance here. Neither objective is inherently the manager's mandate; specifying the mandate determines which certificate matters.</p>
 <p>Consider the lecture's historical illustration as an arithmetic case, not evidence of investment skill: 20,000 shares initially at 100 fall to 90; the hedge has ten short contracts with multiplier 250 and quotations falling from 900 to 750. Stock loss is 200,000; futures gain is $10(250)(150)=375000$; combined unfinanced gain is 175,000. Using an assumed beta 1.1 and treating the relative futures decline as the market factor, the attributed factor loss is $2000000(1.1)(-150/900)=-366666.67$. A fractional 9.777778-contract short would offset that attributed amount; ten contracts add 8,333.33 from rounding. The balance 166,666.67 is the scenario's residual relative to the assumed factor attribution.</p>
 <p>That residual realization does not establish superior information, an estimated alpha, or future outperformance. Nor is a realized factor decomposition the CAPM expected-return equation with the expectation bars removed. It is a scenario attribution based on a stated beta and regressor approximation. Fees, dividends, cash financing, and variation-settlement funding would enter a complete wealth account.</p>
 <h2 id="5-closing-before-expiry-requires-the-remaining-carry-0800">5. Closing before expiry requires the remaining carry <a href="https://www.youtube.com/watch?v=3pvhRtLCpkY&amp;t=480s">08:00</a></h2>
@@ -74,7 +85,7 @@
 <p>No profitable trade of this type requires $F_b\le (S_a+a)e^{r_bT}-De^{r_l(T-u)}$. In the reverse direction, short the basket at net proceeds $S_b-b$, invest proceeds at $r_l$, borrow the manufactured dividend at $r_b$, and buy the forward at ask $F_a$. The resulting restriction is</p>
 <p>$$F_a\ge (S_b-b)e^{r_lT}-De^{r_b(T-u)}.$$</p>
 <p>The bid/ask side matters: comparing a forward midpoint with a basket midpoint is not an executable arbitrage ledger. Borrow fees, short-sale restrictions, dividend uncertainty, terminal trading costs, and futures settlement timing widen or qualify these bounds. If a trader substitutes only a sample of constituents, the final basket mismatch is random, so the alleged arbitrage may instead be a risky relative-value trade.</p>
-<p>Run <a href="labs/ch07.py">the lab</a> to check target-beta signs, imperfect futures beta, rounding residuals, the historical arithmetic attribution, remaining-maturity carry, and both frictional trade directions. All contract specifications and price inputs are teaching cases. The calculation exposes which sensitivities cancel and which cash flows remain; it does not certify a currently executable market opportunity.</p>
+<p>Run <a href="labs/ch07.py">the lab</a> to check target-beta signs, imperfect futures beta, rounding residuals, the explicit difference between beta neutrality and minimum variance, the historical arithmetic attribution, remaining-maturity carry, and both frictional trade directions. All contract specifications and price inputs are teaching cases. The calculation exposes which sensitivities cancel and which cash flows remain; it does not certify a currently executable market opportunity.</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>Why is $mG_0$ a notional rather than the initial value of a newly entered futures contract? Derive the combined gain normalized by stock-portfolio value.</li>
@@ -130,6 +141,26 @@ def main():
     rounded = round(target)
     beta = 1.2 + rounded * 250 * 1000 / 100e6 * 0.95
     assert rounded == -505 and isclose(beta, 0.000625)
+    # Compatible market/residual moments separate two hedge objectives.
+    market_variance = 0.04
+    residual_variance, residual_covariance = 0.01, 0.006
+    assert residual_variance**2 &gt; residual_covariance**2
+    stock_variance = 1.2**2 * market_variance + residual_variance
+    futures_variance = market_variance + residual_variance
+    covariance = 1.2 * market_variance + residual_covariance
+    k_neutral, k_minimum = -1.2, -covariance / futures_variance
+
+    def combined_variance(k):
+        return stock_variance + k*k*futures_variance + 2*k*covariance
+
+    assert isclose(combined_variance(k_neutral), 0.01)
+    assert isclose(k_minimum, -1.08)
+    assert isclose(combined_variance(k_minimum), 0.00928)
+    assert isclose(1.2 + k_minimum, 0.12)
+    assert isclose(
+        combined_variance(k_neutral) - combined_variance(k_minimum),
+        futures_variance * (k_neutral - k_minimum)**2,
+    )
     cash = 20000 * (90 - 100)
     derivative = -10 * 250 * (750 - 900)
     factor = 2e6 * 1.1 * (750 - 900) / 900

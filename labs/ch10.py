@@ -38,6 +38,15 @@ def main():
     simple_price = face / (1 + 0.05 * days / 360)
     assert isclose(simple_price, 987654.3209876543)
     assert isclose(rate, 0.05063291139240506)
+    investment_dv01 = face * .25 / (1 + rate * .25)**2 * 1e-4
+    assert isclose(investment_dv01, 24.37890625)
+    rate_step = 1e-6
+    numerical = -(face / (1 + (rate + rate_step) * .25)
+                  - face / (1 + (rate - rate_step) * .25)) / (2 * rate_step)
+    assert isclose(numerical * 1e-4, investment_dv01, rel_tol=1e-8)
+    moved_rate = investment_rate(discount + 1e-4, days)
+    repriced = face / (1 + moved_rate * days / 360)
+    assert isclose(repriced - price, -25, abs_tol=1e-8)
     assert quote_price(face, 95) == price
     assert isclose(quote_price(face, 94.99) - price, -25)
     assert isclose(quote_price(face, 94.995) - price, -12.5)

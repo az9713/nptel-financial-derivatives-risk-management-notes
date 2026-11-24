@@ -28,3 +28,10 @@ Ran labs/ch24.py in a fresh process: all assertions passed, including indefinite
 ## Bounded editorial recheck
 
 Reread the first topic heading and complete curve-shock paragraph after the two agreed repairs. The first timestamp now points to the substantive26second opening rather than the introductory word at4seconds. The curve shocks are described as maturity-specific, preserving their full covariance rather than suggesting statistical independence. Reversing exactly those two edits reproduces the previously accepted manuscript SHA-256; metadata and lab remain byte-identical. The acceptance receipt now binds the repaired current manuscript.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the complete revised mapping subsection and its PV/variance/duration context, unchanged solution 2 and all formatting changes in solutions 3–6, changed metadata, and full lab delta. Expanded the difference of portfolio variances directly and verified the external covariance term. Independent symmetric signs with an explicit monetary scale s > 0 preserve both standalone variances at s squared while changing the combined variance from zero to twice s squared. The fresh full lab passed, including the four-state counterexample. Formatting changes preserve the earlier numbers, attribution and risk-model boundaries.
+
+Disposition: accepted; no remaining findings. The accompanying receipt preserves the prior accepted SHA bindings and records new exact bindings. Unchanged original bytes rely on the earlier full review. This incremental pass does not claim repeated full caption reading, additional audiovisual inspection, or completed rendering/release checks.

@@ -97,6 +97,11 @@ c_0+KP(0,T)=p_0+S_0.$$</p>
 <p>$$S_T+(K-S_T)^+-(S_T-K)^+-K=0.$$</p>
 <p>Below the strike the put converts the share into $K$ and the call expires. Above the strike the call obligation absorbs $S_T-K$, leaving $K$ from share value; that pays the borrowing. Thus the strategy retains a positive initial receipt without a terminal liability. The reverse discrepancy requires the reverse positions, including a feasible short sale of stock with usable proceeds.</p>
 <p>Every leg has to be executable at the price actually used. If the displayed call midprice is nine but its executable bid is eight, the put ask is four, and the stock ask is 100.50, the same proposed ledger yields $8+95-4-100.50=-1.50$ before any additional costs. A positive discrepancy between midquotes has not established an arbitrage. Bid–ask spreads, borrowing fees, settlement constraints, dividends owed on short stock, and margin liquidity can change the opportunity set.</p>
+<p>Both directions can be written as explicit consistency tests. The <strong>bid</strong> is the price at which the position can be sold, and the <strong>ask</strong> is the price at which it can be bought, for the quantities assumed here. Let subscripts $b$ and $a$ denote these executable prices; let $B_b,B_a$ be the bid and ask for the claim paying $K$ at expiry. Selling call plus cash claim and buying put plus stock must not produce a positive initial receipt. Reversing all positions gives a second restriction:</p>
+<p>$$c_b+B_b\le p_a+S_a,\qquad
+p_b+S_b\le c_a+B_a.$$</p>
+<p>The terminal payments still cancel exactly. Only the initial execution prices differ. In the frictionless limit bids equal asks, so the two opposite inequalities force parity equality. With spreads they constrain executable packages rather than the difference of two midpremiums. Shorting the cash claim here means borrowing against its $K$ repayment; the assumed borrowing access and any fees remain part of the test.</p>
+<p>For example, take call bid/ask $8/10$, put bid/ask $2/4$, stock bid/ask $99.50/100.50$, and $B_b=B_a=95$. The two tests read $103\le104.50$ and $101.50\le105$. Neither package direction offers a surplus, despite the one-dollar discrepancy between their midcosts. Raising only the call bid to ten would make the first receipt $10+95-4-100.50=0.50$, with the same zero terminal liability. These are necessary conditions for these two matched packages, not a proof that the entire quoted option surface has no arbitrage.</p>
 <p>The <a href="https://www.optionseducation.org/advancedconcepts/put-call-parity">OIC parity discussion</a> explicitly distinguishes its frictionless borrowing and transaction assumptions from real trading restrictions. For rigorous pricing work, retain the statewise ledger rather than replacing it with a statement that market pressure will eventually correct an apparent gap. The ledger identifies exactly which fees or constraints can invalidate the proposed trade.</p>
 <h2 id="6-dividends-must-be-matched-at-their-actual-dates-2348">6. Dividends must be matched at their actual dates <a href="https://www.youtube.com/watch?v=rGMc3_YrC_8&amp;t=1428s">23:48</a></h2>
 <p>Suppose the share pays known cash dividends $D_j$ at dates $t_j&lt;T$, and write $I_0=\sum_jD_jP(0,t_j)$ for their present value under the same frictionless funding framework. One way to isolate the terminal share is to buy it and borrow each dividend's present value. At its payment date, use the dividend to repay that matching obligation. The net initial cost of this prepaid terminal-share exposure is $S_0-I_0$.</p>
@@ -119,7 +124,7 @@ c_0+KP(0,T)=p_0+S_0.$$</p>
 <li>Derive the long-call, short-call, long-put, and short-put expiry payoffs. Under $S_T\ge0$, identify which losses can be unbounded and which are bounded by strike or premium under the stated funding model.</li>
 <li>With strike 100, call premium eight, put premium three, and discount factor 0.95, derive both standalone terminal-profit break-evens. Give an in-the-money outcome for the call that still produces a loss.</li>
 <li>Prove $(S_T-K)^+-(K-S_T)^+=S_T-K$ by considering both strike regions. Use it to derive European put–call parity and list the contract attributes that must match.</li>
-<li>Change the call premium to nine while keeping the running put, stock, and funding prices. Give the complete initial and terminal arbitrage ledger. Recalculate its initial receipt using call bid eight, put ask four, and stock ask 100.50.</li>
+<li>Change the call premium to nine while keeping the running put, stock, and funding prices. Give the complete initial and terminal arbitrage ledger. Recalculate its initial receipt using call bid eight, put ask four, and stock ask 100.50. Derive both executable parity inequalities and test the full bid–ask example in section 5.</li>
 <li>A share pays known dividends with present value two. Its price is 100 and the strike cash claim costs 95. Derive the required call-minus-put premium difference. Show how the dividend is matched at its payment date.</li>
 <li>In the deterministic stock example with spot 50, strike 100, and a one-year ten-percent continuously compounded rate, compute the European put price and current intrinsic amount. Explain why their ordering does not imply an arbitrage.</li>
 </ol>
@@ -136,7 +141,7 @@ c_0+KP(0,T)=p_0+S_0.$$</p>
 <p>Above the strike, call minus put is $S_T-K-0$; below it the difference is $0-(K-S_T)=S_T-K$. At equality all terms vanish. One long share plus borrowing with repayment $K$ has this same payoff, so its initial cost $S_0-KP(0,T)$ equals $c_0-p_0$. The options must match underlying quantity/unit, strike, expiry, European exercise, and settlement terms. The supporting trading, funding, and default assumptions must also apply to both portfolios.</p>
 </li>
 <li>
-<p>Buy stock and put, write the call, and borrow 95 repaying 100. Today the receipt is $9+95-3-100=1$. At expiry, stock plus put minus call minus borrowing gives $S_T+(100-S_T)^+-(S_T-100)^+-100=0$. With executable prices, the initial amount is $8+95-4-100.50=-1.50$, so that proposed trade no longer has a positive initial surplus. Funding fees and other frictions would need separate inclusion.</p>
+<p>Buy stock and put, write the call, and borrow 95 repaying 100. Today the receipt is $9+95-3-100=1$. At expiry, stock plus put minus call minus borrowing gives $S_T+(100-S_T)^+-(S_T-100)^+-100=0$. With executable prices, the initial amount is $8+95-4-100.50=-1.50$. The reverse package produces $p_b+S_b-c_a-B_a$, so absence of these two package arbitrages requires both receipts to be nonpositive. In section 5 the reverse receipt is $2+99.50-10-95=-3.50$. Both tests pass even though the midcosts differ. A call bid of ten would make the first receipt 0.50. Funding fees and other frictions need separate inclusion.</p>
 </li>
 <li>
 <p>Finance each known dividend by borrowing its present value and repay the loan from the dividend received. The remaining prepaid cost of the terminal share is $100-2=98$. The parity difference is therefore $98-95=3$. Equivalently, add dividend-date cash claims to the call-plus-strike package so its intermediate payments equal the dividends from put-plus-stock. Exact dated matching, rather than a general verbal dividend adjustment, supplies the result.</p>
@@ -182,6 +187,10 @@ def main():
     assert receipt == 1
     executable_receipt = 8 + 95 - 4 - 100.5
     assert executable_receipt &lt; 0
+    reverse_receipt = 2 + 99.5 - 10 - 95
+    assert isclose(executable_receipt, -1.5)
+    assert isclose(reverse_receipt, -3.5)
+    assert isclose(10 + 95 - 4 - 100.5, .5)
     dividend_pv, call_dividend, put_dividend = 2, 7, 4
     assert (call_dividend - put_dividend
             == initial - dividend_pv - strike * discount)

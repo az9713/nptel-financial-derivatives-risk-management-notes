@@ -1,7 +1,7 @@
 {
   "title": "Index futures change beta without selling the stock portfolio",
   "lectures": [17,18,19],
-  "objectives": ["Derive signed target-beta overlays from covariance", "Distinguish futures notional from economic value and margin", "Price index carry with stated dividend assumptions", "Assess residual, rounding, maturity and execution risks"],
+  "objectives": ["Derive signed target-beta overlays and distinguish them from minimum-variance positions", "Distinguish futures notional from economic value and margin", "Price index carry with stated dividend assumptions", "Assess residual, rounding, maturity and execution risks"],
   "prerequisites": "Chapters 2–6 carry, settlement timing, hedge variance and beta projection.",
   "source_scope": "Full sequential English captions for positions 17–19; MIT forward/futures slides 25–29 inspected. Historical source specifications are not current product claims."
 }

@@ -11,3 +11,10 @@ Gaussian formulas distinguish physical drift, pricing measure, per-day/annual ti
 Expected shortfall correctly fills only the required probability mass at the threshold. The three-point examples give VaR/ES(0,26) at95% and(10,46) at97.5%, independently checked by sorted tail filling and convex-breakpoint optimization. The two-loss counterexample has combined VaR100 despite individual VaRs0; combined ES103.2 is below the individual sum160. Every solution's signs, calculations, and interpretation were checked.
 
 Selected actual captions inspected: p58 at70–200,495–950,1000–1110,1400–1510seconds; p59 at270–450 and1210–1430seconds. Primary Rockafellar–Uryasev general-distribution Definition3, Proposition8, and Theorem10 passages were independently opened and read; the earlier manuscript's September5,1999 date was checked against its title page. Full author textual-reading attestations remain separate from this selected caption review. No comprehensive audiovisual, empirical-market, human-expert, or formal-proof certification claim is made. Runtime, browser, package, and publication checks remain distinct evidence.
+
+
+## Critical parity revision, 24 November 2026
+
+Read the complete new finite ES slope/objective/risk-envelope proof and neighboring quantile/atom/aggregation examples, all narrative relocation and solution changes, added lab code, and metadata. Checked left/right derivative inequalities, the flat 96-percent minimizer interval, threshold-atom allocation, capped weights, equality attainment and shared-scenario subadditivity. Independent linear programs on 20 seeded seven-state laws match threshold-objective minima and verify aggregation inequalities without independence. Fresh current full chapter lab passed.
+
+Accepted after the described incremental review. The earlier full-review scope remains historical; no repeated source or audiovisual audit is claimed. Current exact file bindings and prior bindings appear in the JSON receipt. Reviewer remains independent of the chapter author.

@@ -1,7 +1,16 @@
 {
   "title": "From random walks to Brownian risk factors",
-  "lectures": [37, 38, 39],
-  "objectives": ["Distinguish a process law from its one-time distributions and identify a sufficient Markov state", "Derive the square-root time scaling of a finite random walk and its limiting Gaussian endpoint", "Specify Brownian motion through its increments and path regularity", "Derive a diffusion equation as a continuum consistency limit without claiming an unproved path-convergence theorem"],
-  "prerequisites": "Probability, conditional probability, means and variances, and elementary Taylor expansion. Chapter01's distinction between payoff scenarios and probability assignments.",
-  "source_scope": "Full sequential reading of official English captions for playlist positions37–39. Formal definitions, examples, convergence qualifications, and numerical certificates are original expansions; no comprehensive audiovisual audit."
+  "lectures": [
+    37,
+    38,
+    39
+  ],
+  "objectives": [
+    "Distinguish a process law from its one-time distributions and identify a sufficient Markov state",
+    "Derive the square-root time scaling of a finite random walk and its limiting Gaussian endpoint",
+    "Specify Brownian motion through its increments and path regularity",
+    "Derive a diffusion equation as a continuum consistency limit without claiming an unproved path-convergence theorem"
+  ],
+  "prerequisites": "Probability, conditional probability, means and variances, and elementary Taylor expansion. Chapter 1's distinction between payoff scenarios and probability assignments.",
+  "source_scope": "Full sequential reading of official English captions for playlist positions 37–39. Formal definitions, examples, convergence qualifications, and numerical certificates are original expansions; no comprehensive audiovisual audit."
 }

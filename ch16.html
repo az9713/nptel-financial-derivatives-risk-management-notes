@@ -22,7 +22,7 @@
 <h1>16. From random walks to Brownian risk factors</h1>
 <p class="meta"><a href="https://www.youtube.com/watch?v=eDOIYREAeRM">Recording 37</a>, <a href="https://www.youtube.com/watch?v=GIrKSTpX5W8">Recording 38</a>, <a href="https://www.youtube.com/watch?v=AJRvEHZb4C8">Recording 39</a> · Expanded, independently developed exposition</p>
 <div class="objectives"><strong>What you will learn</strong><ul><li>Distinguish a process law from its one-time distributions and identify a sufficient Markov state</li><li>Derive the square-root time scaling of a finite random walk and its limiting Gaussian endpoint</li><li>Specify Brownian motion through its increments and path regularity</li><li>Derive a diffusion equation as a continuum consistency limit without claiming an unproved path-convergence theorem</li></ul>
-<p><strong>Prerequisites:</strong> Probability, conditional probability, means and variances, and elementary Taylor expansion. Chapter01&#x27;s distinction between payoff scenarios and probability assignments.</p></div>
+<p><strong>Prerequisites:</strong> Probability, conditional probability, means and variances, and elementary Taylor expansion. Chapter 1&#x27;s distinction between payoff scenarios and probability assignments.</p></div>
 <div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
 <button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
 <a href="chapters/ch16.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-a-process-needs-joint-probabilities-not-only-a-histogram-0814">1. A process needs joint probabilities, not only a histogram 08:14</a></li><li><a href="#2-time-discretization-and-state-discretization-are-separate-choices-2009">2. Time discretization and state discretization are separate choices 20:09</a></li><li><a href="#3-square-root-scaling-preserves-the-variance-rate-0706">3. Square-root scaling preserves the variance rate 07:06</a></li><li><a href="#4-a-normal-endpoint-limit-is-not-a-complete-process-construction-1807">4. A normal endpoint limit is not a complete process construction 18:07</a></li><li><a href="#5-brownian-motion-specifies-both-increments-and-path-regularity-2439">5. Brownian motion specifies both increments and path regularity 24:39</a></li><li><a href="#6-a-lattice-transition-rule-leads-to-a-diffusion-equation-1834">6. A lattice transition rule leads to a diffusion equation 18:34</a></li><li><a href="#7-executable-checks-and-their-boundary">7. Executable checks and their boundary</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
@@ -106,7 +106,19 @@
 =e^{ik\mu T}\left[\cos\left(k\sigma\sqrt{T/n}\right)\right]^n.$$</p>
 <p>For a small real $z$, $\log\cos z=-z^2/2+O(z^4)$. The notation $O(z^4)$ denotes a remainder bounded by a constant times $|z|^4$ near zero. Multiplication by $n$ makes the leading term $-k^2\sigma^2T/2$ and the remainder of order $1/n$. Thus the limit characteristic function is $e^{ik\mu T-k^2\sigma^2T/2}$, that of a normal variable with mean $\mu T$ and variance $\sigma^2T$.</p>
 <p>Using the standard continuity theorem for characteristic functions identifies the endpoint distribution. The theorem itself is cited background probability theory rather than proved by the short expansion. The calculation exposes why the drift and variance survive refinement and why higher terms disappear in this particular independent bounded-increment model.</p>
-<p>A whole process requires more. Independent increments over disjoint blocks allow a corresponding joint-distribution argument at finitely many times. To obtain convergence of interpolated paths in an appropriate function space, one also needs a tightness argument controlling oscillations between observation times. That functional convergence theorem is not proved here. We instead give the Brownian process definition explicitly and use its stated properties. <a href="https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf#page=4">Kogan's MIT notes, slides 4–5</a> present the scaled-walk motivation and independent normal increments.</p>
+<p>The same calculation can identify a finite collection of observation dates, rather than merely one endpoint. Choose $0=t_0&lt;t_1&lt;\cdots&lt;t_m$ and real coefficients $a_1,\ldots,a_m$. Write each factor level as the sum of its earlier block increments. Then</p>
+<p>$$\sum_{j=1}^m a_jY_{t_j}^{(n)}
+=\sum_{\ell=1}^m c_\ell
+(Y_{t_\ell}^{(n)}-Y_{t_{\ell-1}}^{(n)}),
+\qquad c_\ell=\sum_{j=\ell}^m a_j.$$</p>
+<p>For grid-aligned dates, the blocks are independent. Applying the cosine expansion to each block makes the joint characteristic function tend to</p>
+<p>$$\exp\!\left[
+i\mu\sum_j a_jt_j
+-\frac{\sigma^2}{2}\sum_\ell c_\ell^2(t_\ell-t_{\ell-1})
+\right].$$</p>
+<p>Expanding the last square sum gives $\sum_{j,k}a_ja_k\min(t_j,t_k)$: an increment contributes to both levels exactly until the earlier observation date. Thus the limiting vector is jointly Gaussian with mean components $\mu t_j$ and covariance entries $\sigma^2\min(t_j,t_k)$. Approximating fixed dates by completed grid intervals changes the limiting block lengths by at most the grid width. This proves finite-dimensional convergence through the multivariate characteristic-function continuity theorem, which is the corresponding invoked probability result; see <a href="https://www.math.cmu.edu/~xig/Files/Teaching/Stochastic%20Calculus%20%28Fall%202016%29/Stochastic%20Calculus.pdf#page=8">Xi Geng's probability review, Theorem 1.6 and Remark 1.2, printed page 8</a>.</p>
+<p>For example, coefficients $a_1=1,a_2=-1$ at half a year and one year leave only the negative second-half increment. Its limiting variance is $\sigma^2/2$, whereas independent draws from the two endpoint marginals would give $3\sigma^2/2$. The joint construction explains this difference before any path theorem is invoked.</p>
+<p>A whole process requires more. To obtain convergence of interpolated paths in an appropriate function space, one also needs a tightness argument controlling oscillations between observation times. That functional convergence theorem is not proved here. We instead give the Brownian process definition explicitly and use its stated properties. <a href="https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf#page=4">Kogan's MIT notes, slides 4–5</a> present the scaled-walk motivation and independent normal increments.</p>
 <h2 id="5-brownian-motion-specifies-both-increments-and-path-regularity-2439">5. Brownian motion specifies both increments and path regularity <a href="https://www.youtube.com/watch?v=GIrKSTpX5W8&amp;t=1479s">24:39</a></h2>
 <p>A <strong>standard Brownian motion</strong> $W_t$, for $t\ge0$, starts at $W_0=0$, has continuous sample paths with probability one, and has independent normal increments: for $0\le s&lt;t$, $W_t-W_s$ is normal with mean zero and variance $t-s$, independently of the history up to $s$. Independent increments concern disjoint future shocks; the levels themselves are not independent.</p>
 <p>For $s\le t$, write $W_t=W_s+(W_t-W_s)$. The second term is independent of $W_s$ and has mean zero, so $\mathbb E[W_sW_t]=\mathbb E[W_s^2]=s$. Consequently</p>
@@ -134,7 +146,7 @@
 <p>Starting the process exactly at zero means an initial point mass, denoted $\delta_0$. It is not a finite ordinary density equal to one at zero and zero elsewhere, which would integrate to zero. The initial condition is interpreted through test functions: $\int f(x)\rho(x,t)\,dx\to f(0)$ as $t\downarrow0$ for appropriate bounded continuous $f$. The next chapter solves the heat equation by Fourier transformation and connects this density calculation to stochastic calculus.</p>
 <p>This Taylor argument is a consistency derivation under smoothness and limit assumptions. By itself it does not prove existence of the limiting process, convergence of every lattice solution, or uniqueness under arbitrary boundary conditions. On a bounded domain, boundary behavior such as absorption or reflection must be specified as additional model data.</p>
 <h2 id="7-executable-checks-and-their-boundary">7. Executable checks and their boundary</h2>
-<p>The <a href="labs/ch16.py">chapter laboratory</a> computes the exact binomial endpoint law by counting independent-sign paths. For step counts 1,4,16,64,256 it checks total probability, mean 0.04, and variance 0.04. It independently enumerates all four-step paths to check a covariance of 0.02 between half-year and one-year factor observations. These checks compare distinct representations of the same finite construction.</p>
+<p>The <a href="labs/ch16.py">chapter laboratory</a> computes the exact binomial endpoint law by counting independent-sign paths. For step counts 1, 4, 16, 64, and 256 it checks total probability, mean 0.04, and variance 0.04. It independently enumerates all four-step paths to check a covariance of 0.02 between half-year and one-year factor observations. These checks compare distinct representations of the same finite construction.</p>
 <p>The lab compares the exact characteristic function with its normal limit at frequency 2. With zero drift, the four-step value is 0.92261884 and the normal value is 0.92311635. The 256-step value is 0.92310865. A continuity-corrected cumulative-distribution comparison gives maximum errors 0.00620967 for four steps and 0.00042577 for 64 steps at the chosen lattice boundaries. These are computed diagnostics for this family, not a general convergence-rate theorem.</p>
 <p>Inputs require a positive integer step count, positive finite horizon, finite drift, and nonnegative finite volatility. The program does not estimate these parameters from data, generate orders, or certify a market model. It also prints the two different next-step probabilities 0.25 and 0.75 for the persistent-direction example. A regression that ignored direction would be fitting a different transition law.</p>
 <h2 id="exercises">Exercises</h2>
@@ -150,7 +162,7 @@
 <summary>Fully worked solutions</summary>
 <ol>
 <li>
-<p>If exactly $k$ of the $n$ signs are positive, the sum is $k-(n-k)=2k-n$. There are $\binom nk$ such paths, each with probability $2^{-n}$, so $\Pr(U_n=2k-n)=\binom nk2^{-n}$. Summing independent zero-mean signs gives expectation zero. Since each square equals one, each variance is one, and all pair covariances vanish by independence. Thus $\operatorname{Var}(U_n)=n$. In the two-step case the probabilities are 1/4,1/2,1/4, not three equal probabilities.</p>
+<p>If exactly $k$ of the $n$ signs are positive, the sum is $k-(n-k)=2k-n$. There are $\binom nk$ such paths, each with probability $2^{-n}$, so $\Pr(U_n=2k-n)=\binom nk2^{-n}$. Summing independent zero-mean signs gives expectation zero. Since each square equals one, each variance is one, and all pair covariances vanish by independence. Thus $\operatorname{Var}(U_n)=n$. In the two-step case the probabilities are 1/4, 1/2, and 1/4, not three equal probabilities.</p>
 </li>
 <li>
 <p>There are $T/\Delta t$ increments over a grid-aligned horizon $T$. Their mean sum is $\mu T$. Their variance sum is $(T/\Delta t)b(\Delta t)^2$. A nonzero finite variance rate $\sigma^2$ requires $b(\Delta t)^2/\Delta t\to\sigma^2$, hence $b$ of order $\sqrt{\Delta t}$. A fixed positive magnitude makes the variance diverge. Taking $b=\sigma\Delta t$ makes it tend to zero. The square-root rule is tied to independent finite-variance increments; other dependence or tail assumptions can produce other limits.</p>
@@ -174,6 +186,7 @@
 <p>The persistent-direction counterexample, factor calibration, exact-law calculations, characteristic-function check, and exercises are original teaching additions. The distinction between a fixed-time limit and a functional limit prevents the normal endpoint calculation from being treated as a complete Brownian construction. The nowhere-differentiability theorem and standard probability continuity theorem are cited background results rather than claimed new proofs. No comprehensive audio or slide audit is asserted.</p><details class="lab"><summary>Executable chapter laboratory</summary>
 <p><a href="labs/ch16.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
 <div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Check scaled-walk laws and a hidden-memory example; no network or files.&quot;&quot;&quot;
+from cmath import exp as complex_exp
 from math import comb, cos, erf, exp, isclose, isfinite, sqrt
 
 
@@ -248,6 +261,25 @@ def main():
         assert isclose(enumerated, product, abs_tol=1e-13)
         print(f&quot;n={steps}: characteristic={product:.8f}, &quot;
               f&quot;normal={exp(-0.5 * (frequency * 0.2) ** 2):.8f}&quot;)
+    # A joint characteristic function factors over independent time blocks.
+    first, second = 1.3, -.7
+    mean = .04 * (.5 * first + second)
+    variance = .2**2 * (.5 * (first + second)**2 + .5 * second**2)
+    limit = complex_exp(1j * mean - variance / 2)
+    errors_joint = []
+    for count in (4, 64, 256):
+        jump = .2 / sqrt(count)
+        product = (complex_exp(1j * mean)
+                   * cos(jump * (first + second))**(count // 2)
+                   * cos(jump * second)**(count // 2))
+        errors_joint.append(abs(product - limit))
+        if count == 4:
+            arguments = [mean + jump * ((first + second) * (a + b)
+                                        + second * (c + d))
+                         for a, b, c, d in paths]
+            direct = sum(complex_exp(1j * x) for x in arguments) / len(paths)
+            assert abs(direct - product) &lt; 1e-13
+    assert errors_joint[-1] &lt; errors_joint[0]
     errors = [corrected_error(walk_law(n), 0.04, 0.2) for n in [4, 64]]
     assert errors[1] &lt; errors[0]
     print(&quot;continuity-corrected CDF errors:&quot;,

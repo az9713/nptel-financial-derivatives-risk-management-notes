@@ -9,8 +9,33 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch16.md": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
-    "chapters/ch16.json": "36a7876cc52c3f43bc11070e429daaf2a8bce738aaf223a38bdea38a265155c0",
-    "labs/ch16.py": "f7b2616f10907e77d11fe0730d3a7bde307e6c2256509ae1e547eca6ede39f29"
-  }
+    "chapters/ch16.md": "95259d59a15b331c00de5796ef591e3c7e777e30e5474cfa909ad5266d2a1231",
+    "chapters/ch16.json": "db7cdc87613eb5e7aa8aeb3d04451a61c76e883711344bb9e98e86bf8c1939b4",
+    "labs/ch16.py": "9437b1b61329e3d7a6040e1c0ae153aac3b11d21c12e406e539db3e94278ee18"
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the complete joint-characteristic-function addition, adjacent endpoint/grid/process argument, new finite enumeration, source note, and metadata. Verified the block coefficients, Gaussian kernel covariance, fixed-grid approximation and endpoint-versus-joint counterexample. Independently checked three shrinking-step characteristic functions. Directly verified Geng Theorem 1.6 and multidimensional Remark 1.2. Functional convergence remains explicitly unproved. Fresh current lab passed.",
+    "prior_accepted_files": {
+      "chapters/ch16.md": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
+      "chapters/ch16.json": "36a7876cc52c3f43bc11070e429daaf2a8bce738aaf223a38bdea38a265155c0",
+      "labs/ch16.py": "f7b2616f10907e77d11fe0730d3a7bde307e6c2256509ae1e547eca6ede39f29"
+    },
+    "current_accepted_files": {
+      "chapters/ch16.md": "95259d59a15b331c00de5796ef591e3c7e777e30e5474cfa909ad5266d2a1231",
+      "chapters/ch16.json": "db7cdc87613eb5e7aa8aeb3d04451a61c76e883711344bb9e98e86bf8c1939b4",
+      "labs/ch16.py": "6c02d5fb3748a974c98045e1955ae35b3b9e9c1821b9275dd56daba8fa597b5b"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
+  },
+  "critical_parity_rechecks": [
+    {
+      "scope": "Bounded code-format repair after exact project PEP8 gate flagged E126. Fully inspected temporary arguments list replacing the overindented generator; identical characteristic-function argument and four-state enumeration. Fresh lab16 and project style pass. No mathematical expression changed.",
+      "prior_sha256": "6c02d5fb3748a974c98045e1955ae35b3b9e9c1821b9275dd56daba8fa597b5b",
+      "current_sha256": "9437b1b61329e3d7a6040e1c0ae153aac3b11d21c12e406e539db3e94278ee18"
+    }
+  ]
 }

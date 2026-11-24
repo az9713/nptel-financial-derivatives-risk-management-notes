@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch23.md": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
-    "chapters/ch23.json": "97db83b728986ca33ea89b9587cde768bf7bb86f366ea2dc3f8105758b855ec1",
-    "labs/ch23.py": "dddb992ea5af4a84cb49a76be6a939140478e1ee8fc7256d8f04039c00c04e6f"
+    "chapters/ch23.md": "4ec58fd02331eb4c79a0fe7104b402ab3d671bb3412b0d2371441ab38cc66456",
+    "chapters/ch23.json": "af7c3a17e371af23b05037c0521457e6bbb1a297133a6e3a11fcb85da3346787",
+    "labs/ch23.py": "dff462afe7749aef991ad8f3276ab5b8d826c42cfa6459681c9776c5d7745091"
   },
   "source_evidence": {
     "caption_positions": [
@@ -29,5 +29,26 @@
     "No full independent caption reread",
     "No comprehensive audiovisual audit or human certification",
     "Separate release/browser checks required"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific/editorial review: complete diff, affected full sections and solutions/context, metadata and code; unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch23.md": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
+        "chapters/ch23.json": "97db83b728986ca33ea89b9587cde768bf7bb86f366ea2dc3f8105758b855ec1",
+        "labs/ch23.py": "dddb992ea5af4a84cb49a76be6a939140478e1ee8fc7256d8f04039c00c04e6f"
+      },
+      "accepted_files": {
+        "chapters/ch23.md": "4ec58fd02331eb4c79a0fe7104b402ab3d671bb3412b0d2371441ab38cc66456",
+        "chapters/ch23.json": "af7c3a17e371af23b05037c0521457e6bbb1a297133a6e3a11fcb85da3346787",
+        "labs/ch23.py": "dff462afe7749aef991ad8f3276ab5b8d826c42cfa6459681c9776c5d7745091"
+      },
+      "checks": "Read the complete finite ES minimization/risk-envelope addition and surrounding atomic law, quantile convention, aggregation example, source notes, metadata, relevant solutions and new LP checks. Derived both one-sided slopes including the threshold atom, the partial-tail-mass expression and the flat minimizer interval at 96 percent. Checked the feasible capped probability weights, exchange and threshold upper-bound proofs, and subadditivity on one joint scenario space without independence. The original law gives objective 32.5 throughout the specified flat interval. Fresh full lab passed, including the independent linear program versus tail filling and breakpoint minimization. Earlier Rockafellar\u2013Uryasev passage checks remain applicable; no repeated full primary or caption reading is claimed.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "new_primary_passages_inspected": [],
+      "source_reading": "No repeated caption reading or audiovisual audit; only the explicitly named new primary passages were inspected in this incremental pass."
+    }
   ]
 }

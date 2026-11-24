@@ -9,8 +9,26 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch23.md": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
-    "chapters/ch23.json": "97db83b728986ca33ea89b9587cde768bf7bb86f366ea2dc3f8105758b855ec1",
-    "labs/ch23.py": "dddb992ea5af4a84cb49a76be6a939140478e1ee8fc7256d8f04039c00c04e6f"
+    "chapters/ch23.md": "4ec58fd02331eb4c79a0fe7104b402ab3d671bb3412b0d2371441ab38cc66456",
+    "chapters/ch23.json": "af7c3a17e371af23b05037c0521457e6bbb1a297133a6e3a11fcb85da3346787",
+    "labs/ch23.py": "dff462afe7749aef991ad8f3276ab5b8d826c42cfa6459681c9776c5d7745091"
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the complete new finite ES slope/objective/risk-envelope proof and neighboring quantile/atom/aggregation examples, all narrative relocation and solution changes, added lab code, and metadata. Checked left/right derivative inequalities, the flat 96-percent minimizer interval, threshold-atom allocation, capped weights, equality attainment and shared-scenario subadditivity. Independent linear programs on 20 seeded seven-state laws match threshold-objective minima and verify aggregation inequalities without independence. Fresh current full chapter lab passed.",
+    "prior_accepted_files": {
+      "chapters/ch23.md": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
+      "chapters/ch23.json": "97db83b728986ca33ea89b9587cde768bf7bb86f366ea2dc3f8105758b855ec1",
+      "labs/ch23.py": "dddb992ea5af4a84cb49a76be6a939140478e1ee8fc7256d8f04039c00c04e6f"
+    },
+    "current_accepted_files": {
+      "chapters/ch23.md": "4ec58fd02331eb4c79a0fe7104b402ab3d671bb3412b0d2371441ab38cc66456",
+      "chapters/ch23.json": "af7c3a17e371af23b05037c0521457e6bbb1a297133a6e3a11fcb85da3346787",
+      "labs/ch23.py": "dff462afe7749aef991ad8f3276ab5b8d826c42cfa6459681c9776c5d7745091"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

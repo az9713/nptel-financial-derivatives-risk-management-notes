@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch18.md": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
-    "chapters/ch18.json": "eca1bf17c9f721e98d29bba0495fc914ad7e44c04ba7050cf188a34b190800e1",
-    "labs/ch18.py": "828d686b31afe2fa300e520c5ca94ea6910992aee00ad5b8d33d30f970314fbc"
+    "chapters/ch18.md": "f1ee15816346b5144e168506f76a34c9dbc9920ff5b2a106c2c449f270289124",
+    "chapters/ch18.json": "5ae5df584cbed404aa7c755bed68e1359fd71c7d6e5ac998973717be945ab202",
+    "labs/ch18.py": "aafab8c83def738fb96676c9c9a8ae7a642d7f7a7e805e5fce18481935fe9619"
   },
   "source_evidence": {
     "caption_positions": [
@@ -28,5 +28,26 @@
     "No comprehensive audiovisual audit",
     "No full independent caption reread or human certification",
     "Separate release/browser checks required"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific/editorial review: complete diff, affected full sections and solutions/context, metadata and code; unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch18.md": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
+        "chapters/ch18.json": "eca1bf17c9f721e98d29bba0495fc914ad7e44c04ba7050cf188a34b190800e1",
+        "labs/ch18.py": "828d686b31afe2fa300e520c5ca94ea6910992aee00ad5b8d33d30f970314fbc"
+      },
+      "accepted_files": {
+        "chapters/ch18.md": "f1ee15816346b5144e168506f76a34c9dbc9920ff5b2a106c2c449f270289124",
+        "chapters/ch18.json": "5ae5df584cbed404aa7c755bed68e1359fd71c7d6e5ac998973717be945ab202",
+        "labs/ch18.py": "aafab8c83def738fb96676c9c9a8ae7a642d7f7a7e805e5fce18481935fe9619"
+      },
+      "checks": "Read the complete three-state incomplete-market section and surrounding state-price assumptions, all changed narrative/source text, metadata, relevant solutions and lab delta. Verified both zero-cost endpoint portfolios in the ordered states (80,100,120): the lower-endpoint payoff is (20,0,0), the upper is (0,10,0). Their profitable states have zero endpoint pricing weights but remain physically possible; prices beyond the interval add an initial receipt in the correct direction. The new source note relocates earlier corrections without deleting their qualifications. The fresh full lab passed; spanning, not probability notation, supplies uniqueness.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "new_primary_passages_inspected": [],
+      "source_reading": "No repeated caption reading or audiovisual audit; only the explicitly named new primary passages were inspected in this incremental pass."
+    }
   ]
 }

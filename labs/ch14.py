@@ -51,6 +51,13 @@ def main():
 
     european_put = tree_price(80, 100, 1.25, 0.8, 1.05, 1, "put")
     american_put = tree_price(80, 100, 1.25, 0.8, 1.05, 1, "put", True)
+    q_up = (1.05 - .8) / (1.05 * (1.25 - .8))
+    q_down = (1.25 - 1.05) / (1.05 * (1.25 - .8))
+    assert q_up > 0 and q_down > 0
+    assert isclose(q_up + q_down, 1 / 1.05)
+    assert isclose(100 * q_up + 64 * q_down, 80)
+    assert isclose(1.05 * q_up, 5 / 9)
+    assert isclose(36 * q_down, european_put)
     assert isclose(european_put, 15.23809523809524)
     assert isclose(american_put, 20)
     assert american_put > european_put

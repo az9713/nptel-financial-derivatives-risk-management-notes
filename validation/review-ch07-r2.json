@@ -9,9 +9,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch07.md": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
-    "chapters/ch07.json": "eeb208682d36714cf79a0806a7edced4f86a5921c28ed6e6fe42b623777618fe",
-    "labs/ch07.py": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91"
+    "chapters/ch07.md": "2bf817b8831b4a69c98c77e2d9f97c16e1b9a3661459fa4a5da93f3a17e4d476",
+    "chapters/ch07.json": "2378ae0ce20fd5bed468b108aafb5d683beacad7ff7eaa02d5a9ba301e41d95c",
+    "labs/ch07.py": "517d502b8d6b22ebd2c7e28f786d8d766acc393c1f9624f02250d23fb90bb5bf"
   },
   "line_ending_recheck": {
     "operation": "CRLF-to-LF only",
@@ -21,5 +21,23 @@
       "chapters/ch07.md",
       "labs/ch07.py"
     ]
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the complete beta-versus-minimum-variance addition and adjacent factor decomposition, lab changes, and objective metadata. Independently derived beta_G Cov(e_P,e_G)=beta_P Var(e_G) as the equality condition. Constructed the three-factor covariance and checked positive definiteness, both combined variances, residual beta, and the 0.000720 gap. Fresh chapter lab passed.",
+    "prior_accepted_files": {
+      "chapters/ch07.md": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+      "chapters/ch07.json": "eeb208682d36714cf79a0806a7edced4f86a5921c28ed6e6fe42b623777618fe",
+      "labs/ch07.py": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91"
+    },
+    "current_accepted_files": {
+      "chapters/ch07.md": "2bf817b8831b4a69c98c77e2d9f97c16e1b9a3661459fa4a5da93f3a17e4d476",
+      "chapters/ch07.json": "2378ae0ce20fd5bed468b108aafb5d683beacad7ff7eaa02d5a9ba301e41d95c",
+      "labs/ch07.py": "517d502b8d6b22ebd2c7e28f786d8d766acc393c1f9624f02250d23fb90bb5bf"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

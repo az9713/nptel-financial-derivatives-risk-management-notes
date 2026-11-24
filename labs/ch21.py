@@ -128,6 +128,11 @@ def main():
                     for w, k, t in options) + shares * price
                 + cash * exp(.05 * elapsed))
 
+    # Solve the same hedge independently in gamma contribution coordinates.
+    contribution = 50 * base['gamma']
+    close(weights[0] * hedge1['gamma'], contribution)
+    close(weights[1] * hedge2['gamma'], contribution)
+    close(cash, 973.5136837072434)
     close(full_wealth(100, .2), 0)
     net_theta = (sum(w * greeks(100, k, .05, .2, t)['theta']
                      for w, k, t in options) + .05 * cash)

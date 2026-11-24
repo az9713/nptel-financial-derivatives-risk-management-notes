@@ -3,17 +3,64 @@
   "disposition": "accepted",
   "report": "validation/review-ch21-r2.md",
   "scope": [
-    "Full manuscript, metadata, six solutions and complete lab source",
-    "Fresh executions plus independent mathematical/numerical verification",
-    "Selected actual captions, primary Kogan/FCA passages; no repeat full-caption or audiovisual audit"
+    "Original full manuscript/solutions/lab review preserved as historical evidence, with prior hashes in review_history",
+    "Current critical-comparison revision: complete changed passages and solutions with surrounding definitions, metadata and laboratory changes inspected",
+    "Fresh full lab execution plus independent calculations; no new full-caption, audiovisual or complete external-source audit"
   ],
   "findings_fixed": [
     "Added direct finite-difference check of fixed-strike currency forward value to substantiate validation prose"
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch21.md": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
-    "chapters/ch21.json": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
-    "labs/ch21.py": "63b0cb899f09b65f7a078f36b6c5b18e107ab9b6c9475e8893862946cba0c4b1"
-  }
+    "chapters/ch21.md": "4fe71f7808b940d1739ba984172ed705288bfb8ac5cb1f8d8140d6c8a6a93046",
+    "chapters/ch21.json": "d872037f3d61adfc514c3667e9f587acfc39c509ae36b7b3306f85e573933eb8",
+    "labs/ch21.py": "a1647dc09ef0f37a0167b00b266cf0ad0048a740936d99a0cf51575a8d65eb29"
+  },
+  "review_history": [
+    {
+      "phase": "Original edition full review and subsequent repair checks",
+      "accepted_files": {
+        "chapters/ch21.md": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+        "chapters/ch21.json": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
+        "labs/ch21.py": "63b0cb899f09b65f7a078f36b6c5b18e107ab9b6c9475e8893862946cba0c4b1"
+      },
+      "scope": [
+        "Full manuscript, metadata, six solutions and complete lab source",
+        "Fresh executions plus independent mathematical/numerical verification",
+        "Selected actual captions, primary Kogan/FCA passages; no repeat full-caption or audiovisual audit"
+      ],
+      "repair_recheck": null
+    },
+    {
+      "phase": "Critical-comparison acceptance before first-use notation clarification",
+      "accepted_files": {
+        "chapters/ch21.md": "161c36b59e70bb6d72cc3428257a4705a118622eb6c4d962fe00fca7e55eec11",
+        "chapters/ch21.json": "d872037f3d61adfc514c3667e9f587acfc39c509ae36b7b3306f85e573933eb8",
+        "labs/ch21.py": "a1647dc09ef0f37a0167b00b266cf0ad0048a740936d99a0cf51575a8d65eb29"
+      },
+      "scope": [
+        "Original full manuscript/solutions/lab review preserved as historical evidence, with prior hashes in review_history",
+        "Current critical-comparison revision: complete changed passages and solutions with surrounding definitions, metadata and laboratory changes inspected",
+        "Fresh full lab execution plus independent calculations; no new full-caption, audiovisual or complete external-source audit"
+      ]
+    }
+  ],
+  "critical_comparison_recheck": {
+    "status": "accepted",
+    "checks": "Read the complete new hedge table, gamma-contribution derivation, funded cash equation, all four same-date residuals, source-scope/prose moves and surrounding signed-position/rank definitions; read current metadata and complete current lab. Independently implemented Black–Scholes with math.erf rather than the lab normal-CDF routine, reproducing every table entry, holdings 54.41970290496192/57.6441056597033, shares-11.735048932657506, cash 973.5136837072424 and residuals 0.0058974180/-0.0056043315/0.1386538442/14.3208337259. The gamma-contribution solution matches the original matrix solve, financing sums to zero and the scenarios correctly remain same-date marks. Fresh full lab and default 79-column pycodestyle completed successfully. Original source-reading claims remain historical; no new source or full-caption review in this increment.",
+    "prior_accepted_files": {
+      "chapters/ch21.md": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+      "chapters/ch21.json": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
+      "labs/ch21.py": "63b0cb899f09b65f7a078f36b6c5b18e107ab9b6c9475e8893862946cba0c4b1"
+    },
+    "boundary": "Incremental comparison-edition review; original full-review scope is historical, not falsely repeated for this edition."
+  },
+  "subsequent_rechecks": [
+    {
+      "phase": "First-use hedge notation clarification",
+      "status": "accepted",
+      "checks": "Read the added first-use sentence mapping subscripts 0/1/2 to the base/half-year/eighteen-month calls and defining c_i, Delta_i and Gamma_i. It matches the actual table and hedge equations. Removing only this sentence reproduces the exact prior accepted manuscript SHA; lab and metadata hashes are unchanged, so earlier independent numerical verification remains applicable. No new lab execution is claimed for this text-only clarification.",
+      "prior_manuscript_sha256": "161c36b59e70bb6d72cc3428257a4705a118622eb6c4d962fe00fca7e55eec11"
+    }
+  ]
 }

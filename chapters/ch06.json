@@ -1,7 +1,7 @@
 {
   "title": "Portfolio risk depends on covariance; priced risk requires a model",
   "lectures": [14, 15, 16],
-  "objectives": ["Derive portfolio moments and the two-asset variance minimum", "Separate efficient-frontier optimization from equilibrium pricing", "Derive CAPM from an interior Sharpe-ratio condition", "State the assumptions behind residual diversification"],
+  "objectives": ["Derive portfolio moments and globally certified two-asset and many-asset variance minima", "Separate efficient-frontier optimization from equilibrium pricing", "Derive CAPM from an interior Sharpe-ratio condition", "State the assumptions behind residual diversification"],
   "prerequisites": "Chapter 5 covariance projection; finite second moments, differentiation and elementary matrix notation.",
   "source_scope": "Full sequential English captions for positions 14–16; selected MIT portfolio and CAPM teaching passages inspected. Synthetic moment calculations executed."
 }

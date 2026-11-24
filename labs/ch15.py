@@ -7,6 +7,7 @@ All monetary values are per share. The teaching data use zero interest.
 import argparse
 from dataclasses import dataclass
 from html import escape
+from fractions import Fraction
 from math import inf, isclose
 from pathlib import Path
 
@@ -69,8 +70,8 @@ class Portfolio:
         for left, right in zip(knots, knots[1:] + [inf]):
             midpoint = left + 1 if right == inf else (left + right) / 2
             slope, value = self.slope(midpoint), self.profit(left)
-            if isclose(slope, 0, abs_tol=1e-12):
-                if isclose(value, 0, abs_tol=1e-12):
+            if slope == 0:
+                if value == 0:
                     flat.append((left, right))
             else:
                 root = left - value / slope
@@ -129,6 +130,33 @@ def verify():
     assert naked_short.analyze()[0] == -inf
     assert naked_short.analyze()[2] == [108]
     assert Portfolio().analyze() == (0, 0, [], [(0, inf)])
+    # Exact rational weights preserve the cancellation of the final slope.
+    weighted = Portfolio(calls=((90, Fraction(2, 3)), (100, -1),
+                                (120, Fraction(1, 3))))
+    assert_close(weighted.cost(), 2)
+    low, high, roots, flat = weighted.analyze()
+    assert_close(low, -2)
+    assert_close(high, 14 / 3)
+    assert roots == [93, 114] and not flat
+    assert weighted.slope(121) == 0
+    for stock in (0, 90, 100, 120, 150):
+        if stock <= 90 or stock >= 120:
+            expected_payoff = 0
+        elif stock <= 100:
+            expected_payoff = Fraction(2, 3) * (stock - 90)
+        else:
+            expected_payoff = Fraction(1, 3) * (120 - stock)
+        assert weighted.payoff(stock) == expected_payoff
+    wrong_weights = Portfolio(calls=((90, 1), (100, -2), (120, 1)))
+    assert wrong_weights.cost() == 0
+    assert wrong_weights.payoff(150) == -10
+    # A tiny genuine slope or constant loss is not an exactly flat zero.
+    tiny_stock = Portfolio(stock=1e-14)
+    assert tiny_stock.analyze()[2:] == ([100], [])
+    assert tiny_stock.profit(101) > 0
+    tiny_call = Portfolio(calls=((100, 1e-14),))
+    assert tiny_call.analyze()[2:] == ([108], [])
+    assert tiny_call.profit(0) < 0
 
     # Check exact payoff identities in all regions and at every kink.
     points = (0, 81, 90, 92, 99, 100, 108, 110, 130, 1e9)

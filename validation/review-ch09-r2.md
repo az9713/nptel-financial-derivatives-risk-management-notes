@@ -11,3 +11,10 @@ The horizon wealth expression correctly combines accumulated coupons and the rem
 Primary Lo fixed-income slides35–43 were read in extracted text for duration, compounding, convexity, and maturity qualifications. Actual caption passages inspected: p22 at300–430,675–820,1540–1680seconds; p23 at355–550 and1510–1660seconds. These verify the DV01 coordinate correction and local immunization context. The author ledger separately attests full sequential reading. Graphical source material and audiovisual coverage were not comprehensively audited. Mathematical review and runtime checks do not replace package, browser, or publication gates.
 
 Final canonical-line-ending recheck: the lead reviewer independently reconstructed the prior CRLF bytes from the LF version and matched the previous accepted SHA-256 for every changed bound file. Laboratory ASTs also match. This newline-only operation changes no scientific text or code behavior; the receipt now binds the canonical LF bytes. Evidence: `validation/line-ending-normalization.json`.
+
+
+## Critical parity revision, 24 November 2026
+
+Read the complete new Taylor error-bound development and adjacent duration/convexity and curve-twist reasoning, lab additions, and metadata spacing. Independently differentiated the positive payment sum three times and checked endpoint bounds on nine yield/shock pairs. The 18%-to-25% values and remainder signs agree. Maturity-specific directions now avoid an unjustified statistical-independence implication. Fresh chapter lab passed.
+
+Accepted after the described incremental review. The earlier full-review scope remains historical; no repeated source or audiovisual audit is claimed. Current exact file bindings and prior bindings appear in the JSON receipt. Reviewer remains independent of the chapter author.

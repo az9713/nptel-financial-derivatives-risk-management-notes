@@ -23,3 +23,10 @@ Opened both Rockafellar–Uryasev primary PDFs. Inspected the general-distributi
 ## Laboratory and acceptance
 
 Fresh-process labs/ch23.py execution passed every assertion. It checks currency valuation by two methods, inverse-quote finite difference, complete intermediary residuals, exact-rational empirical quantile indexing, two distinct ES algorithms, dependence pairing, aggregation counterexample, full-precision Gaussian values, covariance-matrix horizon variance, and invalid probability rejection. Scientific inspection independently recomputed all example and solution amounts above. No unresolved findings remain. The receipt binds exact current source bytes; separate browser/release checks and audiovisual limitations remain.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the complete finite ES minimization/risk-envelope addition and surrounding atomic law, quantile convention, aggregation example, source notes, metadata, relevant solutions and new LP checks. Derived both one-sided slopes including the threshold atom, the partial-tail-mass expression and the flat minimizer interval at 96 percent. Checked the feasible capped probability weights, exchange and threshold upper-bound proofs, and subadditivity on one joint scenario space without independence. The original law gives objective 32.5 throughout the specified flat interval. Fresh full lab passed, including the independent linear program versus tail filling and breakpoint minimization. Earlier Rockafellar–Uryasev passage checks remain applicable; no repeated full primary or caption reading is claimed.
+
+Disposition: accepted; no remaining findings. The receipt retains the prior accepted SHA bindings and records current exact bindings. Unchanged original bytes rely on the original full review. Source scope is bounded as stated above; this pass does not certify comprehensive audiovisual review, empirical calibration, or the separate final rendering/release gates.

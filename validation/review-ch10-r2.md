@@ -1,3 +1,5 @@
+> Historical edition review retained below. Its full-reading claims apply to the prior edition; the current incremental review is separately recorded at the end.
+
 # Independent scientific and editorial review — Chapter 10
 
 Reviewer: source_research; author: reader_builder. Accepted after full manuscript, metadata, all six solutions and complete laboratory source reading, plus a fresh laboratory execution.
@@ -11,3 +13,9 @@ Fresh lab output reproduced price987500, simple-rate price987654.320988, DV01 25
 ## Subsequent independent repair recheck
 
 Narrow repair recheck: investment_rate rejects zero accrual before annualization; bill_price still permits immediate redemption. quote_price rejects nonpositive implied bill price. New zero/negative and zero-day regression checks read and fresh execution passed.
+
+## Current critical-comparison edition: independent incremental review
+
+Read all added yield-coordinate derivation and exercise 2/solution 2, with the original discount-price and index definitions in context, all metadata and the complete lab diff. Independently used exact rational arithmetic to recover investment-yield DV 01 24.37890625 and Jacobian 1.025476686428457. Verified the same finite discount-yield shock reprices identically in either coordinate. Fresh full lab and 79-column pycodestyle passed.
+
+This acceptance binds only the current exact manuscript, metadata and laboratory hashes in the JSON receipt. Prior full-review/repair evidence and hashes are preserved; no repeated full-source or audiovisual audit is claimed.

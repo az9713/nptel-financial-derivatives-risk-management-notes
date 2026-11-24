@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch22.md": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
-    "chapters/ch22.json": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
-    "labs/ch22.py": "39dd2a4827937bc2bd2a2d894abbce73fa99633061029af35bb7853c2fc7fc0a"
+    "chapters/ch22.md": "75d9a4a632cba2aab69347133b0e971a6df35b95b128954fad38d5451d858c7e",
+    "chapters/ch22.json": "4649d9ea538138f1e4151d080ced2c928d66f5f140133264a66180fcf8923a7e",
+    "labs/ch22.py": "b277d2b945612f782b6cde97289232a9524d16ad8b85d17f83a8f8ed3d50dbd5"
   },
   "source_evidence": {
     "caption_positions": [
@@ -30,5 +30,26 @@
     "No full independent caption reread",
     "No comprehensive audiovisual audit or human certification",
     "Separate release/browser checks required"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific/editorial review: complete diff, affected full sections and solutions/context, metadata and code; unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch22.md": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+        "chapters/ch22.json": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
+        "labs/ch22.py": "39dd2a4827937bc2bd2a2d894abbce73fa99633061029af35bb7853c2fc7fc0a"
+      },
+      "accepted_files": {
+        "chapters/ch22.md": "75d9a4a632cba2aab69347133b0e971a6df35b95b128954fad38d5451d858c7e",
+        "chapters/ch22.json": "4649d9ea538138f1e4151d080ced2c928d66f5f140133264a66180fcf8923a7e",
+        "labs/ch22.py": "b277d2b945612f782b6cde97289232a9524d16ad8b85d17f83a8f8ed3d50dbd5"
+      },
+      "checks": "Read the complete revised FRA replication section with direction, settlement date, positive funding denominator and single-curve assumptions, changed source note/metadata and existing six-solution context, plus new lab budgets. At reset, N released by the first bond purchases N/P second-bond units; retaining the fixed short bond leaves exactly N delta (L-K) at end settlement. The alternative signed reinvestment of advance proceeds is the same self-financing transformation. Random future holdings are set only after observing the reset price. Three tested reset bond prices include a negative-rate case and preserve budget/payment identities. The fresh full lab passed. No deterministic-fixing assumption or automatic two-curve extension is introduced.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "new_primary_passages_inspected": [],
+      "source_reading": "No repeated caption reading or audiovisual audit; only the explicitly named new primary passages were inspected in this incremental pass."
+    }
   ]
 }

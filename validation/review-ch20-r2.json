@@ -13,8 +13,26 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch20.md": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
-    "chapters/ch20.json": "3fd76945395662789c3afb34fc29da39419474a1debd8bc07e4eb9a788b130ff",
-    "labs/ch20.py": "8c1138ab746a627d8570b9766019b4a89505fdfa9a756a86aeda42e5b426c79a"
+    "chapters/ch20.md": "e0d10876597ee99a4cfa3c9ac86df70d817c98964cc9dc8819459774d07e8502",
+    "chapters/ch20.json": "f3cf2212aa70e45e428bbeac936c68044b52fb1d3a35c696f5e397a343c1aa06",
+    "labs/ch20.py": "05f4612e668ef7d3003dc75e8cf0f6d20a2d8b594fd140cf6aa4d7862bf252ae"
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the full new strike-integral/spread/butterfly development and adjacent strategy/Greek interpretation, lab additions, source notes, and metadata. Checked finite-first-moment and continuity hypotheses, vanishing lower-limit contribution, both strike derivatives, atom boundary, payoff limits and stock-gamma distinction. Independent normal-CDF pricing finite differences reproduce digital 0.53232482 and density 0.01876202. Requested and verified integrability, derivative wording and paragraph-boundary repairs. Fresh lab passed.",
+    "prior_accepted_files": {
+      "chapters/ch20.md": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
+      "chapters/ch20.json": "3fd76945395662789c3afb34fc29da39419474a1debd8bc07e4eb9a788b130ff",
+      "labs/ch20.py": "8c1138ab746a627d8570b9766019b4a89505fdfa9a756a86aeda42e5b426c79a"
+    },
+    "current_accepted_files": {
+      "chapters/ch20.md": "e0d10876597ee99a4cfa3c9ac86df70d817c98964cc9dc8819459774d07e8502",
+      "chapters/ch20.json": "f3cf2212aa70e45e428bbeac936c68044b52fb1d3a35c696f5e397a343c1aa06",
+      "labs/ch20.py": "05f4612e668ef7d3003dc75e8cf0f6d20a2d8b594fd140cf6aa4d7862bf252ae"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

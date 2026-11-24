@@ -2,6 +2,6 @@
   "title": "Duration cancels a first derivative, not every interest-rate risk",
   "lectures": [22,23],
   "objectives": ["Derive duration, convexity and correctly scaled DV01", "Quantify Taylor approximation errors", "Derive the duration-horizon immunization condition", "Diagnose nonparallel curve risk after duration matching"],
-  "prerequisites": "Chapter8 cash-flow valuation and yield conventions; two derivatives and Taylor expansion.",
-  "source_scope": "Full sequential English captions for positions22–23 and selected MIT fixed-income text slides35–43. Fixed-cash-flow sensitivities and synthetic immunization examples independently executed."
+  "prerequisites": "Chapter 8 cash-flow valuation and yield conventions; two derivatives and Taylor expansion.",
+  "source_scope": "Full sequential English captions for positions 22–23 and selected MIT fixed-income text slides 35–43. Fixed-cash-flow sensitivities and synthetic immunization examples independently executed."
 }

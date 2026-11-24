@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch06.md": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
-    "chapters/ch06.json": "531b7dc203e05b90f09516e0f8e28912c38c410c6530c282f091d380234a2985",
-    "labs/ch06.py": "8544531b1c599e262eeea8c5650b58542eb1ef9de23ef6569874b41940fbb1d3"
+    "chapters/ch06.md": "e58eb4326a40db15a7d1e28a4c901d657cc1eba7de0303e429495a85e219ac56",
+    "chapters/ch06.json": "4626795a284ed2a876dc68d31856941900e99e017fb2395d86b92dc41043d777",
+    "labs/ch06.py": "9b2cf3ceb14da6497be66cd939ebbbdbd6a447762338ff44e59c8bacec6c5b5d"
   },
   "source_evidence": {
     "caption_positions": [
@@ -50,6 +50,26 @@
           "reverse_crlf_reconstruction_matches_accepted_sha256": true
         }
       ]
+    }
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific review: complete git diff, affected full sections/solutions/context, changed metadata/code, and specifically reported numerical checks. Unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch06.md": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
+        "chapters/ch06.json": "531b7dc203e05b90f09516e0f8e28912c38c410c6530c282f091d380234a2985",
+        "labs/ch06.py": "8544531b1c599e262eeea8c5650b58542eb1ef9de23ef6569874b41940fbb1d3"
+      },
+      "accepted_files": {
+        "chapters/ch06.md": "e58eb4326a40db15a7d1e28a4c901d657cc1eba7de0303e429495a85e219ac56",
+        "chapters/ch06.json": "4626795a284ed2a876dc68d31856941900e99e017fb2395d86b92dc41043d777",
+        "labs/ch06.py": "9b2cf3ceb14da6497be66cd939ebbbdbd6a447762338ff44e59c8bacec6c5b5d"
+      },
+      "checks": "Read the complete added frontier subsection, preceding portfolio and two-asset model, following tangency context, changed metadata, all six existing solutions, and full added lab calculations. Verified the strict Gram determinant, both equality constraints, vanishing cross term, unique global certificate, and completed-square GMV result. Independently matched the closed form to augmented KKT solves for positive-definite two-, three-, and five-asset examples. The fresh lab reproduces the stated three-asset weights and variance and the 0.0026 variance gap. Unrestricted weights, equal means, singular covariance and long-only constraints are distinguished correctly.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "source_reading": "No repeated caption/primary-source reading claimed; original full-review source scope remains separately recorded."
     }
   ]
 }

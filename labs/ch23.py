@@ -5,6 +5,7 @@ from math import ceil, exp, isclose, isfinite, sqrt
 
 import numpy as np
 from scipy.special import ndtri
+from scipy.optimize import linprog
 
 
 def close(actual, expected, tolerance=1e-8):
@@ -80,7 +81,7 @@ def main():
                           - (yen_bond / (110 - h) - dollar_bond)) / (2 * h)
     close(inverse_derivative, -yen_bond / 110**2, tolerance=2e-8)
     print(f"Source swap {leg_value:.8f} million dollars; "
-          f"value at100yen/dollar {yen_bond / 100 - dollar_bond:.8f}")
+          f"value at 100 yen/dollar {yen_bond / 100 - dollar_bond:.8f}")
     for fx, expected in ((.45, 31000), (.65, -13000)):
         close(130000 - 220000 * fx, expected)
     close(130000 - 220000 * .55, 9000)
@@ -96,6 +97,21 @@ def main():
         close(es, expected[1])
         close(es, es_objective(losses, probabilities, alpha))
         print(f"Finite law alpha={alpha}: VaR={var}, ES={es:.8f}")
+    # Independent LP solves the bounded probability-reweighting formulation.
+    for alpha in (.95, .96, .975):
+        bounds = [(0, p / (1 - alpha)) for p in probabilities]
+        result = linprog(-np.asarray(losses, float), A_eq=[[1, 1, 1]],
+                         b_eq=[1], bounds=bounds,
+                         method='highs')
+        assert result.success
+        close(-result.fun, risk(losses, probabilities, alpha)[1])
+        close(sum(result.x), 1)
+        assert min(result.x) >= 0
+    for threshold in (0, 2, 7, 10):
+        objective = threshold + sum(p * max(loss - threshold, 0)
+                                    for p, loss in zip(probabilities, losses)
+                                    ) / .04
+        close(objective, 32.5)
     close(risk([0, 10, 1000], probabilities, .95)[1], 206)
     close(sum(x * p for x, p in zip(losses, probabilities)), 1.3)
     close((.03 * 10 + .01 * 100) / .04, 32.5)
@@ -122,7 +138,7 @@ def main():
     one_asset = 100000 * .3 * sqrt(5 / 252) * z
     rounded = 100000 * .3 * sqrt(5 / 252) * 2.33
     two_assets = sqrt(2.6e6 * 5) * z
-    print(f"Source five-day VaR exact {one_asset:.8f}; z2.33 {rounded:.8f}")
+    print(f"Source five-day VaR exact {one_asset:.8f}; z = 2.33 {rounded:.8f}")
     print(f"Source two-asset five-day VaR {two_assets:.8f}")
     variance_factor = 5 + 2 * sum((5 - k) * .4**k for k in range(1, 5))
     covariance = np.array([[.4**abs(i - j) for j in range(5)]

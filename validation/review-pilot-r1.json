@@ -2,21 +2,22 @@
   "reviewer": "scientific_review",
   "date": "2026-11-24",
   "scope": [
-    "Full chapter01 manuscript, metadata, laboratory, and six worked solutions",
-    "Full sequential overview caption text; relevant CME/OIC/PFMI passages",
-    "Independent execution and numeric checks; no audiovisual or browser review"
+    "Incremental critical-parity review of all changed manuscript/lab sections, relevant surrounding context and changed worked solutions; metadata checked for change or unchanged identity",
+    "Read the complete added funding-reserve subsection and its surrounding settlement/financing context, the revised laboratory interpretation, and the complete funding_reserve implementation and regressions. Independently derived the discounted recurrence and positive-reserve and zero-reserve necessity branches. Exact rational arithmetic gives minimum reserve 60000000/101 and zero-reserve terminal balance -60 for the three settlements at account factors (1.01)^i. The finite scenario maximum and asymmetric funding limitations are explicit.",
+    "Fresh current laboratory execution, independent algebra/numerical checks and style validation; original full-review and source-reading history retained in review_history",
+    "No repeated full-caption, full-manuscript, primary-source, audiovisual or rendered-browser audit is implied by this incremental pass"
   ],
   "disposition": "accepted",
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch01.md": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+    "chapters/ch01.md": "70ce44eabbab8d704685c5ea25ddd21c29bfef10a302bf697c69842aabfef81e",
     "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
-    "labs/ch01.py": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076"
+    "labs/ch01.py": "46854b4eecd4f54e977a19ef232db9738a761064338a28519923a37328727552"
   },
   "reviewed_files": {
-    "chapters/ch01.md": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+    "chapters/ch01.md": "70ce44eabbab8d704685c5ea25ddd21c29bfef10a302bf697c69842aabfef81e",
     "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
-    "labs/ch01.py": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076"
+    "labs/ch01.py": "46854b4eecd4f54e977a19ef232db9738a761064338a28519923a37328727552"
   },
   "report": "validation/review-pilot-r1.md",
   "execution": "Original and repaired laboratory independently executed successfully; iterator/empty-input regressions and listing widths checked.",
@@ -26,5 +27,28 @@
     "R2: short-sale cash-flow definition and zero-fee/usable-proceeds assumptions added",
     "R3: scenario iterables normalized once and empty inputs rejected",
     "Module effects description and overlong code line corrected"
-  ]
+  ],
+  "review_history": [
+    {
+      "edition": "before critical-parity revisions",
+      "scope": [
+        "Full chapter01 manuscript, metadata, laboratory, and six worked solutions",
+        "Full sequential overview caption text; relevant CME/OIC/PFMI passages",
+        "Independent execution and numeric checks; no audiovisual or browser review"
+      ],
+      "accepted_files": {
+        "chapters/ch01.md": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+        "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
+        "labs/ch01.py": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076"
+      },
+      "disposition": "accepted"
+    }
+  ],
+  "incremental_review": {
+    "reviewer": "scientific_review",
+    "date": "2026-11-24",
+    "author_distinct": true,
+    "detail": "Read the complete added funding-reserve subsection and its surrounding settlement/financing context, the revised laboratory interpretation, and the complete funding_reserve implementation and regressions. Independently derived the discounted recurrence and positive-reserve and zero-reserve necessity branches. Exact rational arithmetic gives minimum reserve 60000000/101 and zero-reserve terminal balance -60 for the three settlements at account factors (1.01)^i. The finite scenario maximum and asymmetric funding limitations are explicit.",
+    "checks": "Fresh lab passed; pycodestyle passed; independent rational/algebraic checks passed."
+  }
 }

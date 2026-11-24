@@ -10,7 +10,7 @@
   "remaining_findings": [],
   "accepted_files": {
     "chapters/ch08.md": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
-    "chapters/ch08.json": "8324abfdfdc65f4af995e0bf00f7d8096c7798b7e05b01c10d386a510d6d2f55",
+    "chapters/ch08.json": "1fbf76a3ab12c8ae0a731e503fe2805ee726f4f4541f27be347e43c563cbabb6",
     "labs/ch08.py": "6b10386b3e0dc5ce51aab589e4fa2df2117c6b379985bf4574c22894ac0a82e8"
   },
   "line_ending_recheck": {
@@ -21,5 +21,23 @@
       "chapters/ch08.md",
       "labs/ch08.py"
     ]
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Inspected the entire one-line metadata diff against the accepted parent: positions20 becomes positions 20, with no claim or source change. Manuscript and lab remain byte-identical to prior accepted inputs; no new full manuscript or source read is claimed.",
+    "prior_accepted_files": {
+      "chapters/ch08.md": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
+      "chapters/ch08.json": "8324abfdfdc65f4af995e0bf00f7d8096c7798b7e05b01c10d386a510d6d2f55",
+      "labs/ch08.py": "6b10386b3e0dc5ce51aab589e4fa2df2117c6b379985bf4574c22894ac0a82e8"
+    },
+    "current_accepted_files": {
+      "chapters/ch08.md": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
+      "chapters/ch08.json": "1fbf76a3ab12c8ae0a731e503fe2805ee726f4f4541f27be347e43c563cbabb6",
+      "labs/ch08.py": "6b10386b3e0dc5ce51aab589e4fa2df2117c6b379985bf4574c22894ac0a82e8"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

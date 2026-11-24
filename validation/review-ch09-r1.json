@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch09.md": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
-    "chapters/ch09.json": "40708dba969faac08df89247721638bbfd9332fe13a121a7a2a79e6adca6cc38",
-    "labs/ch09.py": "5975547d15cf372a9c398ab9de8c403203207ff10741421c11bc7ea901255d5f"
+    "chapters/ch09.md": "4358c1e9998c37e3d957a7e13b808890e199261159e31897febdf5ab294018b9",
+    "chapters/ch09.json": "3c0a3194e4cc464eb5a3b00e7f4897461bb83b60df6c9e4978008ab4d90d4f72",
+    "labs/ch09.py": "e277f8311544e81682f610d211bcca4542a99d9ae9be4cf5cf24e72781bafcae"
   },
   "source_evidence": {
     "caption_positions": [
@@ -48,6 +48,26 @@
           "reverse_crlf_reconstruction_matches_accepted_sha256": true
         }
       ]
+    }
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific review: complete git diff, affected full sections/solutions/context, changed metadata/code, and specifically reported numerical checks. Unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch09.md": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
+        "chapters/ch09.json": "40708dba969faac08df89247721638bbfd9332fe13a121a7a2a79e6adca6cc38",
+        "labs/ch09.py": "5975547d15cf372a9c398ab9de8c403203207ff10741421c11bc7ea901255d5f"
+      },
+      "accepted_files": {
+        "chapters/ch09.md": "4358c1e9998c37e3d957a7e13b808890e199261159e31897febdf5ab294018b9",
+        "chapters/ch09.json": "3c0a3194e4cc464eb5a3b00e7f4897461bb83b60df6c9e4978008ab4d90d4f72",
+        "labs/ch09.py": "e277f8311544e81682f610d211bcca4542a99d9ae9be4cf5cf24e72781bafcae"
+      },
+      "checks": "Read the complete revised convexity/Taylor section, including the rate domain and derivative coordinates, relevant solution 2/3 context and all remaining solution context, metadata spacing, curve-coordinate wording, and full lab delta. Independently differentiated the third derivative and verified that its positive magnitude decreases with yield. Endpoint magnitudes therefore bracket the positive-shock quadratic overstatement on the admissible interval. Verified bounds 0.2607141749 and 0.4081130975 around the approximately 0.365477 overstatement. The fresh lab passed. Distinct maturity-specific coordinates require no statistical-independence assumption.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "source_reading": "No repeated caption/primary-source reading claimed; original full-review source scope remains separately recorded."
     }
   ]
 }

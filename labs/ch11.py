@@ -1,5 +1,6 @@
 """Rate-hedge decomposition, funding tailing and accrued-interest checks."""
-from math import isclose, isfinite, prod
+from math import isclose, isfinite, prod, sqrt
+from statistics import pvariance
 
 
 def bill(face, discount, remaining):
@@ -41,6 +42,26 @@ def main():
     assert isclose(rounded + shock, -1250)
     basis_residual = count * contract * accrual * 0.01 + shock
     assert isclose(basis_residual, -41666.66666666667)
+    # Four equally probable states realize the stated projection exactly.
+    sigma_s, sigma_f, rho = .01, .008, .75
+    beta = rho * sigma_s / sigma_f
+    optimum = face * remaining / (contract * accrual) * beta
+    noise = sigma_s * sqrt(1 - rho**2)
+    states = [(beta * y + e, y) for y in (-sigma_f, sigma_f)
+              for e in (-noise, noise)]
+
+    def hedged_variance(contracts):
+        return pvariance(-face * remaining * x + contracts * contract
+                         * accrual * y for x, y in states)
+
+    floor = (face * remaining * sigma_s)**2 * (1 - rho**2)
+    assert isclose(optimum, 31.25)
+    assert isclose(hedged_variance(optimum), floor)
+    for contracts in (0, 31, 32, 40):
+        penalty = (contract * accrual * sigma_f * (contracts - optimum))**2
+        assert isclose(hedged_variance(contracts), floor + penalty)
+    assert min(range(-5, 61), key=hedged_variance) == 31
+    print(f"Optimal projection residual SD={sqrt(floor):.6f}")
     principal, investment_accrual, growth = 2_000_000, 0.5, 1.02
     deposit_loss = principal * investment_accrual * 0.01
     tailed = principal * investment_accrual / (contract * accrual * growth)

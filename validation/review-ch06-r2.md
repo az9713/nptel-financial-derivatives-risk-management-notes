@@ -25,3 +25,10 @@ The independently retrieved MIT Lo portfolio and CAPM primary notes support the 
 The chapter develops a persistent synthetic portfolio through covariance, optimization, and equilibrium while keeping the logical status of those steps separate. Definitions and horizon/rate conventions precede substantive use. Its mathematics is not replaced by market claims or historical examples treated as current data. This full scientific/editorial code-and-solution review remains separate from the first independent review and package/browser/release checks. No human expert certification or formal proof verification is claimed.
 
 Final canonical-line-ending recheck: the lead reviewer independently reconstructed the prior CRLF bytes from the LF version and matched the previous accepted SHA-256 for every changed bound file. Laboratory ASTs also match. This newline-only operation changes no scientific text or code behavior; the receipt now binds the canonical LF bytes. Evidence: `validation/line-ending-normalization.json`.
+
+
+## Critical parity revision, 24 November 2026
+
+Read the complete new many-asset frontier subsection and adjacent two-asset/frontier material, the added lab certificate, and objective metadata. Verified the Gram determinant condition, both equality constraints, vanishing cross term, strict global variance gap, GMV completion, and singular/equal-mean/long-only boundaries. An independent full KKT solve matched the claimed constrained solution in 25 seeded positive-definite four-asset cases; random feasible perturbations matched the exact variance gaps. Fresh chapter lab passed. Requested and verified the clarification unrestricted-weight model.
+
+Accepted after the described incremental review. The earlier full-review scope remains historical; no repeated source or audiovisual audit is claimed. Current exact file bindings and prior bindings appear in the JSON receipt. Reviewer remains independent of the chapter author.

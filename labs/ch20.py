@@ -117,6 +117,26 @@ def main():
                         * exposure['delta'] - rate * value(*parameters,
                                                            put=is_put))
             close(residual, 0)
+    # Strike spreads isolate digital state prices and the price density.
+    width = .2
+    d2 = (.05 - .2**2 / 2) / width
+    digital = exp(-.05) * ndtr(d2)
+    strike_density = exp(-.05 - d2**2 / 2) / (100 * width * sqrt(2 * pi))
+    spread_errors, butterfly_errors = [], []
+    for epsilon in (1, .1, .01):
+        left = value(100, 100 - epsilon, .05, .2, 1)
+        center = value(*benchmark)
+        right = value(100, 100 + epsilon, .05, .2, 1)
+        spread_errors.append(abs((left - right) / (2 * epsilon) - digital))
+        butterfly = (left - 2 * center + right) / epsilon**2
+        assert butterfly > 0
+        butterfly_errors.append(abs(butterfly - strike_density))
+    assert spread_errors[-1] < spread_errors[0] / 1000
+    assert butterfly_errors[-1] < butterfly_errors[0] / 100
+    close(digital, .5323248154537634)
+    close(strike_density, .018762017345846895)
+    print(f"Digital state price {digital:.8f}; "
+          f"strike price density {strike_density:.8f}")
     exposure = greeks(*benchmark)
     print("Benchmark Greeks", {k: round(v, 8) for k, v in exposure.items()})
     initial = value(*benchmark)

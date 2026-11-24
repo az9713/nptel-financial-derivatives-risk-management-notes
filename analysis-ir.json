@@ -7,7 +7,7 @@
       "id": "ch01",
       "title": "What a derivative changes: cash flows, exposure, and risk",
       "manuscript": "chapters/ch01.md",
-      "manuscript_sha256": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+      "manuscript_sha256": "70ce44eabbab8d704685c5ea25ddd21c29bfef10a302bf697c69842aabfef81e",
       "laboratory": "labs/ch01.py",
       "recordings": [
         {
@@ -52,41 +52,41 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1778s"
           ],
-          "source_line": 79
+          "source_line": 99
         },
         {
           "heading": "6. A swap specifies a sequence of exchanges [32:54](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1974s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1974s"
           ],
-          "source_line": 112
+          "source_line": 132
         },
         {
           "heading": "7. No-arbitrage is a statewise restriction [15:20](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=920s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=920s"
           ],
-          "source_line": 126
+          "source_line": 146
         },
         {
           "heading": "8. Executable cash-flow checks",
           "recording_locators": [],
-          "source_line": 140
+          "source_line": 160
         },
         {
           "heading": "9. What the model captures and what it leaves open",
           "recording_locators": [],
-          "source_line": 150
+          "source_line": 170
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 158
+          "source_line": 178
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 183
+          "source_line": 203
         }
       ],
       "external_reference_urls": [
@@ -95,9 +95,9 @@
         "https://www.optionseducation.org/optionsoverview/options-basics"
       ],
       "diagnostics": {
-        "whitespace_words": 4520,
+        "whitespace_words": 4974,
         "major_headings": 11,
-        "display_equation_blocks": 7
+        "display_equation_blocks": 9
       }
     },
     {
@@ -444,7 +444,7 @@
       "id": "ch06",
       "title": "Portfolio risk depends on covariance; priced risk requires a model",
       "manuscript": "chapters/ch06.md",
-      "manuscript_sha256": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
+      "manuscript_sha256": "e58eb4326a40db15a7d1e28a4c901d657cc1eba7de0303e429495a85e219ac56",
       "laboratory": "labs/ch06.py",
       "recordings": [
         {
@@ -483,38 +483,38 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=g7j8sAIDN04&t=1503s"
           ],
-          "source_line": 49
+          "source_line": 71
         },
         {
           "heading": "4. CAPM adds market clearing to individual optimization [23:15](https://www.youtube.com/watch?v=o_dndjBh26U&t=1395s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=o_dndjBh26U&t=1395s"
           ],
-          "source_line": 69
+          "source_line": 91
         },
         {
           "heading": "5. Regression orthogonality is weaker than independence [12:00](https://www.youtube.com/watch?v=kyLk0hSwjX4&t=720s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=kyLk0hSwjX4&t=720s"
           ],
-          "source_line": 92
+          "source_line": 114
         },
         {
           "heading": "6. What diversification actually needs [20:01](https://www.youtube.com/watch?v=kyLk0hSwjX4&t=1201s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=kyLk0hSwjX4&t=1201s"
           ],
-          "source_line": 108
+          "source_line": 130
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 121
+          "source_line": 143
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 146
+          "source_line": 168
         }
       ],
       "external_reference_urls": [
@@ -522,16 +522,16 @@
         "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/dd628e151309a7f23962b1a31b9356e5_MIT15_401F08_lec13.pdf#page=16"
       ],
       "diagnostics": {
-        "whitespace_words": 2448,
+        "whitespace_words": 2716,
         "major_headings": 8,
-        "display_equation_blocks": 13
+        "display_equation_blocks": 16
       }
     },
     {
       "id": "ch07",
       "title": "Index futures change beta without selling the stock portfolio",
       "manuscript": "chapters/ch07.md",
-      "manuscript_sha256": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+      "manuscript_sha256": "2bf817b8831b4a69c98c77e2d9f97c16e1b9a3661459fa4a5da93f3a17e4d476",
       "laboratory": "labs/ch07.py",
       "recordings": [
         {
@@ -584,33 +584,33 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=3pvhRtLCpkY&t=480s"
           ],
-          "source_line": 72
+          "source_line": 90
         },
         {
           "heading": "6. Frictions replace a single carry quotation with executable bounds [23:20](https://www.youtube.com/watch?v=3pvhRtLCpkY&t=1400s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=3pvhRtLCpkY&t=1400s"
           ],
-          "source_line": 84
+          "source_line": 102
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 98
+          "source_line": 116
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 123
+          "source_line": 141
         }
       ],
       "external_reference_urls": [
         "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf#page=25"
       ],
       "diagnostics": {
-        "whitespace_words": 2437,
+        "whitespace_words": 2607,
         "major_headings": 8,
-        "display_equation_blocks": 10
+        "display_equation_blocks": 12
       }
     },
     {
@@ -699,7 +699,7 @@
       "id": "ch09",
       "title": "Duration cancels a first derivative, not every interest-rate risk",
       "manuscript": "chapters/ch09.md",
-      "manuscript_sha256": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
+      "manuscript_sha256": "4358c1e9998c37e3d957a7e13b808890e199261159e31897febdf5ab294018b9",
       "laboratory": "labs/ch09.py",
       "recordings": [
         {
@@ -741,43 +741,43 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=WGKvJQCY__0&t=360s"
           ],
-          "source_line": 72
+          "source_line": 83
         },
         {
           "heading": "5. Asset–liability matching controls surplus derivatives",
           "recording_locators": [],
-          "source_line": 101
+          "source_line": 112
         },
         {
           "heading": "6. A curve is a vector of risk coordinates",
           "recording_locators": [],
-          "source_line": 121
+          "source_line": 132
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 133
+          "source_line": 144
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 158
+          "source_line": 169
         }
       ],
       "external_reference_urls": [
         "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf#page=35"
       ],
       "diagnostics": {
-        "whitespace_words": 2436,
+        "whitespace_words": 2561,
         "major_headings": 8,
-        "display_equation_blocks": 15
+        "display_equation_blocks": 17
       }
     },
     {
       "id": "ch10",
       "title": "Short-rate futures: a quotation is not a cash price",
       "manuscript": "chapters/ch10.md",
-      "manuscript_sha256": "5c422782ed73cd4d27ed021f9054381a37a7e0881b9f5b32abdb74d4c5fd8bf8",
+      "manuscript_sha256": "b0d505c63b3939b6b0b832fe869acd17b930f4042e2d32d6f114e3052c88a520",
       "laboratory": "labs/ch10.py",
       "recordings": [
         {
@@ -826,52 +826,52 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=0QEvQLhjhQA&t=41s"
           ],
-          "source_line": 78
+          "source_line": 88
         },
         {
           "heading": "6. Daily settlement prevents a careless forward interpretation [02:11](https://www.youtube.com/watch?v=0QEvQLhjhQA&t=131s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=0QEvQLhjhQA&t=131s"
           ],
-          "source_line": 94
+          "source_line": 104
         },
         {
           "heading": "7. Hedge direction follows the business cash flow [24:32](https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1472s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1472s"
           ],
-          "source_line": 108
+          "source_line": 118
         },
         {
           "heading": "8. Computation and limits",
           "recording_locators": [],
-          "source_line": 116
+          "source_line": 126
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 124
+          "source_line": 134
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 149
+          "source_line": 159
         }
       ],
       "external_reference_urls": [
         "https://www.treasurydirect.gov/marketable-securities/understanding-pricing/"
       ],
       "diagnostics": {
-        "whitespace_words": 3234,
+        "whitespace_words": 3422,
         "major_headings": 10,
-        "display_equation_blocks": 9
+        "display_equation_blocks": 10
       }
     },
     {
       "id": "ch11",
       "title": "Rate hedges: carry, basis, settlement timing, and accrued interest",
       "manuscript": "chapters/ch11.md",
-      "manuscript_sha256": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+      "manuscript_sha256": "539fab70727e6d4990d1ff1836a3b4498eb18d6c9e15ca0261f9ac48eb7e7b37",
       "laboratory": "labs/ch11.py",
       "recordings": [
         {
@@ -910,50 +910,50 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=J4wFDp4K8c8&t=24s"
           ],
-          "source_line": 51
+          "source_line": 66
         },
         {
           "heading": "4. A future investment needs a common-date hedge comparison [09:49](https://www.youtube.com/watch?v=MqB_MP8d0J8&t=589s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=MqB_MP8d0J8&t=589s"
           ],
-          "source_line": 61
+          "source_line": 76
         },
         {
           "heading": "5. Deterministic-rate dynamic tailing can be proved path by path [09:06](https://www.youtube.com/watch?v=sd5oA18GaVw&t=546s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=sd5oA18GaVw&t=546s"
           ],
-          "source_line": 75
+          "source_line": 90
         },
         {
           "heading": "6. Historical Eurodollar teaching is not a current SOFR specification [18:06](https://www.youtube.com/watch?v=J4wFDp4K8c8&t=1086s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=J4wFDp4K8c8&t=1086s"
           ],
-          "source_line": 99
+          "source_line": 114
         },
         {
           "heading": "7. Clean quotation and dirty cash price [19:12](https://www.youtube.com/watch?v=sd5oA18GaVw&t=1152s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=sd5oA18GaVw&t=1152s"
           ],
-          "source_line": 109
+          "source_line": 124
         },
         {
           "heading": "8. Executable certificates and model limits",
           "recording_locators": [],
-          "source_line": 123
+          "source_line": 138
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 131
+          "source_line": 146
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 156
+          "source_line": 171
         }
       ],
       "external_reference_urls": [
@@ -962,16 +962,16 @@
         "https://www.treasurydirect.gov/marketable-securities/understanding-pricing/"
       ],
       "diagnostics": {
-        "whitespace_words": 3306,
+        "whitespace_words": 3593,
         "major_headings": 10,
-        "display_equation_blocks": 10
+        "display_equation_blocks": 12
       }
     },
     {
       "id": "ch12",
       "title": "Bond futures: conversion factors, delivery choice, and rate sensitivity",
       "manuscript": "chapters/ch12.md",
-      "manuscript_sha256": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+      "manuscript_sha256": "b332db0cbfcdf0ca8052fbfbe0d5ee7d2d000292ad46638c45d8cfeeac4861c2",
       "laboratory": "labs/ch12.py",
       "recordings": [
         {
@@ -1037,17 +1037,17 @@
         {
           "heading": "8. Executable checks",
           "recording_locators": [],
-          "source_line": 125
+          "source_line": 136
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 131
+          "source_line": 142
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 156
+          "source_line": 167
         }
       ],
       "external_reference_urls": [
@@ -1056,16 +1056,16 @@
         "https://www.cmegroup.com/trading/interest-rates/us-treasury-futures-conversion-factor-lookup-tables.html"
       ],
       "diagnostics": {
-        "whitespace_words": 3243,
+        "whitespace_words": 3595,
         "major_headings": 10,
-        "display_equation_blocks": 9
+        "display_equation_blocks": 10
       }
     },
     {
       "id": "ch13",
       "title": "Option cash flows and put–call parity",
       "manuscript": "chapters/ch13.md",
-      "manuscript_sha256": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
+      "manuscript_sha256": "5accfea90a1aa3de183004a8396260d28e58676fede9c3f79a12309982132196",
       "laboratory": "labs/ch13.py",
       "recordings": [
         {
@@ -1121,27 +1121,27 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=rGMc3_YrC_8&t=1428s"
           ],
-          "source_line": 89
+          "source_line": 98
         },
         {
           "heading": "7. Time value is not always a nonnegative residual for a European option",
           "recording_locators": [],
-          "source_line": 103
+          "source_line": 112
         },
         {
           "heading": "8. Executable identities and model boundaries",
           "recording_locators": [],
-          "source_line": 113
+          "source_line": 122
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 121
+          "source_line": 130
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 146
+          "source_line": 155
         }
       ],
       "external_reference_urls": [
@@ -1150,16 +1150,16 @@
         "https://www.optionseducation.org/optionsoverview/options-basics"
       ],
       "diagnostics": {
-        "whitespace_words": 2997,
+        "whitespace_words": 3270,
         "major_headings": 10,
-        "display_equation_blocks": 6
+        "display_equation_blocks": 7
       }
     },
     {
       "id": "ch14",
       "title": "Option bounds and the decision to exercise",
       "manuscript": "chapters/ch14.md",
-      "manuscript_sha256": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+      "manuscript_sha256": "15d397426c2c18b506fba082c0fd3a7fb88407c908373bd3df1738e45cbfdd6a",
       "laboratory": "labs/ch14.py",
       "recordings": [
         {
@@ -1213,38 +1213,38 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=kndgzBL08CU&t=987s"
           ],
-          "source_line": 114
+          "source_line": 124
         },
         {
           "heading": "7. Calculation, interpretation, and scope",
           "recording_locators": [],
-          "source_line": 132
+          "source_line": 142
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 140
+          "source_line": 150
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 165
+          "source_line": 175
         }
       ],
       "external_reference_urls": [
         "https://people.duke.edu/~charvey/classes/ba350/optval/optval.htm"
       ],
       "diagnostics": {
-        "whitespace_words": 3132,
+        "whitespace_words": 3286,
         "major_headings": 9,
-        "display_equation_blocks": 17
+        "display_equation_blocks": 19
       }
     },
     {
       "id": "ch15",
       "title": "Static option strategies as piecewise-linear cash flows",
       "manuscript": "chapters/ch15.md",
-      "manuscript_sha256": "bdb2df2b6b59f83c6b8ba1bb9e38b3987a6bc6bb03c5d6c224f69e2178857582",
+      "manuscript_sha256": "5d577869e85ed1ac235ddc37f52db62fd991cef0eba4d3a0f3071ac81c979a5f",
       "laboratory": "labs/ch15.py",
       "recordings": [
         {
@@ -1309,29 +1309,29 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=WOeG8sV1xz8&t=657s"
           ],
-          "source_line": 135
+          "source_line": 149
         },
         {
           "heading": "8. Calendar spreads require an interim valuation model [19:38](https://www.youtube.com/watch?v=WOeG8sV1xz8&t=1178s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=WOeG8sV1xz8&t=1178s"
           ],
-          "source_line": 149
+          "source_line": 163
         },
         {
           "heading": "9. A reusable analytical and computational workflow",
           "recording_locators": [],
-          "source_line": 167
+          "source_line": 181
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 175
+          "source_line": 191
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 200
+          "source_line": 216
         }
       ],
       "external_reference_urls": [
@@ -1340,16 +1340,16 @@
         "https://www.optionseducation.org/strategies/all-strategies/long-straddle"
       ],
       "diagnostics": {
-        "whitespace_words": 3876,
+        "whitespace_words": 4184,
         "major_headings": 11,
-        "display_equation_blocks": 19
+        "display_equation_blocks": 20
       }
     },
     {
       "id": "ch16",
       "title": "From random walks to Brownian risk factors",
       "manuscript": "chapters/ch16.md",
-      "manuscript_sha256": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
+      "manuscript_sha256": "95259d59a15b331c00de5796ef591e3c7e777e30e5474cfa909ad5266d2a1231",
       "laboratory": "labs/ch16.py",
       "recordings": [
         {
@@ -1402,45 +1402,46 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=GIrKSTpX5W8&t=1479s"
           ],
-          "source_line": 93
+          "source_line": 111
         },
         {
           "heading": "6. A lattice transition rule leads to a diffusion equation [18:34](https://www.youtube.com/watch?v=AJRvEHZb4C8&t=1114s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=AJRvEHZb4C8&t=1114s"
           ],
-          "source_line": 115
+          "source_line": 133
         },
         {
           "heading": "7. Executable checks and their boundary",
           "recording_locators": [],
-          "source_line": 142
+          "source_line": 160
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 150
+          "source_line": 168
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 175
+          "source_line": 193
         }
       ],
       "external_reference_urls": [
-        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf#page=4"
+        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf#page=4",
+        "https://www.math.cmu.edu/~xig/Files/Teaching/Stochastic%20Calculus%20%28Fall%202016%29/Stochastic%20Calculus.pdf#page=8"
       ],
       "diagnostics": {
-        "whitespace_words": 3309,
+        "whitespace_words": 3501,
         "major_headings": 9,
-        "display_equation_blocks": 10
+        "display_equation_blocks": 12
       }
     },
     {
       "id": "ch17",
       "title": "Itô calculus, lognormal prices, and the meaning of a risk probability",
       "manuscript": "chapters/ch17.md",
-      "manuscript_sha256": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
+      "manuscript_sha256": "5130c008e9a1b7cead6bd24e8f1e3077bcf120c6dc3044b40eaf7d0084ee6c79",
       "laboratory": "labs/ch17.py",
       "recordings": [
         {
@@ -1497,43 +1498,43 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=SilnIL0Q98o&t=61s"
           ],
-          "source_line": 92
+          "source_line": 102
         },
         {
           "heading": "6. Lognormal density, moments, and return conventions [16:20](https://www.youtube.com/watch?v=zfYjF39ynV0&t=980s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=zfYjF39ynV0&t=980s"
           ],
-          "source_line": 114
+          "source_line": 124
         },
         {
           "heading": "7. The forward density equation provides an independent description [17:11](https://www.youtube.com/watch?v=SilnIL0Q98o&t=1031s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=SilnIL0Q98o&t=1031s"
           ],
-          "source_line": 143
+          "source_line": 153
         },
         {
           "heading": "8. A terminal cash test is not a survival guarantee [32:12](https://www.youtube.com/watch?v=zfYjF39ynV0&t=1932s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=zfYjF39ynV0&t=1932s"
           ],
-          "source_line": 158
+          "source_line": 168
         },
         {
           "heading": "9. Executable checks and limits",
           "recording_locators": [],
-          "source_line": 168
+          "source_line": 178
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 176
+          "source_line": 186
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 201
+          "source_line": 211
         }
       ],
       "external_reference_urls": [
@@ -1542,16 +1543,16 @@
         "https://www.stat.uchicago.edu/~lalley/Courses/312/BrownianMotion312.pdf"
       ],
       "diagnostics": {
-        "whitespace_words": 3572,
+        "whitespace_words": 3825,
         "major_headings": 11,
-        "display_equation_blocks": 17
+        "display_equation_blocks": 18
       }
     },
     {
       "id": "ch18",
       "title": "Binomial replication and risk-neutral valuation",
       "manuscript": "chapters/ch18.md",
-      "manuscript_sha256": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
+      "manuscript_sha256": "f1ee15816346b5144e168506f76a34c9dbc9920ff5b2a106c2c449f270289124",
       "laboratory": "labs/ch18.py",
       "recordings": [
         {
@@ -1610,25 +1611,30 @@
         {
           "heading": "7. A diffusion limit requires shrinking moves",
           "recording_locators": [],
-          "source_line": 157
+          "source_line": 163
         },
         {
           "heading": "8. Laboratory and model boundary",
           "recording_locators": [],
-          "source_line": 171
+          "source_line": 177
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 177
+          "source_line": 183
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 208
         }
       ],
       "external_reference_urls": [
         "https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/7/36891/files/2017/07/CRR79-1yy8av8.pdf"
       ],
       "diagnostics": {
-        "whitespace_words": 2896,
-        "major_headings": 9,
+        "whitespace_words": 3063,
+        "major_headings": 10,
         "display_equation_blocks": 14
       }
     },
@@ -1636,7 +1642,7 @@
       "id": "ch19",
       "title": "Measure change, dynamic replication, and the Black–Scholes model",
       "manuscript": "chapters/ch19.md",
-      "manuscript_sha256": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
+      "manuscript_sha256": "af158ca94675a9350507519464ab0feaee8ccbcd75b55c3714b115979522ec7c",
       "laboratory": "labs/ch19.py",
       "recordings": [
         {
@@ -1688,41 +1694,48 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=P-tzhvI64as&t=59s"
           ],
-          "source_line": 124
+          "source_line": 148
         },
         {
           "heading": "6. The dividend and exercise boundary [00:24](https://www.youtube.com/watch?v=bCQID6X85ys&t=24s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=bCQID6X85ys&t=24s"
           ],
-          "source_line": 174
+          "source_line": 198
         },
         {
           "heading": "7. Laboratory, source checks, and limits",
           "recording_locators": [],
-          "source_line": 184
+          "source_line": 208
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 192
+          "source_line": 216
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 241
         }
       ],
       "external_reference_urls": [
         "https://galton.uchicago.edu/~lalley/Courses/390/Lecture10.pdf",
-        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf"
+        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf",
+        "https://www.math.cmu.edu/~gautam/sj/teaching/2021-22/420-cts-time-finance/pdfs/lec/20220418-l36.pdf#page=2",
+        "https://www.math.cmu.edu/~xig/Files/Teaching/Stochastic%20Calculus%20%28Fall%202016%29/Stochastic%20Calculus.pdf#page=38"
       ],
       "diagnostics": {
-        "whitespace_words": 2319,
-        "major_headings": 8,
-        "display_equation_blocks": 18
+        "whitespace_words": 2788,
+        "major_headings": 9,
+        "display_equation_blocks": 21
       }
     },
     {
       "id": "ch20",
       "title": "Solving the pricing PDE and measuring local exposure",
       "manuscript": "chapters/ch20.md",
-      "manuscript_sha256": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
+      "manuscript_sha256": "e0d10876597ee99a4cfa3c9ac86df70d817c98964cc9dc8819459774d07e8502",
       "laboratory": "labs/ch20.py",
       "recordings": [
         {
@@ -1784,28 +1797,33 @@
         {
           "heading": "7. Laboratory and source check",
           "recording_locators": [],
-          "source_line": 160
+          "source_line": 177
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 164
+          "source_line": 181
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 206
         }
       ],
       "external_reference_urls": [
         "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf"
       ],
       "diagnostics": {
-        "whitespace_words": 2419,
-        "major_headings": 8,
-        "display_equation_blocks": 13
+        "whitespace_words": 2765,
+        "major_headings": 9,
+        "display_equation_blocks": 15
       }
     },
     {
       "id": "ch21",
       "title": "Greek hedges, financing, and the cost of convexity",
       "manuscript": "chapters/ch21.md",
-      "manuscript_sha256": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+      "manuscript_sha256": "4fe71f7808b940d1739ba984172ed705288bfb8ac5cb1f8d8140d6c8a6a93046",
       "laboratory": "labs/ch21.py",
       "recordings": [
         {
@@ -1850,14 +1868,14 @@
             "https://www.youtube.com/watch?v=0_NyYdmXBS0&t=1163s",
             "https://www.youtube.com/watch?v=QsrKq3bRN5A&t=637s"
           ],
-          "source_line": 42
+          "source_line": 62
         },
         {
           "heading": "4. A profitable stock round trip is only one ledger component [12:24](https://www.youtube.com/watch?v=0_NyYdmXBS0&t=744s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=0_NyYdmXBS0&t=744s"
           ],
-          "source_line": 68
+          "source_line": 88
         },
         {
           "heading": "5. Scenario hedges are different from independent partial hedges [29:33](https://www.youtube.com/watch?v=QsrKq3bRN5A&t=1773s) / [00:24](https://www.youtube.com/watch?v=EJbnlOu035A&t=24s)",
@@ -1865,31 +1883,36 @@
             "https://www.youtube.com/watch?v=QsrKq3bRN5A&t=1773s",
             "https://www.youtube.com/watch?v=EJbnlOu035A&t=24s"
           ],
-          "source_line": 91
+          "source_line": 111
         },
         {
           "heading": "6. A forward quote is not an existing contract [16:53](https://www.youtube.com/watch?v=EJbnlOu035A&t=1013s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=EJbnlOu035A&t=1013s"
           ],
-          "source_line": 103
+          "source_line": 123
         },
         {
           "heading": "7. From a hedge book to a swap schedule [24:03](https://www.youtube.com/watch?v=EJbnlOu035A&t=1443s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=EJbnlOu035A&t=1443s"
           ],
-          "source_line": 124
+          "source_line": 144
         },
         {
           "heading": "Laboratory",
           "recording_locators": [],
-          "source_line": 132
+          "source_line": 152
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 136
+          "source_line": 156
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 181
         }
       ],
       "external_reference_urls": [
@@ -1897,16 +1920,16 @@
         "https://www.fca.org.uk/news/press-releases/end-libor"
       ],
       "diagnostics": {
-        "whitespace_words": 2708,
-        "major_headings": 9,
-        "display_equation_blocks": 9
+        "whitespace_words": 3063,
+        "major_headings": 10,
+        "display_equation_blocks": 11
       }
     },
     {
       "id": "ch22",
       "title": "FRAs and interest-rate swaps as dated cash flows",
       "manuscript": "chapters/ch22.md",
-      "manuscript_sha256": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+      "manuscript_sha256": "75d9a4a632cba2aab69347133b0e971a6df35b95b128954fad38d5451d858c7e",
       "laboratory": "labs/ch22.py",
       "recordings": [
         {
@@ -1945,14 +1968,14 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=YMt9e--2Xik&t=1290s"
           ],
-          "source_line": 48
+          "source_line": 54
         },
         {
           "heading": "4. Bootstrapping from a par swap [21:51](https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=1311s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=1311s"
           ],
-          "source_line": 74
+          "source_line": 80
         },
         {
           "heading": "5. A floating bond is par at a matching reset, not everywhere [27:14](https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=1634s); [02:55](https://www.youtube.com/watch?v=uZF7j-Qs9ZA&t=175s)",
@@ -1960,19 +1983,19 @@
             "https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=1634s",
             "https://www.youtube.com/watch?v=uZF7j-Qs9ZA&t=175s"
           ],
-          "source_line": 88
+          "source_line": 94
         },
         {
           "heading": "6. Two independent valuations of the source swap [16:54](https://www.youtube.com/watch?v=uZF7j-Qs9ZA&t=1014s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=uZF7j-Qs9ZA&t=1014s"
           ],
-          "source_line": 102
+          "source_line": 108
         },
         {
           "heading": "7. Projection, discounting, and overnight observation",
           "recording_locators": [],
-          "source_line": 110
+          "source_line": 116
         },
         {
           "heading": "8. Comparative advantage has contractual costs [32:10](https://www.youtube.com/watch?v=YMt9e--2Xik&t=1930s) / [00:24](https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=24s)",
@@ -1980,17 +2003,22 @@
             "https://www.youtube.com/watch?v=YMt9e--2Xik&t=1930s",
             "https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=24s"
           ],
-          "source_line": 124
+          "source_line": 130
         },
         {
           "heading": "Laboratory",
           "recording_locators": [],
-          "source_line": 130
+          "source_line": 136
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 134
+          "source_line": 140
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 165
         }
       ],
       "external_reference_urls": [
@@ -1998,16 +2026,16 @@
         "https://www.newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates"
       ],
       "diagnostics": {
-        "whitespace_words": 2645,
-        "major_headings": 10,
-        "display_equation_blocks": 9
+        "whitespace_words": 2845,
+        "major_headings": 11,
+        "display_equation_blocks": 10
       }
     },
     {
       "id": "ch23",
       "title": "Currency swaps, loss quantiles, and tail risk",
       "manuscript": "chapters/ch23.md",
-      "manuscript_sha256": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
+      "manuscript_sha256": "4ec58fd02331eb4c79a0fe7104b402ab3d671bb3412b0d2371441ab38cc66456",
       "laboratory": "labs/ch23.py",
       "recordings": [
         {
@@ -2074,12 +2102,17 @@
         {
           "heading": "Laboratory and risk boundary",
           "recording_locators": [],
-          "source_line": 127
+          "source_line": 157
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 131
+          "source_line": 161
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 186
         }
       ],
       "external_reference_urls": [
@@ -2087,16 +2120,16 @@
         "https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf"
       ],
       "diagnostics": {
-        "whitespace_words": 2759,
-        "major_headings": 9,
-        "display_equation_blocks": 8
+        "whitespace_words": 3180,
+        "major_headings": 10,
+        "display_equation_blocks": 12
       }
     },
     {
       "id": "ch24",
       "title": "Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR",
       "manuscript": "chapters/ch24.md",
-      "manuscript_sha256": "55c3429a9198f319e24af696057967743fef20e3c0d7af56dece6c2bf3a12d65",
+      "manuscript_sha256": "94fcfc666aec17c9ed12d9d01fd3df50af97496bd4e8894f6679469c89eed412",
       "laboratory": "labs/ch24.py",
       "recordings": [
         {
@@ -2134,46 +2167,46 @@
           "recording_locators": [
             "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1357s"
           ],
-          "source_line": 72
+          "source_line": 84
         },
         {
           "heading": "5. A currency forward contains two oppositely signed bond exposures [34:38](https://www.youtube.com/watch?v=xuUX0FVxwv0&t=2078s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=2078s"
           ],
-          "source_line": 91
+          "source_line": 103
         },
         {
           "heading": "6. Delta–gamma loss is generally not normally distributed [32:42](https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1962s)",
           "recording_locators": [
             "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1962s"
           ],
-          "source_line": 103
+          "source_line": 115
         },
         {
           "heading": "7. Quantiles and tail averages answer different questions",
           "recording_locators": [],
-          "source_line": 137
+          "source_line": 149
         },
         {
           "heading": "8. Backtesting tests a forecast against matching outcomes",
           "recording_locators": [],
-          "source_line": 150
+          "source_line": 162
         },
         {
           "heading": "9. A risk result needs a reproducible account of its limits",
           "recording_locators": [],
-          "source_line": 160
+          "source_line": 172
         },
         {
           "heading": "Exercises",
           "recording_locators": [],
-          "source_line": 166
+          "source_line": 178
         },
         {
           "heading": "Sources and scope",
           "recording_locators": [],
-          "source_line": 191
+          "source_line": 203
         }
       ],
       "external_reference_urls": [
@@ -2182,9 +2215,9 @@
         "https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc551.htm"
       ],
       "diagnostics": {
-        "whitespace_words": 3519,
+        "whitespace_words": 3761,
         "major_headings": 11,
-        "display_equation_blocks": 14
+        "display_equation_blocks": 15
       }
     }
   ]

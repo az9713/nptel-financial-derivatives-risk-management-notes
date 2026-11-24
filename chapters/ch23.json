@@ -1,7 +1,15 @@
 {
   "title": "Currency swaps, loss quantiles, and tail risk",
-  "lectures": [58, 59],
-  "objectives": ["Reconcile domestic-valued currency legs and forward-converted cash-flow valuation with explicit units", "Construct and index synchronized historical loss scenarios", "Derive Gaussian VaR with drift and horizon qualifications", "Compute expected shortfall with probability atoms and exhibit VaR aggregation failure"],
-  "prerequisites": "Chapters02/22 discounting, currency forward parity and swap legs; Gaussian distributions, covariance and quantiles.",
-  "source_scope": "Full official English captions at positions58–59 read sequentially. No comprehensive audiovisual audit. Source principal mismatch, pricing-versus-risk probabilities, lower empirical quantile indexing, nonmaximum VaR interpretation, and square-root scaling limits are explicit. ES and discrete counterexamples are added enrichment."
+  "lectures": [
+    58,
+    59
+  ],
+  "objectives": [
+    "Reconcile domestic-valued currency legs and forward-converted cash-flow valuation with explicit units",
+    "Construct and index synchronized historical loss scenarios",
+    "Derive Gaussian VaR with drift and horizon qualifications",
+    "Compute expected shortfall with probability atoms and exhibit VaR aggregation failure"
+  ],
+  "prerequisites": "Chapters 2 and 22 discounting, currency forward parity and swap legs; Gaussian distributions, covariance and quantiles.",
+  "source_scope": "Full official English captions at positions 58–59 read sequentially. No comprehensive audiovisual audit. Source principal mismatch, pricing-versus-risk probabilities, lower empirical quantile indexing, nonmaximum VaR interpretation, and square-root scaling limits are explicit. ES and discrete counterexamples are added enrichment."
 }

@@ -10,8 +10,8 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch19.md": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
-    "chapters/ch19.json": "bf401b66c51212239745e677e698cc8cd249c014f0c4fc075a0469214e236c35",
+    "chapters/ch19.md": "af158ca94675a9350507519464ab0feaee8ccbcd75b55c3714b115979522ec7c",
+    "chapters/ch19.json": "a0ce50b8ca1340b761fbaeda4ec5789b3cad33da90830000d1e303461e9a8d72",
     "labs/ch19.py": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af"
   },
   "source_evidence": {
@@ -30,5 +30,29 @@
     "No full independent caption reread",
     "No comprehensive audiovisual audit or human certification",
     "Separate release/browser checks required"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific/editorial review: complete diff, affected full sections and solutions/context, metadata and code; unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch19.md": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
+        "chapters/ch19.json": "bf401b66c51212239745e677e698cc8cd249c014f0c4fc075a0469214e236c35",
+        "labs/ch19.py": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af"
+      },
+      "accepted_files": {
+        "chapters/ch19.md": "af158ca94675a9350507519464ab0feaee8ccbcd75b55c3714b115979522ec7c",
+        "chapters/ch19.json": "a0ce50b8ca1340b761fbaeda4ec5789b3cad33da90830000d1e303461e9a8d72",
+        "labs/ch19.py": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af"
+      },
+      "checks": "Read the complete revised PDE verification/completeness section with the completed right-continuous Brownian filtration, preceding self-financing derivation, following call construction, solution context, metadata and source notes. Checked the explicit stopping times, bounded quadratic variation, convergence to the finite terminal horizon, uniform linear-growth domination, discounted-stock L2 maximal bound and uniform-tail estimate. Passing the stopped conditional identity to the limit gives the true martingale and uniqueness within the stated growth class. Checked the representation-derived stock and bank holdings and self-financing algebra; nonnegative-payoff admissibility is separated from arbitrary signed claims. Independently inspected Xi Geng printed pages 5\u20136, Corollary 3.3 and section 3.5 item 3, and Iyer Theorem 9.23 on PDF page 2. Reported and inspected the repaired missing backslash before left in the UI display. The unchanged full lab passed fresh. The general maximal and representation theorems are invoked rather than claimed proved here.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "new_primary_passages_inspected": [
+        "Xi Geng Stochastic Calculus, printed pages5\u20136, Corollary3.3 and section3.5 item3",
+        "Gautam Iyer continuous-time finance lecture36, PDFpage2 Theorem9.23"
+      ],
+      "source_reading": "No repeated caption reading or audiovisual audit; only the explicitly named new primary passages were inspected in this incremental pass."
+    }
   ]
 }

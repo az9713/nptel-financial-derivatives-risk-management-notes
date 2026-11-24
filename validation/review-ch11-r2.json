@@ -3,15 +3,41 @@
   "disposition": "accepted",
   "report": "validation/review-ch11-r2.md",
   "scope": [
-    "Full chapter, metadata, all six solutions and complete lab source",
-    "Fresh lab execution and independent algebra/numerical verification",
-    "Selected primary-reference checks and reading-attestation audit; no repeated full-caption or audiovisual audit"
+    "Original full manuscript/solutions/lab review preserved as historical evidence, with prior hashes in review_history",
+    "Current critical-comparison revision: complete changed passages and solutions with surrounding definitions, metadata and laboratory changes inspected",
+    "Fresh full lab execution plus independent calculations; no new full-caption, audiovisual or complete external-source audit"
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch11.md": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+    "chapters/ch11.md": "539fab70727e6d4990d1ff1836a3b4498eb18d6c9e15ca0261f9ac48eb7e7b37",
     "chapters/ch11.json": "cbdcbb4bcfbce48361d39bd78509e8b25a9bb0aacf00683851ab6886846fbb9b",
-    "labs/ch11.py": "6c60fe947df2202d02e9efaf4223c0a2616e9c289eef096d73644dbb3254de93"
+    "labs/ch11.py": "b0eb323bf2801de51ca56db7129963b0158676b651a825de4d1c4dd0db32eca2"
   },
-  "repair_recheck": "Narrow repair recheck: dynamic tailing now rejects nonfinite/nonpositive growth factors and stock inputs, with NaN/infinity/zero/negative regression cases. Valid-domain algorithm unchanged; fresh execution passed."
+  "repair_recheck": "Narrow repair recheck: dynamic tailing now rejects nonfinite/nonpositive growth factors and stock inputs, with NaN/infinity/zero/negative regression cases. Valid-domain algorithm unchanged; fresh execution passed.",
+  "review_history": [
+    {
+      "phase": "Original edition full review and subsequent repair checks",
+      "accepted_files": {
+        "chapters/ch11.md": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+        "chapters/ch11.json": "cbdcbb4bcfbce48361d39bd78509e8b25a9bb0aacf00683851ab6886846fbb9b",
+        "labs/ch11.py": "6c60fe947df2202d02e9efaf4223c0a2616e9c289eef096d73644dbb3254de93"
+      },
+      "scope": [
+        "Full chapter, metadata, all six solutions and complete lab source",
+        "Fresh lab execution and independent algebra/numerical verification",
+        "Selected primary-reference checks and reading-attestation audit; no repeated full-caption or audiovisual audit"
+      ],
+      "repair_recheck": "Narrow repair recheck: dynamic tailing now rejects nonfinite/nonpositive growth factors and stock inputs, with NaN/infinity/zero/negative regression cases. Valid-domain algorithm unchanged; fresh execution passed."
+    }
+  ],
+  "critical_comparison_recheck": {
+    "status": "accepted",
+    "checks": "Read the signed-short change, full centered projection/residual development, numerical example, expanded exercise 2/solution 2, original exposure definitions in context, metadata and complete lab diff. Independently constructed the four equiprobable states and calculated optimum 31.25, residual SD 55119.81898051231, and integer variances 3038444444.444445 versus 3040444444.444445 for 31/32. The nonnegative-count boundary and unrestricted-nearest-integer qualifications are correct. Fresh full lab and 79-column pycodestyle passed.",
+    "prior_accepted_files": {
+      "chapters/ch11.md": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+      "chapters/ch11.json": "cbdcbb4bcfbce48361d39bd78509e8b25a9bb0aacf00683851ab6886846fbb9b",
+      "labs/ch11.py": "6c60fe947df2202d02e9efaf4223c0a2616e9c289eef096d73644dbb3254de93"
+    },
+    "boundary": "Incremental comparison-edition review; original full-review scope is historical, not falsely repeated for this edition."
+  }
 }

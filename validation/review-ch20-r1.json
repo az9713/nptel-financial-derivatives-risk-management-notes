@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch20.md": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
-    "chapters/ch20.json": "3fd76945395662789c3afb34fc29da39419474a1debd8bc07e4eb9a788b130ff",
-    "labs/ch20.py": "8c1138ab746a627d8570b9766019b4a89505fdfa9a756a86aeda42e5b426c79a"
+    "chapters/ch20.md": "e0d10876597ee99a4cfa3c9ac86df70d817c98964cc9dc8819459774d07e8502",
+    "chapters/ch20.json": "f3cf2212aa70e45e428bbeac936c68044b52fb1d3a35c696f5e397a343c1aa06",
+    "labs/ch20.py": "05f4612e668ef7d3003dc75e8cf0f6d20a2d8b594fd140cf6aa4d7862bf252ae"
   },
   "source_evidence": {
     "caption_positions": [
@@ -28,5 +28,26 @@
     "No full independent caption reread",
     "No comprehensive audiovisual audit or human certification",
     "Separate release/browser checks required"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific/editorial review: complete diff, affected full sections and solutions/context, metadata and code; unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch20.md": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
+        "chapters/ch20.json": "3fd76945395662789c3afb34fc29da39419474a1debd8bc07e4eb9a788b130ff",
+        "labs/ch20.py": "8c1138ab746a627d8570b9766019b4a89505fdfa9a756a86aeda42e5b426c79a"
+      },
+      "accepted_files": {
+        "chapters/ch20.md": "e0d10876597ee99a4cfa3c9ac86df70d817c98964cc9dc8819459774d07e8502",
+        "chapters/ch20.json": "f3cf2212aa70e45e428bbeac936c68044b52fb1d3a35c696f5e397a343c1aa06",
+        "labs/ch20.py": "05f4612e668ef7d3003dc75e8cf0f6d20a2d8b594fd140cf6aa4d7862bf252ae"
+      },
+      "checks": "Read the complete strike-derivative/spread addition with its discount factor and Black\u2013Scholes coordinate definitions, following market-data limitation, unchanged solutions, metadata and lab delta. Differentiated the integrable payoff integral, checked the vanished endpoint term and the continuous-density assumption, and verified the digital and normalized butterfly limits. The atom caveat and distinction from stock gamma are correct. Independently recomputed the benchmark digital 0.5323248155 and strike price density 0.01876201735 from their stated factors. Shrinking finite payoff packages in the fresh full lab converge as claimed. Sparse noisy quotes are not declared an exact probability density.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "new_primary_passages_inspected": [],
+      "source_reading": "No repeated caption reading or audiovisual audit; only the explicitly named new primary passages were inspected in this incremental pass."
+    }
   ]
 }

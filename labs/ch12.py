@@ -52,6 +52,22 @@ def main():
                - 1500) / conversion for dy in (-step, step)]
     numerical_dv01 = -(quotes[1] - quotes[0]) / (2 * step) * 1e-4
     assert isclose(numerical_dv01, carried_dv01, rel_tol=1e-10)
+
+    # Instantaneous delivery: the lower normalized-price branch can switch.
+    def delivery_quote(shock_bp):
+        return min((90 - .072 * shock_bp) / .9,
+                   100.1 - .12 * shock_bp)
+
+    assert isclose(delivery_quote(0), 100)
+    assert isclose(delivery_quote(2.5), 99.8)
+    for x, dv01 in ((0, 80), (5, 120)):
+        step_bp = 1e-4
+        numerical = -(delivery_quote(x + step_bp)
+                      - delivery_quote(x - step_bp)) / (2 * step_bp) * 1000
+        assert isclose(numerical, dv01, rel_tol=1e-8)
+    switch_gain = 37.5 * 1000 * (delivery_quote(0) - delivery_quote(10))
+    assert isclose(switch_gain, 41250)
+    assert isclose(switch_gain - 3000 * 10, 11250)
     for coupon, periods, rate in ((0.05, 2.5, 0.06), (0.05, True, 0.06),
                                   (float("inf"), 20, 0.06),
                                   (0.05, 20, float("nan"))):

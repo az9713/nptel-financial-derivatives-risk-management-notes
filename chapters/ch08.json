@@ -3,5 +3,5 @@
   "lectures": [20,21],
   "objectives": ["Derive spot and forward quotations from discount factors", "Prove and compute positive-cash-flow yield uniqueness", "Explain why YTM does not identify a curve or average linearly", "Separate internal rate from realized reinvested wealth"],
   "prerequisites": "Dated present values from Chapter 2; monotone functions, logarithms and elementary differentiation.",
-  "source_scope": "Full sequential captions for positions20–21; selected MIT fixed-income text and TreasuryDirect bill-pricing passage inspected; source and synthetic arithmetic independently executed."
+  "source_scope": "Full sequential captions for positions 20–21; selected MIT fixed-income text and TreasuryDirect bill-pricing passage inspected; source and synthetic arithmetic independently executed."
 }

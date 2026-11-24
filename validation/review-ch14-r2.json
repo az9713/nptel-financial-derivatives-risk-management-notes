@@ -3,18 +3,44 @@
   "disposition": "accepted",
   "report": "validation/review-ch14-r2.md",
   "scope": [
-    "Full manuscript, metadata, all six solutions and complete lab source",
-    "Fresh execution and independent algebra/number/units checks",
-    "Selected primary references and caption landmarks; no repeated full-caption or audiovisual audit"
+    "Original full manuscript/solutions/lab review preserved as historical evidence, with prior hashes in review_history",
+    "Current critical-comparison revision: complete changed passages and solutions with surrounding definitions, metadata and laboratory changes inspected",
+    "Fresh full lab execution plus independent calculations; no new full-caption, audiovisual or complete external-source audit"
   ],
   "findings_fixed": [
     "Integrated inspected primary references and selected source landmarks"
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch14.md": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+    "chapters/ch14.md": "15d397426c2c18b506fba082c0fd3a7fb88407c908373bd3df1738e45cbfdd6a",
     "chapters/ch14.json": "e1eec64888e4aa0d4df8c274e17b8bc8e7a66f2c00176e0aa4eb8a211cde994a",
-    "labs/ch14.py": "512f7135cbaf6bfa11845790270efb9ddc09c5aba086026e8155e9cb7de0123b"
+    "labs/ch14.py": "3b711efd978184b787aaf96e64e23960b624258fbaa1168a399cbaf5b0fac26f"
   },
-  "repair_recheck": "Narrow repair recheck: grid tree now rejects nonfinite market parameters and noninteger/boolean steps before exponentiation/backward induction. Read new guards and regressions and reran full lab; all prior option results unchanged."
+  "repair_recheck": "Narrow repair recheck: grid tree now rejects nonfinite market parameters and noninteger/boolean steps before exponentiation/backward induction. Read new guards and regressions and reran full lab; all prior option results unchanged.",
+  "review_history": [
+    {
+      "phase": "Original edition full review and subsequent repair checks",
+      "accepted_files": {
+        "chapters/ch14.md": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+        "chapters/ch14.json": "e1eec64888e4aa0d4df8c274e17b8bc8e7a66f2c00176e0aa4eb8a211cde994a",
+        "labs/ch14.py": "512f7135cbaf6bfa11845790270efb9ddc09c5aba086026e8155e9cb7de0123b"
+      },
+      "scope": [
+        "Full manuscript, metadata, all six solutions and complete lab source",
+        "Fresh execution and independent algebra/number/units checks",
+        "Selected primary references and caption landmarks; no repeated full-caption or audiovisual audit"
+      ],
+      "repair_recheck": "Narrow repair recheck: grid tree now rejects nonfinite market parameters and noninteger/boolean steps before exponentiation/backward induction. Read new guards and regressions and reran full lab; all prior option results unchanged."
+    }
+  ],
+  "critical_comparison_recheck": {
+    "status": "accepted",
+    "checks": "Read full new state-price derivation and expanded exercise 5/solution 5, surrounding continuation/exercise decisions, unchanged metadata and complete lab diff. Independently solved q_up=0.5291005291005291 and q_down=0.42328042328042326; sure payoff and stock reprice, European put 15.238095238095237 and American 20. Discounted state prices, normalized pricing weights and forecast probabilities are correctly distinguished. Fresh full lab and 79-column pycodestyle passed.",
+    "prior_accepted_files": {
+      "chapters/ch14.md": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+      "chapters/ch14.json": "e1eec64888e4aa0d4df8c274e17b8bc8e7a66f2c00176e0aa4eb8a211cde994a",
+      "labs/ch14.py": "512f7135cbaf6bfa11845790270efb9ddc09c5aba086026e8155e9cb7de0123b"
+    },
+    "boundary": "Incremental comparison-edition review; original full-review scope is historical, not falsely repeated for this edition."
+  }
 }

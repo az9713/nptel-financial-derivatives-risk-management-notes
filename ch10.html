@@ -63,6 +63,12 @@ d=\frac{r_s}{1+r_s\alpha}.$$</p>
 <p>$$\operatorname{DV01}_{d}=M\alpha\,10^{-4}.$$</p>
 <p>The subscript specifies that the sensitivity is to the discount yield. With a one-million-dollar face and $\alpha=0.25$, the magnitude is 25 dollars per basis point. A half-basis-point rate increase lowers the implied price by 12.50 dollars. Writing “the derivative is 250,000, therefore DV01 is 250,000” would miss the rate-unit conversion by a factor of ten thousand.</p>
 <p>We can reach the same answer from the quotation. Since $d=(100-J)/100$, the chain rule gives $\partial P/\partial J=M\alpha/100=2{,}500$ dollars per index point. One basis point in $d$ lowers $J$ by 0.01, giving a price change of $2{,}500(-0.01)=-25$. The independent rate and index calculations agree because their conversion factors are explicit.</p>
+<p>The investment-yield coordinate provides a more demanding consistency check. Holding maturity fixed, differentiate $P=M/(1+r_s\alpha)$:</p>
+<p>$$\frac{\partial P}{\partial r_s}=-\frac{M\alpha}{(1+r_s\alpha)^2},
+\qquad
+\frac{dr_s}{dd}=\frac{1}{(1-d\alpha)^2}.$$</p>
+<p>Since $1+r_s\alpha=1/(1-d\alpha)$, multiplying these derivatives gives $\partial P/\partial d=-M\alpha$ again. The chain rule recovers the same economic price change when the <em>same shock</em> is translated between coordinates. It does not make one basis point in every yield convention the same shock.</p>
+<p>At $d=0.05$, the matching investment yield is approximately 0.050632911. Its own per-basis-point price sensitivity is $M\alpha(1-d\alpha)^2\,10^{-4}=24.37890625$ dollars, rather than 25. A one-basis-point discount-yield rise corresponds locally to approximately 1.02547669 basis points in investment yield. An exact check converts both $d=0.05$ and $d=0.0501$ through the nonlinear yield transformation before repricing; both conventions then give the same 25-dollar loss. Attaching a sensitivity to its coordinate is therefore part of the financial specification, not just notation.</p>
 <p>Contract count comes after this calculation. If an exposure loses 10,000 dollars when the relevant discount yield rises by 100 basis points, and one long future loses 2,500 over the same move under this model, four short futures offset that loss. The number four is meaningful only if the rate changes, dates, multiplier, and exposure definition match. If the two rates move differently, a coefficient relating their changes is required; <a href="ch11.html">Chapter 11</a> derives that projection rather than silently setting it to one.</p>
 <p>The word “value” requires care here. $P$ is the cash price associated with the deliverable bill formula. A newly entered future normally has no purchase price equal to that amount. Its margin and variation settlements are separate cash flows. Calling 987,500 the “cost of buying a future” would confuse a quotation conversion with the financing and collateral requirements of the derivative.</p>
 <h2 id="5-a-forward-starting-investment-has-two-future-dates-0041">5. A forward-starting investment has two future dates <a href="https://www.youtube.com/watch?v=0QEvQLhjhQA&amp;t=41s">00:41</a></h2>
@@ -91,7 +97,7 @@ d=\frac{r_s}{1+r_s\alpha}.$$</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li>A bill pays one million dollars after 90 days. On an actual/360 basis, compute its price at five-percent discount yield and its simple investment yield. Then compute the price if five percent instead means simple investment yield. Explain the discrepancy.</li>
-<li>For the same bill-price mapping, derive the monetary change corresponding to a one-basis-point discount-yield increase and a 0.005 decrease in the index $J$. Explain why the index is not a price per 100 face.</li>
+<li>For the same bill-price mapping, derive the monetary change corresponding to a one-basis-point discount-yield increase and a 0.005 decrease in the index $J$. Explain why the index is not a price per 100 face. Derive the simple-investment-yield sensitivity at the matching price and explain why its own one-basis-point scale differs.</li>
 <li>Use $P(0,T)=0.98$, $P(0,U)=0.965$, and a quarter-year between $T$ and $U$. Derive the zero-value forward delivery price for a one-million-dollar bill. Calculate its simple forward rate and discount yield.</li>
 <li>A long contract's index follows 95, 94, 95 under the quarter-year bill mapping. Calculate its two monetary settlements. If the first occurs a quarter-year before the second, compare the undiscounted sum with the terminal equivalent at a four-percent continuously compounded financing rate.</li>
 <li>An existing bill portfolio loses 10,000 dollars for a one-percentage-point increase in a stated discount yield. One long hedge contract loses 2,500 dollars for the same matched rate change. Find the signed contract count for a first-order hedge. Name two changes that invalidate the cancellation.</li>
@@ -104,7 +110,7 @@ d=\frac{r_s}{1+r_s\alpha}.$$</p>
 <p>The discount price is $M(1-d\alpha)=1{,}000{,}000(1-0.05\times0.25)=987{,}500$. The gain is 12,500, so the annualized simple investment rate is $12500/(987500\times0.25)=0.050632911\ldots$. If $r_s=0.05$ instead, the price is $1{,}000{,}000/1.0125=987{,}654.320988$. The denominators underlying the two annualized yields differ. Transforming the rate, rather than reusing the same numerical label, restores price agreement.</p>
 </li>
 <li>
-<p>Differentiating gives $\Delta P=-M\alpha\Delta d$. For $\Delta d=10^{-4}$ the price falls by 25 dollars. Since $\Delta P=(M\alpha/100)\Delta J$, a change $\Delta J=-0.005$ gives -12.50 dollars. The index subtracts an annualized percentage-rate number from 100, whereas the cash bill price uses the fraction-year discount as well. At $J=95$ the price per 100 is therefore 98.75, not 95.</p>
+<p>Differentiating gives $\Delta P=-M\alpha\Delta d$. For $\Delta d=10^{-4}$ the price falls by 25 dollars. Since $\Delta P=(M\alpha/100)\Delta J$, a change $\Delta J=-0.005$ gives -12.50 dollars. The index subtracts an annualized percentage-rate number from 100, whereas the cash bill price uses the fraction-year discount as well. At $J=95$ the price per 100 is therefore 98.75, not 95. In the investment-yield coordinate, $-\partial P/\partial r_s=M\alpha/(1+r_s\alpha)^2=M\alpha(1-d\alpha)^2$. Its per-basis-point magnitude is 24.37890625 dollars at the same initial price. Multiplying by $dr_s/dd=(1-d\alpha)^{-2}$ restores the discount-yield sensitivity. Identical price changes require translated shocks, not numerically identical basis-point changes in both coordinates.</p>
 </li>
 <li>
 <p>Buy the $U$-dated face claim and finance it with a $T$-dated payment. Zero initial cost requires $K(0.98)=1{,}000{,}000(0.965)$, giving $K=984{,}693.877551$. The simple rate is $(1{,}000{,}000/K-1)/0.25=0.062176166\ldots$. The discount yield is $(1-K/1{,}000{,}000)/0.25=0.061224490\ldots$. Both imply the same $K$ when inserted into their appropriate price equations.</p>
@@ -164,6 +170,15 @@ def main():
     simple_price = face / (1 + 0.05 * days / 360)
     assert isclose(simple_price, 987654.3209876543)
     assert isclose(rate, 0.05063291139240506)
+    investment_dv01 = face * .25 / (1 + rate * .25)**2 * 1e-4
+    assert isclose(investment_dv01, 24.37890625)
+    rate_step = 1e-6
+    numerical = -(face / (1 + (rate + rate_step) * .25)
+                  - face / (1 + (rate - rate_step) * .25)) / (2 * rate_step)
+    assert isclose(numerical * 1e-4, investment_dv01, rel_tol=1e-8)
+    moved_rate = investment_rate(discount + 1e-4, days)
+    repriced = face / (1 + moved_rate * days / 360)
+    assert isclose(repriced - price, -25, abs_tol=1e-8)
     assert quote_price(face, 95) == price
     assert isclose(quote_price(face, 94.99) - price, -25)
     assert isclose(quote_price(face, 94.995) - price, -12.5)

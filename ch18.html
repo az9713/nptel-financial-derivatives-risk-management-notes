@@ -25,7 +25,7 @@
 <p><strong>Prerequisites:</strong> Option payoffs and exercise styles; financing conventions; elementary linear algebra and conditional expectation.</p></div>
 <div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
 <button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
-<a href="chapters/ch18.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-two-states-and-two-traded-assets-0634">1. Two states and two traded assets 06:34</a></li><li><a href="#2-pricing-probabilities-are-implied-weights-1500">2. Pricing probabilities are implied weights 15:00</a></li><li><a href="#3-every-strike-is-legitimate-0835">3. Every strike is legitimate 08:35</a></li><li><a href="#4-backward-induction-is-a-trading-strategy-1731">4. Backward induction is a trading strategy 17:31</a></li><li><a href="#5-reproducing-the-source-put-and-its-exercise-decision-1821">5. Reproducing the source put and its exercise decision 18:21</a></li><li><a href="#6-uniqueness-depends-on-spanning-not-on-notation">6. Uniqueness depends on spanning, not on notation</a></li><li><a href="#7-a-diffusion-limit-requires-shrinking-moves">7. A diffusion limit requires shrinking moves</a></li><li><a href="#8-laboratory-and-model-boundary">8. Laboratory and model boundary</a></li><li><a href="#exercises">Exercises</a></li></ul></div>
+<a href="chapters/ch18.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-two-states-and-two-traded-assets-0634">1. Two states and two traded assets 06:34</a></li><li><a href="#2-pricing-probabilities-are-implied-weights-1500">2. Pricing probabilities are implied weights 15:00</a></li><li><a href="#3-every-strike-is-legitimate-0835">3. Every strike is legitimate 08:35</a></li><li><a href="#4-backward-induction-is-a-trading-strategy-1731">4. Backward induction is a trading strategy 17:31</a></li><li><a href="#5-reproducing-the-source-put-and-its-exercise-decision-1821">5. Reproducing the source put and its exercise decision 18:21</a></li><li><a href="#6-uniqueness-depends-on-spanning-not-on-notation">6. Uniqueness depends on spanning, not on notation</a></li><li><a href="#7-a-diffusion-limit-requires-shrinking-moves">7. A diffusion limit requires shrinking moves</a></li><li><a href="#8-laboratory-and-model-boundary">8. Laboratory and model boundary</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
 <article>
 <p>An uncertain cash flow does not acquire a unique price merely because its mean can be calculated. A mean requires a probability law; a discount rate requires an economic justification. The binomial market supplies a stronger argument. Two traded assets span the two possible future states, so every terminal cash flow has an exactly matching traded portfolio. Its cost fixes the derivative price by the law of one price.</p>
 <p>This chapter develops that argument before introducing a pricing probability. The distinction matters: a risk-neutral probability is a representation of traded prices, and does not assert that investors disregard risk. Throughout, prices and cash flows are in one currency, stock dividends are absent, borrowing and lending use the same deterministic rate, trading is frictionless, short sales are allowed with usable proceeds, and contracts are fulfilled. These are model assumptions rather than claims about actual market access.</p>
@@ -69,13 +69,13 @@ b=-38.09523810,\quad c_0=11.90476190.
 \]</p>
 <p>The portfolio costs \(50-38.09523810\). At maturity its debt is 40; stock holdings are worth 60 or 40, leaving precisely 20 or zero. This calculation verifies the full statewise replication rather than only the expected payoff.</p>
 <p>Suppose the physical up probability is instead \(p=0.8\). The physical expected terminal stock price is 112, whereas its pricing expectation is 105. Both statements can hold. Actual expected stock return is 12% over the interval; the bank return is 5%; no arbitrage does not force these expectations to agree. The physical expected call payoff is 16, whose discount at the bank factor would be \(16/1.05=15.23809524\). That number is not its replicating cost. Discounting an unhedged risky mean at the risk-free rate is the unjustified step.</p>
-<p>The source discusses a hypothetical risk-neutral world to motivate the formula. The logical implication needed here is narrower: <em>there exists a pricing measure under which discounted traded prices are martingales</em>. It does not imply that actual investors have linear utility, that all physical expected returns coincide, or that the stock price uniquely identifies physical probabilities. Different beliefs can coexist with the same current traded prices and the same replication cost.</p>
+<p>The economic interpretation needed for valuation is <em>there exists a pricing measure under which discounted traded prices are martingales</em>. It does not imply that actual investors have linear utility, that all physical expected returns coincide, or that the stock price uniquely identifies physical probabilities. Different beliefs can coexist with the same current traded prices and the same replication cost.</p>
 <h2 id="3-every-strike-is-legitimate-0835">3. Every strike is legitimate <a href="https://www.youtube.com/watch?v=u5DlFctnY18&amp;t=515s">08:35</a></h2>
 <p>For a European call, always begin with \(H_u=(S_0u-K)^+\) and \(H_d=(S_0d-K)^+\), where \(x^+=\max(x,0)\). If \(S_0d&lt;K&lt;S_0u\), exercise occurs only in the up state, and the price simplifies to</p>
 <p>\[
 c_0=R^{-1}q(S_0u-K).
 \]</p>
-<p>The source uses this interior-strike case to separate the value of stock received from the strike payment. Both expectations are under \(\mathbb Q\). The first component is \(R^{-1}qS_0u\); the second is \(R^{-1}qK\). Neither is an unconditional promise to deliver stock or pay the strike: each is contingent on exercise.</p>
+<p>This interior-strike case separates the value of stock received from the strike payment. Both expectations are under \(\mathbb Q\). The first component is \(R^{-1}qS_0u\); the second is \(R^{-1}qK\). Neither is an unconditional promise to deliver stock or pay the strike: each is contingent on exercise.</p>
 <p>The interior-strike restriction is not required for an option to exist or to be priced. If \(K\le S_0d\), both states are in the money, so the payoff is \(S_T-K\) and the price is \(S_0-K/R\). The replication uses one share and a borrowing of \(K/R\). The contract still has a value; on this particular state space its optionality is never used. If \(K\ge S_0u\), both payoffs are zero and the model price is zero. For the synthetic one-step market, strikes 70, 100, and 130 give prices 33.33333333, 11.90476190, and zero. A state-space assumption that rules out a payoff is economically consequential, especially when a coarse tree is used for far out-of-the-money contracts.</p>
 <h2 id="4-backward-induction-is-a-trading-strategy-1731">4. Backward induction is a trading strategy <a href="https://www.youtube.com/watch?v=u5DlFctnY18&amp;t=1051s">17:31</a></h2>
 <p>Extend the same factors over two periods. With \(S_0=100\), terminal stock prices are 144, 96, and 64. The middle node can be reached by either up-then-down or down-then-up because multiplication commutes. A European call with strike 100 has payoffs 44, zero, and zero.</p>
@@ -139,7 +139,7 @@ q^j(1-q)^{n-j}g(S_0u^jd^{n-j}).
 V_{i,j}=\max\left\{g(S_{i,j}),
 R^{-1}[qV_{i+1,j+1}+(1-q)V_{i+1,j}]\right\}.
 \]</p>
-<p>At the root, continuing is worth about 5.09, exceeding the immediate exercise receipt 2. The source's final narration interchanges these names; intrinsic value at the root is 2, while the option value is about 5.09. Small last-digit differences from its displayed 5.0894 result from its rounded arithmetic.</p>
+<p>At the root, continuing is worth about 5.09, exceeding the immediate exercise receipt 2. Intrinsic value at the root is 2, while the option value is about 5.09. The difference is the value of retaining the exercise opportunity rather than taking the current receipt.</p>
 <p>The recursion is also a finite optimal-stopping argument. At the last decision date, the holder takes the larger of exercise and continuation. Conditional on that optimal subsequent policy, make the same comparison at the preceding date. Induction reaches the root. Allowing exercise on more dates cannot reduce value because every previously admissible exercise policy remains available.</p>
 <p>A two-date tree implements exercise at its specified dates. It does not examine every instant in a year. It is best read as an approximation to an American contract, or exactly as a contract with exercise on those dates. Continuous-time American valuation requires a suitable finer model and a convergence argument. A non-dividend stock call with nonnegative rates supplies a useful contrast: at an exercise date, retaining the call has value at least \(S-K/R\), which is at least \(S-K\) when \(R\ge1\); hence immediate exercise cannot improve value. This comparison assumes no intervening dividends and the same borrowing/lending terms.</p>
 <h2 id="6-uniqueness-depends-on-spanning-not-on-notation">6. Uniqueness depends on spanning, not on notation</h2>
@@ -153,7 +153,10 @@ q_1=a,\qquad q_2=0.75-2a,\qquad q_3=a+0.25.
 c_0=\frac{20(a+0.25)}{1.05},
 \quad 4.76190476&lt;c_0&lt;11.90476190.
 \]</p>
-<p>For each such price the positive state prices preclude arbitrage: any nonnegative terminal portfolio payoff, positive in at least one possible state, has a strictly positive weighted present value and cannot have zero cost. Conversely, the interval endpoints give a zero state weight and allow an arbitrage in the market enlarged by this call. The open interval is therefore deliberate. Extra preferences, a calibrated model, or another traded security may select a price within it; no-arbitrage alone does not. The binomial model's unique pricing measure comes from full rank of its two-state payoff matrix.</p>
+<p>For each such price the positive state prices preclude arbitrage: any nonnegative terminal portfolio payoff, positive in at least one possible state, has a strictly positive weighted present value and cannot have zero cost.</p>
+<p>The endpoint arbitrages can also be constructed directly. At the lower endpoint, buy the call, short one share, and deposit $100/R$. Initial cost is $c_0-100+100/R=0$; terminal wealth is $(20,0,0)$ in the three stock states. The missing positive pricing weight was precisely on the profitable state.</p>
+<p>At the upper endpoint, buy half a share, borrow $40/R$, and short the call. Its initial cost is $50-40/R-c_0=0$ and its terminal wealth is $(0,10,0)$.</p>
+<p>Both are arbitrages because all three states are physically possible. A price beyond either endpoint adds an initial receipt to the corresponding construction; depositing that receipt preserves nonnegative terminal wealth. The open interval is therefore deliberate. Extra preferences, a calibrated model, or another traded security may select a price within it; no-arbitrage alone does not. The binomial model's unique pricing measure comes from full rank of its two-state payoff matrix.</p>
 <h2 id="7-a-diffusion-limit-requires-shrinking-moves">7. A diffusion limit requires shrinking moves</h2>
 <p>Fix a horizon \(T\), let \(h=T/n\), and choose \(u=e^{\sigma\sqrt h},d=e^{-\sigma\sqrt h},R=e^{rh}\), with \(\sigma&gt;0\). For sufficiently small \(h\), strict no-arbitrage holds. Expanding the pricing weight gives</p>
 <p>\[
@@ -196,7 +199,9 @@ q=\frac12+\frac{r-\sigma^2/2}{2\sigma}\sqrt h+O(h^{3/2}).
 <p>Up-then-down gives prices \((100,120,96)\), average \(316/3=105.33333333\), and payoff \(16/3=5.33333333\). Down-then-up gives \((100,80,96)\), average 92, and payoff zero. Terminal stock is identical, but average and payoff differ. Merging by stock alone would lose necessary contractual state. Store the running sum, or another equivalent sufficient state, in addition to current stock.</p>
 </li>
 </ol>
-</details><details class="lab"><summary>Executable chapter laboratory</summary>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>The complete English captions for recordings 44–45 were read sequentially. The interior-strike formula is a special case, not a restriction on permissible strikes. The source put's root intrinsic value is 2 and its exercise-eligible value is about 5.09; the concluding narration exchanges those labels. Its rounded 5.0894 is separated from the full-precision reconstruction. Pricing probabilities represent traded replication costs rather than actual risk-neutral preferences. The synthetic two-step trading ledger, three-state incomplete-market construction and endpoint arbitrages are original exposition. The CRR primary passages linked above support the two-state replication and shrinking-step limit; functional convergence and continuous-time American convergence are not proved here.</p><details class="lab"><summary>Executable chapter laboratory</summary>
 <p><a href="labs/ch18.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
 <div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Binomial checks; no files, network, or trading effects.&quot;&quot;&quot;
 
@@ -282,6 +287,17 @@ def verify_paths(layers, spot, up, down, growth):
 
 
 def main():
+    # Endpoint prices support explicit zero-cost nonnegative payoffs.
+    stock_states = (80, 100, 120)
+    call_payoffs = (0, 0, 20)
+    lower = 100 - 100 / 1.05
+    upper = 50 - 40 / 1.05
+    assert abs(lower - 4.761904761904759) &lt; 1e-12
+    assert abs(upper - 11.904761904761905) &lt; 1e-12
+    assert tuple(c - s + 100 for s, c in zip(
+        stock_states, call_payoffs)) == (20, 0, 0)
+    assert tuple(.5 * s - 40 - c for s, c in zip(
+        stock_states, call_payoffs)) == (0, 10, 0)
     s, u, d, growth = 100.0, 1.2, 0.8, 1.05
 
     def call(price):

@@ -18,3 +18,10 @@ The chapter explains why dated prices precede quoted yields and uses counterexam
 ## Bounded LF normalization recheck
 
 Reconstructed the former CRLF bytes from each affected canonical LF file and matched its previously accepted SHA-256 exactly. All unaffected inputs retain their accepted digests. The Python AST is identical and the chapter lab passed a fresh execution. This rebind changes byte-level acceptance only; the full scientific review above remains applicable. Evidence: `validation/line-ending-normalization.json`.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the complete metadata delta, which changes only the human spacing from positions20 to positions 20. The manuscript and lab remain byte-identical to their prior accepted SHA bindings. This edit introduces no new mathematical or source claim; no fresh lab run was required for this metadata-only change.
+
+Disposition: accepted; no remaining findings. The accompanying receipt preserves the prior accepted SHA bindings and records new exact bindings. Unchanged original bytes rely on the earlier full review. This incremental pass does not claim repeated full caption reading, additional audiovisual inspection, or completed rendering/release checks.

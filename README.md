@@ -10,7 +10,7 @@ An independent, transcript-grounded study edition of **NPTEL Financial Derivativ
 
 ## Scope and organization
 
-The complete edition has **24 chapters covering all 60 teaching recordings**, with the short introductory recording separately retained in the source inventory. Each chapter has **six exercises with fully worked solutions and one executable laboratory**. The source map retains both upload position and official lecture numbering: the put–call-parity upload at playlist position61 is official lecture31 and is studied with the surrounding option theory.
+The complete edition has **24 chapters covering all 60 teaching recordings**, with the short introductory recording separately retained in the source inventory. Each chapter has **six exercises with fully worked solutions and one executable laboratory**. The source map retains both upload position and official lecture numbering: the put–call-parity upload at playlist position 61 is official lecture 31 and is studied with the surrounding option theory.
 
 The progression covers forwards and futures, cash-and-carry, margin and basis, hedge ratios, portfolio theory and CAPM, index futures, rate curves and duration, bill and bond futures, option identities and strategies, stochastic processes and Itô calculus, binomial and Black–Scholes pricing, Greeks and finite hedges, swaps, currency risk, VaR, and nonlinear portfolio revaluation.
 
@@ -63,7 +63,7 @@ Editable manuscripts and metadata are in `chapters/`; runnable code is in `labs/
 
 ## Build and verify
 
-Use Python3.13 in an isolated virtual environment. Create it with `python -m venv .venv`, then activate it (`.\.venv\Scripts\Activate.ps1` in PowerShell, or `source .venv/bin/activate` on Unix). Install the pinned dependency set; the checker verifies every installed version:
+Use Python 3.13 in an isolated virtual environment. Create it with `python -m venv .venv`, then activate it (`.\.venv\Scripts\Activate.ps1` in PowerShell, or `source .venv/bin/activate` on Unix). Install the pinned dependency set; the checker verifies every installed version:
 
 ```text
 python -m pip install -r requirements.txt
@@ -89,12 +89,14 @@ The public-input rebuild uses checked-in manuscripts, metadata, assets, and tool
 
 ## Review and evidence
 
+The [critical comparison with earlier NPTEL and Stanford notes](critical-comparison.md) records the six fully read exemplars, located gaps, and mathematical and editorial repairs. Its [baseline manifest](validation/critical-parity-baselines.json) identifies the compared manuscript bytes. Revision reviews distinguish the new incremental inspection from the earlier full-review history.
+
 Release requires two independent current scientific/editorial acceptances for each chapter's actual Markdown, metadata, and laboratory digests. Reviewers do not accept their own authored chapters. Findings and repairs remain inspectable in `validation/review-*.md` and the corresponding JSON receipts. The validators also record fresh lab execution, source coverage, timestamp bounds, links, typesetting, reader controls, and desktop/mobile layout.
 
-The complete prepublication check passed all 24 fresh laboratory executions, 144 exercise structures, 61 source-reading identity/digest matches, 154 timestamp bounds, and 58 offline desktop/phone page checks. All 48 chapter acceptances are current and independent of the mapped chapter author. The public-input rebuild reproduced 29 HTML pages and book.json byte for byte. [Package](validation/package-checks.json) · [Book audit](validation/book-audit.json) · [Review and rebuild gate](validation/release-checks.json) · [Offline browser](validation/browser-checks.json) · [Source reading](validation/source-reading-audit.json).
+The revised edition passed all 24 fresh laboratory executions, 144 exercise structures, 61 source-reading identity/digest matches, 154 timestamp bounds, and 58 offline desktop/phone page checks. All 48 chapter acceptances are current and independent of the mapped chapter author. The public-input rebuild reproduced 29 HTML pages and book.json byte for byte. [Package](validation/package-checks.json) · [Book audit](validation/book-audit.json) · [Review and rebuild gate](validation/release-checks.json) · [Offline browser](validation/browser-checks.json) · [Source reading](validation/source-reading-audit.json) · [Critical-revision evidence](validation/critical-parity-checks.json).
 
-GitHub Actions checked and deployed payload commit `7a02810`. HTTPS verification matched all 280 non-hidden committed files, and all 58 live desktop/phone browser cases passed. Private acquisition and handoff paths were not served. [Hosted checks](validation/hosted-checks.json) · [Clean public export](validation/export-checks.json) · [Live-file comparison](validation/live-publication-checks.json) · [Live reader checks](validation/live-browser-checks.json). These verification records were added after the named payload commit; their own later documentation commit is distinct from that release.
+The original publication's GitHub Actions checked and deployed payload commit `7a02810`. Its HTTPS verification matched all 280 non-hidden committed files, and all 58 live desktop/phone browser cases passed. Private acquisition and handoff paths were not served. [Hosted checks](validation/hosted-checks.json) · [Clean public export](validation/export-checks.json) · [Live-file comparison](validation/live-publication-checks.json) · [Live reader checks](validation/live-browser-checks.json). Publication evidence names its actual payload commit; it is distinct from later revision or evidence commits.
 
 Scientific review, runtime checks, browser checks, rebuild reproducibility, and live publication integrity are separate forms of evidence. They are not human expert certification or formal verification of every claim. Consult the actual scoped validation records rather than inferring completion from headings or chapter counts.
 
-The local working tree retains compact source archives outside Git. MathJax's [Apache2.0 license](assets/mathjax-LICENSE) accompanies the bundled renderer. No downloaded course-video payload or dependency folder is part of the public reader.
+The local working tree retains compact source archives outside Git. MathJax's [Apache 2.0 license](assets/mathjax-LICENSE) accompanies the bundled renderer. No downloaded course-video payload or dependency folder is part of the public reader.

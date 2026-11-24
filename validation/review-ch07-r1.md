@@ -18,3 +18,10 @@ The exposition connects a concrete overlay objective to units, covariance, resid
 ## Bounded LF normalization recheck
 
 Reconstructed the former CRLF bytes from each affected canonical LF file and matched its previously accepted SHA-256 exactly. All unaffected inputs retain their accepted digests. The Python AST is identical and the chapter lab passed a fresh execution. This rebind changes byte-level acceptance only; the full scientific review above remains applicable. Evidence: `validation/line-ending-normalization.json`.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the complete revised beta/residual section, surrounding target-beta and execution models, changed metadata, existing six solutions and full lab delta. Independently derived the variance square and the exact equality condition between beta neutrality and minimum variance. Constructed the joint covariance from independent market and compatible residual coordinates: stock variance 0.0676, covariance 0.054, and futures variance 0.05. Minimum variance uses k = -1.08 and variance 0.00928; beta neutrality uses k = -1.2 and variance 0.01. Their 0.00072 difference and the remaining beta 0.12 agree with the proof. The fresh lab passed. No CAPM pricing or investment-mandate conclusion is inferred from the projection.
+
+Disposition: accepted; no remaining findings. The accompanying receipt preserves the prior accepted SHA bindings and records new exact bindings. Unchanged original bytes rely on the earlier full review. This incremental pass does not claim repeated full caption reading, additional audiovisual inspection, or completed rendering/release checks.

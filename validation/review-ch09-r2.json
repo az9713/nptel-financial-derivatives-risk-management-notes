@@ -9,9 +9,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch09.md": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
-    "chapters/ch09.json": "40708dba969faac08df89247721638bbfd9332fe13a121a7a2a79e6adca6cc38",
-    "labs/ch09.py": "5975547d15cf372a9c398ab9de8c403203207ff10741421c11bc7ea901255d5f"
+    "chapters/ch09.md": "4358c1e9998c37e3d957a7e13b808890e199261159e31897febdf5ab294018b9",
+    "chapters/ch09.json": "3c0a3194e4cc464eb5a3b00e7f4897461bb83b60df6c9e4978008ab4d90d4f72",
+    "labs/ch09.py": "e277f8311544e81682f610d211bcca4542a99d9ae9be4cf5cf24e72781bafcae"
   },
   "line_ending_recheck": {
     "operation": "CRLF-to-LF only",
@@ -21,5 +21,23 @@
       "chapters/ch09.md",
       "labs/ch09.py"
     ]
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the complete new Taylor error-bound development and adjacent duration/convexity and curve-twist reasoning, lab additions, and metadata spacing. Independently differentiated the positive payment sum three times and checked endpoint bounds on nine yield/shock pairs. The 18%-to-25% values and remainder signs agree. Maturity-specific directions now avoid an unjustified statistical-independence implication. Fresh chapter lab passed.",
+    "prior_accepted_files": {
+      "chapters/ch09.md": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
+      "chapters/ch09.json": "40708dba969faac08df89247721638bbfd9332fe13a121a7a2a79e6adca6cc38",
+      "labs/ch09.py": "5975547d15cf372a9c398ab9de8c403203207ff10741421c11bc7ea901255d5f"
+    },
+    "current_accepted_files": {
+      "chapters/ch09.md": "4358c1e9998c37e3d957a7e13b808890e199261159e31897febdf5ab294018b9",
+      "chapters/ch09.json": "3c0a3194e4cc464eb5a3b00e7f4897461bb83b60df6c9e4978008ab4d90d4f72",
+      "labs/ch09.py": "e277f8311544e81682f610d211bcca4542a99d9ae9be4cf5cf24e72781bafcae"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

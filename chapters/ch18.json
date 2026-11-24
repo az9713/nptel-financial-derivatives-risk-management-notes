@@ -1,7 +1,15 @@
 {
   "title": "Binomial replication and risk-neutral valuation",
-  "lectures": [44, 45],
-  "objectives": ["Derive the strict no-arbitrage interval and replicate every two-state payoff", "Interpret pricing probabilities without imposing risk-neutral investor preferences", "Verify dynamic self-financing and exercise-date backward induction", "Identify failure of uniqueness and recombination when spanning or state sufficiency fails"],
+  "lectures": [
+    44,
+    45
+  ],
+  "objectives": [
+    "Derive the strict no-arbitrage interval and replicate every two-state payoff",
+    "Interpret pricing probabilities without imposing risk-neutral investor preferences",
+    "Verify dynamic self-financing and exercise-date backward induction",
+    "Identify failure of uniqueness and recombination when spanning or state sufficiency fails"
+  ],
   "prerequisites": "Option payoffs and exercise styles; financing conventions; elementary linear algebra and conditional expectation.",
-  "source_scope": "Full sequential reading of official English captions at positions44–45; source put independently recomputed. No comprehensive audiovisual audit. Risk-neutral-preference rhetoric, interior-strike restriction, and coarse exercise-grid limitations are corrected explicitly."
+  "source_scope": "Full sequential reading of official English captions at positions 44–45; source put independently recomputed. No comprehensive audiovisual audit. Risk-neutral-preference rhetoric, interior-strike restriction, and coarse exercise-grid limitations are corrected explicitly."
 }

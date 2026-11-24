@@ -59,3 +59,10 @@ Reviewer identity: `reader_builder_scientific`. The reviewer authored reader/bui
 The author added first-use definitions of central clearing and short selling, materialized the laboratory scenario iterable, and rejected empty scenario inputs. The definitions were independently checked against their economic roles. Generator input and the empty-input exception were exercised directly, and the complete lab was rerun successfully. Current Markdown, metadata, and lab digests are rebound in the receipt; no finding remains.
 
 The final proof now explicitly assumes usable short-sale proceeds and zero borrowing/transaction fees; these are the feasibility and friction assumptions needed by its ledger. The laboratory effects description and a split assertion were also rechecked, with fresh successful execution. The receipt binds this final repaired version.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the complete revised funding subsection, surrounding settlement and option context, the lab delta and full new helper, and existing exercise/solution context. Derived discounted-account telescoping and the necessary and sufficient pathwise reserve. Verified the 594,059.41-rupee reserve and terminal balance of minus 60, and independently tested a later binding date using flows (2, -10, 3) with nonuniform positive account values. Reported the zero-reserve boundary-proof finding; the author repaired it, and the complete repaired paragraph was inspected. The fresh pilot lab passed. The Chapter 3 cross-reference preserves that chapter's pricing-model boundary.
+
+Disposition: accepted; no remaining findings. The accompanying receipt preserves the prior accepted SHA bindings and records new exact bindings. Unchanged original bytes rely on the earlier full review. This incremental pass does not claim repeated full caption reading, additional audiovisual inspection, or completed rendering/release checks.

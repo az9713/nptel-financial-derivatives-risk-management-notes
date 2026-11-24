@@ -72,9 +72,15 @@
 <p>Dividends also change the decision. Take a deterministic share priced at 100, a known cash dividend of ten immediately before expiry, zero interest, and strike 80. Its ex-dividend terminal stock price is 90. A European call pays ten. Exercising the American call before the ex-date buys the share for 80 and captures total value $90+10=100$, yielding 20. The unexercised call does not receive the dividend. This example establishes that exercise can help. In a nondegenerate market the actual comparison also includes the option's remaining downside protection and the financing of the strike; a dividend announcement alone is not a complete exercise rule.</p>
 <h2 id="5-american-puts-compare-exercise-with-continuation-1047">5. American puts: compare exercise with continuation <a href="https://www.youtube.com/watch?v=kndgzBL08CU&amp;t=647s">10:47</a></h2>
 <p>For a put, early exercise receives the strike earlier and gives up the protection against further declines. Those effects compete. The decision is not settled merely by being in the money, nor by an investor's subjective belief that the stock is unlikely to fall. A no-arbitrage valuation compares exercise proceeds with the price of the continuation claim under a specified market model.</p>
-<p>A one-period stock model makes that comparison exact. Let spot be 80, strike 100, next-period factors $u=1.25$ and $d=0.80$, and the cash growth factor $R=1.05$. Since $d&lt;R&lt;u$, both state prices are positive. Replication gives the pricing weight</p>
+<p>A one-period stock model makes that comparison exact. Take the current date as zero, spot $S_0=80$, strike 100, next-period factors $u=1.25$ and $d=0.80$, and cash growth factor $R=1.05$. A <strong>state price</strong> is the current cost of a claim paying one currency unit in one specified next-period state and zero in the other. Write these costs as $q_u,q_d$. A unit sure payment and the stock require</p>
+<p>$$q_u+q_d=\frac1R,\qquad
+S_0u\,q_u+S_0d\,q_d=S_0.$$</p>
+<p>Subtracting $S_0d$ times the first equation from the second, then solving for both costs, gives</p>
+<p>$$q_u=\frac{R-d}{R(u-d)},\qquad
+q_d=\frac{u-R}{R(u-d)}.$$</p>
+<p>Because the two stock outcomes differ, stock and cash can replicate any pair of next-period payments. These state prices therefore value a continuation claim with payments $V_u,V_d$ as $q_uV_u+q_dV_d$. The condition $d&lt;R&lt;u$ makes both costs strictly positive. Multiplying by $R$ converts them into weights summing to one; define $\pi=Rq_u$. Thus the up-state pricing weight is</p>
 <p>$$\pi=\frac{R-d}{u-d}=\frac59.$$</p>
-<p>This is a pricing weight implied by traded stock and cash, not a forecast probability. Stock ends at 100 or 64. The put pays zero or 36, so its continuation value is</p>
+<p>The distinction matters: $\pi$ is a normalized pricing weight, whereas $q_u=\pi/R$ is a discounted price in currency today per unit paid in that state. Neither is inferred from an investor's forecast. Stock ends at 100 or 64. The put pays zero or 36, so its continuation value is</p>
 <p>$$V_{\rm cont}=\frac{\pi\cdot0+(1-\pi)36}{R}
 =15.238095238.$$</p>
 <p>Immediate exercise yields $100-80=20$. The American put is therefore worth 20 at this node, while the European put is worth 15.238095238. The early-exercise premium is 4.761904762. Receiving the strike early is sufficiently valuable in this model to exceed the retained downside protection.</p>
@@ -102,7 +108,7 @@
 <li>A call with spot and strike 100 and discount factor 0.95 is offered at four. Give the initial and terminal arbitrage cash flows. Explain why strict positivity of the terminal payoff is unnecessary.</li>
 <li>Under constant proportional dividend yield three percent and funding rate five percent over one year, compute the prepaid cost of a terminal share for spot 100, and the lower bound of a strike-100 call. Explain which quantity grows deterministically in the dividend-reinvestment construction.</li>
 <li>Prove that a nondividend American call equals its European counterpart when discount factors to expiry are at most one. Identify a boundary case with a possible tie, then explain the deterministic negative-rate counterexample.</li>
-<li>For the one-period stock model $S_0=80$, $u=1.25$, $d=0.80$, $R=1.05$, $K=100$, compute the European and American put prices and the early-exercise premium. Why is the relevant probability weight not an investor's forecast?</li>
+<li>For the one-period stock model $S_0=80$, $u=1.25$, $d=0.80$, $R=1.05$, $K=100$, derive the two state prices from the stock and sure-payment equations. Compute the European and American put prices and the early-exercise premium. Distinguish a state price, a normalized pricing weight, and an investor's forecast.</li>
 <li>Derive the American parity interval for a nondividend share with nonnegative rates. Check it in exercise 5, then explain why the dividend-call example prevents applying the no-dividend call theorem unchanged.</li>
 </ol>
 <details>
@@ -121,7 +127,7 @@
 <p>At any potential early exercise time, $c_u\ge\max(S_u-KP(u,T),0)\ge(S_u-K)^+$ if $P(u,T)\le1$. Continuing therefore weakly dominates exercise at every node, and the American right adds no price. Zero rates can produce equality of continuation and exercise in degenerate in-the-money cases. At negative rate -0.10, the deterministic stock from 150 falls to $150e^{-0.1}$ and the European strike-100 call costs $150-100e^{0.1}=39.482908192&lt;50$. Immediate American exercise gives 50. The omitted rate condition changes the ordering.</p>
 </li>
 <li>
-<p>Replication gives $\pi=(1.05-0.80)/(1.25-0.80)=5/9$. Terminal stock values are 100 and 64, and put payoffs are zero and 36. Thus $p_0=[(5/9)0+(4/9)36]/1.05=15.238095238$. Immediate exercise yields 20, so $\Pi_0=20$ and its extra value is 4.761904762. The weight is determined by traded stock and cash prices; a different subjective forecast does not change that replicating cost within this complete one-period model.</p>
+<p>The stock and sure-payment equations give $q_u=(1.05-0.80)/[1.05(1.25-0.80)]$ and $q_d=(1.25-1.05)/[1.05(1.25-0.80)]$. They sum to $1/1.05$, while the normalized up weight $\pi=1.05q_u=5/9$. Terminal stock values are 100 and 64, and put payoffs are zero and 36. Thus $p_0=36q_d=[(5/9)0+(4/9)36]/1.05=15.238095238$. Immediate exercise yields 20, so $\Pi_0=20$ and its extra value is 4.761904762. A state price is a discounted cost; the normalized weights sum to one and are fixed by replication. A subjective forecast does not change that replicating cost within this complete one-period model.</p>
 </li>
 <li>
 <p>Because $C=c$ and $\Pi\ge p$, European parity gives $C-\Pi\le S-KP$. A call plus $K$ current cash superhedges a share plus an American put, even if the put is exercised early, yielding $C-\Pi\ge S-K$. In exercise 5, $C=0$ and the difference is -20, lying between -20 and -15.238095238. With spot 100, dividend ten, strike 80, and zero rates, waiting to expiry gives the European call ten whereas exercise before the ex-date captures value 20. The unexercised option receives no dividend, invalidating the no-dividend comparison that made waiting dominate.</p>
@@ -185,6 +191,13 @@ def main():
 
     european_put = tree_price(80, 100, 1.25, 0.8, 1.05, 1, &quot;put&quot;)
     american_put = tree_price(80, 100, 1.25, 0.8, 1.05, 1, &quot;put&quot;, True)
+    q_up = (1.05 - .8) / (1.05 * (1.25 - .8))
+    q_down = (1.25 - 1.05) / (1.05 * (1.25 - .8))
+    assert q_up &gt; 0 and q_down &gt; 0
+    assert isclose(q_up + q_down, 1 / 1.05)
+    assert isclose(100 * q_up + 64 * q_down, 80)
+    assert isclose(1.05 * q_up, 5 / 9)
+    assert isclose(36 * q_down, european_put)
     assert isclose(european_put, 15.23809523809524)
     assert isclose(american_put, 20)
     assert american_put &gt; european_put

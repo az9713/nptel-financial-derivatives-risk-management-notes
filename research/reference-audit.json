@@ -20,7 +20,7 @@
       "error": "HTTPSConnectionPool(host='www.cmegroup.com', port=443): Read timed out. (read timeout=30)",
       "local_download": "timeout",
       "resolved_url": "https://www.cmegroup.com/content/dam/cmegroup/markets/interest-rates/files/understanding-treasury-futures.pdf",
-      "scope": "November2026 edition: PDFpages11\u201312 invoice/conversion factor/CTD,21\u201322 DV01 and CF-weighted hedging inspected. Not a full-document review."
+      "scope": "November2026 edition: PDFpages11–12 invoice/conversion factor/CTD,21–22 DV01 and CF-weighted hedging inspected. Not a full-document review."
     },
     {
       "id": "bis-pfmi",
@@ -50,7 +50,7 @@
       "acquisition": "Complete PDF acquired locally; selected reading scope recorded here.",
       "status": "selected-text-passages-inspected",
       "reader": "scientific_review",
-      "scope": "Local extracted manuscript pages1\u20136 read sequentially and selected pages20\u201321 limiting-distribution discussion inspected; original derivations in chapters. No full paper review."
+      "scope": "Local extracted manuscript pages1–6 read sequentially and selected pages20–21 limiting-distribution discussion inspected; original derivations in chapters. No full paper review."
     },
     {
       "id": "rockafellar-uryasev-cvar",
@@ -59,10 +59,10 @@
       "bytes": 200088,
       "sha256": "34aff2161733085ca8e5a067053a8f144cba52f556e253d69c932f7d22d842f4",
       "retrieved_on": "2026-11-24",
-      "acquisition": "Complete PDF acquired locally; selected pages4\u20135 inspected, not full-document review.",
-      "scope": "Local earlier continuous-distribution paper pages1\u20135 read by scientific_review; source_research inspected pages4\u20135 definitions/equations1\u20135 and Theorem1 with continuous-CDF assumption. General-atom claims use separate general-distribution paper.",
+      "acquisition": "Complete PDF acquired locally; selected pages4–5 inspected, not full-document review.",
+      "scope": "Local earlier continuous-distribution paper pages1–5 read by scientific_review; source_research inspected pages4–5 definitions/equations1–5 and Theorem1 with continuous-CDF assumption. General-atom claims use separate general-distribution paper.",
       "locators": [
-        "PDFp4 assumptions and equations1\u20133",
+        "PDFp4 assumptions and equations1–3",
         "PDFp5 equation4/Theorem1"
       ],
       "status": "selected-text-passages-inspected",
@@ -74,7 +74,7 @@
       "status": "selected-text-passages-inspected",
       "bytes": 1172844,
       "sha256": "42ac23773a8d066985e45899f03b15186f23cd1a2edbc98286cc0093bf77b560",
-      "scope": "PDFpages3\u201313 inspected in retrieved web text: replication, nonredundancy, finite-state FTAP, self-financing, incomplete markets. No full-document read claimed."
+      "scope": "PDFpages3–13 inspected in retrieved web text: replication, nonredundancy, finite-state FTAP, self-financing, incomplete markets. No full-document read claimed."
     },
     {
       "id": "mit-kogan-stochastic",
@@ -83,7 +83,7 @@
       "bytes": 717222,
       "sha256": "c8bd572060b6b6ba94801de772d6b62f27b7ad8b0774826bafeefff962203d14",
       "reader": "scientific_review",
-      "scope": "Local extracted PDFpages4\u20135 and7\u201320 inspected: Brownian properties, adapted square integrability, Ito processes/QV/formula, GBM, self-financing equation17, replication18, PDE19 and formula20. Not a full-document review."
+      "scope": "Local extracted PDFpages4–5 and7–20 inspected: Brownian properties, adapted square integrability, Ito processes/QV/formula, GBM, self-financing equation17, replication18, PDE19 and formula20. Not a full-document review."
     },
     {
       "id": "bis-pfmi-pdf",
@@ -94,8 +94,8 @@
       "scope": "PDFpages38,50,57 inspected: risk framework, CCP stress testing, initial versus variation margin. Full document downloaded; no full-document review claimed.",
       "locators": [
         "Principle3,printedp32/PDFp38",
-        "Paragraphs3.4.20\u201323,printedp44/PDFp50",
-        "Paragraphs3.6.1\u20134,printedp51/PDFp57"
+        "Paragraphs3.4.20–23,printedp44/PDFp50",
+        "Paragraphs3.6.1–4,printedp51/PDFp57"
       ]
     },
     {
@@ -106,7 +106,7 @@
       "bytes": 183937,
       "sha256": "af516e9151c77b9b6dbb1f437736d100591e58220b8847846436e66e3b821d0b",
       "retrieved_on": "2026-11-24",
-      "scope": "Extracted PDFpages11\u201329 inspected, including financed spot/forward comparisons, dividend/currency carry and index-futures applications. Some graphical equations have limited extraction; chapter proofs independently derived. Not a full slide/graphic audit.",
+      "scope": "Extracted PDFpages11–29 inspected, including financed spot/forward comparisons, dividend/currency carry and index-futures applications. Some graphical equations have limited extraction; chapter proofs independently derived. Not a full slide/graphic audit.",
       "reader": "source_research"
     },
     {
@@ -117,7 +117,7 @@
       "bytes": 339896,
       "sha256": "a128f3e7c8b7304fe680859750f0d94c7a483111dd65b0105f514aa155337f34",
       "retrieved_on": "2026-11-24",
-      "scope": "Selected text PDFpages16\u201346: covariance, diversification, frontier and tangency; graphics not comprehensively reviewed"
+      "scope": "Selected text PDFpages16–46: covariance, diversification, frontier and tangency; graphics not comprehensively reviewed"
     },
     {
       "id": "mit-lo-the-capm-and-apt",
@@ -127,7 +127,7 @@
       "bytes": 339652,
       "sha256": "4274a8362b0c904fd3885822e25604a7d9d83d7d22153d48f03c318e82c22fc0",
       "retrieved_on": "2026-11-24",
-      "scope": "Selected text PDFpages1\u201322: CAPM interpretation, projection, estimation and empirical limitations"
+      "scope": "Selected text PDFpages1–22: CAPM interpretation, projection, estimation and empirical limitations"
     },
     {
       "id": "mit-lo-fixed-income-securities",
@@ -198,10 +198,10 @@
       "url": "https://people.duke.edu/~charvey/classes/ba350/optval/optval.htm",
       "status": "selected-passages-inspected-by-chapter-author",
       "reader": "reader_builder",
-      "scope": "Definitions, put\u2013call parity including dividend adjustment, and bounds passages inspected by chapter author.",
+      "scope": "Definitions, put–call parity including dividend adjustment, and bounds passages inspected by chapter author.",
       "retrieved_on": "2026-11-24",
       "independent_reader": "source_research",
-      "independent_scope": "Definitions, sections4.1/4.3 stock-option strategies,7\u20138 parity including dividend-date borrowing,9\u201310 bounds inspected during reviews13\u201315. Unqualified maturity/probability heuristics not adopted."
+      "independent_scope": "Definitions, sections4.1/4.3 stock-option strategies,7–8 parity including dividend-date borrowing,9–10 bounds inspected during reviews13–15. Unqualified maturity/probability heuristics not adopted."
     },
     {
       "id": "oic-parity",
@@ -220,7 +220,7 @@
       "sha256": "2a6d65689c33c1d67dbea5fe3eaf8925eea97cd6ea9842092fe6aa1077a384ef",
       "pages": 66,
       "retrieved_on": "2026-11-24",
-      "scope": "PDFpages13\u201343 text inspected: forward rates, dated-claim replication, YTM, duration and convexity. Not a comprehensive graphic audit."
+      "scope": "PDFpages13–43 text inspected: forward rates, dated-claim replication, YTM, duration and convexity. Not a comprehensive graphic audit."
     },
     {
       "id": "lalley-girsanov",
@@ -273,7 +273,7 @@
       "url": "https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/ef2c66c8079ba656210ad1fd4a5e2fa8_MIT18_S096F13_lecnote18.pdf",
       "status": "selected-web-text-passages-inspected",
       "reader": "scientific_review",
-      "scope": "Theorem1.1 and Example1.3 on PDFpages2\u20133 inspected in official web extraction for general Ito transformation and stochastic-square identity. No full-document proofread claimed.",
+      "scope": "Theorem1.1 and Example1.3 on PDFpages2–3 inspected in official web extraction for general Ito transformation and stochastic-square identity. No full-document proofread claimed.",
       "retrieved_on": "2026-11-24"
     },
     {
@@ -281,7 +281,7 @@
       "url": "https://www.stat.uchicago.edu/~lalley/Courses/312/BrownianMotion312.pdf",
       "status": "selected-primary-passages-inspected",
       "reader": "lead_scientific",
-      "scope": "Section2.3 Propositions3\u20134 reflection principle/stopping-time support independently checked by lead reviewer for chapter17; no full-document review claimed.",
+      "scope": "Section2.3 Propositions3–4 reflection principle/stopping-time support independently checked by lead reviewer for chapter17; no full-document review claimed.",
       "retrieved_on": "2026-11-24"
     },
     {
@@ -315,7 +315,7 @@
       "url": "https://www.bis.org/publications/199601-standards-supervisory-framework-use-backtesting-conjunction-internal-models-approach-market-risk-capital.pdf",
       "status": "selected-web-text-pages-inspected",
       "reader": "source_research",
-      "scope": "PDFpages2\u20136: matching forecast risk and P&L, hypothetical versus actual outcomes, exception count/binomial independence and test-power limits. Historical superseded methodological document, not current capital rules.",
+      "scope": "PDFpages2–6: matching forecast risk and P&L, hypothetical versus actual outcomes, exception count/binomial independence and test-power limits. Historical superseded methodological document, not current capital rules.",
       "retrieved_on": "2026-11-24"
     },
     {
@@ -323,10 +323,42 @@
       "url": "https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf",
       "status": "selected-web-text-passages-inspected",
       "reader": "scientific_review",
-      "scope": "Definition1/3 PDFpages5\u20138, Proposition8 PDFpage13 and Theorem10 PDFpages14\u201316 inspected by chapter23 author. No full-document review.",
+      "scope": "Definition1/3 PDFpages5–8, Proposition8 PDFpage13 and Theorem10 PDFpages14–16 inspected by chapter23 author. No full-document review.",
       "independent_reader": "lead_scientific",
-      "independent_scope": "Lead inspected Definition3/tail atom and Theorem10 for chapter23; source_research personally inspected Definition3 PDFpages6\u20138 and Proposition8 PDFpage13 for chapter24 finite-atom application.",
+      "independent_scope": "Lead inspected Definition3/tail atom and Theorem10 for chapter23; source_research personally inspected Definition3 PDFpages6–8 and Proposition8 PDFpage13 for chapter24 finite-atom application.",
       "retrieved_on": "2026-11-24"
+    },
+    {
+      "id": "cmu-iyer-martingale-representation",
+      "url": "https://www.math.cmu.edu/~gautam/sj/teaching/2021-22/420-cts-time-finance/pdfs/lec/20220418-l36.pdf",
+      "status": "selected-pdf-text-passages-inspected",
+      "reader": "scientific_review",
+      "scope": "Chapter 19 author directly opened and read PDF page 2, section 9.5, Theorem 9.23 on Brownian-filtration square-integrable martingale representation, and PDF page 3, Theorem 9.26 replication consequence. No full-document reading claim.",
+      "evidence_basis": "Original chapter-author selected reading plus subsequent independent inspection of extracted theorem statements for the reference index.",
+      "independent_reader": "source_research",
+      "independent_scope": "Directly opened official PDF through web extraction and inspected Theorem 9.23 statement on PDF page 2 and Theorem 9.26 statement on PDF page 3 for reference-index accuracy. Not a complete handwritten-page or proof audit.",
+      "additional_independent_readings": [
+        {
+          "reader": "lead_scientific",
+          "scope": "Directly opened primary PDF and inspected Theorem 9.23 and Theorem 9.26 for chapter 19 revision; no full-document review."
+        }
+      ]
+    },
+    {
+      "id": "cmu-geng-stochastic-calculus-selected",
+      "url": "https://www.math.cmu.edu/~xig/Files/Teaching/Stochastic%20Calculus%20%28Fall%202016%29/Stochastic%20Calculus.pdf",
+      "status": "selected-pdf-text-passages-inspected",
+      "reader": "scientific_review",
+      "scope": "Chapter author directly opened and read selected printed pages 5–6, uniform-integrability definition and Theorem 1.3; pages 37–40, Corollary 3.3 Doob Lp bound and section 3.5 item 3 continuous-time extension; page 8, Theorem 1.6/Remark 1.2 on multidimensional characteristic-function continuity for Chapter 16. Not a full 182-page document review.",
+      "evidence_basis": "Original chapter-author selected reading plus subsequent independent inspection of the named statements for the reference index.",
+      "independent_reader": "source_research",
+      "independent_scope": "Directly opened official PDF through web extraction and inspected Definition 1.3/Theorem 1.3 on printed pages 5–6, Theorem 1.6/Remark 1.2 on page 8, and Corollary 3.3 plus section 3.5 item 3 on pages 38–40, for reference-index accuracy. Not a full-document or complete-proof review.",
+      "additional_independent_readings": [
+        {
+          "reader": "lead_scientific",
+          "scope": "Directly inspected Definition 1.3, Theorem 1.3, Theorem 1.6/Remark 1.2, Corollary 3.3, and section 3.5 item 3 in primary PDF for chapters 16 and 19; no full-document review."
+        }
+      ]
     }
   ]
 }

@@ -23,3 +23,5 @@ Run the commands in README.md. Final release checks require the entire chapter/s
 ## Evidence boundaries
 
 Caption reading does not certify every visible board equation or every audible word. AI editorial review is not human expert certification or formal proof verification. Numerical checks establish their stated finite computations. A byte-identical rebuild establishes reproducibility, not financial correctness. Source timestamps locate related discussion without attributing every new derivation or example to the lecturer.
+
+The postpublication [critical comparison](critical-comparison.md) fully reads selected earlier NPTEL and Stanford exemplars and rereads the current manuscripts before choosing repairs. New incremental review receipts preserve earlier full-review history and bind the revised content only after independent inspection. A comparison against selected exemplars does not establish a universal ranking of earlier publications.

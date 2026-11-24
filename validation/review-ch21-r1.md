@@ -23,3 +23,10 @@ The MIT Kogan stochastic-calculus financing/PDE slides17–20 were inspected dur
 Ran labs/ch21.py in a fresh process: all assertions passed. Independently checked the quadratic ledger, hedge signs, common-expiry rank constraint, and FX units. The executable full repricing example gives hedge options54.4197029 and57.64410566, stock−11.73504893; nonzero finite-move residuals appropriately remain. The lab covers singular and poorly conditioned hedge systems, scenario versus independent risk cancellation, financing, peak Greeks, and the complete cash ledger.
 
 No unresolved scientific findings remain. Acceptance binds the exact three source digests in the accompanying receipt. It does not certify a comprehensive audiovisual audit, human review, or the separate release/browser gates.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the entire revised multi-maturity hedge section with the rank/proportionality context, table, same-date repricing results, revised source wording, metadata and solution context, plus the added lab checks. Recomputed vega/gamma ratios 1000,2000,3000; the two hedge gamma contributions each equal fifty base-option gammas. This yields 54.41970290 and 57.64410566 long options, minus 11.73504893 shares and cash 973.51368371. Signs and zero initial budget agree, and same-date residuals are distinguished from later financed P&L. Requested explicit base/hedge subscript definitions; inspected the final definitions of indices 0,1,2 and c/delta/gamma before equations. The fresh full lab passed.
+
+Disposition: accepted; no remaining findings. The receipt retains the prior accepted SHA bindings and records current exact bindings. Unchanged original bytes rely on the original full review. Source scope is bounded as stated above; this pass does not certify comprehensive audiovisual review, empirical calibration, or the separate final rendering/release gates.

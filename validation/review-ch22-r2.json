@@ -3,17 +3,43 @@
   "disposition": "accepted",
   "report": "validation/review-ch22-r2.md",
   "scope": [
-    "Full manuscript, metadata, six solutions and complete lab source",
-    "Fresh execution and independent replication/units/numerical checks",
-    "Independent full caption55 read and selected primary Bianchetti/NYFed checks; no full repeated56\u201357 or audiovisual audit"
+    "Original full manuscript/solutions/lab review preserved as historical evidence, with prior hashes in review_history",
+    "Current critical-comparison revision: complete changed passages and solutions with surrounding definitions, metadata and laboratory changes inspected",
+    "Fresh full lab execution plus independent calculations; no new full-caption, audiovisual or complete external-source audit"
   ],
   "findings_fixed": [
-    "State t\u2264T0 domain before first reset for swap telescoping/par formulas"
+    "State t≤T0 domain before first reset for swap telescoping/par formulas"
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch22.md": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
-    "chapters/ch22.json": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
-    "labs/ch22.py": "39dd2a4827937bc2bd2a2d894abbce73fa99633061029af35bb7853c2fc7fc0a"
+    "chapters/ch22.md": "75d9a4a632cba2aab69347133b0e971a6df35b95b128954fad38d5451d858c7e",
+    "chapters/ch22.json": "4649d9ea538138f1e4151d080ced2c928d66f5f140133264a66180fcf8923a7e",
+    "labs/ch22.py": "b277d2b945612f782b6cde97289232a9524d16ad8b85d17f83a8f8ed3d50dbd5"
+  },
+  "review_history": [
+    {
+      "phase": "Original edition full review and subsequent repair checks",
+      "accepted_files": {
+        "chapters/ch22.md": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+        "chapters/ch22.json": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
+        "labs/ch22.py": "39dd2a4827937bc2bd2a2d894abbce73fa99633061029af35bb7853c2fc7fc0a"
+      },
+      "scope": [
+        "Full manuscript, metadata, six solutions and complete lab source",
+        "Fresh execution and independent replication/units/numerical checks",
+        "Independent full caption55 read and selected primary Bianchetti/NYFed checks; no full repeated56–57 or audiovisual audit"
+      ],
+      "repair_recheck": null
+    }
+  ],
+  "critical_comparison_recheck": {
+    "status": "accepted",
+    "checks": "Read the complete new reset-date bond-purchase construction and advance-reinvestment equivalence with the original signed FRA definition, single-curve deposit identity, pre-first-reset valuation domain and subsequent swap context; read current metadata and complete current lab. Exact rational arithmetic independently verified purchase budget N/P times P=N, retained fixed short bond, terminal Ndelta(L-K) and signed advance divided by P equivalence at reset prices 0.9, 40/41, 1.01, including negative fixing. The random purchase quantity is chosen using information at the reset, so no future fixing forecast enters the self-financing construction. The repaired Chapter 1/8/11/21 prerequisites and source-narration move are appropriate. Fresh full lab and default 79-column pycodestyle completed successfully. No new full-caption or external-reference reading claimed for this incremental acceptance.",
+    "prior_accepted_files": {
+      "chapters/ch22.md": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+      "chapters/ch22.json": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
+      "labs/ch22.py": "39dd2a4827937bc2bd2a2d894abbce73fa99633061029af35bb7853c2fc7fc0a"
+    },
+    "boundary": "Incremental comparison-edition review; original full-review scope is historical, not falsely repeated for this edition."
   }
 }

@@ -22,7 +22,7 @@
 <h1>24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</h1>
 <p class="meta"><a href="https://www.youtube.com/watch?v=xuUX0FVxwv0">Recording 60</a> · Expanded, independently developed exposition</p>
 <div class="objectives"><strong>What you will learn</strong><ul><li>Compute signed covariance and duration VaR with explicit units and horizon assumptions</li><li>Reconstruct cash-flow mapping and diagnose PCA portfolio-risk truncation</li><li>Compare delta/gamma approximations with full option and bond repricing</li><li>Calculate atomic expected shortfall and assess exception-count and stress evidence</li></ul>
-<p><strong>Prerequisites:</strong> Chapter23 loss quantiles and expected shortfall; Chapters6/9 covariance and duration; Chapters19–21 option values and Greeks; finite probability distributions and matrix eigenvectors.</p></div>
+<p><strong>Prerequisites:</strong> Chapter 23 loss quantiles and expected shortfall; Chapters 6 and 9 covariance and duration; Chapters 19–21 option values and Greeks; finite probability distributions and matrix eigenvectors.</p></div>
 <div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
 <button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
 <a href="chapters/ch24.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-start-with-a-signed-monetary-loss-0026">1. Start with a signed monetary loss 00:26</a></li><li><a href="#2-duration-var-controls-a-parallel-direction-0505">2. Duration VaR controls a parallel direction 05:05</a></li><li><a href="#3-cash-flow-mapping-preserves-chosen-statistics-not-the-original-claim-1726">3. Cash-flow mapping preserves chosen statistics, not the original claim 17:26</a></li><li><a href="#4-principal-components-compress-factor-variance-not-every-portfolios-risk-2237">4. Principal components compress factor variance, not every portfolio&#x27;s risk 22:37</a></li><li><a href="#5-a-currency-forward-contains-two-oppositely-signed-bond-exposures-3438">5. A currency forward contains two oppositely signed bond exposures 34:38</a></li><li><a href="#6-deltagamma-loss-is-generally-not-normally-distributed-3242">6. Delta–gamma loss is generally not normally distributed 32:42</a></li><li><a href="#7-quantiles-and-tail-averages-answer-different-questions">7. Quantiles and tail averages answer different questions</a></li><li><a href="#8-backtesting-tests-a-forecast-against-matching-outcomes">8. Backtesting tests a forecast against matching outcomes</a></li><li><a href="#9-a-risk-result-needs-a-reproducible-account-of-its-limits">9. A risk result needs a reproducible account of its limits</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
@@ -64,6 +64,13 @@
 +2w(1-w)\rho\sigma_A\sigma_B=\sigma_X^2.$$</p>
 <p>There is one root in $[0,1]$, $w=0.760258938$. The allocations are 37396.621030 and 11792.700105. Their sum matches present value, and their modeled variance matches the interpolated target. The other quadratic root is outside the stipulated nonnegative-allocation interval. In another example there could be two feasible roots or none; a solver must inspect the feasible set rather than take whichever root appears first.</p>
 <p>These are present-value allocations, not face amounts. To obtain quantities of benchmark zero bonds, divide each allocation by that benchmark's price per unit face. Nor does this construction preserve every rate sensitivity: its present-value-weighted maturity is approximately $0.25w+0.5(1-w)=0.3099353$ years, rather than 0.3. A method designed to match present value and variance should not be described as exact duration matching as well. The target variance itself was interpolated, not measured for the off-grid claim. Mapping error must remain visible in the risk assessment.</p>
+<h3 id="matching-one-claims-variance-need-not-preserve-portfolio-variance">Matching one claim's variance need not preserve portfolio variance</h3>
+<p>There is a further boundary even if the off-grid variance were known perfectly. Let $X$ be the original claim's monetary value change, $M$ its mapped change, and $Y$ the rest of the portfolio's value change. Assume all three have finite second moments. Expanding both variances gives</p>
+<p>$$\operatorname{Var}(Y+M)-\operatorname{Var}(Y+X)
+=\operatorname{Var}(M)-\operatorname{Var}(X)
++2\operatorname{Cov}(Y,M-X).$$</p>
+<p>Matching the individual variances removes only the first difference. It does not remove the covariance term. For a deliberately simple counterexample, take independent symmetric signs $Z,W\in\{-1,1\}$ and a monetary scale $s&gt;0$, then set $X=sZ$, $M=sW$, and $Y=-sZ$. The original portfolio change $Y+X$ is zero in every state, but the mapped change $Y+M=s(W-Z)$ has variance $2s^2$, although $X$ and $M$ each have variance $s^2$. This abstract moment example is not a claim about the recording's particular interpolation data. It demonstrates exactly what extra information is missing from a standalone variance match.</p>
+<p>Thus a portfolio mapping policy must also specify how the off-grid claim's covariance with other positions is represented or approximated. Comparing the resulting risk against richer curve scenarios tests that approximation. Present-value matching and a good single-claim volatility are useful checks, but they are not a complete portfolio-risk certificate.</p>
 <h2 id="4-principal-components-compress-factor-variance-not-every-portfolios-risk-2237">4. Principal components compress factor variance, not every portfolio's risk <a href="https://www.youtube.com/watch?v=xuUX0FVxwv0&amp;t=1357s">22:37</a></h2>
 <p>For centered factor changes with symmetric covariance $\Sigma$, write an orthogonal eigendecomposition $\Sigma=U\Lambda U^\mathsf{T}$, with eigenvalues $\lambda_j\ge0$. Principal-component changes are $Y=U^\mathsf{T}X$, so $\operatorname{Cov}(Y)=\Lambda$. They are uncorrelated in that covariance model; they need not be independent unless stronger distributional assumptions apply. This is the eigenstructure underlying the <a href="https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc551.htm">NIST principal-component treatment</a>, particularly its orthogonal-transform and diagonal-covariance equations.</p>
 <p>The portfolio's transformed exposures are $b=U^\mathsf{T}a$, giving</p>
@@ -146,7 +153,7 @@
 <p>Chapter 23 defines expected shortfall through the upper quantile integral, which remains valid with atoms:</p>
 <p>$$\operatorname{ES}_{\alpha}(L)=\frac{1}{1-\alpha}
 \int_{\alpha}^{1}\operatorname{VaR}_u(L)\,du.$$</p>
-<p>For a finite distribution, sort losses and accumulate the worst $1-\alpha$ probability mass, using only the needed fraction of a boundary atom. The algorithm does not simply average all losses satisfying $L\ge\operatorname{VaR}_{\alpha}$, nor does it always equal the conditional mean above a strict threshold. The general-distribution formulation is developed by <a href="https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf#page=6">Rockafellar and Uryasev, Definition3 and Proposition8, PDF pages6–8 and13</a>; the local computation here follows directly from the quantile integral.</p>
+<p>For a finite distribution, sort losses and accumulate the worst $1-\alpha$ probability mass, using only the needed fraction of a boundary atom. The algorithm does not simply average all losses satisfying $L\ge\operatorname{VaR}_{\alpha}$, nor does it always equal the conditional mean above a strict threshold. The general-distribution formulation is developed by <a href="https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf#page=6">Rockafellar and Uryasev, Definition 3 and Proposition 8, PDF pages 6–8 and 13</a>; the local computation here follows directly from the quantile integral.</p>
 <p>For losses $(0,10,100)$ with probabilities $(0.90,0.08,0.02)$, 95% VaR is ten. The worst 5% comprises all 2% at 100 and only 3% of the 8% atom at ten, so ES is $(0.02(100)+0.03(10))/0.05=46$. Conditioning on losses strictly greater than ten instead gives 100, a different quantity. For a separate loss that is zero with probability 0.99 and 1,000 with probability 0.01, 95% VaR is zero while ES is 200. A zero quantile does not establish zero exposure to severe loss.</p>
 <p>Finite scenarios must carry justified probabilities for VaR/ES to be probabilistic estimates. A stress test can specify a severe shock without assigning it an estimated likelihood. Both are useful, but a stress loss cannot be given a calibrated confidence level merely because it was placed in a scenario table.</p>
 <h2 id="8-backtesting-tests-a-forecast-against-matching-outcomes">8. Backtesting tests a forecast against matching outcomes</h2>
@@ -155,7 +162,7 @@
 <p>A count also discards time ordering. Ten consecutive exceptions and ten widely separated exceptions have the same total but different clustering. Examine conditional performance, changing volatility, overlapping horizons, and the size and cause of losses. With overlapping multi-day forecasts, independence of exception indicators is generally unavailable. A historically fitted model evaluated on the same observations provides weaker evidence than genuinely subsequent forecasts.</p>
 <p>Match the P&amp;L definition too. A static-position risk calculation should be compared with a hypothetical outcome using those same positions; actual trading P&amp;L can additionally contain new trades, fees, and other income. Both can be informative when their differences are understood. The <a href="https://www.bis.org/publications/199601-standards-supervisory-framework-use-backtesting-conjunction-internal-models-approach-market-risk-capital.pdf#page=2">Basel Committee's 1996 backtesting note, PDF pages 2–6</a>, explicitly discusses this comparison and the statistical limitations of exception counts. This is a historical methodological reference, superseded as a regulatory standard; no current capital-rule certification is inferred from our binomial example.</p>
 <h2 id="9-a-risk-result-needs-a-reproducible-account-of-its-limits">9. A risk result needs a reproducible account of its limits</h2>
-<p>Run <a href="labs/ch24.py">the chapter laboratory</a>. It reproduces the lecture's bond, mapping, PCA, and derivative-covariance numbers; rejects an indefinite covariance; checks signed currency legs and PCA truncation; compares linear, gamma, and full option losses; integrates finite tails with atoms; verifies quadratic Gaussian moments; and computes the binomial examples and clustering distinction. Its randomness-free numerical checks are reproducible and do not fit a market distribution.</p>
+<p>Run <a href="labs/ch24.py">the chapter laboratory</a>. It reproduces the lecture's bond, mapping, PCA, and derivative-covariance numbers; rejects an indefinite covariance; checks signed currency legs, covariance lost through standalone mapping, and PCA truncation; compares linear, gamma, and full option losses; integrates finite tails with atoms; verifies quadratic Gaussian moments; and computes the binomial examples and clustering distinction. Its randomness-free numerical checks are reproducible and do not fit a market distribution.</p>
 <p>A useful risk report identifies the position snapshot, currency, horizon, factor coordinates, scenario source, probabilities or stress status, valuation model, and funding/cash-flow convention. It separates mapping error, factor truncation, distribution estimation, and revaluation approximation. Repricing a few deliberate adverse scenarios often exposes a missing sign or nonlinear term sooner than adding a more sophisticated forecasting algorithm. The remaining question is empirical: whether the chosen factors and probabilities describe the risks that the actual position can encounter.</p>
 <h2 id="exercises">Exercises</h2>
 <ol>
@@ -176,21 +183,21 @@
 <p>Interpolated annual spot is 0.056 and price is $50000/(1.056)^{0.3}=49189.321135$. Interpolated volatility is 0.00068. Expanding variance gives coefficients $A=2.8\times10^{-7}$, $B=-9.2\times10^{-7}$, and $C=5.376\times10^{-7}$ in $Aw^2+Bw+C=0$. The feasible root is 0.760258938. Multiplying price by it and its complement gives 37396.621030 and 11792.700105. The weighted maturity is 0.3099353, different from 0.3, and the benchmark payments occur on two different dates. Present value and one assumed variance match; the original dated claim and all sensitivities do not.</p>
 </li>
 <li>
-<p>Substitute $\Sigma=U\Lambda U^\mathsf{T}$ into $a^\mathsf{T}\Sigma a$ and set $b=U^\mathsf{T}a$ to obtain $\sum b_j^2\lambda_j$. For source exposures six/−four and factor standard deviations20/eight, variance is $14400+1024=15424$ and standard deviation124.193398. Precise five-day90% VaR is355.893123. In the two-return example the normalized eigenvectors are $(1,1)/\sqrt2$ and $(1,-1)/\sqrt2$, with eigenvalues0.000199 and0.000001. Exposure to the first is zero; exposure to the second is $\sqrt2\,10^6$, so variance is $2(10^{12})(10^{-6})=2000000$. Retaining the first component alone retains99.5% of factor variance and0% of this portfolio's variance.</p>
+<p>Substitute $\Sigma=U\Lambda U^\mathsf{T}$ into $a^\mathsf{T}\Sigma a$ and set $b=U^\mathsf{T}a$ to obtain $\sum b_j^2\lambda_j$. For source exposures six/−four and factor standard deviations 20 and eight, variance is $14400+1024=15424$ and standard deviation 124.193398. Precise five-day 90% VaR is 355.893123. In the two-return example the normalized eigenvectors are $(1,1)/\sqrt2$ and $(1,-1)/\sqrt2$, with eigenvalues 0.000199 and 0.000001. Exposure to the first is zero; exposure to the second is $\sqrt2\,10^6$, so variance is $2(10^{12})(10^{-6})=2000000$. Retaining the first component alone retains 99.5% of factor variance and 0% of this portfolio's variance.</p>
 </li>
 <li>
-<p>The foreign leg is $10^6(1.53)(0.975)=1491750$ domestic units; the fixed domestic leg is $1500000(0.97)=1455000$, leaving value36750. Its variance is $(1491750\cdot0.0006)^2+(1455000\cdot0.0005)^2-2(0.8)(1491750)(1455000)(0.0006)(0.0005)$, whose square root is537.152262. The minus sign follows from paying the domestic leg. Net value discards their offsetting gross exposures. Applying current exchange rate to the fixed domestic obligation would renegotiate the old forward; FX translation belongs to the foreign leg, whose domestic-valued volatility already includes that risk.</p>
+<p>The foreign leg is $10^6(1.53)(0.975)=1491750$ domestic units; the fixed domestic leg is $1500000(0.97)=1455000$, leaving value 36,750. Its variance is $(1491750\cdot0.0006)^2+(1455000\cdot0.0005)^2-2(0.8)(1491750)(1455000)(0.0006)(0.0005)$, whose square root is 537.152262. The minus sign follows from paying the domestic leg. Net value discards their offsetting gross exposures. Applying current exchange rate to the fixed domestic obligation would renegotiate the old forward; FX translation belongs to the foreign leg, whose domestic-valued volatility already includes that risk.</p>
 </li>
 <li>
-<p>Initial short calls contribute $-100[c(S+x)-c(S)]$, and the long delta hedge contributes $100\Delta x$ to value change. Negating gives the stated loss. Taylor expansion cancels the first derivative, leaving $50\Gamma x^2$ to second order. Full finite-scenario repricing gives VaR194.852544 and ES361.105115, versus gamma198.476274/436.647802. Zero delta certifies only the vanished linear term. For the atomic loss example, CDF at zero is0.90 and at ten is0.98, so the95% quantile is ten. The top5% consists of2% at100 plus3% at ten, giving ES46. The strict conditional tail average100 includes too little probability mass to equal this ES.</p>
+<p>Initial short calls contribute $-100[c(S+x)-c(S)]$, and the long delta hedge contributes $100\Delta x$ to value change. Negating gives the stated loss. Taylor expansion cancels the first derivative, leaving $50\Gamma x^2$ to second order. Full finite-scenario repricing gives VaR 194.852544 and ES 361.105115, versus gamma VaR 198.476274 and ES 436.647802. Zero delta certifies only the vanished linear term. For the atomic loss example, CDF at zero is 0.90 and at ten is 0.98, so the 95% quantile is ten. The top 5% consists of 2% at 100 plus 3% at ten, giving ES 46. The strict conditional tail average 100 includes too little probability mass to equal this ES.</p>
 </li>
 <li>
-<p>Independent indicators with probability0.01 have expectation0.01 each, so the expected sum is2.5. Independence makes the probability of all250 zeros equal $0.99^{250}=0.08105852$. Summing binomial probabilities from ten through250 gives0.00025019. A count ignores whether exceptions cluster and how severe they are; overlapping horizons can invalidate independence. Additional checks include comparing hypothetical and actual P&amp;L definitions, inspecting conditional/clustering behavior, stress-testing curve/volatility/basis changes, checking mapping/PCA residuals, and comparing linear/gamma loss with full repricing. Each tests a different failure mechanism, and none turns a model quantile into a maximum loss.</p>
+<p>Independent indicators with probability 0.01 have expectation 0.01 each, so the expected sum is 2.5. Independence makes the probability of all 250 zeros equal $0.99^{250}=0.08105852$. Summing binomial probabilities from ten through 250 gives 0.00025019. A count ignores whether exceptions cluster and how severe they are; overlapping horizons can invalidate independence. Additional checks include comparing hypothetical and actual P&amp;L definitions, inspecting conditional/clustering behavior, stress-testing curve/volatility/basis changes, checking mapping/PCA residuals, and comparing linear/gamma loss with full repricing. Each tests a different failure mechanism, and none turns a model quantile into a maximum loss.</p>
 </li>
 </ol>
 </details>
 <h2 id="sources-and-scope">Sources and scope</h2>
-<p>The complete normalized English caption text of <a href="https://www.youtube.com/watch?v=xuUX0FVxwv0">playlist position60</a> was read sequentially. It supplies all six closing mechanisms: covariance aggregation, parallel-duration bond VaR, variance-matched cash-flow mapping, principal components, derivative delta/gamma approximations, and the oppositely signed currency-bond forward. Rounded source quantiles are separated from precise normal quantiles; absent exact FX discount inputs are not guessed. PCA eigenstructure, atom-aware tails, nonlinear counterexamples, and backtesting diagnostics extend the lecture through explicit original constructions and precisely scoped primary references. No comprehensive audiovisual audit, empirical calibration, live-contract verification, or current regulatory-compliance determination is claimed.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p>The complete normalized English caption text of <a href="https://www.youtube.com/watch?v=xuUX0FVxwv0">playlist position 60</a> was read sequentially. It supplies all six closing mechanisms: covariance aggregation, parallel-duration bond VaR, variance-matched cash-flow mapping, principal components, derivative delta/gamma approximations, and the oppositely signed currency-bond forward. Rounded source quantiles are separated from precise normal quantiles; absent exact FX discount inputs are not guessed. PCA eigenstructure, atom-aware tails, nonlinear counterexamples, and backtesting diagnostics extend the lecture through explicit original constructions and precisely scoped primary references. No comprehensive audiovisual audit, empirical calibration, live-contract verification, or current regulatory-compliance determination is claimed.</p><details class="lab"><summary>Executable chapter laboratory</summary>
 <p><a href="labs/ch24.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
 <div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Portfolio covariance, nonlinear losses, finite-tail and backtest checks.&quot;&quot;&quot;
 
@@ -263,7 +270,7 @@ def main():
     assert bond_sigma == 28080
     print(
         f&quot;Source bond daily sd={bond_sigma:.6f}; &quot;
-        f&quot;20d VaR with1.28={rounded_var:.6f}, precise={precise_var:.6f}&quot;
+        f&quot;20-day VaR with 1.28={rounded_var:.6f}, precise={precise_var:.6f}&quot;
     )
     derivative_cov = [
         [0.02**2, 0.3 * 0.02 * 0.01],
@@ -307,10 +314,20 @@ def main():
         f&quot;Source mapping PV={pv:.6f}; short bucket weight={w:.9f}; &quot;
         f&quot;allocations={pv*w:.6f}/{pv*(1-w):.6f}&quot;
     )
+    # Standalone variance matching does not match external covariances.
+    signs = [(z, other) for z in (-1, 1) for other in (-1, 1)]
+    scale = pv * target
+    original = [scale * z for z, _ in signs]
+    mapped = [scale * other for _, other in signs]
+    remainder = [-scale * z for z, _ in signs]
+    assert isclose(np.var(original), np.var(mapped))
+    assert all(x + other == 0 for x, other in zip(original, remainder))
+    mapped_portfolio = [x + other for x, other in zip(mapped, remainder)]
+    assert isclose(np.var(mapped_portfolio), 2 * scale**2)
     pca_sigma = sqrt(6**2 * 20**2 + (-4) ** 2 * 8**2)
     print(
         f&quot;Source option sd={derivative_sigma:.6f}; &quot;
-        f&quot;PCA sd={pca_sigma:.6f},5d90VaR={z90*sqrt(5)*pca_sigma:.6f}&quot;
+        f&quot;PCA sd={pca_sigma:.6f}; 5-day 90% VaR={z90*sqrt(5)*pca_sigma:.6f}&quot;
     )
     foreign_leg, domestic_leg = 1e6 * 1.53 * 0.975, 1.5e6 * 0.97
     fx_sigma = covariance_risk(
@@ -380,7 +397,7 @@ def main():
     gamma_bond_loss = value * (5 * 0.01 - 0.5 * 25 * 0.01**2)
     assert gamma_bond_loss &lt; exact_bond_loss &lt; linear_bond_loss
     print(
-        f&quot;5y zero100bp loss exact={exact_bond_loss:.6f}; &quot;
+        f&quot;5-year zero 100-bp loss exact={exact_bond_loss:.6f}; &quot;
         f&quot;linear={linear_bond_loss:.6f}; quadratic={gamma_bond_loss:.6f}&quot;
     )
     n, p = 250, 0.01
@@ -394,7 +411,7 @@ def main():
     assert sum(a * b for a, b in zip(clustered, clustered[1:])) == 9
     assert sum(a * b for a, b in zip(spread, spread[1:])) == 0
     print(
-        f&quot;IID 250day99% expected exceptions={n*p}; &quot;
+        f&quot;IID 250-day 99% expected exceptions={n*p}; &quot;
         f&quot;P(no exceptions)={(1-p)**n:.8f}; P(K&gt;=10)={tail10:.8f}&quot;
     )
     print(

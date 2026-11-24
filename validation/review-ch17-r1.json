@@ -10,9 +10,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch17.md": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
-    "chapters/ch17.json": "1451aa20fa75a62dbd09ecdd0b370f3140c9951b6f65b1123177eda824d12a56",
-    "labs/ch17.py": "54ad5f85ea9f77e3d3dab35e606f7c2f3d21b79db71b2e186692b2873f43f704"
+    "chapters/ch17.md": "5130c008e9a1b7cead6bd24e8f1e3077bcf120c6dc3044b40eaf7d0084ee6c79",
+    "chapters/ch17.json": "a80cd58af13a39f7bd69b1bbd6da906c6ff660bd966eecc3473674346a87462c",
+    "labs/ch17.py": "ac253160a38abdc1508528afd1d078ab6e04e42775da4a35bcc34adfbd4f21af"
   },
   "source_evidence": {
     "caption_positions": [
@@ -32,5 +32,26 @@
     "No full independent caption reread",
     "No comprehensive audiovisual audit or human certification",
     "Separate release/browser checks required"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific/editorial review: complete diff, affected full sections and solutions/context, metadata and code; unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch17.md": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
+        "chapters/ch17.json": "1451aa20fa75a62dbd09ecdd0b370f3140c9951b6f65b1123177eda824d12a56",
+        "labs/ch17.py": "54ad5f85ea9f77e3d3dab35e606f7c2f3d21b79db71b2e186692b2873f43f704"
+      },
+      "accepted_files": {
+        "chapters/ch17.md": "5130c008e9a1b7cead6bd24e8f1e3077bcf120c6dc3044b40eaf7d0084ee6c79",
+        "chapters/ch17.json": "a80cd58af13a39f7bd69b1bbd6da906c6ff660bd966eecc3473674346a87462c",
+        "labs/ch17.py": "ac253160a38abdc1508528afd1d078ab6e04e42775da4a35bcc34adfbd4f21af"
+      },
+      "checks": "Read the complete revised stochastic-integral subsection with the approximation domain, later martingale definition and surrounding examples, changed solution formatting and metadata, and new quadrature check. Derived the adapted cross-term cancellation, isometry, mean-square Cauchy and approximation-independence arguments; verified that conditional-expectation contraction passes the martingale identity to the limit. Independently expanded the random two-step example to mean zero and second moment 1.25. Reported the first-use filtration-definition gap; the author defined Brownian-history information before its conditional use, and the repaired paragraph was inspected. The fresh full lab passed.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "new_primary_passages_inspected": [],
+      "source_reading": "No repeated caption reading or audiovisual audit; only the explicitly named new primary passages were inspected in this incremental pass."
+    }
   ]
 }

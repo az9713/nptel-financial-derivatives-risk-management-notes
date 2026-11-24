@@ -1,7 +1,17 @@
 {
   "title": "Greek hedges, financing, and the cost of convexity",
-  "lectures": [51, 52, 53, 54],
-  "objectives": ["Solve signed delta–gamma–vega hedge systems and diagnose rank and conditioning", "Derive the financed gamma–theta tradeoff and audit complete discrete hedge P&L", "Separate empirical joint scenarios from independent sensitivity neutrality", "Correct the distinction between forward-quote and contract-value deltas and specify the swap cash-flow bridge"],
-  "prerequisites": "Chapters19–20: self-financing diffusion replication, Greek formulas and units; Chapter02 forward valuation; elementary matrix rank.",
-  "source_scope": "Full official English captions at positions51–54 read sequentially. No comprehensive audiovisual audit. Complete-ledger gamma examples, common-expiry gamma–vega rank constraints, conditional scenario claims, forward value/quote corrections, and historical LIBOR boundary are explicit."
+  "lectures": [
+    51,
+    52,
+    53,
+    54
+  ],
+  "objectives": [
+    "Solve signed delta–gamma–vega hedge systems and diagnose rank and conditioning",
+    "Derive the financed gamma–theta tradeoff and audit complete discrete hedge P&L",
+    "Separate empirical joint scenarios from independent sensitivity neutrality",
+    "Correct the distinction between forward-quote and contract-value deltas and specify the swap cash-flow bridge"
+  ],
+  "prerequisites": "Chapters 19–20: self-financing diffusion replication, Greek formulas and units; Chapter 2 forward valuation; elementary matrix rank.",
+  "source_scope": "Full official English captions at positions 51–54 read sequentially. No comprehensive audiovisual audit. Complete-ledger gamma examples, common-expiry gamma–vega rank constraints, conditional scenario claims, forward value/quote corrections, and historical LIBOR boundary are explicit."
 }

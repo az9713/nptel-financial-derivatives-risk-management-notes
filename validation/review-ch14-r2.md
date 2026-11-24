@@ -1,3 +1,5 @@
+> Historical edition review retained below. Its full-reading claims apply to the prior edition; the current incremental review is separately recorded at the end.
+
 # Independent scientific and editorial review — Chapter 14
 
 Reviewer source_research, independent of author reader_builder. Accepted after the localized revision recheck.
@@ -9,3 +11,9 @@ Requested repair completed: the chapter now integrates Duke bounds teaching pass
 ## Subsequent independent repair recheck
 
 Narrow repair recheck: grid tree now rejects nonfinite market parameters and noninteger/boolean steps before exponentiation/backward induction. Read new guards and regressions and reran full lab; all prior option results unchanged.
+
+## Current critical-comparison edition: independent incremental review
+
+Read full new state-price derivation and expanded exercise 5/solution 5, surrounding continuation/exercise decisions, unchanged metadata and complete lab diff. Independently solved q_up=0.5291005291005291 and q_down=0.42328042328042326; sure payoff and stock reprice, European put 15.238095238095237 and American 20. Discounted state prices, normalized pricing weights and forecast probabilities are correctly distinguished. Fresh full lab and 79-column pycodestyle passed.
+
+This acceptance binds only the current exact manuscript, metadata and laboratory hashes in the JSON receipt. Prior full-review/repair evidence and hashes are preserved; no repeated full-source or audiovisual audit is claimed.

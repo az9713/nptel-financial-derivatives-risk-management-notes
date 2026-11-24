@@ -3,17 +3,41 @@
   "disposition": "accepted",
   "report": "validation/review-ch14-r1.md",
   "scope": [
-    "Full manuscript, metadata, all six solutions and full laboratory source",
-    "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
-    "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+    "Incremental critical-parity review of all changed manuscript/lab sections, relevant surrounding context and changed worked solutions; metadata checked for change or unchanged identity",
+    "Read the complete state-price derivation, its put continuation and exercise context, expanded exercise 5 and solution, and all new lab equations. Independently obtained state prices 100/189 and 80/189, checked cash and stock reproduction, normalized up weight 5/9, European put 320/21, American put 20 and early-exercise premium 100/21. Definitions precede their economic use and the normalized pricing weight is separated from a physical forecast.",
+    "Fresh current laboratory execution, independent algebra/numerical checks and style validation; original full-review and source-reading history retained in review_history",
+    "No repeated full-caption, full-manuscript, primary-source, audiovisual or rendered-browser audit is implied by this incremental pass"
   ],
   "remaining_findings": [],
   "resolved_findings": [
     "Medium lab domain: tree_price now requires finite parameters and positive nonBoolean integer step counts, avoiding invalid infinity arithmetic or TypeError from fractional counts."
   ],
   "accepted_files": {
-    "chapters/ch14.md": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+    "chapters/ch14.md": "15d397426c2c18b506fba082c0fd3a7fb88407c908373bd3df1738e45cbfdd6a",
     "chapters/ch14.json": "e1eec64888e4aa0d4df8c274e17b8bc8e7a66f2c00176e0aa4eb8a211cde994a",
-    "labs/ch14.py": "512f7135cbaf6bfa11845790270efb9ddc09c5aba086026e8155e9cb7de0123b"
+    "labs/ch14.py": "3b711efd978184b787aaf96e64e23960b624258fbaa1168a399cbaf5b0fac26f"
+  },
+  "review_history": [
+    {
+      "edition": "before critical-parity revisions",
+      "scope": [
+        "Full manuscript, metadata, all six solutions and full laboratory source",
+        "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
+        "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+      ],
+      "accepted_files": {
+        "chapters/ch14.md": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+        "chapters/ch14.json": "e1eec64888e4aa0d4df8c274e17b8bc8e7a66f2c00176e0aa4eb8a211cde994a",
+        "labs/ch14.py": "512f7135cbaf6bfa11845790270efb9ddc09c5aba086026e8155e9cb7de0123b"
+      },
+      "disposition": "accepted"
+    }
+  ],
+  "incremental_review": {
+    "reviewer": "scientific_review",
+    "date": "2026-11-24",
+    "author_distinct": true,
+    "detail": "Read the complete state-price derivation, its put continuation and exercise context, expanded exercise 5 and solution, and all new lab equations. Independently obtained state prices 100/189 and 80/189, checked cash and stock reproduction, normalized up weight 5/9, European put 320/21, American put 20 and early-exercise premium 100/21. Definitions precede their economic use and the normalized pricing weight is separated from a physical forecast.",
+    "checks": "Fresh lab passed; pycodestyle passed; independent rational/algebraic checks passed."
   }
 }

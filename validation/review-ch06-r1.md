@@ -18,3 +18,10 @@ The chapter's separation of moments, optimization, equilibrium, and statistical 
 ## Bounded LF normalization recheck
 
 Reconstructed the former CRLF bytes from each affected canonical LF file and matched its previously accepted SHA-256 exactly. All unaffected inputs retain their accepted digests. The Python AST is identical and the chapter lab passed a fresh execution. This rebind changes byte-level acceptance only; the full scientific review above remains applicable. Evidence: `validation/line-ending-normalization.json`.
+
+
+## Critical-parity incremental review
+
+Compared the complete change from commit 6c94f56bd237b6e2d3417aa9f8e75597f264a7bc with the prior accepted edition. Read the complete added frontier subsection, preceding portfolio and two-asset model, following tangency context, changed metadata, all six existing solutions, and full added lab calculations. Verified the strict Gram determinant, both equality constraints, vanishing cross term, unique global certificate, and completed-square GMV result. Independently matched the closed form to augmented KKT solves for positive-definite two-, three-, and five-asset examples. The fresh lab reproduces the stated three-asset weights and variance and the 0.0026 variance gap. Unrestricted weights, equal means, singular covariance and long-only constraints are distinguished correctly.
+
+Disposition: accepted; no remaining findings. The accompanying receipt preserves the prior accepted SHA bindings and records new exact bindings. Unchanged original bytes rely on the earlier full review. This incremental pass does not claim repeated full caption reading, additional audiovisual inspection, or completed rendering/release checks.

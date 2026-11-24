@@ -3,14 +3,40 @@
   "disposition": "accepted",
   "report": "validation/review-ch13-r2.md",
   "scope": [
-    "Full manuscript, metadata, six solutions and lab source",
-    "Fresh execution and independent payoff/financing/identity checks",
-    "Selected primary references and reading-ledger scope inspected; no repeat full-caption or AV audit"
+    "Original full manuscript/solutions/lab review preserved as historical evidence, with prior hashes in review_history",
+    "Current critical-comparison revision: complete changed passages and solutions with surrounding definitions, metadata and laboratory changes inspected",
+    "Fresh full lab execution plus independent calculations; no new full-caption, audiovisual or complete external-source audit"
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch13.md": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
-    "chapters/ch13.json": "1744401b9609bc7f0b616eca62e03a334cef69b7ddeef19d8c084a4864952ab2",
-    "labs/ch13.py": "7d7ce2591c0d29aa3953121cfb185f4635e4de40cb02935c48114dac5a57abba"
+    "chapters/ch13.md": "5accfea90a1aa3de183004a8396260d28e58676fede9c3f79a12309982132196",
+    "chapters/ch13.json": "f087dc6b9c49de0da457dffbe00ebc0ece374299f544b894eea5e2a49e4a301b",
+    "labs/ch13.py": "75993bdc90fcb8c7593180d366e1ac5f0aa8c5dbf19a5605d4d97411d86a3685"
+  },
+  "review_history": [
+    {
+      "phase": "Original edition full review and subsequent repair checks",
+      "accepted_files": {
+        "chapters/ch13.md": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
+        "chapters/ch13.json": "1744401b9609bc7f0b616eca62e03a334cef69b7ddeef19d8c084a4864952ab2",
+        "labs/ch13.py": "7d7ce2591c0d29aa3953121cfb185f4635e4de40cb02935c48114dac5a57abba"
+      },
+      "scope": [
+        "Full manuscript, metadata, six solutions and lab source",
+        "Fresh execution and independent payoff/financing/identity checks",
+        "Selected primary references and reading-ledger scope inspected; no repeat full-caption or AV audit"
+      ],
+      "repair_recheck": null
+    }
+  ],
+  "critical_comparison_recheck": {
+    "status": "accepted",
+    "checks": "Read both bid/ask package inequalities and expanded exercise 4/solution 4 with no-dividend, matching-payoff and dated financing context, all metadata and complete lab diff. Independently checked terminal cancellation and rational initial receipts -1.5/-3.5, becoming 0.5 when call bid is 10. Necessary package tests are correctly distinguished from a complete option-surface arbitrage audit. Metadata Position 61 spacing repair inspected. Fresh full lab and 79-column pycodestyle passed.",
+    "prior_accepted_files": {
+      "chapters/ch13.md": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
+      "chapters/ch13.json": "1744401b9609bc7f0b616eca62e03a334cef69b7ddeef19d8c084a4864952ab2",
+      "labs/ch13.py": "7d7ce2591c0d29aa3953121cfb185f4635e4de40cb02935c48114dac5a57abba"
+    },
+    "boundary": "Incremental comparison-edition review; original full-review scope is historical, not falsely repeated for this edition."
   }
 }

@@ -1,3 +1,5 @@
+> Historical edition review retained below. Its full-reading claims apply to the prior edition; the current incremental review is separately recorded at the end.
+
 # Independent scientific and editorial review — Chapter 11
 
 Reviewer source_research, independent of author reader_builder. Full chapter, metadata, laboratory source and all six worked solutions read. Fresh lab execution passed.
@@ -11,3 +13,9 @@ All six solutions follow the stated equations and domains. No mathematical, sour
 ## Subsequent independent repair recheck
 
 Narrow repair recheck: dynamic tailing now rejects nonfinite/nonpositive growth factors and stock inputs, with NaN/infinity/zero/negative regression cases. Valid-domain algorithm unchanged; fresh execution passed.
+
+## Current critical-comparison edition: independent incremental review
+
+Read the signed-short change, full centered projection/residual development, numerical example, expanded exercise 2/solution 2, original exposure definitions in context, metadata and complete lab diff. Independently constructed the four equiprobable states and calculated optimum 31.25, residual SD 55119.81898051231, and integer variances 3038444444.444445 versus 3040444444.444445 for 31/32. The nonnegative-count boundary and unrestricted-nearest-integer qualifications are correct. Fresh full lab and 79-column pycodestyle passed.
+
+This acceptance binds only the current exact manuscript, metadata and laboratory hashes in the JSON receipt. Prior full-review/repair evidence and hashes are preserved; no repeated full-source or audiovisual audit is claimed.

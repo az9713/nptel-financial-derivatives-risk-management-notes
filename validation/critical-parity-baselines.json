@@ -1,0 +1,95 @@
+{
+  "date": "2026-11-24",
+  "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+  "scope": "Six selected developed exemplars, not a census or universal ranking of earlier publications. Full reading is not a new independent source audit of those earlier courses.",
+  "baselines": [
+    {
+      "series": "optimization_nptel",
+      "chapter": "ch08",
+      "title": "Stationary points, curvature, and global optimality",
+      "reference_url": "https://az9713.github.io/nptel-optimization-notes/ch08.html",
+      "sha256": "ecd52c7250c54eff55b54982c07f4268fdb10a8f9596da31bb5a073801e19aff",
+      "bytes": 20645,
+      "reading": "full manuscript including all exercises and solutions",
+      "readers": [
+        "lead",
+        "source_research"
+      ],
+      "acquisition": "retained local earlier-edition manuscript snapshot; link identifies corresponding publication, not a fresh equality check of its hosted bytes"
+    },
+    {
+      "series": "optimization_nptel",
+      "chapter": "ch09",
+      "title": "Equality constraints, KKT conditions, and sensitivity",
+      "reference_url": "https://az9713.github.io/nptel-optimization-notes/ch09.html",
+      "sha256": "958422cc9a86ce16be46f78680865b642980f3d1e5904177c5e953830cce4a4e",
+      "bytes": 19972,
+      "reading": "full manuscript including all exercises and solutions",
+      "readers": [
+        "lead",
+        "source_research"
+      ],
+      "acquisition": "retained local earlier-edition manuscript snapshot; link identifies corresponding publication, not a fresh equality check of its hosted bytes"
+    },
+    {
+      "series": "matrix_theory_nptel",
+      "chapter": "ch08",
+      "title": "Perturbation of inverses and linear systems",
+      "reference_url": "https://az9713.github.io/nptel-matrix-theory-notes/ch08.html",
+      "sha256": "62ae9491841370ce5aa305472201f85f4780c47ed07b7d2c6df383bc56445d6c",
+      "bytes": 9038,
+      "reading": "full manuscript including all exercises and solutions",
+      "readers": [
+        "reader_builder"
+      ],
+      "acquisition": "retained local earlier-edition manuscript snapshot; link identifies corresponding publication, not a fresh equality check of its hosted bytes"
+    },
+    {
+      "series": "matrix_theory_nptel",
+      "chapter": "ch19",
+      "title": "Singular value decomposition",
+      "reference_url": "https://az9713.github.io/nptel-matrix-theory-notes/ch19.html",
+      "sha256": "151f4f5112c105876815767b2d98d5b2cb4134a3b253136d34df35794baa59c7",
+      "bytes": 9412,
+      "reading": "full manuscript including all exercises and solutions",
+      "readers": [
+        "reader_builder"
+      ],
+      "acquisition": "retained local earlier-edition manuscript snapshot; link identifies corresponding publication, not a fresh equality check of its hosted bytes"
+    },
+    {
+      "series": "stanford_cs229",
+      "chapter": "lecture-02",
+      "title": "Lecture 2 — Linear regression as prediction, geometry, and computation",
+      "reference_url": "https://github.com/az9713/cs229-machine-learning-notes/blob/7f16713547b812c0177a213b5626368b18f32d2b/lecture-02.md",
+      "sha256": "944dc1c3165ef7f5d95274c10f3dd456d4810ac9a8c2c1b99ea828be6d5f563e",
+      "bytes": 33369,
+      "reading": "full manuscript including all exercises and solutions",
+      "readers": [
+        "scientific_review"
+      ],
+      "acquisition": "GitHub connector; default-branch files refetched at the stated exact commit and upstream blob identity/content checked by scientific_review.",
+      "upstream_commit": "7f16713547b812c0177a213b5626368b18f32d2b",
+      "git_blob": "836101726ef12507bf2802d039cd80a30fd6c1f2",
+      "snapshot_normalization": "Canonical LF and final newline; SHA-256 identifies saved reading snapshot; Git blob identifies upstream object."
+    },
+    {
+      "series": "stanford_cs229",
+      "chapter": "lecture-11",
+      "title": "Lecture 11 — Diffusion models: forward noise, reverse dynamics, and a trajectory ELBO",
+      "reference_url": "https://github.com/az9713/cs229-machine-learning-notes/blob/7f16713547b812c0177a213b5626368b18f32d2b/lecture-11.md",
+      "sha256": "545ddf0acb21f348a30ace4a0e852c8aa0af0a59943b9424c3e0b6f2d05df9c4",
+      "bytes": 23816,
+      "reading": "full manuscript including all exercises and solutions",
+      "readers": [
+        "scientific_review",
+        "lead"
+      ],
+      "acquisition": "GitHub connector; default-branch files refetched at the stated exact commit and upstream blob identity/content checked by scientific_review.",
+      "upstream_commit": "7f16713547b812c0177a213b5626368b18f32d2b",
+      "git_blob": "7944c1b70c22cc1811707969e189376a81849355",
+      "snapshot_normalization": "Canonical LF and final newline; SHA-256 identifies saved reading snapshot; Git blob identifies upstream object."
+    }
+  ],
+  "current_book_scope": "All 24 current manuscripts fully reread by assigned authors. Two independent reviewers inspect each revised content scope; unchanged accepted inputs retain prior exact-content reviews."
+}

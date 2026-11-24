@@ -35,12 +35,24 @@ def main():
     close(advance, 4938.271604938272)
     close(advance * (1 + .25 * .05), end)
 
+    # End-paid replication buys bonds with cash released at the reset.
+    for reset_bond_price in (.9, 1 / 1.025, 1.01):
+        notional, delta, fixed = 2e6, .25, .04
+        fixing = (1 / reset_bond_price - 1) / delta
+        bought_units = notional / reset_bond_price
+        close(bought_units * reset_bond_price, notional)
+        terminal = bought_units - notional * (1 + delta * fixed)
+        end_coupon = notional * delta * (fixing - fixed)
+        advance_coupon = notional * (1 - (1 + delta * fixed)
+                                     * reset_bond_price)
+        close(terminal, end_coupon)
+        close(advance_coupon / reset_bond_price, terminal)
     source_forward = exp(.04 * 3 - .03 * 2) - 1
     source_scenario = 100 * (.06 - source_forward) / (1 + source_forward)
     source_today = 100 * (.06 - source_forward) * exp(-.04 * 3)
     close(source_today, 100 * ((1 + .06) * exp(-.12) - exp(-.06)))
     print(f"Source FRA implied simple forward {source_forward:.10f}")
-    print(f"Fixed receiver scenario at2y {source_scenario:.8f} million; "
+    print(f"Fixed receiver scenario at 2 years {source_scenario:.8f} million; "
           f"value today {source_today:.8f} million")
 
     discounts = [1, .98, .955, .925, .89]

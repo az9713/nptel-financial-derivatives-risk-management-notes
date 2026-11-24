@@ -69,7 +69,7 @@ def main():
     assert bond_sigma == 28080
     print(
         f"Source bond daily sd={bond_sigma:.6f}; "
-        f"20d VaR with1.28={rounded_var:.6f}, precise={precise_var:.6f}"
+        f"20-day VaR with 1.28={rounded_var:.6f}, precise={precise_var:.6f}"
     )
     derivative_cov = [
         [0.02**2, 0.3 * 0.02 * 0.01],
@@ -113,10 +113,20 @@ def main():
         f"Source mapping PV={pv:.6f}; short bucket weight={w:.9f}; "
         f"allocations={pv*w:.6f}/{pv*(1-w):.6f}"
     )
+    # Standalone variance matching does not match external covariances.
+    signs = [(z, other) for z in (-1, 1) for other in (-1, 1)]
+    scale = pv * target
+    original = [scale * z for z, _ in signs]
+    mapped = [scale * other for _, other in signs]
+    remainder = [-scale * z for z, _ in signs]
+    assert isclose(np.var(original), np.var(mapped))
+    assert all(x + other == 0 for x, other in zip(original, remainder))
+    mapped_portfolio = [x + other for x, other in zip(mapped, remainder)]
+    assert isclose(np.var(mapped_portfolio), 2 * scale**2)
     pca_sigma = sqrt(6**2 * 20**2 + (-4) ** 2 * 8**2)
     print(
         f"Source option sd={derivative_sigma:.6f}; "
-        f"PCA sd={pca_sigma:.6f},5d90VaR={z90*sqrt(5)*pca_sigma:.6f}"
+        f"PCA sd={pca_sigma:.6f}; 5-day 90% VaR={z90*sqrt(5)*pca_sigma:.6f}"
     )
     foreign_leg, domestic_leg = 1e6 * 1.53 * 0.975, 1.5e6 * 0.97
     fx_sigma = covariance_risk(
@@ -186,7 +196,7 @@ def main():
     gamma_bond_loss = value * (5 * 0.01 - 0.5 * 25 * 0.01**2)
     assert gamma_bond_loss < exact_bond_loss < linear_bond_loss
     print(
-        f"5y zero100bp loss exact={exact_bond_loss:.6f}; "
+        f"5-year zero 100-bp loss exact={exact_bond_loss:.6f}; "
         f"linear={linear_bond_loss:.6f}; quadratic={gamma_bond_loss:.6f}"
     )
     n, p = 250, 0.01
@@ -200,7 +210,7 @@ def main():
     assert sum(a * b for a, b in zip(clustered, clustered[1:])) == 9
     assert sum(a * b for a, b in zip(spread, spread[1:])) == 0
     print(
-        f"IID 250day99% expected exceptions={n*p}; "
+        f"IID 250-day 99% expected exceptions={n*p}; "
         f"P(no exceptions)={(1-p)**n:.8f}; P(K>=10)={tail10:.8f}"
     )
     print(

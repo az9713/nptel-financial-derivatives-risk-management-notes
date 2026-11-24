@@ -93,6 +93,16 @@
 <p>$$0\le D_b=c_{K_1}-2c_{K_2}+c_{K_3}\le hP.$$</p>
 <p>The lower inequality is discrete convexity of the call price as a function of strike. For wings 90 and 110 with middle 100, debit is $14-16+4=2$. Funded profit is $L(s)-2$, with maximum loss two outside the wings, maximum profit eight at 100, and roots 92 and 108.</p>
 <p>For unequal strike spacing, quantities $1,-2,1$ no longer create a tent that returns to zero. The relative weights must change. A convexity test uses $K_2=\lambda K_1+(1-\lambda)K_3$, with $\lambda=(K_3-K_2)/(K_3-K_1)$, and the nonnegative payment $\lambda(s-K_1)^++(1-\lambda)(s-K_3)^+-(s-K_2)^+$. Its price must be nonnegative. Geometry is encoded in both strikes and quantities.</p>
+<p>To see the mechanism, call this payment $L_\lambda(s)$. Below $K_1$ every call is worthless. Between $K_1$ and $K_2$, only the lower wing pays. Above $K_2$ the written middle call begins subtracting slope one; beyond $K_3$ the upper wing restores the total slope to zero. The weighted-strike relation also cancels the constant tail:</p>
+<p>$$L_\lambda(s)=
+\begin{cases}
+0,&amp;s\le K_1,\\
+\lambda(s-K_1),&amp;K_1&lt;s\le K_2,\\
+(1-\lambda)(K_3-s),&amp;K_2&lt;s&lt;K_3,\\
+0,&amp;s\ge K_3.
+\end{cases}$$</p>
+<p>Its peak at $K_2$ is $\lambda(K_2-K_1)=(1-\lambda)(K_3-K_2)$. Hence its debit is bounded between zero and that peak times $P$. Equal spacing gives $\lambda=1/2$; doubling this normalized portfolio recovers the earlier quantities $1,-2,1$ and the earlier tent height. The two normalizations must not be mixed when computing cost or maximum profit.</p>
+<p>For strikes 90, 100, 120, use quantities $2/3,-1,1/3$. Our quoted premiums give debit $(2/3)14-8+(1/3)2=2$, peak payment $20/3$, maximum funded profit $14/3$, and break-evens 93 and 114 at zero rates. Blindly retaining $1,-2,1$ at these unequal strikes instead gives zero initial debit but a terminal payment of $-10$ above 120. That zero cost is not an arbitrage: the misplaced weights leave a liability in the high-price tail. The full piecewise calculation detects it before a strategy name or a cropped plot can mislead.</p>
 <p>A put butterfly at the equally spaced strikes has the same terminal tent and the same initial price under European parity: the linear strike and stock terms cancel in the second difference. Reversing all positions produces a short butterfly. The long tent favors a terminal price near its middle relative to the paid premium. That shape does not establish that its current price is maximized at the middle stock price, nor does it define an unexpired volatility sensitivity without a pricing model.</p>
 <h2 id="7-boxes-a-constant-payment-has-a-financing-cost-1057">7. Boxes: a constant payment has a financing cost <a href="https://www.youtube.com/watch?v=WOeG8sV1xz8&amp;t=657s">10:57</a></h2>
 <p>A long <strong>box</strong> combines bull call spread $K_1,K_2$ with bear put spread at the same strikes. Its payment is $B(s)+[W-B(s)]=W$ for every $s$. Hence</p>
@@ -112,6 +122,7 @@
 <p>Nor is “longer expiry means a higher European price” a universal rule. In the deterministic dividend example of chapter 14, spot is 100, strike 80, rate zero, and a cash dividend of ten falls between two expiries. The shorter European call before the ex-date pays 20; the longer after it pays ten. Longer American rights do contain shorter American rights when all other contractual entitlements match, but European exercise sets are different singleton dates. Use the relevant theorem's assumptions rather than a blanket uncertainty argument.</p>
 <h2 id="9-a-reusable-analytical-and-computational-workflow">9. A reusable analytical and computational workflow</h2>
 <p>Run <a href="labs/ch15.py">the laboratory</a>. It represents portfolios by signed legs, finds interval slopes and isolated break-evens, checks extrema using every strike and the final tail, and verifies parity-based identities across the complete piecewise structure. It also calculates the calendar continuation values from the explicit one-step model. Run <code>python labs/ch15.py --figure figures/ch15-payoff-atlas.svg</code> to reproduce the six-panel figure from the same functions and premiums.</p>
+<p>The unequal-strike example uses exact rational contract quantities in the lab. This preserves an exactly zero final slope: a tiny binary floating-point remainder must not be mistaken for the intended cancellation. Conversely, a genuinely nonzero residual final slope, however small, makes one profit extreme unbounded on an unbounded stock domain. Numerical representation and economic tail assumptions must agree before declaring finite profit bounds.</p>
 <p>To analyze a new static strategy, first list quantities, strikes, exercise styles, expiry and settlement dates. Compute its signed initial cost using the correct bid or ask for each leg. Partition the terminal domain, derive each interval's payment, include all dated funding, and solve only roots that lie in their corresponding intervals. Finally inspect zero-price exposure and the unbounded rising-price tail analytically. A finite plot or simulation grid cannot certify the absence of an unbounded loss beyond its last sample.</p>
 <p>Expected profit and portfolio suitability require more than an expiry diagram: probabilities, the pricing of protection, capital and collateral constraints, liquidity, and the investor's objective. The strategy algebra is nevertheless foundational. It explains how nonlinear claims combine, where exact replications exist, and which apparent opportunities are merely financing or different accounting of the same payment.</p>
 <h2 id="exercises">Exercises</h2>
@@ -120,7 +131,7 @@
 <li>Using the synthetic premiums, calculate the covered call at strike 110 and protective put at strike 90. Find their break-evens and maximal losses, then prove their cash-plus-option replications.</li>
 <li>Derive the straddle, conventional strangle, strip, and strap break-evens for this data set. Compare the conventional and reversed-strike strangle profits. Explain why large event risk alone does not imply that either long strategy will be profitable.</li>
 <li>Derive bull call and bear put spread payments at common strikes and prove their debits sum to the discounted width. Calculate the profit bounds of the call-100/call-110 bull spread and the put-100/put-90 bear spread.</li>
-<li>Derive the 90/100/110 call butterfly's full payment function, price, profit extrema, and roots. Prove its price equals the matching put butterfly, then calculate the fair price and an arbitrage ledger for the separate width-20 box with discount factor 0.95 and executable cost 18.50.</li>
+<li>Derive the 90/100/110 call butterfly's full payment function, price, profit extrema, and roots. Prove its price equals the matching put butterfly. For strikes 90/100/120 with middle quantity minus one, find the wing weights and high-price tail; compare with naive quantities $1,-2,1$. Calculate the fair price and arbitrage ledger for the separate width-20 box with discount factor 0.95 and executable cost 18.50.</li>
 <li>At the short expiry of the calendar example, value the remaining long call for spots 80, 100, and 130. Distinguish its value from the calendar closing value. Explain the dividend counterexample to universal European maturity monotonicity.</li>
 </ol>
 <details>
@@ -139,7 +150,7 @@
 <p>The bull call payment is zero below $K_1$, $s-K_1$ between strikes, and $W$ above $K_2$. The bear put pays $W$ minus that amount. Their sum is constant $W$, so matched European costs sum to $WP$. Calls 100/110 cost $8-4=4$ and produce profit from -4 to six, with root 104. Puts 100/90 cost $8-4=4$ and produce profit from -4 to six, with root 96. The examples use different strike intervals, although both have width ten; the debit-sum identity is for spreads using the <em>same</em> two strikes.</p>
 </li>
 <li>
-<p>The butterfly pays zero below 90, $s-90$ between 90 and 100, $110-s$ between 100 and 110, and zero beyond 110. Cost is $14-2(8)+4=2$, maximum profit eight, maximum loss two, and roots 92 and 108. Parity says $p_K=c_K-S_0+KP$; taking the second difference cancels stock and strike terms, giving put-butterfly cost $4-2(8)+14=2$. For the separate box, fair cost is $20(0.95)=19$. Borrow 19 to repay 20 at expiry, buy the box for 18.50, and retain 0.50 initially. The constant terminal payment 20 repays the loan in every state, under the stipulated executable prices and financing assumptions.</p>
+<p>The butterfly pays zero below 90, $s-90$ between 90 and 100, $110-s$ between 100 and 110, and zero beyond 110. Cost is $14-2(8)+4=2$, maximum profit eight, maximum loss two, and roots 92 and 108. Parity says $p_K=c_K-S_0+KP$; taking the second difference cancels stock and strike terms, giving put-butterfly cost $4-2(8)+14=2$. For the unequal strikes, wing quantities $\lambda=(120-100)/(120-90)=2/3$ and $1-\lambda=1/3$ cancel both tail slope and constant. The cost is two, peak payment $20/3$, and roots are 93 and 114. Naive quantities $1,-2,1$ have cost zero but tail payment $-90+2(100)-120=-10$. For the separate box, fair cost is $20(0.95)=19$. Borrow 19 to repay 20 at expiry, buy the box for 18.50, and retain 0.50 initially. The constant terminal payment 20 repays the loan under the stipulated execution and financing assumptions.</p>
 </li>
 <li>
 <p>With remaining factors 1.2 and 0.8 and growth one, the pricing weight is one half. At spot 80 both future stock prices are below 100, giving long-call value zero. At spot 100 the payoffs are 20 and zero, giving ten. At spot 130 the payoffs are 56 and four, giving 30. Subtracting the short call's immediate payments zero, zero, and 30 yields calendar closing values zero, ten, and zero. The long call itself is increasing across these spots. A dividend between two European expiries can reduce the longer claim's stock entitlement: the deterministic spot-100, strike-80, zero-rate case gives a pre-dividend call 20 and a post-dividend call ten. The shorter European exercise date is not a right embedded inside the longer European contract.</p>
@@ -159,6 +170,7 @@ All monetary values are per share. The teaching data use zero interest.
 import argparse
 from dataclasses import dataclass
 from html import escape
+from fractions import Fraction
 from math import inf, isclose
 from pathlib import Path
 
@@ -221,8 +233,8 @@ class Portfolio:
         for left, right in zip(knots, knots[1:] + [inf]):
             midpoint = left + 1 if right == inf else (left + right) / 2
             slope, value = self.slope(midpoint), self.profit(left)
-            if isclose(slope, 0, abs_tol=1e-12):
-                if isclose(value, 0, abs_tol=1e-12):
+            if slope == 0:
+                if value == 0:
                     flat.append((left, right))
             else:
                 root = left - value / slope
@@ -281,6 +293,33 @@ def verify():
     assert naked_short.analyze()[0] == -inf
     assert naked_short.analyze()[2] == [108]
     assert Portfolio().analyze() == (0, 0, [], [(0, inf)])
+    # Exact rational weights preserve the cancellation of the final slope.
+    weighted = Portfolio(calls=((90, Fraction(2, 3)), (100, -1),
+                                (120, Fraction(1, 3))))
+    assert_close(weighted.cost(), 2)
+    low, high, roots, flat = weighted.analyze()
+    assert_close(low, -2)
+    assert_close(high, 14 / 3)
+    assert roots == [93, 114] and not flat
+    assert weighted.slope(121) == 0
+    for stock in (0, 90, 100, 120, 150):
+        if stock &lt;= 90 or stock &gt;= 120:
+            expected_payoff = 0
+        elif stock &lt;= 100:
+            expected_payoff = Fraction(2, 3) * (stock - 90)
+        else:
+            expected_payoff = Fraction(1, 3) * (120 - stock)
+        assert weighted.payoff(stock) == expected_payoff
+    wrong_weights = Portfolio(calls=((90, 1), (100, -2), (120, 1)))
+    assert wrong_weights.cost() == 0
+    assert wrong_weights.payoff(150) == -10
+    # A tiny genuine slope or constant loss is not an exactly flat zero.
+    tiny_stock = Portfolio(stock=1e-14)
+    assert tiny_stock.analyze()[2:] == ([100], [])
+    assert tiny_stock.profit(101) &gt; 0
+    tiny_call = Portfolio(calls=((100, 1e-14),))
+    assert tiny_call.analyze()[2:] == ([108], [])
+    assert tiny_call.profit(0) &lt; 0
 
     # Check exact payoff identities in all regions and at every kink.
     points = (0, 81, 90, 92, 99, 100, 108, 110, 130, 1e9)

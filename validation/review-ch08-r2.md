@@ -11,3 +11,10 @@ The YTM definition does not require actual reinvestment. Multiplication to termi
 Selected actual captions inspected: p20 at140–330 and1260–1430seconds; p21 at70–230,1100–1240,1510–1620seconds. Primary Lo fixed-income slides19–34 were read in local extracted text for forward transaction dates, coupon decomposition, YTM, and curve assumptions; source graphs were not comprehensively audited. TreasuryDirect's bill relation had been independently verified in the edition's reference work. The chapter's extra algebra and synthetic examples are not silently attributed to those sources. Author full-reading attestations, numerical execution, browser validation, and publication integrity remain distinct evidence; no complete audiovisual review is claimed.
 
 Final canonical-line-ending recheck: the lead reviewer independently reconstructed the prior CRLF bytes from the LF version and matched the previous accepted SHA-256 for every changed bound file. Laboratory ASTs also match. This newline-only operation changes no scientific text or code behavior; the receipt now binds the canonical LF bytes. Evidence: `validation/line-ending-normalization.json`.
+
+
+## Critical parity revision, 24 November 2026
+
+Inspected the entire one-line metadata diff against the accepted parent: positions20 becomes positions 20, with no claim or source change. Manuscript and lab remain byte-identical to prior accepted inputs; no new full manuscript or source read is claimed.
+
+Accepted after the described incremental review. The earlier full-review scope remains historical; no repeated source or audiovisual audit is claimed. Current exact file bindings and prior bindings appear in the JSON receipt. Reviewer remains independent of the chapter author.

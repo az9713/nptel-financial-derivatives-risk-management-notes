@@ -13,8 +13,26 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch19.md": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
-    "chapters/ch19.json": "bf401b66c51212239745e677e698cc8cd249c014f0c4fc075a0469214e236c35",
+    "chapters/ch19.md": "af158ca94675a9350507519464ab0feaee8ccbcd75b55c3714b115979522ec7c",
+    "chapters/ch19.json": "a0ce50b8ca1340b761fbaeda4ec5789b3cad33da90830000d1e303461e9a8d72",
     "labs/ch19.py": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af"
+  },
+  "critical_parity_revision": {
+    "date": "2026-11-24",
+    "parent_edition": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+    "scope": "Read the complete new localization/growth/UI/uniqueness and representation-hedge argument, adjacent PDE/self-financing sections, relocated source notes, and metadata. Verified increasing interior localizing times, bounded stopped quadratic variation, the GBM second moment, Doob p=2 constant, stopped-value square bound and uniform-tail criterion, terminal limiting argument, and uniqueness within the stated class. Independently opened Iyer Theorems 9.23/9.26 and Geng UI/maximal statements. Checked stock/cash holdings against the self-financing SDE and nonnegative-claim admissibility. Requested and verified repair of the malformed left delimiter in the UI display. The unchanged full chapter lab passed fresh. No proof of the invoked general probability theorems is claimed.",
+    "prior_accepted_files": {
+      "chapters/ch19.md": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
+      "chapters/ch19.json": "bf401b66c51212239745e677e698cc8cd249c014f0c4fc075a0469214e236c35",
+      "labs/ch19.py": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af"
+    },
+    "current_accepted_files": {
+      "chapters/ch19.md": "af158ca94675a9350507519464ab0feaee8ccbcd75b55c3714b115979522ec7c",
+      "chapters/ch19.json": "a0ce50b8ca1340b761fbaeda4ec5789b3cad33da90830000d1e303461e9a8d72",
+      "labs/ch19.py": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af"
+    },
+    "boundary": "The original scope records the prior full review. This incremental review inspects actual revisions and their context; it does not claim a repeated caption, paper, audiovisual, or full-book source audit.",
+    "disposition": "accepted",
+    "remaining_findings": []
   }
 }

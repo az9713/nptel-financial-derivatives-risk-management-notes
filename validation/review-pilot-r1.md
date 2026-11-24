@@ -70,3 +70,20 @@ This review does not certify other chapters, the full playlist, browser renderin
 ## Final recheck
 
 The repaired laboratory was executed again successfully. Generator inputs produce the list result, empty scenarios raise ValueError, and every source listing line is at most 79 characters. The effects description correctly excludes filesystem, network, and trading effects while retaining deliberate console output. The current scientific text has the required first-use definitions and short-sale assumptions.
+
+
+## Incremental critical-parity review
+
+Date: 2026-11-24. Reviewer: scientific_review, separate from the author. Accepted for the current inputs below. The full review above describes the earlier edition; its exact bindings are retained in the JSON review history.
+
+Read the complete added funding-reserve subsection and its surrounding settlement/financing context, the revised laboratory interpretation, and the complete funding_reserve implementation and regressions. Independently derived the discounted recurrence and positive-reserve and zero-reserve necessity branches. Exact rational arithmetic gives minimum reserve 60000000/101 and zero-reserve terminal balance -60 for the three settlements at account factors (1.01)^i. The finite scenario maximum and asymmetric funding limitations are explicit.
+
+Fresh laboratory execution passed. Independent algebra and exact rational checks corroborate the new quantities. pycodestyle passed and the changed source files have canonical LF. This incremental pass did not repeat the earlier full caption or primary-source reading, claim a new full-manuscript review, or inspect browser rendering.
+
+Current accepted inputs:
+
+- `chapters/ch01.md`: `70ce44eabbab8d704685c5ea25ddd21c29bfef10a302bf697c69842aabfef81e`
+- `chapters/ch01.json`: `37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d`
+- `labs/ch01.py`: `46854b4eecd4f54e977a19ef232db9738a761064338a28519923a37328727552`
+
+Remaining findings: none within this incremental scope.

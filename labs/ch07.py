@@ -18,6 +18,26 @@ def main():
     rounded = round(target)
     beta = 1.2 + rounded * 250 * 1000 / 100e6 * 0.95
     assert rounded == -505 and isclose(beta, 0.000625)
+    # Compatible market/residual moments separate two hedge objectives.
+    market_variance = 0.04
+    residual_variance, residual_covariance = 0.01, 0.006
+    assert residual_variance**2 > residual_covariance**2
+    stock_variance = 1.2**2 * market_variance + residual_variance
+    futures_variance = market_variance + residual_variance
+    covariance = 1.2 * market_variance + residual_covariance
+    k_neutral, k_minimum = -1.2, -covariance / futures_variance
+
+    def combined_variance(k):
+        return stock_variance + k*k*futures_variance + 2*k*covariance
+
+    assert isclose(combined_variance(k_neutral), 0.01)
+    assert isclose(k_minimum, -1.08)
+    assert isclose(combined_variance(k_minimum), 0.00928)
+    assert isclose(1.2 + k_minimum, 0.12)
+    assert isclose(
+        combined_variance(k_neutral) - combined_variance(k_minimum),
+        futures_variance * (k_neutral - k_minimum)**2,
+    )
     cash = 20000 * (90 - 100)
     derivative = -10 * 250 * (750 - 900)
     factor = 2e6 * 1.1 * (750 - 900) / 900

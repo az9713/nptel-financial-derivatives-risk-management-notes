@@ -12,9 +12,9 @@
   ],
   "remaining_findings": [],
   "accepted_files": {
-    "chapters/ch01.md": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+    "chapters/ch01.md": "70ce44eabbab8d704685c5ea25ddd21c29bfef10a302bf697c69842aabfef81e",
     "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
-    "labs/ch01.py": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076"
+    "labs/ch01.py": "46854b4eecd4f54e977a19ef232db9738a761064338a28519923a37328727552"
   },
   "source_evidence": {
     "video_id": "pJDMgEpn-bM",
@@ -33,5 +33,25 @@
     "Materialized scenario iterable and rejected empty scenarios; independently tested generator and empty input; reran complete laboratory",
     "Final no-arbitrage proof explicitly assumes short-sale proceeds are usable and borrowing/transaction fees vanish",
     "Lab effects description clarified and long assertion split without altering its checked equality; complete lab rerun successfully"
+  ],
+  "incremental_reviews": [
+    {
+      "baseline_commit": "6c94f56bd237b6e2d3417aa9f8e75597f264a7bc",
+      "scope": "Critical-parity incremental scientific review: complete git diff, affected full sections/solutions/context, changed metadata/code, and specifically reported numerical checks. Unchanged original bytes retain earlier full-review evidence.",
+      "prior_accepted_files": {
+        "chapters/ch01.md": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+        "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
+        "labs/ch01.py": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076"
+      },
+      "accepted_files": {
+        "chapters/ch01.md": "70ce44eabbab8d704685c5ea25ddd21c29bfef10a302bf697c69842aabfef81e",
+        "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
+        "labs/ch01.py": "46854b4eecd4f54e977a19ef232db9738a761064338a28519923a37328727552"
+      },
+      "checks": "Read the complete revised funding subsection, surrounding settlement and option context, the lab delta and full new helper, and existing exercise/solution context. Derived discounted-account telescoping and the necessary and sufficient pathwise reserve. Verified the 594,059.41-rupee reserve and terminal balance of minus 60, and independently tested a later binding date using flows (2, -10, 3) with nonuniform positive account values. Reported the zero-reserve boundary-proof finding; the author repaired it, and the complete repaired paragraph was inspected. The fresh pilot lab passed. The Chapter 3 cross-reference preserves that chapter's pricing-model boundary.",
+      "disposition": "accepted",
+      "remaining_findings": [],
+      "source_reading": "No repeated caption/primary-source reading claimed; original full-review source scope remains separately recorded."
+    }
   ]
 }

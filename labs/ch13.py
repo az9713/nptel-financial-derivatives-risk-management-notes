@@ -30,6 +30,10 @@ def main():
     assert receipt == 1
     executable_receipt = 8 + 95 - 4 - 100.5
     assert executable_receipt < 0
+    reverse_receipt = 2 + 99.5 - 10 - 95
+    assert isclose(executable_receipt, -1.5)
+    assert isclose(reverse_receipt, -3.5)
+    assert isclose(10 + 95 - 4 - 100.5, .5)
     dividend_pv, call_dividend, put_dividend = 2, 7, 4
     assert (call_dividend - put_dividend
             == initial - dividend_pv - strike * discount)

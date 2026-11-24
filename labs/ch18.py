@@ -82,6 +82,17 @@ def verify_paths(layers, spot, up, down, growth):
 
 
 def main():
+    # Endpoint prices support explicit zero-cost nonnegative payoffs.
+    stock_states = (80, 100, 120)
+    call_payoffs = (0, 0, 20)
+    lower = 100 - 100 / 1.05
+    upper = 50 - 40 / 1.05
+    assert abs(lower - 4.761904761904759) < 1e-12
+    assert abs(upper - 11.904761904761905) < 1e-12
+    assert tuple(c - s + 100 for s, c in zip(
+        stock_states, call_payoffs)) == (20, 0, 0)
+    assert tuple(.5 * s - 40 - c for s, c in zip(
+        stock_states, call_payoffs)) == (0, 10, 0)
     s, u, d, growth = 100.0, 1.2, 0.8, 1.05
 
     def call(price):

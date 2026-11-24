@@ -17,9 +17,9 @@
       "source_scope": "Full English NPTEL Official caption track read sequentially; no comprehensive slide or audio audit. Examples and formal finite-state constructions are original additions.",
       "id": "ch01",
       "number": 1,
-      "source_sha256": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+      "source_sha256": "70ce44eabbab8d704685c5ea25ddd21c29bfef10a302bf697c69842aabfef81e",
       "metadata_sha256": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
-      "source_words": 4879
+      "source_words": 5400
     },
     {
       "title": "Forward prices come from financed replication",
@@ -112,7 +112,7 @@
         16
       ],
       "objectives": [
-        "Derive portfolio moments and the two-asset variance minimum",
+        "Derive portfolio moments and globally certified two-asset and many-asset variance minima",
         "Separate efficient-frontier optimization from equilibrium pricing",
         "Derive CAPM from an interior Sharpe-ratio condition",
         "State the assumptions behind residual diversification"
@@ -121,9 +121,9 @@
       "source_scope": "Full sequential English captions for positions 14–16; selected MIT portfolio and CAPM teaching passages inspected. Synthetic moment calculations executed.",
       "id": "ch06",
       "number": 6,
-      "source_sha256": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
-      "metadata_sha256": "531b7dc203e05b90f09516e0f8e28912c38c410c6530c282f091d380234a2985",
-      "source_words": 2995
+      "source_sha256": "e58eb4326a40db15a7d1e28a4c901d657cc1eba7de0303e429495a85e219ac56",
+      "metadata_sha256": "4626795a284ed2a876dc68d31856941900e99e017fb2395d86b92dc41043d777",
+      "source_words": 3360
     },
     {
       "title": "Index futures change beta without selling the stock portfolio",
@@ -133,7 +133,7 @@
         19
       ],
       "objectives": [
-        "Derive signed target-beta overlays from covariance",
+        "Derive signed target-beta overlays and distinguish them from minimum-variance positions",
         "Distinguish futures notional from economic value and margin",
         "Price index carry with stated dividend assumptions",
         "Assess residual, rounding, maturity and execution risks"
@@ -142,9 +142,9 @@
       "source_scope": "Full sequential English captions for positions 17–19; MIT forward/futures slides 25–29 inspected. Historical source specifications are not current product claims.",
       "id": "ch07",
       "number": 7,
-      "source_sha256": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
-      "metadata_sha256": "eeb208682d36714cf79a0806a7edced4f86a5921c28ed6e6fe42b623777618fe",
-      "source_words": 2828
+      "source_sha256": "2bf817b8831b4a69c98c77e2d9f97c16e1b9a3661459fa4a5da93f3a17e4d476",
+      "metadata_sha256": "2378ae0ce20fd5bed468b108aafb5d683beacad7ff7eaa02d5a9ba301e41d95c",
+      "source_words": 3088
     },
     {
       "title": "Discount factors price cash flows; a yield summarizes one price",
@@ -159,11 +159,11 @@
         "Separate internal rate from realized reinvested wealth"
       ],
       "prerequisites": "Dated present values from Chapter 2; monotone functions, logarithms and elementary differentiation.",
-      "source_scope": "Full sequential captions for positions20–21; selected MIT fixed-income text and TreasuryDirect bill-pricing passage inspected; source and synthetic arithmetic independently executed.",
+      "source_scope": "Full sequential captions for positions 20–21; selected MIT fixed-income text and TreasuryDirect bill-pricing passage inspected; source and synthetic arithmetic independently executed.",
       "id": "ch08",
       "number": 8,
       "source_sha256": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
-      "metadata_sha256": "8324abfdfdc65f4af995e0bf00f7d8096c7798b7e05b01c10d386a510d6d2f55",
+      "metadata_sha256": "1fbf76a3ab12c8ae0a731e503fe2805ee726f4f4541f27be347e43c563cbabb6",
       "source_words": 3014
     },
     {
@@ -178,13 +178,13 @@
         "Derive the duration-horizon immunization condition",
         "Diagnose nonparallel curve risk after duration matching"
       ],
-      "prerequisites": "Chapter8 cash-flow valuation and yield conventions; two derivatives and Taylor expansion.",
-      "source_scope": "Full sequential English captions for positions22–23 and selected MIT fixed-income text slides35–43. Fixed-cash-flow sensitivities and synthetic immunization examples independently executed.",
+      "prerequisites": "Chapter 8 cash-flow valuation and yield conventions; two derivatives and Taylor expansion.",
+      "source_scope": "Full sequential English captions for positions 22–23 and selected MIT fixed-income text slides 35–43. Fixed-cash-flow sensitivities and synthetic immunization examples independently executed.",
       "id": "ch09",
       "number": 9,
-      "source_sha256": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
-      "metadata_sha256": "40708dba969faac08df89247721638bbfd9332fe13a121a7a2a79e6adca6cc38",
-      "source_words": 2889
+      "source_sha256": "4358c1e9998c37e3d957a7e13b808890e199261159e31897febdf5ab294018b9",
+      "metadata_sha256": "3c0a3194e4cc464eb5a3b00e7f4897461bb83b60df6c9e4978008ab4d90d4f72",
+      "source_words": 3048
     },
     {
       "title": "Short-rate futures: a quotation is not a cash price",
@@ -202,9 +202,9 @@
       "source_scope": "Full English caption text for playlist positions 24 and 25 read sequentially. Historical product details are identified as source context; synthetic examples independently reconstruct the mechanics. No comprehensive audiovisual audit.",
       "id": "ch10",
       "number": 10,
-      "source_sha256": "5c422782ed73cd4d27ed021f9054381a37a7e0881b9f5b32abdb74d4c5fd8bf8",
+      "source_sha256": "b0d505c63b3939b6b0b832fe869acd17b930f4042e2d32d6f114e3052c88a520",
       "metadata_sha256": "16d9fba6a1365a8bbd0c4939e2eb179f8a2e094caa051c6e86be1034902e5394",
-      "source_words": 3681
+      "source_words": 3930
     },
     {
       "title": "Rate hedges: carry, basis, settlement timing, and accrued interest",
@@ -223,9 +223,9 @@
       "source_scope": "Full English captions for positions 26–28 read sequentially. Historical quotation language, discount-versus-simple-rate differences, and accrued-interest conventions are qualified. Synthetic arithmetic and proofs are independently constructed; no comprehensive audiovisual audit.",
       "id": "ch11",
       "number": 11,
-      "source_sha256": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+      "source_sha256": "539fab70727e6d4990d1ff1836a3b4498eb18d6c9e15ca0261f9ac48eb7e7b37",
       "metadata_sha256": "cbdcbb4bcfbce48361d39bd78509e8b25a9bb0aacf00683851ab6886846fbb9b",
-      "source_words": 3816
+      "source_words": 4184
     },
     {
       "title": "Bond futures: conversion factors, delivery choice, and rate sensitivity",
@@ -243,9 +243,9 @@
       "source_scope": "Full English captions for positions 29 and 30 read sequentially. Historical delivery/rounding rules are not generalized to all current products. Official CME conversion and delivery descriptions checked; numerical cases and simplified conversion calculations independently constructed.",
       "id": "ch12",
       "number": 12,
-      "source_sha256": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+      "source_sha256": "b332db0cbfcdf0ca8052fbfbe0d5ee7d2d000292ad46638c45d8cfeeac4861c2",
       "metadata_sha256": "f1a90f2ef7202f65e47733c504ef97cb0099105c07b9586c7636fd994b9cccce",
-      "source_words": 3647
+      "source_words": 4046
     },
     {
       "title": "Option cash flows and put–call parity",
@@ -260,12 +260,12 @@
         "Construct parity arbitrage ledgers and incorporate known dividends and execution frictions"
       ],
       "prerequisites": "Dated cash-flow conventions, short selling and no-arbitrage from chapters 01–02; discount factors from chapter 08.",
-      "source_scope": "Full English captions for positions 31 and 61 read sequentially. Position61 is the official put–call-parity lecture placed after basic options in the course catalog. Original finite constructions supplement the source; exercise, funding, and stock-domain assumptions are explicit.",
+      "source_scope": "Full English captions for positions 31 and 61 read sequentially. Position 61 is the official put–call-parity lecture placed after basic options in the course catalog. Original finite constructions supplement the source; exercise, funding, and stock-domain assumptions are explicit.",
       "id": "ch13",
       "number": 13,
-      "source_sha256": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
-      "metadata_sha256": "1744401b9609bc7f0b616eca62e03a334cef69b7ddeef19d8c084a4864952ab2",
-      "source_words": 3268
+      "source_sha256": "5accfea90a1aa3de183004a8396260d28e58676fede9c3f79a12309982132196",
+      "metadata_sha256": "f087dc6b9c49de0da457dffbe00ebc0ece374299f544b894eea5e2a49e4a301b",
+      "source_words": 3574
     },
     {
       "title": "Option bounds and the decision to exercise",
@@ -283,9 +283,9 @@
       "source_scope": "Complete English captions for positions 32–33 read sequentially. Weak bounds, rate and dividend assumptions, and model-based continuation values are made explicit. The finite exercise tree is an original pedagogical construction, developed further in chapter 18.",
       "id": "ch14",
       "number": 14,
-      "source_sha256": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+      "source_sha256": "15d397426c2c18b506fba082c0fd3a7fb88407c908373bd3df1738e45cbfdd6a",
       "metadata_sha256": "e1eec64888e4aa0d4df8c274e17b8bc8e7a66f2c00176e0aa4eb8a211cde994a",
-      "source_words": 3568
+      "source_words": 3761
     },
     {
       "title": "Static option strategies as piecewise-linear cash flows",
@@ -304,9 +304,9 @@
       "source_scope": "Full English captions for positions 34–36 read sequentially. Dated American dividend inequalities complete the opening source topic; strategy analysis uses explicit European common-expiry assumptions. Original synthetic examples and a computed payoff atlas replace ambiguous premium signs and calendar heuristics.",
       "id": "ch15",
       "number": 15,
-      "source_sha256": "bdb2df2b6b59f83c6b8ba1bb9e38b3987a6bc6bb03c5d6c224f69e2178857582",
+      "source_sha256": "5d577869e85ed1ac235ddc37f52db62fd991cef0eba4d3a0f3071ac81c979a5f",
       "metadata_sha256": "8aa3ab0413eaca6e6250e800b085ea66be19307d2d16f193152b1fdf1d0c750a",
-      "source_words": 4457
+      "source_words": 4824
     },
     {
       "title": "From random walks to Brownian risk factors",
@@ -321,13 +321,13 @@
         "Specify Brownian motion through its increments and path regularity",
         "Derive a diffusion equation as a continuum consistency limit without claiming an unproved path-convergence theorem"
       ],
-      "prerequisites": "Probability, conditional probability, means and variances, and elementary Taylor expansion. Chapter01's distinction between payoff scenarios and probability assignments.",
-      "source_scope": "Full sequential reading of official English captions for playlist positions37–39. Formal definitions, examples, convergence qualifications, and numerical certificates are original expansions; no comprehensive audiovisual audit.",
+      "prerequisites": "Probability, conditional probability, means and variances, and elementary Taylor expansion. Chapter 1's distinction between payoff scenarios and probability assignments.",
+      "source_scope": "Full sequential reading of official English captions for playlist positions 37–39. Formal definitions, examples, convergence qualifications, and numerical certificates are original expansions; no comprehensive audiovisual audit.",
       "id": "ch16",
       "number": 16,
-      "source_sha256": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
-      "metadata_sha256": "36a7876cc52c3f43bc11070e429daaf2a8bce738aaf223a38bdea38a265155c0",
-      "source_words": 3861
+      "source_sha256": "95259d59a15b331c00de5796ef591e3c7e777e30e5474cfa909ad5266d2a1231",
+      "metadata_sha256": "db7cdc87613eb5e7aa8aeb3d04451a61c76e883711344bb9e98e86bf8c1939b4",
+      "source_words": 4127
     },
     {
       "title": "Itô calculus, lognormal prices, and the meaning of a risk probability",
@@ -343,13 +343,13 @@
         "Solve geometric Brownian motion and derive its density, moments, and return conventions",
         "Separate an endpoint loss probability from the probability of crossing a liquidity boundary"
       ],
-      "prerequisites": "Chapter16's Brownian increments, covariance, and diffusion equation; Taylor expansion, integration by parts, and Gaussian probability.",
-      "source_scope": "All official English captions at playlist positions40–43 read sequentially. Equations reconstructed; no comprehensive audiovisual audit. Quadratic-variation and endpoint-versus-hitting corrections are explicit.",
+      "prerequisites": "Chapter 16's Brownian increments, covariance, and diffusion equation; Taylor expansion, integration by parts, and Gaussian probability.",
+      "source_scope": "All official English captions at playlist positions 40–43 read sequentially. Equations reconstructed; no comprehensive audiovisual audit. Quadratic-variation and endpoint-versus-hitting corrections are explicit.",
       "id": "ch17",
       "number": 17,
-      "source_sha256": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
-      "metadata_sha256": "1451aa20fa75a62dbd09ecdd0b370f3140c9951b6f65b1123177eda824d12a56",
-      "source_words": 4439
+      "source_sha256": "5130c008e9a1b7cead6bd24e8f1e3077bcf120c6dc3044b40eaf7d0084ee6c79",
+      "metadata_sha256": "a80cd58af13a39f7bd69b1bbd6da906c6ff660bd966eecc3473674346a87462c",
+      "source_words": 4730
     },
     {
       "title": "Binomial replication and risk-neutral valuation",
@@ -364,12 +364,12 @@
         "Identify failure of uniqueness and recombination when spanning or state sufficiency fails"
       ],
       "prerequisites": "Option payoffs and exercise styles; financing conventions; elementary linear algebra and conditional expectation.",
-      "source_scope": "Full sequential reading of official English captions at positions44–45; source put independently recomputed. No comprehensive audiovisual audit. Risk-neutral-preference rhetoric, interior-strike restriction, and coarse exercise-grid limitations are corrected explicitly.",
+      "source_scope": "Full sequential reading of official English captions at positions 44–45; source put independently recomputed. No comprehensive audiovisual audit. Risk-neutral-preference rhetoric, interior-strike restriction, and coarse exercise-grid limitations are corrected explicitly.",
       "id": "ch18",
       "number": 18,
-      "source_sha256": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
-      "metadata_sha256": "eca1bf17c9f721e98d29bba0495fc914ad7e44c04ba7050cf188a34b190800e1",
-      "source_words": 3370
+      "source_sha256": "f1ee15816346b5144e168506f76a34c9dbc9920ff5b2a106c2c449f270289124",
+      "metadata_sha256": "5ae5df584cbed404aa7c755bed68e1359fd71c7d6e5ac998973717be945ab202",
+      "source_words": 3549
     },
     {
       "title": "Measure change, dynamic replication, and the Black–Scholes model",
@@ -384,13 +384,13 @@
         "Derive call and put prices and distinguish pricing probabilities, delta, and conditional means",
         "State the completeness, dividend, and model-risk boundaries of the replication argument"
       ],
-      "prerequisites": "Chapters17–18: Itô calculus, GBM, pricing measures, and finite-state self-financing; Gaussian integration.",
-      "source_scope": "Full official English captions at positions46–48 read sequentially; numerical examples independently recomputed. No comprehensive audiovisual audit. Conditional/truncated expectation, variance under measure change, financing, and boundary-condition corrections are explicit.",
+      "prerequisites": "Chapters 17–18: Itô calculus, GBM, pricing measures, and finite-state self-financing; Gaussian integration.",
+      "source_scope": "Full official English captions at positions 46–48 read sequentially; numerical examples independently recomputed. No comprehensive audiovisual audit. Conditional/truncated expectation, variance under measure change, financing, and boundary-condition corrections are explicit.",
       "id": "ch19",
       "number": 19,
-      "source_sha256": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
-      "metadata_sha256": "bf401b66c51212239745e677e698cc8cd249c014f0c4fc075a0469214e236c35",
-      "source_words": 2904
+      "source_sha256": "af158ca94675a9350507519464ab0feaee8ccbcd75b55c3714b115979522ec7c",
+      "metadata_sha256": "a0ce50b8ca1340b761fbaeda4ec5789b3cad33da90830000d1e303461e9a8d72",
+      "source_words": 3533
     },
     {
       "title": "Solving the pricing PDE and measuring local exposure",
@@ -404,13 +404,13 @@
         "Verify parity sensitivities and limiting behavior",
         "Distinguish local neutrality and partial derivatives from finite market-scenario changes"
       ],
-      "prerequisites": "Chapters17–19: Gaussian kernel, Black–Scholes PDE and formula, self-financing; multivariable differentiation and Taylor expansion.",
-      "source_scope": "Full official English captions at positions49–50 read sequentially. No comprehensive audiovisual audit. Kernel uniqueness, time conventions, maturity sensitivity, strategy-neutrality labels, and financed condor profit are qualified; analytic Greek derivations anticipate the next recordings.",
+      "prerequisites": "Chapters 17–19: Gaussian kernel, Black–Scholes PDE and formula, self-financing; multivariable differentiation and Taylor expansion.",
+      "source_scope": "Full official English captions at positions 49–50 read sequentially. No comprehensive audiovisual audit. Kernel uniqueness, time conventions, maturity sensitivity, strategy-neutrality labels, and financed condor profit are qualified; analytic Greek derivations anticipate the next recordings.",
       "id": "ch20",
       "number": 20,
-      "source_sha256": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
-      "metadata_sha256": "3fd76945395662789c3afb34fc29da39419474a1debd8bc07e4eb9a788b130ff",
-      "source_words": 2915
+      "source_sha256": "e0d10876597ee99a4cfa3c9ac86df70d817c98964cc9dc8819459774d07e8502",
+      "metadata_sha256": "f3cf2212aa70e45e428bbeac936c68044b52fb1d3a35c696f5e397a343c1aa06",
+      "source_words": 3306
     },
     {
       "title": "Greek hedges, financing, and the cost of convexity",
@@ -426,13 +426,13 @@
         "Separate empirical joint scenarios from independent sensitivity neutrality",
         "Correct the distinction between forward-quote and contract-value deltas and specify the swap cash-flow bridge"
       ],
-      "prerequisites": "Chapters19–20: self-financing diffusion replication, Greek formulas and units; Chapter02 forward valuation; elementary matrix rank.",
-      "source_scope": "Full official English captions at positions51–54 read sequentially. No comprehensive audiovisual audit. Complete-ledger gamma examples, common-expiry gamma–vega rank constraints, conditional scenario claims, forward value/quote corrections, and historical LIBOR boundary are explicit.",
+      "prerequisites": "Chapters 19–20: self-financing diffusion replication, Greek formulas and units; Chapter 2 forward valuation; elementary matrix rank.",
+      "source_scope": "Full official English captions at positions 51–54 read sequentially. No comprehensive audiovisual audit. Complete-ledger gamma examples, common-expiry gamma–vega rank constraints, conditional scenario claims, forward value/quote corrections, and historical LIBOR boundary are explicit.",
       "id": "ch21",
       "number": 21,
-      "source_sha256": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
-      "metadata_sha256": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
-      "source_words": 3188
+      "source_sha256": "4fe71f7808b940d1739ba984172ed705288bfb8ac5cb1f8d8140d6c8a6a93046",
+      "metadata_sha256": "d872037f3d61adfc514c3667e9f587acfc39c509ae36b7b3306f85e573933eb8",
+      "source_words": 3562
     },
     {
       "title": "FRAs and interest-rate swaps as dated cash flows",
@@ -447,13 +447,13 @@
         "Value a floating bond between resets and reconcile swap bond/coupon-strip methods",
         "Identify projection, discounting, overnight observation, and comparative-funding limitations"
       ],
-      "prerequisites": "Discount factors, zero/forward rates, dated cash flows and present value; Chapter21 swap definitions and historical benchmark boundary.",
-      "source_scope": "Full official English captions at positions55–57 read sequentially, all source examples independently recomputed. No comprehensive audiovisual audit. Forward-realization assumptions, FRA settlement timing, contractual reset rights, day counts, and single-curve shortcuts are explicitly qualified.",
+      "prerequisites": "Chapter 1 swap cash-flow definitions; Chapter 8 discount factors, zero and forward rates; Chapters 11 and 21 historical benchmark boundaries; dated present-value calculations.",
+      "source_scope": "Full official English captions at positions 55–57 read sequentially, all source examples independently recomputed. No comprehensive audiovisual audit. Forward-realization assumptions, FRA settlement timing, contractual reset rights, day counts, and single-curve shortcuts are explicitly qualified.",
       "id": "ch22",
       "number": 22,
-      "source_sha256": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
-      "metadata_sha256": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
-      "source_words": 3135
+      "source_sha256": "75d9a4a632cba2aab69347133b0e971a6df35b95b128954fad38d5451d858c7e",
+      "metadata_sha256": "4649d9ea538138f1e4151d080ced2c928d66f5f140133264a66180fcf8923a7e",
+      "source_words": 3356
     },
     {
       "title": "Currency swaps, loss quantiles, and tail risk",
@@ -467,13 +467,13 @@
         "Derive Gaussian VaR with drift and horizon qualifications",
         "Compute expected shortfall with probability atoms and exhibit VaR aggregation failure"
       ],
-      "prerequisites": "Chapters02/22 discounting, currency forward parity and swap legs; Gaussian distributions, covariance and quantiles.",
-      "source_scope": "Full official English captions at positions58–59 read sequentially. No comprehensive audiovisual audit. Source principal mismatch, pricing-versus-risk probabilities, lower empirical quantile indexing, nonmaximum VaR interpretation, and square-root scaling limits are explicit. ES and discrete counterexamples are added enrichment.",
+      "prerequisites": "Chapters 2 and 22 discounting, currency forward parity and swap legs; Gaussian distributions, covariance and quantiles.",
+      "source_scope": "Full official English captions at positions 58–59 read sequentially. No comprehensive audiovisual audit. Source principal mismatch, pricing-versus-risk probabilities, lower empirical quantile indexing, nonmaximum VaR interpretation, and square-root scaling limits are explicit. ES and discrete counterexamples are added enrichment.",
       "id": "ch23",
       "number": 23,
-      "source_sha256": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
-      "metadata_sha256": "97db83b728986ca33ea89b9587cde768bf7bb86f366ea2dc3f8105758b855ec1",
-      "source_words": 3192
+      "source_sha256": "4ec58fd02331eb4c79a0fe7104b402ab3d671bb3412b0d2371441ab38cc66456",
+      "metadata_sha256": "af7c3a17e371af23b05037c0521457e6bbb1a297133a6e3a11fcb85da3346787",
+      "source_words": 3682
     },
     {
       "title": "Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR",
@@ -486,13 +486,13 @@
         "Compare delta/gamma approximations with full option and bond repricing",
         "Calculate atomic expected shortfall and assess exception-count and stress evidence"
       ],
-      "prerequisites": "Chapter23 loss quantiles and expected shortfall; Chapters6/9 covariance and duration; Chapters19–21 option values and Greeks; finite probability distributions and matrix eigenvectors.",
-      "source_scope": "Full sequential normalized English captions at position60 read. Source bond/mapping/PCA/option examples independently recomputed; missing exact FX discount inputs replaced by explicit synthetic data. Selected NIST PCA and historical BCBS backtesting passages inspected. No comprehensive audiovisual audit or empirical risk calibration.",
+      "prerequisites": "Chapter 23 loss quantiles and expected shortfall; Chapters 6 and 9 covariance and duration; Chapters 19–21 option values and Greeks; finite probability distributions and matrix eigenvectors.",
+      "source_scope": "Full sequential normalized English captions at position 60 read. Source bond/mapping/PCA/option examples independently recomputed; missing exact FX discount inputs replaced by explicit synthetic data. Selected NIST PCA and historical BCBS backtesting passages inspected. No comprehensive audiovisual audit or empirical risk calibration.",
       "id": "ch24",
       "number": 24,
-      "source_sha256": "55c3429a9198f319e24af696057967743fef20e3c0d7af56dece6c2bf3a12d65",
-      "metadata_sha256": "6e043657c359d4cbe68536a9110fa5e4517a73250357e71ce855b47d9e669d80",
-      "source_words": 4142
+      "source_sha256": "94fcfc666aec17c9ed12d9d01fd3df50af97496bd4e8894f6679469c89eed412",
+      "metadata_sha256": "b2e82747d573fddb53e6066f1e3a0560f3cf76b286213a68945e532b87ff495d",
+      "source_words": 4417
     }
   ]
 }
