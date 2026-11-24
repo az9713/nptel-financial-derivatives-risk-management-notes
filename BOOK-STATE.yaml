@@ -1,5 +1,5 @@
 edition: Financial Derivatives and Risk Management
-phase: ready-to-publish
+phase: published-and-live-verified
 expected_chapters: 24
 expected_teaching_recordings: 60
 acquired_recordings_including_introduction: 61
@@ -17,7 +17,7 @@ author_ownership:
   reader_builder: [ch10, ch11, ch12, ch13, ch14, ch15]
   scientific_review: [ch16, ch17, ch18, ch19, ch20, ch21, ch22, ch23]
 review_policy: Two independent current file-hash acceptances per manuscript, metadata, and lab; no self-review.
-publication: not-published
+publication: verified-github-pages
 repository_slug: nptel-financial-derivatives-risk-management-notes
 durable_plan: plan/outline.md
 notation: plan/notation.md
@@ -28,3 +28,10 @@ completed_chapter_manuscripts: 24
 current_independent_chapter_acceptances: 48
 source_textual_reading_audit: all61matched
 release_validation: passed-full-edition
+
+payload_release_commit: 7a02810efe47d9806b7616f37dec2fccd259c8a5
+hosted_check_and_deploy: passed
+live_verified_payload_files: 280
+live_browser_cases: 58
+published_url: https://az9713.github.io/nptel-financial-derivatives-risk-management-notes/
+publication_evidence: validation/live-publication-checks.json

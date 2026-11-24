@@ -77,7 +77,7 @@
   "delivery": "Offline static dark-mode HTML, editable Markdown, one executable lab and six fully solved exercises per chapter, source maps, current independent reviews, reproducible public build, checked GitHub Pages publication.",
   "coverage_boundary": "Captions read sequentially; visually dependent equations require selected-frame confirmation or explicit visual-scope limit; never claim comprehensive audiovisual audit without performing it.",
   "parity": "Compare development to full Optimization ch08/ch09 and Stanford CS229 exemplar pattern. Word counts diagnose omissions but do not certify acceptance.",
-  "status": "complete authored, independently reviewed and validated edition; ready to publish",
+  "status": "complete, independently reviewed, reproducibly built, published and live verified",
   "chapter_authors": {
     "ch01": "lead",
     "ch02": "source_research",

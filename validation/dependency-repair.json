@@ -1,6 +1,6 @@
 {
   "observed_on": "2026-11-24",
-  "status": "patched and fully revalidated locally; hosted alert closure pending",
+  "status": "patched, locally and hosted validated; all eight observed GitHub alerts marked fixed",
   "scope": "Eight concrete GitHub Dependabot build-dependency advisories, all affecting the pinned Soup Sieve2.8.1; no exploitation or public-reader compromise is claimed.",
   "affected_dependency": "soupsieve",
   "old_pin": "2.8.1",
@@ -81,5 +81,48 @@
   ],
   "installed_version": "4.0",
   "pin": "soupsieve==4.0.0",
-  "verification": "validation/dependency-remediation.json"
+  "verification": "validation/dependency-remediation.json",
+  "hosted_alert_states": [
+    {
+      "number": 8,
+      "state": "fixed",
+      "fixed_at": "2026-11-24T19:05:12Z"
+    },
+    {
+      "number": 7,
+      "state": "fixed",
+      "fixed_at": "2026-11-24T19:05:12Z"
+    },
+    {
+      "number": 6,
+      "state": "fixed",
+      "fixed_at": "2026-11-24T19:05:12Z"
+    },
+    {
+      "number": 5,
+      "state": "fixed",
+      "fixed_at": "2026-11-24T19:05:12Z"
+    },
+    {
+      "number": 4,
+      "state": "fixed",
+      "fixed_at": "2026-11-24T19:05:12Z"
+    },
+    {
+      "number": 3,
+      "state": "fixed",
+      "fixed_at": "2026-11-24T19:05:11Z"
+    },
+    {
+      "number": 2,
+      "state": "fixed",
+      "fixed_at": "2026-11-24T19:05:11Z"
+    },
+    {
+      "number": 1,
+      "state": "fixed",
+      "fixed_at": "2026-11-24T19:05:11Z"
+    }
+  ],
+  "hosted_validation": "validation/hosted-checks.json"
 }

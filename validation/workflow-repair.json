@@ -4,5 +4,7 @@
   "finding": "GitHub rejected runner.temp in jobs.check.env before executing jobs.",
   "repair": "Move LECTURE_VALIDATION_DIR to the validation step env, where the runner context is available. Scientific inputs and generated reader bytes are unchanged.",
   "primary_documentation": "https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#context-availability",
-  "status": "scope repair accepted by the hosted workflow parser; valid run45465102944 cancelled deliberately for targeted dependency upgrade; final hosted run pending"
+  "status": "verified by successful full hosted check and Pages deployment",
+  "verified_run": "https://github.com/az9713/nptel-financial-derivatives-risk-management-notes/actions/runs/45466255682",
+  "verified_commit": "7a02810efe47d9806b7616f37dec2fccd259c8a5"
 }

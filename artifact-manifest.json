@@ -151,8 +151,8 @@
     },
     {
       "path": "BOOK-STATE.yaml",
-      "bytes": 1272,
-      "sha256": "0cb1763486c8272f7340385493497d9d65a9dfea73ceb202007aed441f28ffd7",
+      "bytes": 1598,
+      "sha256": "d651adce27f24ce76f74f6e6bc06eec98a1fadf8cec17d0c3db7f1ca3db9492b",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -782,7 +782,7 @@
     {
       "path": "plan/book-spec.json",
       "bytes": 3186,
-      "sha256": "2aa199ef15afa32515b95c129afe7767ab6c07419b8166a33a932981d4f067b5",
+      "sha256": "f24da980727ef50038cce97adeb78765be2c948df78d106088e2438e70518756",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -799,8 +799,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 11700,
-      "sha256": "1355c7351c2daaade38d2a98a6c7ea17062dc70bf331babcb9f3eae65ddedd79",
+      "bytes": 12303,
+      "sha256": "5b7dad1c94fccc561a6620b50f22e9cc52a42bb3f67ca0b7f726552bb3f7154a",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -949,8 +949,8 @@
     },
     {
       "path": "validation/dependency-repair.json",
-      "bytes": 3610,
-      "sha256": "d305ee6c2aa69ce2e70eea2047e1c255a7215cb6ad7ec7202386582a0e12482d",
+      "bytes": 4490,
+      "sha256": "2a606e3f0997b131d299c824904f2a1f1c4ad9afe976cb656a125bad12cfcc3e",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -960,9 +960,27 @@
       "purpose": "scoped production, review, or validation evidence"
     },
     {
+      "path": "validation/hosted-checks.json",
+      "bytes": 1144,
+      "sha256": "032b682eac51fe46de275b8a0e75d7249e89a412ae68b7f2cb888afc62b15dab",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
       "path": "validation/line-ending-normalization.json",
       "bytes": 4764,
       "sha256": "5f9d3088762cd7e7b5fc8d184622cde55d3e2b14f2f4e48dc1ff12deb4161e51",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/live-browser-checks.json",
+      "bytes": 16373,
+      "sha256": "5b1d867f8bd3506aee1947239b823346432a3a1d334837f1f81d0227e6e50d43",
+      "purpose": "scoped production, review, or validation evidence"
+    },
+    {
+      "path": "validation/live-publication-checks.json",
+      "bytes": 104150,
+      "sha256": "214259b08cd7e8719cc14e5fd2847d7eeb5270d2b342e32dd03d1e5130ee59f9",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -992,7 +1010,7 @@
     {
       "path": "validation/public-tree-privacy.json",
       "bytes": 601,
-      "sha256": "9c46bc71dd8f54f1f492226b20ad029299a2a538f17cf39daa16dee3050a3ea8",
+      "sha256": "bc3137ea3f678b42af973e4c412b07bffb528bf5de90935b6b95fce2a80ce06a",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -1747,8 +1765,8 @@
     },
     {
       "path": "validation/workflow-repair.json",
-      "bytes": 740,
-      "sha256": "44f4dd42dc966cc4f125e98cffcfe0ae6bd458499450328e822f6509e168c2ae",
+      "bytes": 834,
+      "sha256": "74e6ed735e07db2774a04ed68b1d09548954c6d9ca417810e97af7d834d79147",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
