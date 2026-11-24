@@ -29,10 +29,10 @@ current_independent_chapter_acceptances: 48
 source_textual_reading_audit: all61matched
 release_validation: passed-full-edition
 
-payload_release_commit: e9c81e4692d2321fadc1645449acc4a3e4557a38
+payload_release_commit: ea1a0cdf8715e839eabb771c82121f5f740426ab
 hosted_check_and_deploy: passed
-live_verified_payload_files: 286
-live_browser_cases: 58
+live_verified_payload_files: 295
+live_browser_cases: 60
 published_url: https://az9713.github.io/nptel-financial-derivatives-risk-management-notes/
 publication_evidence: validation/live-publication-checks.json
 
@@ -48,5 +48,5 @@ personal_information_policy: email-retained-neutral-display-names
 mathematical_companion: mathematical-repairs.html
 companion_independent_acceptances: 2
 companion_release_validation: passed
-companion_publication: pending-hosted-verification
+companion_publication: verified-github-pages
 companion_evidence: validation/mathematical-repairs-checks.json

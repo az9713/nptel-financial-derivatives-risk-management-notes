@@ -67,6 +67,18 @@
       "pageOverflow": false
     },
     {
+      "file": "mathematical-repairs.html",
+      "width": 1440,
+      "model_checks": {},
+      "rendered": 360,
+      "mathErrors": 0,
+      "unhiddenInlineScrollers": 0,
+      "wideInline": 10,
+      "wideDisplay": 0,
+      "blockedOverflow": 0,
+      "pageOverflow": false
+    },
+    {
       "file": "ch01.html",
       "width": 1440,
       "model_checks": {},
@@ -420,6 +432,18 @@
       "pageOverflow": false
     },
     {
+      "file": "mathematical-repairs.html",
+      "width": 390,
+      "model_checks": {},
+      "rendered": 360,
+      "mathErrors": 0,
+      "unhiddenInlineScrollers": 0,
+      "wideInline": 15,
+      "wideDisplay": 25,
+      "blockedOverflow": 0,
+      "pageOverflow": false
+    },
+    {
       "file": "ch01.html",
       "width": 390,
       "model_checks": {},
@@ -711,6 +735,6 @@
   "errors": [],
   "offline": false,
   "scope": "Desktop/mobile DOM and math layout, disclosures, filtering, copy, print, theme, and available interactive model checks.",
-  "payload_commit": "ae92ec6252818e75d9a70cb8042cfec68bf1e784",
-  "delivery_binding": "The separately recorded complete HTTP byte comparison identifies this same deployed payload; browser cases exercise its 29 reader pages at two widths."
+  "payload_commit": "ea1a0cdf8715e839eabb771c82121f5f740426ab",
+  "delivery_binding": "The complete served-byte comparison verifies the same payload, including its companion page."
 }

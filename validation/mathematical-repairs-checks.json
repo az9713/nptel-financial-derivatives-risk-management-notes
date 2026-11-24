@@ -74,5 +74,21 @@
     "isolated_rebuilds": "30 HTML pages and book.json identical in every fixture",
     "fresh_mobile_check": "390px document with no page overflow; 33 wide containers pan successfully; all math scrollbars hidden; zero MathJax errors; print table min-width reset"
   },
-  "boundary": "Exact-content AI review, finite calculations, reader checks and reproducibility are distinct evidence; no comprehensive audiovisual review, empirical market calibration or formal verification is claimed."
+  "boundary": "Exact-content AI review, finite calculations, reader checks and reproducibility are distinct evidence; no comprehensive audiovisual review, empirical market calibration or formal verification is claimed.",
+  "publication": {
+    "status": "pass",
+    "payload_commit": "ea1a0cdf8715e839eabb771c82121f5f740426ab",
+    "hosted_check_and_deploy": "success",
+    "exact_served_files": 295,
+    "live_browser_cases": 60,
+    "textbook_entry_links": {
+      "status": "pass",
+      "overview_main_link": true,
+      "chapter_sidebar_link": true,
+      "default_dark": true,
+      "seven_worked_checks": true,
+      "math_errors": 0
+    },
+    "evidence_added_after_payload": true
+  }
 }

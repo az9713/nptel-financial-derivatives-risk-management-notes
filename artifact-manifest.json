@@ -151,8 +151,8 @@
     },
     {
       "path": "BOOK-STATE.yaml",
-      "bytes": 2253,
-      "sha256": "dfd0d3c23d5eb24eed31ffb5f244f62d37c0381abc8dbc12bc3012167844bd3f",
+      "bytes": 2247,
+      "sha256": "2707b9efd964ddcea984dd2a7b42250ee82fa878410a3fd8d55ac45a6e00d9a0",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -823,8 +823,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13990,
-      "sha256": "c50f8ec30d3da3ee00bbc74b255e84c7babf39d0965add35147e7734670e74a4",
+      "bytes": 13959,
+      "sha256": "b592d9ed7f42ffd4b91b3d6234d9ad61bf31c96135977fee6d3a3d06c9d461c2",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -997,8 +997,8 @@
     },
     {
       "path": "validation/hosted-checks.json",
-      "bytes": 1075,
-      "sha256": "ff7e20c7c2904fed6dbf80536be429d05d7b3e38d067cf81a4f1fdf379e19750",
+      "bytes": 1070,
+      "sha256": "13522bc4fe450e54c6e554ccfd8085625954992040cf907ff09a26afeaa45b98",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -1009,14 +1009,14 @@
     },
     {
       "path": "validation/live-browser-checks.json",
-      "bytes": 16623,
-      "sha256": "ed90c4f4376126799e5397752b205b3af3a9f0df04d94ef8a76b4ebd57ea1d4b",
+      "bytes": 17143,
+      "sha256": "c7c652eaf3b5a19b6f2e1d59270ce156fdf1725827a29ce1d140186fdbc8c9af",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
       "path": "validation/live-publication-checks.json",
-      "bytes": 106462,
-      "sha256": "b34a4f54f562bba0c6b73a7edf7e8a2268c0cbfec84ad7c93d3239a993bcb561",
+      "bytes": 110328,
+      "sha256": "de20fc5d0556afe0392dace9fc8d5c9512f236df269c9c0781f43ae29f4205e6",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -1033,8 +1033,8 @@
     },
     {
       "path": "validation/mathematical-repairs-checks.json",
-      "bytes": 3088,
-      "sha256": "e90864e2706d085193dcf11685420f9bbc15ec0f17be315fec88d2b66282fee7",
+      "bytes": 3561,
+      "sha256": "e01ede687985f2ec58fcccac31836155087205f2715c58007087f3d2545c210f",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
