@@ -151,8 +151,8 @@
     },
     {
       "path": "BOOK-STATE.yaml",
-      "bytes": 1917,
-      "sha256": "ad891c78781a0c1e0213edbc18d143ba214d1fe1c8ea4817b03b1a7bb9588a4b",
+      "bytes": 1882,
+      "sha256": "13da1d12bf83497ba3ef0ee8423c5d35dfe1ce17d5ca12f46b26b2c669609b22",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -595,8 +595,8 @@
     },
     {
       "path": "critical-comparison.md",
-      "bytes": 12730,
-      "sha256": "fe95a24eeb03d4ce3ab85a7c5d9c9a44c079ae1706ff1c26f8507d67d4035a1f",
+      "bytes": 13243,
+      "sha256": "76d0a989b8de480cca4c251f86fb90c0e63f8c16621927a29a44da062c134b4f",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -805,8 +805,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12756,
-      "sha256": "e4074c51ef747cd7fb10b27d5f939423d35c7f0037163d04ba62a56f921abd54",
+      "bytes": 12743,
+      "sha256": "1c7fb8dd04423a6bced1b87bcc5ae3267910cc30e49678e828448958474ab47c",
       "purpose": "public reader, supporting content, asset, or rebuild input"
     },
     {
@@ -949,8 +949,8 @@
     },
     {
       "path": "validation/critical-parity-checks.json",
-      "bytes": 6202,
-      "sha256": "cb821651ce2cbd17e201a6df0f62c643f50ac0ab816522105e4e960c6cab3df0",
+      "bytes": 6580,
+      "sha256": "eb6b7bcb6a642239b1ca305f8975394a036d14a6858baee87782c002267c107b",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -979,8 +979,8 @@
     },
     {
       "path": "validation/hosted-checks.json",
-      "bytes": 1144,
-      "sha256": "032b682eac51fe46de275b8a0e75d7249e89a412ae68b7f2cb888afc62b15dab",
+      "bytes": 1075,
+      "sha256": "ff7e20c7c2904fed6dbf80536be429d05d7b3e38d067cf81a4f1fdf379e19750",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
@@ -991,14 +991,14 @@
     },
     {
       "path": "validation/live-browser-checks.json",
-      "bytes": 16373,
-      "sha256": "5b1d867f8bd3506aee1947239b823346432a3a1d334837f1f81d0227e6e50d43",
+      "bytes": 16623,
+      "sha256": "ed90c4f4376126799e5397752b205b3af3a9f0df04d94ef8a76b4ebd57ea1d4b",
       "purpose": "scoped production, review, or validation evidence"
     },
     {
       "path": "validation/live-publication-checks.json",
-      "bytes": 104150,
-      "sha256": "214259b08cd7e8719cc14e5fd2847d7eeb5270d2b342e32dd03d1e5130ee59f9",
+      "bytes": 106462,
+      "sha256": "b34a4f54f562bba0c6b73a7edf7e8a2268c0cbfec84ad7c93d3239a993bcb561",
       "purpose": "scoped production, review, or validation evidence"
     },
     {

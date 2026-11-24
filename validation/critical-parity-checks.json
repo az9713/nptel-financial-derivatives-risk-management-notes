@@ -84,5 +84,17 @@
     ],
     "scope": "Six direct screenshot inspections at the frontier, martingale-pricing, and tail-risk sections; readable text, math and dark layout. Full automated DOM/layout checks are separately recorded."
   },
-  "boundary": "Selected-exemplar parity, independent AI review, finite numerical evidence and publication checks do not establish universal superiority, comprehensive audiovisual coverage, empirical calibration or formal verification."
+  "boundary": "Selected-exemplar parity, independent AI review, finite numerical evidence and publication checks do not establish universal superiority, comprehensive audiovisual coverage, empirical calibration or formal verification.",
+  "release_validation": {
+    "status": "pass",
+    "payload_commit": "ae92ec6252818e75d9a70cb8042cfec68bf1e784",
+    "chapter_acceptances": 48,
+    "scientific_inputs": 72,
+    "fresh_labs": 24,
+    "offline_browser_cases": 58,
+    "live_browser_cases": 58,
+    "exact_served_files": 286,
+    "hosted_check_and_deploy": "success",
+    "evidence_added_after_payload": true
+  }
 }

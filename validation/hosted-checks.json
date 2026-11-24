@@ -1,7 +1,7 @@
 {
   "status": "pass",
-  "payload_commit": "7a02810efe47d9806b7616f37dec2fccd259c8a5",
-  "workflow_run": "https://github.com/az9713/nptel-financial-derivatives-risk-management-notes/actions/runs/45466255682",
+  "payload_commit": "ae92ec6252818e75d9a70cb8042cfec68bf1e784",
+  "workflow_run": "https://github.com/az9713/nptel-financial-derivatives-risk-management-notes/actions/runs/45482843885",
   "jobs": [
     {
       "name": "check",
@@ -16,11 +16,10 @@
   "python_family": "3.13",
   "log_confirmed": {
     "browser_cases": 58,
-    "source_reading_positions": 61,
     "accepted_scientific_inputs": 72,
-    "installed_soupsieve": "4.0",
+    "fresh_labs_through_ch24": true,
     "all_required_commands_completed": true
   },
-  "scope": "Observed successful hosted check and deploy for the explicitly named earlier payload commit. The workflow tests its git-archive export with exact dependency pins and writes temporary QA outside the published payload. These statuses establish execution/deployment scope, not scientific truth; actual served-byte and live-browser records are separate.",
-  "later_documentation_boundary": "This evidence is added in a later documentation commit; it does not claim that its own bytes were part of the earlier payload."
+  "scope": "Observed successful Linux check and deploy of the explicitly named critical-revision payload. The workflow verifies its Git archive export, runs all 24 labs and all 58 browser cases, checks review freshness and public-input rebuilding, then deploys. Scientific correctness and served-byte integrity are separate evidence.",
+  "later_documentation_boundary": "This record is added after the named payload. It does not claim its own newly written bytes were part of that payload."
 }
