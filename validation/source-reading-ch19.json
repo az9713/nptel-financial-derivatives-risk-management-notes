@@ -1,0 +1,96 @@
+{
+  "chapter": "ch19",
+  "reader": "scientific_review (chapter author)",
+  "recordings": [
+    {
+      "position": 46,
+      "video_id": "bCQID6X85ys",
+      "normalized_text_sha256": "ad2a2316fb9c758b5a9f65a3f72075bf369f58814b1d44f2039729d5509c42e8",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 24,
+          "topic": "Dividend-call early exercise bound"
+        },
+        {
+          "start_seconds": 637,
+          "topic": "Measure-change motivation and binomial scaling"
+        },
+        {
+          "start_seconds": 1122,
+          "topic": "Black-Scholes assumptions"
+        },
+        {
+          "start_seconds": 1381,
+          "topic": "Ito formula and locally hedged derivative"
+        }
+      ]
+    },
+    {
+      "position": 47,
+      "video_id": "9QS2FduuvTk",
+      "normalized_text_sha256": "bf16309b1de308b043b2dcf3a9a562854eab0ffd630e855283500f0ed32c6684",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 158,
+          "topic": "Delta replication and PDE derivation"
+        },
+        {
+          "start_seconds": 833,
+          "topic": "Terminal conditions and option formula"
+        },
+        {
+          "start_seconds": 972,
+          "topic": "Pricing exercise probability"
+        },
+        {
+          "start_seconds": 1360,
+          "topic": "Call delta and density cancellation"
+        }
+      ]
+    },
+    {
+      "position": 48,
+      "video_id": "P-tzhvI64as",
+      "normalized_text_sha256": "29330fe367c0294ada6ee65c8d0c1cd59abbd5e29f698277f104ae6f7985b630",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 59,
+          "topic": "Stock expectation restricted to exercise states"
+        },
+        {
+          "start_seconds": 594,
+          "topic": "Call components and writer hedge interpretation"
+        },
+        {
+          "start_seconds": 1173,
+          "topic": "Physical exercise probability example"
+        },
+        {
+          "start_seconds": 1393,
+          "topic": "European put example"
+        },
+        {
+          "start_seconds": 1469,
+          "topic": "Heat-equation solution preview"
+        }
+      ]
+    }
+  ],
+  "scope": "Full official English caption text read sequentially; no comprehensive audiovisual audit; all numerical examples independently recomputed.",
+  "source_corrections": [
+    "Risk-neutral measure is not actual investor preferences.",
+    "Diffusion volatility and quadratic variation are preserved, while finite-horizon stock variances generally change.",
+    "The conditional stock mean divides the truncated exercise-state expectation by its event probability.",
+    "Holdings identities require separate self-financing gains conditions.",
+    "Large-stock call boundary retains the discounted-strike offset.",
+    "Dividend lower bound gives a sufficient condition against exercise, not an unconditional converse.",
+    "Novikov is stated as a sufficient martingale condition; constant-coefficient likelihood is verified directly."
+  ],
+  "primary_checks": [
+    "Lalley lecture10, pages1-3 Theorems1-2: stochastic exponential, Novikov, Girsanov signs; pages4-6 equivalence and quadratic variation.",
+    "Kogan MIT stochastic slides17-20: self-financing portfolio, replication, PDE and call formula."
+  ]
+}

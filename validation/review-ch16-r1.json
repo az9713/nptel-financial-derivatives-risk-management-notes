@@ -1,0 +1,33 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch16-r1.md",
+  "scope": [
+    "Complete manuscript, metadata, six solutions and full code",
+    "Independent algebra, probability-law and numerical checks",
+    "Selected actual captions and primary MIT Kogan slides4\u20136 inspected",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch16.md": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
+    "chapters/ch16.json": "36a7876cc52c3f43bc11070e429daaf2a8bce738aaf223a38bdea38a265155c0",
+    "labs/ch16.py": "f7b2616f10907e77d11fe0730d3a7bde307e6c2256509ae1e547eca6ede39f29"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      37,
+      38,
+      39
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT Kogan stochastic-calculus slides4\u20136"
+    ]
+  },
+  "limitations": [
+    "No full independent caption reread",
+    "No comprehensive audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ]
+}

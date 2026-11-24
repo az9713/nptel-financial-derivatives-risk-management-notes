@@ -1,0 +1,20 @@
+# Independent scientific review: chapter 09
+
+Accepted at the exact manuscript, metadata, and code digests in the accompanying receipt. The reviewer did not author this chapter. The complete exposition, every derivation and example, all six complete worked solutions, metadata, and lab were read. Fresh laboratory execution passed. No unresolved scientific, source, prose, or pedagogical finding remains.
+
+For positive fixed dated payments the price derivatives, strict monotonicity/convexity, Macaulay weights, modified-duration conversion, elasticity, and basis-point scale are correct. The nominal multi-payment convention differentiates with respect to the annual nominal yield consistently. The convexity normalization includes the denominator and excludes the Taylor half; the remainder and tangent/quadratic error signs are valid on the stated yield domain. Euclidean plot curvature is correctly distinguished from financial normalized convexity.
+
+The large-shock face100 example independently reprices81.236974 at18percent and65.039360 at25percent; linear62.321808 and quadratic65.404837 bracket the exact result in the claimed order. Macaulay3.925007, modified3.326277, convexity15.490229, and DV010.027022 agree with both analytic and finite-difference calculations. The source's rounded numbers and DV01 verbal scale are not copied as exact definitions.
+
+The common-rate holding-horizon identity combines reinvested earlier payments and sale-date values of remaining payments at consistent dates. Its log derivative, payment-weight derivative, duration derivative, and stationary second derivative are correct while holding the chosen horizon fixed. Multi-date dispersion gives a local minimum, not a claim of rate-path independence. The asset/liability surplus derivatives use the same rate coordinate. The two-zero common-shift identity factors exactly through cosh, while the reversed twist produces the correctly calculated negative surplus-0.975215. Separate curve coordinates explain why this loss is invisible to one scalar sensitivity. Time passage and changing cash flows are not treated as immunized automatically.
+
+All six solutions derive their answers and identify their limits. The complete code separately calculates exact prices and approximations, checks both derivatives numerically, includes the1e-4 scale, tests stationary first/second derivatives, and evaluates common and twisting shocks. The fresh process passed and printed all stated numbers. The numerical checks corroborate the analytic arguments rather than substitute a finite grid for a global assertion.
+
+Selected actual captions inspected: position22 at300–620,670–880,1520–1760seconds (fixed-flow sensitivity, DV01/duration, convexity example) and position23 at350–740,1240–1470seconds (reinvestment/sale-date balance, local flat region, continuous compounding). The cited MIT fixed-income PDF slides35–43 were opened directly. They support the duration, compounding, deep-discount maturity qualification, and Taylor discussion; the chapter carefully states its own normalizations and mathematical restrictions.
+
+The persistent bond example, explicit rate coordinates, and exact counterexample teach the practical boundary of first-order hedging. Definitions precede calculations, and prose remains precise without treating local approximation as complete risk elimination. This is a full authored-chapter/code review with selected actual sources and primary-reference verification. It is not a full independent caption reread, comprehensive audiovisual audit, human certification, formal proof verification, or package/browser release acceptance.
+
+
+## Bounded LF normalization recheck
+
+Reconstructed the former CRLF bytes from each affected canonical LF file and matched its previously accepted SHA-256 exactly. All unaffected inputs retain their accepted digests. The Python AST is identical and the chapter lab passed a fresh execution. This rebind changes byte-level acceptance only; the full scientific review above remains applicable. Evidence: `validation/line-ending-normalization.json`.

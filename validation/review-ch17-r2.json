@@ -1,0 +1,21 @@
+{
+  "reviewer": "lead_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch17-r2.md",
+  "findings_fixed": [
+    "Qualify sampled Ito construction and define general predictable L2 integral",
+    "Invoke strong Markov at first passage and integrate verified primary reference",
+    "Define new approximation-space notation"
+  ],
+  "scope": [
+    "Full manuscript, metadata, complete laboratory and six worked solutions",
+    "Fresh lab execution and independent mathematical checks",
+    "Selected actual caption spans and primary references inspected; no comprehensive audiovisual audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch17.md": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
+    "chapters/ch17.json": "1451aa20fa75a62dbd09ecdd0b370f3140c9951b6f65b1123177eda824d12a56",
+    "labs/ch17.py": "54ad5f85ea9f77e3d3dab35e606f7c2f3d21b79db71b2e186692b2873f43f704"
+  }
+}

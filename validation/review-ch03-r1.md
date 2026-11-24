@@ -1,0 +1,18 @@
+# Independent scientific review: chapter 03
+
+Accepted at the exact manuscript, metadata, and laboratory digests in the accompanying receipt. The reviewer did not author this chapter. All prose, derivations, numerical examples, six complete worked solutions, metadata, and code were read; the lab ran successfully in a fresh process. No unresolved finding remains.
+
+The signed settlement formula and its telescoping sum are correct, and the text does not confuse this unweighted sum with terminal wealth. The complete margin ledger, strict maintenance boundary, replenishment to initial margin, and contributed-cash identity reconcile. Closing at the adverse intermediate price removes the subsequent recovery exposure. Contract multipliers, notional, premium, collateral, and sensitivity are appropriately distinguished.
+
+The deterministic-rate scaled-futures construction is predictable and self-financing under the stated ideal settlement/funding assumptions: the interval position cancels its known remaining accumulation factor, leaving the forward-style payoff. This yields equality of new forward and futures quotations without incorrectly claiming that a fixed one-contract settlement stream equals a forward's financed wealth. The random-rate extension is explicitly bounded to the ideal money-market pricing model; its covariance formula follows directly by expanding the mean product. The sign in the two-state example and all arithmetic in the exercises were independently checked.
+
+Selected actual captions inspected: position6 at680–1080seconds (clearing and settlement), position7 at290–610seconds (customer margin thresholds and restoration), and position8 at450–1300seconds (deterministic scaled replication). The source uses an equivalent rescaled increasing-contract argument; the chapter's one-unit forward normalization is valid. MIT Andrew Lo slides12–16 were opened locally. The cited PFMI PDF was opened directly at PDFpp50,56–57: the stress-test paragraphs and initial-versus-variation margin discussion support the chapter's residual-credit-risk clarification. Neither the lecture's nor historical slides' broad default-elimination language is adopted uncritically.
+
+The worked example connects operational funding to the exact mathematical ledger. New terms and units are defined before substantive use; the pricing-probability extension is marked rather than assumed established. The six solutions explain both numerical answers and their assumptions. The code implements the stated simplified customer-account model and checks long/short sign reversal, the exact threshold boundary, financing timing, and the covariance calculation. Observed outputs include balance1100, profit200, financed fixed-contract result5.051, scaled result5, and forward98.947368.
+
+This is a complete authored-chapter and code review with selected source/primary-reference verification. It does not independently reread every cue of all three captions, inspect all audiovisual frames, certify current brokerage rules, or replace browser/package/release checks. The author's full source-reading ledger and second independent review remain separate evidence. No human expert certification or formal proof checking is claimed.
+
+
+## Bounded LF normalization recheck
+
+Reconstructed the former CRLF bytes from each affected canonical LF file and matched its previously accepted SHA-256 exactly. All unaffected inputs retain their accepted digests. The Python AST is identical and the chapter lab passed a fresh execution. This rebind changes byte-level acceptance only; the full scientific review above remains applicable. Evidence: `validation/line-ending-normalization.json`.

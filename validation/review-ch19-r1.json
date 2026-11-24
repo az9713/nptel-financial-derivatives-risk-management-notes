@@ -1,0 +1,34 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch19-r1.md",
+  "scope": [
+    "Full current manuscript, metadata, six solutions and complete code",
+    "Independent measure-change, financing, pricing and numerical checks",
+    "Selected actual captions and primary MIT/Lalley passages inspected",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch19.md": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
+    "chapters/ch19.json": "bf401b66c51212239745e677e698cc8cd249c014f0c4fc075a0469214e236c35",
+    "labs/ch19.py": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      46,
+      47,
+      48
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT Kogan stochastic-calculus slides17\u201320",
+      "Lalley Lecture10 Theorems1\u20132"
+    ]
+  },
+  "limitations": [
+    "No full independent caption reread",
+    "No comprehensive audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ]
+}

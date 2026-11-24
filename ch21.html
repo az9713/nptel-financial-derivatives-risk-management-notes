@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Greek hedges, financing, and the cost of convexity · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html" aria-current=page>21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>21. Greek hedges, financing, and the cost of convexity</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=15s8WcE5VRU">Recording 51</a>, <a href="https://www.youtube.com/watch?v=0_NyYdmXBS0">Recording 52</a>, <a href="https://www.youtube.com/watch?v=QsrKq3bRN5A">Recording 53</a>, <a href="https://www.youtube.com/watch?v=EJbnlOu035A">Recording 54</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Solve signed delta–gamma–vega hedge systems and diagnose rank and conditioning</li><li>Derive the financed gamma–theta tradeoff and audit complete discrete hedge P&amp;L</li><li>Separate empirical joint scenarios from independent sensitivity neutrality</li><li>Correct the distinction between forward-quote and contract-value deltas and specify the swap cash-flow bridge</li></ul>
+<p><strong>Prerequisites:</strong> Chapters19–20: self-financing diffusion replication, Greek formulas and units; Chapter02 forward valuation; elementary matrix rank.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch21.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-portfolio-greeks-are-signed-sums-0821-0208">1. Portfolio Greeks are signed sums 08:21 / 02:08</a></li><li><a href="#2-gammavega-neutrality-is-a-rank-question-2421">2. Gamma–vega neutrality is a rank question 24:21</a></li><li><a href="#3-gamma-and-theta-are-linked-by-the-pde-1923-1037">3. Gamma and theta are linked by the PDE 19:23 / 10:37</a></li><li><a href="#4-a-profitable-stock-round-trip-is-only-one-ledger-component-1224">4. A profitable stock round trip is only one ledger component 12:24</a></li><li><a href="#5-scenario-hedges-are-different-from-independent-partial-hedges-2933-0024">5. Scenario hedges are different from independent partial hedges 29:33 / 00:24</a></li><li><a href="#6-a-forward-quote-is-not-an-existing-contract-1653">6. A forward quote is not an existing contract 16:53</a></li><li><a href="#7-from-a-hedge-book-to-a-swap-schedule-2403">7. From a hedge book to a swap schedule 24:03</a></li><li><a href="#laboratory">Laboratory</a></li><li><a href="#exercises">Exercises</a></li></ul></div>
+<article>
+<p>A delta-neutral portfolio has zero first derivative at the current state. That fact does not make its value constant, its future financing free, or its other derivatives zero. Gamma describes the next stock-price term; vega describes a different input; theta measures passage of time. Their relations constrain the hedge systems that can be solved and explain why buying convexity is not a recipe for free trading profits.</p>
+<p>This chapter turns the qualitative Greek discussion into three explicit objects: a system of hedge equations, a self-financing discrete trading ledger, and a scenario-dependent residual. It also repairs a consequential distinction in the source's currency example: the delta of a newly quoted forward <em>delivery price</em> is different from the delta of an existing forward <em>contract value</em>.</p>
+<h2 id="1-portfolio-greeks-are-signed-sums-0821-0208">1. Portfolio Greeks are signed sums <a href="https://www.youtube.com/watch?v=15s8WcE5VRU&amp;t=501s">08:21</a> / <a href="https://www.youtube.com/watch?v=QsrKq3bRN5A&amp;t=128s">02:08</a></h2>
+<p>If a portfolio value is \(V=\sum_i n_i m_i v_i+hS+b\), then its stock delta is \(\sum_i n_im_i\Delta_i+h\), gamma is \(\sum_i n_im_i\Gamma_i\), and vega is \(\sum_i n_im_i\mathcal V_i\). Here \(n_i\) is a signed contract count, \(m_i\) is the shares-per-contract multiplier, \(h\) is shares, and \(b\) is current cash. Quantities are held fixed when taking these partial derivatives. Portfolio Greeks are signed <em>sums</em>, not normalized averages unless the weights and the value being differentiated have been defined that way.</p>
+<p>For the source's portfolio short 2,000 calls with delta 0.7 and short 2,000 puts with delta −0.3, assuming one share per option, delta is \(-2000(0.7)-2000(-0.3)=-800\). Buy 800 shares to neutralize it. With a multiplier of 100 on both option contracts, the corresponding stock trade would be 80,000 shares. An unmentioned multiplier can dominate a small numerical error.</p>
+<p>The source's separate delta–gamma example starts with \(\Delta_P=300,\Gamma_P=140\). A traded hedge option has delta 0.6 and gamma 0.7. Shorting 200 options removes gamma: \(140-200(0.7)=0\). Its delta becomes \(300-200(0.6)=180\), so shorting 180 shares removes delta. Stock contributes delta one and gamma zero per share. The order of those two operations is useful because the final stock adjustment leaves gamma unchanged. It does not prevent gamma or delta from changing when the market moves.</p>
+<h2 id="2-gammavega-neutrality-is-a-rank-question-2421">2. Gamma–vega neutrality is a rank question <a href="https://www.youtube.com/watch?v=QsrKq3bRN5A&amp;t=1461s">24:21</a></h2>
+<p>With two hedge options, solve</p>
+<p>\[
+\begin{pmatrix}\Gamma_1&amp;\Gamma_2\\
+\mathcal V_1&amp;\mathcal V_2\end{pmatrix}
+\begin{pmatrix}x_1\\x_2\end{pmatrix}
+=-\begin{pmatrix}\Gamma_P\\\mathcal V_P\end{pmatrix},
+\qquad
+h=-\Delta_P-x_1\Delta_1-x_2\Delta_2.
+\]</p>
+<p>Use exposures per contract, including multipliers, or exposures per one-share option consistently throughout. The source gives \(\Gamma_P=-5000,\mathcal V_P=-8000\), with hedge Greeks \((\Delta_1,\Gamma_1,\mathcal V_1)=(0.6,0.5,2)\) and \((\Delta_2,\Gamma_2,\mathcal V_2)=(0.5,0.8,1.2)\). The solution is \(x_1=400,x_2=6000\), followed by \(h=-3240\) shares when original delta is zero. Substitution verifies each of the three net exposures. These are supplied local sensitivity numbers; they do not identify full contractual payoffs or prove that the portfolio remains neutral after repricing.</p>
+<p>The matrix is invertible only if \(\Gamma_1\mathcal V_2-\Gamma_2\mathcal V_1\ne0\). Independence of the two rows has economic content. In the constant-volatility Black–Scholes model,</p>
+<p>\[
+\mathcal V=S^2\sigma\tau\Gamma.
+\]</p>
+<p>This follows immediately by dividing the vega and gamma formulas in Chapter 20, and it also holds with the same continuous yield in both formulas. All options on the same stock with the same maturity and common volatility therefore have the same vega-to-gamma ratio, regardless of strike. Two different strikes at that maturity do not generally provide two independent gamma–vega controls. The matrix is singular. If the target ratio matches theirs, one equation is redundant; if it differs, the proposed neutrality equations are inconsistent.</p>
+<p>Different maturities can supply independence. The lab constructs a fully repricable example: a position short 100 one-year strike-100 calls, hedged with six-month strike-90 calls and eighteen-month strike-110 calls, all on stock 100 with \(r=0.05,\sigma=0.2\). It solves the gamma–vega system, removes delta with stock, and funds the net option-plus-stock cost through cash. Full repricing after stock and volatility shocks then measures what the local equations leave behind.</p>
+<p>Nearly equal ratios create a different problem: formally invertible but large and unstable positions. Condition numbers depend on the units used for gamma and vega; rescale exposure rows by meaningful risk tolerances before comparing them. The lab rejects normalized determinants close to zero and demonstrates how nearby maturities amplify hedge quantities. Integer rounding, bid–ask spreads, and available liquidity can make an exact continuous solution impractical even when its rank is full.</p>
+<h2 id="3-gamma-and-theta-are-linked-by-the-pde-1923-1037">3. Gamma and theta are linked by the PDE <a href="https://www.youtube.com/watch?v=0_NyYdmXBS0&amp;t=1163s">19:23</a> / <a href="https://www.youtube.com/watch?v=QsrKq3bRN5A&amp;t=637s">10:37</a></h2>
+<p>The lecture describes gamma and vega as largest near the strike. This is useful qualitative geography, not an exact universal maximum. At fixed maturity, rate, yield, and volatility, differentiating \(\log\Gamma\) with respect to \(\log S\) gives \(-1-d_1/(\sigma\sqrt\tau)\). Thus the gamma maximum as stock varies occurs at \(S=K\exp[-(r-q+3\sigma^2/2)\tau]\). Vega's corresponding derivative is \(1-d_1/(\sigma\sqrt\tau)\), so its maximum occurs at \(S=K\exp[-(r-q-\sigma^2/2)\tau]\). These locations approach strike at short maturity but differ at finite maturity.</p>
+<p>Vega is positive for vanilla European calls and puts because its exact formula is positive. It is not necessary, or generally correct, to argue that \(d_1\) increases with volatility. Nor must vega increase monotonically with maturity over arbitrary horizons: even at \(S=K\), a positive-rate example has \(\mathcal V=S\sqrt\tau\phi((r/\sigma+\sigma/2)\sqrt\tau)\), which eventually decreases as the Gaussian exponential dominates \(\sqrt\tau\). The lab checks this counterexample. Long digital or other nonconvex-payoff derivatives need not have positive gamma or vega merely because the position is long.</p>
+<p>For a non-dividend derivative priced with common \(r,\sigma\), the PDE is the Greek identity</p>
+<p>\[
+\Theta+\tfrac12\sigma^2S^2\Gamma+rS\Delta-rV=0.
+\]</p>
+<p>Signed sums preserve it for portfolios of such derivatives. A bank position also satisfies it: its theta at fixed terminal claim is its interest accumulation. Consequently, a delta- and gamma-neutral portfolio has \(\Theta=rV\) in this model. If a cash position makes its current value zero as well, its net theta is zero. Independently choosing arbitrary delta, gamma, theta, and price targets can therefore conflict with the model. Introducing different implied volatilities, yield exposures, or other instruments changes the relevant equations and must be made explicit.</p>
+<p>For a delta-hedged long option over a short interval \(h\), hold the initial delta short and place \(\Delta S-V\) in cash so the total initial value is zero. Ignoring higher-order terms, its end-of-interval value is</p>
+<p>\[
+\delta X\approx\Theta h+\tfrac12\Gamma(\delta S)^2
++r(\Delta S-V)h
+=\tfrac12\Gamma\big[(\delta S)^2-\sigma^2S^2h\big].
+\]</p>
+<p>The first equality accounts for financing; the second uses the PDE. Positive gamma earns a curvature contribution from squared stock movement, but theta and carry charge for the modeled variation. If actual short-interval diffusion volatility is \(\nu\), the leading conditional mean is approximately \(\tfrac12\Gamma S^2(\nu^2-\sigma^2)h\). Physical drift contributes only higher-order terms to this local squared-increment calculation. Under the correctly specified continuous model \(\nu=\sigma\), there is no positive expected leading-order free gain. Model mismatch, jumps, costs, and finite rebalancing change the result.</p>
+<p>This is a local approximation. Gamma varies with state and time; one cannot replace the entire pathwise P&amp;L by initial gamma times total realized variance without controlling those changes. Continuous delta replication and its financing equation are derived in <a href="https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf">Kogan's MIT notes, slides 17–20</a>; the finite-interval error above is obtained here by a Taylor expansion of that construction.</p>
+<h2 id="4-a-profitable-stock-round-trip-is-only-one-ledger-component-1224">4. A profitable stock round trip is only one ledger component <a href="https://www.youtube.com/watch?v=0_NyYdmXBS0&amp;t=744s">12:24</a></h2>
+<p>The source starts with option-book delta 3,000 and gamma 800 at stock 90. Its local constant-gamma rule gives delta 5,400 at stock 93 and 3,800 at stock 91. The hedge begins short 3,000 shares, sells another 2,400 at 93, then buys back 1,600 at 91. That last covered tranche produces a realized stock-leg gain \(1600(93-91)=3200\). It says nothing by itself about the remaining short shares, option revaluation, financing, or elapsed time.</p>
+<p>To make the distinction exact, construct a synthetic quadratic book under a zero-rate arithmetic diffusion with absolute volatility \(a=18\) currency units per square-root year:</p>
+<p>\[
+V(S,t)=1{,}000{,}000+3000(S-90)
++400(S-90)^2-129600t.
+\]</p>
+<p>It has delta \(3000+800(S-90)\), gamma 800, and theta −129600. It satisfies \(V_t+\tfrac12a^2V_{SS}=0\), so its convexity cost is consistent with the stated diffusion. It is an original finite-horizon quadratic-payoff construction, not a Black–Scholes vanilla option or a fitted market portfolio. Take the two stock moves 90→93→91 on consecutive days, each \(1/252\) year, and rebalance delta only at those dates.</p>
+<p>The option-book change is \(3000+400-129600(2/252)=2371.428571\). Stock trading gains over the two intervals are \(-3000(3)-5400(-2)=1800\). Total financed book-plus-hedge gain is 4171.428571, also equal to</p>
+<p>\[
+400(3^2+(-2)^2)-129600(2/252).
+\]</p>
+<p>The cash account funds both stock trades, and a rebalance itself changes no total wealth at that instant. Thus 3,200 is a legitimate <em>partial</em> realized stock gain, while 4,171.43 is the complete result for this explicitly specified toy book and time path. A quiet path with no stock movement instead loses 1,028.571429 through theta over the same two days. Positive gamma does not guarantee positive full P&amp;L.</p>
+<p>This distinction also explains why selling high and buying low is not an arbitrage proof. The option premium finances access to convexity, open positions retain market value, and trading costs grow with turnover. A rebalancing policy must be evaluated on the full signed wealth process, not selected winning trades.</p>
+<h2 id="5-scenario-hedges-are-different-from-independent-partial-hedges-2933-0024">5. Scenario hedges are different from independent partial hedges <a href="https://www.youtube.com/watch?v=QsrKq3bRN5A&amp;t=1773s">29:33</a> / <a href="https://www.youtube.com/watch?v=EJbnlOu035A&amp;t=24s">00:24</a></h2>
+<p>The source motivates a small negative delta for a negative-vega portfolio when volatility tends to rise as stock falls. This is a proposed scenario relationship, not a universal identity. Let a specified local scenario satisfy \(\delta\sigma\approx k\,\delta S\), where \(k\) has units volatility per currency unit. Then first-order change is</p>
+<p>\[
+\delta V\approx(\Delta+k\mathcal V)\delta S.
+\]</p>
+<p>A hedge against that particular joint scenario sets \(\Delta=-k\mathcal V\). For \(k=-0.002\) and vega −1000 currency units per unit volatility, the required delta is −2 shares. On a stock fall of 5 and volatility increase of 0.01, delta contributes +10 and vega contributes −10. If volatility instead falls by 0.01 on the same stock decline, both terms add to +20; a different scenario can produce a loss. Correlation, its magnitude, and its stability are empirical inputs requiring estimation. The notes do not turn this teaching heuristic into an investment recommendation.</p>
+<p>A premium credit does not determine the sign of vega or gamma at all states. Compute the signed sensitivities of every leg. A butterfly can change its local Greek signs with moneyness; a calendar spread's theta can change with state; and calls with the same expiry cannot supply independently chosen gamma and vega under a common volatility. In particular, the source's suggestion of positive gamma with negative vega requires instruments with different maturities or a richer set of risk inputs when the single-stock Black–Scholes proportionality applies. Greek-neutral today also leaves third-order stock sensitivity, cross derivatives, and scenario changes in the volatility surface.</p>
+<h2 id="6-a-forward-quote-is-not-an-existing-contract-1653">6. A forward quote is not an existing contract <a href="https://www.youtube.com/watch?v=EJbnlOu035A&amp;t=1013s">16:53</a></h2>
+<p>Let \(X\) be domestic currency per one foreign unit, with deterministic domestic and foreign rates \(r_d,r_f\). A newly negotiated forward delivery quotation is \(F=Xe^{(r_d-r_f)\tau}\), whose spot derivative is \(e^{(r_d-r_f)\tau}\). An existing long forward on \(Q\) foreign units with fixed delivery price \(K\) has domestic present value</p>
+<p>\[
+V=Q[Xe^{-r_f\tau}-Ke^{-r_d\tau}],
+\qquad V_X=Qe^{-r_f\tau}.
+\]</p>
+<p>The derivative of its fixed delivery price is zero, not a replacement by the current quote. The two deltas differ by the domestic discount factor because \(V=Qe^{-r_d\tau}(F-K)\). These are the quote/value identities established by cash-and-carry in Chapter 02.</p>
+<p>The source's numerical example has a domestic portfolio spot delta of +6.2 million foreign units, \(r_d=0.66,r_f=0.06,\tau=0.75\). These unusually large rates are historical teaching inputs, not current data. To offset its present-value delta with a short forward, choose</p>
+<p>\[
+Q=6.2\,e^{0.06(0.75)}\text{ million foreign units}.
+\]</p>
+<p>This is approximately 6.48537 million. Dividing by the <em>quote</em> sensitivity \(e^{0.45}\), as in the recording's forward discussion, instead hedges a different quantity. The source moves between “futures” and “forward” language; an actual futures hedge must state the daily settlement gains, quote exposure, multiplier, and funding convention before using a quote derivative. The lab directly differentiates the fixed-strike forward value and verifies the corrected hedge, so the distinction is numerical as well as verbal.</p>
+<p>The source's separate at-the-money call example uses \(r=0.1,\sigma=0.25,\tau=0.5\). Its \(d_1\) is about 0.37123 and delta about 0.64477, rather than exactly 0.5 merely because stock equals strike. Full precision is printed in the lab.</p>
+<h2 id="7-from-a-hedge-book-to-a-swap-schedule-2403">7. From a hedge book to a swap schedule <a href="https://www.youtube.com/watch?v=EJbnlOu035A&amp;t=1443s">24:03</a></h2>
+<p>A swap contract specifies dated exchanges of cash flows. A plain fixed-for-floating interest-rate swap commonly uses a notional to calculate interest while exchanging no principal. Its definition requires payment dates, accrual fractions, the fixed coupon, floating-rate fixing and observation rules, and the direction of each payment. “Pay fixed” alone does not identify a numerical liability without those inputs.</p>
+<p>A fixed-versus-floating net payment \(N\delta(L-K)\) resembles a forward payoff on an interest-rate fixing. A sequence of such dated payments motivates the view of a swap as a strip of forward-rate exposures. Settlement timing and discounting determine whether a standard FRA's cash amount coincides directly with that payment; the next chapter derives the timing correction rather than silently treating all FRAs as end-period coupons.</p>
+<p>The recordings use LIBOR as a floating-rate example. That is historical teaching terminology. The final remaining synthetic LIBOR settings were published on 30 September 2024, as confirmed by the <a href="https://www.fca.org.uk/news/press-releases/end-libor">FCA's October 2024 cessation announcement</a>. A contemporary contract needs its actual benchmark and observation conventions; replacing the name alone does not convert a term fixing in advance into a compounded overnight rate in arrears.</p>
+<h2 id="laboratory">Laboratory</h2>
+<p>Run <a href="labs/ch21.py">the hedge-system and financing laboratory</a>. It verifies the two source Greek systems and share signs, solves a repricable two-maturity hedge, rejects same-maturity gamma–vega degeneracy, tracks the complete quadratic-book cash ledger, and checks quote/value currency deltas. Finite shock tests make the residual exposures visible rather than calling an accepted linear system a complete market-risk hedge.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Reproduce the source's gamma-neutral hedge of a delta-300, gamma-140 book. What changes if hedge-option quantities are rounded to 199 instead of 200 short?</li>
+<li>Show why one-year calls with strikes 90 and 110 cannot independently neutralize arbitrary gamma and vega in a common-volatility model. State the condition on the target exposures for consistency.</li>
+<li>Verify the source's hedge \((400,6000,-3240)\) against all three initial Greek exposures. What additional information is required to determine its cost?</li>
+<li>In the quadratic-book model, take two quiet days with stock constant at 90. Calculate book change, stock gains, total P&amp;L, and the missing component in a “positive gamma always earns” claim.</li>
+<li>Derive the local scenario delta for \(k=-0.002,\mathcal V=-1000\), then compute first-order change when stock rises 5 while volatility rises 0.01.</li>
+<li>Derive the foreign notional needed to neutralize the source portfolio with a fixed-strike forward. Explain why the domestic rate drops out of its spot delta while still entering the forward quote.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>Short \(140/0.7=200\) options, leaving delta \(300-120=180\); short 180 shares. If only 199 options are short, gamma is \(140-199(0.7)=0.7\), delta before stock is \(300-199(0.6)=180.6\). Short 180.6 shares to remove delta if fractional shares are allowed. The remaining gamma is still 0.7. Rounding one exposure trade does not automatically round all risks in a favorable direction.</p>
+</li>
+<li>
+<p>Each hedge has \(\mathcal V_i=k_0\Gamma_i\), with \(k_0=S^2\sigma(1\text{ year})\). Hence the second matrix row is \(k_0\) times the first. Consistency requires \(\mathcal V_P=k_0\Gamma_P\). If satisfied, infinitely many gamma-canceling combinations can also cancel vega; if not, none can. Different strike deltas cannot repair the missing gamma–vega rank because stock contributes zero to both rows.</p>
+</li>
+<li>
+<p>Gamma is \(-5000+400(0.5)+6000(0.8)=0\). Vega is \(-8000+400(2)+6000(1.2)=0\). Delta is \(0+400(0.6)+6000(0.5)-3240=0\). Cost additionally needs the two option prices, stock price, multipliers, trading costs, and the chosen cash financing. Greeks alone do not specify premium cash flows or terminal obligations.</p>
+</li>
+<li>
+<p>Theta is −129600 per year, so book change is \(-129600(2/252)=-1028.571429\). Stock has no price change, so all stock trading gains are zero; no delta rebalance is needed. Zero interest makes financing gains zero. Total P&amp;L is therefore −1028.571429 despite positive gamma 800. The missing component was the price of waiting for movement, expressed here by theta. Convexity payments require realized squared movement to offset that cost.</p>
+</li>
+<li>
+<p>Set \(\Delta=-k\mathcal V=-2\) shares. For the assumed inverse scenario, \(\delta S=-5,\delta\sigma=0.01\), terms +10 and −10 cancel. For the question's different joint shock \(\delta S=5,\delta\sigma=0.01\), delta contributes −10 and vega −10, giving −20. A hedge against one relationship between factors is not a hedge against arbitrary independent moves in those factors.</p>
+</li>
+<li>
+<p>One short forward on \(Q\) foreign units contributes delta \(-Qe^{-r_f\tau}\). Solving \(6.2\text{ million}-Qe^{-0.06(0.75)}=0\) gives \(Q=6.2e^{0.045}\) million. The fixed strike's domestic present value is independent of current spot, so domestic discounting disappears from \(V_X\). It remains in the quote through interest parity; algebraically its factor cancels when multiplying \(F_X=e^{(r_d-r_f)\tau}\) by \(e^{-r_d\tau}\). Units are foreign units of spot exposure, measured as domestic value per domestic-per-foreign exchange-rate unit.</p>
+</li>
+</ol>
+</details><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch21.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Greek hedge and financing checks; no files, network, or trading effects.&quot;&quot;&quot;
+
+from math import exp, isclose, isfinite, log, pi, sqrt
+
+import numpy as np
+from scipy.special import ndtr
+
+
+def value(spot, strike, rate, volatility, tau, yield_rate=0, put=False):
+    inputs = (spot, strike, rate, volatility, tau, yield_rate)
+    if not all(isfinite(x) for x in inputs):
+        raise ValueError(&quot;Inputs must be finite&quot;)
+    if spot &lt;= 0 or strike &lt;= 0 or volatility &lt; 0 or tau &lt; 0:
+        raise ValueError(&quot;Invalid price, volatility, or remaining time&quot;)
+    asset = spot * exp(-yield_rate * tau)
+    debt = strike * exp(-rate * tau)
+    if volatility == 0 or tau == 0:
+        return max(debt - asset, 0) if put else max(asset - debt, 0)
+    width = volatility * sqrt(tau)
+    d1 = (log(spot / strike)
+          + (rate - yield_rate + volatility**2 / 2) * tau) / width
+    d2 = d1 - width
+    if put:
+        return debt * ndtr(-d2) - asset * ndtr(-d1)
+    return asset * ndtr(d1) - debt * ndtr(d2)
+
+
+def greeks(spot, strike, rate, volatility, tau, yield_rate=0, put=False):
+    value(spot, strike, rate, volatility, tau, yield_rate, put)
+    if volatility == 0 or tau == 0:
+        raise ValueError(
+            &quot;Interior Greeks require positive volatility and time&quot;)
+    width = volatility * sqrt(tau)
+    d1 = (log(spot / strike)
+          + (rate - yield_rate + volatility**2 / 2) * tau) / width
+    d2 = d1 - width
+    asset = spot * exp(-yield_rate * tau)
+    debt = strike * exp(-rate * tau)
+    density = exp(-d1**2 / 2) / sqrt(2 * pi)
+    direction = -1 if put else 1
+    n1, n2 = ndtr(direction * d1), ndtr(direction * d2)
+    delta = direction * exp(-yield_rate * tau) * n1
+    gamma = exp(-yield_rate * tau) * density / (spot * width)
+    vega = asset * density * sqrt(tau)
+    rho = direction * tau * debt * n2
+    yield_sensitivity = -direction * tau * asset * n1
+    theta = (-asset * volatility * density / (2 * sqrt(tau))
+             + direction * yield_rate * asset * n1
+             - direction * rate * debt * n2)
+    return dict(delta=delta, gamma=gamma, vega=vega, rho=rho,
+                yield_sensitivity=yield_sensitivity, theta=theta)
+
+
+def solve_hedge(matrix, target):
+    &quot;&quot;&quot;Solve two exposure equations, rejecting ill-conditioned row ratios.&quot;&quot;&quot;
+    matrix, target = np.asarray(matrix, float), np.asarray(target, float)
+    if matrix.shape != (2, 2) or target.shape != (2,):
+        raise ValueError(&quot;Require a 2x2 exposure matrix and two targets&quot;)
+    if not np.isfinite(matrix).all() or not np.isfinite(target).all():
+        raise ValueError(&quot;Exposures must be finite&quot;)
+    row_norm = np.linalg.norm(matrix, axis=1)
+    if (row_norm == 0).any():
+        raise ValueError(&quot;Zero exposure row&quot;)
+    normalized = matrix / row_norm[:, None]
+    if abs(np.linalg.det(normalized)) &lt; 1e-10:
+        raise ValueError(&quot;Gamma-vega exposure directions are not independent&quot;)
+    return np.linalg.solve(matrix, target)
+
+
+def close(actual, expected, tolerance=1e-8):
+    assert isclose(actual, expected, rel_tol=tolerance, abs_tol=tolerance), (
+        actual, expected
+    )
+
+
+def quadratic_book(price, time):
+    return (1_000_000 + 3000 * (price - 90)
+            + 400 * (price - 90)**2 - 129600 * time)
+
+
+def ledger(prices, step=1 / 252):
+    &quot;&quot;&quot;A long quadratic book, short current delta, cash funded to zero.&quot;&quot;&quot;
+    stock = -3000
+    cash = -quadratic_book(prices[0], 0) - stock * prices[0]
+    for date, price in enumerate(prices[1:], 1):
+        wealth_before = quadratic_book(
+            price, date * step) + stock * price + cash
+        new_stock = -(3000 + 800 * (price - 90))
+        trade = new_stock - stock
+        cash -= trade * price
+        stock = new_stock
+        wealth_after = quadratic_book(
+            price, date * step) + stock * price + cash
+        close(wealth_before, wealth_after)
+    return wealth_after
+
+
+def main():
+    close(140 - 200 * .7, 0)
+    close(300 - 200 * .6 - 180, 0)
+    source_matrix = ((.5, .8), (2, 1.2))
+    source_weights = solve_hedge(source_matrix, (5000, 8000))
+    close(source_weights[0], 400)
+    close(source_weights[1], 6000)
+    close(400 * .6 + 6000 * .5 - 3240, 0)
+    close(-2000 * .7 - 2000 * (-.3) + 800, 0)
+
+    base = greeks(100, 100, .05, .2, 1)
+    hedge1 = greeks(100, 90, .05, .2, .5)
+    hedge2 = greeks(100, 110, .05, .2, 1.5)
+    matrix = ((hedge1[&#x27;gamma&#x27;], hedge2[&#x27;gamma&#x27;]),
+              (hedge1[&#x27;vega&#x27;], hedge2[&#x27;vega&#x27;]))
+    weights = solve_hedge(matrix, (100 * base[&#x27;gamma&#x27;], 100 * base[&#x27;vega&#x27;]))
+    shares = 100 * base[&#x27;delta&#x27;] - sum(
+        w * g[&#x27;delta&#x27;] for w, g in zip(weights, (hedge1, hedge2))
+    )
+    options = ((-100, 100, 1), (weights[0], 90, .5), (weights[1], 110, 1.5))
+    for name in (&#x27;gamma&#x27;, &#x27;vega&#x27;):
+        close(-100 * base[name] + weights[0] * hedge1[name]
+              + weights[1] * hedge2[name], 0)
+    close(-100 * base[&#x27;delta&#x27;] + weights[0] * hedge1[&#x27;delta&#x27;]
+          + weights[1] * hedge2[&#x27;delta&#x27;] + shares, 0)
+    cash = -sum(w * value(100, k, .05, .2, t)
+                for w, k, t in options) - 100 * shares
+
+    def full_wealth(price, volatility, elapsed=0):
+        return (sum(w * value(price, k, .05, volatility, t - elapsed)
+                    for w, k, t in options) + shares * price
+                + cash * exp(.05 * elapsed))
+
+    close(full_wealth(100, .2), 0)
+    net_theta = (sum(w * greeks(100, k, .05, .2, t)[&#x27;theta&#x27;]
+                     for w, k, t in options) + .05 * cash)
+    close(net_theta, 0)
+    print(&quot;Repricable hedge option amounts&quot;, weights, &quot;stock&quot;, shares)
+    for price, volatility in ((99, .2), (101, .2), (100, .21), (90, .24)):
+        print(f&quot;Scenario S={price}, sigma={volatility}: &quot;
+              f&quot;funded hedge residual {full_wealth(price, volatility):.8f}&quot;)
+    assert abs(full_wealth(101, .2)) &lt; .01
+    for strike in (90, 110):
+        g = greeks(100, strike, .05, .2, 1)
+        close(g[&#x27;vega&#x27;] / g[&#x27;gamma&#x27;], 100**2 * .2 * 1)
+    same1, same2 = greeks(100, 90, .05, .2, 1), greeks(100, 110, .05, .2, 1)
+    try:
+        solve_hedge(((same1[&#x27;gamma&#x27;], same2[&#x27;gamma&#x27;]),
+                     (same1[&#x27;vega&#x27;], same2[&#x27;vega&#x27;])), (1, 3))
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&quot;Degenerate same-maturity hedge accepted&quot;)
+    nearby = greeks(100, 110, .05, .2, .5001)
+    large = solve_hedge(((hedge1[&#x27;gamma&#x27;], nearby[&#x27;gamma&#x27;]),
+                         (hedge1[&#x27;vega&#x27;], nearby[&#x27;vega&#x27;])),
+                        (100 * base[&#x27;gamma&#x27;], 100 * base[&#x27;vega&#x27;]))
+    assert np.linalg.norm(large) &gt; 1000 * np.linalg.norm(weights)
+
+    result = ledger((90, 93, 91))
+    close(result, 400 * 13 - 129600 * 2 / 252)
+    close(ledger((90, 90, 90)), -129600 * 2 / 252)
+    print(
+        f&quot;Complete quadratic-book P&amp;L {result:.8f}; &quot;
+        &quot;partial stock tranche 3200&quot;)
+    rate_d, rate_f, tau, exposure = .66, .06, .75, 6.2e6
+    foreign_units = exposure * exp(rate_f * tau)
+    close(exposure - foreign_units * exp(-rate_f * tau), 0)
+    quote_delta = exp((rate_d - rate_f) * tau)
+    close(exp(-rate_d * tau) * quote_delta, exp(-rate_f * tau))
+
+    def forward_value(exchange_rate):
+        return (exchange_rate * exp(-rate_f * tau)
+                - 1.4 * exp(-rate_d * tau))
+
+    step = 1e-5
+    numerical_delta = (forward_value(1.25 + step)
+                       - forward_value(1.25 - step)) / (2 * step)
+    close(numerical_delta, exp(-rate_f * tau))
+    print(f&quot;Corrected forward foreign notional {foreign_units:.8f}&quot;)
+    atm_delta = greeks(100, 100, .1, .25, .5)[&#x27;delta&#x27;]
+    close(atm_delta, .6447672796293542)
+    print(f&quot;Source ATM call delta {atm_delta:.8f}&quot;)
+    assert greeks(100, 100, .2, .2, 100)[
+        &#x27;vega&#x27;] &lt; greeks(100, 100, .2, .2, 1)[&#x27;vega&#x27;]
+    gamma_peak = 100 * exp(-(.05 + 1.5 * .2**2))
+    vega_peak = 100 * exp(-(.05 - .5 * .2**2))
+    for name, peak in ((&#x27;gamma&#x27;, gamma_peak), (&#x27;vega&#x27;, vega_peak)):
+        central = greeks(peak, 100, .05, .2, 1)[name]
+        assert central &gt; greeks(peak - .1, 100, .05, .2, 1)[name]
+        assert central &gt; greeks(peak + .1, 100, .05, .2, 1)[name]
+    print(&quot;All signed hedge, rank, financing, and scenario checks passed.&quot;)
+
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch20.html">Previous: Solving the pricing PDE and measuring local exposure</a><a rel="next" href="ch22.html">Next: FRAs and interest-rate swaps as dated cash flows</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

@@ -1,0 +1,64 @@
+{
+  "chapter": "ch05",
+  "author": "source_research",
+  "recordings": [
+    {
+      "position": 12,
+      "video_id": "nDESESqRF-s",
+      "normalized_text_sha256": "db03bca6b95f5ae854937a2c330fc0a044683adfb45f9d4799ec54878c68404b",
+      "first_start": 24.85,
+      "last_end": 1942.67,
+      "reading": "full sequential text read",
+      "landmarks": [
+        {
+          "seconds": 24,
+          "topic": "Regression exposure recap"
+        },
+        {
+          "seconds": 900,
+          "topic": "Variance of a linear combination"
+        },
+        {
+          "seconds": 1138,
+          "topic": "Hedged quantity cash-flow definition"
+        },
+        {
+          "seconds": 1500,
+          "topic": "Minimum-variance first and second derivatives"
+        }
+      ],
+      "scope": "Complete normalized caption text, no comprehensive audiovisual audit."
+    },
+    {
+      "position": 13,
+      "video_id": "oFj5lW9QwHc",
+      "normalized_text_sha256": "66ee0b9dd4a31e24571500e80505b5a4b57d04b72f32c6e6e63ed3ec0627fc73",
+      "first_start": 24.83,
+      "last_end": 1847.73,
+      "reading": "full sequential text read",
+      "landmarks": [
+        {
+          "seconds": 24,
+          "topic": "Changes rather than levels and integrality"
+        },
+        {
+          "seconds": 675,
+          "topic": "Residual variance and correlation"
+        },
+        {
+          "seconds": 1205,
+          "topic": "Cross-hedge decomposition"
+        },
+        {
+          "seconds": 1510,
+          "topic": "Dollar/euro quotation and settlement units"
+        }
+      ],
+      "scope": "Complete normalized caption text, no comprehensive audiovisual audit."
+    }
+  ],
+  "limitations": [
+    "Sample correlations do not certify future covariance stability.",
+    "Correlation0.8 leaves36%variance, not20%; clarified from the source discussion."
+  ]
+}

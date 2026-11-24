@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Discount factors price cash flows; a yield summarizes one price · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html" aria-current=page>08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>08. Discount factors price cash flows; a yield summarizes one price</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=EEG2kXFqpKk">Recording 20</a>, <a href="https://www.youtube.com/watch?v=_asG_7J7zs0">Recording 21</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Derive spot and forward quotations from discount factors</li><li>Prove and compute positive-cash-flow yield uniqueness</li><li>Explain why YTM does not identify a curve or average linearly</li><li>Separate internal rate from realized reinvested wealth</li></ul>
+<p><strong>Prerequisites:</strong> Dated present values from Chapter 2; monotone functions, logarithms and elementary differentiation.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch08.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-define-discounting-by-the-payment-being-purchased-0220">1. Define discounting by the payment being purchased 02:20</a></li><li><a href="#2-forward-rates-are-locked-ratios-not-guaranteed-forecasts">2. Forward rates are locked ratios, not guaranteed forecasts</a></li><li><a href="#3-yield-to-maturity-is-a-nonlinear-inverse-for-one-payment-stream-0400">3. Yield to maturity is a nonlinear inverse for one payment stream 04:00</a></li><li><a href="#4-one-bonds-yield-cannot-identify-the-whole-curve-2120">4. One bond&#x27;s yield cannot identify the whole curve 21:20</a></li><li><a href="#5-reinvestment-affects-terminal-wealth-not-whether-ytm-can-be-computed-0110">5. Reinvestment affects terminal wealth, not whether YTM can be computed 01:10</a></li><li><a href="#6-rate-conventions-must-preserve-the-actual-price-2510">6. Rate conventions must preserve the actual price 25:10</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A bond pays at several dates, while a yield quotation compresses its price into one number. That compression is useful for quoting and comparison, but it discards information about the term structure. Two bonds valued on the same discount curve can have different yields to maturity because their payment patterns differ. Conversely, different discount curves can give the same price and yield for one bond.</p>
+<p>The right starting object is therefore a dated cash flow and its discount factor. We will derive spot and forward rates from discount factors, distinguish coupon rate from yield, solve the nonlinear yield equation, and separate a bond's internal rate of return from the investor's eventual compounded wealth. This distinction becomes indispensable when duration is used to measure a bond's sensitivity to a quoted yield.</p>
+<h2 id="1-define-discounting-by-the-payment-being-purchased-0220">1. Define discounting by the payment being purchased <a href="https://www.youtube.com/watch?v=EEG2kXFqpKk&amp;t=140s">02:20</a></h2>
+<p>Let $P(0,t)&gt;0$ be the time-zero price of a default-free claim paying one currency unit at date $t&gt;0$, with no other payments. It is dimensionless when expressed as currency paid today per unit of the same currency at maturity. Assume payments have the same currency, credit quality, and funding/collateral setting so a common discount curve applies. Promised risky corporate payments generally cannot be priced by mechanically inserting a default-free curve without addressing credit and other contractual risks.</p>
+<p>The annual effective spot rate $z_t&gt;-1$ and continuously compounded spot rate $r_t$ are alternative encodings of the same discount factor:</p>
+<p>$$P(0,t)=(1+z_t)^{-t}=e^{-r_tt},\qquad
+r_t=\frac{-\log P(0,t)}{t},\quad z_t=e^{r_t}-1.$$</p>
+<p>Time $t$ is a specified year fraction. Annual, semiannual nominal, simple money-market, and continuously compounded quotations are not interchangeable numerical inputs. A rate can be negative while the discount factor remains positive; positivity alone does not require $P(0,t)\le1$. We do not assume positive rates as a theorem of no-arbitrage.</p>
+<p>For deterministic cash payments $C_k$ at dates $t_k$, replication by dated unit claims gives the full present value</p>
+<p>$$B_0=\sum_{k=1}^{N}C_kP(0,t_k).$$</p>
+<p>Here $B_0$ denotes the bond's full cash-flow value, keeping $P$ available for discount factors. The equality follows from matching each payment date, not from averaging rates. If the traded bond and its replicating claims have different prices, buying the cheaper payment stream and selling the dearer gives the statewise price discrepancy under frictionless executable trading. <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf#page=25">MIT's fixed-income notes, slides 25–34</a>, explain the coupon bond as a portfolio of dated zero-coupon claims.</p>
+<p>The coupon rate is contractual: a conventional annual coupon $C=cM$ is based on face amount $M$ and coupon rate $c$. It is not the return on the price currently paid. A bond selling above face can have a coupon rate above its yield; the premium paid for its larger coupons contributes to that difference. Payments between coupon dates also require the clean/dirty-price and accrued-interest conventions developed in Chapter 11.</p>
+<h2 id="2-forward-rates-are-locked-ratios-not-guaranteed-forecasts">2. Forward rates are locked ratios, not guaranteed forecasts</h2>
+<p>Take dates $0&lt;u&lt;v$ and suppose the relevant dated claims can be traded. A forward agreement to lend one unit at $u$ and receive $A$ at $v$ has zero initial value precisely when</p>
+<p>$$-P(0,u)+AP(0,v)=0,\qquad A=\frac{P(0,u)}{P(0,v)}.$$</p>
+<p>The payment stream is replicated by shorting one $u$-maturity unit claim and buying $A$ $v$-maturity claims; their initial costs cancel. A lender already expecting one unit at $u$ can offset that short payment and lock the later receipt. This dated-claim argument is the bridge to forward-rate agreements later in the book.</p>
+<p>For a simple forward rate over accrual fraction $\delta$, write $A=1+f_{u,v}\delta$, giving</p>
+<p>$$f_{u,v}=\frac{P(0,u)/P(0,v)-1}{\delta}.$$</p>
+<p>For continuous compounding, $f^c_{u,v}=\log[P(0,u)/P(0,v)]/(v-u)$. These are two quotations of the same locked accumulation factor when the time conventions align. They are not generally equal to the future spot rate that will actually prevail at $u$. Equating a current forward with an expected future spot rate needs additional assumptions about risk premiums and the probability measure. <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf#page=19">MIT's slides 19–24</a> make the future transaction dates and replication explicit.</p>
+<p>For annual effective spot rates $z_1=0.10$ and $z_2=0.15$, $P(0,1)=1/1.10$ and $P(0,2)=1/1.15^2$. The locked one-year factor from year one to year two is $1.15^2/1.10\approx1.2022727$, so the one-year forward rate is about 20.2273%. It exceeds both spot rates because the two-year rate combines a relatively low first-year accumulation with a higher locked second-year accumulation. Calling the two-year spot rate “the rate earned in year two” would confuse these objects.</p>
+<h3 id="recovering-discount-factors-from-coupon-bond-prices">Recovering discount factors from coupon-bond prices</h3>
+<p>When earlier discount factors are known, a later coupon bond can reveal the next one. For an annual two-year bond with payments $C$ and $C+M$,</p>
+<p>$$P(0,2)=\frac{B_0-CP(0,1)}{C+M}.$$</p>
+<p>This is a simple <strong>bootstrap</strong>: solve sequentially from prices rather than assigning every payment the bond's own quoted yield. As a synthetic example, $P(0,1)=0.95$, $C=3$, $M=100$, and $B_0=98$ imply $P(0,2)\approx0.9237864$. Positivity is a necessary check. Real instruments have irregular dates, differing coupon schedules, bid/ask prices, and interpolation choices; one equation does not establish a complete continuous curve.</p>
+<h2 id="3-yield-to-maturity-is-a-nonlinear-inverse-for-one-payment-stream-0400">3. Yield to maturity is a nonlinear inverse for one payment stream <a href="https://www.youtube.com/watch?v=EEG2kXFqpKk&amp;t=240s">04:00</a></h2>
+<p>For annual payments at integer years, the annual effective yield to maturity $y_b$ is defined by</p>
+<p>$$B_0=\Phi(y_b):=\sum_{k=1}^{N}\frac{C_k}{(1+y_b)^k},\qquad y_b&gt;-1.$$</p>
+<p>For positive payments and positive price, $\Phi$ is continuous, strictly decreasing, tends to infinity as $y_b\downarrow-1$, and tends to zero as $y_b\to\infty$. Indeed,</p>
+<p>$$\Phi'(y_b)=-\sum_{k=1}^{N}\frac{kC_k}{(1+y_b)^{k+1}}&lt;0.$$</p>
+<p>Thus there is exactly one root. This supplies the mathematical justification for a bracketed numerical solver. Cash streams with both positive and negative future payments can have multiple internal rates or no admissible rate; uniqueness must not be exported to them without proof. Irregular dates need an explicitly specified yield convention, including the annualization and coupon frequency.</p>
+<p>For a zero-coupon bond paying $M$ at $N$, the yield is $(M/B_0)^{1/N}-1$, exactly the spot rate for that maturity and convention. For a positive coupon stream priced from spot rates $z_k$, its YTM lies between their minimum and maximum over the actual payment dates. To prove this, discount every positive payment at the minimum spot: each resulting present value is at least its curve-discounted value. Using the maximum gives the reverse inequality. Monotonicity of $\Phi$ places the equal-price yield between the two. This result is not a simple arithmetic-average formula.</p>
+<p>With the 10%/15% spot curve, a two-year face-1,000 zero costs about 756.143667 and has yield 15%. The annual coupon that makes a two-year bond sell at par solves</p>
+<p>$$C\{P(0,1)+P(0,2)\}+1000P(0,2)=1000.$$</p>
+<p>It is about 146.4396. For a conventional bond at par, annual coupon rate and annual effective YTM coincide, so its yield is about 14.6440%. A two-payment equal annuity priced at 1,000 instead pays about 600.516 on each date and has a lower YTM, nearer the earlier spot rate. These source-inspired cases use the same curve but different cash-flow weights. The lab prints the precise values rather than relying on rounded slide numbers.</p>
+<p>For a conventional level-coupon bond with annual coupon rate $c$ and redemption at face, evaluating $\Phi(c)$ gives face value by the annuity identity. Since $\Phi$ decreases, a price above face implies $y_b&lt;c$, and a price below face implies $y_b&gt;c$. This comparison needs the stated schedule and convention. It does not say that every security quoting above an arbitrary reference amount has yield below its nominal coupon.</p>
+<h2 id="4-one-bonds-yield-cannot-identify-the-whole-curve-2120">4. One bond's yield cannot identify the whole curve <a href="https://www.youtube.com/watch?v=EEG2kXFqpKk&amp;t=1280s">21:20</a></h2>
+<p>A two-payment stream gives one price equation in two discount factors:</p>
+<p>$$B_0=C_1P(0,1)+C_2P(0,2).$$</p>
+<p>If $C_2\ne0$, choose any admissible first factor and set the second to $(B_0-C_1P(0,1))/C_2$. Many positive pairs can therefore give the same price. The unique YTM for this positive payment stream remains unchanged. Uniqueness of the scalar price–yield inverse is entirely compatible with nonuniqueness of the underlying curve.</p>
+<p>Use $C_1=650$, $C_2=575$, and initial spot rates 8% and 12%. Compute the price from that curve, then change the first spot rate to 8.5% and solve for the second discount factor to preserve the price exactly. The resulting second spot is different, while the bond's yield remains the same. This construction avoids attributing exact equality to the source's rounded alternative rates.</p>
+<p>There is also no general weighted-average rule for the YTM of a bond portfolio. Combine one bond priced at 100 with annual payments $(15,15,115)$ and another priced at 100 with payments $(6,106,0)$. Their individual yields are 15% and 6%, but the combined price 200 and payments $(21,121,115)$ give a yield about 11.29%, rather than their 10.5% capital-weighted average. The nonlinear discount equation acts on the aggregate payments. Arithmetic portfolio-return linearity concerns returns measured over one common horizon; these different-maturity internal-rate calculations are a different object.</p>
+<h2 id="5-reinvestment-affects-terminal-wealth-not-whether-ytm-can-be-computed-0110">5. Reinvestment affects terminal wealth, not whether YTM can be computed <a href="https://www.youtube.com/watch?v=_asG_7J7zs0&amp;t=70s">01:10</a></h2>
+<p>The YTM equation is a present-value definition and requires no actual reinvestment transaction. Its use as a terminal compounded growth rate requires an additional condition. Multiplying the annual equation by $(1+y_b)^N$ gives</p>
+<p>$$B_0(1+y_b)^N=\sum_{k=1}^{N}C_k(1+y_b)^{N-k}.$$</p>
+<p>The right side is the terminal wealth that would result if each payment were reinvested at $y_b$ until maturity. Thus realizing that terminal growth rate requires the relevant reinvestment opportunities and payment performance. It is more precise to distinguish the algebraic definition from this wealth interpretation than to say that computing an internal rate itself assumes that actual coupons have been reinvested.</p>
+<p>If all coupons are reinvested at a constant annual rate $j&gt;-1$, terminal wealth is $W_N(j)=\sum_kC_k(1+j)^{N-k}$, and the realized annual compound yield is</p>
+<p>$$g_N(j)=\left(\frac{W_N(j)}{B_0}\right)^{1/N}-1.$$</p>
+<p>This is a retrospective outcome when the payments and reinvestments have occurred, and a scenario projection when $j$ is an assumption. For positive cash flows held to contractual maturity, $g_N(j)$ lies between $j$ and $y_b$. If $j&gt;y_b$, each accumulation factor at $j$ is at least its counterpart at $y_b$, so $g_N(j)\ge y_b$. Also $B_0=\sum C_k/(1+y_b)^k\ge\sum C_k/(1+j)^k$, which after multiplication by $(1+j)^N$ gives $W_N(j)\le B_0(1+j)^N$, hence $g_N(j)\le j$. Reverse both comparisons for $j&lt;y_b$.</p>
+<p>The maturity condition is essential. At an earlier horizon $H$, wealth includes the sale price of the remaining bond as well as accumulated received payments. That sale price can change with the curve, credit quality, liquidity, or embedded options. It can put the realized holding-period yield outside the interval between initial YTM and coupon reinvestment rate. The lecture's interval claim therefore needs this qualification when discussing early liquidation.</p>
+<p>A higher YTM also need not dominate terminal wealth under a common reinvestment scenario. Compare two synthetic 15-year face-100 bonds: A pays annual coupons 10 and is priced to yield 6%; B pays coupons 3 and is priced to yield 6.1%. At reinvestment rate 9%, A's larger earlier payments benefit more from reinvestment. Its terminal annual compound yield exceeds B's despite A's lower initial YTM. The lab computes prices from exact face-100 payments so no inconsistent rounded redemption amount is needed. This is a scenario comparison, not a forecast of future reinvestment rates.</p>
+<h2 id="6-rate-conventions-must-preserve-the-actual-price-2510">6. Rate conventions must preserve the actual price <a href="https://www.youtube.com/watch?v=_asG_7J7zs0&amp;t=1510s">25:10</a></h2>
+<p>For a bill paying face $M$ in $d$ actual days, a specified bank-discount quotation $b$ uses the face denominator and a 360-day basis:</p>
+<p>$$b=\frac{M-B_0}{M}\frac{360}{d},\qquad
+B_0=M\left(1-b\frac d{360}\right).$$</p>
+<p>This is a quotation convention, not an error in the security's cash flows. The investment holding-period return instead uses $B_0$ in the denominator. An annual effective 365-day equivalent is $(M/B_0)^{365/d}-1$, under that explicitly chosen annualization. For $M=100$, $B_0=99$, and $d=60$, discount yield is 6%, while the effective annual equivalent is about 6.3047%. <a href="https://www.treasurydirect.gov/marketable-securities/understanding-pricing/">TreasuryDirect's pricing explanation</a> confirms the bill price–discount-rate relation. Chapters 10–11 develop the associated futures quotations and historical product conventions.</p>
+<p>Run <a href="labs/ch08.py">the laboratory</a> to compute the curve prices, solve yields with explicit brackets, verify exact cash-flow repricing, construct an alternative curve with unchanged YTM, and check both portfolio-yield nonlinearity and reinvestment-rank reversal. The solver validates positive cash flows and positive prices. Its convergence establishes an internal-rate calculation for those inputs; it does not make contractual payments certain or guarantee a reinvestment opportunity.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Convert the 10%/15% annual spot curve into discount factors and the locked year-one-to-year-two forward rate. Why is that rate not a guaranteed forecast?</li>
+<li>Prove uniqueness of the positive-cash-flow YTM and its position between the minimum and maximum relevant spot rates.</li>
+<li>Calculate the par coupon and equal-annuity payment for the two-year face-1,000 cases. Explain their different yields despite their common curve.</li>
+<li>Construct two different discount-factor pairs that give the same price for payments 650 and 575. What remains unique and what does not?</li>
+<li>Explain why the yield of the $(21,121,115)$ portfolio is not 10.5%. Distinguish the present-value YTM definition from the realized terminal-growth interpretation.</li>
+<li>Prove the maturity reinvestment interval and identify why early sale breaks its proof. Convert the 60-day 99-to-100 bill into discount and annual effective yields.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>The factors are $1/1.10=0.9090909$ and $1/1.15^2=0.7561437$. Their ratio is about 1.2022727, so the one-year forward rate is about 0.2022727. A zero-initial-cost combination of the corresponding dated claims locks this factor. The future spot rate is a future market outcome; identifying it with a current forward requires additional expectations and risk-premium assumptions.</p>
+</li>
+<li>
+<p>For $y_b&gt;-1$, every positive payment contributes a negative term to $\Phi'$, so the function strictly decreases. Its limits span all positive prices and continuity gives a unique root. Discounting all payments at the smallest spot rate gives a price at least as large as the curve price; discounting at the largest gives one no larger. The equal-price rate must therefore lie between them. The proof uses positive payments and aligned compounding conventions; mixed-sign internal-rate problems can fail uniqueness.</p>
+</li>
+<li>
+<p>The par coupon is $C=1000(1-P_2)/(P_1+P_2)$, approximately 146.4396. Its coupon rate equals its annual yield because price equals face under the conventional schedule. The equal payment is $A=1000/(P_1+P_2)\approx600.516$. Solving $A/(1+y_b)+A/(1+y_b)^2=1000$ gives a yield about 13.1324%. Its payment pattern places relatively more present-value weight on the first year's lower spot rate, so its yield is below the par-coupon bond's yield, although both use identical discount factors.</p>
+</li>
+<li>
+<p>First compute $B_0=650/1.08+575/1.12^2$. Pick $P_1^*=1/1.085$ and set $P_2^*=(B_0-650P_1^*)/575$. Both factors remain positive and the two prices agree exactly by construction. Convert $P_2^*$ to its annual spot rate with $(P_2^*)^{-1/2}-1$. The first and second spot rates have changed, but the positive-payment stream and its price have not, so the unique YTM is unchanged. A whole curve cannot be recovered from this one scalar price equation.</p>
+</li>
+<li>
+<p>The portfolio rate solves $200=21/(1+y_b)+121/(1+y_b)^2+115/(1+y_b)^3$. Substituting 10.5% does not give 200; numerical root finding yields approximately 11.29%. Different payment dates make this inversion nonlinear. The YTM definition needs only the price, payment schedule, and quotation convention. To interpret it as terminal compound growth, multiply by $(1+y_b)^N$: the resulting wealth assumes reinvestment at $y_b$. Actual reinvestment at another rate changes terminal wealth without changing the already computed initial YTM.</p>
+</li>
+<li>
+<p>For $j&gt;y_b$, increasing the positive cash flows' accumulation factors gives $W_N(j)\ge W_N(y_b)=B_0(1+y_b)^N$, so $g_N\ge y_b$. Discounting at $j$ instead gives $\sum C_k/(1+j)^k\le B_0$, which implies $W_N(j)\le B_0(1+j)^N$ and $g_N\le j$. Reverse inequalities for the other ordering. Early sale introduces a market price not equal to the original promised payment sequence, so this comparison no longer applies. For the bill, $b=(1/100)(360/60)=0.06$, whereas the annual effective equivalent is $(100/99)^{365/60}-1\approx0.063047$.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Full sequential captions for playlist positions <a href="https://www.youtube.com/watch?v=EEG2kXFqpKk">20</a> and <a href="https://www.youtube.com/watch?v=_asG_7J7zs0">21</a> were read. Their spot-rate, YTM, annuity, portfolio-yield, reinvestment, and discount-quotation examples motivate this chapter. The discount-factor forward-rate and bootstrap developments make the prerequisites for later FRAs explicit. Claims of automatic YTM superiority and universal realized-yield bounds are qualified by the investor's horizon and reinvestment assumptions. Selected MIT fixed-income passages and TreasuryDirect's bill pricing formula were inspected. Numerical examples are mathematical teaching constructions or explicitly attributed source cases, not live quotations; caption reading is not a full audiovisual review.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch08.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Curve prices, bracketed yields and reinvestment scenarios.&quot;&quot;&quot;
+
+from math import isclose, isfinite
+
+
+def price(cash, yield_b):
+    if yield_b &lt;= -1:
+        raise ValueError(&quot;Annual yield must exceed -1&quot;)
+    return sum(c / (1 + yield_b) ** k for k, c in enumerate(cash, 1))
+
+
+def ytm(cash, bond_price):
+    cash = list(cash)
+    if (
+        not cash
+        or not all(isfinite(c) and c &gt;= 0 for c in cash)
+        or not any(cash)
+        or not isfinite(bond_price)
+        or bond_price &lt;= 0
+    ):
+        raise ValueError(
+            &quot;Need positive price and nonnegative nonzero payments&quot;
+        )
+    lo, hi = -0.99, 1.0
+    if price(cash, lo) &lt; bond_price:
+        raise ValueError(&quot;Price lies outside the chosen lower bracket&quot;)
+    while price(cash, hi) &gt; bond_price:
+        hi = 2 * hi + 1
+    for _ in range(160):
+        mid = (lo + hi) / 2
+        if price(cash, mid) &gt; bond_price:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
+def growth(cash, initial, reinvest):
+    n = len(cash)
+    wealth = sum(c * (1 + reinvest) ** (n - k) for k, c in enumerate(cash, 1))
+    return (wealth / initial) ** (1 / n) - 1
+
+
+def main():
+    p1, p2 = 1 / 1.10, 1 / 1.15**2
+    coupon = 1000 * (1 - p2) / (p1 + p2)
+    annuity = 1000 / (p1 + p2)
+    assert isclose(ytm([coupon, 1000 + coupon], 1000), coupon / 1000)
+    ann_y = ytm([annuity, annuity], 1000)
+    assert 0.10 &lt; ann_y &lt; coupon / 1000 &lt; 0.15
+    curve_price = 650 / 1.08 + 575 / 1.12**2
+    alt1 = 1 / 1.085
+    alt2 = (curve_price - 650 * alt1) / 575
+    assert alt2 &gt; 0
+    assert isclose(650 * alt1 + 575 * alt2, curve_price)
+    portfolio_y = ytm([21, 121, 115], 200)
+    assert not isclose(portfolio_y, 0.105)
+    a, b = [10] * 14 + [110], [3] * 14 + [103]
+    pa, pb = price(a, 0.06), price(b, 0.061)
+    ga, gb = growth(a, pa, 0.09), growth(b, pb, 0.09)
+    assert ga &gt; gb
+    for cash, initial, yield_b in ((a, pa, 0.06), (b, pb, 0.061)):
+        assert isclose(ytm(cash, initial), yield_b)
+        assert isclose(growth(cash, initial, yield_b), yield_b)
+        for reinvest in (0.01, 0.04, 0.09):
+            g = growth(cash, initial, reinvest)
+            assert min(reinvest, yield_b) - 1e-12 &lt;= g
+            assert g &lt;= max(reinvest, yield_b) + 1e-12
+    effective = (100 / 99) ** (365 / 60) - 1
+    print(
+        f&quot;Par coupon={coupon:.6f}; equal annuity={annuity:.6f}; &quot;
+        f&quot;annuity YTM={ann_y:.6f}&quot;
+    )
+    print(f&quot;Year2 forward={p1/p2-1:.6f}; portfolio YTM={portfolio_y:.6f}&quot;)
+    print(
+        f&quot;Exact prices A={pa:.6f}, B={pb:.6f}; &quot;
+        f&quot;9% reinvestment growth A={ga:.6f}, B={gb:.6f}&quot;
+    )
+    print(f&quot;60-day bill effective annual equivalent={effective:.6f}&quot;)
+    print(
+        &quot;Repricing, uniqueness brackets, curve ambiguity &quot;
+        &quot;and growth checks passed.&quot;
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch07.html">Previous: Index futures change beta without selling the stock portfolio</a><a rel="next" href="ch09.html">Next: Duration cancels a first derivative, not every interest-rate risk</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

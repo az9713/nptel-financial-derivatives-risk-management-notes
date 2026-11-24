@@ -1,0 +1,58 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch07-r1.md",
+  "scope": [
+    "Complete manuscript, metadata, six worked solutions and code",
+    "Independent algebra, signs, units and numerical checks",
+    "Selected actual caption passages and primary MIT slides inspected",
+    "Localized numerical repairs rechecked and full lab rerun"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch07.md": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+    "chapters/ch07.json": "eeb208682d36714cf79a0806a7edced4f86a5921c28ed6e6fe42b623777618fe",
+    "labs/ch07.py": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      17,
+      18,
+      19
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT forward/futures slides25\u201329"
+    ]
+  },
+  "rechecked_repairs": [
+    "Correct rounded carry and surplus last decimals",
+    "Correct six-contract reference constant and strengthen its absolute tolerance"
+  ],
+  "limitations": [
+    "No comprehensive audiovisual audit",
+    "No full independent caption reread",
+    "Separate release/browser checks required"
+  ],
+  "bounded_rechecks": [
+    {
+      "reason": "Canonical LF normalization only; no scientific content change",
+      "proof": "validation/line-ending-normalization.json",
+      "method": "Reconstructed original CRLF bytes from canonical LF and matched prior acceptance SHA-256 exactly; Python AST equivalence and fresh lab execution passed.",
+      "files": [
+        {
+          "file": "chapters/ch07.md",
+          "before_sha256": "3198f72d6b2b3ae752570ae673477aa8ddeb188764afb94d5160b56a307c088a",
+          "after_sha256": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+          "reverse_crlf_reconstruction_matches_accepted_sha256": true
+        },
+        {
+          "file": "labs/ch07.py",
+          "before_sha256": "7cfe54f7a282df84a86e6f2f4dcb96476e09f8dcee03905acc5a3b860ec4024a",
+          "after_sha256": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91",
+          "reverse_crlf_reconstruction_matches_accepted_sha256": true
+        }
+      ]
+    }
+  ]
+}

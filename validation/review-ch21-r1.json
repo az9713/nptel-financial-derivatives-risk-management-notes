@@ -1,0 +1,35 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch21-r1.md",
+  "scope": [
+    "Complete current manuscript, metadata, all six solutions and full lab",
+    "Independent hedge systems, financing ledger, Greeks and FX value-delta checks",
+    "Selected actual captions and primary FCA benchmark passage",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch21.md": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+    "chapters/ch21.json": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
+    "labs/ch21.py": "63b0cb899f09b65f7a078f36b6c5b18e107ab9b6c9475e8893862946cba0c4b1"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      51,
+      52,
+      53,
+      54
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT Kogan stochastic-calculus slides17\u201320",
+      "FCA End of LIBOR announcement1October2024"
+    ]
+  },
+  "limitations": [
+    "No full independent caption reread",
+    "No comprehensive audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ]
+}

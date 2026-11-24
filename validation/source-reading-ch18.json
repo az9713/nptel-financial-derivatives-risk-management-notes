@@ -1,0 +1,72 @@
+{
+  "chapter": "ch18",
+  "reader": "scientific_review (chapter author)",
+  "recordings": [
+    {
+      "position": 44,
+      "video_id": "mbtFmErzmHg",
+      "normalized_text_sha256": "b7dae6b16a9b9837a65331ed844e7c75e470df73d92f9227dddeded6a521dbd5",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 148,
+          "topic": "Replication as derivative valuation"
+        },
+        {
+          "start_seconds": 394,
+          "topic": "Single-step two-state stock and derivative model"
+        },
+        {
+          "start_seconds": 900,
+          "topic": "Risk-neutral weights and their bounds"
+        },
+        {
+          "start_seconds": 1747,
+          "topic": "Discounted pricing expectation"
+        }
+      ]
+    },
+    {
+      "position": 45,
+      "video_id": "u5DlFctnY18",
+      "normalized_text_sha256": "a4e7a4e6c3c5f600a42d598cac0a544731eef3ee1e68561c3d9d07e493d567a2",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 133,
+          "topic": "Synthetic versus observed probabilities"
+        },
+        {
+          "start_seconds": 515,
+          "topic": "One-step call and contingent inflow/outflow"
+        },
+        {
+          "start_seconds": 1051,
+          "topic": "Two-period backward induction"
+        },
+        {
+          "start_seconds": 1384,
+          "topic": "Continuous-compounding pricing weights"
+        },
+        {
+          "start_seconds": 1823,
+          "topic": "Early-exercise put comparison"
+        }
+      ]
+    }
+  ],
+  "scope": "Full official English caption text read sequentially; equations reconstructed and examples independently recomputed. No full audiovisual audit.",
+  "source_corrections": [
+    "Risk-neutral valuation does not imply actual investor risk neutrality or equal physical expected returns.",
+    "The stock spot price does not uniquely identify physical probabilities.",
+    "Gross factors u and d are distinguished from percentage changes.",
+    "Strict no-arbitrage inequalities require both physical states possible.",
+    "Strikes outside the two terminal stock prices are legitimate and priced explicitly.",
+    "Root put intrinsic value is 2; option value is approximately 5.089632 on the exercise grid.",
+    "Annual-date early-exercise recursion does not examine continuous exercise between dates.",
+    "Source rounded figures replaced by independently reproduced full-precision arithmetic."
+  ],
+  "primary_checks": [
+    "Cox-Ross-Rubinstein 1979 author manuscript sections2-3, pages3-7: state matching, usable short-sale proceeds, strict inequalities and pricing weights."
+  ]
+}

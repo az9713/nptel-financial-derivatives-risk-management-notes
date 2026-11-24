@@ -1,0 +1,30 @@
+{
+  "reviewer": "scientific_review",
+  "date": "2026-11-24",
+  "scope": [
+    "Full chapter01 manuscript, metadata, laboratory, and six worked solutions",
+    "Full sequential overview caption text; relevant CME/OIC/PFMI passages",
+    "Independent execution and numeric checks; no audiovisual or browser review"
+  ],
+  "disposition": "accepted",
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch01.md": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+    "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
+    "labs/ch01.py": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076"
+  },
+  "reviewed_files": {
+    "chapters/ch01.md": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+    "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
+    "labs/ch01.py": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076"
+  },
+  "report": "validation/review-pilot-r1.md",
+  "execution": "Original and repaired laboratory independently executed successfully; iterator/empty-input regressions and listing widths checked.",
+  "limits": "Independent AI review only; no human expert or formal proof certification; no full audiovisual or browser audit.",
+  "findings_fixed": [
+    "R1: central-clearing definition added before technical use",
+    "R2: short-sale cash-flow definition and zero-fee/usable-proceeds assumptions added",
+    "R3: scenario iterables normalized once and empty inputs rejected",
+    "Module effects description and overlong code line corrected"
+  ]
+}

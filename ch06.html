@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Portfolio risk depends on covariance; priced risk requires a model · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html" aria-current=page>06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>06. Portfolio risk depends on covariance; priced risk requires a model</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=g7j8sAIDN04">Recording 14</a>, <a href="https://www.youtube.com/watch?v=o_dndjBh26U">Recording 15</a>, <a href="https://www.youtube.com/watch?v=kyLk0hSwjX4">Recording 16</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Derive portfolio moments and the two-asset variance minimum</li><li>Separate efficient-frontier optimization from equilibrium pricing</li><li>Derive CAPM from an interior Sharpe-ratio condition</li><li>State the assumptions behind residual diversification</li></ul>
+<p><strong>Prerequisites:</strong> Chapter 5 covariance projection; finite second moments, differentiation and elementary matrix notation.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch06.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-put-the-return-horizon-and-portfolio-weights-in-the-equations-0745">1. Put the return horizon and portfolio weights in the equations 07:45</a></li><li><a href="#2-find-the-minimum-variance-portfolio-before-drawing-the-frontier-1005">2. Find the minimum-variance portfolio before drawing the frontier 10:05</a></li><li><a href="#3-a-risk-free-asset-turns-the-efficient-boundary-into-a-line-2503">3. A risk-free asset turns the efficient boundary into a line 25:03</a></li><li><a href="#4-capm-adds-market-clearing-to-individual-optimization-2315">4. CAPM adds market clearing to individual optimization 23:15</a></li><li><a href="#5-regression-orthogonality-is-weaker-than-independence-1200">5. Regression orthogonality is weaker than independence 12:00</a></li><li><a href="#6-what-diversification-actually-needs-2001">6. What diversification actually needs 20:01</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>Two securities each have a modeled expected return of 10% with return standard deviation 6%. Does putting half the capital in each reproduce the same risk? Only if their returns move together perfectly. With correlation 0.5, the portfolio has standard deviation about 5.20%, while its expected return stays 10%. This simple calculation changes the question from “How risky is this security?” to “How does it change the risk of the position I already hold?”</p>
+<p>The lecture sequence develops that question into mean–variance portfolio selection and the capital asset pricing model, or CAPM. These are related but logically distinct. Covariance identities describe random returns. Optimization selects portfolios under stated objectives and constraints. CAPM adds assumptions about investors and market equilibrium to propose a relation for expected returns. Keeping these levels separate will prevent an index hedge from being mistaken for either a guaranteed investment return or the elimination of every source of risk.</p>
+<h2 id="1-put-the-return-horizon-and-portfolio-weights-in-the-equations-0745">1. Put the return horizon and portfolio weights in the equations <a href="https://www.youtube.com/watch?v=g7j8sAIDN04&amp;t=465s">07:45</a></h2>
+<p>Consider a single common holding period. Let $R_i$ be security $i$'s simple total return, including distributions received over that period under the specified holding convention. Assume finite second moments. Write $\mu_i=E[R_i]$ and $\Sigma_{ij}=\operatorname{Cov}(R_i,R_j)$. Initial portfolio weights $w_i$ are fractions of initial net wealth and satisfy $\sum_i w_i=1$. Without intermediate rebalancing, the portfolio return is</p>
+<p>$$R_P=\sum_i w_iR_i,\qquad \mu_P=w^\mathsf{T}\mu,\qquad
+\sigma_P^2=w^\mathsf{T}\Sigma w.$$</p>
+<p>These weights are capital weights, not numbers of shares. A negative weight is a short position; weights above one require offsetting negative weights or borrowing. The algebra permits these positions, but actual borrowing, short-sale, and position constraints must be included in an investment problem. A dynamically rebalanced portfolio requires a cash-flow or return model that accounts for its trading dates.</p>
+<p>To derive the variance formula, center each return and expand the square of $\sum_iw_i(R_i-\mu_i)$. Taking expectation produces every ordered pair $i,j$. Thus the two-security formula contains $2w_1w_2\Sigma_{12}$, since $\Sigma_{12}=\Sigma_{21}$. The covariance matrix is positive semidefinite because $a^\mathsf{T}\Sigma a$ is the variance of a real random variable for every vector $a$. A collection of individually plausible correlations can still fail this joint condition and cannot then represent a consistent return distribution.</p>
+<p>For the opening equal-weight example,</p>
+<p>$$\sigma_P^2=\tfrac14(0.06)^2+\tfrac14(0.06)^2
++2\tfrac14(0.5)(0.06)^2=0.0027.$$</p>
+<p>Its square root is 0.0519615. Equal expected returns ensure the same portfolio expectation by linearity; lower variance comes from imperfect comovement. No CAPM assumption is needed for this result. Nor does it show that the securities are mispriced: it shows that standalone volatility cannot by itself describe their contribution to a diversified portfolio.</p>
+<h2 id="2-find-the-minimum-variance-portfolio-before-drawing-the-frontier-1005">2. Find the minimum-variance portfolio before drawing the frontier <a href="https://www.youtube.com/watch?v=g7j8sAIDN04&amp;t=605s">10:05</a></h2>
+<p>For two assets set $w_1=x$ and $w_2=1-x$. Define $v_1=\sigma_1^2$, $v_2=\sigma_2^2$, and $c=\Sigma_{12}$. Then</p>
+<p>$$v(x)=x^2v_1+(1-x)^2v_2+2x(1-x)c.$$</p>
+<p>The coefficient of $x^2$ is $d=v_1+v_2-2c=\operatorname{Var}(R_1-R_2)\ge0$. If $d&gt;0$, differentiation and completion of the square give</p>
+<p>$$x_{\rm GMV}=\frac{v_2-c}{d},\qquad
+v(x)=v(x_{\rm GMV})+d(x-x_{\rm GMV})^2.$$</p>
+<p>GMV means <strong>global minimum variance</strong> among fully invested combinations allowed by this unconstrained scalar model. The nonnegative square proves globality. With a long-only constraint $0\le x\le1$, project this solution onto that interval. If $d=0$, the difference $R_1-R_2$ is constant almost surely, and the positive-curvature argument does not apply. Degenerate moment structures need direct analysis.</p>
+<p>Use an original synthetic pair with $\mu_1=0.08$, $\mu_2=0.14$, $\sigma_1=0.10$, $\sigma_2=0.20$, and correlation 0.25. Then $c=0.005$, $d=0.04$, and $x_{\rm GMV}=0.875$. Its expected return is 0.0875 and variance is 0.009375, giving standard deviation approximately 0.096825. Investing 87.5% in the less volatile asset and 12.5% in the other has lower variance than either constituent. The higher-volatility security contributes diversification as well as its own uncertainty.</p>
+<p>With unequal means, the identity $\mu_P=x\mu_1+(1-x)\mu_2$ lets us eliminate $x$ and express variance as a quadratic in the target mean. In mean–standard-deviation coordinates the nondegenerate unconstrained locus is a hyperbolic branch. The upper part above the GMV point is efficient: a point on the lower part is dominated by another feasible portfolio with the same variance and higher expectation. Constraints restrict the available portion. Equal means or perfect correlation can change the geometry, so the hyperbola and unique-composition language must not be applied without those qualifications.</p>
+<p>For many assets, the corresponding mathematical problem is</p>
+<p>$$\min_w w^\mathsf{T}\Sigma w\quad\text{subject to}\quad
+\mathbf1^\mathsf{T}w=1,\quad \mu^\mathsf{T}w=m_0.$$</p>
+<p>Here $m_0$ is a prescribed expected return. Positive definite covariance makes variance strictly convex, and linear constraints define a convex feasible set. The frontier traces these minima as the target changes. Actual preference chooses a point on the efficient set; the covariance matrix alone does not determine a person's tolerance for risk. Mean–variance preferences are themselves a modeling choice, not a consequence of finite second moments. <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/dd628e151309a7f23962b1a31b9356e5_MIT15_401F08_lec13.pdf#page=16">MIT's portfolio notes, slides 16–43</a>, develop the covariance, frontier, and tangency interpretation.</p>
+<h2 id="3-a-risk-free-asset-turns-the-efficient-boundary-into-a-line-2503">3. A risk-free asset turns the efficient boundary into a line <a href="https://www.youtube.com/watch?v=g7j8sAIDN04&amp;t=1503s">25:03</a></h2>
+<p>Let $r_f$ denote a known simple return over the same horizon. This is a horizon return, not the continuously compounded annual rate $r$ used in carry formulas. Investing fraction $a$ in a risky portfolio $P$ and $1-a$ in the risk-free asset gives</p>
+<p>$$E[R_C]=r_f+a(\mu_P-r_f),\qquad
+\sigma_C=|a|\sigma_P.$$</p>
+<p>For $a\ge0$ and positive risk premium, the slope in mean–standard-deviation space is the <strong>Sharpe ratio</strong> $(\mu_P-r_f)/\sigma_P$. Increasing $a$ scales both the excess mean and standard deviation; it does not improve that slope. A negative cash weight when $a&gt;1$ means borrowing. The straight-line opportunity set assumes borrowing and lending at the same rate, with no added constraints or costs.</p>
+<p>The best positive slope among risky portfolios determines the tangency portfolio. A useful algebraic derivation avoids relying on a diagram. Let $b=\mu-r_f\mathbf1$, suppose $\Sigma$ is positive definite, and set $q=\Sigma^{-1}b$. Cauchy–Schwarz in covariance geometry implies</p>
+<p>$$\frac{(w^\mathsf{T}b)^2}{w^\mathsf{T}\Sigma w}
+\le b^\mathsf{T}\Sigma^{-1}b,$$</p>
+<p>with equality when $w$ is proportional to $q$. If $\mathbf1^\mathsf{T}q&gt;0$, the normalized positive-premium tangency weights are $w_T=q/(\mathbf1^\mathsf{T}q)$. This is a special unconstrained result. A singular covariance, zero normalization, restrictions on short positions, or different borrowing and lending rates require an adjusted problem.</p>
+<p>For the synthetic pair and $r_f=0.02$, $q$ is proportional to $(4.8,2.4)$, so tangency weights are $(2/3,1/3)$. Expected return is 10%, variance is $1/90\approx0.0111111$, standard deviation is about 10.5409%, and Sharpe ratio is about 0.758947. The GMV portfolio has lower volatility but a smaller excess-return slope. These are different optimality questions.</p>
+<p>If all investors share these moment inputs, the available assets, and the same unconstrained mean–variance framework, their risk preferences can select different amounts of the same tangency portfolio. This separation result is conditional on the opportunity set and preferences. It is not a claim that every real investor should hold these synthetic weights.</p>
+<h2 id="4-capm-adds-market-clearing-to-individual-optimization-2315">4. CAPM adds market clearing to individual optimization <a href="https://www.youtube.com/watch?v=o_dndjBh26U&amp;t=1395s">23:15</a></h2>
+<p>The lecture's equilibrium step assumes a single common horizon, homogeneous expectations, mean–variance portfolio choice, frictionless trading, and a common risk-free borrowing/lending opportunity, together with market clearing. In the familiar unconstrained formulation, investors may vary their risky allocation continuously. When they all hold the same proportions of risky securities, aggregate holdings force those proportions to equal the value-weighted market portfolio $M$ of the model's risky assets.</p>
+<p>Why should covariance with $M$ determine an expected premium? Consider adding a small position in an asset's excess return to $M$, financed through cash. Write $X=R_M-r_f$ and $Y=R_i-r_f$. The perturbed excess payoff is $X+\epsilon Y$. Its Sharpe ratio is</p>
+<p>$$H(\epsilon)=\frac{E[X]+\epsilon E[Y]}
+{\sqrt{\operatorname{Var}(X)+2\epsilon\operatorname{Cov}(X,Y)
++\epsilon^2\operatorname{Var}(Y)}}.$$</p>
+<p>At an interior maximum, neither a positive nor a negative infinitesimal trade improves the ratio. Differentiating at zero therefore gives</p>
+<p>$$0=\frac{E[Y]}{\sigma_M}
+-\frac{E[X]\operatorname{Cov}(R_i,R_M)}{\sigma_M^3}.$$</p>
+<p>For $\sigma_M^2&gt;0$, define $\beta_i=\operatorname{Cov}(R_i,R_M)/\sigma_M^2$. Rearrangement produces the CAPM relation</p>
+<p>$$\mu_i-r_f=\beta_i(\mu_M-r_f).$$</p>
+<p>This is an expected-return restriction under equilibrium assumptions. The derivative argument needs interior feasible trades; binding constraints can replace an equality with inequalities or additional terms. CAPM does not follow merely from fitting a line through historical returns. Nor does it assert that each realized return equals its conditional or unconditional expectation. <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/411d7d9df37d4d0440b18e17e8cea3a9_MIT15_401F08_lec15.pdf#page=3">MIT's CAPM notes, slides 3–10 and 17–22</a>, distinguish the model, beta estimation, and empirical assessment.</p>
+<p>The <strong>capital market line</strong> relates expected return to total standard deviation for efficient cash–market combinations. The <strong>security market line</strong> relates expected return to beta for assets under CAPM. Substituting an arbitrary security's total volatility into the capital market line discards its residual risk and generally gives a different number.</p>
+<h2 id="5-regression-orthogonality-is-weaker-than-independence-1200">5. Regression orthogonality is weaker than independence <a href="https://www.youtube.com/watch?v=kyLk0hSwjX4&amp;t=720s">12:00</a></h2>
+<p>For any finite-variance asset return with nonconstant market return, the population linear projection can be written</p>
+<p>$$R_i-r_f=\alpha_i+\beta_i(R_M-r_f)+\varepsilon_i,$$</p>
+<p>where $E[\varepsilon_i]=0$ and $\operatorname{Cov}(\varepsilon_i,R_M)=0$. The slope is the same covariance ratio; the intercept is $\alpha_i=\mu_i-r_f-\beta_i(\mu_M-r_f)$. These projection properties hold by construction. CAPM adds the restriction $\alpha_i=0$ for the true modeled market and expectations.</p>
+<p>Taking variance yields</p>
+<p>$$\sigma_i^2=\beta_i^2\sigma_M^2+\sigma_{\varepsilon_i}^2.$$</p>
+<p>The terms add as variances, not standard deviations. The factor component's standard deviation is $|\beta_i|\sigma_M$; beta itself may be negative. Residual orthogonality removes the cross term, but does not establish independence, Gaussianity, unpredictability from other information, or absence of nonlinear dependence. A residual correlated with another omitted economic factor can be uncorrelated with this one market regressor. This precision matters when the lecture motivates residual randomness using market efficiency: a linear regression identity alone cannot prove informational efficiency.</p>
+<p>In an original synthetic illustration let $r_f=3\%$, $\mu_M=12\%$, and $\sigma_M=4\%$. A beta-one portfolio with residual variance 0.002 has total variance $0.0016+0.002=0.0036$, or standard deviation 6%. Under CAPM its expected return is 12%. A beta-1.5 portfolio with zero residual has the same total standard deviation 6%, but expected return $3\%+1.5(9\%)=16.5\%$. A beta-one pure market position has standard deviation 4% and the original expected return 12%. These are model-based comparisons. Removing residual risk does not itself increase beta: increasing market exposure is a separate trade, often requiring leverage and funding.</p>
+<h2 id="6-what-diversification-actually-needs-2001">6. What diversification actually needs <a href="https://www.youtube.com/watch?v=kyLk0hSwjX4&amp;t=1201s">20:01</a></h2>
+<p>For $N$ equally weighted securities, let $\bar v_N$ be the average individual variance and $\bar c_N$ the average covariance over the $N(N-1)$ ordered distinct pairs. Counting terms in $w^\mathsf{T}\Sigma w$ gives exactly</p>
+<p>$$\operatorname{Var}(R_P)=\frac{\bar v_N}{N}
++\frac{N-1}{N}\bar c_N.$$</p>
+<p>If average variances remain bounded and average covariance converges to $c_\infty$, the limit is $c_\infty$. A nonzero floor therefore needs nonvanishing average covariance; it is not a universal theorem that portfolio risk can never tend to zero. Independent returns with bounded variances have $\bar c_N=0$ and equally weighted variance tending to zero. Conversely, adding more highly correlated names need not substantially reduce risk. Even monotone reduction as each new security is added is not guaranteed for arbitrary changing sets of assets.</p>
+<p>In a one-factor model with equal beta and mutually uncorrelated residuals of common variance $s_e^2$, the equal-weight variance becomes $\beta^2\sigma_M^2+s_e^2/N$. This is the familiar factor floor, now with its assumptions visible. Residuals being individually uncorrelated with the market is insufficient: correlated residuals can retain their own portfolio floor. Such a component may represent another common factor rather than diversifiable idiosyncratic risk.</p>
+<p>Run <a href="labs/ch06.py">the laboratory</a> to reproduce the two-asset minimum, tangency weights, covariance expansion, CAPM risk decomposition, and independent-versus-common residual limits. The code checks the minimum against a dense feasible grid and verifies the tangency first-order condition. These checks establish properties of supplied moments. They neither estimate live expected returns nor validate CAPM for a chosen stock index. The next chapter uses beta as a measurable hedge sensitivity while retaining that distinction.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Derive the portfolio variance for two securities with equal weights, each with standard deviation 6% and correlation 0.5. Does the resulting 5.20% prove either security is mispriced?</li>
+<li>Derive the GMV weight for two assets and a global optimality certificate. Apply it to the synthetic pair. What changes under a long-only restriction?</li>
+<li>Explain the risk-free combination formula and derive the tangency weights for the synthetic pair with a 2% risk-free horizon return.</li>
+<li>Differentiate the perturbed Sharpe ratio and obtain CAPM. State the extra assumptions needed to identify the maximizing portfolio with the market portfolio.</li>
+<li>Derive the factor–residual variance identity. Compare the three portfolios in the 3%/12%/4% illustration, carefully distinguishing variance from standard deviation.</li>
+<li>Derive the equal-weight average-covariance formula. Give one example in which diversification removes all limiting variance and one in which it leaves a positive floor.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>Each variance is 0.0036 and covariance is $0.5(0.0036)=0.0018$. The portfolio variance is $0.25(0.0036)+0.25(0.0036)+0.5(0.0018)=0.0027$; its square root is 0.0519615. Expected return remains 10% by linearity. The result follows from moments alone. Pricing requires additional assumptions about preferences, other investment opportunities, and equilibrium, so the calculation does not establish mispricing.</p>
+</li>
+<li>
+<p>Expanding gives $v(x)=v_2+2x(c-v_2)+x^2d$ with $d=v_1+v_2-2c$. If $d&gt;0$, setting $v'(x)=0$ gives $(v_2-c)/d$. Completing the square leaves $d(x-x_{\rm GMV})^2$, proving the unique global minimum. Here $d=0.04$ and $v_2-c=0.035$, hence $x=0.875$. Direct substitution gives variance 0.009375 and mean 0.0875. Since this weight lies in $[0,1]$, long-only constraints do not change it; an unconstrained solution outside the interval would be replaced by its closest endpoint.</p>
+</li>
+<li>
+<p>Cash has constant return, so its covariance with every return is zero. The risky fraction $a$ scales variance by $a^2$ and standard deviation by $|a|$; excess mean scales by $a$. For the pair, $b=(0.06,0.12)$ and $\Sigma$ has rows $(0.01,0.005)$ and $(0.005,0.04)$. Solving $\Sigma q=b$ gives $q=(4.8,2.4)$, whose normalization is $(2/3,1/3)$. Mean is 0.10; variance is $\frac49(0.01)+\frac19(0.04)+\frac49(0.005)=1/90$. Dividing excess mean 0.08 by its standard deviation gives approximately 0.758947.</p>
+</li>
+<li>
+<p>The denominator derivative at zero is $\operatorname{Cov}(X,Y)/\sigma_M$. The quotient derivative is therefore $E[Y]/\sigma_M-E[X]\operatorname{Cov}(X,Y)/\sigma_M^3$. An interior optimum sets it to zero. Multiplication by $\sigma_M$ gives $E[Y]=\beta_iE[X]$. Identifying that optimum as $M$ additionally uses common moment beliefs, a common investment opportunity set and horizon, mean–variance choice, frictionless unconstrained trading including cash financing, and market clearing. The projection formula for beta alone supplies none of this equilibrium identification.</p>
+</li>
+<li>
+<p>Center the projection equation. Squaring and taking expectation gives $\beta_i^2\sigma_M^2+\sigma_e^2+2\beta_i\operatorname{Cov}(R_M,e)$. Orthogonality kills the last term. Beta one with residual variance 0.002 has variance 0.0036 and standard deviation 6%, but CAPM expected return 12%. Beta 1.5 without residual has variance $2.25(0.0016)=0.0036$ and expected return 16.5%. Beta one without residual has variance 0.0016, standard deviation 4%, and expected return 12%. Merely deleting residual exposure keeps beta fixed; the higher-return comparison also increases systematic exposure.</p>
+</li>
+<li>
+<p>The diagonal sum contains $N\bar v_N$ terms in total, and the off-diagonal sum contains $N(N-1)\bar c_N$. Dividing both by $N^2$ yields the formula. Independent securities of common variance $s^2$ have portfolio variance $s^2/N\to0$. Alternatively, take $R_i=\mu_i+F+e_i$ with factor variance 0.01, residual variance 0.04, mutually uncorrelated residuals, and factor–residual orthogonality. Then distinct-security covariance is 0.01 and portfolio variance is $0.01+0.04/N\to0.01$. The positive floor comes from the specified common factor, not from the count of securities by itself.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Full sequential English captions for playlist positions <a href="https://www.youtube.com/watch?v=g7j8sAIDN04">14</a>, <a href="https://www.youtube.com/watch?v=o_dndjBh26U">15</a>, and <a href="https://www.youtube.com/watch?v=kyLk0hSwjX4">16</a> were read. They supply the portfolio-geometry, Sharpe-ratio, CAPM, and diversification progression. Selected MIT primary teaching passages are linked where used; their historical numerical market examples are not treated as current estimates. This chapter gives original numerical constructions and derivations, qualifies geometric degeneracies and diversification limits, and distinguishes regression orthogonality from stronger claims of randomness. The earlier chapter's squared-correlation correction continues to apply to the opening recap in position 14. Caption reading is not a complete audiovisual audit.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch06.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Synthetic two-asset frontier, tangency, and diversification certificates.&quot;&quot;&quot;
+
+from math import isclose, isfinite, sqrt
+
+
+def moments(x):
+    return (
+        x * 0.08 + (1 - x) * 0.14,
+        x * x * 0.01 + (1 - x) ** 2 * 0.04 + 2 * x * (1 - x) * 0.005,
+    )
+
+
+def solve2(a, b, c, rhs):
+    determinant = a * c - b * b
+    if (
+        not all(isfinite(v) for v in (a, b, c, *rhs)) or
+        a &lt;= 0 or
+        determinant &lt;= 0
+    ):
+        raise ValueError(&quot;Need a positive definite covariance matrix&quot;)
+    return (
+        (c * rhs[0] - b * rhs[1]) / determinant,
+        (a * rhs[1] - b * rhs[0]) / determinant,
+    )
+
+
+def main():
+    d = 0.01 + 0.04 - 2 * 0.005
+    x = (0.04 - 0.005) / d
+    mean, variance = moments(x)
+    assert isclose(x, 0.875) and isclose(variance, 0.009375)
+    for k in range(10001):
+        z = -1 + k * 3 / 10000
+        assert moments(z)[1] &gt;= variance - 1e-14
+        assert isclose(
+            moments(z)[1] - variance, d * (z - x) ** 2, abs_tol=1e-14
+        )
+    try:
+        solve2(-1, 0, -1, (1, 1))
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&quot;Negative definite matrix accepted&quot;)
+    q = solve2(0.01, 0.005, 0.04, (0.06, 0.12))
+    weights = [v / sum(q) for v in q]
+    assert isclose(weights[0], 2 / 3) and isclose(weights[1], 1 / 3)
+    tm, tv = moments(weights[0])
+    assert isclose(tm, 0.10) and isclose(tv, 1 / 90)
+    sharpe = (tm - 0.02) / sqrt(tv)
+    # Stationarity links each premium to its covariance with T.
+    cov_t = [
+        0.01 * weights[0] + 0.005 * weights[1],
+        0.005 * weights[0] + 0.04 * weights[1],
+    ]
+    for premium, covariance in zip((0.06, 0.12), cov_t):
+        assert isclose(premium, covariance * (tm - 0.02) / tv)
+    assert isclose(0.25 * 0.06**2 * 2 + 0.5 * 0.5 * 0.06**2, 0.0027)
+    assert isclose(0.04**2 + 0.002, 0.06**2)
+    assert isclose((1.5 * 0.04) ** 2, 0.06**2)
+    for count in (1, 10, 100, 1000):
+        direct = (count * 0.05 + count * (count - 1) * 0.01) / count**2
+        factor = 0.01 + 0.04 / count
+        assert isclose(direct, factor)
+        assert 0.04 / count &lt; 0.05
+    print(
+        f&quot;GMV weights=({x:.6f},{1-x:.6f}); mean={mean:.6f}; &quot;
+        f&quot;sd={sqrt(variance):.6f}&quot;
+    )
+    print(
+        f&quot;Tangency weights={weights}; mean={tm:.6f}; &quot;
+        f&quot;sd={sqrt(tv):.6f}; Sharpe={sharpe:.6f}&quot;
+    )
+    print(
+        &quot;Global quadratic certificate, tangency stationarity, CAPM variance &quot;
+        &quot;and diversification checks passed.&quot;
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch05.html">Previous: Hedge size is a covariance projection with trading units</a><a rel="next" href="ch07.html">Next: Index futures change beta without selling the stock portfolio</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

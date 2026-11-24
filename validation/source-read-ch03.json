@@ -1,0 +1,83 @@
+{
+  "chapter": "ch03",
+  "author": "source_research",
+  "recordings": [
+    {
+      "position": 6,
+      "video_id": "aIIUoeuQjsI",
+      "normalized_text_sha256": "bf380763c7ee503db3fc1a703804680ae474bcb21c4a141688273351e245d395",
+      "first_start": 24.8,
+      "last_end": 1753.89,
+      "reading": "full sequential text read",
+      "landmarks": [
+        {
+          "seconds": 300,
+          "topic": "Lot size, notional quotation units and contract standardization"
+        },
+        {
+          "seconds": 696,
+          "topic": "Clearing house and contract performance"
+        },
+        {
+          "seconds": 969,
+          "topic": "Mark-to-market settlement and cash transfers"
+        }
+      ],
+      "scope": "Full normalized English caption cues; no comprehensive audiovisual review."
+    },
+    {
+      "position": 7,
+      "video_id": "FTQDee2_oOU",
+      "normalized_text_sha256": "5b2d14acfdcb1e783dce80b3436bc7f38efd0a80e2583df64b4fa273b6579b69",
+      "first_start": 4.46,
+      "last_end": 2042.659,
+      "reading": "full sequential text read",
+      "landmarks": [
+        {
+          "seconds": 4,
+          "topic": "Telescoping settlement calculation"
+        },
+        {
+          "seconds": 298,
+          "topic": "Initial and maintenance margin rules"
+        },
+        {
+          "seconds": 936,
+          "topic": "Worked margin ledger"
+        },
+        {
+          "seconds": 1320,
+          "topic": "Leverage"
+        }
+      ],
+      "scope": "Full normalized English caption cues; no comprehensive audiovisual review."
+    },
+    {
+      "position": 8,
+      "video_id": "FS670JTUYlY",
+      "normalized_text_sha256": "d2aec6955d6f8a22c1f597014b5bf6e8da27f6463acd7eafb400d0a517cfb813",
+      "first_start": 24.93,
+      "last_end": 1775.24,
+      "reading": "full sequential text read",
+      "landmarks": [
+        {
+          "seconds": 464,
+          "topic": "Deterministic-rate scaled futures strategy"
+        },
+        {
+          "seconds": 1200,
+          "topic": "Forward/futures no-arbitrage comparison"
+        },
+        {
+          "seconds": 1550,
+          "topic": "Exposure and regression preview"
+        }
+      ],
+      "scope": "Full normalized English caption cues; no comprehensive audiovisual review."
+    }
+  ],
+  "limitations": [
+    "Historical market conventions are not asserted as current.",
+    "The general random-rate futures expectation formula is a marked later-theory extension."
+  ]
+}

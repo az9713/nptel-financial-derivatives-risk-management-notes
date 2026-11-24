@@ -1,0 +1,25 @@
+{
+  "reviewer": "lead_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch24-r2.md",
+  "findings_fixed": [
+    "First source cue4s replaced by substantive discussion26s",
+    "Maturity-specific curve shocks avoids implying statistical independence"
+  ],
+  "scope": [
+    "Full manuscript, metadata, six solutions and complete lab; fresh execution",
+    "Independent full sequential position60 normalized caption text read:344timedlines/5865words",
+    "Primary NIST PCA, RUgeneral and historical BCBS selected passages inspected; no comprehensive audiovisual audit"
+  ],
+  "full_caption_read": {
+    "position": 60,
+    "video_id": "xuUX0FVxwv0",
+    "normalized_text_sha256": "1c8b8b8fac057dc4a2bd3176e19c48dbd1cc16e55b7e238efe51d56ab2c0740e"
+  },
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch24.md": "55c3429a9198f319e24af696057967743fef20e3c0d7af56dece6c2bf3a12d65",
+    "chapters/ch24.json": "6e043657c359d4cbe68536a9110fa5e4517a73250357e71ce855b47d9e669d80",
+    "labs/ch24.py": "6a756732e572d8583b0688694f329a72cd47c377a94bd0ae3a7f7491879fdc00"
+  }
+}

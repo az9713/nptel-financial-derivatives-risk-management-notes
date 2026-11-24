@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "checked_files": 278,
+  "text_files": 277,
+  "findings": [],
+  "false_positive_resolution": "Seven preliminary sk-prefix matches were independently checked: each began inside the word risk in a long HTML anchor. Requiring a credential-token word boundary removes those false positives. No matched credential value was printed.",
+  "scope": "Pattern scan of intended public text artifacts for personal machine paths, private chat/memory routes and credential-shaped strings; not a claim of exhaustive secret detection. Preview screenshots were separately visually inspected."
+}

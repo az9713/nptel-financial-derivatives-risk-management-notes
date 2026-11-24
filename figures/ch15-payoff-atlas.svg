@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="840" viewBox="0 0 760 840" role="img" aria-labelledby="title desc">
+<title id="title">Calculated European option expiry profits</title>
+<desc id="desc">Six panels, synthetic zero-rate prices. Stock range zero to 160; panel profit ranges differ. Covered call min -96 max 14; protective put min -14; straddle min -16; bull call min -4 max 6; butterfly min -2 max 8; box zero profit.</desc>
+<rect width="760" height="840" fill="#111923"/>
+<g font-family="Arial,sans-serif" font-size="14" fill="#e4eaf2">
+<text x="18" y="25" font-size="17">Covered call 110</text>
+<text x="58" y="45">Profit / share</text>
+<path d="M 58 223.000 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="228.000" text-anchor="end">-105</text>
+<path d="M 58 87.308 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="92.308" text-anchor="end">0</text>
+<path d="M 58 55.000 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="60.000" text-anchor="end">25</text>
+<text x="58.000" y="244" text-anchor="middle">0</text>
+<text x="132.500" y="244" text-anchor="middle">40</text>
+<text x="207.000" y="244" text-anchor="middle">80</text>
+<text x="281.500" y="244" text-anchor="middle">120</text>
+<text x="356.000" y="244" text-anchor="middle">160</text>
+<path d="M 262.875 55 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<polyline points="58.000,211.369 262.875,69.215 356.000,69.215" fill="none" stroke="#6fddc2" stroke-width="3"/>
+<text x="207.0" y="268" text-anchor="middle">Terminal stock price</text>
+<text x="398" y="25" font-size="17">Protective put 90</text>
+<text x="438" y="45">Profit / share</text>
+<path d="M 438 223.000 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="228.000" text-anchor="end">-25</text>
+<path d="M 438 178.789 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="183.789" text-anchor="end">0</text>
+<path d="M 438 55.000 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="60.000" text-anchor="end">70</text>
+<text x="438.000" y="244" text-anchor="middle">0</text>
+<text x="512.500" y="244" text-anchor="middle">40</text>
+<text x="587.000" y="244" text-anchor="middle">80</text>
+<text x="661.500" y="244" text-anchor="middle">120</text>
+<text x="736.000" y="244" text-anchor="middle">160</text>
+<path d="M 605.625 55 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<polyline points="438.000,203.547 605.625,203.547 736.000,79.758" fill="none" stroke="#6fddc2" stroke-width="3"/>
+<text x="587.0" y="268" text-anchor="middle">Terminal stock price</text>
+<text x="18" y="305" font-size="17">Straddle 100</text>
+<text x="58" y="325">Profit / share</text>
+<path d="M 58 503.000 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="508.000" text-anchor="end">-25</text>
+<path d="M 58 466.478 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="471.478" text-anchor="end">0</text>
+<path d="M 58 335.000 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="340.000" text-anchor="end">90</text>
+<text x="58.000" y="524" text-anchor="middle">0</text>
+<text x="132.500" y="524" text-anchor="middle">40</text>
+<text x="207.000" y="524" text-anchor="middle">80</text>
+<text x="281.500" y="524" text-anchor="middle">120</text>
+<text x="356.000" y="524" text-anchor="middle">160</text>
+<path d="M 244.250 335 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<polyline points="58.000,343.765 244.250,489.852 356.000,402.200" fill="none" stroke="#6fddc2" stroke-width="3"/>
+<text x="207.0" y="548" text-anchor="middle">Terminal stock price</text>
+<text x="398" y="305" font-size="17">Bull call 100 / 110</text>
+<text x="438" y="325">Profit / share</text>
+<path d="M 438 503.000 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="508.000" text-anchor="end">-6</text>
+<path d="M 438 431.000 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="436.000" text-anchor="end">0</text>
+<path d="M 438 335.000 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="340.000" text-anchor="end">8</text>
+<text x="438.000" y="524" text-anchor="middle">0</text>
+<text x="512.500" y="524" text-anchor="middle">40</text>
+<text x="587.000" y="524" text-anchor="middle">80</text>
+<text x="661.500" y="524" text-anchor="middle">120</text>
+<text x="736.000" y="524" text-anchor="middle">160</text>
+<path d="M 624.250 335 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<path d="M 642.875 335 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<polyline points="438.000,479.000 624.250,479.000 642.875,359.000 736.000,359.000" fill="none" stroke="#6fddc2" stroke-width="3"/>
+<text x="587.0" y="548" text-anchor="middle">Terminal stock price</text>
+<text x="18" y="585" font-size="17">Butterfly 90 / 100 / 110</text>
+<text x="58" y="605">Profit / share</text>
+<path d="M 58 783.000 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="788.000" text-anchor="end">-4</text>
+<path d="M 58 735.000 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="740.000" text-anchor="end">0</text>
+<path d="M 58 615.000 h 298" stroke="#394957" fill="none"/>
+<text x="52" y="620.000" text-anchor="end">10</text>
+<text x="58.000" y="804" text-anchor="middle">0</text>
+<text x="132.500" y="804" text-anchor="middle">40</text>
+<text x="207.000" y="804" text-anchor="middle">80</text>
+<text x="281.500" y="804" text-anchor="middle">120</text>
+<text x="356.000" y="804" text-anchor="middle">160</text>
+<path d="M 225.625 615 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<path d="M 244.250 615 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<path d="M 262.875 615 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<polyline points="58.000,759.000 225.625,759.000 244.250,639.000 262.875,759.000 356.000,759.000" fill="none" stroke="#6fddc2" stroke-width="3"/>
+<text x="207.0" y="828" text-anchor="middle">Terminal stock price</text>
+<text x="398" y="585" font-size="17">Box 90 / 110</text>
+<text x="438" y="605">Profit / share</text>
+<path d="M 438 783.000 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="788.000" text-anchor="end">-1</text>
+<path d="M 438 699.000 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="704.000" text-anchor="end">0</text>
+<path d="M 438 615.000 h 298" stroke="#394957" fill="none"/>
+<text x="432" y="620.000" text-anchor="end">1</text>
+<text x="438.000" y="804" text-anchor="middle">0</text>
+<text x="512.500" y="804" text-anchor="middle">40</text>
+<text x="587.000" y="804" text-anchor="middle">80</text>
+<text x="661.500" y="804" text-anchor="middle">120</text>
+<text x="736.000" y="804" text-anchor="middle">160</text>
+<path d="M 605.625 615 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<path d="M 642.875 615 v 168" stroke="#627184" stroke-dasharray="3 5"/>
+<polyline points="438.000,699.000 605.625,699.000 642.875,699.000 736.000,699.000" fill="none" stroke="#6fddc2" stroke-width="3"/>
+<text x="587.0" y="828" text-anchor="middle">Terminal stock price</text>
+</g>
+</svg>

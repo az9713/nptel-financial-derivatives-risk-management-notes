@@ -1,0 +1,25 @@
+{
+  "reviewer": "lead_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch07-r2.md",
+  "scope": [
+    "Full manuscript, metadata, complete laboratory and all six worked solutions",
+    "Fresh lab execution and independent mathematical/numerical checks",
+    "Selected actual captions and primary reference passages; no complete audiovisual audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch07.md": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+    "chapters/ch07.json": "eeb208682d36714cf79a0806a7edced4f86a5921c28ed6e6fe42b623777618fe",
+    "labs/ch07.py": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91"
+  },
+  "line_ending_recheck": {
+    "operation": "CRLF-to-LF only",
+    "evidence": "validation/line-ending-normalization.json",
+    "independent_check": "New bytes reconstructed with CRLF exactly match prior accepted SHA-256; laboratory ASTs also identical",
+    "files": [
+      "chapters/ch07.md",
+      "labs/ch07.py"
+    ]
+  }
+}

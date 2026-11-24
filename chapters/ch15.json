@@ -1,0 +1,7 @@
+{
+  "title": "Static option strategies as piecewise-linear cash flows",
+  "lectures": [34, 35, 36],
+  "objectives": ["Construct funded profits from signed stock, call, put, and cash positions", "Derive strategy limits and break-evens from strike partitions rather than memorized diagrams", "Prove vertical-spread, butterfly, and box identities and their price restrictions", "Separate a calendar position's interim value from a common-expiry terminal payoff"],
+  "prerequisites": "Funded payoff conventions and European parity from chapter 13; bounds and exercise rights from chapter 14.",
+  "source_scope": "Full English captions for positions 34–36 read sequentially. Dated American dividend inequalities complete the opening source topic; strategy analysis uses explicit European common-expiry assumptions. Original synthetic examples and a computed payoff atlas replace ambiguous premium signs and calendar heuristics."
+}

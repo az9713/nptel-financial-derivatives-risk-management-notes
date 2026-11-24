@@ -1,0 +1,20 @@
+{
+  "reviewer": "scientific_review",
+  "disposition": "accepted",
+  "report": "validation/review-ch10-r1.md",
+  "scope": [
+    "Full manuscript, metadata, all six solutions and full laboratory source",
+    "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
+    "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+  ],
+  "remaining_findings": [],
+  "resolved_findings": [
+    "Medium: quote_price could return nonpositive cash prices. Author now rejects those outputs and tests zero/negative price cases.",
+    "Medium: annualized investment_rate accepted zero accrual. Author now rejects it, while preserving legitimate zero-day bill redemption."
+  ],
+  "accepted_files": {
+    "chapters/ch10.md": "5c422782ed73cd4d27ed021f9054381a37a7e0881b9f5b32abdb74d4c5fd8bf8",
+    "chapters/ch10.json": "16d9fba6a1365a8bbd0c4939e2eb179f8a2e094caa051c6e86be1034902e5394",
+    "labs/ch10.py": "07e40361487745bf5b85e2ec4735e4655e88aa95aaf5435f35107f6914663079"
+  }
+}

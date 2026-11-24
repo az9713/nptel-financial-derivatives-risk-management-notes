@@ -1,0 +1,19 @@
+{
+  "reviewer": "source_research",
+  "disposition": "accepted",
+  "report": "validation/review-ch21-r2.md",
+  "scope": [
+    "Full manuscript, metadata, six solutions and complete lab source",
+    "Fresh executions plus independent mathematical/numerical verification",
+    "Selected actual captions, primary Kogan/FCA passages; no repeat full-caption or audiovisual audit"
+  ],
+  "findings_fixed": [
+    "Added direct finite-difference check of fixed-strike currency forward value to substantiate validation prose"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch21.md": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+    "chapters/ch21.json": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
+    "labs/ch21.py": "63b0cb899f09b65f7a078f36b6c5b18e107ab9b6c9475e8893862946cba0c4b1"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer": "lead_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch05-r2.md",
+  "findings_fixed": [
+    "Use n_s for signed short contracts to preserve Chapter03 signed-long n convention",
+    "Correct all implicit TeX products after the initial partial notation replacement; full changed-equation inspection and lab rerun passed."
+  ],
+  "scope": [
+    "Full manuscript, metadata, code, and six worked solutions read",
+    "Fresh lab execution before and after notation repair, independent variance and rounding arithmetic",
+    "Selected p12/p13 caption and independently retrieved NIST reference checks; no full audiovisual audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch05.md": "7181b5066f9ae36bc49c64f1a9a6b97459efd054cc0ba509dce5fc96d573ecfe",
+    "chapters/ch05.json": "ea37712a1bd921023b8c79aadf30f8a288aad36e4ad5ed84be8195285501c96c",
+    "labs/ch05.py": "e4f47263e2da7e788cc5bf0b5d076f6aea0361318abd9d70567f59f0235bebda"
+  },
+  "listing_format_recheck": {
+    "prior_accepted_lab_sha256": "5ba75ded25ae77846d325370295e131a59d32aca6a15ab6f960f4d3606a8f1aa",
+    "current_lab_sha256": "4267dccae05b959878cc7953304c39b2ecc2d193c19dc895bc5cb61ff246f31f",
+    "scope": "Final formatted laboratory fully reread by this reviewer; fresh execution and PEP8/max79 check passed. Mathematical expressions and certificate outputs checked against the previously reviewed implementation. This is a bounded code-format recheck, not a repeated source audit."
+  },
+  "line_ending_recheck": {
+    "operation": "CRLF-to-LF only",
+    "evidence": "validation/line-ending-normalization.json",
+    "independent_check": "New bytes reconstructed with CRLF exactly match prior accepted SHA-256; laboratory ASTs also identical",
+    "files": [
+      "chapters/ch05.md",
+      "labs/ch05.py"
+    ]
+  }
+}

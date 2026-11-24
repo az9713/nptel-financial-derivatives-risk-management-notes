@@ -1,0 +1,17 @@
+{
+  "reviewer": "source_research",
+  "disposition": "accepted",
+  "report": "validation/review-ch11-r2.md",
+  "scope": [
+    "Full chapter, metadata, all six solutions and complete lab source",
+    "Fresh lab execution and independent algebra/numerical verification",
+    "Selected primary-reference checks and reading-attestation audit; no repeated full-caption or audiovisual audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch11.md": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+    "chapters/ch11.json": "cbdcbb4bcfbce48361d39bd78509e8b25a9bb0aacf00683851ab6886846fbb9b",
+    "labs/ch11.py": "6c60fe947df2202d02e9efaf4223c0a2616e9c289eef096d73644dbb3254de93"
+  },
+  "repair_recheck": "Narrow repair recheck: dynamic tailing now rejects nonfinite/nonpositive growth factors and stock inputs, with NaN/infinity/zero/negative regression cases. Valid-domain algorithm unchanged; fresh execution passed."
+}

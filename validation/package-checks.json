@@ -1,0 +1,418 @@
+{
+  "status": "pass",
+  "chapter_count": 24,
+  "allow_partial": false,
+  "covered_positions": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "chapters": [
+    {
+      "id": "ch01",
+      "source_sha256": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+      "metadata_sha256": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
+      "html_sha256": "281a98dd0997833e16ff8a4c3211fa3171f6a22a65753e494497bb734a34235b",
+      "source_words": 4879
+    },
+    {
+      "id": "ch02",
+      "source_sha256": "940758adcbd48b7d60c55de0b432766b7529b7effc5d8bc6bc7f31758925336e",
+      "metadata_sha256": "5cf91e749f49dff9adb26f15e7b9fdb824f716dfa3d6c361b3dd8ecd840b7232",
+      "html_sha256": "e191b8423701b776612ef429f89ceb01e809739e9dbcfb21e6a03c991fa28fd7",
+      "source_words": 3486
+    },
+    {
+      "id": "ch03",
+      "source_sha256": "006b2e6c9a96eb79e6de33b29334aade692dd6a0f2672aff9f511944395a8baa",
+      "metadata_sha256": "0f9222bbac1b00c7253777c43540e3c9e1e134f714069590126224ce799ee93a",
+      "html_sha256": "723148dd2a0ac00effd66dd069f1bbeb69b7b7b5bad6dd5010ddefe65396dd19",
+      "source_words": 2956
+    },
+    {
+      "id": "ch04",
+      "source_sha256": "de833ba1d32c638bb3b8ee0f10e174ec254295cb708aea9d70248704728f8cb6",
+      "metadata_sha256": "9746eab5de627401cd2eaa0bf97bc4322e65b09f3f53170cd6fe60730f965eeb",
+      "html_sha256": "d1062a9a475c964864666d598c9d74c61a428435eb3255a7056b1b7df7e0db52",
+      "source_words": 2860
+    },
+    {
+      "id": "ch05",
+      "source_sha256": "7181b5066f9ae36bc49c64f1a9a6b97459efd054cc0ba509dce5fc96d573ecfe",
+      "metadata_sha256": "ea37712a1bd921023b8c79aadf30f8a288aad36e4ad5ed84be8195285501c96c",
+      "html_sha256": "0002769df0fa5d8d5ae40d908721e92941ae39a2dd62c46ec2e642c9aec87bba",
+      "source_words": 2658
+    },
+    {
+      "id": "ch06",
+      "source_sha256": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
+      "metadata_sha256": "531b7dc203e05b90f09516e0f8e28912c38c410c6530c282f091d380234a2985",
+      "html_sha256": "40eb8efa44c7e599b63e8d615f5223968818098d47d55006a31b7ff6cd968a5f",
+      "source_words": 2995
+    },
+    {
+      "id": "ch07",
+      "source_sha256": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+      "metadata_sha256": "eeb208682d36714cf79a0806a7edced4f86a5921c28ed6e6fe42b623777618fe",
+      "html_sha256": "08863bda372b080511fd51345c13f9b500e5a3575c9842930f8a027d86529bba",
+      "source_words": 2828
+    },
+    {
+      "id": "ch08",
+      "source_sha256": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
+      "metadata_sha256": "8324abfdfdc65f4af995e0bf00f7d8096c7798b7e05b01c10d386a510d6d2f55",
+      "html_sha256": "3058dc6c064c41f37b405520968dbf865e8daf8eca80be35048ccd8785ca324f",
+      "source_words": 3014
+    },
+    {
+      "id": "ch09",
+      "source_sha256": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
+      "metadata_sha256": "40708dba969faac08df89247721638bbfd9332fe13a121a7a2a79e6adca6cc38",
+      "html_sha256": "a5172a45a115bb8a57d0ea8662e9013962a02227413e3f52629c4b31f2389942",
+      "source_words": 2889
+    },
+    {
+      "id": "ch10",
+      "source_sha256": "5c422782ed73cd4d27ed021f9054381a37a7e0881b9f5b32abdb74d4c5fd8bf8",
+      "metadata_sha256": "16d9fba6a1365a8bbd0c4939e2eb179f8a2e094caa051c6e86be1034902e5394",
+      "html_sha256": "0295e23ca3b8dc7cfced477c5f374fab9be4c84dcd25d32be30b3ef087f94e3e",
+      "source_words": 3681
+    },
+    {
+      "id": "ch11",
+      "source_sha256": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+      "metadata_sha256": "cbdcbb4bcfbce48361d39bd78509e8b25a9bb0aacf00683851ab6886846fbb9b",
+      "html_sha256": "c066cd2ee1bb5e9687228ddac892f232c7fff7dab7fbf379fb7bda4744c5c80c",
+      "source_words": 3816
+    },
+    {
+      "id": "ch12",
+      "source_sha256": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+      "metadata_sha256": "f1a90f2ef7202f65e47733c504ef97cb0099105c07b9586c7636fd994b9cccce",
+      "html_sha256": "e6146c7503ceb206b53d703b2837478df187fdce5f88946b36340b8737072bf2",
+      "source_words": 3647
+    },
+    {
+      "id": "ch13",
+      "source_sha256": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
+      "metadata_sha256": "1744401b9609bc7f0b616eca62e03a334cef69b7ddeef19d8c084a4864952ab2",
+      "html_sha256": "1c77abc50852a14ccf5a4ff557b79043ce4ecbce2206aec3788982ecf65023cb",
+      "source_words": 3268
+    },
+    {
+      "id": "ch14",
+      "source_sha256": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+      "metadata_sha256": "e1eec64888e4aa0d4df8c274e17b8bc8e7a66f2c00176e0aa4eb8a211cde994a",
+      "html_sha256": "8b4abd80b298a7f840171e0afe5704970bc3a6e7ced3f19d608908d5821b1ee4",
+      "source_words": 3568
+    },
+    {
+      "id": "ch15",
+      "source_sha256": "bdb2df2b6b59f83c6b8ba1bb9e38b3987a6bc6bb03c5d6c224f69e2178857582",
+      "metadata_sha256": "8aa3ab0413eaca6e6250e800b085ea66be19307d2d16f193152b1fdf1d0c750a",
+      "html_sha256": "c646d45be216b8e0ba9b22f445ba9b2421c5446c59d48ef9908601c5b2e56a8a",
+      "source_words": 4457
+    },
+    {
+      "id": "ch16",
+      "source_sha256": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
+      "metadata_sha256": "36a7876cc52c3f43bc11070e429daaf2a8bce738aaf223a38bdea38a265155c0",
+      "html_sha256": "d25061f76b955ee7ddca3692ad140cd2634e5c9877d8b8dee50d16381150495c",
+      "source_words": 3861
+    },
+    {
+      "id": "ch17",
+      "source_sha256": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
+      "metadata_sha256": "1451aa20fa75a62dbd09ecdd0b370f3140c9951b6f65b1123177eda824d12a56",
+      "html_sha256": "594e5fe64c2deb7c940b1fbb688552419ecf764be5e7d0c6731d63af9f901352",
+      "source_words": 4439
+    },
+    {
+      "id": "ch18",
+      "source_sha256": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
+      "metadata_sha256": "eca1bf17c9f721e98d29bba0495fc914ad7e44c04ba7050cf188a34b190800e1",
+      "html_sha256": "fa2342d320eaa03c97585584108e3665a8cdbadbf9ce2ead56fd00e35cd0a71a",
+      "source_words": 3370
+    },
+    {
+      "id": "ch19",
+      "source_sha256": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
+      "metadata_sha256": "bf401b66c51212239745e677e698cc8cd249c014f0c4fc075a0469214e236c35",
+      "html_sha256": "f61c59076720cd1a92b72f8592f78b223f265f6fdd8e42dfbfd355fec89cfffa",
+      "source_words": 2904
+    },
+    {
+      "id": "ch20",
+      "source_sha256": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
+      "metadata_sha256": "3fd76945395662789c3afb34fc29da39419474a1debd8bc07e4eb9a788b130ff",
+      "html_sha256": "9e5adbb35dd8f2c4a5a1a560018d1cb90e1fca3fd44e6fb011eb270b0b057272",
+      "source_words": 2915
+    },
+    {
+      "id": "ch21",
+      "source_sha256": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+      "metadata_sha256": "a1d6e05f382cc38ba7981bd88280bf6377612e70027cac7854093e305df51647",
+      "html_sha256": "c6a761c134112d2811f72b980034e1ac191c66ab31673a7a8bc860373629cc8f",
+      "source_words": 3188
+    },
+    {
+      "id": "ch22",
+      "source_sha256": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+      "metadata_sha256": "7d18ffcd7f0a4ad7e5056397995a482d96a215a7b99021238cf5eae2d6735af1",
+      "html_sha256": "ed61dfdaaa1c1509cd5a24f283c9e2c6d33464f23a1f0cda721566ec6c2a11c7",
+      "source_words": 3135
+    },
+    {
+      "id": "ch23",
+      "source_sha256": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
+      "metadata_sha256": "97db83b728986ca33ea89b9587cde768bf7bb86f366ea2dc3f8105758b855ec1",
+      "html_sha256": "9c88975c3127dd08bf75e91259855504642038d0ff0547a01803c41a0f8378ec",
+      "source_words": 3192
+    },
+    {
+      "id": "ch24",
+      "source_sha256": "55c3429a9198f319e24af696057967743fef20e3c0d7af56dece6c2bf3a12d65",
+      "metadata_sha256": "6e043657c359d4cbe68536a9110fa5e4517a73250357e71ce855b47d9e669d80",
+      "html_sha256": "b11840bf3d624c2360fec867a231f4d7833558db9285230e031cb0dd80133965",
+      "source_words": 4142
+    }
+  ],
+  "labs": [
+    {
+      "file": "labs/ch01.py",
+      "sha256": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076",
+      "exit_code": 0,
+      "stdout": "invoice: [8000000, 8600000, 9200000]\nforward cost: [8600000, 8600000, 8600000]\ncall cost: [8200000, 8800000, 8800000]\nMTM balances: [-600000, 600000, 0]\npeak deficit: 600000\ncash-flow, financing, hedge, and moment certificates passed",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch02.py",
+      "sha256": "d2ae61be454f9c77424a49e5dba1c8598e7810b2317ed7da4bd8601c3f58df4c",
+      "exit_code": 0,
+      "stdout": "fair=105.127110; rich_profit=1.872890; reverse_profit=2.127110\nexisting_value=4.518389; dividend_forward=48.989967; FX_forward=86.864314\nlecture_wheat_carry=1485.941650; implied_convenience_yield=4.187687%\nStatewise arbitrage, dividend financing, currency units, compounding and input-boundary checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch03.py",
+      "sha256": "43dbe8ffc951a039c5c961c3ac3422bc22ffea72dfb52b3ba6459a9a04f85357",
+      "exit_code": 0,
+      "stdout": "flows=[-200, 300, -400, 500]; calls=300; final_balance=1100; trading_profit=200\none_contract_terminal=5.051000; scaled_replication_terminal=5.000000\ntwo_state_forward=98.947368; futures_benchmark=100.000000; covariance=-1.000000\nLedger accounting, short signs, threshold boundary, funded timing and covariance checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch04.py",
+      "sha256": "3a9753c766f5ce50e51e7defe8f5d19c3025faa22703cc2d49580ffa967875bc",
+      "exit_code": 0,
+      "stdout": "alpha=10.000000; beta=3.400000; total_variance=26.400000; residual_variance=3.280000\nmatched_short_revenue=71; matched_long_cost=71\nnear_contract_effective_prices=[100, 100]; distant_contract_effective_prices=[102, 99]\nProjection orthogonality, variance decomposition, basis signs and zero-beta nonlinear-risk checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch05.py",
+      "sha256": "e4f47263e2da7e788cc5bf0b5d076f6aea0361318abd9d70567f59f0235bebda",
+      "exit_code": 0,
+      "stdout": "hedge_ratio=0.640000; real_contracts=5.888000; integer_contracts=6\nunhedged_variance=211600000000; real_min_variance=76176000000; rounded_variance=76225000000\ntrain_hedged_variance=1.000000; changed_unhedged=1.100000; changed_hedged=3.500000\nProjection, integer optimality, correlation signs, residual-risk fraction and regime-change checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch06.py",
+      "sha256": "8544531b1c599e262eeea8c5650b58542eb1ef9de23ef6569874b41940fbb1d3",
+      "exit_code": 0,
+      "stdout": "GMV weights=(0.875000,0.125000); mean=0.087500; sd=0.096825\nTangency weights=[0.6666666666666667, 0.33333333333333337]; mean=0.100000; sd=0.105409; Sharpe=0.758947\nGlobal quadratic certificate, tangency stationarity, CAPM variance and diversification checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch07.py",
+      "sha256": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91",
+      "exit_code": 0,
+      "stdout": "Neutral count=-505.263158; rounded=-505; residual beta=0.000625\nOpening futures=1530.302010; closure futures=1356.766903; six-short gain=260302.660320\nSynthetic carry fair=204.721537; rich-forward surplus=5.278463\nExecutable lower=100.771195; upper=105.417456; both outside-bound trade certificates passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch08.py",
+      "sha256": "6b10386b3e0dc5ce51aab589e4fa2df2117c6b379985bf4574c22894ac0a82e8",
+      "exit_code": 0,
+      "stdout": "Par coupon=146.439628; equal annuity=600.515996; annuity YTM=0.131324\nYear2 forward=0.202273; portfolio YTM=0.112891\nExact prices A=138.848996, B=70.087779; 9% reinvestment growth A=0.071934, B=0.068023\n60-day bill effective annual equivalent=0.063047\nRepricing, uniqueness brackets, curve ambiguity and growth checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch09.py",
+      "sha256": "5975547d15cf372a9c398ab9de8c403203207ff10741421c11bc7ea901255d5f",
+      "exit_code": 0,
+      "stdout": "Price=81.236974; Macaulay=3.925007; modified=3.326277; convexity=15.490229; DV01=0.027022\n25% yield price=65.039360; linear=62.321808; quadratic=65.404837\nMatched-horizon wealth=155.557548; twist surplus=-0.975215\nDerivative, basis-point scale, Taylor and immunization checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch10.py",
+      "sha256": "07e40361487745bf5b85e2ec4735e4655e88aa95aaf5435f35107f6914663079",
+      "exit_code": 0,
+      "stdout": "discount price=987500.000000; simple-rate price=987654.320988\ninvestment rate=0.050632911; discount-yield DV01=25.000000\nforward delivery=984693.877551; simple forward=0.062176166\ndiscount forward=0.061224490; financed MTM=-25.125418\nquotation, conversion, date, sensitivity and funding checks passed",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch11.py",
+      "sha256": "6c60fe947df2202d02e9efaf4223c0a2616e9c289eef096d73644dbb3254de93",
+      "exit_code": 0,
+      "stdout": "bill carry=66666.666667; yield shock=-125000.000000\ncontracts=33.333333333; rounded residual=-1250.000000\nbasis residual=-41666.666667; tailed count=3.921568627\nclose gain=9803.921569; terminal gain=10000.000000\naccrued=1.000000; dirty=100.250000\ncarry, basis, tailed path and invoice checks passed",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch12.py",
+      "sha256": "984a183c1acbfaeafe50648edc7a5b2b535da2934fc7b66769821fc612e7d082",
+      "exit_code": 0,
+      "stdout": "aligned CF=1.462295439; quarter clean CF=1.219862025\ndelivery costs: [800.0, 200.0, 400.0] ; CTD=2\nforward dirty=102.050587522; normalized quote=111.722875024\nfuture DV01=83.333333333; short contracts=36.000000\nconversion, invoice, carry and sensitivity checks passed",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch13.py",
+      "sha256": "7d7ce2591c0d29aa3953121cfb185f4635e4de40cb02935c48114dac5a57abba",
+      "exit_code": 0,
+      "stdout": "call break-even=108.421052632; put break-even=96.842105263\nparity arbitrage initial receipt=1.000000; final payoff=0\nbid-ask adjusted receipt=-1.500000\ndeterministic European put=40.483741804; intrinsic=50\npayoff, financed profit, strike order and parity checks passed",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch14.py",
+      "sha256": "512f7135cbaf6bfa11845790270efb9ddc09c5aba086026e8155e9cb7de0123b",
+      "exit_code": 0,
+      "stdout": "Prepaid share 97.044553355; call lower bound 1.921610905\nEuropean put 15.238095238; American put 20.000000000\nNegative-rate European call 39.482908192\nAll bounds, parity intervals, and exercise assertions passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch15.py",
+      "sha256": "c763e07f0e57abe6e0bd97b08fd97c80582d741c231e3022b1e9ad95445e726a",
+      "exit_code": 0,
+      "stdout": "Covered call 110: min -96; max 14; roots [96.0]\nProtective put 90: min -14; max inf; roots [104.0]\nStraddle 100: min -16; max inf; roots [84.0, 116.0]\nStrangle 90 / 110: min -8; max inf; roots [82.0, 118.0]\nGut strangle 90 / 110: min -8; max inf; roots [82.0, 118.0]\nStrip 100: min -24; max inf; roots [88.0, 124.0]\nStrap 100: min -24; max inf; roots [76.0, 112.0]\nBull call 100 / 110: min -4; max 6; roots [104.0]\nBear put 90 / 100: min -4; max 6; roots [96.0]\nButterfly 90 / 100 / 110: min -2; max 8; roots [92.0, 108.0]\nCalendar (long-call value, closing value): [(0.0, 0.0), (10.0, 10.0), (30.0, 0.0)]\nAll analytical tail, root, replication, and calendar checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch16.py",
+      "sha256": "f7b2616f10907e77d11fe0730d3a7bde307e6c2256509ae1e547eca6ede39f29",
+      "exit_code": 0,
+      "stdout": "four-step endpoint law: [(-0.36, 0.0625), (-0.16, 0.25), (0.04, 0.375), (0.24, 0.25), (0.44, 0.0625)]\nn=4: characteristic=0.92261884, normal=0.92311635\nn=64: characteristic=0.92308556, normal=0.92311635\nn=256: characteristic=0.92310865, normal=0.92311635\ncontinuity-corrected CDF errors: [0.00620967, 0.00042577]\nnext-up probabilities at the same position: 0.25 0.75\nnormalization, moments, covariance and finite-law checks passed",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch17.py",
+      "sha256": "54ad5f85ea9f77e3d3dab35e606f7c2f3d21b79db71b2e186692b2873f43f704",
+      "exit_code": 0,
+      "stdout": "sample quadratic sum=1.02575775; left sum=-0.06727407; endpoint=0.94403898\nn=16: E[QV]=1.000000, Var[QV]=0.12500000\nn=256: E[QV]=1.000000, Var[QV]=0.00781250\nn=4096: E[QV]=1.000000, Var[QV]=0.00048828\nGBM mean=108.32870677, median=106.18365465, variance=478.91887168, P[loss]=0.38208858\nzero-drift cash buffer=3.28970725: endpoint risk=0.0500, hitting risk=0.1000\nIto identity, Gaussian moments, GBM and tail checks passed",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch18.py",
+      "sha256": "828d686b31afe2fa300e520c5ca94ea6910992aee00ad5b8d33d30f970314fbc",
+      "exit_code": 0,
+      "stdout": "One-step call 11.90476190; physical stock mean 112.0\nTwo-step call 15.58956916; all four paths replicated\nSource q 0.6281777409\nSource up/down 1.41475309, 9.46393007\nSource European 4.19265428\nSource exercise-grid value 5.08963247\nThree-state a=0.1: call 6.66666667\nThree-state a=0.3: call 10.47619048\nDiffusion-grid n=40: call 10.40075148\nDiffusion-grid n=160: call 10.43809516\nDiffusion-grid n=640: call 10.44745962\nAll binomial and exercise checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch19.py",
+      "sha256": "8d9a880e957773ea2e20fb959609466af07daa2fb312f7420531b9836ff018af",
+      "exit_code": 0,
+      "stdout": "Call 10.45058357; weighted-physical integral 10.45058357\nPricing exercise 0.55961769; physical 0.69146246\nTruncated stock 66.94816569; conditional 119.63196768\nPrice variance at drift 0.12: 518.80662016\nPrice variance at drift 0.05: 451.02880782\nSource physical exercise 0.49690780\nSource put 6.40140765\nAll likelihood, pricing, delta, and PDE checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch20.py",
+      "sha256": "8c1138ab746a627d8570b9766019b4a89505fdfa9a756a86aeda42e5b426c79a",
+      "exit_code": 0,
+      "stdout": "Benchmark Greeks {'delta': np.float64(0.63683065), 'gamma': 0.01876202, 'vega': 37.52403469, 'rho': np.float64(53.23248155), 'yield_sensitivity': np.float64(-63.68306512), 'theta': np.float64(-6.41402755)}\nStock +5: exact 3.40732269, delta 3.18415326, delta-gamma 3.41867847\nSource sufficient dividend threshold 2.30011249\nAll heat-kernel, Greek, parity, PDE, and local-risk checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch21.py",
+      "sha256": "63b0cb899f09b65f7a078f36b6c5b18e107ab9b6c9475e8893862946cba0c4b1",
+      "exit_code": 0,
+      "stdout": "Repricable hedge option amounts [54.4197029  57.64410566] stock -11.73504893265752\nScenario S=99, sigma=0.2: funded hedge residual 0.00589742\nScenario S=101, sigma=0.2: funded hedge residual -0.00560433\nScenario S=100, sigma=0.21: funded hedge residual 0.13865384\nScenario S=90, sigma=0.24: funded hedge residual 14.32083373\nComplete quadratic-book P&L 4171.42857143; partial stock tranche 3200\nCorrected forward foreign notional 6485372.73143405\nSource ATM call delta 0.64476728\nAll signed hedge, rank, financing, and scenario checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch22.py",
+      "sha256": "39dd2a4827937bc2bd2a2d894abbce73fa99633061029af35bb7853c2fc7fc0a",
+      "exit_code": 0,
+      "stdout": "Source FRA implied simple forward 0.0618365465\nFixed receiver scenario at2y -0.17295944 million; value today -0.16288707 million\nSynthetic period forwards [0.0408163265, 0.0523560209, 0.0648648649, 0.0786516854]\nSynthetic par rate 0.0586666667; fixed-payer value -25000.00\nSource bootstrapped P2 0.9056895841; zero 0.0495293270\nSource floating bond 1036.41631142; wrong stub 1007.08377431\nSource receive-fixed bond/strip -4.26717585 million\nSource later six-month simple rates [0.11044152797137308, 0.12102016015287598]\nAll FRA, swap, bootstrap, reset, and funding-ledger checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch23.py",
+      "sha256": "dddb992ea5af4a84cb49a76be6a939140478e1ee8fc7256d8f04039c00c04e6f",
+      "exit_code": 0,
+      "stdout": "Source swap 1.54299577 million dollars; value at100yen/dollar 2.66168132\nFinite law alpha=0.95: VaR=0, ES=26.00000000\nFinite law alpha=0.975: VaR=10, ES=46.00000000\nSource five-day VaR exact 9830.61401862; z2.33 9846.04706759\nSource two-asset five-day VaR 8387.76654442\nAutocorrelation variance multiplier 9.4672; SD ratio 1.37602326\nAll currency, quantile, atom-safe ES, and horizon checks passed.",
+      "stderr": ""
+    },
+    {
+      "file": "labs/ch24.py",
+      "sha256": "6a756732e572d8583b0688694f329a72cd47c377a94bd0ae3a7f7491879fdc00",
+      "exit_code": 0,
+      "stdout": "Source bond daily sd=28080.000000; 20d VaR with1.28=160739.299349, precise=160934.141192\nSource mapping PV=49189.321135; short bucket weight=0.760258938; allocations=37396.621030/11792.700105\nSource option sd=7099.295740; PCA sd=124.193398,5d90VaR=355.893123\nSynthetic FX-forward value=36750.000000; sd=537.152262; wrong-sign sd=1540.197699\nShort-call delta-hedged exact losses [np.float64(661.03105), np.float64(194.852544), np.float64(0.0), np.float64(173.412792), np.float64(559.936891)]\nLinear VaR=0; gamma VaR/ES=(198.47627373850588, 436.6478022247127); exact VaR/ES=(np.float64(194.85254388370618), np.float64(361.10511457356193))\n5y zero100bp loss exact=39929.970007; linear=40936.537654; quadratic=39913.124213\nIID 250day99% expected exceptions=2.5; P(no exceptions)=0.08105852; P(K>=10)=0.00025019\nCovariance, mapping, PCA, nonlinear-tail and backtest checks passed.",
+      "stderr": ""
+    }
+  ],
+  "timestamp_links_checked": 154,
+  "local_links_checked": 1482,
+  "pending_planned_chapter_links": [],
+  "errors": [],
+  "versions": {
+    "Markdown": "3.8.2",
+    "beautifulsoup4": "4.14.3",
+    "numpy": "2.2.6",
+    "scipy": "1.16.0"
+  },
+  "scope": "Mechanical structure, source/timestamp bounds, local links and fresh lab execution; not a new scientific review."
+}

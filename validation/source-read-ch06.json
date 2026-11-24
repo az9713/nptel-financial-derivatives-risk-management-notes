@@ -1,0 +1,75 @@
+{
+  "chapter": "ch06",
+  "reader": "source_research",
+  "recordings": [
+    {
+      "position": 14,
+      "video_id": "g7j8sAIDN04",
+      "normalized_text_sha256": "1650bee12723f7a00b6981124e3ff6b7acca45650265dccc7f0dab5fcfd7b8eb",
+      "reading": "full sequential text read",
+      "first_start": 24.869,
+      "last_end": 1864.96,
+      "landmarks": [
+        {
+          "seconds": 465,
+          "topic": "Portfolio mean and covariance formulation"
+        },
+        {
+          "seconds": 605,
+          "topic": "Two-asset feasible curve and degeneracies"
+        },
+        {
+          "seconds": 1503,
+          "topic": "Tangency and Sharpe ratio"
+        }
+      ],
+      "scope": "Complete normalized English caption sequence; no comprehensive audiovisual review. Recap repeats squared-correlation error corrected in chapter5; linear residual orthogonality does not imply independence or informational efficiency; nonzero diversification floor needs nonvanishing average covariance."
+    },
+    {
+      "position": 15,
+      "video_id": "o_dndjBh26U",
+      "normalized_text_sha256": "60836b90ebbea3bfa68d5abe06913b4ed91c678816aa847a56a12503cbc4c7a8",
+      "reading": "full sequential text read",
+      "first_start": 24.83,
+      "last_end": 2040.369,
+      "landmarks": [
+        {
+          "seconds": 602,
+          "topic": "Sharpe optimization and transition to equilibrium"
+        },
+        {
+          "seconds": 1395,
+          "topic": "Homogeneous inputs and market portfolio"
+        },
+        {
+          "seconds": 1740,
+          "topic": "Expected versus realized return and risk decomposition"
+        }
+      ],
+      "scope": "Complete normalized English caption sequence; no comprehensive audiovisual review. Recap repeats squared-correlation error corrected in chapter5; linear residual orthogonality does not imply independence or informational efficiency; nonzero diversification floor needs nonvanishing average covariance."
+    },
+    {
+      "position": 16,
+      "video_id": "kyLk0hSwjX4",
+      "normalized_text_sha256": "caea4e6435f51d31721e62036658f75f78acad852523cfcfcaffc692123766d8",
+      "reading": "full sequential text read",
+      "first_start": 24.83,
+      "last_end": 1877.809,
+      "landmarks": [
+        {
+          "seconds": 720,
+          "topic": "CAPM expected-return restriction and projection interpretation"
+        },
+        {
+          "seconds": 1201,
+          "topic": "Equal-weight variance and average covariance"
+        },
+        {
+          "seconds": 1560,
+          "topic": "Diversifiable and common risk qualifications"
+        }
+      ],
+      "scope": "Complete normalized English caption sequence; no comprehensive audiovisual review. Recap repeats squared-correlation error corrected in chapter5; linear residual orthogonality does not imply independence or informational efficiency; nonzero diversification floor needs nonvanishing average covariance."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Exposure, hedge direction, and the basis that remains",
+  "lectures": [9, 10, 11],
+  "objectives": ["Define a statistical exposure with the correct units and horizon", "Derive OLS orthogonality and identify residual nonlinear risk", "Build long and short hedge cash flows using a fixed basis convention", "Compare contract choices by their combined risk rather than hoped-for gains"],
+  "prerequisites": "Chapters 1–3 cash-flow accounting; elementary means, variances and differentiation, developed locally where used.",
+  "source_scope": "Full sequential English caption reading for positions 9–11; no comprehensive audiovisual audit. Philosophical digression treated as contextual rather than a financial theorem."
+}

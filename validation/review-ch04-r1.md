@@ -1,0 +1,18 @@
+# Independent scientific review: chapter 04
+
+Accepted at the exact file digests in the accompanying receipt. The reviewer did not author this chapter. The complete manuscript, metadata, six full solutions, and code were read. A fresh lab process passed. No unresolved scientific, source, pedagogical, or prose finding remains.
+
+The OLS normal equations yield the stated intercept and centered cross-product slope, conditional on nonconstant regressors. The population projection and sample statements are separated correctly. Orthogonality is not asserted to imply independence or the full conditional expectation. The nonlinear zero-beta example has the correct residuals and variance2/9, and the five-point variance decomposition gives26.4=23.12+3.28. The local currency exposure derivative includes both the conversion term and the underlying foreign asset's response.
+
+Producer revenue and purchaser cost use opposite futures positions and consistent signed receipts. Both correctly reduce to the opening fixed-contract quotation plus closing basis with b=spot-minus-futures. Strengthening basis therefore helps the seller and harms the purchaser. Earlier hedge closure is distinguished from final contract maturity. Randomness of two prices is correctly not treated as proof that their difference is random. The near/distant scenario arithmetic gives fixed100 versus102/99, mean100.5 and variance2.25; the chapter explicitly labels this a finite accounting comparison rather than an arbitrage-free curve model. Investing an early closed hedge's gain does not replace its lost currency sensitivity.
+
+Selected actual caption passages inspected: position9 at340–720 and1580–1855seconds for regression and variance; position10 at1180–1560seconds for basis, convergence, and hedge direction; position11 at450–1050seconds for signed effective price and cross-hedging. These verify the source's relevant arguments and the necessity of the chapter's orthogonality, incomplete-hedge, and probabilistic clarifications. The cited MIT Leonid Kogan PDF was opened locally at PDFpp12–17, covering state-price/no-arbitrage structure and factor-pricing descriptions. It supports the bounded comparison made in the chapter; no claim that sample regression is a replicating strategy is imported from that reference.
+
+All six solutions were independently checked against their stated objectives and calculations. The lab's complete algorithm was inspected: finite equal-length data guards, intercept/slope/residual calculation, normal-equation checks, variance partition, hedge signs, maturity scenarios, and nonlinear counterexample are consistent. Fresh output reports alpha10, beta3.4, total variance26.4, residual variance3.28, and both matched effective prices71.
+
+The chapter teaches a coherent progression from an economically specified account through projection to hedged cash flow and residual basis. It defines units and horizons, places counterexamples at the assumptions they limit, and distinguishes a variance objective from favorable speculation. Full caption-reading evidence belongs to the author ledger. This independent review uses selected source checks, with no comprehensive audiovisual audit, human expert certification, formal proof verification, or replacement of package/browser gates.
+
+
+## Bounded LF normalization recheck
+
+Reconstructed the former CRLF bytes from each affected canonical LF file and matched its previously accepted SHA-256 exactly. All unaffected inputs retain their accepted digests. The Python AST is identical and the chapter lab passed a fresh execution. This rebind changes byte-level acceptance only; the full scientific review above remains applicable. Evidence: `validation/line-ending-normalization.json`.

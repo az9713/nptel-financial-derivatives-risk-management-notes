@@ -1,0 +1,45 @@
+{
+  "chapter": "ch13",
+  "reader": "reader_builder_author",
+  "recordings": [
+    {
+      "position": 31,
+      "video_id": "ipX6F8mEal8",
+      "normalized_text_sha256": "30277e1fc595a9ec710e4f8972146870dc427ba524fa0157e8eae7068d815384",
+      "reading": "full sequential text read",
+      "first_start": 24.66,
+      "last_segment_start": 1872.58,
+      "landmarks": [
+        225,
+        403,
+        811,
+        1117,
+        1399,
+        1748
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    },
+    {
+      "position": 61,
+      "video_id": "rGMc3_YrC_8",
+      "normalized_text_sha256": "294040dba3ad63f730009b7066a7254a68f907e8ef8778969bcba627f7bf285b",
+      "reading": "full sequential text read",
+      "first_start": 24.73,
+      "last_segment_start": 2050.95,
+      "landmarks": [
+        61,
+        379,
+        828,
+        1127,
+        1493,
+        1767
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    }
+  ],
+  "source_corrections_and_limits": [
+    "The playlist-end put-call parity recording is integrated in curricular order.",
+    "European time value need not exceed zero; current intrinsic amount is not always an available exercise payment.",
+    "Payoff signs reconstructed branch by branch; financed premium costs and execution frictions are explicit."
+  ]
+}

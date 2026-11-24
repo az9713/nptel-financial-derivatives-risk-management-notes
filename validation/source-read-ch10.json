@@ -1,0 +1,47 @@
+{
+  "chapter": "ch10",
+  "reader": "reader_builder_author",
+  "recordings": [
+    {
+      "position": 24,
+      "video_id": "sqc6C_hcXUM",
+      "normalized_text_sha256": "116e84e4f0b43f3f64a2c7360b2de45a39509c0fcf0ee1ee8af5a52cdbebcc7d",
+      "reading": "full sequential text read",
+      "first_start": 24.65,
+      "last_segment_start": 1699.24,
+      "landmarks": [
+        611,
+        704,
+        1242,
+        1351,
+        1472
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    },
+    {
+      "position": 25,
+      "video_id": "0QEvQLhjhQA",
+      "normalized_text_sha256": "a425eb46819fc20a8d3e5b96d651a7436f29bf95efb2614b20782a75861c9cac",
+      "reading": "full sequential text read",
+      "first_start": 41.01,
+      "last_segment_start": 2223.52,
+      "landmarks": [
+        41,
+        181,
+        405,
+        615,
+        1090,
+        1693,
+        1901
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    }
+  ],
+  "source_corrections_and_limits": [
+    "Discount-yield/index versus monetary-price distinction",
+    "Day-count and rate basis explicit",
+    "Forward terminal sketch not identical to funded daily futures",
+    "Historical product rules not current specifications",
+    "p25 future-investment spoken9/9.6percent inconsistency not guessed"
+  ]
+}

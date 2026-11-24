@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Binomial replication and risk-neutral valuation · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html" aria-current=page>18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>18. Binomial replication and risk-neutral valuation</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=mbtFmErzmHg">Recording 44</a>, <a href="https://www.youtube.com/watch?v=u5DlFctnY18">Recording 45</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Derive the strict no-arbitrage interval and replicate every two-state payoff</li><li>Interpret pricing probabilities without imposing risk-neutral investor preferences</li><li>Verify dynamic self-financing and exercise-date backward induction</li><li>Identify failure of uniqueness and recombination when spanning or state sufficiency fails</li></ul>
+<p><strong>Prerequisites:</strong> Option payoffs and exercise styles; financing conventions; elementary linear algebra and conditional expectation.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch18.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-two-states-and-two-traded-assets-0634">1. Two states and two traded assets 06:34</a></li><li><a href="#2-pricing-probabilities-are-implied-weights-1500">2. Pricing probabilities are implied weights 15:00</a></li><li><a href="#3-every-strike-is-legitimate-0835">3. Every strike is legitimate 08:35</a></li><li><a href="#4-backward-induction-is-a-trading-strategy-1731">4. Backward induction is a trading strategy 17:31</a></li><li><a href="#5-reproducing-the-source-put-and-its-exercise-decision-1821">5. Reproducing the source put and its exercise decision 18:21</a></li><li><a href="#6-uniqueness-depends-on-spanning-not-on-notation">6. Uniqueness depends on spanning, not on notation</a></li><li><a href="#7-a-diffusion-limit-requires-shrinking-moves">7. A diffusion limit requires shrinking moves</a></li><li><a href="#8-laboratory-and-model-boundary">8. Laboratory and model boundary</a></li><li><a href="#exercises">Exercises</a></li></ul></div>
+<article>
+<p>An uncertain cash flow does not acquire a unique price merely because its mean can be calculated. A mean requires a probability law; a discount rate requires an economic justification. The binomial market supplies a stronger argument. Two traded assets span the two possible future states, so every terminal cash flow has an exactly matching traded portfolio. Its cost fixes the derivative price by the law of one price.</p>
+<p>This chapter develops that argument before introducing a pricing probability. The distinction matters: a risk-neutral probability is a representation of traded prices, and does not assert that investors disregard risk. Throughout, prices and cash flows are in one currency, stock dividends are absent, borrowing and lending use the same deterministic rate, trading is frictionless, short sales are allowed with usable proceeds, and contracts are fulfilled. These are model assumptions rather than claims about actual market access.</p>
+<h2 id="1-two-states-and-two-traded-assets-0634">1. Two states and two traded assets <a href="https://www.youtube.com/watch?v=mbtFmErzmHg&amp;t=394s">06:34</a></h2>
+<p>Let the current stock price be \(S_0&gt;0\). After one interval of length \(h\) years, it is either \(S_0u\) or \(S_0d\), where \(u&gt;d&gt;0\). The quantities \(u,d\) are gross price factors: \(u=1.2\) means a 20% increase; \(d=0.8\) means a 20% decrease. A cash investment of one currency unit becomes \(R=e^{rh}\), where \(r\) is the continuously compounded annual rate. We sometimes specify \(R\) directly, which avoids confusing an effective interval return with an annual continuous rate.</p>
+<p>Assume both states have positive physical probability. Absence of arbitrage requires</p>
+<p>\[
+d&lt;R&lt;u.
+\]</p>
+<p>For example, if \(R\ge u\), short one share and invest the proceeds \(S_0\). Initial net cost is zero; terminal wealth is \(S_0(R-u)\) in the up state and \(S_0(R-d)\) in the down state. Both are nonnegative and the second is positive. The equality \(R=u\) still permits arbitrage because the down state is possible. If \(R\le d\), borrowing \(S_0\) to buy a share gives the reverse construction, with a strictly positive up-state gain. Strict inequalities encode the possibility of both states, not a numerical convenience.</p>
+<p>Consider a derivative with terminal payments \(H_u,H_d\). Hold \(\Delta\) shares and \(b\) currency units in cash initially. Negative \(b\) means borrowing. Matching each state gives two linear equations:</p>
+<p>\[
+\Delta S_0u+bR=H_u,
+\qquad
+\Delta S_0d+bR=H_d.
+\]</p>
+<p>Subtracting and substituting yield</p>
+<p>\[
+\Delta=\frac{H_u-H_d}{S_0(u-d)},
+\qquad
+b=\frac{uH_d-dH_u}{R(u-d)}.
+\]</p>
+<p>The coefficient \(\Delta\) has units shares per derivative; \(b\) has units currency per derivative. Their initial cost is \(V_0=\Delta S_0+b\). If the quoted derivative price exceeds this cost, sell the derivative and buy the replicating portfolio. Their future obligations cancel in every state, leaving a positive receipt now. If the quote is lower, reverse both positions. Financing the initial receipt in cash makes this an arbitrage with zero initial net investment. Thus replication determines the price without an assumption about expected stock returns. The original <a href="https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/7/36891/files/2017/07/CRR79-1yy8av8.pdf">Cox–Ross–Rubinstein paper, sections 2–3, manuscript pages 3–6</a> develops this same two-state economic argument.</p>
+<p>The lecture sometimes forms a portfolio containing a <em>long derivative</em> plus a stock hedge. In that convention its stock holding is \(-\Delta\). There is no contradiction with a positive call replication delta: one portfolio reproduces the call, while the other removes the risk of an existing long call.</p>
+<h2 id="2-pricing-probabilities-are-implied-weights-1500">2. Pricing probabilities are implied weights <a href="https://www.youtube.com/watch?v=mbtFmErzmHg&amp;t=900s">15:00</a></h2>
+<p>Rearrange the replication cost:</p>
+<p>\[
+V_0=\frac{qH_u+(1-q)H_d}{R},
+\qquad q=\frac{R-d}{u-d}.
+\]</p>
+<p>The no-arbitrage inequalities make \(0&lt;q&lt;1\). Therefore these algebraic weights can be treated as probabilities under a measure denoted \(\mathbb Q\). They price the stock correctly because</p>
+<p>\[
+qS_0u+(1-q)S_0d=S_0R.
+\]</p>
+<p>Equivalently, the discounted stock is a martingale under \(\mathbb Q\): its conditional expected future discounted value equals its present discounted value. A martingale statement concerns a conditional mean, not the realized path. Under \(\mathbb Q\), the stock remains risky; both terminal values still occur with positive probability.</p>
+<p>The state prices \(\pi_u=q/R\) and \(\pi_d=(1-q)/R\) give an alternative interpretation. A claim paying one currency unit only in the up state costs \(\pi_u\); the corresponding down-state claim costs \(\pi_d\). Adding the two claims gives one certain future currency unit, priced at \(1/R\). Dividing state prices by that discount factor normalizes them into probabilities. This identifies exactly what is constructed from market prices.</p>
+<p>For a synthetic example, take \(S_0=100,u=1.2,d=0.8,R=1.05\), and a call with strike \(K=100\). Its payoffs are 20 and zero. Then</p>
+<p>\[
+q=0.625,\quad \Delta=0.5,\quad
+b=-38.09523810,\quad c_0=11.90476190.
+\]</p>
+<p>The portfolio costs \(50-38.09523810\). At maturity its debt is 40; stock holdings are worth 60 or 40, leaving precisely 20 or zero. This calculation verifies the full statewise replication rather than only the expected payoff.</p>
+<p>Suppose the physical up probability is instead \(p=0.8\). The physical expected terminal stock price is 112, whereas its pricing expectation is 105. Both statements can hold. Actual expected stock return is 12% over the interval; the bank return is 5%; no arbitrage does not force these expectations to agree. The physical expected call payoff is 16, whose discount at the bank factor would be \(16/1.05=15.23809524\). That number is not its replicating cost. Discounting an unhedged risky mean at the risk-free rate is the unjustified step.</p>
+<p>The source discusses a hypothetical risk-neutral world to motivate the formula. The logical implication needed here is narrower: <em>there exists a pricing measure under which discounted traded prices are martingales</em>. It does not imply that actual investors have linear utility, that all physical expected returns coincide, or that the stock price uniquely identifies physical probabilities. Different beliefs can coexist with the same current traded prices and the same replication cost.</p>
+<h2 id="3-every-strike-is-legitimate-0835">3. Every strike is legitimate <a href="https://www.youtube.com/watch?v=u5DlFctnY18&amp;t=515s">08:35</a></h2>
+<p>For a European call, always begin with \(H_u=(S_0u-K)^+\) and \(H_d=(S_0d-K)^+\), where \(x^+=\max(x,0)\). If \(S_0d&lt;K&lt;S_0u\), exercise occurs only in the up state, and the price simplifies to</p>
+<p>\[
+c_0=R^{-1}q(S_0u-K).
+\]</p>
+<p>The source uses this interior-strike case to separate the value of stock received from the strike payment. Both expectations are under \(\mathbb Q\). The first component is \(R^{-1}qS_0u\); the second is \(R^{-1}qK\). Neither is an unconditional promise to deliver stock or pay the strike: each is contingent on exercise.</p>
+<p>The interior-strike restriction is not required for an option to exist or to be priced. If \(K\le S_0d\), both states are in the money, so the payoff is \(S_T-K\) and the price is \(S_0-K/R\). The replication uses one share and a borrowing of \(K/R\). The contract still has a value; on this particular state space its optionality is never used. If \(K\ge S_0u\), both payoffs are zero and the model price is zero. For the synthetic one-step market, strikes 70, 100, and 130 give prices 33.33333333, 11.90476190, and zero. A state-space assumption that rules out a payoff is economically consequential, especially when a coarse tree is used for far out-of-the-money contracts.</p>
+<h2 id="4-backward-induction-is-a-trading-strategy-1731">4. Backward induction is a trading strategy <a href="https://www.youtube.com/watch?v=u5DlFctnY18&amp;t=1051s">17:31</a></h2>
+<p>Extend the same factors over two periods. With \(S_0=100\), terminal stock prices are 144, 96, and 64. The middle node can be reached by either up-then-down or down-then-up because multiplication commutes. A European call with strike 100 has payoffs 44, zero, and zero.</p>
+<p>At the first up node, apply the one-step formula to the remaining two states; at the first down node, the claim is worth zero. This gives</p>
+<p>\[
+c_u=26.19047619,\quad c_d=0,
+\qquad c_0=15.58956916.
+\]</p>
+<p>The root holdings are \(\Delta_0=0.65476190\) shares and \(b_0=-49.88662132\). Before rebalancing at date one, the portfolio is worth \(\Delta_0S_1+b_0R\), which equals \(c_u\) or \(c_d\). At the up node, replace it with \(11/12\) shares and cash \(-83.80952381\). Stock costs \((11/12)120=110\), so the new portfolio costs \(110-83.80952381=26.19047619\). At the down node both holdings are zero. Node wealth pays for the new portfolio without external funds; this budget identity defines self-financing in the discrete model.</p>
+<p>At the up node the cash debt becomes 88 in the final period. Stock worth 132 or 88 leaves 44 or zero. On a first down move, the zero portfolio leaves zero whichever move follows. This verifies all four ordered paths, including both histories reaching the same middle stock price. The lab checks these budget and terminal-payment identities directly.</p>
+<p>In general, for \(n\) steps and a terminal payoff \(g(S_n)\), set</p>
+<p>\[
+V_{n,j}=g(S_0u^jd^{n-j}),
+\qquad
+V_{i,j}=\frac{qV_{i+1,j+1}+(1-q)V_{i+1,j}}{R}.
+\]</p>
+<p>Here \(j\) counts up moves by date \(i\). At each node, the same two-equation replication establishes the recursion. Induction proves that its root cost replicates the terminal payoff on every path. With constant parameters this is also</p>
+<p>\[
+V_0=R^{-n}\sum_{j=0}^n {n\choose j}
+q^j(1-q)^{n-j}g(S_0u^jd^{n-j}).
+\]</p>
+<p>The binomial coefficient counts ordered paths. It is not an extra probability assumption: the conditional pricing up probability is \(q\) at each step in this specified tree. Backward induction needs \(O(n^2)\) operations and \(O(n)\) stored values. A terminal-stock payoff permits node recombination. An Asian payoff depending on the running average generally needs an additional state variable: equal stock prices alone do not imply equal future contractual obligations.</p>
+<h2 id="5-reproducing-the-source-put-and-its-exercise-decision-1821">5. Reproducing the source put and its exercise decision <a href="https://www.youtube.com/watch?v=u5DlFctnY18&amp;t=1101s">18:21</a></h2>
+<p>The lecture's two-year put uses \(S_0=50,K=52,u=1.2,d=0.8\), two annual steps, and a continuously compounded rate \(r=0.05\). Its bank factor is \(R=e^{0.05}\), rather than 1.05. Thus \(q=0.6281777409\). Terminal prices are 72, 48, 32, with put payoffs zero, 4, 20. The lab recomputes full-precision values; rounded values are shown here:</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Node</th>
+<th style="text-align: right;">Stock</th>
+<th style="text-align: right;">European value</th>
+<th style="text-align: right;">Immediate put exercise</th>
+<th style="text-align: right;">Value with exercise on tree dates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First up</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">1.414753</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.414753</td>
+</tr>
+<tr>
+<td>First down</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">9.463930</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td>Root</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">4.192654</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.089632</td>
+</tr>
+</tbody>
+</table></div>
+<p>At the down node, continuing has value about 9.46, while immediate exercise delivers 12. A holder with exercise rights therefore chooses 12. Backward induction for exercise-eligible dates becomes</p>
+<p>\[
+V_{i,j}=\max\left\{g(S_{i,j}),
+R^{-1}[qV_{i+1,j+1}+(1-q)V_{i+1,j}]\right\}.
+\]</p>
+<p>At the root, continuing is worth about 5.09, exceeding the immediate exercise receipt 2. The source's final narration interchanges these names; intrinsic value at the root is 2, while the option value is about 5.09. Small last-digit differences from its displayed 5.0894 result from its rounded arithmetic.</p>
+<p>The recursion is also a finite optimal-stopping argument. At the last decision date, the holder takes the larger of exercise and continuation. Conditional on that optimal subsequent policy, make the same comparison at the preceding date. Induction reaches the root. Allowing exercise on more dates cannot reduce value because every previously admissible exercise policy remains available.</p>
+<p>A two-date tree implements exercise at its specified dates. It does not examine every instant in a year. It is best read as an approximation to an American contract, or exactly as a contract with exercise on those dates. Continuous-time American valuation requires a suitable finer model and a convergence argument. A non-dividend stock call with nonnegative rates supplies a useful contrast: at an exercise date, retaining the call has value at least \(S-K/R\), which is at least \(S-K\) when \(R\ge1\); hence immediate exercise cannot improve value. This comparison assumes no intervening dividends and the same borrowing/lending terms.</p>
+<h2 id="6-uniqueness-depends-on-spanning-not-on-notation">6. Uniqueness depends on spanning, not on notation</h2>
+<p>Add a third possible terminal stock value, while keeping only stock and cash traded. Let \(S_0=100,R=1.05\), and terminal stock prices 80, 100, 120. Three payoff equations cannot generally be solved with two holdings. For the strike-100 call, the first two equations would force \(\Delta=0,b=0\), contradicting the up-state payoff 20. The claim is not spanned.</p>
+<p>Pricing probabilities must sum to one and satisfy the stock equation. Writing them \(q_1,q_2,q_3\), these constraints give</p>
+<p>\[
+q_1=a,\qquad q_2=0.75-2a,\qquad q_3=a+0.25.
+\]</p>
+<p>Every \(0&lt;a&lt;0.375\) makes all three weights positive and prices the existing stock and bank correctly. It assigns the call price</p>
+<p>\[
+c_0=\frac{20(a+0.25)}{1.05},
+\quad 4.76190476&lt;c_0&lt;11.90476190.
+\]</p>
+<p>For each such price the positive state prices preclude arbitrage: any nonnegative terminal portfolio payoff, positive in at least one possible state, has a strictly positive weighted present value and cannot have zero cost. Conversely, the interval endpoints give a zero state weight and allow an arbitrage in the market enlarged by this call. The open interval is therefore deliberate. Extra preferences, a calibrated model, or another traded security may select a price within it; no-arbitrage alone does not. The binomial model's unique pricing measure comes from full rank of its two-state payoff matrix.</p>
+<h2 id="7-a-diffusion-limit-requires-shrinking-moves">7. A diffusion limit requires shrinking moves</h2>
+<p>Fix a horizon \(T\), let \(h=T/n\), and choose \(u=e^{\sigma\sqrt h},d=e^{-\sigma\sqrt h},R=e^{rh}\), with \(\sigma&gt;0\). For sufficiently small \(h\), strict no-arbitrage holds. Expanding the pricing weight gives</p>
+<p>\[
+q=\frac12+\frac{r-\sigma^2/2}{2\sigma}\sqrt h+O(h^{3/2}).
+\]</p>
+<p>A log-price increment is \(+\sigma\sqrt h\) or \(-\sigma\sqrt h\). Its pricing mean is therefore \((r-\sigma^2/2)h+O(h^2)\), and its variance is \(\sigma^2h+O(h^2)\). Independent increments over \(n\) steps give limiting log-return mean \((r-\sigma^2/2)T\) and variance \(\sigma^2T\). Moment agreement alone does not prove a distributional limit. Here the increment sizes vanish and are uniformly bounded by \(\sigma\sqrt h\), so the triangular-array central limit theorem applies: its Lindeberg condition is eventually satisfied because no centered increment can exceed any fixed positive threshold. Thus terminal log price converges in distribution to the normal law of risk-neutral GBM.</p>
+<p>Convergence of prices for an unbounded call needs one more step. The second moment satisfies \(\mathbb E^{\mathbb Q}S_T^2=S_0^2[qu^2+(1-q)d^2]^n\), which stays bounded as \(n\) increases because the bracket is \(1+(2r+\sigma^2)h+O(h^2)\). This bound makes terminal stock prices uniformly integrable; the call is bounded by stock. Distributional convergence therefore extends to convergence of call expectations after truncating the payoff and controlling the tail by the second moment. This is a terminal European-payoff result, not a proof of continuous-path convergence or American optimal-stopping convergence. <a href="https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/7/36891/files/2017/07/CRR79-1yy8av8.pdf">Cox–Ross–Rubinstein, section 5, especially manuscript pages 20–21</a> treats the lognormal limiting construction.</p>
+<p>For \(S_0=K=100,r=0.05,\sigma=0.2,T=1\), the lab compares successively finer trees with the limiting call formula developed in the next two chapters. Convergence is a model-consistency check. It does not establish that the diffusion accurately represents market jumps or trading costs.</p>
+<h2 id="8-laboratory-and-model-boundary">8. Laboratory and model boundary</h2>
+<p>Run <a href="labs/ch18.py">the standalone binomial laboratory</a>. It checks direct state matching, physical-versus-pricing expectations, backward induction against an independent terminal-sum calculation, self-financing on every two-step path, the source put, exercise-date monotonicity, strike boundaries, and the three-state price family. Synthetic parameters are separate from the source reproduction.</p>
+<p>The tree is exact for its own state space. It does not prove that actual returns have two outcomes or that rebalancing is free. Refining a tree also requires specifying how \(u,d,R\) change with the time step; keeping fixed 20% annual moves while multiplying the number of steps changes the modeled risk. The next chapter connects a shrinking-step construction to diffusion pricing and examines why a continuous-time change of measure needs additional conditions.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>In the synthetic one-step market, replicate a strike-90 put. Show both terminal payments, the holdings, and initial cost.</li>
+<li>Set the bank factor equal to \(u=1.2\) while both states remain possible. Construct a zero-cost arbitrage and explain why a zero pricing probability does not rescue the original assumptions.</li>
+<li>For the synthetic two-step strike-100 call, calculate the root delta and cash holding, then verify the up-node budget and both final up-branch payments.</li>
+<li>Recompute the source European and exercise-eligible put with an effective annual return of 5% instead of a continuous annual rate of 5%. Explain which inputs change.</li>
+<li>For the three-state market, use \(a=0.1\) and \(a=0.3\) to price the strike-100 call. Why can both prices be arbitrage-free despite identical stock and bank prices?</li>
+<li>Two histories reach stock 96 in the synthetic two-step tree. Compute the three-date arithmetic average for each, including date zero. Does a call on that average with strike 100 permit those nodes to merge?</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>The put pays zero at 120 and 10 at 80. Thus \(\Delta=-10/40=-0.25\), and \(b=(1.2\cdot10)/(1.05\cdot0.4)=28.57142857\). Initial cost is \(-25+28.57142857=3.57142857\). Terminal cash is 30; the short stock costs 30 or 20 to cover, leaving zero or 10. This put replication has negative delta and positive cash.</p>
+</li>
+<li>
+<p>Short one share, receive 100, and deposit it at factor 1.2. Initial net cost is zero. Terminal cash is 120; covering the share costs 120 in the up state and 80 in the down state. Gains are zero and 40. The down state has positive physical probability, so this is an arbitrage. The algebra gives \(q=1\), but then the pricing measure ignores a possible profitable state. Equivalence of physical and pricing null events has failed.</p>
+</li>
+<li>
+<p>The first-date claim values are \(26.19047619\) and zero. Hence root delta is \(26.19047619/40=0.65476190\). Cash is \(-0.8\cdot26.19047619/(1.05\cdot0.4)=-49.88662132\). Initial cost is 15.58956916. After an up move, wealth is \(0.65476190\cdot120-49.88662132\cdot1.05=26.19047619\). The new delta is \(44/(144-96)=11/12\); cash is \(-88/1.05=-83.80952381\). New stock cost 110 minus borrowing 83.80952381 equals the available wealth. At maturity the stock values 132 and 88 minus debt 88 leave 44 and zero. No new money was introduced at rebalancing.</p>
+</li>
+<li>
+<p>Set \(R=1.05\), yielding \(q=0.625\). Terminal prices and payoffs remain unchanged. At the up node, the put value is \(0.375\cdot4/1.05=1.42857143\). At the down node, it is \((0.625\cdot4+0.375\cdot20)/1.05=9.52380952\). Root European value is \((0.625\cdot1.42857143+0.375\cdot9.52380952)/1.05=4.25170068\). Early exercise still replaces the down-node value with 12, making the root value \((0.625\cdot1.42857143+0.375\cdot12)/1.05=5.13605442\). Root intrinsic value remains 2. Only the funding factor and its induced pricing weights changed; 5% effective corresponds to continuous rate \(\log1.05\), not 0.05.</p>
+</li>
+<li>
+<p>At \(a=0.1\), probabilities are \((0.1,0.55,0.35)\), giving \(20\cdot0.35/1.05=6.66666667\). At \(a=0.3\), they are \((0.3,0.15,0.55)\), giving \(10.47619048\). Both positive vectors price stock at 100 and a certain terminal payment at its bank discount. Stock and cash span a two-dimensional subspace of the three-dimensional payoff space; the call lies outside it. Its additional price can select either of these positive extensions without contradicting existing prices.</p>
+</li>
+<li>
+<p>Up-then-down gives prices \((100,120,96)\), average \(316/3=105.33333333\), and payoff \(16/3=5.33333333\). Down-then-up gives \((100,80,96)\), average 92, and payoff zero. Terminal stock is identical, but average and payoff differ. Merging by stock alone would lose necessary contractual state. Store the running sum, or another equivalent sufficient state, in addition to current stock.</p>
+</li>
+</ol>
+</details><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch18.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Binomial checks; no files, network, or trading effects.&quot;&quot;&quot;
+
+from itertools import product
+from math import comb, erf, exp, isclose, isfinite, sqrt
+
+
+def close(actual, expected):
+    assert isclose(actual, expected, rel_tol=1e-11, abs_tol=1e-10), (
+        actual, expected
+    )
+
+
+def parameters(spot, up, down, growth):
+    values = (spot, up, down, growth)
+    if not all(isfinite(x) for x in values):
+        raise ValueError(&quot;Parameters must be finite&quot;)
+    if not (spot &gt; 0 and 0 &lt; down &lt; growth &lt; up):
+        raise ValueError(&quot;Require positive spot and 0 &lt; down &lt; growth &lt; up&quot;)
+    return (growth - down) / (up - down)
+
+
+def replicate(spot, up, down, growth, high, low):
+    &quot;&quot;&quot;Return cost, shares, and current cash for a one-period claim.&quot;&quot;&quot;
+    q = parameters(spot, up, down, growth)
+    delta = (high - low) / (spot * (up - down))
+    cash = (up * low - down * high) / (growth * (up - down))
+    cost = delta * spot + cash
+    close(delta * spot * up + cash * growth, high)
+    close(delta * spot * down + cash * growth, low)
+    close(cost, (q * high + (1 - q) * low) / growth)
+    return cost, delta, cash
+
+
+def tree(spot, up, down, growth, steps, payoff, exercise=False):
+    &quot;&quot;&quot;Return all layers, indexed by date then number of up moves.&quot;&quot;&quot;
+    q = parameters(spot, up, down, growth)
+    if not isinstance(steps, int) or isinstance(steps, bool) or steps &lt; 1:
+        raise ValueError(&quot;steps must be a positive integer&quot;)
+    layers = [None] * (steps + 1)
+    layers[steps] = [
+        payoff(spot * up**j * down**(steps - j))
+        for j in range(steps + 1)
+    ]
+    for i in range(steps - 1, -1, -1):
+        layer = []
+        for j in range(i + 1):
+            continuation = (
+                q * layers[i + 1][j + 1]
+                + (1 - q) * layers[i + 1][j]
+            ) / growth
+            intrinsic = payoff(spot * up**j * down**(i - j))
+            layer.append(max(intrinsic, continuation)
+                         if exercise else continuation)
+        layers[i] = layer
+    return layers
+
+
+def terminal_sum(spot, up, down, growth, steps, payoff):
+    q = parameters(spot, up, down, growth)
+    return sum(
+        comb(steps, j) * q**j * (1 - q)**(steps - j)
+        * payoff(spot * up**j * down**(steps - j))
+        for j in range(steps + 1)
+    ) / growth**steps
+
+
+def verify_paths(layers, spot, up, down, growth):
+    &quot;&quot;&quot;Check each rebalance costs current wealth and final wealth matches.&quot;&quot;&quot;
+    steps = len(layers) - 1
+    for path in product((0, 1), repeat=steps):
+        price, wealth, j = spot, layers[0][0], 0
+        for i, move in enumerate(path):
+            cost, delta, cash = replicate(
+                price, up, down, growth,
+                layers[i + 1][j + 1], layers[i + 1][j]
+            )
+            close(cost, wealth)
+            price *= up if move else down
+            wealth = delta * price + cash * growth
+            j += move
+            close(wealth, layers[i + 1][j])
+
+
+def main():
+    s, u, d, growth = 100.0, 1.2, 0.8, 1.05
+
+    def call(price):
+        return max(price - 100, 0)
+    q = parameters(s, u, d, growth)
+    price, delta, cash = replicate(s, u, d, growth, 20, 0)
+    close(q, 0.625)
+    close(price, 250 / 21)
+    close(delta, 0.5)
+    close(cash, -800 / 21)
+    physical_mean = 0.8 * 120 + 0.2 * 80
+    close(physical_mean, 112)
+    close(q * 120 + (1 - q) * 80, 105)
+    print(f&quot;One-step call {price:.8f}; physical stock mean {physical_mean}&quot;)
+
+    layers = tree(s, u, d, growth, 2, call)
+    verify_paths(layers, s, u, d, growth)
+    close(layers[0][0], terminal_sum(s, u, d, growth, 2, call))
+    print(f&quot;Two-step call {layers[0][0]:.8f}; all four paths replicated&quot;)
+    for steps in (1, 3, 12, 30):
+        result = tree(s, u, d, growth, steps, call)[0][0]
+        close(result, terminal_sum(s, u, d, growth, steps, call))
+
+    def source_put(price):
+
+        return max(52 - price, 0)
+    source_growth = exp(0.05)
+    european = tree(50, u, d, source_growth, 2, source_put)
+    american = tree(50, u, d, source_growth, 2, source_put, True)
+    verify_paths(european, 50, u, d, source_growth)
+    close(american[1][0], 12)
+    close(american[1][1], european[1][1])
+    assert american[0][0] &gt; european[0][0] &gt; 2
+    print(f&quot;Source q {parameters(50, u, d, source_growth):.10f}&quot;)
+    print(f&quot;Source up/down {european[1][1]:.8f}, {european[1][0]:.8f}&quot;)
+    print(f&quot;Source European {european[0][0]:.8f}&quot;)
+    print(f&quot;Source exercise-grid value {american[0][0]:.8f}&quot;)
+    simple_e = tree(50, u, d, growth, 2, source_put)[0][0]
+    simple_a = tree(50, u, d, growth, 2, source_put, True)[0][0]
+    close(simple_e, 4.251700680272107)
+    close(simple_a, 5.136054421768708)
+
+    for strike in (70, 100, 130):
+        value = replicate(s, u, d, growth, max(120 - strike, 0),
+                          max(80 - strike, 0))[0]
+        expected = {70: 100 - 70 / growth, 100: price, 130: 0}[strike]
+        close(value, expected)
+
+    # Expanding the same fixed exercise grid cannot reduce its value.
+    continuation = european[1]
+    q = parameters(50, u, d, source_growth)
+    up_only = (q * max(0, continuation[1])
+               + (1 - q) * continuation[0]) / source_growth
+    close(up_only, european[0][0])
+    assert american[0][0] &gt;= up_only
+
+    for a in (0.1, 0.3):
+        weights = (a, 0.75 - 2 * a, a + 0.25)
+        close(sum(weights), 1)
+        close(sum(w * x for w, x in zip(weights, (80, 100, 120))), 105)
+        assert min(weights) &gt; 0
+        value = 20 * weights[2] / growth
+        assert 5 / growth &lt; value &lt; 12.5 / growth
+        print(f&quot;Three-state a={a}: call {value:.8f}&quot;)
+
+    def cdf(z):
+
+        return (1 + erf(z / sqrt(2))) / 2
+    limiting_call = 100 * cdf(0.35) - 100 * exp(-0.05) * cdf(0.15)
+    errors = []
+    for steps in (40, 160, 640):
+        step = 1 / steps
+        up, down = exp(0.2 * sqrt(step)), exp(-0.2 * sqrt(step))
+        value = tree(100, up, down, exp(0.05 * step), steps, call)[0][0]
+        errors.append(abs(value - limiting_call))
+        print(f&quot;Diffusion-grid n={steps}: call {value:.8f}&quot;)
+    assert errors[2] &lt; errors[1] &lt; errors[0]
+    assert errors[-1] &lt; 0.004
+    close((100 + 120 + 96) / 3 - 100, 16 / 3)
+    close(max((100 + 80 + 96) / 3 - 100, 0), 0)
+    for args in ((100, 1.2, 0.8, 1.2), (0, 1.2, 0.8, 1.05)):
+        try:
+            parameters(*args)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(&quot;Invalid market was accepted&quot;)
+    print(&quot;All binomial and exercise checks passed.&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch17.html">Previous: Itô calculus, lognormal prices, and the meaning of a risk probability</a><a rel="next" href="ch19.html">Next: Measure change, dynamic replication, and the Black–Scholes model</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

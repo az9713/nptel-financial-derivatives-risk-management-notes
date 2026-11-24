@@ -1,0 +1,7 @@
+{
+  "title": "Bond futures: conversion factors, delivery choice, and rate sensitivity",
+  "lectures": [29, 30],
+  "objectives": ["Build a delivery invoice with consistent face, quote, conversion-factor and accrued-interest units", "Explain why conversion factors do not make all eligible bonds economically identical", "Derive a bond-forward quotation from dirty cash prices and intervening coupons", "Size a first-order Treasury futures hedge using the cheapest-to-deliver sensitivity and state its limits"],
+  "prerequisites": "Bond cash-flow valuation and duration from chapters 08–09; cash-and-carry from chapter 02; clean and dirty prices from chapter 11.",
+  "source_scope": "Full English captions for positions 29 and 30 read sequentially. Historical delivery/rounding rules are not generalized to all current products. Official CME conversion and delivery descriptions checked; numerical cases and simplified conversion calculations independently constructed."
+}

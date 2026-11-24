@@ -1,0 +1,7 @@
+{
+  "title": "Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR",
+  "lectures": [60],
+  "objectives": ["Compute signed covariance and duration VaR with explicit units and horizon assumptions", "Reconstruct cash-flow mapping and diagnose PCA portfolio-risk truncation", "Compare delta/gamma approximations with full option and bond repricing", "Calculate atomic expected shortfall and assess exception-count and stress evidence"],
+  "prerequisites": "Chapter23 loss quantiles and expected shortfall; Chapters6/9 covariance and duration; Chapters19–21 option values and Greeks; finite probability distributions and matrix eigenvectors.",
+  "source_scope": "Full sequential normalized English captions at position60 read. Source bond/mapping/PCA/option examples independently recomputed; missing exact FX discount inputs replaced by explicit synthetic data. Selected NIST PCA and historical BCBS backtesting passages inspected. No comprehensive audiovisual audit or empirical risk calibration."
+}

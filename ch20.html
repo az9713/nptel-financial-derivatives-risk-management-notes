@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Solving the pricing PDE and measuring local exposure · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html" aria-current=page>20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>20. Solving the pricing PDE and measuring local exposure</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=anNG26YHMPQ">Recording 49</a>, <a href="https://www.youtube.com/watch?v=zPjULQcQ0UY">Recording 50</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Transform the Black–Scholes terminal PDE into an initial heat equation and evaluate its kernel integral</li><li>Derive yield-adjusted Greeks with explicit time, decimal-parameter, and contract-multiplier units</li><li>Verify parity sensitivities and limiting behavior</li><li>Distinguish local neutrality and partial derivatives from finite market-scenario changes</li></ul>
+<p><strong>Prerequisites:</strong> Chapters17–19: Gaussian kernel, Black–Scholes PDE and formula, self-financing; multivariable differentiation and Taylor expansion.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch20.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-logarithmic-coordinates-turn-the-terminal-problem-forward-0144">1. Logarithmic coordinates turn the terminal problem forward 01:44</a></li><li><a href="#2-the-kernel-must-carry-its-initial-and-boundary-conditions-0815">2. The kernel must carry its initial and boundary conditions 08:15</a></li><li><a href="#3-complete-the-integral-rather-than-guessing-the-answer-2018">3. Complete the integral rather than guessing the answer 20:18</a></li><li><a href="#4-a-sensitivity-is-a-partial-derivative-with-units-2700-0147">4. A sensitivity is a partial derivative with units 27:00 / 01:47</a></li><li><a href="#5-delta-maturity-and-the-state-of-the-option-0549">5. Delta, maturity, and the state of the option 05:49</a></li><li><a href="#6-taylor-approximation-and-the-neutrality-of-a-strategy-2129">6. Taylor approximation and the neutrality of a strategy 21:29</a></li><li><a href="#7-laboratory-and-source-check">7. Laboratory and source check</a></li><li><a href="#exercises">Exercises</a></li></ul></div>
+<article>
+<p>A formula becomes more useful when its construction and its sensitivities are understood together. The Gaussian kernel solves the Black–Scholes equation because logarithmic stock prices remove its variable diffusion coefficient. Differentiating the resulting solution then measures how value changes when one input moves while others are held fixed. Neither step makes a finite portfolio change linear or a practical hedge permanently riskless.</p>
+<p>We retain the one-year, non-dividend synthetic market \(S=K=100,r=0.05,\sigma=0.2\), with continuous rates and time in years. The chapter first solves its PDE independently of the expectation derivation in Chapter 19. It then extends the formula to a constant continuous yield \(q\), explicitly identifying where that extension changes delta and parity. Here \(q\) is a yield per year; it is unrelated to the binomial pricing weight denoted \(q\) in Chapter 18.</p>
+<h2 id="1-logarithmic-coordinates-turn-the-terminal-problem-forward-0144">1. Logarithmic coordinates turn the terminal problem forward <a href="https://www.youtube.com/watch?v=anNG26YHMPQ&amp;t=104s">01:44</a></h2>
+<p>Begin with the non-dividend PDE and terminal call payment:</p>
+<p>\[
+c_t+\tfrac12\sigma^2S^2c_{SS}+rSc_S-rc=0,
+\qquad c(S,T)=(S-K)^+.
+\]</p>
+<p>Set \(\tau=T-t\), the remaining time in years, and introduce a <em>different</em>, dimensionless diffusion time \(\theta=\tfrac12\sigma^2\tau\). Write \(x=\log(S/K)\), \(c=Kf(x,\theta)\), and \(\kappa=2r/\sigma^2\). Thus \(x,\theta,\kappa,f\) are dimensionless. Keeping \(\tau\) and \(\theta\) distinct avoids silently changing the book's time convention.</p>
+<p>The chain rule gives \(Sc_S=Kf_x\), \(S^2c_{SS}=K(f_{xx}-f_x)\), and \(c_t=-K\sigma^2f_\theta/2\). Substitution yields</p>
+<p>\[
+f_\theta=f_{xx}+(\kappa-1)f_x-\kappa f,
+\qquad f(x,0)=(e^x-1)^+.
+\]</p>
+<p>The minus sign in the calendar-time derivative is essential. The pricing problem is backward in calendar time, but forward in remaining diffusion time from the known terminal payment.</p>
+<p>To remove both first derivative and zero-order term, set \(f=e^{ax+b\theta}g\). Substitution gives</p>
+<p>\[
+g_\theta=g_{xx}+(2a+\kappa-1)g_x
++[a^2+(\kappa-1)a-\kappa-b]g.
+\]</p>
+<p>Choose</p>
+<p>\[
+a=\frac{1-\kappa}{2},\qquad b=-\frac{(\kappa+1)^2}{4}.
+\]</p>
+<p>Both extra coefficients vanish, so \(g_\theta=g_{xx}\), with initial condition \(g(x,0)=e^{-ax}(e^x-1)^+\). The transformation changes the dependent variable as well as its coordinates. Merely substituting log stock without adjusting drift and discounting would not give the pure heat equation.</p>
+<h2 id="2-the-kernel-must-carry-its-initial-and-boundary-conditions-0815">2. The kernel must carry its initial and boundary conditions <a href="https://www.youtube.com/watch?v=anNG26YHMPQ&amp;t=495s">08:15</a></h2>
+<p>On the full real line, the heat kernel for positive \(\theta\) is</p>
+<p>\[
+G_\theta(x-y)=\frac{1}{\sqrt{4\pi\theta}}
+\exp\!\left(-\frac{(x-y)^2}{4\theta}\right).
+\]</p>
+<p>It integrates to one, solves \(\partial_\theta G=\partial_{xx}G\), and approaches a unit point mass weakly as \(\theta\downarrow0\). Its variance is \(2\theta\), which explains the factors 4 and 2 in the denominator. For the transformed call payment,</p>
+<p>\[
+g(x,\theta)=\int_0^\infty
+G_\theta(x-y)[e^{(1-a)y}-e^{-ay}]\,dy.
+\]</p>
+<p>The lower limit is zero because the original call payoff vanishes for \(y\le0\). Gaussian decay makes the integral finite despite exponential growth of its initial data. At positive time, dominated differentiation gives the heat equation. The Gaussian approximate-identity property recovers the continuous initial payoff as time tends to zero. These checks connect a formal integral to the actual terminal-value problem.</p>
+<p>More generally, a Green function acts as an inverse kernel only after the operator domain, boundary conditions, and any homogeneous solutions are addressed. From \(Lh=f\), finding a particular integral does not prove it is the unique solution: any admissible \(v\) with \(Lv=0\) can be added. For example, integrating \(h'=f\) leaves an arbitrary constant. In our case the specified initial data and an appropriate exponential growth class fix the relevant heat solution. The lecture's linear-operator sketch should be read with this qualification.</p>
+<p>The heat kernel is a probability density with respect to \(dy\), rather than the probability of a single continuous outcome. The transformed function \(g\) is not itself a probability density. Recovering the stock transition density also requires changing log-coordinate measure to stock-coordinate measure, producing a \(1/S_T\) Jacobian; recovering a price additionally includes discounting. Keeping those roles distinct prevents an arbitrary rescaling of a kernel from masquerading as a probability law.</p>
+<h2 id="3-complete-the-integral-rather-than-guessing-the-answer-2018">3. Complete the integral rather than guessing the answer <a href="https://www.youtube.com/watch?v=anNG26YHMPQ&amp;t=1218s">20:18</a></h2>
+<p>For real \(m\), define</p>
+<p>\[
+I_m=\int_0^\infty G_\theta(x-y)e^{my}\,dy.
+\]</p>
+<p>The exponent satisfies</p>
+<p>\[
+-\frac{(y-x)^2}{4\theta}+my
+=-\frac{(y-x-2m\theta)^2}{4\theta}+mx+m^2\theta.
+\]</p>
+<p>Rescaling the remaining Gaussian therefore gives</p>
+<p>\[
+I_m=e^{mx+m^2\theta}
+\Phi\!\left(\frac{x+2m\theta}{\sqrt{2\theta}}\right).
+\]</p>
+<p>Now \(f=e^{ax+b\theta}(I_{1-a}-I_{-a})\). For the first term, \(a+(1-a)=1\) and \(b+(1-a)^2=0\); its prefactor becomes \(e^x\). For the second, \(a-a=0\) and \(b+a^2=-\kappa\); its prefactor becomes \(e^{-\kappa\theta}\). Replacing \(\theta\) by \(\sigma^2\tau/2\) and \(\kappa\theta\) by \(r\tau\) gives</p>
+<p>\[
+c=S\Phi(d_1)-Ke^{-r\tau}\Phi(d_2),
+\quad d_{1,2}=\frac{\log(S/K)+(r\pm\sigma^2/2)\tau}{\sigma\sqrt\tau}.
+\]</p>
+<p>Both the PDE route and the risk-neutral expectation route lead to the same Gaussian square-completion. They expose different structures: one is a terminal-value evolution, the other an expectation under an equivalent pricing measure. <a href="https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf">Kogan's MIT notes, slides 19–20</a> give the PDE and resulting call formula; the intermediate transformation here is derived explicitly rather than treated as a quoted black box.</p>
+<h2 id="4-a-sensitivity-is-a-partial-derivative-with-units-2700-0147">4. A sensitivity is a partial derivative with units <a href="https://www.youtube.com/watch?v=anNG26YHMPQ&amp;t=1620s">27:00</a> / <a href="https://www.youtube.com/watch?v=zPjULQcQ0UY&amp;t=107s">01:47</a></h2>
+<p>For a continuously yielding stock with constant annual yield \(q\), stockholding gains include both price change and dividends. The pricing drift of the <em>ex-dividend</em> stock is \(r-q\), while the discount rate remains \(r\). Define \(A=e^{-q\tau},D=e^{-r\tau}\) and</p>
+<p>\[
+d_1=\frac{\log(S/K)+(r-q+\sigma^2/2)\tau}{\sigma\sqrt\tau},
+\quad d_2=d_1-\sigma\sqrt\tau.
+\]</p>
+<p>Then \(c=SA\Phi(d_1)-KD\Phi(d_2)\), \(p=KD\Phi(-d_2)-SA\Phi(-d_1)\). This is a continuous proportional yield model, not an exact substitution for a fixed cash dividend at a known date. Parity is \(c-p=SA-KD\). The discount on stock and that on strike are different because they represent different carry streams.</p>
+<p>All Greeks below hold other displayed inputs fixed. Theta is the derivative with respect to <em>calendar</em> time: \(\Theta=\partial_tV=-\partial_\tau V\). Volatility and rates use decimal units, so a one percentage-point change is 0.01. Multipliers and number of contracts are applied after calculating a per-option exposure.</p>
+<div aria-label="Scrollable table" class="tablewrap" tabindex="0"><table>
+<thead>
+<tr>
+<th>Greek</th>
+<th>Definition</th>
+<th>Call</th>
+<th>Put</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delta</td>
+<td>\(V_S\)</td>
+<td>\(A\Phi(d_1)\)</td>
+<td>\(A[\Phi(d_1)-1]\)</td>
+</tr>
+<tr>
+<td>Gamma</td>
+<td>\(V_{SS}\)</td>
+<td>\(A\phi(d_1)/(S\sigma\sqrt\tau)\)</td>
+<td>Same as call</td>
+</tr>
+<tr>
+<td>Vega</td>
+<td>\(V_\sigma\)</td>
+<td>\(SA\phi(d_1)\sqrt\tau\)</td>
+<td>Same as call</td>
+</tr>
+<tr>
+<td>Rho</td>
+<td>\(V_r\)</td>
+<td>\(K\tau D\Phi(d_2)\)</td>
+<td>\(-K\tau D\Phi(-d_2)\)</td>
+</tr>
+<tr>
+<td>Yield sensitivity</td>
+<td>\(V_q\)</td>
+<td>\(-\tau SA\Phi(d_1)\)</td>
+<td>\(\tau SA\Phi(-d_1)\)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Writing \(H=SA\sigma\phi(d_1)/(2\sqrt\tau)\), the calendar thetas are</p>
+<p>\[
+\Theta_c=-H+qSA\Phi(d_1)-rKD\Phi(d_2),
+\qquad
+\Theta_p=-H-qSA\Phi(-d_1)+rKD\Phi(-d_2).
+\]</p>
+<p>These formulas can be differentiated systematically using the common cancellation identity \(SA\phi(d_1)=KD\phi(d_2)\). For delta, the two terms containing \(\partial_Sd_i\) cancel; differentiating the remaining delta gives gamma. For vega, \(\partial_\sigma(d_1-d_2)=\sqrt\tau\), so the two density terms combine to \(SA\phi(d_1)\sqrt\tau\). For rho and yield sensitivity, the chain-rule terms cancel and only derivatives of the explicit discount factors remain. Theta follows by differentiating in \(\tau\) and changing sign, or by substituting delta and gamma into the yield-adjusted PDE. Differentiating parity supplies the put formulas and is a useful independent sign check.</p>
+<p>Delta has units shares per option when the option payoff refers to one share. Gamma measures the change in share delta per unit change in the quoted stock price, per option; when stock price is currency per share, its units are shares squared per currency unit per option. Vega and rho have units currency per unit decimal parameter per option. Theta has units currency per year per option. A quoted daily theta requires an explicitly chosen day basis; dividing annual theta by 365 is a calendar-day approximation, not a mathematical identity about exchange calendars.</p>
+<p>For the non-dividend benchmark, call delta is 0.63683065, gamma 0.01876202, vega 37.52403469, theta −6.41402755, and rho 53.23248155. A one percentage-point volatility increase has first-order value about 0.37524035, not 37.52. A one basis-point rate increase is 0.0001, with first-order value about 0.00532325. The lab verifies each analytic Greek against independent numerical differentiation, including a nonzero-yield case.</p>
+<h2 id="5-delta-maturity-and-the-state-of-the-option-0549">5. Delta, maturity, and the state of the option <a href="https://www.youtube.com/watch?v=zPjULQcQ0UY&amp;t=349s">05:49</a></h2>
+<p>For a non-dividend call, \(0&lt;\Delta_c&lt;1\); the put delta lies between −1 and zero. Their signed difference is one, so the sum of their absolute values is one. With yield, the signed difference and absolute-value sum become \(e^{-q\tau}\). These are paired options with the same stock, strike, expiry, and model inputs; adding arbitrary call and put deltas does not give a universal identity.</p>
+<p>At fixed positive \(\tau\), increasing stock raises call delta because gamma is positive. Deep in-the-money calls tend toward one share of delta when \(q=0\), while deep out-of-the-money calls tend toward zero. With yield, the upper limit is \(A\). These limits concern sufficiently extreme standardized moneyness: a label such as “out of the money” alone does not imply negligible exposure when maturity or volatility is large.</p>
+<p>As \(\tau\downarrow0\) at fixed stock, delta tends to one above strike and zero below strike for a non-dividend call. At \(S=K\), its pre-expiry limit is one-half. The terminal payoff itself is not differentiable at strike, so this limiting half does not supply a derivative of the terminal kink. Gamma at the money grows like \(1/(K\sigma\sqrt{2\pi\tau})\), concentrating curvature in a shrinking region around strike. Away from strike, gamma tends to zero.</p>
+<p>Shorter maturity therefore does not make every option more sensitive to stock. A well out-of-the-money call can have delta near zero just before expiry yet appreciable delta a year earlier. An in-the-money call can show the reverse progression. Theta also need not be negative for every option: a sufficiently deep in-the-money put can have positive calendar theta when the benefit of earlier access to strike cash dominates its remaining optionality. Greeks express parameter-dependent exposures, not universal slogans about “time decay.”</p>
+<h2 id="6-taylor-approximation-and-the-neutrality-of-a-strategy-2129">6. Taylor approximation and the neutrality of a strategy <a href="https://www.youtube.com/watch?v=zPjULQcQ0UY&amp;t=1289s">21:29</a></h2>
+<p>For small simultaneous changes, a commonly used local approximation is</p>
+<p>\[
+\delta V\approx\Delta\,\delta S+\tfrac12\Gamma(\delta S)^2
++\Theta\,\delta t+\mathrm{Vega}\,\delta\sigma
++\mathrm{Rho}\,\delta r+V_q\,\delta q.
+\]</p>
+<p>It retains one particular second-order term. The full multivariate second-order Taylor expansion also includes cross derivatives, volatility curvature, and time cross terms. Thus this displayed approximation is not the complete quadratic expansion in all inputs. Its error depends on which inputs move and by how much. Near expiry or across a kink, local coefficients can vary rapidly and a finite displacement can make truncation unreliable.</p>
+<p>In the benchmark, a stock increase of 5 with all else fixed has delta approximation \(5\Delta\), or about 3.18415. Adding gamma contributes about 0.23453. The lab compares both approximations with full repricing and shows the reduction in error for this case. The calculation is a mark-to-market value change at the same date, not a financed trading profit over a year.</p>
+<p>Strategy delta is the signed sum of component deltas, plus shares actually held. A long call plus a long put with the same strike has delta \(2\Phi(d_1)-1\) when \(q=0\). At \(S=K\) in our benchmark this is 0.27366130, so an at-the-money straddle is not exactly delta neutral. A stock hedge of −0.27366130 shares per straddle makes it locally neutral. Without a stock hedge its zero-delta stock level is \(K\exp[-(r+\sigma^2/2)\tau]\), which is below strike for these parameters.</p>
+<p>Similarly, a butterfly, calendar spread, or iron condor can be arranged near zero delta at a chosen state; its name does not enforce zero delta at every state. The source's iron condor holds a lower-strike put, shorts a higher-strike put, shorts a lower-strike call, and holds a higher-strike call, with ordered strikes \(K_1&lt;K_2&lt;K_3&lt;K_4\). Its terminal payoff is nonpositive, with zero in the middle region and bounded wing losses. The initial premium credit compensates for that liability. Financed profit combines the future value of that credit with the terminal payoff; receipt of cash at inception is not an immediate riskless profit. Chapter 21 uses the actual component Greeks to solve hedge systems rather than assigning neutrality by strategy label.</p>
+<p>Strike is fixed within an existing contract, so a pathwise hedge normally holds it fixed. Nevertheless the pricing function can be differentiated with respect to strike across a family of contracts. Indeed \(c_K=-D\Phi(d_2)\), and a second strike derivative recovers discounted risk-neutral density when it exists. Fixing a contractual parameter does not make its comparative sensitivity meaningless. Likewise, a model vega holds all other inputs fixed; if market implied volatility moves with stock, the observed total stock sensitivity includes that volatility response. The distinction between a partial derivative and a market scenario is central to using Greeks honestly.</p>
+<h2 id="7-laboratory-and-source-check">7. Laboratory and source check</h2>
+<p>Run <a href="labs/ch20.py">the PDE and Greeks laboratory</a>. It integrates the transformed heat-kernel solution directly, compares it with the closed form, checks all displayed Greeks by finite differences at positive yield, tests parity derivatives and the PDE, and examines local approximation errors and maturity limits. The source dividend-threshold example gives \(139.16[1-e^{-0.1(2/12)}]=2.30011249\) approximately, with the exact lab value printed. Its current stock 120 is unnecessary for this sufficient bound; a dividend above the threshold still requires a stock-dependent exercise decision.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>For the benchmark, calculate \(\kappa,a,b\). Verify both eliminated heat-equation coefficients.</li>
+<li>Evaluate the general integral \(I_m\) by completing the square and explain why its Gaussian variance is \(2\theta\).</li>
+<li>A position contains 40 calls, each referring to 100 shares. Calculate its benchmark stock delta and the first-order value change for a one percentage-point volatility increase.</li>
+<li>Differentiate yield-adjusted put–call parity to obtain identities for delta, gamma, vega, theta, and rho.</li>
+<li>Use gamma to compare a call's responses to stock changes +2 and −2. Why is their sum generally positive even though the first-order changes cancel?</li>
+<li>At the benchmark state, find the stock hedge for ten long straddles referring to one share each. Is that hedge guaranteed to remain neutral after stock changes?</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>\(\kappa=2(0.05)/0.2^2=2.5\), so \(a=-0.75\), \(b=-3.0625\). Then \(2a+\kappa-1=-1.5+1.5=0\). The other coefficient is \(a^2+(\kappa-1)a-\kappa-b=0.5625-1.125-2.5+3.0625=0\). Remaining diffusion time at one year is \(\theta=0.02\), distinct from one calendar year.</p>
+</li>
+<li>
+<p>The exponent becomes \(-(y-x-2m\theta)^2/(4\theta)+mx+m^2\theta\). Factoring out the last two terms leaves a normal density with mean \(x+2m\theta\) and variance \(2\theta\), integrated from zero upward. Its upper-tail probability is \(\Phi((x+2m\theta)/\sqrt{2\theta})\), giving the stated \(I_m\). The coefficient of the heat equation is one, so Brownian variance grows at twice that coefficient; using variance \(\theta\) would solve a different PDE.</p>
+</li>
+<li>
+<p>Total share-equivalent exposure is \(40\cdot100\cdot0.63683065=2547.3226\) shares. Hedge it locally with that many shares short, subject to practical rounding. Position vega is \(4000\cdot37.52403469\); multiplying by a 0.01 volatility change gives about 1500.9614 currency units. Contract count and share multiplier must both appear; omitting the latter understates exposure by 100.</p>
+</li>
+<li>
+<p>From \(c-p=SA-KD\), differentiate in stock: \(\Delta_c-\Delta_p=A\); again: \(\Gamma_c-\Gamma_p=0\). Differentiating in volatility gives equal vegas. Calendar-time differentiation gives \(\Theta_c-\Theta_p=qSA-rKD\), since \(\partial_tA=qA\) and \(\partial_tD=rD\). Differentiation in \(r\) gives \(\rho_c-\rho_p=\tau KD\). These checks require fixed \(S,K,\tau,q\) for the rate derivative and fixed yield for the other displayed identities.</p>
+</li>
+<li>
+<p>The quadratic approximations are \(2\Delta+2\Gamma\) and \(-2\Delta+2\Gamma\). Their sum is \(4\Gamma\), about 0.07504807 at the benchmark. The positive curvature contribution survives the cancellation of the linear changes. This is a finite-difference convexity statement at one date; a trading strategy realizing two alternative stock outcomes simultaneously has not been constructed. Exact repricing gives the corresponding finite convexity inequality, while the coefficient approximation has higher-order error.</p>
+</li>
+<li>
+<p>One straddle has delta \(2(0.6368306512)-1=0.2736613024\). Ten have delta 2.736613024 shares, so short that many shares. Gamma of the option position is \(20\Gamma_c&gt;0\), because put and call gammas agree; stock gamma is zero. After a stock change, option delta changes approximately by that total gamma times the change, while the fixed stock hedge does not. Neutrality is local and requires rebalancing to maintain.</p>
+</li>
+</ol>
+</details><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch20.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Heat-kernel and Greek checks; no files, network, or trading effects.&quot;&quot;&quot;
+
+from math import exp, isclose, isfinite, log, pi, sqrt
+
+from scipy.integrate import quad
+from scipy.special import ndtr
+
+
+def value(spot, strike, rate, volatility, tau, yield_rate=0, put=False):
+    inputs = (spot, strike, rate, volatility, tau, yield_rate)
+    if not all(isfinite(x) for x in inputs):
+        raise ValueError(&quot;Inputs must be finite&quot;)
+    if spot &lt;= 0 or strike &lt;= 0 or volatility &lt; 0 or tau &lt; 0:
+        raise ValueError(&quot;Invalid price, volatility, or remaining time&quot;)
+    asset = spot * exp(-yield_rate * tau)
+    debt = strike * exp(-rate * tau)
+    if volatility == 0 or tau == 0:
+        return max(debt - asset, 0) if put else max(asset - debt, 0)
+    width = volatility * sqrt(tau)
+    d1 = (log(spot / strike)
+          + (rate - yield_rate + volatility**2 / 2) * tau) / width
+    d2 = d1 - width
+    if put:
+        return debt * ndtr(-d2) - asset * ndtr(-d1)
+    return asset * ndtr(d1) - debt * ndtr(d2)
+
+
+def greeks(spot, strike, rate, volatility, tau, yield_rate=0, put=False):
+    value(spot, strike, rate, volatility, tau, yield_rate, put)
+    if volatility == 0 or tau == 0:
+        raise ValueError(
+            &quot;Interior Greeks require positive volatility and time&quot;)
+    width = volatility * sqrt(tau)
+    d1 = (log(spot / strike)
+          + (rate - yield_rate + volatility**2 / 2) * tau) / width
+    d2 = d1 - width
+    asset = spot * exp(-yield_rate * tau)
+    debt = strike * exp(-rate * tau)
+    density = exp(-d1**2 / 2) / sqrt(2 * pi)
+    direction = -1 if put else 1
+    n1, n2 = ndtr(direction * d1), ndtr(direction * d2)
+    delta = direction * exp(-yield_rate * tau) * n1
+    gamma = exp(-yield_rate * tau) * density / (spot * width)
+    vega = asset * density * sqrt(tau)
+    rho = direction * tau * debt * n2
+    yield_sensitivity = -direction * tau * asset * n1
+    theta = (-asset * volatility * density / (2 * sqrt(tau))
+             + direction * yield_rate * asset * n1
+             - direction * rate * debt * n2)
+    return dict(delta=delta, gamma=gamma, vega=vega, rho=rho,
+                yield_sensitivity=yield_sensitivity, theta=theta)
+
+
+def heat_call(spot, strike, rate, volatility, tau):
+    &quot;&quot;&quot;Integrate transformed initial data, independently of the call CDF.&quot;&quot;&quot;
+    x = log(spot / strike)
+    theta = volatility**2 * tau / 2
+    kappa = 2 * rate / volatility**2
+    a, b = (1 - kappa) / 2, -(kappa + 1)**2 / 4
+
+    def integrand(y):
+        base = -(y - x)**2 / (4 * theta)
+        return (exp(base + (1 - a) * y) - exp(base - a * y))
+
+    integral = quad(integrand, 0, float(&quot;inf&quot;), epsabs=1e-11)[0]
+    return strike * exp(a * x + b * theta) * integral / sqrt(4 * pi * theta)
+
+
+def close(actual, expected, tolerance=1e-7):
+    assert isclose(actual, expected, rel_tol=tolerance, abs_tol=tolerance), (
+        actual, expected
+    )
+
+
+def numerical_greeks(parameters, put):
+    center = value(*parameters, put=put)
+    analytical = greeks(*parameters, put=put)
+    # Parameter order: spot, strike, rate, volatility, years, yield.
+    for index, name, h in ((0, &#x27;delta&#x27;, .001), (2, &#x27;rho&#x27;, 1e-5),
+                           (3, &#x27;vega&#x27;, 1e-5), (4, &#x27;theta&#x27;, 1e-5),
+                           (5, &#x27;yield_sensitivity&#x27;, 1e-5)):
+        plus, minus = list(parameters), list(parameters)
+        plus[index] += h
+        minus[index] -= h
+        numerical = (value(*plus, put=put) - value(*minus, put=put)) / (2 * h)
+        if name == &#x27;theta&#x27;:
+            numerical = -numerical
+        close(numerical, analytical[name])
+    plus, minus = list(parameters), list(parameters)
+    h = .01
+    plus[0] += h
+    minus[0] -= h
+    gamma = (value(*plus, put=put) - 2 * center
+             + value(*minus, put=put)) / h**2
+    close(gamma, analytical[&#x27;gamma&#x27;])
+
+
+def main():
+    benchmark = (100, 100, .05, .2, 1, 0)
+    for spot in (80, 100, 130):
+        close(heat_call(spot, 100, .05, .2, 1), value(spot, 100, .05, .2, 1))
+    for parameters in (benchmark, (85, 90, .03, .3, .8, .02)):
+        for put in (False, True):
+            numerical_greeks(parameters, put)
+        call = greeks(*parameters)
+        put = greeks(*parameters, put=True)
+        spot, strike, rate, sigma, tau, yield_rate = parameters
+        asset, debt = spot * exp(-yield_rate * tau), strike * exp(-rate * tau)
+        close(call[&#x27;delta&#x27;] - put[&#x27;delta&#x27;], exp(-yield_rate * tau))
+        close(call[&#x27;gamma&#x27;], put[&#x27;gamma&#x27;])
+        close(call[&#x27;vega&#x27;], put[&#x27;vega&#x27;])
+        close(call[&#x27;rho&#x27;] - put[&#x27;rho&#x27;], tau * debt)
+        close(call[&#x27;theta&#x27;] - put[&#x27;theta&#x27;], yield_rate * asset - rate * debt)
+        for is_put, exposure in ((False, call), (True, put)):
+            residual = (exposure[&#x27;theta&#x27;] + .5 * sigma**2 * spot**2
+                        * exposure[&#x27;gamma&#x27;] + (rate - yield_rate) * spot
+                        * exposure[&#x27;delta&#x27;] - rate * value(*parameters,
+                                                           put=is_put))
+            close(residual, 0)
+    exposure = greeks(*benchmark)
+    print(&quot;Benchmark Greeks&quot;, {k: round(v, 8) for k, v in exposure.items()})
+    initial = value(*benchmark)
+    exact_change = value(105, *benchmark[1:]) - initial
+    linear = 5 * exposure[&#x27;delta&#x27;]
+    quadratic = linear + .5 * 25 * exposure[&#x27;gamma&#x27;]
+    assert abs(exact_change - quadratic) &lt; abs(exact_change - linear)
+    print(f&quot;Stock +5: exact {exact_change:.8f}, delta {linear:.8f}, &quot;
+          f&quot;delta-gamma {quadratic:.8f}&quot;)
+    close(4000 * exposure[&#x27;delta&#x27;], 2547.322604702476)
+    close(4000 * exposure[&#x27;vega&#x27;] * .01, 1500.96138766775)
+    straddle_delta = exposure[&#x27;delta&#x27;] + greeks(*benchmark, put=True)[&#x27;delta&#x27;]
+    close(straddle_delta, .2736613023512382)
+    neutral_stock = 100 * exp(-(.05 + .2**2 / 2))
+    neutral_call = greeks(neutral_stock, *benchmark[1:])[&#x27;delta&#x27;]
+    neutral_put = greeks(neutral_stock, *benchmark[1:], put=True)[&#x27;delta&#x27;]
+    neutral_delta = neutral_call + neutral_put
+    close(neutral_delta, 0)
+    short_delta = greeks(80, 100, .05, .2, .01)[&#x27;delta&#x27;]
+    long_delta = greeks(80, 100, .05, .2, 1)[&#x27;delta&#x27;]
+    assert short_delta &lt; .001 &lt; long_delta
+    assert greeks(50, 100, .05, .2, .1, put=True)[&#x27;theta&#x27;] &gt; 0
+    threshold = 139.16 * (1 - exp(-.1 * (2 / 12)))
+    print(f&quot;Source sufficient dividend threshold {threshold:.8f}&quot;)
+    for tau in (.01, .0001):
+        close(greeks(100, 100, .05, .2, tau)[&#x27;gamma&#x27;]
+              * 100 * .2 * sqrt(2 * pi * tau),
+              exp(-((.05 + .2**2 / 2) * sqrt(tau) / .2)**2 / 2))
+    print(&quot;All heat-kernel, Greek, parity, PDE, and local-risk checks passed.&quot;)
+
+
+if __name__ == &#x27;__main__&#x27;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch19.html">Previous: Measure change, dynamic replication, and the Black–Scholes model</a><a rel="next" href="ch21.html">Next: Greek hedges, financing, and the cost of convexity</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

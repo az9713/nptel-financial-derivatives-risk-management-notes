@@ -1,0 +1,122 @@
+{
+  "operation": "Replace CRLF byte pairs by LF only; no formatting, code, or prose edits.",
+  "files": [
+    {
+      "file": "chapters/ch05.md",
+      "before_sha256": "2245402ce8f3535f2f68ff837f053bbe6fbd2b8c3dad533ea85f837e5653b7dd",
+      "after_sha256": "7181b5066f9ae36bc49c64f1a9a6b97459efd054cc0ba509dce5fc96d573ecfe",
+      "before_crlf_pairs": 128,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "chapters/ch06.md",
+      "before_sha256": "c5ad73a7960d89db0466ee54c383febf8b4a2cdb878951622c3de33471f4c8b6",
+      "after_sha256": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
+      "before_crlf_pairs": 148,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "chapters/ch07.md",
+      "before_sha256": "3198f72d6b2b3ae752570ae673477aa8ddeb188764afb94d5160b56a307c088a",
+      "after_sha256": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+      "before_crlf_pairs": 125,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "chapters/ch08.md",
+      "before_sha256": "34acca63392801951c099fe577790a637cea88d5680950b9b3d07e5eaa11962f",
+      "after_sha256": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
+      "before_crlf_pairs": 140,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "chapters/ch09.md",
+      "before_sha256": "f459d5fc996b841ec802bfc98f596f97e6a77b6de6c226cfe3104dc73576bd76",
+      "after_sha256": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
+      "before_crlf_pairs": 160,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "labs/ch02.py",
+      "before_sha256": "67bf2d2b898d07e203d61ee3b6f171236a2c8ae9781b2a07a56593ff0fbcc1bc",
+      "after_sha256": "d2ae61be454f9c77424a49e5dba1c8598e7810b2317ed7da4bd8601c3f58df4c",
+      "before_crlf_pairs": 84,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "labs/ch03.py",
+      "before_sha256": "ba7cfddd18dfece044ae0a2ca6215e00d511f44f2725be9d5f8e6e0dbac26c26",
+      "after_sha256": "43dbe8ffc951a039c5c961c3ac3422bc22ffea72dfb52b3ba6459a9a04f85357",
+      "before_crlf_pairs": 78,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "labs/ch04.py",
+      "before_sha256": "d09d18c95c8570e498fdd7d00c42f26d9739579991aa9b53bc4e6a98ee84faf1",
+      "after_sha256": "3a9753c766f5ce50e51e7defe8f5d19c3025faa22703cc2d49580ffa967875bc",
+      "before_crlf_pairs": 69,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "labs/ch05.py",
+      "before_sha256": "4267dccae05b959878cc7953304c39b2ecc2d193c19dc895bc5cb61ff246f31f",
+      "after_sha256": "e4f47263e2da7e788cc5bf0b5d076f6aea0361318abd9d70567f59f0235bebda",
+      "before_crlf_pairs": 78,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "labs/ch06.py",
+      "before_sha256": "7dc0b606381e3df748cd474ca07854c7193c8a617a511b9ee78f01856552d64a",
+      "after_sha256": "8544531b1c599e262eeea8c5650b58542eb1ef9de23ef6569874b41940fbb1d3",
+      "before_crlf_pairs": 80,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "labs/ch07.py",
+      "before_sha256": "7cfe54f7a282df84a86e6f2f4dcb96476e09f8dcee03905acc5a3b860ec4024a",
+      "after_sha256": "20fd25d6a00a56686d8fed51e72725ddd6c4021e2650958a35a27dfea03fcc91",
+      "before_crlf_pairs": 77,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "labs/ch08.py",
+      "before_sha256": "ac9fd0968cd13bf86fac6ae4e50e42dd265b0aa9d1941a7c79c112eeefebe0c5",
+      "after_sha256": "6b10386b3e0dc5ce51aab589e4fa2df2117c6b379985bf4574c22894ac0a82e8",
+      "before_crlf_pairs": 87,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    },
+    {
+      "file": "labs/ch09.py",
+      "before_sha256": "ca4eab541bad79a79b30c8d26cdf9da32d6af4ddff00adb4a7b56d086cd32236",
+      "after_sha256": "5975547d15cf372a9c398ab9de8c403203207ff10741421c11bc7ea901255d5f",
+      "before_crlf_pairs": 77,
+      "after_crlf_pairs": 0,
+      "normalized_bytes_equivalent": true,
+      "other_changes": false
+    }
+  ]
+}

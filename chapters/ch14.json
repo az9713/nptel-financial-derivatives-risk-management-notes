@@ -1,0 +1,7 @@
+{
+  "title": "Option bounds and the decision to exercise",
+  "lectures": [32, 33],
+  "objectives": ["Derive European option bounds by dated portfolio dominance", "Build the prepaid-share replication for a deterministic proportional dividend yield", "Prove the nondividend American-call result with its rate condition", "Calculate early-exercise decisions from continuation values and derive American parity inequalities"],
+  "prerequisites": "European put–call parity and funded option payoffs from chapter 13; discount factors and replication from chapters 02 and 08.",
+  "source_scope": "Complete English captions for positions 32–33 read sequentially. Weak bounds, rate and dividend assumptions, and model-based continuation values are made explicit. The finite exercise tree is an original pedagogical construction, developed further in chapter 18."
+}

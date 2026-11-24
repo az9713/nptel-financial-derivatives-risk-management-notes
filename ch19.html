@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Measure change, dynamic replication, and the Black–Scholes model · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html" aria-current=page>19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>19. Measure change, dynamic replication, and the Black–Scholes model</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=bCQID6X85ys">Recording 46</a>, <a href="https://www.youtube.com/watch?v=9QS2FduuvTk">Recording 47</a>, <a href="https://www.youtube.com/watch?v=P-tzhvI64as">Recording 48</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Construct and verify the constant-coefficient likelihood ratio and Brownian shift</li><li>Derive the Black–Scholes PDE from a specified self-financing portfolio</li><li>Derive call and put prices and distinguish pricing probabilities, delta, and conditional means</li><li>State the completeness, dividend, and model-risk boundaries of the replication argument</li></ul>
+<p><strong>Prerequisites:</strong> Chapters17–18: Itô calculus, GBM, pricing measures, and finite-state self-financing; Gaussian integration.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch19.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-what-a-change-of-measure-changes-1037">1. What a change of measure changes 10:37</a></li><li><a href="#2-preserved-volatility-does-not-mean-identical-finite-distributions">2. Preserved volatility does not mean identical finite distributions</a></li><li><a href="#3-replication-must-include-its-cash-account-2301-0238">3. Replication must include its cash account 23:01 / 02:38</a></li><li><a href="#4-from-the-pde-to-a-discounted-expectation-1333">4. From the PDE to a discounted expectation 13:33</a></li><li><a href="#5-truncated-expectation-conditional-mean-and-the-call-formula-0059">5. Truncated expectation, conditional mean, and the call formula 00:59</a></li><li><a href="#6-the-dividend-and-exercise-boundary-0024">6. The dividend and exercise boundary 00:24</a></li><li><a href="#7-laboratory-source-checks-and-limits">7. Laboratory, source checks, and limits</a></li><li><a href="#exercises">Exercises</a></li></ul></div>
+<article>
+<p>The binomial market had two complementary descriptions of one price: the cost of a replicating strategy and a discounted expectation under pricing probabilities. In a diffusion market, the same relationship survives, but its mathematical requirements become more demanding. A change of measure must define a genuine probability law; a changing stock holding must be financed; and a differential equation needs a terminal condition and a growth class to identify its economically relevant solution.</p>
+<p>Our persistent synthetic market has a non-dividend stock with \(S_0=100\), volatility \(\sigma=0.2\) per square-root year, physical drift \(\mu=0.12\) per year, and a bank account growing at continuous rate \(r=0.05\). A one-year European call has strike 100. These numbers are an instructional construction. The source's separate numerical examples are reproduced near the end.</p>
+<h2 id="1-what-a-change-of-measure-changes-1037">1. What a change of measure changes <a href="https://www.youtube.com/watch?v=bCQID6X85ys&amp;t=637s">10:37</a></h2>
+<p>Under physical probability \(\mathbb P\), suppose</p>
+<p>\[
+dS_t=\mu S_t\,dt+\sigma S_t\,dW_t^{\mathbb P},
+\qquad dB_t=rB_t\,dt,
+\]</p>
+<p>with \(S_0&gt;0,\sigma&gt;0\), constant finite parameters, and a finite horizon \(T\). The information available at date \(t\), denoted \(\mathcal F_t\), is the completed Brownian filtration. A filtration is an increasing family of information sets; strategies may use present and past information, but not future Brownian increments.</p>
+<p>Define the market price of Brownian risk</p>
+<p>\[
+\lambda=\frac{\mu-r}{\sigma},
+\qquad
+Z_t=\exp\left(-\lambda W_t^{\mathbb P}
+-\frac12\lambda^2t\right).
+\]</p>
+<p>The units of \(\lambda\) are inverse square-root years, so the exponential is dimensionless. Gaussian increments give \(\mathbb E^{\mathbb P}Z_t=1\), and their independence gives \(\mathbb E^{\mathbb P}[Z_t\mid\mathcal F_s]=Z_s\) for \(s&lt;t\). Thus \(Z\) is a strictly positive martingale, not merely a formal stochastic exponential with zero drift. Set</p>
+<p>\[
+\mathbb Q(A)=\mathbb E^{\mathbb P}[Z_T\mathbf1_A],
+\qquad A\in\mathcal F_T.
+\]</p>
+<p>Positivity and expectation one make this a probability measure equivalent to \(\mathbb P\): the two measures have the same zero-probability events. The random variable \(Z_T\) is the likelihood ratio \(d\mathbb Q/d\mathbb P\). It changes the weights assigned to paths, while keeping the paths themselves.</p>
+<p>For constant \(\lambda\), the Brownian shift can be seen directly. If \(w=W_T^{\mathbb P}\), multiplying its normal density by the likelihood gives</p>
+<p>\[
+e^{-\lambda w-\lambda^2T/2}
+\frac{e^{-w^2/(2T)}}{\sqrt{2\pi T}}
+=\frac{e^{-(w+\lambda T)^2/(2T)}}{\sqrt{2\pi T}}.
+\]</p>
+<p>Hence \(W_T^{\mathbb P}\) has mean \(-\lambda T\) under \(\mathbb Q\), and \(W_T^{\mathbb Q}:=W_T^{\mathbb P}+\lambda T\) is centered normal with variance \(T\). Applying the same square-completion separately to independent increments proves that \(W_t^{\mathbb Q}=W_t^{\mathbb P}+\lambda t\) is Brownian motion under \(\mathbb Q\). Substitution gives</p>
+<p>\[
+dS_t=rS_t\,dt+\sigma S_t\,dW_t^{\mathbb Q}.
+\]</p>
+<p>The minus sign in \(Z\) and plus sign in \(W^{\mathbb Q}\) belong together. In our example \(\lambda=0.35\); a positive physical risk premium is removed by giving relatively less pricing weight to large positive physical Brownian increments.</p>
+<p>For a predictable, possibly random \(\lambda_t\) with \(\int_0^T\lambda_t^2dt&lt;\infty\) almost surely, the stochastic integral exists locally. Predictability is the nonanticipating measurability condition defined in Chapter 17; adaptedness alone is not the complete hypothesis. The corresponding exponential contains \(-\int\lambda_t\,dW_t-\tfrac12\int\lambda_t^2dt\). A sufficient condition for it to be a true martingale on the horizon is Novikov's condition \(\mathbb E^{\mathbb P}\exp(\tfrac12\int_0^T\lambda_t^2dt)&lt;\infty\). Girsanov's theorem then identifies \(W^{\mathbb P}+\int\lambda_tdt\) as Brownian under the changed measure. The general theorem is invoked, rather than proved here; our constant-coefficient derivation verifies the special case actually used. See <a href="https://galton.uchicago.edu/~lalley/Courses/390/Lecture10.pdf">Steven Lalley's University of Chicago notes, Theorems 1–2, pages 1–3</a>.</p>
+<h2 id="2-preserved-volatility-does-not-mean-identical-finite-distributions">2. Preserved volatility does not mean identical finite distributions</h2>
+<p>Under both measures, log price has quadratic variation \([\log S]_t=\sigma^2t\). A finite-variation drift shift does not alter that pathwise quantity. Equivalence also preserves almost-sure path properties. This explains the useful statement that measure change preserves diffusion volatility.</p>
+<p>It does not preserve all variances. For constant coefficients,</p>
+<p>\[
+\operatorname{Var}^{\mathbb P}(S_T)
+=S_0^2e^{2\mu T}(e^{\sigma^2T}-1),
+\qquad
+\operatorname{Var}^{\mathbb Q}(S_T)
+=S_0^2e^{2rT}(e^{\sigma^2T}-1).
+\]</p>
+<p>Finite-horizon price variance changes with the drift. Log-return variance remains \(\sigma^2T\) in this particular constant-volatility model. In a finite binomial tree, reweighting the same two outcomes changes variance to \(p(1-p)(u-d)^2\) or \(q(1-q)(u-d)^2\). Equality of these finite-step variances is not Girsanov's theorem. The lecture's shrinking-step construction motivates the shared limiting diffusion coefficient; it should not be interpreted as an exact finite-step invariance result.</p>
+<p>Likewise, changing to a risk-neutral measure preserves the <em>lognormal family</em>, while changing its parameters and therefore its distribution. It is not a change to actual investor preferences. No-arbitrage equates the prices of statewise identical attainable cash flows; equal means and variances alone do not suffice.</p>
+<h2 id="3-replication-must-include-its-cash-account-2301-0238">3. Replication must include its cash account <a href="https://www.youtube.com/watch?v=bCQID6X85ys&amp;t=1381s">23:01</a> / <a href="https://www.youtube.com/watch?v=9QS2FduuvTk&amp;t=158s">02:38</a></h2>
+<p>Let \(V(S,t)\) be a derivative value, smooth in the interior: once continuously differentiable in time and twice in stock price for \(t&lt;T\). Itô's formula under \(\mathbb P\) gives</p>
+<p>\[
+dV=\left(V_t+\mu SV_S+\frac12\sigma^2S^2V_{SS}\right)dt
++\sigma SV_S\,dW^{\mathbb P}.
+\]</p>
+<p>Construct a portfolio with \(\Delta_t\) shares and \(\beta_t\) bank-account units, of value \(X_t=\Delta_tS_t+\beta_tB_t\). Self-financing means</p>
+<p>\[
+dX_t=\Delta_t\,dS_t+\beta_t\,dB_t
+=\Delta_t\,dS_t+r(X_t-\Delta_tS_t)dt.
+\]</p>
+<p>Trading gains and bank interest account for every change in wealth. Changes in holdings are funded by offsetting transactions within the portfolio. The identity \(X=\Delta S+\beta B\) alone does not imply this gains equation; an externally subsidized portfolio also satisfies the value identity.</p>
+<p>To replicate \(V\), set \(X=V\) and \(\Delta=V_S\). Matching the Brownian terms determines that holding. Matching the drift terms then requires</p>
+<p>\[
+\boxed{V_t+\frac12\sigma^2S^2V_{SS}+rSV_S-rV=0.}
+\]</p>
+<p>This is the Black–Scholes PDE. The physical drift cancels because the same stock exposure carries the same \(\mu\)-dependent gain in both portfolios. It does not cancel because the actual expected stock return is assumed risk-free.</p>
+<p>For a candidate PDE solution define \(\beta B=V-SV_S\). Its Itô differential satisfies exactly the self-financing gains equation above. With appropriate integrability and terminal payoff \(V(S_T,T)=g(S_T)\), this constructs the replication strategy. The distinction between holdings and gains is made explicitly in <a href="https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf">MIT's Leonid Kogan, stochastic-calculus slides 17–20</a>.</p>
+<p>The often-written \(d(V-V_SS)=dV-V_SdS\) is not an unrestricted product-rule identity when \(V_S\) changes. It describes gains from locally held positions only after specifying financing. Ordinary stochastic differentiation of \(V-S\Delta\) includes \(-S\,d\Delta-d[S,\Delta]\). Those terms are offset by cash-account transactions in a self-financing strategy. Supposing that delta is literally constant forever would eliminate the very rebalancing required for replication.</p>
+<p>The argument also requires admissible strategies, such as those whose discounted wealth is bounded below, to exclude unlimited-credit doubling constructions. Calls and puts here have nonnegative replicating wealth and finite moments. Their admissibility is consistent with the stated model, even when the cash holding is negative. Real borrowing constraints or transaction charges can obstruct the ideal replication.</p>
+<h2 id="4-from-the-pde-to-a-discounted-expectation-1333">4. From the PDE to a discounted expectation <a href="https://www.youtube.com/watch?v=9QS2FduuvTk&amp;t=813s">13:33</a></h2>
+<p>Under \(\mathbb Q\), Itô's formula and the PDE give</p>
+<p>\[
+d(e^{-rt}V(S_t,t))
+=e^{-rt}\sigma S_tV_S(S_t,t)\,dW_t^{\mathbb Q}.
+\]</p>
+<p>For payoffs of at most linear growth, the GBM moment bounds and the usual solution growth restriction justify the conditional-expectation step. It is not enough in arbitrary models simply to delete a zero drift term and declare a true martingale. Here the resulting price is</p>
+<p>\[
+V(S,t)=e^{-r(T-t)}
+\mathbb E^{\mathbb Q}[g(S_T)\mid S_t=S].
+\]</p>
+<p>For a call, the terminal value is \((S-K)^+\). The stock-zero boundary is zero, and the large-stock asymptote is \(c(S,t)-(S-Ke^{-r\tau})\to0\), where \(\tau=T-t\). Stating merely that the call tends to \(S\) loses the finite discounted-strike offset. Terminal kink does not invalidate interior smoothness: positive diffusion time smooths the payoff, while the kink returns as \(\tau\downarrow0\).</p>
+<p>Uniqueness is within an appropriate growth class. Under the Brownian filtration and a single nondegenerate traded diffusion plus bank, the martingale-representation theorem supplies the broader completeness statement for square-integrable discounted terminal claims. We invoke this theorem, rather than derive it from the cancellation of one noise term. Add a new independent, untraded Brownian shock to contractual cash flows and the stock need not span that risk. Girsanov's theorem by itself does not manufacture a hedge for a missing asset.</p>
+<h2 id="5-truncated-expectation-conditional-mean-and-the-call-formula-0059">5. Truncated expectation, conditional mean, and the call formula <a href="https://www.youtube.com/watch?v=P-tzhvI64as&amp;t=59s">00:59</a></h2>
+<p>Write \(S_T=S\exp[(r-\sigma^2/2)\tau+\sigma\sqrt\tau Z]\) under \(\mathbb Q\), with \(Z\) standard normal. Define</p>
+<p>\[
+d_1=\frac{\log(S/K)+(r+\sigma^2/2)\tau}{\sigma\sqrt\tau},
+\qquad d_2=d_1-\sigma\sqrt\tau.
+\]</p>
+<p>Exercise occurs when \(Z&gt;-d_2\). Therefore its pricing probability is \(\Phi(d_2)\), where \(\Phi\) is the standard normal CDF. Split the call payment statewise:</p>
+<p>\[
+(S_T-K)^+=S_T\mathbf1_{\{S_T&gt;K\}}-K\mathbf1_{\{S_T&gt;K\}}.
+\]</p>
+<p>The second component has expectation \(K\Phi(d_2)\). For the first, let \(a=\sigma\sqrt\tau\) and complete the square in the normal density \(\phi\): \(e^{az-a^2/2}\phi(z)=\phi(z-a)\). Consequently</p>
+<p>\[
+\mathbb E^{\mathbb Q}[S_T\mathbf1_{\{S_T&gt;K\}}]
+=Se^{r\tau}\int_{-d_2}^{\infty}\phi(z-a)\,dz
+=Se^{r\tau}\Phi(d_1).
+\]</p>
+<p>Discounting the two components yields</p>
+<p>\[
+c=S\Phi(d_1)-Ke^{-r\tau}\Phi(d_2),
+\qquad
+p=Ke^{-r\tau}\Phi(-d_2)-S\Phi(-d_1),
+\]</p>
+<p>where the put follows from put–call parity. The integration is an original derivation from the GBM law; the formulas and their diffusion-PDE connection agree with <a href="https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf">Kogan's slides 19–20</a>. The next chapter develops the heat-equation route to the same solution.</p>
+<p>The integral above is a truncated expectation: it includes zero contribution from nonexercise states. Its conditional counterpart is</p>
+<p>\[
+\mathbb E^{\mathbb Q}[S_T\mid S_T&gt;K]
+=\frac{Se^{r\tau}\Phi(d_1)}{\Phi(d_2)}.
+\]</p>
+<p>The source calls the undivided integral conditional, but its derivation actually computes the truncated quantity needed for pricing. In our example, \(\Phi(d_2)=0.55961769\), the truncated expectation is 66.94816569, and the conditional mean is 119.63196768. A conditional mean of a stock known to exceed 100 must exceed 100; the undivided 66.95 fails this elementary check. The call price is 10.45058357.</p>
+<p>Differentiate the call formula in stock. Since \(\partial_Sd_1=\partial_Sd_2=1/(S\sigma\sqrt\tau)\) and</p>
+<p>\[
+S\phi(d_1)=Ke^{-r\tau}\phi(d_2),
+\]</p>
+<p>the chain-rule density terms cancel, leaving \(\Delta_c=\Phi(d_1)=0.63683065\) shares per call. This differs from the pricing exercise probability \(\Phi(d_2)\). The first weights stock delivery by its size; the second counts the exercise event. Neither generally equals the physical probability. With physical drift 0.12, that probability is \(\Phi([\log(S/K)+(\mu-\sigma^2/2)\tau]/[\sigma\sqrt\tau])=0.69146246\).</p>
+<h2 id="6-the-dividend-and-exercise-boundary-0024">6. The dividend and exercise boundary <a href="https://www.youtube.com/watch?v=bCQID6X85ys&amp;t=24s">00:24</a></h2>
+<p>The recording begins with an American call on a stock paying one known cash dividend \(D\) at date \(t_d\). Under nonnegative rates and the ideal ex-dividend jump \(S_{t_d+}=S_{t_d-}-D\), consider exercise immediately before the dividend. Immediate intrinsic value is \(S_{t_d-}-K\), if positive. Continuing after the dividend has value at least \(S_{t_d-}-D-Ke^{-r(T-t_d)}\). Thus</p>
+<p>\[
+D&lt;K(1-e^{-r(T-t_d)})
+\]</p>
+<p>is sufficient to rule out profitable early exercise at that date, because the lower bound on continuing already exceeds exercise. Reversing this inequality does not by itself prove exercise is optimal: the true continuation value can exceed its lower bound. The source makes this distinction, and it should survive abbreviation. Between dividend dates, the non-dividend-call argument applies under the same nonnegative-rate assumptions. Discrete dividends, tax effects, and exercise notice conventions need their own treatment; the non-dividend European formula cannot be applied unchanged to all such contracts.</p>
+<h2 id="7-laboratory-source-checks-and-limits">7. Laboratory, source checks, and limits</h2>
+<p>Run <a href="labs/ch19.py">the measure-change and replication laboratory</a>. Independent integration under \(\mathbb P\), weighted by \(Z_T\), agrees with direct \(\mathbb Q\) pricing. Integrals also verify density normalization, shifted Brownian moments, and the distinction between truncated and conditional stock expectations. Finite differences test the PDE and delta across several stock levels. These are numerical consistency checks on derived identities, not proofs of Girsanov or completeness.</p>
+<p>The source's physical exercise-probability example uses \(S=38,K=40,\mu=0.16,\sigma=0.35,\tau=0.5\). It gives 0.49690780 at full precision; using \(\mu\) here is correct because the question supplies a physical drift and asks about an actual event probability. Calling that expression the pricing \(d_2\) without specifying its drift would blur the distinction. Its separate European put example \(S=69,K=70,r=0.05,\sigma=0.35,\tau=0.5\) gives 6.40140765.</p>
+<p>Black–Scholes assumes continuous prices and trading, a nondegenerate constant diffusion volatility, known funding, and frictionless access. Jumps leave risks that an instantaneous stock delta cannot generally cancel. Stochastic volatility with independent shocks can introduce unspanned risk. Even within the model, keeping delta fixed over a finite interval leaves nonlinear residual exposure. These limitations locate the replication claim: it is exact for the specified continuously rebalanced diffusion market, while practical hedging requires error and liquidity analysis.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>In the synthetic market, compute \(\lambda\), the law of \(W_T^{\mathbb P}\) under \(\mathbb Q\), and the law of \(W_T^{\mathbb Q}\). Verify the sign of the drift substitution.</li>
+<li>Derive \(\mathbb E^{\mathbb P}[Z_Te^{aW_T^{\mathbb P}}]\) for constant real \(a\). Use it to check the pricing stock expectation.</li>
+<li>For the synthetic call, calculate the replicating stock value and cash holding at inception. Explain why the initial stock purchase alone is not the call price.</li>
+<li>Derive the truncated and conditional expectation formulas for the stock in the <em>nonexercise</em> event, then check their sum against the unconditional pricing stock mean.</li>
+<li>A claim pays the terminal value of a tradable stock, \(g(S_T)=S_T\). Solve the PDE by inspection and identify the hedge. Repeat for a claim paying one currency unit.</li>
+<li>With \(K=100,r=0.05,T-t_d=0.5\), compare dividends 1 and 4 with the bound above. What can and cannot be inferred about early exercise?</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>\(\lambda=(0.12-0.05)/0.2=0.35\). For \(T=1\), the square-completed density gives \(W_1^{\mathbb P}\sim N(-0.35,1)\) under \(\mathbb Q\). Then \(W_1^{\mathbb Q}=W_1^{\mathbb P}+0.35\sim N(0,1)\). Since \(dW^{\mathbb P}=dW^{\mathbb Q}-0.35dt\), substitution in the stock SDE gives drift \(0.12-0.2\cdot0.35=0.05\), as required. Adding rather than subtracting this correction to the stock drift would produce the wrong measure.</p>
+</li>
+<li>
+<p>Gaussian exponential moments give \(\mathbb E^{\mathbb P}[Z_Te^{aW_T^{\mathbb P}}]=e^{-\lambda^2T/2}e^{(a-\lambda)^2T/2}=e^{a^2T/2-a\lambda T}\). Multiply by \(S_0e^{(\mu-\sigma^2/2)T}\) and set \(a=\sigma\). The exponent becomes \((\mu-\sigma\lambda)T=rT\). Hence \(\mathbb E^{\mathbb Q}S_T=S_0e^{rT}\). This is an expectation, not a guaranteed stock payoff.</p>
+</li>
+<li>
+<p>Delta is 0.63683065, so stock value is 63.68306512. The cash holding is \(c-S\Delta=-Ke^{-rT}\Phi(d_2)=-53.23248155\). Net cost is \(63.68306512-53.23248155=10.45058357\). Buying stock partly with borrowing reproduces the option. A naked purchase of delta shares costs more and lacks the offsetting cash obligation; maintaining the replication also requires subsequent self-financing rebalancing.</p>
+</li>
+<li>
+<p>The nonexercise probability is \(\Phi(-d_2)\). Subtract the exercise truncated expectation from \(Se^{r\tau}\), obtaining \(\mathbb E^{\mathbb Q}[S_T\mathbf1_{S_T\le K}]=Se^{r\tau}\Phi(-d_1)\). Conditional mean divides by \(\Phi(-d_2)\). The exercise and nonexercise truncated quantities sum to \(Se^{r\tau}[\Phi(d_1)+\Phi(-d_1)]=Se^{r\tau}\). Conditional means themselves do not add to the unconditional mean; they must be weighted by their event probabilities.</p>
+</li>
+<li>
+<p>For \(V=S\), derivatives are \(V_t=V_{SS}=0,V_S=1\). The PDE reduces to \(rS-rS=0\). One share, no cash, replicates it. For a unit terminal payment, \(V=e^{-r(T-t)}\), so \(V_t=rV\) and stock derivatives vanish, again satisfying the PDE. Delta is zero and bank units are \(e^{-rT}/B_0\); their date-\(T\) value is one. These elementary claims test the time sign and discounting of the PDE.</p>
+</li>
+<li>
+<p>The threshold is \(100(1-e^{-0.025})=2.46900880\). A dividend of 1 lies below it, so continuation's lower bound exceeds immediate exercise and early exercise is ruled out. A dividend of 4 exceeds it. The bound no longer rules out exercise, but does not prove it is optimal. One must compare actual continuation value with intrinsic value at the relevant stock price; remaining optionality can still justify waiting. Equality gives only a non-strict lower-bound comparison and needs the same care.</p>
+</li>
+</ol>
+</details><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch19.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Measure-change, pricing, and PDE checks; no filesystem/network effects.&quot;&quot;&quot;
+
+from math import exp, isclose, isfinite, log, sqrt
+
+from scipy.integrate import quad
+from scipy.stats import norm
+
+
+def close(actual, expected, absolute=2e-9):
+    assert isclose(actual, expected, rel_tol=2e-9, abs_tol=absolute), (
+        actual, expected
+    )
+
+
+def black_scholes(spot, strike, rate, volatility, tau):
+    &quot;&quot;&quot;Positive spot/strike, nonnegative volatility and remaining years.&quot;&quot;&quot;
+    if not all(isfinite(x) for x in (spot, strike, rate, volatility, tau)):
+        raise ValueError(&quot;Inputs must be finite&quot;)
+    if spot &lt;= 0 or strike &lt;= 0 or volatility &lt; 0 or tau &lt; 0:
+        raise ValueError(&quot;Invalid spot, strike, volatility, or maturity&quot;)
+    discount = exp(-rate * tau)
+    if tau == 0 or volatility == 0:
+        call = max(spot - strike * discount, 0)
+        put = max(strike * discount - spot, 0)
+        return call, put
+    width = volatility * sqrt(tau)
+    d1 = (log(spot / strike) + (rate + volatility**2 / 2) * tau) / width
+    d2 = d1 - width
+    call = spot * norm.cdf(d1) - strike * discount * norm.cdf(d2)
+    put = strike * discount * norm.cdf(-d2) - spot * norm.cdf(-d1)
+    return call, put
+
+
+def normal_integral(function, low=-12, high=12):
+    &quot;&quot;&quot;Fixed finite integration bounds; tail negligible for parameters used.&quot;&quot;&quot;
+    return quad(lambda z: function(z) * norm.pdf(z), low, high,
+                epsabs=1e-10, epsrel=1e-11)[0]
+
+
+def main():
+    spot, strike, rate, mu, sigma, horizon = 100, 100, .05, .12, .2, 1
+    lam = (mu - rate) / sigma
+
+    def likelihood(z):
+        return exp(-lam * z - lam**2 / 2)
+
+    def physical_stock(z):
+        return spot * exp(mu - sigma**2 / 2 + sigma * z)
+
+    def pricing_stock(z):
+        return spot * exp(rate - sigma**2 / 2 + sigma * z)
+    close(normal_integral(likelihood), 1)
+    close(normal_integral(lambda z: likelihood(z) * z), -lam)
+    close(normal_integral(lambda z: likelihood(z) * (z + lam)**2), 1)
+    close(normal_integral(lambda z: likelihood(z) * physical_stock(z)),
+          spot * exp(rate))
+    close(normal_integral(pricing_stock), spot * exp(rate))
+
+    call, put = black_scholes(spot, strike, rate, sigma, horizon)
+    physical_cut = (log(strike / spot) - mu + sigma**2 / 2) / sigma
+    pricing_cut = (log(strike / spot) - rate + sigma**2 / 2) / sigma
+    weighted_call = exp(-rate) * normal_integral(
+        lambda z: likelihood(z) * (physical_stock(z) - strike), physical_cut
+    )
+    direct_call = exp(-rate) * normal_integral(
+        lambda z: pricing_stock(z) - strike, pricing_cut
+    )
+    close(weighted_call, call)
+    close(direct_call, call)
+    close(call - put, spot - strike * exp(-rate))
+
+    d1 = .35
+    d2 = .15
+    probability = normal_integral(lambda z: 1, pricing_cut)
+    truncated = normal_integral(pricing_stock, pricing_cut)
+    conditional = truncated / probability
+    close(probability, norm.cdf(d2))
+    close(truncated, spot * exp(rate) * norm.cdf(d1))
+    assert truncated &lt; strike &lt; conditional
+    nonexercise = normal_integral(pricing_stock, -12, pricing_cut)
+    close(truncated + nonexercise, spot * exp(rate))
+    close(nonexercise / (1 - probability),
+          spot * exp(rate) * norm.cdf(-d1) / norm.cdf(-d2))
+    physical_probability = norm.cdf(-physical_cut)
+    assert physical_probability &gt; probability
+    print(f&quot;Call {call:.8f}; weighted-physical integral {weighted_call:.8f}&quot;)
+    print(
+        f&quot;Pricing exercise {
+            probability:.8f}; physical {
+            physical_probability:.8f}&quot;)
+    print(f&quot;Truncated stock {truncated:.8f}; conditional {conditional:.8f}&quot;)
+
+    # Independent differentiation of the price function checks PDE/time sign.
+    for price in (80, 100, 130):
+        h, ht, tau = .01, 1e-5, .7
+
+        def value(s, t):
+            return black_scholes(s, strike, rate, sigma, t)[0]
+        center = value(price, tau)
+        delta = (value(price + h, tau) - value(price - h, tau)) / (2 * h)
+        gamma = (value(price + h, tau) - 2 * center
+                 + value(price - h, tau)) / h**2
+        calendar_theta = -(value(price, tau + ht)
+                           - value(price, tau - ht)) / (2 * ht)
+        residual = (calendar_theta + .5 * sigma**2 * price**2 * gamma
+                    + rate * price * delta - rate * center)
+        assert abs(residual) &lt; 2e-6, residual
+        d = (log(price / strike) + (rate + sigma**2 / 2) * tau)
+        close(delta, norm.cdf(d / (sigma * sqrt(tau))), absolute=2e-8)
+        for physical_drift in (-.2, .12, .4):
+            ito_drift = (calendar_theta + physical_drift * price * delta
+                         + .5 * sigma**2 * price**2 * gamma)
+            hedge_drift = (delta * physical_drift * price
+                           + rate * (center - delta * price))
+            close(ito_drift, hedge_drift, absolute=2e-6)
+
+    delta = norm.cdf(d1)
+    cash = call - delta * spot
+    close(cash, -strike * exp(-rate) * norm.cdf(d2))
+    for drift in (mu, rate):
+        moment2 = spot**2 * exp((2 * drift + sigma**2) * horizon)
+        mean = spot * exp(drift * horizon)
+        variance = moment2 - mean**2
+        close(variance, spot**2 * exp(2 * drift) * (exp(sigma**2) - 1))
+        print(f&quot;Price variance at drift {drift}: {variance:.8f}&quot;)
+
+    source_z = (log(38 / 40) + (.16 - .35**2 / 2) * .5) / (.35 * sqrt(.5))
+    source_probability = norm.cdf(source_z)
+    source_put = black_scholes(69, 70, .05, .35, .5)[1]
+    close(source_probability, .496907797501081)
+    close(source_put, 6.401407649076464)
+    print(f&quot;Source physical exercise {source_probability:.8f}&quot;)
+    print(f&quot;Source put {source_put:.8f}&quot;)
+    threshold = 100 * (1 - exp(-.05 * .5))
+    assert 1 &lt; threshold &lt; 4
+    close(black_scholes(100, 100, .05, 0, 1)[0], 100 * (1 - exp(-.05)))
+    close(black_scholes(100, 110, .05, .2, 0)[1], 10)
+    try:
+        black_scholes(100, 100, .05, -.2, 1)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&quot;Negative volatility accepted&quot;)
+    print(&quot;All likelihood, pricing, delta, and PDE checks passed.&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch18.html">Previous: Binomial replication and risk-neutral valuation</a><a rel="next" href="ch20.html">Next: Solving the pricing PDE and measuring local exposure</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

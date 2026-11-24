@@ -1,0 +1,33 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch23-r1.md",
+  "scope": [
+    "Complete current manuscript, metadata, all six solutions and full lab",
+    "Independent mathematical, numerical, sign, date and units audit",
+    "Selected actual official captions and stated primary-reference passages",
+    "Fresh-process laboratory execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch23.md": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
+    "chapters/ch23.json": "97db83b728986ca33ea89b9587cde768bf7bb86f366ea2dc3f8105758b855ec1",
+    "labs/ch23.py": "dddb992ea5af4a84cb49a76be6a939140478e1ee8fc7256d8f04039c00c04e6f"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      58,
+      59
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "Rockafellar\u2013Uryasev general distributions Definition3, Proposition8, Theorem10",
+      "Rockafellar\u2013Uryasev1999 printed pages4\u20135"
+    ]
+  },
+  "limitations": [
+    "No full independent caption reread",
+    "No comprehensive audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ]
+}

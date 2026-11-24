@@ -1,0 +1,31 @@
+{
+  "reviewer": "source_research",
+  "status": "accepted-with-scoped-evidence",
+  "scope": "Full text/source read of five support inputs; independent equation/unit checks and in-memory figure-generator execution. Not a browser visual audit or verification of all external documents in the reference index.",
+  "checks": [
+    "Importer cost formulas and100000-dollar scale",
+    "Cumulative settlement paths versus quotation paths",
+    "One-step hedge and pricing-weight default calculation",
+    "Three capstone scope and prerequisite coherence",
+    "Reference attribution and evidence-limit wording"
+  ],
+  "reviewed_files": {
+    "overview.md": "f7fc4aab03f73cd291647643b7e89b85cd79c2a0a7668b45f6f3335a81f97ca0",
+    "study-guide.md": "286134e62b5a911e519341bdc47a34141aca012622a0ea66b9bb0ede2333fcb6",
+    "references.md": "dd23c76645cdcd29253427f12bdd165cee5c553389e033388f5949edcaa1f445",
+    "numerical-lab.md": "25abb6ce42b6f56b37bf524e02309a2ece2c72ecba649628f5d5cbba5f90c386",
+    "figures/make_figures.py": "be5f093b145440d83d8a37350ca92085e4e263ce114c129251fccfd8083147e6"
+  },
+  "findings_fixed": [
+    {
+      "file": "study-guide.md",
+      "issue": "Cash-flow route should include Chapter6 beta prerequisites before Chapter7."
+    },
+    {
+      "file": "study-guide.md",
+      "issue": "State payoff-specific applicability of monotonicity/convexity/parity constraints for a neural surrogate; arbitrary option portfolios are not universally monotone or convex."
+    }
+  ],
+  "remaining_findings": [],
+  "subsequent_reference_index_check": "New final Bianchetti/NYFed and RUgeneral/earliercontinuous bullets re-read. Exact author/title/URLs and selected supporting scopes agree with independently inspected primary passages; no full-document or originalBSscan review claim."
+}

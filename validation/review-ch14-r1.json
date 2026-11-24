@@ -1,0 +1,19 @@
+{
+  "reviewer": "scientific_review",
+  "disposition": "accepted",
+  "report": "validation/review-ch14-r1.md",
+  "scope": [
+    "Full manuscript, metadata, all six solutions and full laboratory source",
+    "Fresh lab execution, independent mathematics/units/signs/time and selected primary/caption checks",
+    "No repeated full-caption or audiovisual audit; rendered visual review is separate"
+  ],
+  "remaining_findings": [],
+  "resolved_findings": [
+    "Medium lab domain: tree_price now requires finite parameters and positive nonBoolean integer step counts, avoiding invalid infinity arithmetic or TypeError from fractional counts."
+  ],
+  "accepted_files": {
+    "chapters/ch14.md": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+    "chapters/ch14.json": "e1eec64888e4aa0d4df8c274e17b8bc8e7a66f2c00176e0aa4eb8a211cde994a",
+    "labs/ch14.py": "512f7135cbaf6bfa11845790270efb9ddc09c5aba086026e8155e9cb7de0123b"
+  }
+}

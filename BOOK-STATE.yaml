@@ -1,0 +1,30 @@
+edition: Financial Derivatives and Risk Management
+phase: ready-to-publish
+expected_chapters: 24
+expected_teaching_recordings: 60
+acquired_recordings_including_introduction: 61
+pilot_gate: passed
+pilot_evidence:
+  - validation/review-pilot-r1.json
+  - validation/review-pilot-r2.json
+  - validation/package-checks.json
+  - validation/browser-checks.json
+  - validation/release-checks.json
+evidence_note: Full-edition package/browser/release results are separate from scientific review; inspect each scope and allow_partial field.
+author_ownership:
+  lead: [ch01]
+  source_research: [ch02, ch03, ch04, ch05, ch06, ch07, ch08, ch09, ch24]
+  reader_builder: [ch10, ch11, ch12, ch13, ch14, ch15]
+  scientific_review: [ch16, ch17, ch18, ch19, ch20, ch21, ch22, ch23]
+review_policy: Two independent current file-hash acceptances per manuscript, metadata, and lab; no self-review.
+publication: not-published
+repository_slug: nptel-financial-derivatives-risk-management-notes
+durable_plan: plan/outline.md
+notation: plan/notation.md
+review_brief: EDITOR_DOMAIN.md
+local_resume_record: excluded from the public edition
+
+completed_chapter_manuscripts: 24
+current_independent_chapter_acceptances: 48
+source_textual_reading_audit: all61matched
+release_validation: passed-full-edition

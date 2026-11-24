@@ -1,0 +1,48 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch04-r1.md",
+  "scope": [
+    "Complete manuscript, metadata, all six worked solutions and full lab",
+    "Independent mathematical and numerical checks",
+    "Selected actual caption passages and MIT Kogan primary PDF inspected",
+    "Fresh-process lab execution"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch04.md": "de833ba1d32c638bb3b8ee0f10e174ec254295cb708aea9d70248704728f8cb6",
+    "chapters/ch04.json": "9746eab5de627401cd2eaa0bf97bc4322e65b09f3f53170cd6fe60730f965eeb",
+    "labs/ch04.py": "3a9753c766f5ce50e51e7defe8f5d19c3025faa22703cc2d49580ffa967875bc"
+  },
+  "source_evidence": {
+    "caption_positions": [
+      9,
+      10,
+      11
+    ],
+    "scope": "Selected intervals enumerated in report",
+    "primary_locators": [
+      "MIT Kogan arbitrage-pricing PDFpp12\u201317"
+    ]
+  },
+  "limitations": [
+    "No full independent source-caption reread",
+    "No audiovisual audit or human certification",
+    "Separate release/browser checks required"
+  ],
+  "bounded_rechecks": [
+    {
+      "reason": "Canonical LF normalization only; no scientific content change",
+      "proof": "validation/line-ending-normalization.json",
+      "method": "Reconstructed original CRLF bytes from canonical LF and matched prior acceptance SHA-256 exactly; Python AST equivalence and fresh lab execution passed.",
+      "files": [
+        {
+          "file": "labs/ch04.py",
+          "before_sha256": "d09d18c95c8570e498fdd7d00c42f26d9739579991aa9b53bc4e6a98ee84faf1",
+          "after_sha256": "3a9753c766f5ce50e51e7defe8f5d19c3025faa22703cc2d49580ffa967875bc",
+          "reverse_crlf_reconstruction_matches_accepted_sha256": true
+        }
+      ]
+    }
+  ]
+}

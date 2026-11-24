@@ -1,0 +1,30 @@
+{
+  "reviewer": "lead_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-ch06-r2.md",
+  "findings_fixed": [
+    "Replace promise language with a modeled expectation",
+    "Require positive leading diagonal and determinant in covariance solver; verify negative-definite rejection",
+    "Normalize laboratory presentation to PEP8/max79"
+  ],
+  "scope": [
+    "Full manuscript, metadata, laboratory, and six worked solutions",
+    "Fresh executions before and after fixes; independently checked covariance, GMV, tangency, CAPM and diversification arithmetic",
+    "Bounded primary MIT reference verification; no full repeat caption or audiovisual audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch06.md": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
+    "chapters/ch06.json": "531b7dc203e05b90f09516e0f8e28912c38c410c6530c282f091d380234a2985",
+    "labs/ch06.py": "8544531b1c599e262eeea8c5650b58542eb1ef9de23ef6569874b41940fbb1d3"
+  },
+  "line_ending_recheck": {
+    "operation": "CRLF-to-LF only",
+    "evidence": "validation/line-ending-normalization.json",
+    "independent_check": "New bytes reconstructed with CRLF exactly match prior accepted SHA-256; laboratory ASTs also identical",
+    "files": [
+      "chapters/ch06.md",
+      "labs/ch06.py"
+    ]
+  }
+}

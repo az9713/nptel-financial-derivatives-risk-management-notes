@@ -1,0 +1,7 @@
+{
+  "title": "Hedge size is a covariance projection with trading units",
+  "lectures": [12, 13],
+  "objectives": ["Derive minimum-variance sizing with explicit exposure and contract units", "Prove the squared-correlation residual-risk formula", "Compute the exact variance cost of integer rounding", "Diagnose cross-hedge and estimation-regime failures"],
+  "prerequisites": "Chapter 4 covariance, OLS projection and hedge directions; scalar differentiation and finite second moments.",
+  "source_scope": "Full sequential English captions for positions 12–13. NIST least-squares definition and limitations inspected. Synthetic examples independently executed."
+}

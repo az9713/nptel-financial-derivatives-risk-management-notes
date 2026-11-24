@@ -1,0 +1,64 @@
+{
+  "chapter": "ch09",
+  "reader": "source_research",
+  "recordings": [
+    {
+      "position": 22,
+      "video_id": "pu7ynYUrDDg",
+      "normalized_text_sha256": "d071e7c992cc45c420ac4c8a6c56a945f8233774b0b321b8059bb7868ed80ee7",
+      "reading": "full sequential text read",
+      "first_start": 24.82,
+      "last_end": 1894.079,
+      "landmarks": [
+        {
+          "seconds": 310,
+          "topic": "Fixed payment price derivatives"
+        },
+        {
+          "seconds": 680,
+          "topic": "DV01 and Macaulay duration"
+        },
+        {
+          "seconds": 1205,
+          "topic": "Geometric curvature discussion"
+        },
+        {
+          "seconds": 1545,
+          "topic": "Large yield-shock duration/convexity example"
+        }
+      ],
+      "scope": "Complete normalized English captions. Decimal-yield DV01 scale corrected; convexity definition explicit; stationary duration-horizon versus global immunity distinguished; fixed-cash-flow and parallel-curve limits stated. No full audiovisual review."
+    },
+    {
+      "position": 23,
+      "video_id": "WGKvJQCY__0",
+      "normalized_text_sha256": "8568c3a566cd9d7a16ad8bca13fdb8b2b046e05a3eb5956ac2a0bffd3fb4fa56",
+      "reading": "full sequential text read",
+      "first_start": 24.83,
+      "last_end": 1836.85,
+      "landmarks": [
+        {
+          "seconds": 25,
+          "topic": "Modified duration and elasticity"
+        },
+        {
+          "seconds": 360,
+          "topic": "Reinvestment versus capital-price effects"
+        },
+        {
+          "seconds": 650,
+          "topic": "Duration-horizon derivation"
+        },
+        {
+          "seconds": 1270,
+          "topic": "Continuous compounding"
+        },
+        {
+          "seconds": 1505,
+          "topic": "Maturity and discounted-bond duration properties"
+        }
+      ],
+      "scope": "Complete normalized English captions. Decimal-yield DV01 scale corrected; convexity definition explicit; stationary duration-horizon versus global immunity distinguished; fixed-cash-flow and parallel-curve limits stated. No full audiovisual review."
+    }
+  ]
+}

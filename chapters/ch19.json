@@ -1,0 +1,7 @@
+{
+  "title": "Measure change, dynamic replication, and the Black–Scholes model",
+  "lectures": [46, 47, 48],
+  "objectives": ["Construct and verify the constant-coefficient likelihood ratio and Brownian shift", "Derive the Black–Scholes PDE from a specified self-financing portfolio", "Derive call and put prices and distinguish pricing probabilities, delta, and conditional means", "State the completeness, dividend, and model-risk boundaries of the replication argument"],
+  "prerequisites": "Chapters17–18: Itô calculus, GBM, pricing measures, and finite-state self-financing; Gaussian integration.",
+  "source_scope": "Full official English captions at positions46–48 read sequentially; numerical examples independently recomputed. No comprehensive audiovisual audit. Conditional/truncated expectation, variance under measure change, financing, and boundary-condition corrections are explicit."
+}

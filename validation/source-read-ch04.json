@@ -1,0 +1,87 @@
+{
+  "chapter": "ch04",
+  "author": "source_research",
+  "recordings": [
+    {
+      "position": 9,
+      "video_id": "U2BzQcc46ck",
+      "normalized_text_sha256": "3a4bf63f685fdbe598a2c38e5fc7a632f1cb780f839d84d4fe8b3aec42458124",
+      "first_start": 24.88,
+      "last_end": 1854.57,
+      "reading": "full sequential text read",
+      "landmarks": [
+        {
+          "seconds": 24,
+          "topic": "Exposure regression and unexplained account changes"
+        },
+        {
+          "seconds": 377,
+          "topic": "OLS normal equations and orthogonality"
+        },
+        {
+          "seconds": 1610,
+          "topic": "Explained and residual variance"
+        }
+      ],
+      "scope": "All caption cues read; no complete audio/slide audit."
+    },
+    {
+      "position": 10,
+      "video_id": "RaBL0YcrFkQ",
+      "normalized_text_sha256": "429f56c095b41dfc51801c9e164e155518c320bf5ee8cc978ad7ce7c0be9c39d",
+      "first_start": 24.82,
+      "last_end": 1786.619,
+      "reading": "full sequential text read",
+      "landmarks": [
+        {
+          "seconds": 24,
+          "topic": "Regression recap"
+        },
+        {
+          "seconds": 430,
+          "topic": "Determinism and probability-model motivation"
+        },
+        {
+          "seconds": 1080,
+          "topic": "Hedge as offsetting exposure"
+        },
+        {
+          "seconds": 1205,
+          "topic": "Spot minus futures basis and convergence"
+        }
+      ],
+      "scope": "All caption cues read; no complete audio/slide audit."
+    },
+    {
+      "position": 11,
+      "video_id": "pbr-X3rjuPw",
+      "normalized_text_sha256": "c8148547c2038a6de599cce8c24ec39fcc641bf9a4efd0b3896009500dbde4e4",
+      "first_start": 24.75,
+      "last_end": 1881.32,
+      "reading": "full sequential text read",
+      "landmarks": [
+        {
+          "seconds": 24,
+          "topic": "Hedge horizon distinct from contract maturity"
+        },
+        {
+          "seconds": 465,
+          "topic": "Long and short hedge direction"
+        },
+        {
+          "seconds": 601,
+          "topic": "Effective price G0 plus closing basis"
+        },
+        {
+          "seconds": 920,
+          "topic": "Cross-hedging and maturity selection"
+        }
+      ],
+      "scope": "All caption cues read; no complete audio/slide audit."
+    }
+  ],
+  "limitations": [
+    "Probabilistic modeling does not require settling the philosophical physics digression.",
+    "Maturity-selection claims are separated from speculative favorable-basis assumptions."
+  ]
+}

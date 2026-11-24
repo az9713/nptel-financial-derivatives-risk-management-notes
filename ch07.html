@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Index futures change beta without selling the stock portfolio · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html" aria-current=page>07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html">10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>07. Index futures change beta without selling the stock portfolio</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=osqhEV8JzGE">Recording 17</a>, <a href="https://www.youtube.com/watch?v=FNWj1kZmwq0">Recording 18</a>, <a href="https://www.youtube.com/watch?v=3pvhRtLCpkY">Recording 19</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Derive signed target-beta overlays from covariance</li><li>Distinguish futures notional from economic value and margin</li><li>Price index carry with stated dividend assumptions</li><li>Assess residual, rounding, maturity and execution risks</li></ul>
+<p><strong>Prerequisites:</strong> Chapters 2–6 carry, settlement timing, hedge variance and beta projection.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch07.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-an-index-quotation-is-a-reference-number-a-contract-needs-cash-units-0715">1. An index quotation is a reference number; a contract needs cash units 07:15</a></li><li><a href="#2-carry-prices-the-index-exposure-under-explicit-dividend-assumptions-0630">2. Carry prices the index exposure under explicit dividend assumptions 06:30</a></li><li><a href="#3-derive-the-target-beta-overlay-from-its-random-gain-2745">3. Derive the target-beta overlay from its random gain 27:45</a></li><li><a href="#4-a-beta-neutral-portfolio-still-has-a-residual-2430">4. A beta-neutral portfolio still has a residual 24:30</a></li><li><a href="#5-closing-before-expiry-requires-the-remaining-carry-0800">5. Closing before expiry requires the remaining carry 08:00</a></li><li><a href="#6-frictions-replace-a-single-carry-quotation-with-executable-bounds-2320">6. Frictions replace a single carry quotation with executable bounds 23:20</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A manager wants to keep a selected portfolio of shares but reduce its sensitivity to the broad market. Selling every holding would change both the market exposure and the selected securities. An index-futures overlay offers a different control: add a signed cash-flow sensitivity to the index while retaining the shares. The overlay can reduce beta, raise beta, or approximately isolate the portfolio's residual return. It cannot make an arbitrary stock portfolio risk-free.</p>
+<p>The central task is to specify the denominator used to measure exposure. A newly entered futures contract has approximately zero initial economic value under the ideal model, but it has a nonzero multiplier and can produce large gains or losses. Dividing its payoff by its initial value is therefore meaningless. We will normalize combined gains by the original stock portfolio value, retain futures notional as a separate quantity, and derive the target-beta formula directly from covariance.</p>
+<h2 id="1-an-index-quotation-is-a-reference-number-a-contract-needs-cash-units-0715">1. An index quotation is a reference number; a contract needs cash units <a href="https://www.youtube.com/watch?v=FNWj1kZmwq0&amp;t=435s">07:15</a></h2>
+<p>Let $I_t$ denote a price index in index points, and $G_t(T)$ its futures quotation for expiry $T$. Let $m$ be the multiplier in currency per index point per contract. A one-point futures rise produces $m$ currency units of gain for one long contract. With $n$ signed long contracts, an interval's variation settlement is $nm\Delta G$. This is the book's signed-long convention; a short position has $n&lt;0$.</p>
+<p>The product $mG_0$ is one contract's quoted notional exposure. It is not a purchase price paid to acquire the contract and not its mark-to-market value. Initial margin is collateral determined by the applicable arrangements. Total margin deposited is also not the denominator of a stable economic return: changing a margin requirement would otherwise appear to change the same position's market sensitivity.</p>
+<p>For teaching, assume a cash-settled contract with a specified final reference index $J_T$, so final convergence is $G_T(T)=J_T$. An exchange's settlement index can use an opening auction or another defined calculation rather than a casually observed closing screen number. The source lectures discuss then-current Sensex specifications and a historical $250 multiplier illustration. These are historical examples, not current trading instructions. We use explicitly synthetic contract specifications below. Cash settlement is a contract design; an abstract index number cannot itself be physically handed over, but a basket of constituent securities is economically meaningful and can be used for replication.</p>
+<p>An index usually represents a specified market segment under a weighting and maintenance methodology. It need not equal the theoretical market portfolio of CAPM. “Index beta equals one” is exact if the index itself defines the regressor and one uses the same return convention. It is an approximation if a stock-index futures quotation change is substituted for that regressor, especially over a different horizon or with changing carry.</p>
+<h2 id="2-carry-prices-the-index-exposure-under-explicit-dividend-assumptions-0630">2. Carry prices the index exposure under explicit dividend assumptions <a href="https://www.youtube.com/watch?v=3pvhRtLCpkY&amp;t=390s">06:30</a></h2>
+<p>Suppose an investable basket tracks the price index exactly, dividends can be reinvested continuously at a known proportional yield $q$, financing is available at constant continuously compounded rate $r$, and trading is frictionless. The cost of arranging one unit of the basket at time $T$ is $I_0e^{-qT}$. Buy that many units now; reinvested distributions grow the number of units to one by expiry. Borrowing the purchase cost produces a terminal debt of $I_0e^{(r-q)T}$.</p>
+<p>Offsetting the terminal basket with a short forward therefore gives the no-arbitrage delivery quotation</p>
+<p>$$F_0(T)=I_0e^{(r-q)T}.$$</p>
+<p>Under the deterministic-rate forward–futures idealization of Chapter 3, the same quotation applies to $G_0(T)$. With known discrete dividends, use their present values instead of inserting a continuous yield: $F_0=(I_0-\operatorname{PV}(D))e^{rT}$ for the corresponding fixed basket. Forecast dividends do not provide the same statewise replication certificate as contractually known income. Constituents, dividend taxation, index maintenance, stock borrowing, and tracking can all affect implementation.</p>
+<p>An original synthetic example has $I_0=200$, $r=0.10$, $q=0.03$, and $T=1/3$ year. The ideal fair quotation is about 204.721537. If an otherwise identical forward is available at 210, borrow $200e^{-0.01}\approx198.009967$, buy $e^{-0.01}$ basket units, and reinvest dividends. At expiry deliver one unit, receive 210, and repay 204.721537. The terminal surplus is about 5.278463 per delivered index unit. It is independent of the terminal index level within the assumptions.</p>
+<p>For an actual daily-settled futures trade, the timing of variation settlement and its financing must also be handled. The forward-style terminal ledger by itself does not prove that one fixed futures contract produces exactly the same funded terminal surplus. The deterministic-rate scaling construction in Chapter 3 states the missing timing step. <a href="https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf#page=25">MIT's forward-and-futures notes, slides 25–29</a>, connect dividend carry and index exposure with futures applications; the numbers here are independently specified.</p>
+<h2 id="3-derive-the-target-beta-overlay-from-its-random-gain-2745">3. Derive the target-beta overlay from its random gain <a href="https://www.youtube.com/watch?v=FNWj1kZmwq0&amp;t=1665s">27:45</a></h2>
+<p>Let $V_0&gt;0$ be the stock portfolio's initial value, and $R_P$ its total return over a fixed hedge horizon $H$. Define the futures <strong>notional-normalized change</strong></p>
+<p>$$X_G=\frac{G_H(T)-G_0(T)}{G_0(T)},\qquad G_0(T)&gt;0.$$</p>
+<p>This is a chosen exposure normalization, not a return earned on the contract's zero initial value. Ignoring funding of settlement flows for the first exposure calculation, the combined gain divided by $V_0$ is</p>
+<p>$$R_{\rm gain}=R_P+\frac{nmG_0(T)}{V_0}X_G.$$</p>
+<p>Choose a common market total-return regressor $R_M$ with positive variance. Define $\beta_P=\operatorname{Cov}(R_P,R_M)/\operatorname{Var}(R_M)$ and $\beta_G=\operatorname{Cov}(X_G,R_M)/\operatorname{Var}(R_M)$. Covariance linearity gives exactly, for this cash-flow model,</p>
+<p>$$\beta_{\rm gain}=\beta_P+\frac{nmG_0(T)}{V_0}\beta_G.$$</p>
+<p>To target $\beta_\star$, provided $\beta_G\ne0$,</p>
+<p>$$n_\star=\frac{(\beta_\star-\beta_P)V_0}{mG_0(T)\beta_G}.$$</p>
+<p>Reducing a positive portfolio beta with positive futures beta calls for a negative $n$: a short overlay. Increasing beta calls for a long overlay. This is a covariance statement; CAPM's expected-return equation was not needed. Beta neutrality and minimum variance coincide only under additional conditions. If futures changes contain residual components correlated with the portfolio's residual, the variance-minimizing overlay uses their full covariance, as in Chapter 5, and can differ from the beta target.</p>
+<p>For a synthetic portfolio valued at 100 million with $\beta_P=1.2$, a futures quotation of 1,000, multiplier 250, and $\beta_G=1$, reducing beta to 0.5 requires $n_\star=-280$. Raising it to 1.5 requires $n_\star=120$. Both operate on the same stock holdings. Neither gives the derivative a market value of 70 million or 30 million; those are the absolute notionals of the overlays.</p>
+<p>For an imperfectly matching futures regressor with $\beta_G=0.95$, beta neutrality instead requires approximately $-505.263$ contracts for this portfolio. Rounding to −505 leaves beta about 0.000625. Choosing −480 by assuming beta one would leave beta 0.06. The distinction is economically visible before any stock-specific residual has been considered.</p>
+<h2 id="4-a-beta-neutral-portfolio-still-has-a-residual-2430">4. A beta-neutral portfolio still has a residual <a href="https://www.youtube.com/watch?v=osqhEV8JzGE&amp;t=1470s">24:30</a></h2>
+<p>Suppose the centered stock return is $\beta_P(R_M-E[R_M])+e_P$, and the centered futures change is $\beta_G(R_M-E[R_M])+e_G$. Both residuals are uncorrelated with $R_M$ by projection. Set $k=nmG_0/V_0$. Then the centered combined gain is</p>
+<p>$$ (\beta_P+k\beta_G)(R_M-E[R_M])+e_P+ke_G.$$</p>
+<p>At the beta-neutral $k=-\beta_P/\beta_G$, the market term vanishes, but residual variance is</p>
+<p>$$\operatorname{Var}(e_P)+k^2\operatorname{Var}(e_G)
++2k\operatorname{Cov}(e_P,e_G).$$</p>
+<p>Only if the futures exposure has no residual relative to the modeled market does the overlay leave precisely the original residual $e_P$. An industry index, a mismatched settlement reference, or changing carry can add tracking components. Calling these zero because the instrument is called an index future is not a proof.</p>
+<p>Consider the lecture's historical illustration as an arithmetic case, not evidence of investment skill: 20,000 shares initially at 100 fall to 90; the hedge has ten short contracts with multiplier 250 and quotations falling from 900 to 750. Stock loss is 200,000; futures gain is $10(250)(150)=375000$; combined unfinanced gain is 175,000. Using an assumed beta 1.1 and treating the relative futures decline as the market factor, the attributed factor loss is $2000000(1.1)(-150/900)=-366666.67$. A fractional 9.777778-contract short would offset that attributed amount; ten contracts add 8,333.33 from rounding. The balance 166,666.67 is the scenario's residual relative to the assumed factor attribution.</p>
+<p>That residual realization does not establish superior information, an estimated alpha, or future outperformance. Nor is a realized factor decomposition the CAPM expected-return equation with the expectation bars removed. It is a scenario attribution based on a stated beta and regressor approximation. Fees, dividends, cash financing, and variation-settlement funding would enter a complete wealth account.</p>
+<h2 id="5-closing-before-expiry-requires-the-remaining-carry-0800">5. Closing before expiry requires the remaining carry <a href="https://www.youtube.com/watch?v=3pvhRtLCpkY&amp;t=480s">08:00</a></h2>
+<p>Let $H&lt;T$. In the constant-rate/yield idealization,</p>
+<p>$$G_H(T)=I_He^{(r-q)(T-H)}.$$</p>
+<p>One must not set $G_H=I_H$ simply because the hedge closes. That convergence condition belongs to expiry and its specified settlement reference. With $I_0=1500$, $r=0.10$, $q=0.04$, $T=4/12$, and $H=3/12$, opening fair futures are about 1530.302010. If the index falls to 1350, the remaining month of carry gives $G_H\approx1356.766903$. Six short contracts with multiplier 250 gain about 260,302.66 in unaccumulated settlement sums. This reproduces the source's six-contract setup while correcting the spoken slip to “ten” during its cash-flow calculation.</p>
+<p>The source then estimates stock-portfolio performance using a beta relation, approximates three-month risk-free return by 2.5%, and adds an approximate 1% dividend return to the price-index move. Those approximations can illustrate scale, but they do not create a guaranteed cash account. A continuously compounded yield reinvested into a price index gives exact total return $I_He^{qH}/I_0-1$ under that ideal model; an additive $qH$ adjustment is an approximation. CAPM additionally specifies expected returns, not a statewise identity for the stock portfolio. A complete hedge assessment must keep a residual and use internally consistent return conventions.</p>
+<p>In practice the coefficient also changes when portfolio value, index level, composition, or estimated betas change. A static contract count is not automatically a constant-beta strategy. Rebalancing introduces trading, funding, and estimation effects; rolling a contract introduces another maturity and basis exposure. Risk management therefore checks a sensitivity target at a stated date and horizon rather than describing a once-and-for-all “perfect hedge.”</p>
+<h2 id="6-frictions-replace-a-single-carry-quotation-with-executable-bounds-2320">6. Frictions replace a single carry quotation with executable bounds <a href="https://www.youtube.com/watch?v=3pvhRtLCpkY&amp;t=1400s">23:20</a></h2>
+<p>For one deliverable basket unit, consider a known cash dividend $D$ at time $u&lt;T$. Let $S_a,S_b$ be executable basket ask and bid prices, $a,b$ the corresponding nonnegative acquisition/sale costs, and $r_b\ge r_l$ the borrowing and lending rates. Ignore terminal costs for this specified model. A cash-and-carry trade borrows $S_a+a$, buys the basket, invests the dividend at $r_l$, and sells the forward at its executable bid $F_b$. Its terminal profit is</p>
+<p>$$F_b+De^{r_l(T-u)}-(S_a+a)e^{r_bT}.$$</p>
+<p>No profitable trade of this type requires $F_b\le (S_a+a)e^{r_bT}-De^{r_l(T-u)}$. In the reverse direction, short the basket at net proceeds $S_b-b$, invest proceeds at $r_l$, borrow the manufactured dividend at $r_b$, and buy the forward at ask $F_a$. The resulting restriction is</p>
+<p>$$F_a\ge (S_b-b)e^{r_lT}-De^{r_b(T-u)}.$$</p>
+<p>The bid/ask side matters: comparing a forward midpoint with a basket midpoint is not an executable arbitrage ledger. Borrow fees, short-sale restrictions, dividend uncertainty, terminal trading costs, and futures settlement timing widen or qualify these bounds. If a trader substitutes only a sample of constituents, the final basket mismatch is random, so the alleged arbitrage may instead be a risky relative-value trade.</p>
+<p>Run <a href="labs/ch07.py">the lab</a> to check target-beta signs, imperfect futures beta, rounding residuals, the historical arithmetic attribution, remaining-maturity carry, and both frictional trade directions. All contract specifications and price inputs are teaching cases. The calculation exposes which sensitivities cancel and which cash flows remain; it does not certify a currently executable market opportunity.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>Why is $mG_0$ a notional rather than the initial value of a newly entered futures contract? Derive the combined gain normalized by stock-portfolio value.</li>
+<li>Derive the target-beta count and apply it to lowering beta from 1.2 to 0.5 and raising it to 1.5 in the 100-million example.</li>
+<li>For $\beta_G=0.95$, calculate the beta-neutral contract count, rounded count, and residual beta. Compare the result with assuming $\beta_G=1$.</li>
+<li>Recompute the 20,000-share scenario and separate the assumed factor attribution, stock residual, and contract-rounding contribution. What does the positive residual establish?</li>
+<li>Derive the remaining-carry futures quotation at hedge closure and reproduce the six-contract gain. Explain two reasons this does not guarantee a risk-free portfolio return.</li>
+<li>Derive the executable forward bid upper bound and ask lower bound with different borrowing/lending rates and a known interim dividend.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>The contract starts at a fair delivery quotation, so no premium is needed under the ideal model. Nevertheless, each point of quotation change generates $m$ cash units per long contract. The stock gain is $V_0R_P$, and the derivative's unaccumulated settlement sum is $nm(G_H-G_0)$. Divide their sum by $V_0$ and multiply/divide the derivative term by $G_0$ to obtain $R_P+(nmG_0/V_0)X_G$. Dividing by the contract's zero initial value would be undefined; margin is collateral, not a replacement definition of economic initial value.</p>
+</li>
+<li>
+<p>Covariance with the common market return is linear. Divide it by market variance to get $\beta_P+(nmG_0/V_0)\beta_G$. Equate this to the target and solve for $n$. Here one-contract notional is 250,000. Reducing beta by 0.7 gives $n=-0.7(100000000)/250000=-280$. Increasing beta by 0.3 gives $n=120$. The negative count is short because a positive index move then generates a negative futures gain.</p>
+</li>
+<li>
+<p>Set target beta to zero: $n=-1.2(100000000)/(250000(0.95))=-505.263158$. The nearest integer is −505. Its beta is $1.2-505(250000/100000000)(0.95)=0.000625$. A −480 count based on beta one gives $1.2-480(0.0025)(0.95)=0.06$. Neither result speaks to the portfolio's remaining stock-specific residual, which is outside the scalar market sensitivity.</p>
+</li>
+<li>
+<p>Shares lose $20000(90-100)=-200000$. Ten shorts gain 375,000, hence total gain is 175,000. The assumed factor contribution is $2000000(1.1)(-1/6)=-366666.67$, so the stock residual is $-200000-(-366666.67)=166666.67$. A fractional short of 9.777778 offsets the factor contribution exactly in this simplified calculation; rounding to ten adds 8,333.33. The residual is one realized deviation from the imposed factor attribution. It does not estimate a stable expected alpha or prove that the selection reflected superior information.</p>
+</li>
+<li>
+<p>At $H$ the forward still delivers at $T$, so the carry horizon is $T-H$, giving $G_H=1350e^{0.06/12}\approx1356.766903$. Opening quotation is $1500e^{0.06(4/12)}\approx1530.302010$. Six short contracts gain $6(250)(1530.302010-1356.766903)\approx260302.66$. The stock portfolio can retain a residual relative to the index, and daily futures cash flows require funding. Dividend forecasts, estimated beta, rounding, and model changes supply further qualifications. CAPM does not set the realized stock return equal to a deterministic beta multiple in every state.</p>
+</li>
+<li>
+<p>Cash-and-carry starts with offsetting borrowing and purchase flows. The known dividend is reinvested, and terminal basket delivery yields the executable forward bid. Requiring its terminal profit to be nonpositive gives the stated upper bound. Reverse carry starts with a short sale and investment of net proceeds, finances the dividend owed to the stock lender, and buys the basket through the forward ask to return it. Its terminal profit is $(S_b-b)e^{r_lT}-De^{r_b(T-u)}-F_a$; requiring it nonpositive gives the lower bound. The two directions use different price sides and financing rates because their actual cash flows differ.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>Full English captions for playlist positions <a href="https://www.youtube.com/watch?v=osqhEV8JzGE">17</a>, <a href="https://www.youtube.com/watch?v=FNWj1kZmwq0">18</a>, and <a href="https://www.youtube.com/watch?v=3pvhRtLCpkY">19</a> were read sequentially. They cover weighted betas, CML/SML, index specifications, hedge sizing, scenario arithmetic, carry, and transaction-cost bounds. Chapter 6 develops the repeated CAPM material; this chapter retains the bridge to index hedging, corrects expectation-versus-realization ambiguities, and distinguishes notional from contract value. Historical specifications are contextual, not verified current exchange rules. MIT teaching passages were inspected as indicated. Caption reading does not constitute comprehensive audiovisual review.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch07.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Synthetic index overlays, scenario arithmetic and carry bounds.&quot;&quot;&quot;
+
+from math import exp, isclose
+
+
+def count(value, beta, target, multiplier, quotation, futures_beta=1):
+    if value &lt;= 0 or multiplier &lt;= 0 or quotation &lt;= 0 or futures_beta == 0:
+        raise ValueError(
+            &quot;Need positive value/multiplier/quotation and nonzero futures beta&quot;
+        )
+    return (target - beta) * value / (multiplier * quotation * futures_beta)
+
+
+def main():
+    assert count(100e6, 1.2, 0.5, 250, 1000) == -280
+    assert isclose(count(100e6, 1.2, 1.5, 250, 1000), 120)
+    target = count(100e6, 1.2, 0, 250, 1000, 0.95)
+    rounded = round(target)
+    beta = 1.2 + rounded * 250 * 1000 / 100e6 * 0.95
+    assert rounded == -505 and isclose(beta, 0.000625)
+    cash = 20000 * (90 - 100)
+    derivative = -10 * 250 * (750 - 900)
+    factor = 2e6 * 1.1 * (750 - 900) / 900
+    residual = cash - factor
+    assert isclose(cash + derivative, 175000)
+    assert isclose(residual + derivative + factor, 175000)
+    g0 = 1500 * exp(0.06 * 4 / 12)
+    gh = 1350 * exp(0.06 / 12)
+    gain = -6 * 250 * (gh - g0)
+    assert gh &gt; 1350
+    assert isclose(gain, 260302.660320, rel_tol=0, abs_tol=1e-6)
+    initial = 200 * exp(-0.03 / 3)
+    fair = initial * exp(0.10 / 3)
+    assert isclose(fair, 200 * exp(0.07 / 3))
+    # Known discrete dividend, independently specified bid/ask and financing.
+    sa, sb, ca, cb, rb, rl, t, u, dividend = (
+        101,
+        99,
+        0.2,
+        0.2,
+        0.06,
+        0.04,
+        1,
+        0.5,
+        2,
+    )
+    upper = (sa + ca) * exp(rb * t) - dividend * exp(rl * (t - u))
+    lower = (sb - cb) * exp(rl * t) - dividend * exp(rb * (t - u))
+    assert lower &lt; upper
+    sell_forward = upper + 1
+    buy_forward = lower - 1
+    carry_profit = (
+        sell_forward + dividend * exp(rl * (t - u)) - (sa + ca) * exp(rb * t)
+    )
+    reverse_profit = (
+        (sb - cb) * exp(rl * t) - dividend * exp(rb * (t - u)) - buy_forward
+    )
+    assert isclose(carry_profit, 1) and isclose(reverse_profit, 1)
+    print(
+        f&quot;Neutral count={target:.6f}; rounded={rounded}; &quot;
+        f&quot;residual beta={beta:.6f}&quot;
+    )
+    print(
+        f&quot;Opening futures={g0:.6f}; closure futures={gh:.6f}; &quot;
+        f&quot;six-short gain={gain:.6f}&quot;
+    )
+    print(
+        f&quot;Synthetic carry fair={fair:.6f}; rich-forward surplus={210-fair:.6f}&quot;
+    )
+    print(
+        f&quot;Executable lower={lower:.6f}; upper={upper:.6f}; &quot;
+        &quot;both outside-bound trade certificates passed.&quot;
+    )
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch06.html">Previous: Portfolio risk depends on covariance; priced risk requires a model</a><a rel="next" href="ch08.html">Next: Discount factors price cash flows; a yield summarizes one price</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

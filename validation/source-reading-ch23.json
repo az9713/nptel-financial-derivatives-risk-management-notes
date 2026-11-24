@@ -1,0 +1,101 @@
+{
+  "chapter": "ch23",
+  "reader": "scientific_review (chapter author)",
+  "recordings": [
+    {
+      "position": 58,
+      "video_id": "t00O7h4AhG8",
+      "normalized_text_sha256": "db40524bec2696b6a0d89590895841e4880dc132709c93b5d3b600d978d8e888",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 72,
+          "topic": "Single-currency comparative-funding design"
+        },
+        {
+          "start_seconds": 396,
+          "topic": "Currency swap types and principal exchanges"
+        },
+        {
+          "start_seconds": 502,
+          "topic": "Cross-currency borrowing illustration with inconsistent principals"
+        },
+        {
+          "start_seconds": 770,
+          "topic": "Two currency-swap valuation methods"
+        },
+        {
+          "start_seconds": 844,
+          "topic": "Yen-dollar swap numerical example"
+        },
+        {
+          "start_seconds": 1275,
+          "topic": "VaR introduction"
+        },
+        {
+          "start_seconds": 1487,
+          "topic": "Confidence and horizon definition"
+        },
+        {
+          "start_seconds": 1809,
+          "topic": "Square-root time extrapolation"
+        }
+      ]
+    },
+    {
+      "position": 59,
+      "video_id": "AG4GLF9SBM0",
+      "normalized_text_sha256": "36a26597ae46490011202de94f060d8cb7fd2790bd78ba64cd8f8e034fbc19b3",
+      "reading": "full sequential text read",
+      "topics": [
+        {
+          "start_seconds": 244,
+          "topic": "Historical simulation approach"
+        },
+        {
+          "start_seconds": 423,
+          "topic": "Scenarios from historical level ratios"
+        },
+        {
+          "start_seconds": 1017,
+          "topic": "Joint multiple-factor scenarios"
+        },
+        {
+          "start_seconds": 1219,
+          "topic": "Gaussian local model and daily units"
+        },
+        {
+          "start_seconds": 1525,
+          "topic": "Loss/gain quantile conventions"
+        },
+        {
+          "start_seconds": 1838,
+          "topic": "Square-root scaling"
+        },
+        {
+          "start_seconds": 1928,
+          "topic": "Single-asset five-day VaR example"
+        },
+        {
+          "start_seconds": 2010,
+          "topic": "Two-asset covariance and VaR example"
+        }
+      ]
+    }
+  ],
+  "scope": "Full official English caption text read sequentially; no comprehensive audiovisual audit. All numeric source examples recomputed. Expected-shortfall theory and discrete examples are explicit enrichment.",
+  "source_corrections": [
+    "Source USD15million/AUD20million principals at spot0.5 are inconsistent; original repaired10million/20million construction labeled separately.",
+    "Intermediate cross-currency spread surplus retains FX risk; percentages in different currencies cannot be subtracted as a guaranteed dollar fee.",
+    "Currency-leg forward conversion uses no-arbitrage, not actual future FX equal to forwards.",
+    "VaR is a lower loss quantile, not maximum possible or expected loss; strict tail can be below nominal tail mass with atoms.",
+    "Historical simulation need not assume a normal or other parametric family; synchronized risk vectors required.",
+    "For the displayed lower empirical quantile definition, n500 alpha.99 selects495th ascending/sixthlargest, unlike source fifthworst convention.",
+    "Drift and units, normal approximation versus exact GBM, and autocorrelation failure of square-root scaling stated.",
+    "Generalized ES includes fractional threshold mass; neither naive strict nor weak conditional tail means suffice with atoms."
+  ],
+  "primary_checks": [
+    "RU1999 local extracted pages1-5 read, especially continuous-CDF restriction onpage4 and theorem1on5.",
+    "RU general-distributions author PDF web selected text: Definitions1/3 pp5-8, Proposition8 p13, Theorem10 pp14-16 and one-sided slope proof. No full-document claim."
+  ]
+}

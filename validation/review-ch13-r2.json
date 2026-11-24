@@ -1,0 +1,16 @@
+{
+  "reviewer": "source_research",
+  "disposition": "accepted",
+  "report": "validation/review-ch13-r2.md",
+  "scope": [
+    "Full manuscript, metadata, six solutions and lab source",
+    "Fresh execution and independent payoff/financing/identity checks",
+    "Selected primary references and reading-ledger scope inspected; no repeat full-caption or AV audit"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch13.md": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
+    "chapters/ch13.json": "1744401b9609bc7f0b616eca62e03a334cef69b7ddeef19d8c084a4864952ab2",
+    "labs/ch13.py": "7d7ce2591c0d29aa3953121cfb185f4635e4de40cb02935c48114dac5a57abba"
+  }
+}

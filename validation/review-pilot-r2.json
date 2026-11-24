@@ -1,0 +1,37 @@
+{
+  "reviewer": "reader_builder_scientific",
+  "disposition": "accepted",
+  "report": "validation/review-pilot-r2.md",
+  "scope": [
+    "Complete chapter and metadata read",
+    "All derivations and numerical examples independently checked",
+    "All six complete exercise solutions checked",
+    "Complete overview caption text read sequentially",
+    "Three primary supporting sources retrieved and checked",
+    "Complete laboratory read and fresh-process execution observed"
+  ],
+  "remaining_findings": [],
+  "accepted_files": {
+    "chapters/ch01.md": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+    "chapters/ch01.json": "37e805a3bfd47f4d1d0e3a20f9f02381180766a3fc225d0d3f2fe41edbcdbd2d",
+    "labs/ch01.py": "bda7616d5312fd109c6e44bfae98a6a834f516743d2ba35a06469313b7f6d076"
+  },
+  "source_evidence": {
+    "video_id": "pJDMgEpn-bM",
+    "reading": "Full sequential English caption text",
+    "normalized_caption_sha256": "a9ef17c1e1065bacc22c60d69eeec2235c3c0ef8c5de2bb2d461577ae12a7fcd"
+  },
+  "limitations": [
+    "No complete audio/slide/board audit",
+    "Not a book-wide consistency pass",
+    "Not formal proof verification or human expert certification",
+    "Browser and publication evidence remain separate"
+  ],
+  "rechecked_repairs": [
+    "Added accurate first-use definition of central clearing",
+    "Added accurate first-use definition of short selling",
+    "Materialized scenario iterable and rejected empty scenarios; independently tested generator and empty input; reran complete laboratory",
+    "Final no-arbitrage proof explicitly assumes short-sale proceeds are usable and borrowing/transaction fees vanish",
+    "Lab effects description clarified and long assertion split without altering its checked equality; complete lab rerun successfully"
+  ]
+}

@@ -1,0 +1,13 @@
+# Independent scientific review: chapter 07
+
+Accepted at the accompanying exact hashes. The reviewer did not author the chapter. The complete manuscript, metadata, six worked solutions, and code were read, and the laboratory was run in a fresh interpreter. No unresolved finding remains.
+
+The exposure denominator is original stock value rather than zero futures value or collateral. Covariance linearity yields the signed-long target count with an explicit futures beta; beta neutrality is correctly distinguished from variance minimization and from removal of residual risk. Independently checked counts−280,+120,−505.263158, rounded residual0.000625, and mismatched-beta residual0.06. The historical attribution separates stock residual166666.67 from the8333.33 rounding contribution without calling either a stable alpha estimate.
+
+Continuous dividend reinvestment, remaining-maturity carry, fixed-basket cash income, and executable bid/ask carry ledgers use consistent units and signs. The six-contract early closure gain is260302.660320; it is correctly described as an unaccumulated settlement sum. The text does not infer a fully funded futures arbitrage from a forward-style final-date ledger. Different borrowing/lending rates appear on the actual cash-flow directions. All six solutions were checked independently.
+
+Fresh lab output reproduced the imperfect-beta overlay, historical attribution, early-close carry, and forward-bound certificates. The independently specified bound case yields100.771195 and105.417456; trades beyond the respective executable bounds give the stated one-unit profit in this limited model. The lab does not claim current exchange specifications or empirical market calibration.
+
+Actual caption passages inspected: p17 at1450–1610seconds; p18 at430–720 and1660–1800seconds; p19 at390–530 and1350–1510seconds. MIT Lo's forward/futures slides25–29 were read locally for historical dividend/index applications and the250-dollar multiplier example; graphical tables were not comprehensively audited. Full sequential source reading belongs to the author ledger. This review is separate from browser, package, and live publication checks and makes no comprehensive audiovisual or human-expert certification claim.
+
+Final canonical-line-ending recheck: the lead reviewer independently reconstructed the prior CRLF bytes from the LF version and matched the previous accepted SHA-256 for every changed bound file. Laboratory ASTs also match. This newline-only operation changes no scientific text or code behavior; the receipt now binds the canonical LF bytes. Evidence: `validation/line-ending-normalization.json`.

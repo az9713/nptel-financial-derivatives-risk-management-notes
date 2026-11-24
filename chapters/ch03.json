@@ -1,0 +1,7 @@
+{
+  "title": "Futures redistribute cash flows through time",
+  "lectures": [6, 7, 8],
+  "objectives": ["Build a daily variation-settlement and collateral ledger", "Separate notional exposure, margin deposits and trading profit", "Derive deterministic-rate forward/futures equivalence by a feasible strategy", "Explain residual clearing and funding risks"],
+  "prerequisites": "Chapters 1–2 dated cash flows, compounding and statewise replication. Pricing-probability preview is clearly marked.",
+  "source_scope": "Full English captions read sequentially for positions 6–8. Selected BIS PFMI and MIT forward/futures material inspected; no comprehensive audiovisual or current-exchange-rule audit."
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="description" content="Independent study edition of NPTEL Financial Derivatives and Risk Management, IIT Roorkee: mathematical reasoning, original examples, solved exercises, and executable laboratories.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+<title>Short-rate futures: a quotation is not a cash price · Financial Derivatives</title>
+<link rel="stylesheet" href="assets/reader.css">
+<script src="assets/math-config.js" defer></script>
+<script src="assets/mathjax-tex-svg.js" defer></script>
+<script src="assets/reader.js" defer></script></head><body>
+<a class="skip" href="#main">Skip to main content</a><div class="shell">
+<aside><a class="brand" href="index.html">Financial Derivatives</a>
+<p>Contracts, replication, and risk<br>Independent NPTEL study edition</p>
+<button id="menu" type="button" aria-expanded="false" aria-controls="navigation">Contents</button>
+<nav id="navigation" aria-label="Book"><a href="index.html">Overview and chapter finder</a>
+<a href="source-map.html">Recordings and source map</a>
+<a href="study-guide.html">Study guide and dependency map</a>
+<a href="numerical-lab.html">Interactive numerical laboratory</a>
+<a href="references.html">References and evidence limits</a><a href="ch01.html">01. What a derivative changes: cash flows, exposure, and risk</a><a href="ch02.html">02. Forward prices come from financed replication</a><a href="ch03.html">03. Futures redistribute cash flows through time</a><a href="ch04.html">04. Exposure, hedge direction, and the basis that remains</a><a href="ch05.html">05. Hedge size is a covariance projection with trading units</a><a href="ch06.html">06. Portfolio risk depends on covariance; priced risk requires a model</a><a href="ch07.html">07. Index futures change beta without selling the stock portfolio</a><a href="ch08.html">08. Discount factors price cash flows; a yield summarizes one price</a><a href="ch09.html">09. Duration cancels a first derivative, not every interest-rate risk</a><a href="ch10.html" aria-current=page>10. Short-rate futures: a quotation is not a cash price</a><a href="ch11.html">11. Rate hedges: carry, basis, settlement timing, and accrued interest</a><a href="ch12.html">12. Bond futures: conversion factors, delivery choice, and rate sensitivity</a><a href="ch13.html">13. Option cash flows and put–call parity</a><a href="ch14.html">14. Option bounds and the decision to exercise</a><a href="ch15.html">15. Static option strategies as piecewise-linear cash flows</a><a href="ch16.html">16. From random walks to Brownian risk factors</a><a href="ch17.html">17. Itô calculus, lognormal prices, and the meaning of a risk probability</a><a href="ch18.html">18. Binomial replication and risk-neutral valuation</a><a href="ch19.html">19. Measure change, dynamic replication, and the Black–Scholes model</a><a href="ch20.html">20. Solving the pricing PDE and measuring local exposure</a><a href="ch21.html">21. Greek hedges, financing, and the cost of convexity</a><a href="ch22.html">22. FRAs and interest-rate swaps as dated cash flows</a><a href="ch23.html">23. Currency swaps, loss quantiles, and tail risk</a><a href="ch24.html">24. Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR</a></nav></aside>
+<main id="main"><div class="eyebrow">NPTEL · IIT Roorkee · J. P. Singh</div>
+<h1>10. Short-rate futures: a quotation is not a cash price</h1>
+<p class="meta"><a href="https://www.youtube.com/watch?v=sqc6C_hcXUM">Recording 24</a>, <a href="https://www.youtube.com/watch?v=0QEvQLhjhQA">Recording 25</a> · Expanded, independently developed exposition</p>
+<div class="objectives"><strong>What you will learn</strong><ul><li>Convert a discount yield into bill price and investment yield without mixing units</li><li>Separate the futures delivery date from the underlying bill&#x27;s maturity</li><li>Derive quote sensitivity and the sign of a short-rate futures hedge</li><li>Distinguish a forward-style terminal sketch from daily settled futures cash flows</li></ul>
+<p><strong>Prerequisites:</strong> Discount factors and forward replication from chapters 02 and 08; yield sensitivity from chapter 09; futures settlement from chapter 03.</p></div>
+<div class="toolbar"><button id="solutions" type="button">Open solutions and code</button>
+<button id="print" type="button">Print / save PDF</button><button id="theme" type="button" aria-pressed="false">Use light theme</button>
+<a href="chapters/ch10.md">Editable chapter source</a></div><div class="toc"><strong>In this chapter</strong><ul><li><a href="#1-interest-rate-exposure-belongs-to-dated-payments-1011">1. Interest-rate exposure belongs to dated payments 10:11</a></li><li><a href="#2-discount-yield-and-investment-yield-use-different-denominators-2231">2. Discount yield and investment yield use different denominators 22:31</a></li><li><a href="#3-the-rate-index-and-the-bills-monetary-price-are-different-objects-2042">3. The rate index and the bill&#x27;s monetary price are different objects 20:42</a></li><li><a href="#4-derive-the-tick-value-before-choosing-a-hedge-1740">4. Derive the tick value before choosing a hedge 17:40</a></li><li><a href="#5-a-forward-starting-investment-has-two-future-dates-0041">5. A forward-starting investment has two future dates 00:41</a></li><li><a href="#6-daily-settlement-prevents-a-careless-forward-interpretation-0211">6. Daily settlement prevents a careless forward interpretation 02:11</a></li><li><a href="#7-hedge-direction-follows-the-business-cash-flow-2432">7. Hedge direction follows the business cash flow 24:32</a></li><li><a href="#8-computation-and-limits">8. Computation and limits</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#sources-and-scope">Sources and scope</a></li></ul></div>
+<article>
+<p>A treasurer sees a short-rate futures quotation of 95.00 and a bill price of 98.75 per 100 of face value. Both figures can describe a five-percent annual discount rate. Treating either number as the other would misstate the cost of a million-dollar bill by 37,500 dollars. Before asking whether a hedge works, we must identify what each quoted number measures.</p>
+<p>Our running case is a default-free bill paying one million dollars at a known maturity. We use it to connect three representations: a discount yield, the bill's cash price, and a futures index constructed from an annualized rate. The numerical examples are synthetic. They reproduce the economic mechanisms without representing a currently traded contract or a live market quotation.</p>
+<h2 id="1-interest-rate-exposure-belongs-to-dated-payments-1011">1. Interest-rate exposure belongs to dated payments <a href="https://www.youtube.com/watch?v=sqc6C_hcXUM&amp;t=611s">10:11</a></h2>
+<p>An <strong>interest-rate derivative</strong> specifies cash flows that depend on a rate, a fixed-income security, or an associated index. A future on a bond need not pay an interest rate directly. Its quotation can move because the price of the deliverable security changes when discount rates change. A future on a short-term reference rate may instead settle by a formula using a measured rate. The underlying and the settlement formula must both be specified.</p>
+<p>Let $0$ denote today, $T$ the derivative's delivery or settlement date, and $U&gt;T$ the maturity of an underlying bill. A <strong>bill</strong> is a zero-coupon claim: in our simplified model its holder receives a single face payment $M$ dollars at $U$. The maturity of the derivative is $T$; the maturity of the instrument delivered through it is $U$. Describing the contract as a three-month bill future ordinarily identifies the bill's remaining term at delivery in the historical example, not necessarily the period from today to delivery.</p>
+<p>For instance, suppose today is the start of January, delivery is at the start of June, and the bill pays at the start of September. The waiting time to delivery is five months; the underlying investment period after delivery is three months. A treasurer closing a hedge in March uses a third date, the hedge horizon. Confusing these dates can select the wrong rate exposure even when all arithmetic is otherwise correct.</p>
+<p>The first part of the source recording reviews duration and immunization. <a href="ch09.html">Chapter 09</a> develops those results. The relevant bridge is a unit distinction: if $B(z)$ is a bond's dollar price and $z$ is an annual yield written as a decimal, the magnitude of its first-order loss for a one-basis-point increase is $-B'(z)10^{-4}$ when $B'(z)&lt;0$. A <strong>basis point</strong> is $0.01$ percentage point, or $10^{-4}$ in decimal rate units. The derivative alone is a sensitivity per unit change in the decimal yield; it is not yet a dollar value per basis point.</p>
+<p>For a bill, we can often avoid a general duration formula and differentiate its stated price convention directly. This makes the units and sign transparent. It also exposes a limitation: a sensitivity to a bill's discount yield is not automatically a sensitivity to a futures settlement rate, a deposit rate, or every point on the yield curve.</p>
+<h2 id="2-discount-yield-and-investment-yield-use-different-denominators-2231">2. Discount yield and investment yield use different denominators <a href="https://www.youtube.com/watch?v=sqc6C_hcXUM&amp;t=1351s">22:31</a></h2>
+<p>Let $P$ be the bill's cash purchase price and $M$ its face value, both in dollars. Let $D$ be the actual number of days until payment and let $b$ be the day-count denominator in days per year. Write $\alpha=D/b$ for the year fraction. A <strong>bank-discount yield</strong> $d$ annualizes the discount relative to face value:</p>
+<p>$$d=\frac{M-P}{M\alpha},\qquad P=M(1-d\alpha).$$</p>
+<p>The <a href="https://www.treasurydirect.gov/marketable-securities/understanding-pricing/">U.S. Treasury's pricing explanation</a> gives this bill-price relationship with a 360-day denominator. The relationship is a quotation convention; it does not say that the investment earns interest on money the buyer never paid. In any example we must state both the denominator and the time interval. A 90/360 illustration has $\alpha=0.25$; a different day count changes the arithmetic.</p>
+<p>An annualized <strong>simple investment yield</strong> on the same time basis uses the cash invested as denominator. Denote it by $r_s$ to distinguish it from the continuously compounded rate used elsewhere in the book:</p>
+<p>$$r_s=\frac{M-P}{P\alpha},\qquad P=\frac{M}{1+r_s\alpha}.$$</p>
+<p>Substitute the discount-price formula into this definition. Since $M-P=Md\alpha$ and $P=M(1-d\alpha)$,</p>
+<p>$$r_s=\frac{d}{1-d\alpha},\qquad
+d=\frac{r_s}{1+r_s\alpha}.$$</p>
+<p>These are transformations of the same price. They are not alternative prices for a fixed security. The domain requires a positive price, $1-d\alpha&gt;0$, equivalently a positive simple accumulation factor $1+r_s\alpha&gt;0$. Negative rates are permitted by these equations when the corresponding price remains positive; there is no need to insert an unstated nonnegative-rate assumption.</p>
+<p>Take $M=1{,}000{,}000$, $D=90$, $b=360$, and $d=0.05$. The price is $1{,}000{,}000(1-0.05/4)=987{,}500$. Its dollar gain on holding to payment is 12,500. Dividing that gain by the 987,500 actually invested gives a quarter-year return of approximately 1.265823 percent, and annualizing simply gives $r_s\approx0.050632911$, or 5.0632911 percent.</p>
+<p>Now change the meaning of the input rather than its numerical appearance. If five percent means $r_s=0.05$, the price is $1{,}000{,}000/(1+0.05/4)=987{,}654.320988$. This differs from 987,500 because the two five-percent labels encode different prices. Comparing the formulas while keeping the number 0.05 fixed is not a consistency test; transforming the rate before comparing prices is.</p>
+<p>A further annualization change needs another factor. If the same holding-period return is reported on a 365-day simple basis, its annual yield is $(M/P-1)365/D$. A continuously compounded annual yield on a specified year fraction $\tau$ is $z=\log(M/P)/\tau$. Neither number can be substituted for $d$ in the discount-price formula without conversion. A pricing system should store the convention beside the number rather than infer it from a field named “rate.”</p>
+<h2 id="3-the-rate-index-and-the-bills-monetary-price-are-different-objects-2042">3. The rate index and the bill's monetary price are different objects <a href="https://www.youtube.com/watch?v=sqc6C_hcXUM&amp;t=1242s">20:42</a></h2>
+<p>For the historical discount-yield convention under study, define an index quotation</p>
+<p>$$J=100-100d.$$</p>
+<p>The factor 100 converts the decimal annual rate $d$ into percentage points before subtraction. At a five-percent discount yield, $J=95$. The index is a quotation number. It is not the price per 100 of face and is not the cash needed to open a futures position.</p>
+<p>For a bill with year fraction $\alpha$, the cash price implied by that discount convention is instead</p>
+<p>$$P=M\left[1-\frac{100-J}{100}\alpha\right].$$</p>
+<p>At $\alpha=0.25$ and $J=95$, this gives 98.75 per 100 face, or 987,500 per million face. At $J=94$, the annual discount yield is six percent and the implied bill price is 98.50 per 100. A one-point change in the annual-rate index therefore corresponds to a quarter of a price point for this quarter-year bill. The two numbers use different scales.</p>
+<p>Different rate futures need not use this bill-price mapping. A deposit-rate future can quote $100$ minus an annualized simple reference rate and assign a dollar value to an index point through its own contract multiplier. Its settlement index is not made into a Treasury bill by writing the same leading number 100. We use the historical bill mapping here and examine the Eurodollar/SOFR boundary in <a href="ch11.html">Chapter 11</a>.</p>
+<p>The source also gives historical NSE and U.S. examples of lot sizes, delivery choices, and trading rules. Such terms establish the motivation for careful units, but they are not adopted as current specifications in this edition. A contract's size, tick, reference interval, settlement algorithm, and eligible deliverables are dated exchange rules. The mathematical lesson survives a change in any of those details: calculate the monetary sensitivity from the actual quotation formula.</p>
+<h2 id="4-derive-the-tick-value-before-choosing-a-hedge-1740">4. Derive the tick value before choosing a hedge <a href="https://www.youtube.com/watch?v=sqc6C_hcXUM&amp;t=1060s">17:40</a></h2>
+<p>Holding face $M$ and year fraction $\alpha$ fixed, differentiation gives $\partial P/\partial d=-M\alpha$. Therefore a small decimal discount-yield change $\Delta d$ produces $\Delta P=-M\alpha\Delta d$. For this discount convention the expression is affine, so the equality is exact while $\alpha$ remains fixed. It is not merely a truncated Taylor approximation.</p>
+<p>The positive sensitivity magnitude for one basis point is</p>
+<p>$$\operatorname{DV01}_{d}=M\alpha\,10^{-4}.$$</p>
+<p>The subscript specifies that the sensitivity is to the discount yield. With a one-million-dollar face and $\alpha=0.25$, the magnitude is 25 dollars per basis point. A half-basis-point rate increase lowers the implied price by 12.50 dollars. Writing “the derivative is 250,000, therefore DV01 is 250,000” would miss the rate-unit conversion by a factor of ten thousand.</p>
+<p>We can reach the same answer from the quotation. Since $d=(100-J)/100$, the chain rule gives $\partial P/\partial J=M\alpha/100=2{,}500$ dollars per index point. One basis point in $d$ lowers $J$ by 0.01, giving a price change of $2{,}500(-0.01)=-25$. The independent rate and index calculations agree because their conversion factors are explicit.</p>
+<p>Contract count comes after this calculation. If an exposure loses 10,000 dollars when the relevant discount yield rises by 100 basis points, and one long future loses 2,500 over the same move under this model, four short futures offset that loss. The number four is meaningful only if the rate changes, dates, multiplier, and exposure definition match. If the two rates move differently, a coefficient relating their changes is required; <a href="ch11.html">Chapter 11</a> derives that projection rather than silently setting it to one.</p>
+<p>The word “value” requires care here. $P$ is the cash price associated with the deliverable bill formula. A newly entered future normally has no purchase price equal to that amount. Its margin and variation settlements are separate cash flows. Calling 987,500 the “cost of buying a future” would confuse a quotation conversion with the financing and collateral requirements of the derivative.</p>
+<h2 id="5-a-forward-starting-investment-has-two-future-dates-0041">5. A forward-starting investment has two future dates <a href="https://www.youtube.com/watch?v=0QEvQLhjhQA&amp;t=41s">00:41</a></h2>
+<p>Let $P(0,T)$ and $P(0,U)$ denote today's prices of default-free zero-coupon claims paying one dollar at $T$ and $U$, respectively. The symbol $P(0,T)$ is now a discount factor, distinct from the dollar bill price $P$ above; its two arguments make the distinction explicit. Consider a forward agreement to pay $K$ dollars at $T$ and receive a bill paying $M$ at $U$. Assume frictionless trading, matched default-free funding and investable/shortable zero-coupon claims.</p>
+<p>At time zero, buy $M$ units of the $U$-dated unit claim and finance them by shorting $K$ units of the $T$-dated claim. The present cost is $MP(0,U)-KP(0,T)$. At $T$ the short position requires $K$ dollars; at $U$ the purchased claim supplies $M$. A zero-initial-value forward therefore has delivery price</p>
+<p>$$K=M\frac{P(0,U)}{P(0,T)}.$$</p>
+<p>This is a replication result under the stated trading assumptions. Its associated simple forward investment rate over year fraction $\alpha_{TU}$ is</p>
+<p>$$r_s(0;T,U)=\frac{P(0,T)/P(0,U)-1}{\alpha_{TU}}.$$</p>
+<p>The rate is known today, but it applies to the future period $[T,U]$. It is not a forecast of the future spot rate. If $P(0,T)=0.98$, $P(0,U)=0.965$, $M=1{,}000{,}000$, and $\alpha_{TU}=0.25$, then $K=984{,}693.877551$ and the simple forward rate is approximately 6.2176166 percent. The corresponding discount yield on the same delivery price is approximately 6.1224490 percent. Two rate labels describe one delivery price again.</p>
+<p>Buying a bill now and committing to sell that same bill later illustrates the opposite use of the date structure. The current cash purchase and the agreed sale proceeds determine a holding-period return if the security, quantity, dates, settlement, and financing match. If the bill is not deliverable, if a cheaper delivery alternative is available to the short, or if the hedge is closed early, that exact two-cash-flow argument changes. It must not be applied merely because both instruments have “Treasury” in their names.</p>
+<h2 id="6-daily-settlement-prevents-a-careless-forward-interpretation-0211">6. Daily settlement prevents a careless forward interpretation <a href="https://www.youtube.com/watch?v=0QEvQLhjhQA&amp;t=131s">02:11</a></h2>
+<p>The preceding replication describes a forward with a single delivery payment. A futures contract typically settles gains and losses along the path. <a href="ch03.html">Chapter 03</a> treats the full mechanism. To isolate the timing issue, let $P_i$ be the monetary settlement-price representation of one long contract at dates $t_i$, with a fixed multiplier already included. Its receipt is $P_i-P_{i-1}$.</p>
+<p>The undiscounted sum is $P_n-P_0$ by telescoping. But if receipts are financed or reinvested at a common constant continuously compounded rate $r$, their terminal equivalent at $T=t_n$ is</p>
+<p>$$\sum_{i=1}^{n}(P_i-P_{i-1})e^{r(T-t_i)}.$$</p>
+<p>The accumulation factors depend on the payment date. Equal total undiscounted settlement does not imply equal financed value. This is why a forward-style sketch of an outflow at $T$ followed by a face payment at $U$ cannot, by itself, establish every consequence of holding a daily settled future.</p>
+<p>For a concrete path, use the historical bill mapping with face one million and $\alpha=0.25$. Index quotations 95, 94, and 95 imply monetary prices 987,500, 985,000, and 987,500. The long receives -2,500 and +2,500. Let those payments occur a quarter-year apart, with the latter at the comparison date, and finance the first at four percent continuously compounded. The terminal equivalent is $-2500e^{0.01}+2500=-25.125418$ dollars. The final index equals the initial index, but funding the interim loss costs money.</p>
+<p>This example is not a general futures-forward convexity adjustment. A pricing comparison additionally needs the relation between settlement-price changes and interest rates, margin remuneration, and the funding model. It demonstrates the narrower point that dated cash flows must be brought to a common date. The laboratory checks exactly that point and does not infer a stochastic-rate pricing theorem from it.</p>
+<h2 id="7-hedge-direction-follows-the-business-cash-flow-2432">7. Hedge direction follows the business cash flow <a href="https://www.youtube.com/watch?v=sqc6C_hcXUM&amp;t=1472s">24:32</a></h2>
+<p>A holder planning to sell an existing bill before maturity is generally harmed by a rise in its discount yield: the sale price falls. A short position in a price-quoted future gains when that future's quoted rate rises and its index falls. This gives the direction of a hedge, subject to the relation between the two rate exposures.</p>
+<p>A treasurer expecting cash later and intending to invest it faces a different problem. Lower investment rates can reduce the income available on that future investment. A long price-quoted rate future can gain when the reference rate falls. A future borrower worried about rising funding costs ordinarily seeks the opposite direction. The sign is determined by the exposed business cash flow, not by the word “interest.”</p>
+<p>The <a href="https://www.youtube.com/watch?v=0QEvQLhjhQA&amp;t=405s">applications recording</a> compares these cases. A direction is not a complete hedge specification. An investor with a six-month future investment can use a three-month reference contract only after addressing interval mismatch, the relation between rates, contract quantity, and settlement timing. The next chapter derives both an existing-bill hedge and a future-investment hedge while separating expected carry from an unanticipated yield change.</p>
+<h2 id="8-computation-and-limits">8. Computation and limits</h2>
+<p>Run <a href="labs/ch10.py">the chapter laboratory</a>. It accepts finite bill face values, discount yields, day counts, and a declared basis; it rejects nonpositive prices and invalid time inputs. It separately computes the same bill from discount and investment representations, the one-basis-point monetary sensitivity, the forward delivery price from two discount factors, and the financed settlement path. The checks use the Python standard library and have no network or trading effects.</p>
+<p>The output reports discount price 987500.000000, simple-rate price 987654.320988, discount-yield DV01 25.000000, forward delivery 984693.877551, and financed MTM -25.125418. Assertions verify the equalities before formatting output. Repeating the yield transformation at negative, zero, and positive rates checks that the implementation follows its stated domain rather than an unstated nonnegative-rate shortcut.</p>
+<p>The model captures quote conventions, dates, scale, and settlement direction. It does not certify a historical exchange rule as currently active, establish a funding curve, or remove cross-rate basis risk. Its price transformations apply only when the stated payoff and convention apply. Those boundaries are what make the resulting calculations reusable rather than apparently precise numbers attached to an unspecified instrument.</p>
+<h2 id="exercises">Exercises</h2>
+<ol>
+<li>A bill pays one million dollars after 90 days. On an actual/360 basis, compute its price at five-percent discount yield and its simple investment yield. Then compute the price if five percent instead means simple investment yield. Explain the discrepancy.</li>
+<li>For the same bill-price mapping, derive the monetary change corresponding to a one-basis-point discount-yield increase and a 0.005 decrease in the index $J$. Explain why the index is not a price per 100 face.</li>
+<li>Use $P(0,T)=0.98$, $P(0,U)=0.965$, and a quarter-year between $T$ and $U$. Derive the zero-value forward delivery price for a one-million-dollar bill. Calculate its simple forward rate and discount yield.</li>
+<li>A long contract's index follows 95, 94, 95 under the quarter-year bill mapping. Calculate its two monetary settlements. If the first occurs a quarter-year before the second, compare the undiscounted sum with the terminal equivalent at a four-percent continuously compounded financing rate.</li>
+<li>An existing bill portfolio loses 10,000 dollars for a one-percentage-point increase in a stated discount yield. One long hedge contract loses 2,500 dollars for the same matched rate change. Find the signed contract count for a first-order hedge. Name two changes that invalidate the cancellation.</li>
+<li>Explain the hedge direction for an existing bill holder, a future investor, and a future borrower when each fears its usual adverse rate move. For a derivative delivered five months from now on a bill maturing three months after delivery, identify both dates and explain which interval the bill yield describes.</li>
+</ol>
+<details>
+<summary>Fully worked solutions</summary>
+<ol>
+<li>
+<p>The discount price is $M(1-d\alpha)=1{,}000{,}000(1-0.05\times0.25)=987{,}500$. The gain is 12,500, so the annualized simple investment rate is $12500/(987500\times0.25)=0.050632911\ldots$. If $r_s=0.05$ instead, the price is $1{,}000{,}000/1.0125=987{,}654.320988$. The denominators underlying the two annualized yields differ. Transforming the rate, rather than reusing the same numerical label, restores price agreement.</p>
+</li>
+<li>
+<p>Differentiating gives $\Delta P=-M\alpha\Delta d$. For $\Delta d=10^{-4}$ the price falls by 25 dollars. Since $\Delta P=(M\alpha/100)\Delta J$, a change $\Delta J=-0.005$ gives -12.50 dollars. The index subtracts an annualized percentage-rate number from 100, whereas the cash bill price uses the fraction-year discount as well. At $J=95$ the price per 100 is therefore 98.75, not 95.</p>
+</li>
+<li>
+<p>Buy the $U$-dated face claim and finance it with a $T$-dated payment. Zero initial cost requires $K(0.98)=1{,}000{,}000(0.965)$, giving $K=984{,}693.877551$. The simple rate is $(1{,}000{,}000/K-1)/0.25=0.062176166\ldots$. The discount yield is $(1-K/1{,}000{,}000)/0.25=0.061224490\ldots$. Both imply the same $K$ when inserted into their appropriate price equations.</p>
+</li>
+<li>
+<p>The implied monetary prices are 987,500, 985,000, and 987,500, so the settlements are -2,500 and +2,500. Their undiscounted sum is zero. Financing the first loss for one quarter-year gives terminal-equivalent value $-2500e^{0.04\times0.25}+2500=-25.125418$. This is a dated financing calculation, not a claim that a constant-rate futures pricing adjustment generally equals this amount.</p>
+</li>
+<li>
+<p>Let $n$ be the signed number of long contracts. The common rate shock produces change $-10000+n(-2500)$. Setting it to zero gives $n=-4$, so the hedge is four short contracts. If the cash yield and futures rate do not move by the same amount, the assumed ratio changes. A changing remaining maturity, different funding date, rounding, or changed contract multiplier can also create a residual. Matching one scalar shock does not neutralize every yield-curve movement.</p>
+</li>
+<li>
+<p>An existing bill holder fears a yield increase and a sale-price fall, so a short price-quoted future has the appropriate direction. A future investor fears a lower future investment rate, so a long price-quoted future can offset that adverse move. A borrower fearing a higher rate takes the short direction. In the dated example, delivery is at month five and bill payment at month eight. The bill's quoted three-month yield concerns months five through eight. It does not describe a three-month period starting today or the five-month wait to delivery.</p>
+</li>
+</ol>
+</details>
+<h2 id="sources-and-scope">Sources and scope</h2>
+<p>The complete English captions for <a href="https://www.youtube.com/watch?v=sqc6C_hcXUM">playlist position 24</a> and <a href="https://www.youtube.com/watch?v=0QEvQLhjhQA">position 25</a> were read sequentially. They motivate interest-rate futures, historical bill quotations, distinct delivery and underlying maturity dates, and the direction of existing/future exposure hedges. The recording's duration/immunization recap is linked to Chapter 09 rather than repeated as a separate derivation. TreasuryDirect supports the discount-price convention. All numerical examples above are independently constructed and checked.</p>
+<p>Historical lot sizes, trading calendars, auction-settlement rules, and sale limits mentioned in the recording are not current-contract claims here. The forward-style investment sketch is separated from actual futures marking to market. In the source's later future-investment example, the spoken future investment rate changes between its statement and calculation; we do not infer a unique intended data value from that inconsistency. Chapter 11 instead develops a fresh internally consistent example. No complete slide, board, or audio audit is claimed.</p><details class="lab"><summary>Executable chapter laboratory</summary>
+<p><a href="labs/ch10.py">Download the Python source</a>. Run in a fresh interpreter; see requirements.txt for dependencies.</p>
+<div class="codewrap"><button class="copybtn" type="button" aria-label="Copy laboratory source">Copy</button><pre><code class="language-python">&quot;&quot;&quot;Bill-quotation, cash-price, forward-date and settlement certificates.&quot;&quot;&quot;
+from math import exp, isclose, isfinite
+
+
+def bill_price(face, discount, days, basis=360):
+    &quot;&quot;&quot;Price a zero-coupon bill using an explicitly stated discount basis.&quot;&quot;&quot;
+    if not all(isfinite(x) for x in [face, discount, days, basis]):
+        raise ValueError(&quot;Inputs must be finite&quot;)
+    if face &lt;= 0 or days &lt; 0 or basis &lt;= 0 or 1 - discount * days / basis &lt;= 0:
+        raise ValueError(&quot;Invalid face, time basis, or nonpositive bill price&quot;)
+    return face * (1 - discount * days / basis)
+
+
+def investment_rate(discount, days, basis=360):
+    if days &lt;= 0:
+        raise ValueError(&quot;Positive accrual days required for annualized yield&quot;)
+    price = bill_price(1.0, discount, days, basis)
+    return discount / price
+
+
+def quote_price(face, index, accrual=0.25):
+    if not all(isfinite(x) for x in [face, index, accrual]):
+        raise ValueError(&quot;Inputs must be finite&quot;)
+    if face &lt;= 0 or accrual &lt;= 0:
+        raise ValueError(&quot;Positive face and accrual required&quot;)
+    price = face * (1 - (100 - index) * accrual / 100)
+    if price &lt;= 0:
+        raise ValueError(&quot;Bill quotation implies nonpositive cash price&quot;)
+    return price
+
+
+def main():
+    face, days, discount = 1_000_000, 90, 0.05
+    price = bill_price(face, discount, days)
+    rate = investment_rate(discount, days)
+    assert price == 987_500
+    assert isclose(price * (1 + rate * days / 360), face)
+    simple_price = face / (1 + 0.05 * days / 360)
+    assert isclose(simple_price, 987654.3209876543)
+    assert isclose(rate, 0.05063291139240506)
+    assert quote_price(face, 95) == price
+    assert isclose(quote_price(face, 94.99) - price, -25)
+    assert isclose(quote_price(face, 94.995) - price, -12.5)
+    p0t, p0n = 0.98, 0.965
+    delivery = face * p0n / p0t
+    simple_forward = (face / delivery - 1) / 0.25
+    discount_forward = (1 - delivery / face) / 0.25
+    assert isclose(delivery * p0t, face * p0n)
+    assert isclose(delivery * (1 + simple_forward * 0.25), face)
+    assert isclose(bill_price(face, discount_forward, 90), delivery)
+    quotes = [95, 94, 95]
+    prices = [quote_price(face, q) for q in quotes]
+    flows = [b - a for a, b in zip(prices, prices[1:])]
+    assert flows == [-2500, 2500]
+    financed = flows[0] * exp(0.04 * 0.25) + flows[1]
+    assert financed &lt; 0 and isclose(financed, -25.12541771041972)
+    dv01 = face * 0.25 * 0.0001
+    assert dv01 == 25
+    for d in [-0.01, 0, 0.05, 0.15]:
+        p = bill_price(face, d, 90)
+        r = investment_rate(d, 90)
+        assert isclose(p * (1 + r * 0.25), face)
+    for invalid in [float(&quot;nan&quot;), float(&quot;inf&quot;), 5.0]:
+        try:
+            bill_price(face, invalid, 90)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(&quot;Invalid or nonpositive price accepted&quot;)
+    for index in (-300, -400):
+        try:
+            quote_price(1, index, 0.25)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(&quot;Nonpositive quoted cash price accepted&quot;)
+    assert bill_price(1, 0.05, 0) == 1
+    try:
+        investment_rate(0.05, 0)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError(&quot;Annualized yield accepted at zero accrual&quot;)
+    print(f&quot;discount price={price:.6f}; simple-rate price={simple_price:.6f}&quot;)
+    print(f&quot;investment rate={rate:.9f}; discount-yield DV01={dv01:.6f}&quot;)
+    print(
+        f&quot;forward delivery={delivery:.6f}; &quot;
+        f&quot;simple forward={simple_forward:.9f}&quot;)
+    print(
+        f&quot;discount forward={discount_forward:.9f}; &quot;
+        f&quot;financed MTM={financed:.6f}&quot;)
+    print(&quot;quotation, conversion, date, sensitivity and funding checks passed&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre></div></details></article><div class="footer"><a rel="prev" href="ch09.html">Previous: Duration cancels a first derivative, not every interest-rate risk</a><a rel="next" href="ch11.html">Next: Rate hedges: carry, basis, settlement timing, and accrued interest</a></div>
+<p class="publication-note">Independent educational notes. Not an official NPTEL or IIT Roorkee publication, affiliation, or endorsement. Educational models are presented under stated assumptions.</p>
+</main></div></body></html>

@@ -1,0 +1,49 @@
+{
+  "chapter": "ch14",
+  "reader": "reader_builder_author",
+  "recordings": [
+    {
+      "position": 32,
+      "video_id": "RDn9SoT2DX4",
+      "normalized_text_sha256": "99169ab1c7091f288b2cf062bbd85cb4a5bfce253b872600b0d2dfa460f8668a",
+      "reading": "full sequential text read",
+      "first_start": 25.11,
+      "last_segment_start": 1968.61,
+      "landmarks": [
+        206,
+        363,
+        410,
+        819,
+        1192,
+        1351,
+        1788
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    },
+    {
+      "position": 33,
+      "video_id": "kndgzBL08CU",
+      "normalized_text_sha256": "96ed0d8a51b6aa359108cc443104580814096502d697acbc0efbd9a0f9ae13a4",
+      "reading": "full sequential text read",
+      "first_start": 24.7,
+      "last_segment_start": 2007.4,
+      "landmarks": [
+        39,
+        273,
+        450,
+        647,
+        987,
+        1495,
+        1700,
+        1946
+      ],
+      "scope": "Complete caption text; no comprehensive audiovisual audit. Formulas reconstructed independently under stated assumptions."
+    }
+  ],
+  "source_corrections_and_limits": [
+    "Bounds are weak; strict positivity requires additional state-support assumptions.",
+    "No-dividend call no-early-exercise result requires the specified nonnegative funding accumulation.",
+    "Put valuation uses market-model continuation values rather than subjective physical beliefs.",
+    "A dividend yield fixes reinvested share-count growth, not guaranteed share-price growth."
+  ]
+}

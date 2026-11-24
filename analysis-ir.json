@@ -1,0 +1,2191 @@
+{
+  "title": "Chapter provenance and section index",
+  "kind": "section-index, not automatic claim attribution",
+  "boundary": "Recording locators identify related discussion. They do not attribute every derivation, example, or research extension to the lecture. Reading and review ledgers state actual scope.",
+  "chapters": [
+    {
+      "id": "ch01",
+      "title": "What a derivative changes: cash flows, exposure, and risk",
+      "manuscript": "chapters/ch01.md",
+      "manuscript_sha256": "66baa6179ce1e84a400116b7b5c6e61043a1b4126edc43a00103c5c0b998f4a1",
+      "laboratory": "labs/ch01.py",
+      "recordings": [
+        {
+          "position": 2,
+          "video_id": "pJDMgEpn-bM"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch01.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. A contract is a dated rule for cash flows [08:22](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=502s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=502s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Hedging changes an existing exposure [13:06](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=786s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=786s"
+          ],
+          "source_line": 23
+        },
+        {
+          "heading": "3. A forward replaces the terminal purchase price [18:49](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1129s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1129s"
+          ],
+          "source_line": 39
+        },
+        {
+          "heading": "4. Futures change the cash-flow path as well as the market structure [21:50](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1310s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1310s"
+          ],
+          "source_line": 61
+        },
+        {
+          "heading": "5. An option buys discretion and charges for it [29:38](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1778s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1778s"
+          ],
+          "source_line": 79
+        },
+        {
+          "heading": "6. A swap specifies a sequence of exchanges [32:54](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1974s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=1974s"
+          ],
+          "source_line": 112
+        },
+        {
+          "heading": "7. No-arbitrage is a statewise restriction [15:20](https://www.youtube.com/watch?v=pJDMgEpn-bM&t=920s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pJDMgEpn-bM&t=920s"
+          ],
+          "source_line": 126
+        },
+        {
+          "heading": "8. Executable cash-flow checks",
+          "recording_locators": [],
+          "source_line": 140
+        },
+        {
+          "heading": "9. What the model captures and what it leaves open",
+          "recording_locators": [],
+          "source_line": 150
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 158
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 183
+        }
+      ],
+      "external_reference_urls": [
+        "https://www.bis.org/publications/principles-financial-market-infrastructures",
+        "https://www.cmegroup.com/education/courses/introduction-to-futures/margin-know-what-is-needed",
+        "https://www.optionseducation.org/optionsoverview/options-basics"
+      ],
+      "diagnostics": {
+        "whitespace_words": 4520,
+        "major_headings": 11,
+        "display_equation_blocks": 7
+      }
+    },
+    {
+      "id": "ch02",
+      "title": "Forward prices come from financed replication",
+      "manuscript": "chapters/ch02.md",
+      "manuscript_sha256": "940758adcbd48b7d60c55de0b432766b7529b7effc5d8bc6bc7f31758925336e",
+      "laboratory": "labs/ch02.py",
+      "recordings": [
+        {
+          "position": 3,
+          "video_id": "ZimJwj_Llrw"
+        },
+        {
+          "position": 4,
+          "video_id": "QKHnXnYaUL8"
+        },
+        {
+          "position": 5,
+          "video_id": "2C5iRNWGUJw"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch02.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Fix the date before comparing the prices [00:25](https://www.youtube.com/watch?v=ZimJwj_Llrw&t=25s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=ZimJwj_Llrw&t=25s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Cash-and-carry establishes an equality only when both directions are feasible [20:08](https://www.youtube.com/watch?v=ZimJwj_Llrw&t=1208s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=ZimJwj_Llrw&t=1208s"
+          ],
+          "source_line": 19
+        },
+        {
+          "heading": "3. Dated income and costs change the financing requirement [29:58](https://www.youtube.com/watch?v=ZimJwj_Llrw&t=1798s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=ZimJwj_Llrw&t=1798s"
+          ],
+          "source_line": 43
+        },
+        {
+          "heading": "4. Currency forward pricing is a two-currency replication [34:57](https://www.youtube.com/watch?v=ZimJwj_Llrw&t=2097s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=ZimJwj_Llrw&t=2097s"
+          ],
+          "source_line": 67
+        },
+        {
+          "heading": "5. Consumption assets expose the missing reverse trade [00:04](https://www.youtube.com/watch?v=2C5iRNWGUJw&t=4s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=2C5iRNWGUJw&t=4s"
+          ],
+          "source_line": 79
+        },
+        {
+          "heading": "6. An existing forward is valued by an offsetting contract [09:10](https://www.youtube.com/watch?v=2C5iRNWGUJw&t=550s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=2C5iRNWGUJw&t=550s"
+          ],
+          "source_line": 93
+        },
+        {
+          "heading": "7. Executable certificates and what they do not certify",
+          "recording_locators": [],
+          "source_line": 107
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 113
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 138
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf#page=18"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3095,
+        "major_headings": 9,
+        "display_equation_blocks": 9
+      }
+    },
+    {
+      "id": "ch03",
+      "title": "Futures redistribute cash flows through time",
+      "manuscript": "chapters/ch03.md",
+      "manuscript_sha256": "006b2e6c9a96eb79e6de33b29334aade692dd6a0f2672aff9f511944395a8baa",
+      "laboratory": "labs/ch03.py",
+      "recordings": [
+        {
+          "position": 6,
+          "video_id": "aIIUoeuQjsI"
+        },
+        {
+          "position": 7,
+          "video_id": "FTQDee2_oOU"
+        },
+        {
+          "position": 8,
+          "video_id": "FS670JTUYlY"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch03.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Standardization specifies the object being traded [05:00](https://www.youtube.com/watch?v=aIIUoeuQjsI&t=300s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=aIIUoeuQjsI&t=300s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Daily settlement creates a sequence of realized transfers [16:09](https://www.youtube.com/watch?v=aIIUoeuQjsI&t=969s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=aIIUoeuQjsI&t=969s"
+          ],
+          "source_line": 19
+        },
+        {
+          "heading": "3. A margin account is a funding ledger, not a profit measure [04:58](https://www.youtube.com/watch?v=FTQDee2_oOU&t=298s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=FTQDee2_oOU&t=298s"
+          ],
+          "source_line": 37
+        },
+        {
+          "heading": "4. Clearing mitigates credit exposure; it does not abolish it [11:36](https://www.youtube.com/watch?v=aIIUoeuQjsI&t=696s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=aIIUoeuQjsI&t=696s"
+          ],
+          "source_line": 61
+        },
+        {
+          "heading": "5. Financing explains when futures and forwards have the same quotation [07:44](https://www.youtube.com/watch?v=FS670JTUYlY&t=464s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=FS670JTUYlY&t=464s"
+          ],
+          "source_line": 73
+        },
+        {
+          "heading": "6. Executable checks and boundaries",
+          "recording_locators": [],
+          "source_line": 103
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 109
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 134
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf#page=13",
+        "https://www.bis.org/publications/principles-financial-market-infrastructures.pdf#page=57"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2695,
+        "major_headings": 8,
+        "display_equation_blocks": 6
+      }
+    },
+    {
+      "id": "ch04",
+      "title": "Exposure, hedge direction, and the basis that remains",
+      "manuscript": "chapters/ch04.md",
+      "manuscript_sha256": "de833ba1d32c638bb3b8ee0f10e174ec254295cb708aea9d70248704728f8cb6",
+      "laboratory": "labs/ch04.py",
+      "recordings": [
+        {
+          "position": 9,
+          "video_id": "U2BzQcc46ck"
+        },
+        {
+          "position": 10,
+          "video_id": "RaBL0YcrFkQ"
+        },
+        {
+          "position": 11,
+          "video_id": "pbr-X3rjuPw"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch04.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Exposure is a relationship between an account and a risk factor [00:24](https://www.youtube.com/watch?v=U2BzQcc46ck&t=24s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=U2BzQcc46ck&t=24s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Least squares produces orthogonality, not independence [06:17](https://www.youtube.com/watch?v=U2BzQcc46ck&t=377s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=U2BzQcc46ck&t=377s"
+          ],
+          "source_line": 21
+        },
+        {
+          "heading": "3. Choose the sign from the combined cash flow [07:45](https://www.youtube.com/watch?v=pbr-X3rjuPw&t=465s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pbr-X3rjuPw&t=465s"
+          ],
+          "source_line": 49
+        },
+        {
+          "heading": "4. Basis risk survives early closure [20:05](https://www.youtube.com/watch?v=RaBL0YcrFkQ&t=1205s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=RaBL0YcrFkQ&t=1205s"
+          ],
+          "source_line": 67
+        },
+        {
+          "heading": "5. Contract selection is a risk comparison, not a bet on favorable basis movement [15:20](https://www.youtube.com/watch?v=pbr-X3rjuPw&t=920s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pbr-X3rjuPw&t=920s"
+          ],
+          "source_line": 81
+        },
+        {
+          "heading": "6. Implementation and the scope of a useful diagnostic",
+          "recording_locators": [],
+          "source_line": 95
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 101
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 126
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/219406be97b96bc540e0be6aa778c0b7_MIT15_450F10_lec01.pdf"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2568,
+        "major_headings": 8,
+        "display_equation_blocks": 7
+      }
+    },
+    {
+      "id": "ch05",
+      "title": "Hedge size is a covariance projection with trading units",
+      "manuscript": "chapters/ch05.md",
+      "manuscript_sha256": "7181b5066f9ae36bc49c64f1a9a6b97459efd054cc0ba509dce5fc96d573ecfe",
+      "laboratory": "labs/ch05.py",
+      "recordings": [
+        {
+          "position": 12,
+          "video_id": "nDESESqRF-s"
+        },
+        {
+          "position": 13,
+          "video_id": "oFj5lW9QwHc"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch05.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Specify the random cash flow before minimizing it [18:58](https://www.youtube.com/watch?v=nDESESqRF-s&t=1138s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=nDESESqRF-s&t=1138s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Derive the optimum and prove it is global [25:00](https://www.youtube.com/watch?v=nDESESqRF-s&t=1500s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=nDESESqRF-s&t=1500s"
+          ],
+          "source_line": 19
+        },
+        {
+          "heading": "3. The residual is controlled by squared correlation [11:15](https://www.youtube.com/watch?v=oFj5lW9QwHc&t=675s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=oFj5lW9QwHc&t=675s"
+          ],
+          "source_line": 50
+        },
+        {
+          "heading": "4. Integer contracts create a quantifiable approximation [01:02](https://www.youtube.com/watch?v=oFj5lW9QwHc&t=62s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=oFj5lW9QwHc&t=62s"
+          ],
+          "source_line": 64
+        },
+        {
+          "heading": "5. Cross-hedging leaves two kinds of relative-price uncertainty [20:05](https://www.youtube.com/watch?v=oFj5lW9QwHc&t=1205s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=oFj5lW9QwHc&t=1205s"
+          ],
+          "source_line": 76
+        },
+        {
+          "heading": "6. Executable sizing and its limitations",
+          "recording_locators": [],
+          "source_line": 95
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 101
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 126
+        }
+      ],
+      "external_reference_urls": [
+        "https://www.itl.nist.gov/div898/handbook/pmd/section1/pmd141.htm"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2249,
+        "major_headings": 8,
+        "display_equation_blocks": 8
+      }
+    },
+    {
+      "id": "ch06",
+      "title": "Portfolio risk depends on covariance; priced risk requires a model",
+      "manuscript": "chapters/ch06.md",
+      "manuscript_sha256": "4d2ecee68021dac9debbffc7b275d5fb8b04385ca79219669a329c3561b2edeb",
+      "laboratory": "labs/ch06.py",
+      "recordings": [
+        {
+          "position": 14,
+          "video_id": "g7j8sAIDN04"
+        },
+        {
+          "position": 15,
+          "video_id": "o_dndjBh26U"
+        },
+        {
+          "position": 16,
+          "video_id": "kyLk0hSwjX4"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch06.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Put the return horizon and portfolio weights in the equations [07:45](https://www.youtube.com/watch?v=g7j8sAIDN04&t=465s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=g7j8sAIDN04&t=465s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Find the minimum-variance portfolio before drawing the frontier [10:05](https://www.youtube.com/watch?v=g7j8sAIDN04&t=605s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=g7j8sAIDN04&t=605s"
+          ],
+          "source_line": 25
+        },
+        {
+          "heading": "3. A risk-free asset turns the efficient boundary into a line [25:03](https://www.youtube.com/watch?v=g7j8sAIDN04&t=1503s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=g7j8sAIDN04&t=1503s"
+          ],
+          "source_line": 49
+        },
+        {
+          "heading": "4. CAPM adds market clearing to individual optimization [23:15](https://www.youtube.com/watch?v=o_dndjBh26U&t=1395s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=o_dndjBh26U&t=1395s"
+          ],
+          "source_line": 69
+        },
+        {
+          "heading": "5. Regression orthogonality is weaker than independence [12:00](https://www.youtube.com/watch?v=kyLk0hSwjX4&t=720s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=kyLk0hSwjX4&t=720s"
+          ],
+          "source_line": 92
+        },
+        {
+          "heading": "6. What diversification actually needs [20:01](https://www.youtube.com/watch?v=kyLk0hSwjX4&t=1201s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=kyLk0hSwjX4&t=1201s"
+          ],
+          "source_line": 108
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 121
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 146
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/411d7d9df37d4d0440b18e17e8cea3a9_MIT15_401F08_lec15.pdf#page=3",
+        "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/dd628e151309a7f23962b1a31b9356e5_MIT15_401F08_lec13.pdf#page=16"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2448,
+        "major_headings": 8,
+        "display_equation_blocks": 13
+      }
+    },
+    {
+      "id": "ch07",
+      "title": "Index futures change beta without selling the stock portfolio",
+      "manuscript": "chapters/ch07.md",
+      "manuscript_sha256": "2b6335f1239665e5f7d6bfc5a98fbd8260cf7a3cf236ee16a58f2c5697c2d504",
+      "laboratory": "labs/ch07.py",
+      "recordings": [
+        {
+          "position": 17,
+          "video_id": "osqhEV8JzGE"
+        },
+        {
+          "position": 18,
+          "video_id": "FNWj1kZmwq0"
+        },
+        {
+          "position": 19,
+          "video_id": "3pvhRtLCpkY"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch07.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. An index quotation is a reference number; a contract needs cash units [07:15](https://www.youtube.com/watch?v=FNWj1kZmwq0&t=435s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=FNWj1kZmwq0&t=435s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Carry prices the index exposure under explicit dividend assumptions [06:30](https://www.youtube.com/watch?v=3pvhRtLCpkY&t=390s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=3pvhRtLCpkY&t=390s"
+          ],
+          "source_line": 17
+        },
+        {
+          "heading": "3. Derive the target-beta overlay from its random gain [27:45](https://www.youtube.com/watch?v=FNWj1kZmwq0&t=1665s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=FNWj1kZmwq0&t=1665s"
+          ],
+          "source_line": 31
+        },
+        {
+          "heading": "4. A beta-neutral portfolio still has a residual [24:30](https://www.youtube.com/watch?v=osqhEV8JzGE&t=1470s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=osqhEV8JzGE&t=1470s"
+          ],
+          "source_line": 55
+        },
+        {
+          "heading": "5. Closing before expiry requires the remaining carry [08:00](https://www.youtube.com/watch?v=3pvhRtLCpkY&t=480s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=3pvhRtLCpkY&t=480s"
+          ],
+          "source_line": 72
+        },
+        {
+          "heading": "6. Frictions replace a single carry quotation with executable bounds [23:20](https://www.youtube.com/watch?v=3pvhRtLCpkY&t=1400s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=3pvhRtLCpkY&t=1400s"
+          ],
+          "source_line": 84
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 98
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 123
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/a66f697aaeb23b8cfd2bda020172feb5_MIT15_401F08_lec08.pdf#page=25"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2437,
+        "major_headings": 8,
+        "display_equation_blocks": 10
+      }
+    },
+    {
+      "id": "ch08",
+      "title": "Discount factors price cash flows; a yield summarizes one price",
+      "manuscript": "chapters/ch08.md",
+      "manuscript_sha256": "f5b1aff057975c291a405bfdeaa928de867f40df486ae5995e0e9577fc06931f",
+      "laboratory": "labs/ch08.py",
+      "recordings": [
+        {
+          "position": 20,
+          "video_id": "EEG2kXFqpKk"
+        },
+        {
+          "position": 21,
+          "video_id": "_asG_7J7zs0"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch08.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Define discounting by the payment being purchased [02:20](https://www.youtube.com/watch?v=EEG2kXFqpKk&t=140s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=EEG2kXFqpKk&t=140s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Forward rates are locked ratios, not guaranteed forecasts",
+          "recording_locators": [],
+          "source_line": 26
+        },
+        {
+          "heading": "3. Yield to maturity is a nonlinear inverse for one payment stream [04:00](https://www.youtube.com/watch?v=EEG2kXFqpKk&t=240s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=EEG2kXFqpKk&t=240s"
+          ],
+          "source_line": 50
+        },
+        {
+          "heading": "4. One bond's yield cannot identify the whole curve [21:20](https://www.youtube.com/watch?v=EEG2kXFqpKk&t=1280s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=EEG2kXFqpKk&t=1280s"
+          ],
+          "source_line": 72
+        },
+        {
+          "heading": "5. Reinvestment affects terminal wealth, not whether YTM can be computed [01:10](https://www.youtube.com/watch?v=_asG_7J7zs0&t=70s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=_asG_7J7zs0&t=70s"
+          ],
+          "source_line": 84
+        },
+        {
+          "heading": "6. Rate conventions must preserve the actual price [25:10](https://www.youtube.com/watch?v=_asG_7J7zs0&t=1510s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=_asG_7J7zs0&t=1510s"
+          ],
+          "source_line": 102
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 113
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 138
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf#page=19",
+        "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf#page=25",
+        "https://www.treasurydirect.gov/marketable-securities/understanding-pricing/"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2537,
+        "major_headings": 8,
+        "display_equation_blocks": 12
+      }
+    },
+    {
+      "id": "ch09",
+      "title": "Duration cancels a first derivative, not every interest-rate risk",
+      "manuscript": "chapters/ch09.md",
+      "manuscript_sha256": "c5b893201bd396c8e3d01cd39e6082951fb900a10ec791006138dcaac528c2af",
+      "laboratory": "labs/ch09.py",
+      "recordings": [
+        {
+          "position": 22,
+          "video_id": "pu7ynYUrDDg"
+        },
+        {
+          "position": 23,
+          "video_id": "WGKvJQCY__0"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch09.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. State which rate moves and which cash flows remain fixed [05:10](https://www.youtube.com/watch?v=pu7ynYUrDDg&t=310s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pu7ynYUrDDg&t=310s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Duration is a present-value time average and a sensitivity [11:20](https://www.youtube.com/watch?v=pu7ynYUrDDg&t=680s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pu7ynYUrDDg&t=680s"
+          ],
+          "source_line": 24
+        },
+        {
+          "heading": "3. Convexity quantifies the leading departure from the tangent [25:45](https://www.youtube.com/watch?v=pu7ynYUrDDg&t=1545s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=pu7ynYUrDDg&t=1545s"
+          ],
+          "source_line": 54
+        },
+        {
+          "heading": "4. A duration horizon balances reinvestment and sale-price effects [06:00](https://www.youtube.com/watch?v=WGKvJQCY__0&t=360s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=WGKvJQCY__0&t=360s"
+          ],
+          "source_line": 72
+        },
+        {
+          "heading": "5. Asset–liability matching controls surplus derivatives",
+          "recording_locators": [],
+          "source_line": 101
+        },
+        {
+          "heading": "6. A curve is a vector of risk coordinates",
+          "recording_locators": [],
+          "source_line": 121
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 133
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 158
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/df418b972d36cd53ae5c375b8af61e53_MIT15_401F08_lec04.pdf#page=35"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2436,
+        "major_headings": 8,
+        "display_equation_blocks": 15
+      }
+    },
+    {
+      "id": "ch10",
+      "title": "Short-rate futures: a quotation is not a cash price",
+      "manuscript": "chapters/ch10.md",
+      "manuscript_sha256": "5c422782ed73cd4d27ed021f9054381a37a7e0881b9f5b32abdb74d4c5fd8bf8",
+      "laboratory": "labs/ch10.py",
+      "recordings": [
+        {
+          "position": 24,
+          "video_id": "sqc6C_hcXUM"
+        },
+        {
+          "position": 25,
+          "video_id": "0QEvQLhjhQA"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch10.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Interest-rate exposure belongs to dated payments [10:11](https://www.youtube.com/watch?v=sqc6C_hcXUM&t=611s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=sqc6C_hcXUM&t=611s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Discount yield and investment yield use different denominators [22:31](https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1351s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1351s"
+          ],
+          "source_line": 19
+        },
+        {
+          "heading": "3. The rate index and the bill's monetary price are different objects [20:42](https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1242s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1242s"
+          ],
+          "source_line": 44
+        },
+        {
+          "heading": "4. Derive the tick value before choosing a hedge [17:40](https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1060s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1060s"
+          ],
+          "source_line": 62
+        },
+        {
+          "heading": "5. A forward-starting investment has two future dates [00:41](https://www.youtube.com/watch?v=0QEvQLhjhQA&t=41s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=0QEvQLhjhQA&t=41s"
+          ],
+          "source_line": 78
+        },
+        {
+          "heading": "6. Daily settlement prevents a careless forward interpretation [02:11](https://www.youtube.com/watch?v=0QEvQLhjhQA&t=131s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=0QEvQLhjhQA&t=131s"
+          ],
+          "source_line": 94
+        },
+        {
+          "heading": "7. Hedge direction follows the business cash flow [24:32](https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1472s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=sqc6C_hcXUM&t=1472s"
+          ],
+          "source_line": 108
+        },
+        {
+          "heading": "8. Computation and limits",
+          "recording_locators": [],
+          "source_line": 116
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 124
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 149
+        }
+      ],
+      "external_reference_urls": [
+        "https://www.treasurydirect.gov/marketable-securities/understanding-pricing/"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3234,
+        "major_headings": 10,
+        "display_equation_blocks": 9
+      }
+    },
+    {
+      "id": "ch11",
+      "title": "Rate hedges: carry, basis, settlement timing, and accrued interest",
+      "manuscript": "chapters/ch11.md",
+      "manuscript_sha256": "15a684f683f580581368c829fe7252aff096092574f4274226d8eccf66a68071",
+      "laboratory": "labs/ch11.py",
+      "recordings": [
+        {
+          "position": 26,
+          "video_id": "MqB_MP8d0J8"
+        },
+        {
+          "position": 27,
+          "video_id": "J4wFDp4K8c8"
+        },
+        {
+          "position": 28,
+          "video_id": "sd5oA18GaVw"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch11.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Separate carry from the yield surprise [09:08](https://www.youtube.com/watch?v=MqB_MP8d0J8&t=548s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=MqB_MP8d0J8&t=548s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Hedge size combines sensitivities with a rate relation [22:57](https://www.youtube.com/watch?v=MqB_MP8d0J8&t=1377s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=MqB_MP8d0J8&t=1377s"
+          ],
+          "source_line": 25
+        },
+        {
+          "heading": "3. The forward-rate arbitrage argument needs matched dated cash flows [00:24](https://www.youtube.com/watch?v=J4wFDp4K8c8&t=24s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=J4wFDp4K8c8&t=24s"
+          ],
+          "source_line": 51
+        },
+        {
+          "heading": "4. A future investment needs a common-date hedge comparison [09:49](https://www.youtube.com/watch?v=MqB_MP8d0J8&t=589s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=MqB_MP8d0J8&t=589s"
+          ],
+          "source_line": 61
+        },
+        {
+          "heading": "5. Deterministic-rate dynamic tailing can be proved path by path [09:06](https://www.youtube.com/watch?v=sd5oA18GaVw&t=546s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=sd5oA18GaVw&t=546s"
+          ],
+          "source_line": 75
+        },
+        {
+          "heading": "6. Historical Eurodollar teaching is not a current SOFR specification [18:06](https://www.youtube.com/watch?v=J4wFDp4K8c8&t=1086s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=J4wFDp4K8c8&t=1086s"
+          ],
+          "source_line": 99
+        },
+        {
+          "heading": "7. Clean quotation and dirty cash price [19:12](https://www.youtube.com/watch?v=sd5oA18GaVw&t=1152s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=sd5oA18GaVw&t=1152s"
+          ],
+          "source_line": 109
+        },
+        {
+          "heading": "8. Executable certificates and model limits",
+          "recording_locators": [],
+          "source_line": 123
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 131
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 156
+        }
+      ],
+      "external_reference_urls": [
+        "https://www.cmegroup.com/education/articles-and-reports/understanding-sofr-futures",
+        "https://www.cmegroup.com/media-room/press-releases/2023/4/24/cme_group_completeskeymilestonesinconversionofeurodollarfutureso.html",
+        "https://www.treasurydirect.gov/marketable-securities/understanding-pricing/"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3306,
+        "major_headings": 10,
+        "display_equation_blocks": 10
+      }
+    },
+    {
+      "id": "ch12",
+      "title": "Bond futures: conversion factors, delivery choice, and rate sensitivity",
+      "manuscript": "chapters/ch12.md",
+      "manuscript_sha256": "c434f45caf1b18c0e529d9bb6379c9b09386148205b8b49c9e63c5a71bc2f414",
+      "laboratory": "labs/ch12.py",
+      "recordings": [
+        {
+          "position": 29,
+          "video_id": "E2jdQhB0DFg"
+        },
+        {
+          "position": 30,
+          "video_id": "8_rsJ6PWCV0"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch12.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Delivery is a choice over contractual obligations [01:48](https://www.youtube.com/watch?v=E2jdQhB0DFg&t=108s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=E2jdQhB0DFg&t=108s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. An invoice needs both the conversion factor and accrued interest [04:46](https://www.youtube.com/watch?v=E2jdQhB0DFg&t=286s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=E2jdQhB0DFg&t=286s"
+          ],
+          "source_line": 19
+        },
+        {
+          "heading": "3. The six-percent calculation is a convention, not a market forecast [05:27](https://www.youtube.com/watch?v=8_rsJ6PWCV0&t=327s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=8_rsJ6PWCV0&t=327s"
+          ],
+          "source_line": 33
+        },
+        {
+          "heading": "4. Cash-and-carry uses dirty prices before returning to a quote [17:44](https://www.youtube.com/watch?v=E2jdQhB0DFg&t=1064s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=E2jdQhB0DFg&t=1064s"
+          ],
+          "source_line": 47
+        },
+        {
+          "heading": "5. Cheapest to deliver compares net acquisition and invoice cost [15:14](https://www.youtube.com/watch?v=8_rsJ6PWCV0&t=914s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=8_rsJ6PWCV0&t=914s"
+          ],
+          "source_line": 70
+        },
+        {
+          "heading": "6. First-order hedge size requires the futures sensitivity [06:08](https://www.youtube.com/watch?v=E2jdQhB0DFg&t=368s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=E2jdQhB0DFg&t=368s"
+          ],
+          "source_line": 92
+        },
+        {
+          "heading": "7. A zero scalar duration is a limited certificate",
+          "recording_locators": [],
+          "source_line": 115
+        },
+        {
+          "heading": "8. Executable checks",
+          "recording_locators": [],
+          "source_line": 125
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 131
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 156
+        }
+      ],
+      "external_reference_urls": [
+        "https://www.cmegroup.com/articles/2024/calculating-us-treasury-futures-conversion-factors.html",
+        "https://www.cmegroup.com/education/courses/introduction-to-treasuries/learn-about-the-treasuries-delivery-process",
+        "https://www.cmegroup.com/trading/interest-rates/us-treasury-futures-conversion-factor-lookup-tables.html"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3243,
+        "major_headings": 10,
+        "display_equation_blocks": 9
+      }
+    },
+    {
+      "id": "ch13",
+      "title": "Option cash flows and put–call parity",
+      "manuscript": "chapters/ch13.md",
+      "manuscript_sha256": "4d6f50183e0b39ef08e492b67e2570d8d72928caad09bef88079affb951d2959",
+      "laboratory": "labs/ch13.py",
+      "recordings": [
+        {
+          "position": 31,
+          "video_id": "ipX6F8mEal8"
+        },
+        {
+          "position": 61,
+          "video_id": "rGMc3_YrC_8"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch13.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Rights, obligations, exercise dates, and moneyness [00:24](https://www.youtube.com/watch?v=ipX6F8mEal8&t=24s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=ipX6F8mEal8&t=24s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Four elementary payoffs and their financed profits [09:09](https://www.youtube.com/watch?v=ipX6F8mEal8&t=549s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=ipX6F8mEal8&t=549s"
+          ],
+          "source_line": 21
+        },
+        {
+          "heading": "3. Payoff ordering gives weak strike monotonicity [21:27](https://www.youtube.com/watch?v=ipX6F8mEal8&t=1287s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=ipX6F8mEal8&t=1287s"
+          ],
+          "source_line": 44
+        },
+        {
+          "heading": "4. The nonlinear pieces combine into a linear identity [04:47](https://www.youtube.com/watch?v=rGMc3_YrC_8&t=287s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=rGMc3_YrC_8&t=287s"
+          ],
+          "source_line": 56
+        },
+        {
+          "heading": "5. A parity discrepancy needs an executable cash-flow ledger [16:52](https://www.youtube.com/watch?v=rGMc3_YrC_8&t=1012s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=rGMc3_YrC_8&t=1012s"
+          ],
+          "source_line": 75
+        },
+        {
+          "heading": "6. Dividends must be matched at their actual dates [23:48](https://www.youtube.com/watch?v=rGMc3_YrC_8&t=1428s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=rGMc3_YrC_8&t=1428s"
+          ],
+          "source_line": 89
+        },
+        {
+          "heading": "7. Time value is not always a nonnegative residual for a European option",
+          "recording_locators": [],
+          "source_line": 103
+        },
+        {
+          "heading": "8. Executable identities and model boundaries",
+          "recording_locators": [],
+          "source_line": 113
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 121
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 146
+        }
+      ],
+      "external_reference_urls": [
+        "https://people.duke.edu/~charvey/classes/ba350/optval/optval.htm",
+        "https://www.optionseducation.org/advancedconcepts/put-call-parity",
+        "https://www.optionseducation.org/optionsoverview/options-basics"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2997,
+        "major_headings": 10,
+        "display_equation_blocks": 6
+      }
+    },
+    {
+      "id": "ch14",
+      "title": "Option bounds and the decision to exercise",
+      "manuscript": "chapters/ch14.md",
+      "manuscript_sha256": "46fdb38022ee9aaaa2433ed7040523b149ebaf9c4b6005d740d5a67f4cd2536d",
+      "laboratory": "labs/ch14.py",
+      "recordings": [
+        {
+          "position": 32,
+          "video_id": "RDn9SoT2DX4"
+        },
+        {
+          "position": 33,
+          "video_id": "kndgzBL08CU"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch14.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Conventions and the logic of dominance",
+          "recording_locators": [],
+          "source_line": 7
+        },
+        {
+          "heading": "2. European bounds with no dividends [06:03](https://www.youtube.com/watch?v=RDn9SoT2DX4&t=363s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=RDn9SoT2DX4&t=363s"
+          ],
+          "source_line": 17
+        },
+        {
+          "heading": "3. Dividends and the prepaid terminal share [03:26](https://www.youtube.com/watch?v=RDn9SoT2DX4&t=206s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=RDn9SoT2DX4&t=206s"
+          ],
+          "source_line": 43
+        },
+        {
+          "heading": "4. Exercise rights and the American call theorem [04:33](https://www.youtube.com/watch?v=kndgzBL08CU&t=273s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=kndgzBL08CU&t=273s"
+          ],
+          "source_line": 67
+        },
+        {
+          "heading": "5. American puts: compare exercise with continuation [10:47](https://www.youtube.com/watch?v=kndgzBL08CU&t=647s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=kndgzBL08CU&t=647s"
+          ],
+          "source_line": 89
+        },
+        {
+          "heading": "6. American parity becomes an interval [16:27](https://www.youtube.com/watch?v=kndgzBL08CU&t=987s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=kndgzBL08CU&t=987s"
+          ],
+          "source_line": 114
+        },
+        {
+          "heading": "7. Calculation, interpretation, and scope",
+          "recording_locators": [],
+          "source_line": 132
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 140
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 165
+        }
+      ],
+      "external_reference_urls": [
+        "https://people.duke.edu/~charvey/classes/ba350/optval/optval.htm"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3132,
+        "major_headings": 9,
+        "display_equation_blocks": 17
+      }
+    },
+    {
+      "id": "ch15",
+      "title": "Static option strategies as piecewise-linear cash flows",
+      "manuscript": "chapters/ch15.md",
+      "manuscript_sha256": "bdb2df2b6b59f83c6b8ba1bb9e38b3987a6bc6bb03c5d6c224f69e2178857582",
+      "laboratory": "labs/ch15.py",
+      "recordings": [
+        {
+          "position": 34,
+          "video_id": "p1T4wFkaPS8"
+        },
+        {
+          "position": 35,
+          "video_id": "zkDVIsOARK0"
+        },
+        {
+          "position": 36,
+          "video_id": "WOeG8sV1xz8"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch15.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Dates and entitlements come first [00:33](https://www.youtube.com/watch?v=p1T4wFkaPS8&t=33s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=p1T4wFkaPS8&t=33s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. A general payoff ledger",
+          "recording_locators": [],
+          "source_line": 21
+        },
+        {
+          "heading": "3. Covered call and protective put [07:29](https://www.youtube.com/watch?v=p1T4wFkaPS8&t=449s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=p1T4wFkaPS8&t=449s"
+          ],
+          "source_line": 53
+        },
+        {
+          "heading": "4. Straddles, strangles, strips, and straps [21:30](https://www.youtube.com/watch?v=p1T4wFkaPS8&t=1290s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=p1T4wFkaPS8&t=1290s"
+          ],
+          "source_line": 75
+        },
+        {
+          "heading": "5. Vertical spreads: direction with capped payments [16:16](https://www.youtube.com/watch?v=zkDVIsOARK0&t=976s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=zkDVIsOARK0&t=976s"
+          ],
+          "source_line": 99
+        },
+        {
+          "heading": "6. Butterflies and convexity across strikes [03:22](https://www.youtube.com/watch?v=WOeG8sV1xz8&t=202s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=WOeG8sV1xz8&t=202s"
+          ],
+          "source_line": 117
+        },
+        {
+          "heading": "7. Boxes: a constant payment has a financing cost [10:57](https://www.youtube.com/watch?v=WOeG8sV1xz8&t=657s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=WOeG8sV1xz8&t=657s"
+          ],
+          "source_line": 135
+        },
+        {
+          "heading": "8. Calendar spreads require an interim valuation model [19:38](https://www.youtube.com/watch?v=WOeG8sV1xz8&t=1178s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=WOeG8sV1xz8&t=1178s"
+          ],
+          "source_line": 149
+        },
+        {
+          "heading": "9. A reusable analytical and computational workflow",
+          "recording_locators": [],
+          "source_line": 167
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 175
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 200
+        }
+      ],
+      "external_reference_urls": [
+        "https://people.duke.edu/~charvey/classes/ba350/optval/optval.htm",
+        "https://www.optionseducation.org/strategies/all-strategies/long-call-butterfly",
+        "https://www.optionseducation.org/strategies/all-strategies/long-straddle"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3876,
+        "major_headings": 11,
+        "display_equation_blocks": 19
+      }
+    },
+    {
+      "id": "ch16",
+      "title": "From random walks to Brownian risk factors",
+      "manuscript": "chapters/ch16.md",
+      "manuscript_sha256": "f41c7dee45ff89bfa574ff9c92f36ea1de915eee3fbf3989b30ea8e5e3f5fbc1",
+      "laboratory": "labs/ch16.py",
+      "recordings": [
+        {
+          "position": 37,
+          "video_id": "eDOIYREAeRM"
+        },
+        {
+          "position": 38,
+          "video_id": "GIrKSTpX5W8"
+        },
+        {
+          "position": 39,
+          "video_id": "AJRvEHZb4C8"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-reading-ch16.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. A process needs joint probabilities, not only a histogram [08:14](https://www.youtube.com/watch?v=eDOIYREAeRM&t=494s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=eDOIYREAeRM&t=494s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Time discretization and state discretization are separate choices [20:09](https://www.youtube.com/watch?v=eDOIYREAeRM&t=1209s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=eDOIYREAeRM&t=1209s"
+          ],
+          "source_line": 29
+        },
+        {
+          "heading": "3. Square-root scaling preserves the variance rate [07:06](https://www.youtube.com/watch?v=GIrKSTpX5W8&t=426s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=GIrKSTpX5W8&t=426s"
+          ],
+          "source_line": 46
+        },
+        {
+          "heading": "4. A normal endpoint limit is not a complete process construction [18:07](https://www.youtube.com/watch?v=GIrKSTpX5W8&t=1087s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=GIrKSTpX5W8&t=1087s"
+          ],
+          "source_line": 78
+        },
+        {
+          "heading": "5. Brownian motion specifies both increments and path regularity [24:39](https://www.youtube.com/watch?v=GIrKSTpX5W8&t=1479s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=GIrKSTpX5W8&t=1479s"
+          ],
+          "source_line": 93
+        },
+        {
+          "heading": "6. A lattice transition rule leads to a diffusion equation [18:34](https://www.youtube.com/watch?v=AJRvEHZb4C8&t=1114s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=AJRvEHZb4C8&t=1114s"
+          ],
+          "source_line": 115
+        },
+        {
+          "heading": "7. Executable checks and their boundary",
+          "recording_locators": [],
+          "source_line": 142
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 150
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 175
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf#page=4"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3309,
+        "major_headings": 9,
+        "display_equation_blocks": 10
+      }
+    },
+    {
+      "id": "ch17",
+      "title": "Itô calculus, lognormal prices, and the meaning of a risk probability",
+      "manuscript": "chapters/ch17.md",
+      "manuscript_sha256": "90a088834e402e6d594461f76de5ec66455f1ef5411b6d4c0690dfbef7a908eb",
+      "laboratory": "labs/ch17.py",
+      "recordings": [
+        {
+          "position": 40,
+          "video_id": "_k8ciiS7tFE"
+        },
+        {
+          "position": 41,
+          "video_id": "CA9KRamLFW4"
+        },
+        {
+          "position": 42,
+          "video_id": "SilnIL0Q98o"
+        },
+        {
+          "position": 43,
+          "video_id": "zfYjF39ynV0"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-reading-ch17.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. The heat kernel solves a distribution problem [00:39](https://www.youtube.com/watch?v=_k8ciiS7tFE&t=39s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=_k8ciiS7tFE&t=39s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. The central limit theorem needs its hypotheses [05:45](https://www.youtube.com/watch?v=_k8ciiS7tFE&t=345s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=_k8ciiS7tFE&t=345s"
+          ],
+          "source_line": 24
+        },
+        {
+          "heading": "3. Squared increments accumulate instead of disappearing [04:00](https://www.youtube.com/watch?v=CA9KRamLFW4&t=240s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=CA9KRamLFW4&t=240s"
+          ],
+          "source_line": 39
+        },
+        {
+          "heading": "4. The Itô integral explains the missing term [22:41](https://www.youtube.com/watch?v=CA9KRamLFW4&t=1361s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=CA9KRamLFW4&t=1361s"
+          ],
+          "source_line": 60
+        },
+        {
+          "heading": "5. A proportional diffusion has an exact positive solution [01:01](https://www.youtube.com/watch?v=SilnIL0Q98o&t=61s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=SilnIL0Q98o&t=61s"
+          ],
+          "source_line": 92
+        },
+        {
+          "heading": "6. Lognormal density, moments, and return conventions [16:20](https://www.youtube.com/watch?v=zfYjF39ynV0&t=980s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=zfYjF39ynV0&t=980s"
+          ],
+          "source_line": 114
+        },
+        {
+          "heading": "7. The forward density equation provides an independent description [17:11](https://www.youtube.com/watch?v=SilnIL0Q98o&t=1031s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=SilnIL0Q98o&t=1031s"
+          ],
+          "source_line": 143
+        },
+        {
+          "heading": "8. A terminal cash test is not a survival guarantee [32:12](https://www.youtube.com/watch?v=zfYjF39ynV0&t=1932s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=zfYjF39ynV0&t=1932s"
+          ],
+          "source_line": 158
+        },
+        {
+          "heading": "9. Executable checks and limits",
+          "recording_locators": [],
+          "source_line": 168
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 176
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 201
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf#page=10",
+        "https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/ef2c66c8079ba656210ad1fd4a5e2fa8_MIT18_S096F13_lecnote18.pdf#page=2",
+        "https://www.stat.uchicago.edu/~lalley/Courses/312/BrownianMotion312.pdf"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3572,
+        "major_headings": 11,
+        "display_equation_blocks": 17
+      }
+    },
+    {
+      "id": "ch18",
+      "title": "Binomial replication and risk-neutral valuation",
+      "manuscript": "chapters/ch18.md",
+      "manuscript_sha256": "a9c653000f28138e38e2f6044264e3b848442b3cd0c8f3f5bf9bc1409917fd1d",
+      "laboratory": "labs/ch18.py",
+      "recordings": [
+        {
+          "position": 44,
+          "video_id": "mbtFmErzmHg"
+        },
+        {
+          "position": 45,
+          "video_id": "u5DlFctnY18"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-reading-ch18.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Two states and two traded assets [06:34](https://www.youtube.com/watch?v=mbtFmErzmHg&t=394s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=mbtFmErzmHg&t=394s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Pricing probabilities are implied weights [15:00](https://www.youtube.com/watch?v=mbtFmErzmHg&t=900s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=mbtFmErzmHg&t=900s"
+          ],
+          "source_line": 39
+        },
+        {
+          "heading": "3. Every strike is legitimate [08:35](https://www.youtube.com/watch?v=u5DlFctnY18&t=515s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=u5DlFctnY18&t=515s"
+          ],
+          "source_line": 71
+        },
+        {
+          "heading": "4. Backward induction is a trading strategy [17:31](https://www.youtube.com/watch?v=u5DlFctnY18&t=1051s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=u5DlFctnY18&t=1051s"
+          ],
+          "source_line": 83
+        },
+        {
+          "heading": "5. Reproducing the source put and its exercise decision [18:21](https://www.youtube.com/watch?v=u5DlFctnY18&t=1101s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=u5DlFctnY18&t=1101s"
+          ],
+          "source_line": 115
+        },
+        {
+          "heading": "6. Uniqueness depends on spanning, not on notation",
+          "recording_locators": [],
+          "source_line": 138
+        },
+        {
+          "heading": "7. A diffusion limit requires shrinking moves",
+          "recording_locators": [],
+          "source_line": 157
+        },
+        {
+          "heading": "8. Laboratory and model boundary",
+          "recording_locators": [],
+          "source_line": 171
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 177
+        }
+      ],
+      "external_reference_urls": [
+        "https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/7/36891/files/2017/07/CRR79-1yy8av8.pdf"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2896,
+        "major_headings": 9,
+        "display_equation_blocks": 14
+      }
+    },
+    {
+      "id": "ch19",
+      "title": "Measure change, dynamic replication, and the Black–Scholes model",
+      "manuscript": "chapters/ch19.md",
+      "manuscript_sha256": "3b8b3032daebffe83f0c4a002f858f28e7829552ee2397ed657b45db91c1c08f",
+      "laboratory": "labs/ch19.py",
+      "recordings": [
+        {
+          "position": 46,
+          "video_id": "bCQID6X85ys"
+        },
+        {
+          "position": 47,
+          "video_id": "9QS2FduuvTk"
+        },
+        {
+          "position": 48,
+          "video_id": "P-tzhvI64as"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-reading-ch19.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. What a change of measure changes [10:37](https://www.youtube.com/watch?v=bCQID6X85ys&t=637s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=bCQID6X85ys&t=637s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Preserved volatility does not mean identical finite distributions",
+          "recording_locators": [],
+          "source_line": 54
+        },
+        {
+          "heading": "3. Replication must include its cash account [23:01](https://www.youtube.com/watch?v=bCQID6X85ys&t=1381s) / [02:38](https://www.youtube.com/watch?v=9QS2FduuvTk&t=158s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=bCQID6X85ys&t=1381s",
+            "https://www.youtube.com/watch?v=9QS2FduuvTk&t=158s"
+          ],
+          "source_line": 72
+        },
+        {
+          "heading": "4. From the PDE to a discounted expectation [13:33](https://www.youtube.com/watch?v=9QS2FduuvTk&t=813s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=9QS2FduuvTk&t=813s"
+          ],
+          "source_line": 104
+        },
+        {
+          "heading": "5. Truncated expectation, conditional mean, and the call formula [00:59](https://www.youtube.com/watch?v=P-tzhvI64as&t=59s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=P-tzhvI64as&t=59s"
+          ],
+          "source_line": 124
+        },
+        {
+          "heading": "6. The dividend and exercise boundary [00:24](https://www.youtube.com/watch?v=bCQID6X85ys&t=24s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=bCQID6X85ys&t=24s"
+          ],
+          "source_line": 174
+        },
+        {
+          "heading": "7. Laboratory, source checks, and limits",
+          "recording_locators": [],
+          "source_line": 184
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 192
+        }
+      ],
+      "external_reference_urls": [
+        "https://galton.uchicago.edu/~lalley/Courses/390/Lecture10.pdf",
+        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2319,
+        "major_headings": 8,
+        "display_equation_blocks": 18
+      }
+    },
+    {
+      "id": "ch20",
+      "title": "Solving the pricing PDE and measuring local exposure",
+      "manuscript": "chapters/ch20.md",
+      "manuscript_sha256": "f063485675b99fefb5314fd474d0ea9ab2f070a8787e5fdc2d02fc807433b4ff",
+      "laboratory": "labs/ch20.py",
+      "recordings": [
+        {
+          "position": 49,
+          "video_id": "anNG26YHMPQ"
+        },
+        {
+          "position": 50,
+          "video_id": "zPjULQcQ0UY"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-reading-ch20.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Logarithmic coordinates turn the terminal problem forward [01:44](https://www.youtube.com/watch?v=anNG26YHMPQ&t=104s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=anNG26YHMPQ&t=104s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. The kernel must carry its initial and boundary conditions [08:15](https://www.youtube.com/watch?v=anNG26YHMPQ&t=495s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=anNG26YHMPQ&t=495s"
+          ],
+          "source_line": 42
+        },
+        {
+          "heading": "3. Complete the integral rather than guessing the answer [20:18](https://www.youtube.com/watch?v=anNG26YHMPQ&t=1218s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=anNG26YHMPQ&t=1218s"
+          ],
+          "source_line": 64
+        },
+        {
+          "heading": "4. A sensitivity is a partial derivative with units [27:00](https://www.youtube.com/watch?v=anNG26YHMPQ&t=1620s) / [01:47](https://www.youtube.com/watch?v=zPjULQcQ0UY&t=107s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=anNG26YHMPQ&t=1620s",
+            "https://www.youtube.com/watch?v=zPjULQcQ0UY&t=107s"
+          ],
+          "source_line": 95
+        },
+        {
+          "heading": "5. Delta, maturity, and the state of the option [05:49](https://www.youtube.com/watch?v=zPjULQcQ0UY&t=349s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=zPjULQcQ0UY&t=349s"
+          ],
+          "source_line": 130
+        },
+        {
+          "heading": "6. Taylor approximation and the neutrality of a strategy [21:29](https://www.youtube.com/watch?v=zPjULQcQ0UY&t=1289s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=zPjULQcQ0UY&t=1289s"
+          ],
+          "source_line": 140
+        },
+        {
+          "heading": "7. Laboratory and source check",
+          "recording_locators": [],
+          "source_line": 160
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 164
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2419,
+        "major_headings": 8,
+        "display_equation_blocks": 13
+      }
+    },
+    {
+      "id": "ch21",
+      "title": "Greek hedges, financing, and the cost of convexity",
+      "manuscript": "chapters/ch21.md",
+      "manuscript_sha256": "b7b69702e713a8269887cde6244a4c281be68807d11aedf7d356d3b5b95e0ae1",
+      "laboratory": "labs/ch21.py",
+      "recordings": [
+        {
+          "position": 51,
+          "video_id": "15s8WcE5VRU"
+        },
+        {
+          "position": 52,
+          "video_id": "0_NyYdmXBS0"
+        },
+        {
+          "position": 53,
+          "video_id": "QsrKq3bRN5A"
+        },
+        {
+          "position": 54,
+          "video_id": "EJbnlOu035A"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-reading-ch21.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Portfolio Greeks are signed sums [08:21](https://www.youtube.com/watch?v=15s8WcE5VRU&t=501s) / [02:08](https://www.youtube.com/watch?v=QsrKq3bRN5A&t=128s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=15s8WcE5VRU&t=501s",
+            "https://www.youtube.com/watch?v=QsrKq3bRN5A&t=128s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Gamma–vega neutrality is a rank question [24:21](https://www.youtube.com/watch?v=QsrKq3bRN5A&t=1461s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=QsrKq3bRN5A&t=1461s"
+          ],
+          "source_line": 15
+        },
+        {
+          "heading": "3. Gamma and theta are linked by the PDE [19:23](https://www.youtube.com/watch?v=0_NyYdmXBS0&t=1163s) / [10:37](https://www.youtube.com/watch?v=QsrKq3bRN5A&t=637s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=0_NyYdmXBS0&t=1163s",
+            "https://www.youtube.com/watch?v=QsrKq3bRN5A&t=637s"
+          ],
+          "source_line": 42
+        },
+        {
+          "heading": "4. A profitable stock round trip is only one ledger component [12:24](https://www.youtube.com/watch?v=0_NyYdmXBS0&t=744s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=0_NyYdmXBS0&t=744s"
+          ],
+          "source_line": 68
+        },
+        {
+          "heading": "5. Scenario hedges are different from independent partial hedges [29:33](https://www.youtube.com/watch?v=QsrKq3bRN5A&t=1773s) / [00:24](https://www.youtube.com/watch?v=EJbnlOu035A&t=24s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=QsrKq3bRN5A&t=1773s",
+            "https://www.youtube.com/watch?v=EJbnlOu035A&t=24s"
+          ],
+          "source_line": 91
+        },
+        {
+          "heading": "6. A forward quote is not an existing contract [16:53](https://www.youtube.com/watch?v=EJbnlOu035A&t=1013s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=EJbnlOu035A&t=1013s"
+          ],
+          "source_line": 103
+        },
+        {
+          "heading": "7. From a hedge book to a swap schedule [24:03](https://www.youtube.com/watch?v=EJbnlOu035A&t=1443s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=EJbnlOu035A&t=1443s"
+          ],
+          "source_line": 124
+        },
+        {
+          "heading": "Laboratory",
+          "recording_locators": [],
+          "source_line": 132
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 136
+        }
+      ],
+      "external_reference_urls": [
+        "https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/0d1260b891a96241316d883d4f5bfaec_MIT15_450F10_lec02.pdf",
+        "https://www.fca.org.uk/news/press-releases/end-libor"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2708,
+        "major_headings": 9,
+        "display_equation_blocks": 9
+      }
+    },
+    {
+      "id": "ch22",
+      "title": "FRAs and interest-rate swaps as dated cash flows",
+      "manuscript": "chapters/ch22.md",
+      "manuscript_sha256": "2a1af7b54570645c874575d918ddb3890d93090c7eb716cd3c15c663f6d786cd",
+      "laboratory": "labs/ch22.py",
+      "recordings": [
+        {
+          "position": 55,
+          "video_id": "YMt9e--2Xik"
+        },
+        {
+          "position": 56,
+          "video_id": "1H23SQ9d-lQ"
+        },
+        {
+          "position": 57,
+          "video_id": "uZF7j-Qs9ZA"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-reading-ch22.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Define the direction before the formula [08:34](https://www.youtube.com/watch?v=YMt9e--2Xik&t=514s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=YMt9e--2Xik&t=514s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Replicate the FRA with zero-coupon bonds [16:38](https://www.youtube.com/watch?v=YMt9e--2Xik&t=998s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=YMt9e--2Xik&t=998s"
+          ],
+          "source_line": 21
+        },
+        {
+          "heading": "3. A swap is a coupon strip with one fixed rate [21:30](https://www.youtube.com/watch?v=YMt9e--2Xik&t=1290s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=YMt9e--2Xik&t=1290s"
+          ],
+          "source_line": 48
+        },
+        {
+          "heading": "4. Bootstrapping from a par swap [21:51](https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=1311s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=1311s"
+          ],
+          "source_line": 74
+        },
+        {
+          "heading": "5. A floating bond is par at a matching reset, not everywhere [27:14](https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=1634s); [02:55](https://www.youtube.com/watch?v=uZF7j-Qs9ZA&t=175s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=1634s",
+            "https://www.youtube.com/watch?v=uZF7j-Qs9ZA&t=175s"
+          ],
+          "source_line": 88
+        },
+        {
+          "heading": "6. Two independent valuations of the source swap [16:54](https://www.youtube.com/watch?v=uZF7j-Qs9ZA&t=1014s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=uZF7j-Qs9ZA&t=1014s"
+          ],
+          "source_line": 102
+        },
+        {
+          "heading": "7. Projection, discounting, and overnight observation",
+          "recording_locators": [],
+          "source_line": 110
+        },
+        {
+          "heading": "8. Comparative advantage has contractual costs [32:10](https://www.youtube.com/watch?v=YMt9e--2Xik&t=1930s) / [00:24](https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=24s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=YMt9e--2Xik&t=1930s",
+            "https://www.youtube.com/watch?v=1H23SQ9d-lQ&t=24s"
+          ],
+          "source_line": 124
+        },
+        {
+          "heading": "Laboratory",
+          "recording_locators": [],
+          "source_line": 130
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 134
+        }
+      ],
+      "external_reference_urls": [
+        "https://www.bianchetti.org/Finance/2009-11-QCE-DoubleCurvePricingSlides-v1.1.pdf",
+        "https://www.newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2645,
+        "major_headings": 10,
+        "display_equation_blocks": 9
+      }
+    },
+    {
+      "id": "ch23",
+      "title": "Currency swaps, loss quantiles, and tail risk",
+      "manuscript": "chapters/ch23.md",
+      "manuscript_sha256": "b5bec4ad7cc8099b950b45c1fab7ac967cf6994441abdb0dd6550f6d4d2b833d",
+      "laboratory": "labs/ch23.py",
+      "recordings": [
+        {
+          "position": 58,
+          "video_id": "t00O7h4AhG8"
+        },
+        {
+          "position": 59,
+          "video_id": "AG4GLF9SBM0"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-reading-ch23.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. A currency swap needs a quotation direction [06:36](https://www.youtube.com/watch?v=t00O7h4AhG8&t=396s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=t00O7h4AhG8&t=396s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Reproduce the yen–dollar swap [14:04](https://www.youtube.com/watch?v=t00O7h4AhG8&t=844s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=t00O7h4AhG8&t=844s"
+          ],
+          "source_line": 25
+        },
+        {
+          "heading": "3. Cross-currency funding spreads do not cancel exchange risk [01:12](https://www.youtube.com/watch?v=t00O7h4AhG8&t=72s); [08:22](https://www.youtube.com/watch?v=t00O7h4AhG8&t=502s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=t00O7h4AhG8&t=72s",
+            "https://www.youtube.com/watch?v=t00O7h4AhG8&t=502s"
+          ],
+          "source_line": 40
+        },
+        {
+          "heading": "4. Define the loss before the percentile [23:23](https://www.youtube.com/watch?v=t00O7h4AhG8&t=1403s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=t00O7h4AhG8&t=1403s"
+          ],
+          "source_line": 48
+        },
+        {
+          "heading": "5. Historical scenarios preserve joint observations [04:33](https://www.youtube.com/watch?v=AG4GLF9SBM0&t=273s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=AG4GLF9SBM0&t=273s"
+          ],
+          "source_line": 62
+        },
+        {
+          "heading": "6. Gaussian VaR and its time units [20:19](https://www.youtube.com/watch?v=AG4GLF9SBM0&t=1219s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=AG4GLF9SBM0&t=1219s"
+          ],
+          "source_line": 74
+        },
+        {
+          "heading": "7. Tail severity and probability atoms",
+          "recording_locators": [],
+          "source_line": 96
+        },
+        {
+          "heading": "Laboratory and risk boundary",
+          "recording_locators": [],
+          "source_line": 127
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 131
+        }
+      ],
+      "external_reference_urls": [
+        "https://sites.math.washington.edu/~rtr/papers/rtr179-CVaR1.pdf",
+        "https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf"
+      ],
+      "diagnostics": {
+        "whitespace_words": 2759,
+        "major_headings": 9,
+        "display_equation_blocks": 8
+      }
+    },
+    {
+      "id": "ch24",
+      "title": "Portfolio risk: covariance, nonlinear losses, and evidence beyond VaR",
+      "manuscript": "chapters/ch24.md",
+      "manuscript_sha256": "55c3429a9198f319e24af696057967743fef20e3c0d7af56dece6c2bf3a12d65",
+      "laboratory": "labs/ch24.py",
+      "recordings": [
+        {
+          "position": 60,
+          "video_id": "xuUX0FVxwv0"
+        }
+      ],
+      "reading_ledgers": [
+        "validation/source-read-ch24.json"
+      ],
+      "sections": [
+        {
+          "heading": "1. Start with a signed monetary loss [00:26](https://www.youtube.com/watch?v=xuUX0FVxwv0&t=26s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=26s"
+          ],
+          "source_line": 7
+        },
+        {
+          "heading": "2. Duration VaR controls a parallel direction [05:05](https://www.youtube.com/watch?v=xuUX0FVxwv0&t=305s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=305s"
+          ],
+          "source_line": 36
+        },
+        {
+          "heading": "3. Cash-flow mapping preserves chosen statistics, not the original claim [17:26](https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1046s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1046s"
+          ],
+          "source_line": 53
+        },
+        {
+          "heading": "4. Principal components compress factor variance, not every portfolio's risk [22:37](https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1357s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1357s"
+          ],
+          "source_line": 72
+        },
+        {
+          "heading": "5. A currency forward contains two oppositely signed bond exposures [34:38](https://www.youtube.com/watch?v=xuUX0FVxwv0&t=2078s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=2078s"
+          ],
+          "source_line": 91
+        },
+        {
+          "heading": "6. Delta–gamma loss is generally not normally distributed [32:42](https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1962s)",
+          "recording_locators": [
+            "https://www.youtube.com/watch?v=xuUX0FVxwv0&t=1962s"
+          ],
+          "source_line": 103
+        },
+        {
+          "heading": "7. Quantiles and tail averages answer different questions",
+          "recording_locators": [],
+          "source_line": 137
+        },
+        {
+          "heading": "8. Backtesting tests a forecast against matching outcomes",
+          "recording_locators": [],
+          "source_line": 150
+        },
+        {
+          "heading": "9. A risk result needs a reproducible account of its limits",
+          "recording_locators": [],
+          "source_line": 160
+        },
+        {
+          "heading": "Exercises",
+          "recording_locators": [],
+          "source_line": 166
+        },
+        {
+          "heading": "Sources and scope",
+          "recording_locators": [],
+          "source_line": 191
+        }
+      ],
+      "external_reference_urls": [
+        "https://sites.math.washington.edu/~rtr/papers/rtr187-CVaR2.pdf#page=6",
+        "https://www.bis.org/publications/199601-standards-supervisory-framework-use-backtesting-conjunction-internal-models-approach-market-risk-capital.pdf#page=2",
+        "https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc551.htm"
+      ],
+      "diagnostics": {
+        "whitespace_words": 3519,
+        "major_headings": 11,
+        "display_equation_blocks": 14
+      }
+    }
+  ]
+}
